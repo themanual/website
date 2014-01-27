@@ -32,8 +32,13 @@ class Piece
 		86400 # 1 day for now
 	end
 
-	def path
+	def random
+		return @random if @random
 
+		random_issue = (ISSUES[:published_issues] - [self.issue]).sample
+		random_key = ISSUES[:issue][random_issue].keys.sample
+
+		return @random = Piece.new(random_issue, random_key, 'article')
 	end
 
 	def next

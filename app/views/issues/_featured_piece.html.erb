@@ -1,0 +1,14 @@
+<div class="featured_piece">
+  <figure class="featured_piece-illo">
+    <%= illustration_tag(featured.issue, featured.key, 'small') %>
+  </figure>
+  <div class="featured_piece-text">
+    <h3 class="featured_piece-title">
+      <a href="<%= piece_url(featured.issue, featured.key, 'article') %>"><%= featured.metadata[:article][:title] %></a>
+    </h3>
+    <blockquote class="featured_piece-synopsis">
+      <p><%= featured.metadata[:article][:synopsis] %></p>
+    </blockquote>
+    <p class="featured_piece-author">By <%= featured.metadata[:author] %></p>
+  </div>
+</div>

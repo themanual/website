@@ -1,7 +1,7 @@
 <% content_for(:page_title){ "#{@piece.metadata[@piece.type][:title]}, by #{@piece.metadata[:author]} · Issue #{@piece.issue}" } %>
 
-<% cache @piece.cache_key, expires_in: @piece.cache_ttl do %>
   <main class="issue-<%= @piece.issue %>" role="main">
+  <% cache @piece.cache_key, expires_in: @piece.cache_ttl do %>
 
     <!-- Article -->
     <article class="issue-piece is-<%= @piece.type %>"><div>
@@ -44,7 +44,36 @@
 
       </ul>
     </div></aside>
+  <% end %>
 
+  <% cache "#{@piece.cache_key}:random", expires_in: 300 do %>
+    <aside class="boxes"><div>
 
-  </main>
-<% end %>
+    <!-- <div class="box-group g-half"> -->
+
+      <section class="box g-half">
+        <h2 class="box-title">
+          Read something from <a href="/issues/<%= @piece.random.issue %>" class="issue-<%= @piece.random.issue %>">Issue <%= @piece.random.issue %></a>
+        </h2>
+        <%= render 'featured_piece', featured: @piece.random %>
+      </section>
+
+      <section class="box g-half">
+        <h2 class="box-title">
+          <a class="issue-current" href="<%= issue_url(@piece.issue) %>">Buy this issue</a> and support The Manual
+        </h2>
+
+        <div class="issuebuy">
+          <figure class="issuebuy-figure">
+            <%= image_tag "interface/devices-#{@piece.issue}.png" %>
+          </figure>
+          <%= render 'issue_buy_options', sub: false %>
+        </div>
+      </section>
+
+    <!-- </div> -->
+
+    </div></aside>
+  <% end %>
+
+</main>
