@@ -24,8 +24,6 @@ gem 'kramdown'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 
-gem 'pg'
-
 gem 'dalli'
 gem 'kgio'
 
@@ -47,6 +45,8 @@ group :production, :stage do
   gem 'newrelic_rpm'
 	gem 'airbrake'
 	gem 'lograge'
+
+  gem 'pg'
 
   gem 'puma'
 end
