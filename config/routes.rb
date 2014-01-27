@@ -4,6 +4,6 @@ Themanual::Application.routes.draw do
 
   get '/issues', to: 'issues#index', as: :issues
   get '/issues/:issue', to: 'issues#show', as: :issue
-  get '/issues/:issue/:key/:type', to: 'issues#article', as: :article
+  get '/issues/:issue/:key/:type', to: 'issues#piece', as: :piece
 
 end

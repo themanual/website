@@ -4,7 +4,7 @@
       <h3 class="issuetoc-author"><%= pair[:author] %></h3>
       <% ['article', 'lesson'].each do |type| %>
       <p class="issuetoc-piece is-<%= type %>">
-        <a <%= (@fm.present? && @fm[:key] == key && $fm[:type] == type) ? 'class="current"' : '' %> href="<%= article_url(issue, key, type) %>">
+        <a <%= (@fm.present? && @fm[:key] == key && $fm[:type] == type) ? 'class="current"' : '' %> href="<%= piece_url(issue, key, type) %>">
           <%= pair[type][:title] %>
         </a>
       </p>

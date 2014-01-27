@@ -10,7 +10,7 @@ class IssuesController < ApplicationController
 		redirect_to issues_url if !ISSUES[:published_issues].include?(@issue)
 	end
 
-	def article
+	def piece
 		issue = params[:issue].to_i
 		key 	= params[:key]
 		type 	= params[:type]

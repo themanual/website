@@ -14,20 +14,16 @@ issue:
 
 
 
-#   'frank-chimero' => [
-#     'author'        => 'Frank Chimero',
-#     'bio'         => '<a href="#">Frank Chimero</a> is a designer, writer, illustrator, and educator. He is interested in aesthetics, chance, culture, language, process, style, automation, design, seeing, perception, wit, typography, wordplay, identity, form, paradigms, and the tools, symbols, style, future. He is happiest when he forgets himself.',
-#     'article'     => [
-#       'title'       => 'The Space Between You and Me',
-#       'synopsis'    => 'The specks on the ground stop. They rotate. The bits bump into one another.',
-#       'illustrator' => 'Olimpia Zagnoli'
-#     ],
-#     'lesson'      => [
-#       'title'       => 'Lesson',
-#       'synopsis'    => '“You know, Frank, after looking at this…” My eyes widened. Okay, here we go.'
-#     ]
-#   ],
-
+    frank-chimero:
+      author: Frank Chimero,
+      bio: '<a href="#">Frank Chimero</a> is a designer, writer, illustrator, and educator. He is interested in aesthetics, chance, culture, language, process, style, automation, design, seeing, perception, wit, typography, wordplay, identity, form, paradigms, and the tools, symbols, style, future. He is happiest when he forgets himself.'
+      article:
+        title: The Space Between You and Me
+        synopsis: The specks on the ground stop. They rotate. The bits bump into one another.
+        illustrator: Olimpia Zagnoli
+      lesson:
+        title: Lesson
+        synopsis: '“You know, Frank, after looking at this…” My eyes widened. Okay, here we go.'
 
 #   'jon-tan' => [
 #     'author'        => 'Jon Tan',

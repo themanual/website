@@ -29,13 +29,13 @@
 
             <ul class="issue_entry-pieces">
               <li class="issue_entry-piece is-article">
-                <h3 class="issue_entry-piece-title"><a href="<%= article_path @issue, key, :article %>"><%= pair[:article][:title] %></a></h3>
+                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue, key, :article %>"><%= pair[:article][:title] %></a></h3>
                 <blockquote class="issue_entry-piece-synopsis">
                   <p><%= pair[:article][:synopsis] %></p>
                 </blockquote>
               </li>
               <li class="issue_entry-piece is-lesson">
-                <h3 class="issue_entry-piece-title"><a href="<%= article_path @issue, key, :lesson %>">Lesson</a></h3>
+                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue, key, :lesson %>">Lesson</a></h3>
                 <blockquote class="issue_entry-piece-synopsis">
                   <p><%= pair[:lesson][:synopsis] %></p>
                 </blockquote>
