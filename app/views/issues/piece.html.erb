@@ -1,3 +1,5 @@
+<% content_for(:page_title){ "#{@piece.metadata[@piece.type][:title]}, by #{@piece.metadata[:author]} · Issue #{@piece.issue}" } %>
+
 <% cache @piece.cache_key, expires_in: @piece.cache_ttl do %>
   <main class="issue-<%= @piece.issue %>" role="main">
 
