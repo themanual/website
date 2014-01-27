@@ -1,0 +1,8 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "garnish": "latest",
+    "fitvids": "latest",
+    "jquery-ujs": "latest"
+  }
+}
