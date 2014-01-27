@@ -1,0 +1,59 @@
+// Layout
+.featured_piece-illo {
+  float: left;
+  width: 20%;
+  margin-right: 5%;
+}
+
+.featured_piece-text {
+  overflow: hidden;
+}
+
+// Style
+
+.featured_piece-title {
+  font-weight: weight(bold);
+  font-size: em(24, $type-main-value);
+  font-family: $type-sans;
+  line-height: 1.2;
+  
+  &:first-child { padding-top: 0.75em; }
+  margin-bottom: 0.25em;
+
+  a {
+    color: gray(20%);
+    &:hover {
+      border-bottom: solid 1px black;
+      color: black;
+    }
+  }
+}
+
+.featured_piece-synopsis {
+  max-width: 20em;
+  color: gray(45%);
+  font-style: italic;
+  font-size: em(20, $type-main-value);
+  line-height: 1.35;
+}
+
+.featured_piece-byline {
+  // margin-top: 1.4em;
+  color: gray(60%);
+  font-size: em(16, $type-main-value);
+  font-family: $type-sans;
+
+  a { @include sans-serif(medium); }
+  strong { color: gray(30%); }
+}
+
+.featured_piece-author {
+  @include smallcaps-heading-thin;
+
+  padding-top: 1em;
+  
+  &:first-child {
+    padding-top:    0.6em;
+    margin-bottom:  1.2em;
+  }
+}

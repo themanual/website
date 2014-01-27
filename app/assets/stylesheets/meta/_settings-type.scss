@@ -1,0 +1,44 @@
+$type-sans:               "franklin-gothic-urw", sans-serif;
+$type-serif:              "freight-text-pro", serif;
+
+$type-indent:             1.25em;
+$type-breaks:             1.5em;
+$type-line-height:        1.5;
+$type-main-value:         24;
+$type-main-size:          ($type-main-value * 1px);
+
+@function weight($keyword) {
+  @if      $keyword == thin                           { @return 100; }
+  @else if $keyword == extralight                     { @return 200; }
+  @else if $keyword == light                          { @return 300; }
+  @else if $keyword == book or $keyword == regular    { @return 400; }
+  @else if $keyword == medium                         { @return 500; }
+  @else if $keyword == semibold                       { @return 600; }
+  @else if $keyword == bold                           { @return 700; }
+  @else if $keyword == extrabold                      { @return 800; }
+  @else if $keyword == black                          { @return 900; }
+  
+  @return 400;
+}
+
+@mixin sans-serif($options: book) {
+  
+  // defaults 
+  $font-weight: book;
+  $font-style:  normal;
+  
+  // Break the arguments
+  @if length($options) == 1 {
+    $option: nth($options, 1);
+    @if $option == italic { $font-style:  $option; } 
+    @else                 { $font-weight: $option; }
+  }
+  @else {
+    $font-weight: nth($options, 1);
+    $font-style:  nth($options, 2);
+  }
+
+  font-family:  $type-sans;
+  font-weight:  weight($font-weight);
+  font-style:   $font-style;
+}

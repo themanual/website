@@ -1,0 +1,52 @@
+.issue_index-entry > div {
+  position: relative;
+}
+
+.issue_index-entry-header     { @include grid-half; }
+.issue_index-entry .issuetoc  { @include grid-half; }
+
+.issue_index-entry .issuebuy {
+  position: absolute;
+  width: 25em;
+  bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+.issue_index-entry {
+  @include padding-v(3em);
+  & + & { border-top: solid 1px $color-divider; }
+}
+
+.issue_index-entry-header-name {
+  font-size: 2.6em;
+  font-weight: weight(black);
+
+  strong { @include issue-number; }
+}
+
+.issue_index-entry-header > p {
+
+  @include sans-serif(regular);
+
+  color: gray(70%);
+
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  word-spacing: 0.1em;
+  
+        margin-top: 2.2em;
+  + p { margin-top: 0.5em; }
+
+  a {
+    @include link-color-by-issue;
+  }
+}

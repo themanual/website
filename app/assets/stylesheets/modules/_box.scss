@@ -1,0 +1,33 @@
+// Layout
+.boxes > div {
+  @include grid-wrapper;
+  @include container-spacing(padding-top,     1.5);
+  @include container-spacing(padding-bottom,  1.5);
+}
+
+.boxes { border-top:    solid 1px $color-divider; }
+.box { @include clearfix; }
+.box-group > .box + .box { @include container-spacing(padding-top, 4/3); }
+
+.box-title {
+  @include smallcaps-heading;
+  font-weight: weight(medium);
+  line-height: 1em;
+  margin-bottom: 2.5em;
+}
+
+.box-subtitle {
+  @include smallcaps-heading-thin;
+  line-height: 1em;
+  margin-bottom:  0.75em;
+  * + & { margin-top: 2em; }
+}
+
+.box-title--lined {
+  @extend .box-title;
+  line-height: 1;
+  margin-bottom:  1.5em;
+  padding-top:    1.2em;
+  padding-bottom: 1.2em;
+  border-bottom: divider();
+}

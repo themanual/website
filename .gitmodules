@@ -1,0 +1,3 @@
+[submodule "app/assets/stylesheets/garnish"]
+	path = app/assets/stylesheets/garnish
+	url = https://github.com/paulozoom/garnish.git

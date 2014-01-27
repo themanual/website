@@ -1,0 +1,27 @@
+.keyword-list {
+  font-size: 16px;
+  line-height: 1.2;
+  @include sans-serif(regular);
+}
+
+.keyword-list > li {
+  @include clearfix;
+  + li { margin-top: 0.7em; }
+}
+
+.keyword-item-label {
+  float: left;
+  .is-current & { font-weight: weight(bold); }
+}
+
+.keyword-item-value {
+  float: right;
+  color: gray(40%);
+  > strong { font-weight: weight(medium); }
+}
+
+.keyword-item-value-unit {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: gray(70%);
+}

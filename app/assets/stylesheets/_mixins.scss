@@ -1,0 +1,67 @@
+@function divider() {
+  @return solid 1px $color-divider;
+}
+
+@function sub-divider() {
+  @return dashed 1px darken($color-divider, 5%);
+}
+
+@mixin colored-link {
+  &:hover,
+  &:focus,
+  &:active { color: black; }
+}
+
+@mixin underlined-link {
+  &:hover, 
+  &:focus,
+  &:active { border-bottom: solid 1px; }
+}
+
+
+
+@mixin smallcaps-heading {
+  @include sans-serif(bold);
+  font-size: 15px;
+  color: gray(20%);
+  
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  word-spacing:   0.1em;
+}
+
+@mixin smallcaps-heading-thin {
+  font-family: $type-sans;
+  font-size: 15px;
+  color: gray(60%);
+  
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  word-spacing:   0.15em;
+}
+
+@mixin issue-number {
+  @include sans-serif(bold);
+  @include color-by-issue(background);
+  
+  font-size: 0.85em;
+  padding-right:  0.32em;
+  padding-left:   0.32em;
+  padding-bottom: 0.06em;
+
+  color: white;
+  border-radius: 0.15em;
+}
+
+@mixin blacklink {
+  color: black;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin blacklink-child {
+  a {
+    @include blacklink;
+  }
+}

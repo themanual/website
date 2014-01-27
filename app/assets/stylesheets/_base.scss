@@ -1,0 +1,55 @@
+/*
+  
+  # TODO
+
+  - ::selection
+  - tap-highlight colors
+
+*/
+
+%responsive-type {
+  font-size: $type-main-size;
+}
+
+body {
+  font-family: $type-serif;
+  background-color: white;
+}
+
+body { 
+  background: gray(97%); 
+}
+
+body > main {
+  @extend %responsive-type;
+  background: white;
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  
+  color: gray(30%);
+  
+  @include colored-link;
+
+  @each $i in $issues {
+    &.issue-#{$i},
+    .issue-#{$i} &.issue-current {
+      color: issue-color($i);
+      @include colored-link;
+    }
+  }
+  
+}
+
+
+
+.debug, .debug * {
+  background: rgba(255,0,0,0.05);
+}

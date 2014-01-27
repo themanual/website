@@ -1,0 +1,17 @@
+
+  <main class="issue-<%= @fm[:issue] %>" role="main">
+
+    <!-- Article -->
+    <article class="issue-piece is-<%= @fm[:type] %>"><div>
+
+      <%= render 'piece_header' %>
+
+      <div class="issue-piece-text">
+        <%= render file: "pieces/issue-#{@fm[:issue]}/#{@fm[:key]}-#{@fm[:type]}" %>
+      </div>
+
+      <%= render 'piece_footer' %>
+    </div></article>
+
+
+  </main>

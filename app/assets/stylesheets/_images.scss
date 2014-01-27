@@ -1,0 +1,27 @@
+@function img-loupe($color: #000000) {
+  @return "<svg width='18px' height='18px' viewBox='0 0 18 18' version='1.1' xmlns='http://www.w3.org/2000/svg'><g  stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><g transform='translate(0.000000, -1.000000)'><path d='M11.5355339,12.4644661 C14.2969578,12.4644661 16.5355339,10.22589 16.5355339,7.46446609 C16.5355339,4.70304221 14.2969578,2.46446609 11.5355339,2.46446609 C8.77411002,2.46446609 6.53553391,4.70304221 6.53553391,7.46446609 C6.53553391,10.22589 8.77411002,12.4644661 11.5355339,12.4644661 Z'  stroke='#{$color}' stroke-width='2' transform='translate(11.535534, 7.464466) rotate(-315.000000) translate(-11.535534, -7.464466) '></path><rect  fill='#{$color}' transform='translate(4.499824, 14.570891) rotate(-315.000000) translate(-4.499824, -14.570891) ' x='3.24982359' y='9.5708914' width='2.5' height='10'></rect></g></g></svg>";
+}
+
+@function img-arrow-next($color: #000000) {
+  @return "<?xml version='1.0' encoding='UTF-8' standalone='no'?><svg width='24px' height='45px' viewBox='0 0 24 45' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><path d='M1.5,44.4203102 L23.4203102,22.5 L1.5,0.579689783 L0.0137054472,2.06598434 L20.4203102,22.4725891 L-0.0137054472,42.9066048 L1.5,44.4203102 Z' id='Rectangle-1-copy' fill='#{$color}'></path></g></svg>";
+}
+
+@function img-arrow-prev($color: #000000) {
+  @return "<?xml version='1.0' encoding='UTF-8' standalone='no'?><svg width='24px' height='45px' viewBox='0 0 24 45' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><path d='M22.5,44.4203102 L0.579689783,22.5 L22.5,0.579689783 L23.9862946,2.06598434 L3.57968978,22.4725891 L24.0137054,42.9066048 L22.5,44.4203102 Z' id='Rectangle-1' fill='#{$color}'></path></g></svg>";
+}
+
+@function img-pixel($color: #000000) {
+  @return "<?xml version='1.0' encoding='UTF-8' standalone='no'?><svg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><rect id='Rectangle-1' fill='#{$color}' x='0' y='0' width='1' height='1'></rect></g></svg>";
+}
+
+@function data-uri($mime, $raw_data) {
+  @return url("data:#{$mime};utf8,#{url_encode($raw_data)}");
+}
+
+@function data-uri-svg($raw_data) {
+  @return data-uri('image/svg+xml', $raw_data);
+}
+
+@mixin background-image-inline($image) {
+  background-image: data-uri-svg($image);
+}

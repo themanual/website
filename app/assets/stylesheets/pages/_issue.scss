@@ -1,0 +1,30 @@
+.issue .issuebuy {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.issue-header {
+  margin-top:     3em;
+  margin-bottom:  3em;
+}
+
+.issue-header-name {
+  padding-bottom: 0.15em;
+  font-weight:  weight(extrabold);
+  font-size:    3.5em;
+  line-height: 1;
+}
+
+.issue-header-name-number {
+  @include sans-serif(bold);
+  @include color-by-issue(background);
+  
+  padding-right:  0.29em;
+  padding-bottom: 0.06em;
+  padding-left:   0.32em;
+  border-radius: 0.15em;
+
+  color: white;
+  
+  font-size: 0.85em;
+}

@@ -1,0 +1,57 @@
+
+// General Colors
+$color-text-darker:       hsl(0, 0%, 5%);
+$color-text-body:         hsl(0, 0%, 20%);
+$color-text-heading:      #000000;
+$color-text-blockquote:   hsl(0, 0%, 40%);
+$color-text-caption:      hsl(0, 0%, 50%);
+$color-text-asides:       hsl(0, 0%, 40%);
+$color-text-dull:         hsl(0, 0%, 30%);
+
+$color-divider:           gray(90%);
+
+$color-link-blue-tbl:   #0021C6;
+$color-link-blue-nicer: #0055DD;
+
+
+// Issue-specific Colors
+
+$color-issue-1: #EF3E42;
+$color-issue-2: #52BAE1;
+$color-issue-3: #EC9A3A;
+$color-issue-4: #1CCFB5;
+$color-issue-5: #7B3780;
+$color-issue-6: #E5722F;
+
+$issue-count:   4;
+$latest-issue:  4;
+
+$issues: (1, 2, 3, 4);
+
+@function issue-color($i) {
+  // @if $i == 'latest'  { @return issue-color($latest-issue); }
+  @if $i == 'latest'  { @return issue-color($latest-issue); }
+  @if $i == 1         { @return $color-issue-1; }
+  @if $i == 2         { @return $color-issue-2; }
+  @if $i == 3         { @return $color-issue-3; }
+  @if $i == 4         { @return $color-issue-4; }
+  @if $i == 5         { @return $color-issue-5; }
+  @if $i == 6         { @return $color-issue-6; }
+}
+
+@mixin color-by-issue($props) {
+  @each $i in $issues {
+    .issue-#{$i} & {
+      @each $prop in $props {
+        #{$prop}: issue-color($i);
+        @content;
+      }
+    }
+  }
+}
+
+@mixin link-color-by-issue {
+  @include color-by-issue(color) {
+    @include colored-link;
+  }
+}

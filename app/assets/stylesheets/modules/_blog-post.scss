@@ -1,0 +1,142 @@
+.blog-post {
+  font-size: em(20, $type-main-value);
+  @include container-spacing(padding-bottom, 2/(20/25));
+
+  + .blog-post {
+    border-top: divider();
+    margin-top: 2em;
+    padding-top: 1em;
+  }
+}
+
+.blog-post > * {
+  max-width: 32em;
+}
+
+.blog-post-header {
+  padding-top: 1em;
+  padding-bottom: 3em;
+}
+
+.page-blog-post {
+  .blog-post-header { padding-top: 0; }
+}
+
+.blog-posts {
+  .box-title { margin-bottom: 0; }
+}
+
+.blog-post-topic {
+  font-family: $type-sans;
+  font-size: 15px;
+  
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  word-spacing: 0.15em;
+  
+  margin-bottom: 0.7em;
+  padding-top: 1.5em;
+
+  &, a:link, a:visited  { color: gray(65%); }
+  a                     { @include colored-link; }
+}
+
+.blog-post-title {
+  @include sans-serif(bold);
+  font-size: 2em;
+  line-height: 1.25;
+
+  a:link, a:visited { color: black; }
+  a:hover, a:focus  { border-bottom: solid 1px; }
+}
+
+.blog-post-byline {
+  font-family: $type-sans;
+  font-size: 18px;
+  line-height: 1.2;
+  color: gray(60%);
+
+  margin-top: 0.25em;
+}
+
+
+.blog-post-author,
+.blog-post-date {
+  color: gray(30%);
+  // font-weight: weight(medium);
+}
+
+.blog-post-picture {
+  margin-bottom: 2em;
+  img { max-width: 100%; }
+  &.with-border         { border: divider(); }
+  &.with-border-bottom  { border-bottom: divider(); }
+}
+
+.blog-post-body {
+  line-height: 1.5;
+  color: gray(20%);
+  
+  > * + *,
+  blockquote > * + * {
+    margin-top: 1em;
+  }
+
+  > h2 {
+    font-family: $type-sans;
+    font-weight: weight(bold);
+    color: black;
+    margin-top: 2.5em;
+    + * { margin-top: 0.5em; }
+  }
+
+  blockquote {
+    border-left: solid 1px gray(20%);
+    padding-left: 1.5em;
+    color: gray(40%);
+  }
+
+  sup {
+    @include sans-serif(medium);
+    font-size: 0.65em;
+    vertical-align: super;
+    padding-left: 0.1em;
+  }
+
+  ul, ol {
+    padding-left: 1.5em;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  a {
+    font-weight: weight(semibold);
+  }
+
+  .footnotes {
+    @include sans-serif;
+    margin-top: 3em;
+    color: gray(70%);
+    
+    &:before {
+      content: "";
+      display: block;
+      width: 25%;
+      height: 1px;
+      background-color: $color-divider;
+      margin-bottom: 1em;
+    }
+
+    > ol {
+      font-size: 0.75em;
+      line-height: 1.4;
+      > li + li { margin-top: 0.5em; }
+    }
+  }
+}

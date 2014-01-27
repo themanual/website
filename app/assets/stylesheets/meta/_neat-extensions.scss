@@ -1,0 +1,25 @@
+@mixin pad-inside($n-columns: 1) {
+  padding-left: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+  padding-right: $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+
+  // Reset nesting context
+  $parent-columns: $grid-columns;
+}
+
+@mixin media-between($start, $end) {
+  @media screen and (min-width: ($start + 1)) and (max-width: $end) {
+    @content;
+  }
+}
+
+@mixin media-from($start) {
+  @media screen and (min-width: ($start + 1)) {
+    @content;
+  }
+}
+
+@mixin media-upto($end) {
+  @media screen and (max-width: $end) {
+    @content;
+  }
+}

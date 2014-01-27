@@ -1,0 +1,327 @@
+main.index {
+  
+
+
+
+
+  /*
+   *
+   *  LAYOUT
+   *
+   * 
+   */  
+  .highlight {
+    > div {
+      @include wrapper;
+      padding-bottom: 45%;
+    }
+  }
+
+  .boxes > div {
+    @include wrapper;
+    @include row;
+  }
+
+  .box-2 { @include span-columns(2); }
+  .box-3 { @include span-columns(3); }
+  .box-4 { @include span-columns(4); }
+  .box-5 { @include span-columns(5); }
+  .box-6 { @include span-columns(6); }
+  .box-7 { @include span-columns(7); }
+  .box-8 { @include span-columns(8); }
+  .box-9 { @include span-columns(9); }
+
+  .shift-1 { @include shift(1); }
+  .shift-2 { @include shift(2); }
+  .shift-3 { @include shift(3); }
+
+  .box-8 .box_issue {
+    
+    @include row;
+
+    > * {
+      @include span-columns(4 of 8);
+
+      &:nth-child(1), &:nth-child(2) {
+        margin-top: 0;
+      }
+      
+      &:nth-child(2n)   {
+        @include omega;
+        + * { clear: left; }
+      }
+
+    }
+  }
+
+
+
+
+
+  /*
+   *
+   * STYLING
+   *
+   * 
+   */
+  .boxes {
+    border-top: solid 1px $color-divider;
+    padding-bottom: 3em;
+  }
+
+  .box-divider {
+    border-top: solid 1px $color-divider;
+  }
+
+  .box_heading {
+    @include smallcaps-heading;
+    @include padding-v(3em);
+  }
+  .box_heading-centered {
+    text-align: center;
+  }
+  .box_heading-ruler {
+    border-top: solid 3px gray(30%);
+    margin-top: -1px;
+
+    padding-top: 2.5em;
+    padding-bottom: 3em;
+  }
+
+  .box_heading-ruler-colored {
+    @extend .box_heading-ruler;
+    border-top-color: issue-color('latest');
+  }
+
+
+
+  // 1/2 Periodical Pieces
+
+  .box_piece {
+
+    & + * {
+      margin-top: 2em;
+    }
+    
+    &.box-6 {
+      & + * {
+        margin-top: 0;
+      }
+    }
+
+    h3 {
+      // @include sans-serif(bold);
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-top: 0.5em;
+
+      @include blacklink-child;
+    }
+
+    .byline {
+      @include sans-serif(book);
+      font-size: 14px;
+      text-transform: uppercase;
+      color: gray(65%);
+    }
+
+    blockquote {
+      font-size: 18px;
+      line-height: 1.35;
+      // font-style: italic;
+      font-weight: 400;
+      color: gray(30%);
+
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    h3 + .byline {
+      margin-top: 5px;
+    }
+  }
+  
+  .box_piece-floated {
+    figure {
+      float: right;
+      width: 63.5%;
+      margin-left: 1%;
+    }
+    @include clearfix;
+  }
+
+  .box_piece-centered {
+    text-align: center;
+  }
+
+
+
+  // List of Periodical Pieces
+
+  .box_piecelist > * {
+    + * {
+      margin-top: 2em;
+    }
+
+    h3 {
+      // @include sans-serif(bold);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+
+      @include blacklink-child;
+    }
+
+    blockquote {
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.25;
+      color: gray(40%);
+      @include margin-v(0.4em);
+    }
+
+    > p {
+      @include sans-serif(book);
+      font-size: 14px;
+      color: gray(65%);
+      margin-top: 0.7em;
+      text-transform: uppercase;
+    }
+  }
+
+
+
+
+
+  .box_posts {
+    font-size: 17px;
+
+    > li + li {
+      margin-top: 2.5em;
+      // border-top: solid 1px $color-divider;
+    }
+
+    h3 {
+      @include sans-serif(bold);
+      line-height: 1.3;
+      a {
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    blockquote {
+      color: gray(30%);
+      line-height: 1.25;
+      margin-top: 0.2em;
+      margin-bottom: 10px;
+    }
+
+    .postdate {
+      @include sans-serif(book);
+      color: gray(70%);
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  }
+  
+  .box_products > li, 
+  .box_product {
+    @include sans-serif(book);
+    font-size: 14px;
+
+    &, * { color: gray(55%); }
+
+    & + * {
+      margin-top: 3em;
+    }
+
+    h3 {
+      @include sans-serif(bold);
+      font-size: 16px;
+      color: gray(25%);
+      line-height: 1.25;
+      margin-top: 0.75em;
+      margin-bottom: 0.25em;
+    }
+
+    p {
+      line-height: 1.5;
+      font-size: 14px;
+      strong {
+        color: gray(35%);
+      }
+    }
+
+    img {
+      opacity: 0.8;
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      &:hover {
+        color: black;
+        img {
+          opacity: 1.0;
+        }
+      }
+    }
+  }
+
+  .box_issue > * {
+
+    margin-top: 6%;
+
+    figure {
+      width: 23%;
+      margin-right: 4%;
+      float: left;
+    }
+
+    .box_issue_author {
+      @include sans-serif(book);
+      text-transform: uppercase;
+      color: gray(55%);
+      
+      font-size: 14px;
+      line-height: 1.25;
+      margin-top: 5%;
+      margin-bottom: 0.25em;
+    }
+
+    .box_issue_article,
+    .box_issue_lesson {
+      font-size: 20px;
+      display: inline-block;
+      @include sans-serif(bold);
+
+      a {
+        color: black;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .box_issue_lesson {
+      &:before {
+        content: " + ";
+        color: gray(50%);
+        @include sans-serif(50%);
+      }
+    }
+
+    blockquote {
+      font-size: 17px;
+      font-style: italic;
+      color: gray(40%);
+      line-height: 1.25;
+    }
+
+  }
+
+}

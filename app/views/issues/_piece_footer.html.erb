@@ -1,0 +1,13 @@
+<footer class="issue-piece-footer">
+  <figure><%= portrait_tag(@fm[:issue], @fm[:key]) %></figure>
+  <p><%= @fm[:metadata][:bio] %></p>
+  <!--
+  <p class="companion">
+    <? if($fm['type'] == 'article'): ?>
+    <a href="lesson">Read <strong><?= prosperize($fm['metadata']['author']) ?> lesson</strong> in this issue</a>
+    <? elseif($fm['type'] == 'lesson'): ?>
+    <a href="article">Read <strong><?= prosperize($fm['metadata']['author']) ?> article</strong> in this issue</a>
+    <? endif; ?>
+  </p>
+  -->
+</footer>

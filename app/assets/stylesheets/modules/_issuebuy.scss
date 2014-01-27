@@ -1,0 +1,151 @@
+$issuebuy-pad: 0.75em;
+
+.issuebuy {
+  @include clearfix;
+  @include sans-serif(regular);
+  font-size: 15px;
+}
+
+.issuebuy-figure {
+  float: left;
+  width: 196px;
+  margin-top: 1em;
+}
+
+.issuebuy-figure + .issuebuy-options {
+  margin-left: 196px + 25px;
+}
+
+.issuebuy-caption {
+  padding: $issuebuy-pad;
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+  word-spacing: 0.1em;
+  border-bottom: solid 1px $color-divider;
+  
+  color: gray(60%);
+  font-weight: weight(regular);
+
+  strong {
+    color: gray(20%);
+    font-weight: weight(medium);
+  }
+}
+
+.issuebuy-option {
+  overflow: hidden;
+  @include padding-v($issuebuy-pad);
+
+  &:first-child { padding-top: 0; }
+  &:last-child  { padding-bottom: 0; }
+  + .issuebuy-option { border-top: solid 1px $color-divider; }
+}
+
+.issuebuy-option-text {
+  float: left;
+  line-height: 1.2;
+}
+
+.issuebuy-option-name {
+  font-size: 16px;
+  color: gray(20%);
+  font-weight: weight(medium);
+}
+
+.issuebuy-option-description {
+  font-size: 15px;
+  color: gray(65%);
+}
+
+.issuebuy-option-button {
+  float: right;
+
+  a {
+    display: inline-block;
+    font-weight: weight(medium);
+
+    @include color-by-issue(background);
+
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+
+    width: 3.4em;
+
+    height:       2.1em;
+    line-height:  2.1em;
+
+    text-align: center;
+    border-radius: 4px;
+    
+    &:first-letter {
+      font-weight: weight(regular);
+      margin-right: 0.15em;
+      color: rgba(white, 0.75);
+    }
+
+    &:hover, &:focus {
+      background: black;
+    }
+  }
+
+}
+
+
+
+
+
+.issuebuy.is-boxed {
+  border: solid 1px $color-divider;
+  border-radius: 5px;
+
+  .issuebuy-option {
+    padding: $issuebuy-pad;
+  }
+}
+
+.issuebuy.has-whitebuttons .issuebuy-option-button {
+  a {
+    background-color: white;
+    color: gray(20%);
+    border: solid 1px darken($color-divider, 10%);
+  }
+
+  a:first-letter {
+    @include color-by-issue(color);
+  }
+
+  a:hover {
+    background-color: black;
+    border-color: black;
+    color: white;
+    &:first-letter {
+      color: rgba(white, 0.8);
+    }
+  }
+}
+
+.issuebuy.is-wide {
+
+  .issuebuy-caption {
+    text-align: center;
+  }
+
+  .issuebuy-options {
+    @include clearfix;
+  }
+
+  .issuebuy-option {
+    border-top: none;
+    padding: 1.5*$issuebuy-pad;
+
+    float: left;
+    width: (100%/3);
+  }
+
+  .issuebuy-option + .issuebuy-option {
+    border-left: solid 1px $color-divider;
+  }
+}

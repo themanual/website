@@ -1,0 +1,95 @@
+.issue-pagination {
+  border-top: divider();
+  > div {
+    @include outer-container;
+  }
+}
+
+.issue-pagination-list {
+  @include clearfix;
+
+  background-image:     data-uri-svg(img-pixel($color-divider)),  data-uri-svg(img-pixel($color-divider));
+  background-repeat:    repeat-y,                                 repeat-y;
+  background-position:  40% 0,                                    60% 0;
+}
+
+.issue-pagination-item {
+  @include container-spacing(padding-top  padding-bottom, 0.6);
+
+  float: left;
+  width: 40%;
+
+  &.is-current {
+    width: 20%;
+    @include container-spacing(padding-left padding-right, 0.4);
+  }
+  
+  &:last-child {
+    float: right;
+    border-right: none;
+  }
+
+  &.is-previous, &.is-next {
+    @include container-spacing(padding-left padding-right);
+  }
+
+  &.is-next {
+    text-align: right;
+  }
+
+  > a {
+    display: block;
+  }
+}
+
+.issue-pagination-item.is-previous > a {
+  @include container-spacing(padding-left, 1.4);
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.issue-pagination-item.is-next > a {
+  @include container-spacing(padding-right, 1.4);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+@each $i in $issues {
+  .issue-#{$i} .issue-pagination-item.is-previous > a {
+    @include background-image-inline(img-arrow-prev(issue-color($i)));
+  }
+
+  .issue-#{$i} .issue-pagination-item.is-next > a {
+    @include background-image-inline(img-arrow-next(issue-color($i)));
+  }
+}
+
+.issue-pagination-item h2 {
+  @include smallcaps-heading-thin;
+  margin-bottom: 0.8em;
+}
+
+.issue-pagination-item.is-current {
+  h2 { 
+    font-weight: weight(medium);
+    margin-top: 1em;
+    text-align: center;
+    color: inherit;
+  }
+}
+
+.issue-pagination-item p {
+  font-size: em(17, $type-main-value);
+  font-family: $type-sans;
+}
+
+.issue-pagination-item p strong {
+  color: black;
+  font-weight: weight(bold);
+  font-size: em(19, 17);
+  font-family: $type-serif;
+}
+
+.issue-pagination-item > a:hover p strong {
+  border-bottom: solid 1px; 
+}

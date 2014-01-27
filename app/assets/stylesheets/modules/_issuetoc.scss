@@ -1,0 +1,40 @@
+.issuetoc-entry {
+  @include clearfix;
+  font-size: 19px;
+
+  & + & {
+    margin-top: 1.7em;
+  }
+}
+
+.issuetoc-author {
+  @include smallcaps-heading-thin;
+  display: block;
+  margin-bottom: 0.5em;
+  color: gray(70%);
+}
+
+.issuetoc-piece {
+  float: left;
+  font-weight: weight(semibold);
+  
+              a { color: gray(25%); }
+  &.is-lesson a { color: gray(50%); }
+
+  a:hover {
+    border-bottom: solid 1px;
+  }
+  
+  &.is-lesson:before {
+    padding-left: 0.4em;
+    padding-right: 0.1em;
+    @include color-by-issue(color);
+    content: "+";
+  }
+
+  a.current {
+    @include color-by-issue(border-color);
+    border-bottom: solid 2px;
+    &:hover { border-bottom-color: inherit; }
+  }
+}

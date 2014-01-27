@@ -1,0 +1,75 @@
+.issue_entry {
+  @include span-columns(6);
+  @include omega(2n);
+  @include clearfix;
+  
+  padding-bottom: 5%;
+  padding-top: 5%;
+  &:nth-child(n+3) {
+    border-top: divider();
+  }
+}
+
+.issue_entry-illo {
+  float: left;
+  width: 25%;
+  margin-right: 5%;
+}
+
+.issue_entry-text {
+  overflow: hidden;
+}
+
+
+.issue_entry-author {
+  font-family: $type-sans;
+  font-size: em(15, $type-main-value);
+  
+  color: gray(50%);
+  
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  word-spacing:   0.15em;
+
+  line-height: 1;
+  margin-bottom: 1.5em;
+}
+  
+.issue_entry-piece + .issue_entry-piece {
+  margin-top: 1.1em;
+}
+
+.issue_entry-piece-title {
+  font-family: $type-sans;
+
+  margin-bottom: 0.25em;
+
+  font-size: em(24, $type-main-value);
+  font-weight: weight(bold);
+  &, a:link, a:visited { color: gray(0%); }
+
+  .is-lesson & {
+    font-size: em(19, $type-main-value);
+    font-weight: weight(medium);
+    &, a:link, a:visited { color: gray(45%); }
+  }
+
+  line-height: 1.2;
+  a:hover { border-bottom: solid 1px; }
+}
+
+.issue_entry-piece-synopsis {
+  font-size: em(20, $type-main-value); 
+  color: gray(45%);
+
+  .is-lesson & { 
+    font-size: em(18, $type-main-value);
+    color: gray(60%);
+  }
+  
+  max-width: 20em;
+  line-height: 1.35;
+  
+  font-weight: weight(regular);
+  font-style: italic;
+}

@@ -1,0 +1,33 @@
+@mixin container-spacing($props, $factor: 1) {
+  @each $prop in $props {
+    #{$prop}: $factor * 1.5em;
+  }
+}
+
+@mixin wrapper {
+  @include outer-container;
+  @include container-spacing(padding-left padding-right);
+  min-width: $min-width;
+}
+
+@mixin grid-wrapper($direction: $default-layout-direction) {
+  @include wrapper;
+  @include row(block, $direction);
+}
+
+@mixin grid-half {
+  @include span-columns($grid-columns/2);
+}
+
+@mixin grid-third {
+  @include span-columns($grid-columns/3);
+}
+
+.wrapper    { @include wrapper; }
+
+.g-row      { @include row; }
+.g-wrapper  { @include grid-wrapper; }
+
+.g-total    { @include fill-parent; }
+.g-half     { @include grid-half;   }
+.g-third    { @include grid-third;  }
