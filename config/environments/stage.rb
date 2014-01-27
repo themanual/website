@@ -1,7 +1,7 @@
 Themanual::Application.configure do
 
   config.middleware.use '::Rack::Auth::Basic' do |u, p|
-    [u, p] == [ENV['AUTH_USER'], ENV['AUTH_PASSWORD']
+    [u, p] == [ENV['AUTH_USER'], ENV['AUTH_PASSWORD']]
   end
 
   # Settings specified here will take precedence over those in config/application.rb.
