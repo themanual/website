@@ -27,14 +27,14 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'dalli'
 gem 'kgio'
 
+gem 'puma'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'debugger'
   gem 'sqlite3'
-
-  gem 'webrick'
 end
 
 group :production, :stage do
@@ -47,6 +47,4 @@ group :production, :stage do
 	gem 'lograge'
 
   gem 'pg'
-
-  gem 'puma'
 end
