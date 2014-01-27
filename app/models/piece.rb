@@ -25,6 +25,12 @@ class Piece
 		ISSUES[:issue][issue].keys
 	end
 
+	def cache_key
+		"piece:#{self.issue}:#{self.key}:#{self.type}"
+	end
+	def cache_ttl
+		86400 # 1 day for now
+	end
 
 	def path
 
