@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Themanual::Application.config.secret_key_base = 'dd5cdbefa9f1032941f96cdd0031874106a5ac225c06c166166ccbf4b8cceb5bf0bc28a58ba7255149fb8a978fd006ac234171e0a1b9ce822974e196381ee1a7'
+TheManual::Application.config.secret_key_base = 'dd5cdbefa9f1032941f96cdd0031874106a5ac225c06c166166ccbf4b8cceb5bf0bc28a58ba7255149fb8a978fd006ac234171e0a1b9ce822974e196381ee1a7'

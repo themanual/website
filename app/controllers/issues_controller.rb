@@ -15,17 +15,10 @@ class IssuesController < ApplicationController
 		key 	= params[:key]
 		type 	= params[:type]
 
-
-		redirect_to issues_url if !ISSUES[:published_issues].include?(issue)
-		redirect_to issues_url if ISSUES[:issue][issue][key].nil?
-		redirect_to issues_url if ISSUES[:issue][issue][key][type].nil?
-
-		@fm = {
-			issue: issue,
-			key: key,
-			type: type,
-			metadata: ISSUES[:issue][issue][key]
-		}
-
+		begin
+			@piece = Piece.new issue, key, type
+		rescue Piece::InvalidPiece
+			redirect_to issues_url
+		end
 	end
 end

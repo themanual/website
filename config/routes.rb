@@ -1,4 +1,4 @@
-Themanual::Application.routes.draw do
+TheManual::Application.routes.draw do
 
   root 'home#index'
 

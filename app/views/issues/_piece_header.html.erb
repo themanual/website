@@ -1,18 +1,18 @@
 <header class="issue-piece-header">
 
-  <% if @fm[:metadata][@fm[:type]][:illustrator] %>
+  <% if @piece.metadata[@piece.type][:illustrator] %>
   <div class="issue-piece-header-illustration">
     <figure>
-      <%= illustration_tag(@fm[:issue], @fm[:key], 'print') %>
-      <figcaption>Illustration by <strong><%= @fm[:metadata][@fm[:type]][:illustrator] %></strong></figcaption>
+      <%= illustration_tag(@piece.issue, @piece.key, 'print') %>
+      <figcaption>Illustration by <strong><%= @piece.metadata[@piece.type][:illustrator] %></strong></figcaption>
     </figure>
   </div>
   <% end %>
 
   <div class="issue-piece-header-text">
-    <h1><%= @fm[:metadata][@fm[:type]][:title] %></h1>
-    <h2><%= @fm[:metadata][@fm[:type]][:synopsis] %></h2>
-    <p>By <strong><%= @fm[:metadata][:author] %></strong> for <a href="<%= issue_path @fm[:issue] %>">Issue <%= @fm[:issue] %></a></p>
+    <h1><%= @piece.metadata[@piece.type][:title] %></h1>
+    <h2><%= @piece.metadata[@piece.type][:synopsis] %></h2>
+    <p>By <strong><%= @piece.metadata[:author] %></strong> for <a href="<%= issue_path @piece.issue %>">Issue <%= @piece.issue %></a></p>
   </div>
 
 </header>

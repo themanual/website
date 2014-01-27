@@ -1,17 +1,47 @@
 
-  <main class="issue-<%= @fm[:issue] %>" role="main">
+  <main class="issue-<%= @piece.issue %>" role="main">
 
     <!-- Article -->
-    <article class="issue-piece is-<%= @fm[:type] %>"><div>
+    <article class="issue-piece is-<%= @piece.type %>"><div>
 
       <%= render 'piece_header' %>
 
       <div class="issue-piece-text">
-        <%= render file: "pieces/issue-#{@fm[:issue]}/#{@fm[:key]}-#{@fm[:type]}" %>
+        <%= render file: "pieces/issue-#{@piece.issue}/#{@piece.key}-#{@piece.type}" %>
       </div>
 
       <%= render 'piece_footer' %>
     </div></article>
+
+    <aside class="issue-pagination"><div>
+      <ul class="issue-pagination-list">
+        <li class="issue-pagination-item is-previous">
+        <% if (prev = @piece.prev) %>
+          <a href="<%= piece_url(prev.issue, prev.key, prev.type) %>">
+            <h2><%= prev.metadata[:author] %></h2>
+            <p><strong class="piece-title"><%= prev.metadata[prev.type][:title] %></strong></p>
+          </a>
+        <% end %>
+        </li>
+
+        <li class="issue-pagination-item is-current">
+          <a class="issue-<%= @piece.issue %>" href="<%= issue_url @piece.issue %>">
+            <h2>Browse Issue&nbsp;<%= @piece.issue %></h2>
+          </a>
+        </li>
+
+
+        <li class="issue-pagination-item is-next">
+        <% if (next_article = @piece.next) %>
+          <a href="<%= piece_url(next_article.issue, next_article.key, next_article.type) %>">
+            <h2><%= next_article.metadata[:author] %></h2>
+            <p><strong class="piece-title"><%= next_article.metadata[next_article.type][:title] %></strong></p>
+          </a>
+        <% end %>
+        </li>
+
+      </ul>
+    </div></aside>
 
 
   </main>
