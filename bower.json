@@ -1,0 +1,8 @@
+{
+  "name": "The Manual",
+  "dependencies": {
+    "jquery-ujs": "*",
+    "garnish":    "*",
+    "fitvids":    "*"
+  }
+}
