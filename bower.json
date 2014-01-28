@@ -3,6 +3,7 @@
   "dependencies": {
     "jquery-ujs": "*",
     "garnish":    "*",
-    "fitvids":    "*"
+    "fitvids":    "*",
+    "trmix":      "*"
   }
 }
