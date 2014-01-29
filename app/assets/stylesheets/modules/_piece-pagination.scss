@@ -69,13 +69,11 @@
   margin-bottom: 0.8em;
 }
 
-.issue-pagination-item.is-current {
-  h2 { 
-    font-weight: weight(medium);
-    margin-top: 1em;
-    text-align: center;
-    color: inherit;
-  }
+.issue-pagination-item.is-current h2 {
+  font-weight: weight(medium);
+  margin-top: 1em;
+  text-align: center;
+  color: inherit;
 }
 
 .issue-pagination-item p {
