@@ -91,6 +91,10 @@ TheManual::Application.configure do
 
   config.lograge.enabled = true
 
+  config.action_mailer.default_url_options = {
+    :host => 'themanual-stage.herokuapp.com'
+  }
+
   ActionMailer::Base.smtp_settings = {
     :port =>           '587',
     :address =>        'smtp.mandrillapp.com',
