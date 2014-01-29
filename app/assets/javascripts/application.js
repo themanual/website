@@ -12,4 +12,6 @@
 //
 //= require jquery/jquery
 //= require jquery-ujs/src/rails
+//= require fitvids/jquery.fitvids
+//= require trmix/dist/trmix
 //= require main
