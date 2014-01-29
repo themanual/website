@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
 
   has_many :email_addresses
   has_many :session_tokens, through: :email_addresses
+
+
+  # ensure devise always 'remembers' users
+  def remember_me
+    true
+  end
 end
