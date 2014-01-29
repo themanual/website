@@ -37,6 +37,7 @@ group :development do
   gem 'meta_request'
   gem 'debugger'
   gem 'sqlite3'
+  gem 'guard-livereload'
 end
 
 group :production, :stage do
