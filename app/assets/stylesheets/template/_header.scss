@@ -4,7 +4,7 @@ $header-height: 64px;
 /*
  *
  * LAYOUT
- *
+ * 
  */
 .header {
   font-size: $type-main-size;
@@ -19,20 +19,20 @@ $header-height: 64px;
 .header-nav > .subscribe  { float: right; }
 
 .header-nav > *,
-.header-nav-menu > li,
+.header-nav-menu > li, 
 .header-nav-menu > li > a {
   height: $header-height;
   line-height: $header-height;
 }
 
-.header-nav-menu > li {
+.header-nav-menu > li { 
   float: left;
 }
 
 .header-nav-menu > li.has-dropdown {
   position: relative;
   &.is-expanded, .no-js &:hover {
-    .header-nav-menu-item-dropdown {
+    .header-nav-menu-item-dropdown { 
       display: block;
     }
   }
@@ -43,7 +43,7 @@ $header-height: 64px;
   top: $header-height+1;
   left: -1px;
   z-index: 5;
-
+  
   display: none;
 }
 
@@ -59,9 +59,9 @@ $header-height: 64px;
  *
  * STYLING
  *
- *
+ * 
  */
-.header {
+.header { 
   font-family: $type-sans;
   border-bottom: solid 1px $color-divider;
 }
@@ -69,14 +69,15 @@ $header-height: 64px;
 .header-nav-logo {
   text-transform: uppercase;
   font-size: 16px;
-  @include sans-serif(bold);
+  font-family: $type-sans;
+  font-weight: weight(bold);
   padding-right: 1.5em;
 
   &, a    { color: gray(40%); }
   a:hover { color: black; }
 }
 
-.header-nav-logo,
+.header-nav-logo, 
 .header-nav-menu > li {
   border-right: solid 1px $color-divider;
 }
@@ -89,7 +90,7 @@ $header-height: 64px;
     @include padding-h(1.5em);
     color: gray(60%);
     font-weight: weight(regular);
-
+    
     outline: none;
 
     &:hover, &:focus { color: black; }
@@ -157,21 +158,22 @@ $header-height: 64px;
   }
 
   > li:first-child  > a { padding-top:    20px; }
-
+  
   > li.all-issues > a {
     padding-top:    18px;
     padding-bottom: 22px;
   }
-
+  
   > li[class^=issue-] > a {
     font-family: $type-serif;
     font-weight: weight(semibold);
     font-size: 1.2em;
 
     strong {
-      @include sans-serif(medium);
+      font-family: $type-sans;
+      font-weight: weight(medium);
       background-color: #666;
-
+      
       font-size: 0.85em;
       padding-right:  0.35em;
       padding-left:   0.35em;
@@ -214,7 +216,8 @@ $header-height: 64px;
   color: gray(40%);
 
   a {
-    @include sans-serif(medium);
+    font-family: $type-sans;
+    font-weight: weight(medium);
     @include box-sizing(border-box);
     display: inline-block;
     padding: 0.5em 0.6em;

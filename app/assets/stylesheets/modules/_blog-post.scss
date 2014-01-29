@@ -42,7 +42,8 @@
 }
 
 .blog-post-title {
-  @include sans-serif(bold);
+  font-family: $type-sans;
+  font-weight: weight(bold);
   font-size: 2em;
   line-height: 1.25;
 
@@ -97,7 +98,8 @@
   }
 
   sup {
-    @include sans-serif(medium);
+    font-family: $type-sans;
+    font-weight: weight(medium);
     font-size: 0.65em;
     vertical-align: super;
     padding-left: 0.1em;
@@ -120,7 +122,7 @@
   }
 
   .footnotes {
-    @include sans-serif;
+    font-family: $type-sans;
     margin-top: 3em;
     color: gray(70%);
     

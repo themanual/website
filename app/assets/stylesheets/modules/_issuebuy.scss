@@ -2,7 +2,7 @@ $issuebuy-pad: 0.75em;
 
 .issuebuy {
   @include clearfix;
-  @include sans-serif(regular);
+  font-family: $type-sans;
   font-size: 15px;
 }
 

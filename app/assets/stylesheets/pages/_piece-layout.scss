@@ -1,72 +1,55 @@
 $type-column-em-width: 30;
 
-.issue-piece {
-  padding-top: 1.5em;
-  > div   { @include wrapper; }
+.issue-piece > div {
+  @include wrapper;
+  @include container-spacing(padding-top);
 }
 
-
-//
-// 1. LAYOUT
-// ---------------------------------------------------
-
-.issue-piece-header {
-  @include row;
-}
-
-.issue-piece-header-illustration,
-.issue-piece-header-text {
-  @include span-columns(6); 
-}
-
-.issue-piece-header-text {
-  
-  &:first-child {
-    
-    @include fill-parent;
-    margin-top:     4em;
-    margin-bottom:  2em;
-
-    > * { @include centered;  text-align: center; }
-
+// HEADER
+@include media-from($bp-l) {
+  .issue-piece-header {
+    @include row;
   }
-  
-}
 
-.issue-piece-header-illustration {    
-  @include clearfix;
+  .issue-piece-header-illustration,
+  .issue-piece-header-text {
+    @include span-columns(6); 
+  }
 
-  figure {
-    float: right;
-    height: 27em;
+  .issue-piece-header-illustration {    
     @include clearfix;
-  }
-  
-  img {
-    display: block;
-    max-height: 100%;
-    max-width: 100%;
+
+    figure {
+      float: right;
+      @include clearfix;
+      @include rem(max-width, 22rem);
+    }
   }
 }
+
+.issue-piece-header-illustration img {
+  @include media-upto($bp-l)  { max-height: 28em; }
+  @include media-upto($bp-s)  { max-height: 24em; }
+  @include media-upto($bp-xs) { max-height: 20em; }
+}
+
+.issue-piece-header-text:first-child { // If it’s a lesson
+  @include fill-parent;
+  margin-top:     4em;
+  margin-bottom:  2em;
+  > * { @include centered;  text-align: center; }
+}
+
+
+
+// TEXT
+
+
 
 .issue-piece-text,
 .issue-piece-footer {
-  
   @include centered;
   max-width: $type-column-em-width*1em;
-
-  @include media-upto($screen-medium) {
-    max-width: 100%;
-  }
-
-  @include media-upto($screen-small) {
-    font-size: 22px;
-  }
-
-  @include media-upto($screen-smallest) {
-    font-size: 20px;
-  }
-
 }
 
 .issue-piece-footer {
@@ -78,10 +61,6 @@ $type-column-em-width: 30;
   }
 
   > p {
-    margin-left: 20%;
-
-    @include media-upto($screen-medium) {
-      margin-left: 0;
-    }
+    overflow: hidden;
   }
 }

@@ -8,7 +8,7 @@
     @include grid-wrapper;
   }
 
-  @include sans-serif;
+  font-family: $type-sans;
   color: gray(60%);
 
   a { font-weight: weight(medium); }
@@ -56,13 +56,16 @@
 
 .site-footer-about {
   font-size: 15px;
-  @include sans-serif(regular);
+  font-family: $type-sans;
+font-weight: normal;
 
   p {
     line-height: 23px;
     max-width:   32em;
   }
 
-  strong { @include sans-serif(medium); }
-
+  strong { 
+    font-family: $type-sans;
+    font-weight: weight(medium);
+  }
 }

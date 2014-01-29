@@ -4,15 +4,24 @@
   <div class="issue-piece-header-illustration">
     <figure>
       <%= illustration_tag(@piece.issue, @piece.key, 'print') %>
-      <figcaption>Illustration by <strong><%= @piece.metadata[@piece.type][:illustrator] %></strong></figcaption>
     </figure>
   </div>
   <% end %>
 
   <div class="issue-piece-header-text">
-    <h1><%= @piece.metadata[@piece.type][:title] %></h1>
-    <h2><%= @piece.metadata[@piece.type][:synopsis] %></h2>
-    <p>By <strong><%= @piece.metadata[:author] %></strong> for <a href="<%= issue_path @piece.issue %>">Issue <%= @piece.issue %></a></p>
+    <h1 class="issue-piece-header-title entry-title">
+      <%= @piece.metadata[@piece.type][:title] %>
+    </h1>
+    <h2 class="issue-piece-header-synopsis entry-summary">
+      <%= @piece.metadata[@piece.type][:synopsis] %>
+    </h2>
+    <p class="issue-piece-header-byline byline vcard">
+      By <strong class="fn author" rel="author"><%= @piece.metadata[:author] %></strong>
+      for <a href="<%= issue_path @piece.issue %>">Issue <%= @piece.issue %></a>
+      <% if @piece.metadata[@piece.type][:illustrator] %>
+        <span class="middot"> &middot; </span>Illustration by <strong><%= @piece.metadata[@piece.type][:illustrator] %></strong>
+      <% end %>
+    </p>
   </div>
 
 </header>

@@ -2,28 +2,24 @@
 @import "bourbon";
 @import "garnish/src/garnish";
 @import "meta/reset";
+@import "mixins";
 
 // Settings
 @import "meta/settings";
-@import "meta/settings-color";
-@import "meta/settings-type";
+@import "meta/color";
 
 // Neat and custom extensions
 @import "neat";
 @import "meta/neat-extensions";
 
 // Base
-@import "mixins";
 @import "images";
 @import "base";
 @import "layout";
 
 // Template
-
 @import "template/header";
 @import "template/footer";
-
-
 
 // Pages
 // @import "pages/index";
@@ -33,8 +29,6 @@
 
 @import "pages/piece-layout";
 @import "pages/piece-style";
-
-
 
 // Modules
 @import "modules/box";

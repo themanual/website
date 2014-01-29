@@ -54,11 +54,6 @@
   background-repeat: no-repeat;
 }
 
-.issue-pagination-item h2 {
-  @include smallcaps-heading-thin;
-  margin-bottom: 0.8em;
-}
-
 @each $i in $issues {
   .issue-#{$i} .issue-pagination-item.is-previous > a {
     @include background-image-inline(img-arrow-prev(issue-color($i)));
@@ -69,15 +64,22 @@
   }
 }
 
-.issue-pagination-item.is-current h2 {
-  font-weight: weight(medium);
-  margin-top: 1em;
-  text-align: center;
-  color: inherit;
+.issue-pagination-item h2 {
+  @include smallcaps-heading-thin;
+  margin-bottom: 0.8em;
+}
+
+.issue-pagination-item.is-current {
+  h2 { 
+    font-weight: weight(medium);
+    margin-top: 1em;
+    text-align: center;
+    color: inherit;
+  }
 }
 
 .issue-pagination-item p {
-  font-size: em(20, $type-main-value);
+  font-size: em(17, $type-main-value);
   font-family: $type-sans;
 }
 

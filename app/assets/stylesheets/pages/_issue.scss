@@ -16,7 +16,8 @@
 }
 
 .issue-header-name-number {
-  @include sans-serif(bold);
+  font-family: $type-sans;
+  font-weight: weight(bold);
   @include color-by-issue(background);
   
   padding-right:  0.29em;

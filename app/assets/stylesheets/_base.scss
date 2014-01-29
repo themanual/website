@@ -7,10 +7,6 @@
 
 */
 
-%responsive-type {
-  font-size: $type-main-size;
-}
-
 body {
   font-family: $type-serif;
   background-color: white;
@@ -21,7 +17,6 @@ body {
 }
 
 body > main {
-  @extend %responsive-type;
   background: white;
 }
 
@@ -41,7 +36,7 @@ a {
   @each $i in $issues {
     &.issue-#{$i},
     .issue-#{$i} &.issue-current {
-      color: issue-color($i);
+      &:link, &:visited { color: issue-color($i); }
       @include colored-link;
     }
   }

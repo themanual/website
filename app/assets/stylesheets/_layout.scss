@@ -1,13 +1,17 @@
 @mixin container-spacing($props, $factor: 1) {
   @each $prop in $props {
-    #{$prop}: $factor * 1.5em;
+    @include rem($prop, $factor * 1.5rem);
+  }
+  @include media-upto($bp-xs) {
+    @each $prop in $props {
+      @include rem($prop, $factor * 1rem);
+    }
   }
 }
 
 @mixin wrapper {
   @include outer-container;
   @include container-spacing(padding-left padding-right);
-  min-width: $min-width;
 }
 
 @mixin grid-wrapper($direction: $default-layout-direction) {

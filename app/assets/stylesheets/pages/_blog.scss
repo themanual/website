@@ -30,7 +30,7 @@
   @include colored-link;
 }
 
-.blog-sidebar {
+.blog-sidebar { 
   color: gray(40%);
   font-family: $type-sans;
   > .box {
@@ -92,7 +92,7 @@
   @include box-sizing(border-box);
   width: 100%;
   height: 3.25em;
-
+  
   font-family: $type-sans;
   color: black;
   font-size: 16px;
@@ -101,12 +101,12 @@
   padding-left: 2.5em;
 
   border: divider();
-
-  @include background-image-inline("svg/loupe.svg");
+  
+  @include background-image-inline(img-loupe());
   background-repeat:    no-repeat;
   background-size:      1em 1em;
   background-position:  0.9em center;
-
+  
   &:hover {
     border-color: darken($color-divider, 10%);
   }
@@ -144,9 +144,9 @@
   display: block;
   text-align: center;
   max-width: 32*20px;
-
+  
   padding: 1.5em;
-
+  
   border-radius: 6px;
   margin-right: 1em;
   &:last-child { margin-right: 0; }

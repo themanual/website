@@ -5,101 +5,85 @@
   @include link-color-by-issue;
 }
 
-.issue-piece-header-illustration {
-
-  figcaption {
-    @include sans-serif(regular);
-    font-size: 13px;
-    line-height: 1;
-    text-transform: uppercase;
-    color: gray(80%);
-
-    display: block;
-    text-align: center;
-    // margin-top: -1em;
-
-    strong {
-      color: gray(60%);
-    }
-  }
-}
-
 .issue-piece-header-text {
 
-  margin-top:     7em;
-  margin-bottom:  6em;
-
-  h1 {
-    @include sans-serif(bold);
-    
-    font-size: 2.2em;
-    line-height: 1.1;
-
-    color: $color-text-heading;
-    letter-spacing: -1px;
-    max-width: 9em;
-  }
-
-  h2 {
-    font-family: $type-serif;
-    font-weight: weight(regular);
-    font-style: italic;
-    font-size: 1.1em;
-
-    color: gray(60%);
-    line-height: 1.4;
-    margin-top: 0.7em;
-    max-width: 20em;
-  }
-
-  p {
-    @include sans-serif(light);
-
-    font-size: 19px;
-    color: $color-text-caption;
-    line-height: 1.25;
-    margin-bottom: 0;
-    // text-transform: uppercase;
-
-    .middot { @include padding-h(0.3em); }
-    a       { font-weight: weight(medium); }
-    strong  { color: $color-text-heading; font-weight: weight(regular); }
-  }
-
-  h2:not(:last-child) {
-    margin-bottom: 2em;
-  }
-
-  @include media-upto($screen-medium) {
-    padding-top:    0.5em;
-    padding-bottom: 1.5em;
-    h1 {
-      font-size: 1.6em;
-      font-weight: 700;
-    }
-    p {
-      font-size: 0.85em;
-      margin-top: (0.25em / 0.85);
-    }
-  }
-
-  @include media-upto($screen-small) {
-    padding: 1.5em 0;
+  @include media-upto($bp-l) {
     text-align: center;
+    > * { @include centered; }
+  }
 
-    h1 {
-      font-size: 1.5em;
-      font-weight: 600;
-      line-height: 1.15;
-    }
+  @include media-from($bp-l) {
+    margin-top: 22%;
+  }
 
-    p {
-      font-size: 0.9em;
-      margin-top: (0.5em / 0.9);
-    }
+  @include media-between($bp-l, $bp-xl) {
+    margin-top: 25%;
+    font-size: 0.9em;
+  }
+
+}
+
+.issue-piece-header-title {
+  font-family: $type-sans;
+  font-weight: weight(bold);
+
+  color: $color-text-heading;
+  text-rendering: optimizeLegibility;
+  
+  font-size: 1.65em;
+  line-height: 1.05;
+  letter-spacing: -1px;
+
+  @include media-from($bp-s) {
+    font-size: 2em;
+    max-width: 8em;
+  }
+
+}
+
+.issue-piece-header-synopsis {
+  font-family: $type-serif;
+  font-weight: weight(regular);
+  font-style: italic;
+  color: gray(60%);
+  
+  font-size:      1.1em;
+  line-height:    1.3;
+  margin-top:     0.6em;
+  margin-bottom:  2em;
+  max-width: 20em;
+  
+  @include media-from($bp-l) {
+    line-height: 1.4;
+    margin-bottom: 1.4em;
   }
 }
 
+.issue-piece-header-byline {
+  font-family: $type-sans;
+  font-weight: weight(light);
+  @include rem(font-size, 17px);
+  color: $color-text-caption;
+  line-height: 1.25;
+
+  .middot { @include padding-h(0.3em); }
+  strong  { color: $color-text-heading; font-weight: weight(regular); }
+  
+  a,
+  strong.issue-current {
+    font-weight: weight(medium);
+  }
+
+  @include media-upto($bp-s) {
+    @include rem(font-size, 19px);
+  }
+
+  .middot {
+    @include media-upto($bp-s)            { @include middot-break; }
+    @include media-between($bp-l, $bp-xl) { @include middot-break(0.25em); }
+  }
+  
+}
 
 
 
@@ -110,25 +94,27 @@
 
 
 .issue-piece-text {
+
   color: $color-text-body;
-  line-height: 1.55;
+
+  strong { font-weight: 600; }
 
   .tr-coretext & {
     -webkit-font-smoothing: antialiased;
     font-weight: 500;
+    strong { font-weight: 700; }
   }
 
   &:before, &:after {
     content: "\00d7";
 
     display: block;
-    @include sans-serif(bold);
+    font-family: $type-sans;
+    font-weight: weight(bold);
     font-size: 30px;
     text-align: center;
-
-    padding-top:    1.5em;
-    margin-bottom:  1.5em;
-
+    
+    @include container-spacing(padding-top margin-bottom, 1.5);
     color: $color-divider;
 
     @include color-by-issue(color);
@@ -138,15 +124,13 @@
   // Headings
   //
   > h2 {
-    $fz: 1.1;
-    font-size: $fz * 1em;
+    // $fz: 1.1;
+    // font-size: $fz * 1em;
     line-height: 1.1;
-    @include sans-serif(bold);
+    font-family: $type-sans;
+    font-weight: weight(semibold);
 
     color: $color-text-heading;
-
-    margin-bottom: (1em/$fz);
-    margin-top:    (3em/$fz);
   }
   
 
@@ -154,14 +138,37 @@
   //
   // Text
   //
-  p, li, blockquote {
-    // @include hyphenated;
+  $line-height: 1.5;
+  $line-height-em: $line-height * 1em;
+  
+  line-height: $line-height;
+
+  > p + p {
+    text-indent: 1em;
+    @include media-from($bp-l)  { text-indent: $line-height-em; }
   }
 
-  $p-margin: 1.55em;
+  blockquote {
+    padding-left: 1em;
+    @include media-from($bp-l) { @include padding-h($line-height-em); }
+  }
 
-  p + p {
+  ul, ol { 
+    padding: 1em;
+    padding-right: 0;
+    @include media-from($bp-l) { padding: $line-height-em; padding-right: 0; }
+  }
+
+  > blockquote p + p {
     margin-top: 1em;
+  }
+
+  > h2 {
+    @include rem(margin-top, 2rem * $line-height);
+  }
+
+  > h2 + * {
+    margin-top: 0.5em;
   }
 
   dl {
@@ -170,30 +177,25 @@
       font-weight: weight(bold);
     }
     dd + * {
-      margin-top: $p-margin;
+      margin-top: 1em;
     }
   }
 
   pre {
     @include margin-v(1em);
-    margin-left: 1.25em;
+    @include rem(margin-left, 1.5rem);
     font-family: Monaco;
     color: $color-text-dull;
     font-size: 0.7em;
   }
 
   blockquote {
-    @include margin-v($p-margin);
-    @include padding-h($p-margin);
+    @include margin-v(1em);
+        
     color: $color-text-blockquote;
     border-left: solid 1px transparent;
+
     @include color-by-issue(border-color);
-
-    @include media-upto($screen-smallest) {
-      padding-left: 1em;
-      padding-right: 1em;
-    }
-
     @include box-sizing(border-box);
 
     > p + p:last-child > cite:only-child {
@@ -212,17 +214,13 @@
     font-style: italic;
   }
 
-  ul, ol { 
-    padding: $type-indent;
-    padding-right: 0;
-  }
-
   ol { list-style-type: decimal; }
   ul { list-style-type: square; }
   li > p:first-child { margin-top: 0; }
   
   .footnote {
-    @include sans-serif(medium);
+    font-family: $type-sans;
+    font-weight: weight(medium);
     vertical-align: text-top;
     font-size: 0.6em;
     padding-left: 0.3em;
@@ -238,7 +236,7 @@
   //
 
   figure {
-    margin: $type-breaks auto;
+    margin: 1.5em auto;
     max-width: 100%;
 
     figcaption {
@@ -273,7 +271,8 @@
   .footnotes {
     margin-top: 3em;
 
-    @include sans-serif(regular);
+    font-family: $type-sans;
+    font-weight: normal;
     color: gray(60%);
 
     ol {
@@ -309,7 +308,8 @@
 
   .companion {
 
-    @include sans-serif(medium);
+    font-family: $type-sans;
+    font-weight: weight(medium);
     font-size: em(17, $type-main-value);
     text-transform: uppercase;
 

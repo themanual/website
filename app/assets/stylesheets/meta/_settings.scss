@@ -1,12 +1,28 @@
+// Base type
+$rem-base:                24px;
+$type-main-value:         valueof($rem-base);
+$type-main-size:          $rem-base;
+
 // Grid
 $column: 60px;
 $gutter: 35px;
 $grid-columns: 12;
 $max-width: 1350px;
-$min-width: 1000px;
 
-$screen-largest:  1400px;
-$screen-large:    1100px;
-$screen-medium:    850px;
-$screen-small:     650px;
-$screen-smallest:  450px;
+// Breakpoints
+$bp-xs: 500px;
+$bp-s:  650px;
+$bp-l:  850px;
+$bp-xl: 1100px;
+
+// Type
+$type-sans:               "franklin-gothic-urw", sans-serif;
+$type-serif:              "freight-text-pro", serif;
+
+// Base font sizes
+html {
+  font-size: $rem-base;
+  @include media-upto($bp-l)  { font-size: $rem-base - 2px; }
+  @include media-upto($bp-s)  { font-size: $rem-base - 4px; }
+  @include media-upto($bp-xs) { font-size: $rem-base - 6px; }
+}

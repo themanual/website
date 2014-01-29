@@ -33,10 +33,8 @@
 
 .issue_index-entry-header > p {
 
-  @include sans-serif(regular);
-
+  font-family: $type-sans;
   color: gray(70%);
-
   text-transform: uppercase;
   font-size: 15px;
   line-height: 1.4;

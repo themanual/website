@@ -43,7 +43,10 @@
   font-size: em(16, $type-main-value);
   font-family: $type-sans;
 
-  a { @include sans-serif(medium); }
+  a { 
+    font-family: $type-sans;
+    font-weight: weight(medium);
+  }
   strong { color: gray(30%); }
 }
 

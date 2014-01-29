@@ -1,9 +1,27 @@
+@mixin middot-break($h:0.5em) {
+  display: block; visibility: hidden; height: $h;
+}
+
 @function divider() {
   @return solid 1px $color-divider;
 }
 
 @function sub-divider() {
   @return dashed 1px darken($color-divider, 5%);
+}
+
+@function weight($keyword) {
+  @if      $keyword == thin                           { @return 100; }
+  @else if $keyword == extralight                     { @return 200; }
+  @else if $keyword == light                          { @return 300; }
+  @else if $keyword == book or $keyword == regular    { @return 400; }
+  @else if $keyword == medium                         { @return 500; }
+  @else if $keyword == semibold                       { @return 600; }
+  @else if $keyword == bold                           { @return 700; }
+  @else if $keyword == extrabold                      { @return 800; }
+  @else if $keyword == black                          { @return 900; }
+  
+  @return 400;
 }
 
 @mixin colored-link {
@@ -21,8 +39,9 @@
 
 
 @mixin smallcaps-heading {
-  @include sans-serif(bold);
-  font-size: 15px;
+  font-family: $type-sans;
+  font-weight: weight(bold);
+  @include rem(font-size, 15px);
   color: gray(20%);
   
   text-transform: uppercase;
@@ -32,7 +51,7 @@
 
 @mixin smallcaps-heading-thin {
   font-family: $type-sans;
-  font-size: 15px;
+  @include rem(font-size, 15px);
   color: gray(60%);
   
   text-transform: uppercase;
@@ -41,7 +60,8 @@
 }
 
 @mixin issue-number {
-  @include sans-serif(bold);
+  font-family: $type-sans;
+  font-weight: weight(bold);
   @include color-by-issue(background);
   
   font-size: 0.85em;
@@ -63,5 +83,25 @@
 @mixin blacklink-child {
   a {
     @include blacklink;
+  }
+}
+
+@function valueof($val) {
+  @return ($val / ($val * 0 + 1));
+}
+
+@mixin rem($prop, $value, $base: $rem-base) {
+  @if unitless($value)    { $value: $value * 1px; }
+  @if not unitless($base) { $base: valueof($base); }
+
+  @if unit($value) == "px" 
+  {
+    #{$prop}: $value;
+    #{$prop}: (valueof($value) / $base) * 1rem;
+  } 
+  @else if unit($value) == "rem" 
+  { 
+    #{$prop}: (valueof($value) * $base) * 1px;
+    #{$prop}: $value;
   }
 }
