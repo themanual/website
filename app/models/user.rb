@@ -6,9 +6,15 @@ class User < ActiveRecord::Base
   has_many :email_addresses
   has_many :session_tokens, through: :email_addresses
 
+  after_create :add_email_address
+
 
   # ensure devise always 'remembers' users
   def remember_me
     true
+  end
+
+  def add_email_address
+  	self.email_addresses.create email: self.email, primary: true
   end
 end

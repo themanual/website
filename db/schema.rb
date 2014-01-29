@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129123434) do
+ActiveRecord::Schema.define(version: 20140129190314) do
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "primary",    default: false, null: false
   end
 
   add_index "email_addresses", ["email"], name: "index_email_addresses_on_email", unique: true
