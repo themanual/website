@@ -7,6 +7,14 @@
 
 */
 
+// Base font sizes
+html {
+  font-size: $rem-base;
+  @include media-upto($bp-l)  { font-size: $rem-base - 2px; }
+  @include media-upto($bp-s)  { font-size: $rem-base - 4px; }
+  @include media-upto($bp-xs) { font-size: $rem-base - 6px; }
+}
+
 body {
   font-family: $type-serif;
   background-color: white;

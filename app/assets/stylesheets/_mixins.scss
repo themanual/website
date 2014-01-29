@@ -10,20 +10,6 @@
   @return dashed 1px darken($color-divider, 5%);
 }
 
-@function weight($keyword) {
-  @if      $keyword == thin                           { @return 100; }
-  @else if $keyword == extralight                     { @return 200; }
-  @else if $keyword == light                          { @return 300; }
-  @else if $keyword == book or $keyword == regular    { @return 400; }
-  @else if $keyword == medium                         { @return 500; }
-  @else if $keyword == semibold                       { @return 600; }
-  @else if $keyword == bold                           { @return 700; }
-  @else if $keyword == extrabold                      { @return 800; }
-  @else if $keyword == black                          { @return 900; }
-  
-  @return 400;
-}
-
 @mixin colored-link {
   &:hover,
   &:focus,
@@ -36,27 +22,23 @@
   &:active { border-bottom: solid 1px; }
 }
 
-
-
-@mixin smallcaps-heading {
-  font-family: $type-sans;
-  font-weight: weight(bold);
-  @include rem(font-size, 15px);
-  color: gray(20%);
-  
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  word-spacing:   0.1em;
-}
-
-@mixin smallcaps-heading-thin {
+%heading-sc {
   font-family: $type-sans;
   @include rem(font-size, 15px);
-  color: gray(60%);
-  
   text-transform: uppercase;
   letter-spacing: 0.1em;
   word-spacing:   0.15em;
+}
+
+@mixin smallcaps-heading {
+  @extend %heading-sc;
+  font-weight: weight(bold);
+  color: gray(20%);
+}
+
+@mixin smallcaps-heading-thin {
+  @extend %heading-sc;
+  color: gray(60%);
 }
 
 @mixin issue-number {
@@ -83,25 +65,5 @@
 @mixin blacklink-child {
   a {
     @include blacklink;
-  }
-}
-
-@function valueof($val) {
-  @return ($val / ($val * 0 + 1));
-}
-
-@mixin rem($prop, $value, $base: $rem-base) {
-  @if unitless($value)    { $value: $value * 1px; }
-  @if not unitless($base) { $base: valueof($base); }
-
-  @if unit($value) == "px" 
-  {
-    #{$prop}: $value;
-    #{$prop}: (valueof($value) / $base) * 1rem;
-  } 
-  @else if unit($value) == "rem" 
-  { 
-    #{$prop}: (valueof($value) * $base) * 1px;
-    #{$prop}: $value;
   }
 }

@@ -1,12 +1,14 @@
 // Base Libraries
 @import "bourbon";
 @import "garnish/src/garnish";
-@import "meta/reset";
-@import "mixins";
 
-// Settings
+// Base Settings
 @import "meta/settings";
 @import "meta/color";
+
+// First output-creating code
+@import "meta/reset";
+@import "mixins";
 
 // Neat and custom extensions
 @import "neat";

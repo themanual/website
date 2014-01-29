@@ -1,3 +1,24 @@
+// TODO remove in favour for newest bourbon/sass
+@function valueof($val) {
+  @return ($val / ($val * 0 + 1));
+}
+
+@mixin rem($prop, $value, $base: $rem-base) {
+  @if unitless($value)    { $value: $value * 1px; }
+  @if not unitless($base) { $base: valueof($base); }
+
+  @if unit($value) == "px" 
+  {
+    #{$prop}: $value;
+    #{$prop}: (valueof($value) / $base) * 1rem;
+  } 
+  @else if unit($value) == "rem" 
+  { 
+    #{$prop}: (valueof($value) * $base) * 1px;
+    #{$prop}: $value;
+  }
+}
+
 // Base type
 $rem-base:                24px;
 $type-main-value:         valueof($rem-base);
@@ -18,11 +39,3 @@ $bp-xl: 1100px;
 // Type
 $type-sans:               "franklin-gothic-urw", sans-serif;
 $type-serif:              "freight-text-pro", serif;
-
-// Base font sizes
-html {
-  font-size: $rem-base;
-  @include media-upto($bp-l)  { font-size: $rem-base - 2px; }
-  @include media-upto($bp-s)  { font-size: $rem-base - 4px; }
-  @include media-upto($bp-xs) { font-size: $rem-base - 6px; }
-}
