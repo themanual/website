@@ -1,6 +1,7 @@
 // misc helpers
 @import "helpers/gray";
 @import "helpers/hover";
+@import "helpers/media";
 
 // layout
 @import "layout/margin";
@@ -8,6 +9,7 @@
 
 // typography
 @import "typography/hyphenated";
+@import "typography/weight";
 
-// media queries
-@import "mediaqueries/media";
+// style
+@import "style/border-sandwich";
