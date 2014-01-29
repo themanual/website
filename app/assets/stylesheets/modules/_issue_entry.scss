@@ -3,11 +3,7 @@
   @include omega(2n);
   @include clearfix;
   
-  padding-bottom: 5%;
-  padding-top: 5%;
-  &:nth-child(n+3) {
-    border-top: divider();
-  }
+  @include padding-v(5%);
 }
 
 .issue_entry-illo {
@@ -20,18 +16,8 @@
   overflow: hidden;
 }
 
-
 .issue_entry-author {
-  font-family: $type-sans;
-  font-size: em(15, $type-main-value);
-  
-  color: gray(50%);
-  
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  word-spacing:   0.15em;
-
-  line-height: 1;
+  @include smallcaps-heading-thin;
   margin-bottom: 1.5em;
 }
   
@@ -41,35 +27,25 @@
 
 .issue_entry-piece-title {
   font-family: $type-sans;
-
+  font-size: em(23, $type-main-value);
+  font-weight: weight(medium);
+  line-height: 1.2;
   margin-bottom: 0.25em;
 
-  font-size: em(24, $type-main-value);
-  font-weight: weight(bold);
-  &, a:link, a:visited { color: gray(0%); }
+                  &, a:link, a:visited { color: gray(0%); }
+  .is-lesson &  { &, a:link, a:visited { color: gray(45%); } }
 
-  .is-lesson & {
-    font-size: em(19, $type-main-value);
-    font-weight: weight(medium);
-    &, a:link, a:visited { color: gray(45%); }
-  }
-
-  line-height: 1.2;
   a:hover { border-bottom: solid 1px; }
 }
 
 .issue_entry-piece-synopsis {
-  font-size: em(20, $type-main-value); 
-  color: gray(45%);
-
-  .is-lesson & { 
-    font-size: em(18, $type-main-value);
-    color: gray(60%);
-  }
+  font-size: em(19, $type-main-value); 
+  font-weight: weight(regular);
+  font-style: italic;
   
   max-width: 20em;
   line-height: 1.35;
-  
-  font-weight: weight(regular);
-  font-style: italic;
+
+                  color: gray(40%);
+  .is-lesson &  { color: gray(60%); }
 }
