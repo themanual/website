@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128160724) do
+ActiveRecord::Schema.define(version: 20140129112109) do
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
@@ -24,13 +24,15 @@ ActiveRecord::Schema.define(version: 20140128160724) do
 
   create_table "session_tokens", force: true do |t|
     t.integer  "email_address_id"
-    t.string   "token",            limit: 32,  null: false
-    t.datetime "used_at"
+    t.string   "token",            limit: 32,                                  null: false
     t.string   "user_agent",       limit: 500
     t.string   "ip_address",       limit: 16
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "expires_at",                   default: '2000-01-01 00:00:00', null: false
   end
+
+  add_index "session_tokens", ["token"], name: "index_session_tokens_on_token"
 
   create_table "users", force: true do |t|
     t.string   "email",              default: "", null: false

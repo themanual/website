@@ -49,6 +49,18 @@
         <li <%= page_is_subpath_of("/blog", 'class="is-current"') %> >
           <a href="/blog">Blog</a>
         </li>
+        <% if user_signed_in? %>
+        <li class="has-dropdown">
+          <a href="#"><%= current_user.name || 'Logged in' %></a>
+          <ul class="header-nav-menu-item-dropdown">
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+        <% else %>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <% end %>
       </ul>
       <span class="subscribe"><a href="#">Buy</a> or <a href="#">Subscribe</a></span>
     </nav>

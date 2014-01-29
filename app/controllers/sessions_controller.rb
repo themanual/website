@@ -6,21 +6,30 @@ class SessionsController < Devise::SessionsController
 
 	def create
 		if params[:token]
-			# look up token
-			# if valid
-				# login via token
-			# otherwise 'not found' page
+			token = SessionToken.where(token: params[:token]).first
+			if token.present? and token.expires_at > Time.now
+				sign_in token.email_address.user
+				redirect_to root_path
+			else
+				render :invalid_token
+			end
 		elsif params[:email]
 			# look up email
 
-			# if exists
+			email = EmailAddress.where(email: params[:email]).first
 
-				# create a new session_token
-				# send login email with token link
+			if email.present?
 
-			# othewise
+				@token = email.session_tokens.create token: SecureRandom.hex(32), expires_at: SessionToken.login_token_expiry
 
-				# render 'not found' page
+				SessionsMailer.login_token(@token).deliver
+
+				render :login_sent
+
+			else
+				render :not_found
+			end
+
 		else
 			render :new
 		end
