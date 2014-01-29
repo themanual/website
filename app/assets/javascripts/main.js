@@ -18,9 +18,3 @@ $("a[href='#']").click(function(event) {
 
 // fitvids
 $(".video").fitVids();
-
-// reading time
-$(".issue-article").each(function() {
-  // var time = $(this).find(".text .body").readingtime({wpm: 200});
-  // $(this).find(".text > header > p:first-child").append(' <span class="middot">&middot;</span> ' + time + 'min read');
-});
