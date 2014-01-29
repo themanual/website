@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129112109) do
+ActiveRecord::Schema.define(version: 20140129123434) do
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140129112109) do
 
   create_table "session_tokens", force: true do |t|
     t.integer  "email_address_id"
-    t.string   "token",            limit: 32,                                  null: false
+    t.string   "token",            limit: 64,                                  null: false
     t.string   "user_agent",       limit: 500
     t.string   "ip_address",       limit: 16
     t.datetime "created_at"
