@@ -26,7 +26,7 @@
 </head>
 <body lang="en">
 
-  <header class="header"><div class="wrapper">
+  <header class="header"><div class="g-wrapper">
 
     <nav class="header-nav">
       <h1 class="header-nav-logo"><a href="/">The Manual</a></h1>
@@ -49,20 +49,14 @@
         <li <%= page_is_subpath_of("/blog", 'class="is-current"') %> >
           <a href="/blog">Blog</a>
         </li>
-        <% if user_signed_in? %>
-        <li class="has-dropdown">
-          <a href="#"><%= current_user.name || 'Logged in' %></a>
-          <ul class="header-nav-menu-item-dropdown">
-            <li><a href="/logout">Logout</a></li>
-          </ul>
+        <li class="<%= page_is_subpath_of("/login") ? 'is-reversed is-current' : 'is-reversed' %>">
+          <% if user_signed_in? %>
+          <a href="/logout">Log out</a>
+          <% else %>
+          <a href="/login">Log in</a>
+          <% end %>
         </li>
-        <% else %>
-        <li>
-          <a href="/login">Login</a>
-        </li>
-        <% end %>
       </ul>
-      <span class="subscribe"><a href="#">Buy</a> or <a href="#">Subscribe</a></span>
     </nav>
 
   </div></header>
