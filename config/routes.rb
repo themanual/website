@@ -6,10 +6,10 @@ TheManual::Application.routes.draw do
 
 
 	as :user do
-    get 'login/:token' => 'sessions#create', :as => :login_token
-    get 'login' => 'sessions#new', :as => :new_user_session
-    post 'login' => 'sessions#create', :as => :user_session
-    get 'logout' => 'sessions#destroy', :as => :destroy_user_session
+    get 'login/:token'  => 'sessions#create',   :as => :login_token
+    get 'login'         => 'sessions#new',      :as => :new_user_session
+    get 'logout'        => 'sessions#destroy',  :as => :destroy_user_session
+    post 'login'        => 'sessions#create',   :as => :user_session
     # get 'account' => 'devise/registrations#edit', :as => :edit_user_registration
     # put 'account' => 'devise/registrations#update'
   end
