@@ -1,8 +1,10 @@
-<h2>Sign in</h2>
+<main><div class="wrapper">
+  <h2>Log in</h2>
 
-<%= form_tag session_path(:user), :method => :post do |f| %>
-  <div><%= label_tag :email %><br />
-  <%= email_field_tag :email, '', :autofocus => true %></div>
+  <%= form_tag session_path(:user), :method => :post do |f| %>
+    <div><%= label_tag :email %><br />
+    <%= email_field_tag :email, '', :autofocus => true %></div>
 
-  <div><%= submit_tag "Sign in" %></div>
-<% end %>
+    <div><%= submit_tag "Sign in" %></div>
+  <% end %>
+</div></main>
