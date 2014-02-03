@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129190314) do
+ActiveRecord::Schema.define(version: 20140203165406) do
+
+  create_table "authors", force: true do |t|
+    t.string   "name",       limit: 128, default: "", null: false
+    t.string   "bio",        limit: 256, default: "", null: false
+    t.string   "slug",       limit: 128, default: "", null: false
+    t.string   "twitter",    limit: 32,  default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
@@ -22,6 +31,26 @@ ActiveRecord::Schema.define(version: 20140129190314) do
   end
 
   add_index "email_addresses", ["email"], name: "index_email_addresses_on_email", unique: true
+
+  create_table "issues", force: true do |t|
+    t.integer  "number",     default: 1, null: false
+    t.integer  "volume_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pieces", force: true do |t|
+    t.string   "type",        limit: 32,   default: "Article", null: false
+    t.integer  "author_id"
+    t.integer  "issue_id"
+    t.string   "title",       limit: 256,  default: "",        null: false
+    t.text     "body",                     default: "",        null: false
+    t.string   "synopsis",    limit: 1024
+    t.string   "illustrator", limit: 128
+    t.integer  "position",                 default: 1,         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "session_tokens", force: true do |t|
     t.integer  "email_address_id"
@@ -51,5 +80,11 @@ ActiveRecord::Schema.define(version: 20140129190314) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "volumes", force: true do |t|
+    t.integer  "number",     default: 1, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

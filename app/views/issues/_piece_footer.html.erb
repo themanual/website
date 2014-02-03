@@ -1,6 +1,6 @@
 <footer class="issue-piece-footer">
-  <figure><%= portrait_tag(@piece.issue, @piece.key) %></figure>
-  <p><%=raw @piece.metadata[:bio] %></p>
+  <figure><%= portrait_tag(@piece.issue_number, @piece.author_slug) %></figure>
+  <p><%=raw @piece.author.bio %></p>
   <!--
   <p class="companion">
     <? if($fm['type'] == 'article'): ?>

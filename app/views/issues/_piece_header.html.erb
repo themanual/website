@@ -1,25 +1,25 @@
 <header class="issue-piece-header">
 
-  <% if @piece.metadata[@piece.type][:illustrator] %>
+  <% if @piece.illustrator %>
   <div class="issue-piece-header-illustration">
     <figure>
-      <%= illustration_tag(@piece.issue, @piece.key, 'print') %>
+      <%= illustration_tag(@piece.issue_number, @piece.author_slug, 'print') %>
     </figure>
   </div>
   <% end %>
 
   <div class="issue-piece-header-text">
     <h1 class="issue-piece-header-title entry-title">
-      <%= @piece.metadata[@piece.type][:title] %>
+      <%= @piece.title %>
     </h1>
     <h2 class="issue-piece-header-synopsis entry-summary">
-      <%= @piece.metadata[@piece.type][:synopsis] %>
+      <%= @piece.synopsis %>
     </h2>
     <p class="issue-piece-header-byline byline vcard">
-      By <strong class="fn author" rel="author"><%= @piece.metadata[:author] %></strong>
-      for <a href="<%= issue_path @piece.issue %>">Issue <%= @piece.issue %></a>
-      <% if @piece.metadata[@piece.type][:illustrator] %>
-        <span class="middot"> &middot; </span>Illustration by <strong><%= @piece.metadata[@piece.type][:illustrator] %></strong>
+      By <strong class="fn author" rel="author"><%= @piece.author.name %></strong>
+      for <a href="<%= issue_path @piece.issue_number %>">Issue <%= @piece.issue_number %></a>
+      <% if @piece.illustrator %>
+        <span class="middot"> &middot; </span>Illustration by <strong><%= @piece.illustrator %></strong>
       <% end %>
     </p>
   </div>

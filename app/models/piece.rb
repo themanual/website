@@ -1,88 +1,58 @@
-class Piece
-	class InvalidPiece < Exception; end
+class Piece < ActiveRecord::Base
+	belongs_to :author
+	belongs_to :issue
 
-	attr_reader :issue, :key, :type, :metadata
+	validates_presence_of :body, :on => :create, :message => "is required"
 
-	def initialize issue, key, type
+	scope :ordered, -> { order('position ASC') }
 
-		if !ISSUES[:published_issues].include?(issue) ||
-				ISSUES[:issue][issue][key].nil? ||
-				ISSUES[:issue][issue][key][type].nil?
-
-			raise InvalidPiece
-
-		end
-
-
-		@issue = issue
-		@key = key
-		@type = type
-		@metadata = ISSUES[:issue][issue][key]
-
+	def issue_number
+		@issue_number ||= issue.number
 	end
 
-	def issue_keys
-		ISSUES[:issue][issue].keys
-	end
-
-	def cache_key
-		"piece:#{self.issue}:#{self.key}:#{self.type}"
-	end
-	def cache_ttl
-		86400 # 1 day for now
+	def author_slug
+		@author_slug ||= author.slug
 	end
 
 	def random
-		return @random if @random
+		@random ||= Issue.public_issues.reject{|issue| issue.id == self.issue.id}.sample.articles.sample
+	end
 
-		random_issue = (ISSUES[:published_issues] - [self.issue]).sample
-		random_key = ISSUES[:issue][random_issue].keys.sample
+	def path
+		if self.is_a? Article or self.is_a? Lesson
+			Rails.application.routes.url_helpers.piece_path issue_number, author_slug, type.downcase
+		end
+	end
 
-		return @random = Piece.new(random_issue, random_key, 'article')
+	def prev
+		if self.is_a? Lesson
+
+			return Article.where(issue_id: self.issue_id, author_id: self.author_id).first rescue nil
+
+		elsif self.is_a? Article
+
+			return Article.where(issue_id: self.issue_id)
+										.where("position < #{self.position}")
+										.order('position DESC')
+										.limit(1)
+										.first rescue nil
+		end
 	end
 
 	def next
 
+		if self.is_a? Article
 
-		if type == 'article'
-			return Piece.new(issue, key, 'lesson') rescue nil
-		elsif type == 'lesson'
+			return Lesson.where(issue_id: self.issue_id, author_id: self.author_id).first rescue nil
 
-			keys = issue_keys
+		elsif self.is_a? Lesson
 
-			while keys.size > 0
-				next_key = keys.shift
-
-				if next_key == key && keys.size > 0
-					return Piece.new(issue, keys.first, 'article') rescue nil
-				end
-			end
-
-			return nil
+			return Article.where(issue_id: self.issue_id)
+										.where("position > #{self.position}")
+										.order('position ASC')
+										.limit(1)
+										.first rescue nil
 
 		end
-
 	end
-
-	def prev
-		if type == 'lesson'
-			return Piece.new(issue, key, 'article') rescue nil
-		elsif type == 'article'
-
-			keys = issue_keys
-
-			while keys.size > 0
-				prev_key = keys.pop
-
-				if prev_key == key && keys.size > 0
-					return Piece.new(issue, keys.last, 'lesson') rescue nil
-				end
-			end
-
-			return nil
-
-		end
-
-	end
-
 end

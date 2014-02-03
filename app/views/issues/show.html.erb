@@ -1,12 +1,13 @@
-<% content_for(:page_title){ "Issue #{@issue}" } %>
+<% content_for(:page_title){ "Issue #{@issue.number}" } %>
 
+<% cache @issue do %>
 
-  <main class="issue-<%= @issue %>">
+  <main class="issue-<%= @issue.number %>">
 
     <section class="issue"><div class="wrapper">
 
       <header class="issue-header">
-        <h1 class="issue-header-name">Issue <strong class="issue-header-name-number"><%= @issue %></strong></h1>
+        <h1 class="issue-header-name">Issue <strong class="issue-header-name-number"><%= @issue.number %></strong></h1>
       </header>
 
       <!--
@@ -19,25 +20,25 @@
       -->
 
       <ul class="issue-content g-row">
-      <% ISSUES[:issue][@issue].each do |key, pair| %>
+      <% @issue.articles.ordered.each do |article| %>
         <li class="issue_entry">
           <figure class="issue_entry-illo">
-            <%= illustration_tag @issue, key, 'small' %>
+            <%= illustration_tag @issue.number, article.author_slug, 'small' %>
           </figure>
           <div class="issue_entry-text">
-            <h2 class="issue_entry-author"><%= pair[:author] %></h2>
+            <h2 class="issue_entry-author"><%= article.author.name %></h2>
 
             <ul class="issue_entry-pieces">
               <li class="issue_entry-piece is-article">
-                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue, key, :article %>"><%= pair[:article][:title] %></a></h3>
+                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue.number, article.author_slug, :article %>"><%= article.title %></a></h3>
                 <blockquote class="issue_entry-piece-synopsis">
-                  <p><%= pair[:article][:synopsis] %></p>
+                  <p><%= article.synopsis %></p>
                 </blockquote>
               </li>
               <li class="issue_entry-piece is-lesson">
-                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue, key, :lesson %>">Lesson</a></h3>
+                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue.number, article.author_slug, :lesson %>">Lesson</a></h3>
                 <blockquote class="issue_entry-piece-synopsis">
-                  <p><%= pair[:lesson][:synopsis] %></p>
+                  <p><%= article.lesson.synopsis %></p>
                 </blockquote>
               </li>
             </ul>
@@ -53,11 +54,11 @@
     <aside class="boxes"><div>
 
       <section class="box g-half">
-        <h2 class="box-title"><a class="issue-current" href="<%= issue_url(@issue) %>">Buy this issue</a> and support The Manual</h2>
+        <h2 class="box-title"><a class="issue-current" href="<%= issue_url(@issue.number) %>">Buy this issue</a> and support The Manual</h2>
 
         <div class="issuebuy">
           <figure class="issuebuy-figure">
-            <%= image_tag "interface/devices-#{@issue}.png" %>
+            <%= image_tag "interface/devices-#{@issue.number}.png" %>
           </figure>
 		      <%= render 'issue_buy_options', sub: false %>
         </div>
@@ -69,3 +70,5 @@
     </div></aside>
 
   </main>
+
+<% end %>

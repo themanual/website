@@ -5,20 +5,16 @@ class IssuesController < ApplicationController
 	end
 
 	def show
-		@issue = params[:issue].to_i
+		# TODO: Ensure only visible issues can be seen (public, or purchased by current user)
+		@issue = Issue.where(number: params[:issue].to_i).first
 
-		redirect_to issues_url if !ISSUES[:published_issues].include?(@issue)
+		redirect_to issues_url unless @issue
 	end
 
 	def piece
-		issue = params[:issue].to_i
-		key 	= params[:key]
-		type 	= params[:type]
 
-		begin
-			@piece = Piece.new issue, key, type
-		rescue Piece::InvalidPiece
-			redirect_to issues_url
-		end
+		@piece = Piece.joins(:author).includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, 'authors.slug' => params[:key]).first
+
+		redirect_to issues_url unless @piece
 	end
 end

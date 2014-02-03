@@ -1,15 +1,15 @@
-<% content_for(:page_title){ "#{@piece.metadata[@piece.type][:title]}, by #{@piece.metadata[:author]} · Issue #{@piece.issue}" } %>
+<% content_for(:page_title){ "#{@piece.title}, by #{@piece.author.name} · Issue #{@piece.issue_number}" } %>
 
-  <main class="issue-<%= @piece.issue %>" role="main">
-  <% cache @piece.cache_key, expires_in: @piece.cache_ttl do %>
+<main class="issue-<%= @piece.issue_number %>" role="main">
+  <% cache @piece do %>
 
     <!-- Article -->
-    <article class="issue-piece is-<%= @piece.type %>"><div>
+    <article class="issue-piece is-<%= @piece.type.downcase %>"><div>
 
       <%= render 'piece_header' %>
 
       <div class="issue-piece-text">
-        <%= render file: "pieces/issue-#{@piece.issue}/#{@piece.key}-#{@piece.type}" %>
+        <%=raw Kramdown::Document.new(@piece.body).to_html %>
       </div>
 
       <%= render 'piece_footer' %>
@@ -19,25 +19,25 @@
       <ul class="issue-pagination-list">
         <li class="issue-pagination-item is-previous">
         <% if (prev_article = @piece.prev) %>
-          <a href="<%= piece_url(prev_article.issue, prev_article.key, prev_article.type) %>">
-            <h2><%= prev_article.metadata[:author] %></h2>
-            <p><strong class="piece-title"><%= prev_article.metadata[prev_article.type][:title] %></strong></p>
+          <a href="<%= prev_article.path %>">
+            <h2><%= prev_article.author.name %></h2>
+            <p><strong class="piece-title"><%= prev_article.title %></strong></p>
           </a>
         <% end %>
         </li>
 
         <li class="issue-pagination-item is-current">
-          <a class="issue-<%= @piece.issue %>" href="<%= issue_url @piece.issue %>">
-            <h2>Browse Issue&nbsp;<%= @piece.issue %></h2>
+          <a class="issue-<%= @piece.issue_number %>" href="<%= issue_url @piece.issue_number %>">
+            <h2>Browse Issue&nbsp;<%= @piece.issue_number %></h2>
           </a>
         </li>
 
 
         <li class="issue-pagination-item is-next">
         <% if (next_article = @piece.next) %>
-          <a href="<%= piece_url(next_article.issue, next_article.key, next_article.type) %>">
-            <h2><%= next_article.metadata[:author] %></h2>
-            <p><strong class="piece-title"><%= next_article.metadata[next_article.type][:title] %></strong></p>
+          <a href="<%= next_article.path %>">
+            <h2><%= next_article.author.name %></h2>
+            <p><strong class="piece-title"><%= next_article.title %></strong></p>
           </a>
         <% end %>
         </li>
@@ -46,26 +46,26 @@
     </div></aside>
   <% end %>
 
-  <% cache "#{@piece.cache_key}:random", expires_in: 300 do %>
+  <% cache [@piece, :random], expires_in: 300 do %>
     <aside class="boxes"><div>
 
     <!-- <div class="box-group g-half"> -->
 
       <section class="box g-half">
         <h2 class="box-title">
-          Read something from <a href="/issues/<%= @piece.random.issue %>" class="issue-<%= @piece.random.issue %>">Issue <%= @piece.random.issue %></a>
+          Read something from <a href="/issues/<%= @piece.random.issue_number %>" class="issue-<%= @piece.random.issue_number %>">Issue <%= @piece.random.issue_number %></a>
         </h2>
         <%= render 'featured_piece', featured: @piece.random %>
       </section>
 
       <section class="box g-half">
         <h2 class="box-title">
-          <a class="issue-current" href="<%= issue_url(@piece.issue) %>">Buy this issue</a> and support The Manual
+          <a class="issue-current" href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
         </h2>
 
         <div class="issuebuy">
           <figure class="issuebuy-figure">
-            <%= image_tag "interface/devices-#{@piece.issue}.png" %>
+            <%= image_tag "interface/devices-#{@piece.issue_number}.png" %>
           </figure>
           <%= render 'issue_buy_options', sub: false %>
         </div>

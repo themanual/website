@@ -2,12 +2,12 @@
 
 <main class="issue_index">
 
-  <% ISSUES[:published_issues].reverse.each do |issue| %>
-  <section class="issue_index-entry issue-<%= issue %>"><div class="wrapper row">
+  <% Issue.public_issues.ordered.each do |issue| %>
+  <section class="issue_index-entry issue-<%= issue.number %>"><div class="wrapper row">
 
     <header class="issue_index-entry-header">
-      <h1 class="issue_index-entry-header-name">Issue <strong><%= issue %></strong></h1>
-      <p>Fall 2011 &middot; <a href="<%= issue_url(issue) %>">Browse Issue</a></p>
+      <h1 class="issue_index-entry-header-name">Issue <strong><%= issue.number %></strong></h1>
+      <p>Fall 2011 &middot; <a href="<%= issue_url(issue.number) %>">Browse Issue</a></p>
     </header>
 
     <div class="issuebuy is-boxed has-whitebuttons">
