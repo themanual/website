@@ -31,7 +31,7 @@ gem 'puma'
 
 gem 'devise'
 
-# gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   gem 'better_errors'
