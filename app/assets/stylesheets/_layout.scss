@@ -14,11 +14,6 @@
   @include container-spacing(padding-left padding-right);
 }
 
-@mixin wrapper-unpadded {
-  @include wrapper;
-  @include box-sizing(content-box);
-}
-
 @mixin grid-wrapper($direction: $default-layout-direction) {
   @include wrapper;
   @include row(block, $direction);
