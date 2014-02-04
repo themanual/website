@@ -33,6 +33,15 @@ gem 'devise'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem 'shoppe', github: 'marcroberts/core', branch: 'patch-1', require: 'shoppe'
+# awaiting acceptance of my pull request - MR
+# gem 'shoppe', '~> 0.0.0'
+
+gem 'shoppe-stripe', '~> 1.2.1', :require => 'shoppe/stripe'
+
+# to be built by Marc
+# gem 'shoppe-shipwire'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

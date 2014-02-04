@@ -1,6 +1,7 @@
 TheManual::Application.routes.draw do
 
   ActiveAdmin.routes(self)
+  mount Shoppe::Engine => "/shoppe"
 
   devise_for :users,
   					 :skip => [:password, :sessions, :registrations],
