@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140203165406) do
 
   create_table "authors", force: true do |t|
     t.string   "name",       limit: 128, default: "", null: false
-    t.string   "bio",        limit: 256, default: "", null: false
+    t.string   "bio",        limit: 512, default: "", null: false
     t.string   "slug",       limit: 128, default: "", null: false
     t.string   "twitter",    limit: 32,  default: "", null: false
     t.datetime "created_at"
