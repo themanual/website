@@ -1,6 +1,5 @@
 .site-footer {
   @include padding-v(1.5em);
-  border-top: divider();
 
   > div {
     @include grid-wrapper;

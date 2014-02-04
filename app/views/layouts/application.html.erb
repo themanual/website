@@ -27,38 +27,9 @@
 <body lang="en">
 
   <header class="header"><div class="g-wrapper">
-
-    <nav class="header-nav">
-      <h1 class="header-nav-logo"><a href="/">The Manual</a></h1>
-      <ul class="header-nav-menu">
-        <li class="<%= page_is_subpath_of("/issues") ? 'has-dropdown is-current' : 'has-dropdown' %>">
-          <a href="/issues">Issues</a>
-          <ul class="header-nav-menu-item-dropdown">
-          <% ISSUES[:published_issues].reverse.each do |i| %>
-            <li class="issue-<%= i %>"><a href="<%= issue_url i %>">Issue <strong><%= i %></strong></a></li>
-          <% end %>
-          <li class="all-issues"><a href="/issues">All Issues</a></li>
-          </ul>
-        </li>
-        <li <%= page_is_subpath_of("/periodical", 'class="is-current"') %>>
-          <a href="#">Periodical</a>
-        </li>
-        <li <%= page_is_subpath_of("/store", 'class="is-current"') %> >
-          <a href="#">Store</a>
-        </li>
-        <li <%= page_is_subpath_of("/blog", 'class="is-current"') %> >
-          <a href="/blog">Blog</a>
-        </li>
-        <li class="<%= page_is_subpath_of("/login") ? 'is-reversed is-current' : 'is-reversed' %>">
-          <% if user_signed_in? %>
-          <a href="/logout">Log out</a>
-          <% else %>
-          <a href="/login">Log in</a>
-          <% end %>
-        </li>
-      </ul>
-    </nav>
-
+    <h1 class="header-logo"><a href="<%= root_url %>"><!--The Manual--></a></h1>
+    <button class="header-button">Show/Hide Menu</button>
+    <nav class="header-nav"></nav>
   </div></header>
 
   <%= yield %>

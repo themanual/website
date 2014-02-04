@@ -4,14 +4,23 @@
 }
 
 .issue-header {
-  margin-top:     3em;
-  margin-bottom:  3em;
+  padding-top: 3em;
+  padding-bottom: 4em;
+}
+
+.issue_entry {
+  @include span-columns(6);
+  @include omega(2n);
+  
+  &:nth-child(n+3)  { padding-top: 5%; }
+                      padding-bottom: 5%;
 }
 
 .issue-header-name {
   padding-bottom: 0.15em;
   font-weight:  weight(extrabold);
-  font-size:    3.5em;
+  font-size:    3em;
+  text-align: center;
   line-height: 1;
 }
 

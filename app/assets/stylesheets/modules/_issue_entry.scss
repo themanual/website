@@ -1,11 +1,3 @@
-.issue_entry {
-  @include span-columns(6);
-  @include omega(2n);
-  @include clearfix;
-  
-  @include padding-v(5%);
-}
-
 .issue_entry-illo {
   float: left;
   width: 25%;
