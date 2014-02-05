@@ -12,22 +12,20 @@
 // Style
 
 .featured_piece-title {
+
   font-weight: weight(bold);
   font-size: em(24, $type-main-value);
   font-family: $type-sans;
   line-height: 1.2;
-  
-  &:first-child { padding-top: 0.75em; }
   margin-bottom: 0.25em;
 
-  a {
-    color: gray(20%);
-    &:hover {
-      border-bottom: solid 1px black;
-      color: black;
-    }
-  }
+  a       { color: gray(20%); }
+  a:hover { color: black; border-bottom: solid 1px black; }
+
+  &:first-child { padding-top: 0.75em; }
 }
+
+
 
 .featured_piece-synopsis {
   max-width: 20em;
@@ -52,10 +50,9 @@
 
 .featured_piece-author {
   @include smallcaps-heading-thin;
-
   padding-top: 1em;
   
-  &:first-child {
+  &:first-child {
     padding-top:    0.6em;
     margin-bottom:  1.2em;
   }
