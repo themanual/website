@@ -126,6 +126,8 @@ GEM
       slop (~> 3.4)
     puma (2.7.1)
       rack (>= 1.1, < 2.0)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -211,6 +213,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   puma
+  quiet_assets
   rack-cache
   rails (~> 4.0.2)
   rails_12factor

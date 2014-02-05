@@ -40,6 +40,7 @@ group :development do
   gem 'debugger'
   gem 'sqlite3'
   gem 'guard-livereload'
+  gem 'quiet_assets'
 end
 
 group :production, :stage do
