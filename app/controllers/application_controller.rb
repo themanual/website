@@ -6,7 +6,17 @@ class ApplicationController < ActionController::Base
 
   protected
   	def authenticate_admin_user!
-  		return true
+  		redirect_to new_user_session_path unless current_user.access_level > 0
   	end
+
+  	def user_signed_in?
+      !current_user.anon?
+    end
+
+    def current_user
+      @current_user ||= begin
+      	warden.authenticate(:scope => :user) || User.anon_user
+      end
+    end
 
 end

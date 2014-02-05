@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable
@@ -8,6 +9,13 @@ class User < ActiveRecord::Base
 
   after_create :add_email_address
 
+  def self.anon_user
+    AnonUser.instance
+  end
+
+  def anon?
+    false
+  end
 
   # ensure devise always 'remembers' users
   def remember_me
