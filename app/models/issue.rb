@@ -16,4 +16,13 @@ class Issue < ActiveRecord::Base
 	def purchasable?
 		self.shoppe_permalink.present? or self.shoppe_permalink_digital.present?
 	end
+
+	def shoppe_item item = :physical
+		case item
+		when :digital
+			self.shoppe_permalink_digital && Shoppe::Product.find_by_permalink!(self.shoppe_permalink_digital)
+		when :physical
+			self.shoppe_permalink && Shoppe::Product.find_by_permalink!(self.shoppe_permalink)
+		end
+	end
 end

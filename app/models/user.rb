@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     false
   end
 
+  def full_name
+    name
+  end
+
   # ensure devise always 'remembers' users
   def remember_me
     true

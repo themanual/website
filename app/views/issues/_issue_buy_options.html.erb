@@ -1,21 +1,25 @@
 <ul class="issuebuy-options">
-  <% if issue.shoppe_permalink_digital %>
+  <% if item = issue.shoppe_item(:digital) %>
   <li class="issuebuy-option">
     <div class="issuebuy-option-text">
       <h3 class="issuebuy-option-name">Digital</h3>
       <p  class="issuebuy-option-description">DRM-free Ebook</p>
     </div>
-    <p  class="issuebuy-option-button"><a href="#">$10</a></p>
+    <p  class="issuebuy-option-button">
+      <%= buy_link item %>
+    </p>
   </li>
   <% end %>
 
-  <% if issue.shoppe_permalink %>
+  <% if item = issue.shoppe_item %>
   <li class="issuebuy-option">
     <div class="issuebuy-option-text">
       <h3 class="issuebuy-option-name">Print + Digital</h3>
       <p  class="issuebuy-option-description">Hardback + DRM-Free Ebook</p>
     </div>
-    <p class="issuebuy-option-button"><a href="#">$25</a></p>
+    <p class="issuebuy-option-button">
+      <%= buy_link item %>
+    </p>
   </li>
   <% end %>
   <% if sub %>
