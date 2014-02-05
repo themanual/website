@@ -1,6 +1,7 @@
 TheManual::Application.routes.draw do
 
   ActiveAdmin.routes(self)
+  mount Shoppe::Engine => "/shoppe"
 
   devise_for :users,
   					 :skip => [:password, :sessions, :registrations],
@@ -16,14 +17,14 @@ TheManual::Application.routes.draw do
     # put 'account' => 'devise/registrations#update'
   end
 
-
-
-
   root to: redirect("/issues")
 
   get '/issues', to: 'issues#index', as: :issues
   get '/issues/:issue', to: 'issues#show', as: :issue
   get '/issues/:issue/:key/:type', to: 'issues#piece', as: :piece
+
+  post '/buy/:permalink', to: 'orders#update', as: :purchase
+  get '/checkout', to: 'orders#show', as: :basket
 
   get '/blog', to: redirect("http://blog.alwaysreadthemanual.com")
 

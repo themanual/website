@@ -60,7 +60,7 @@
           <figure class="issuebuy-figure">
             <%= image_tag "interface/devices-#{@issue.number}.png" %>
           </figure>
-		      <%= render 'issue_buy_options', sub: false %>
+		      <%= render 'issue_buy_options', sub: false, issue: @issue %>
         </div>
       </section>
 
