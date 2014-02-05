@@ -11,11 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203165406) do
+ActiveRecord::Schema.define(version: 20140204163455) do
+
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "authors", force: true do |t|
     t.string   "name",       limit: 128, default: "", null: false
-    t.string   "bio",        limit: 512, default: "", null: false
+    t.string   "bio",        limit: 256, default: "", null: false
     t.string   "slug",       limit: 128, default: "", null: false
     t.string   "twitter",    limit: 32,  default: "", null: false
     t.datetime "created_at"
