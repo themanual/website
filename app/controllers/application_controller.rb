@@ -38,4 +38,10 @@ class ApplicationController < ActionController::Base
         @current_order = Shoppe::Order.includes(:order_items => :ordered_item).find_by_id(session[:order_id])
       )
     end
+
+    def append_info_to_payload(payload)
+      super
+      payload[:ip] = request.remote_ip
+      payload[:request_id] = env['HTTP_X_REQUEST_ID']
+    end
 end

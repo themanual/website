@@ -89,6 +89,8 @@ TheManual::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # log *only* to STDOUT - prevent lograge duplicate lines
+  config.logger = Logger.new(STDOUT)
   config.lograge.enabled = true
 
   config.action_mailer.default_url_options = {
