@@ -1,4 +1,5 @@
 <ul class="issuebuy-options">
+  <% if issue.shoppe_permalink_digital %>
   <li class="issuebuy-option">
     <div class="issuebuy-option-text">
       <h3 class="issuebuy-option-name">Digital</h3>
@@ -6,6 +7,9 @@
     </div>
     <p  class="issuebuy-option-button"><a href="#">$10</a></p>
   </li>
+  <% end %>
+
+  <% if issue.shoppe_permalink %>
   <li class="issuebuy-option">
     <div class="issuebuy-option-text">
       <h3 class="issuebuy-option-name">Print + Digital</h3>
@@ -13,6 +17,7 @@
     </div>
     <p class="issuebuy-option-button"><a href="#">$25</a></p>
   </li>
+  <% end %>
   <% if sub %>
   <li class="issuebuy-option">
     <div class="issuebuy-option-text">

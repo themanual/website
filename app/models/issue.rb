@@ -12,4 +12,8 @@ class Issue < ActiveRecord::Base
 	def self.public_issues
 		Issue.where(number: [1,2,3])
 	end
+
+	def purchasable?
+		self.shoppe_permalink.present? or self.shoppe_permalink_digital.present?
+	end
 end
