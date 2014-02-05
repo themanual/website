@@ -84,9 +84,10 @@ TheManual::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  # log *only* to STDOUT - prevent lograge duplicate lines
-  config.logger = Logger.new(STDOUT)
   config.lograge.enabled = true
+  config.lograge.custom_options = lambda do |event|
+    { request_id: ENV['HTTP_X_REQUEST_ID'] }
+  end
 
   ActionMailer::Base.smtp_settings = {
     :port =>           '587',

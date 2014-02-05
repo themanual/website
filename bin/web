@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PORT=${PORT:-3000}
+RACK_ENV=${RACK_ENV:-development}
+
+if [ $RACK_ENV = "development" ]
+then
+	exec rails server webrick -p $PORT
+else
+	exec bundle exec puma -C config/puma.rb
+fi
