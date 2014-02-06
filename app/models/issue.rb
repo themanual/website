@@ -5,6 +5,8 @@ class Issue < ActiveRecord::Base
 
 	belongs_to :volume
 
+	acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
+
 	# TODO use publish_date
 	scope :ordered, -> { order('created_at DESC') }
 

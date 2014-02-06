@@ -24,6 +24,7 @@ gem 'kramdown'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem "second_level_cache", "~> 2.0.0"
 gem 'dalli'
 gem 'kgio'
 

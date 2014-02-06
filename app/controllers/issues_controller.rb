@@ -13,7 +13,9 @@ class IssuesController < ApplicationController
 
 	def piece
 
-		@piece = Piece.joins(:author).includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, 'authors.slug' => params[:key]).first
+		author = Author.fetch_by_uniq_key!(params[:key], :slug)
+
+		@piece = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: author.id).first
 
 		redirect_to issues_url unless @piece
 	end
