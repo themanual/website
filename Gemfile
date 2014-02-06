@@ -33,6 +33,7 @@ gem 'puma'
 gem 'devise'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'codemirror-rails'
 
 gem 'shoppe', github: 'marcroberts/core', branch: 'patch-1', require: 'shoppe'
 # awaiting acceptance of my pull request - MR

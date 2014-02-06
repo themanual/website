@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140205161308) do
+ActiveRecord::Schema.define(version: 20140206171405) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 20140205161308) do
   add_index "email_addresses", ["email"], name: "index_email_addresses_on_email", unique: true
 
   create_table "issues", force: true do |t|
-    t.integer  "number",                              default: 1, null: false
+    t.integer  "number",            default: 1, null: false
     t.integer  "volume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "shoppe_permalink_digital", limit: 64
-    t.string   "shoppe_permalink",         limit: 64
+    t.integer  "shoppe_digital_id"
+    t.integer  "shoppe_id"
   end
 
   create_table "nifty_attachments", force: true do |t|

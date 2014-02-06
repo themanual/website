@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      issue:
+        shoppe_id: Print Product
+        shoppe: Print Product
+        shoppe_digital_id: Digital Product
+        shoppe_digital: Digital Product
