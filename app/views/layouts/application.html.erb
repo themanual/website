@@ -12,7 +12,7 @@
   <%= csrf_meta_tags %>
 
   <%# Title and Meta %>
-  <title><%= yield(:page_title) + ' · ' if content_for?(:page_title) %>The Manual</title>
+  <title><%= @page_title.join(' · ') + ' · ' if @page_title.any? %>The Manual</title>
   <%= yield(:meta) %>
 
   <%# JS %>

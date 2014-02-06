@@ -1,4 +1,4 @@
-<% content_for(:page_title){ "Issue #{@issue.number}" } %>
+<% push_page_title "Issue #{@issue.number}"  %>
 
 <% cache @issue do %>
 

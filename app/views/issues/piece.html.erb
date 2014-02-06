@@ -1,4 +1,4 @@
-<% content_for(:page_title){ "#{@piece.title}, by #{@piece.author.name} · Issue #{@piece.issue_number}" } %>
+<% push_page_title ["#{@piece.title}, by #{@piece.author.name}", "Issue #{@piece.issue_number}"] %>
 
 <main class="issue-<%= @piece.issue_number %>" role="main">
   <% cache @piece do %>
