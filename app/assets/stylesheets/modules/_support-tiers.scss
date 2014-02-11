@@ -1,0 +1,136 @@
+.support-tiers {
+  > * { @extend .support-tier; }
+}
+
+.support-tier {
+  overflow: hidden;
+  padding: 1em 1em;
+  border-top: divider();
+  &:last-child {  border-bottom: divider(); }
+
+  .js & {
+    cursor: pointer;
+    @include transition(background-color 0.25s ease-in-out);
+  }
+
+  .js &:hover {
+    background-color: gray(98%);
+    background-color: rgba($color-link-blue-nicer, 0.025);
+  }
+}
+
+.support-tier-price,
+.support-tier-name {
+  font-family: $type-sans;
+}
+
+.support-tier-price {
+  @include rem(width, 3rem);
+  float: right;
+}
+
+.support-tier-illustration {
+  float: left;
+  margin-right: 1.5em;
+  width:  4em;
+  height: 4em;
+  background-color: $color-divider;
+}
+
+.support-tier-name,
+.support-tier-rewards {
+  @include rem(margin-right, 4rem);
+  @include rem(margin-left,  6rem);
+}
+
+.support-tier-price {
+  
+  > * { 
+    display: block;
+  }
+
+  button {
+    @include appearance(none);
+    background: white;
+    font-family: $type-sans;
+    width: 100%;
+    @include rem(line-height, 1rem);
+    padding: 0.5em  0.25em;
+
+    border: 2px solid $color-link-blue-nicer;
+    border-radius: 5px;
+    color: $color-link-blue-nicer;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-weight: weight(medium);
+    font-size: 0.9em;
+
+    @include transition(all 0.25s ease-in-out);
+
+    .currency {
+      opacity: 0.5;
+      font-weight: weight(light);
+    }
+  }
+  
+  .support-tier:hover & button,
+  button:hover {
+    background-color: $color-link-blue-nicer;
+    color: white;
+    // .currency { color: rgba(white, 0.5); }
+  }
+
+  button.is-text {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75em;
+  }
+
+  small {
+    @include rem(font-size, 13px);
+    margin-top: 0.7em;
+    color: gray(70%);
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+}
+
+.support-tier-name,
+.support-tier-rewards {
+  @include rem(margin-right, 4.5rem);
+}
+
+.support-tier-name {
+  font-weight: weight(bold);
+  font-size: 0.9em;
+  margin-top:     0.5em;
+  margin-bottom:  0.5em;
+}
+
+
+
+.support-tier-rewards {
+  @include rem(font-size, 19px);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  > * { margin-top: 0.3em; }
+
+          color: gray(60%);
+  .new  { color: gray(25%); }
+  
+  // :nth-child(n+2) is the same as :not(:first-child)
+  > *:before {
+    display: inline-block;
+    width: 1.2em;
+    color: gray(70%);
+    content: "•";
+    font-family: $type-sans;
+    margin-left: -1.2em;
+  }
+
+  > .new:before {
+    color: $color-link-blue-nicer;
+  }
+}
+

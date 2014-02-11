@@ -1,0 +1,42 @@
+.page-header {
+  @include container-spacing(margin-top margin-bottom, 2);
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.page-header {
+  > h1 {
+    @include rem(font-size, 46px);
+    font-weight: weight(bold);
+    font-family: $type-sans;
+    
+    display: inline-block;
+    border-bottom: solid 4px $color-link-blue-nicer;
+    padding-bottom: 0.2em;
+    
+    margin-bottom: 0.75em;
+  }
+
+  > p {
+    @include rem(font-size, 22px);
+    color: gray(30%);
+
+    $line-height: 1.5;
+    line-height:  $line-height;
+    & + p { margin-top: $line-height * 0.5em; }
+
+    strong {
+      font-weight: weight(bold);
+    }
+  }
+}
+
+.page-header.is-centered {
+  > * {
+    @include centered
+  }
+  > h1 {
+    // text-align: center;
+  }
+}

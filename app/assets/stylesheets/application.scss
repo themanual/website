@@ -15,9 +15,9 @@
 @import "meta/neat-extensions";
 
 // Base
+@import "layout";
 @import "images";
 @import "base";
-@import "layout";
 
 // Template
 @import "template/header";
@@ -33,6 +33,8 @@
 @import "pages/piece-style";
 
 // Modules
+@import "modules/page";
+@import "modules/support-tiers";
 @import "modules/box";
 @import "modules/issuetoc";
 @import "modules/issuebuy";
