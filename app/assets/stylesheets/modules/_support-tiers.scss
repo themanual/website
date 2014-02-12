@@ -31,7 +31,6 @@
 
 .support-tier-illustration {
   float: left;
-  margin-right: 1.5em;
   width:  4em;
   height: 4em;
   background-color: $color-divider;
@@ -40,7 +39,7 @@
 .support-tier-name,
 .support-tier-rewards {
   @include rem(margin-right, 4rem);
-  @include rem(margin-left,  6rem);
+  @include rem(margin-left,  6.5rem);
 }
 
 .support-tier-price {
@@ -105,7 +104,7 @@
   font-weight: weight(bold);
   font-size: 0.9em;
   margin-top:     0.5em;
-  margin-bottom:  0.5em;
+  margin-bottom:  0.75em;
 }
 
 
@@ -116,21 +115,37 @@
   margin-bottom: 0.5rem;
   > * { margin-top: 0.3em; }
 
-          color: gray(60%);
-  .new  { color: gray(25%); }
+          color: gray(50%);
+  .new  { color: gray(20%); }
   
   // :nth-child(n+2) is the same as :not(:first-child)
-  > *:before {
-    display: inline-block;
-    width: 1.2em;
-    color: gray(70%);
-    content: "•";
-    font-family: $type-sans;
-    margin-left: -1.2em;
-  }
+  // > *:before {
+  //   display: inline-block;
+  //   width: 1.2em;
+  //   color: gray(70%);
+  //   content: "•";
+  //   font-family: $type-sans;
+  //   margin-left: -1.2em;
+  // }
+
+  // > .new:before {
+  //   color: $color-link-blue-nicer;
+  // }
 
   > .new:before {
-    color: $color-link-blue-nicer;
+    content: "New";
+    color: white;
+    background: rgba($color-link-blue-nicer, 0.6);
+    border-radius: 2px;
+    font-family: $type-sans;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: 20%;
+    width: 2.5em;
+    text-align: center;
+    margin-left: -3.5em;
+    margin-right: 1em;
   }
 }
 
