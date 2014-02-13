@@ -17,6 +17,8 @@ $logo-size: 45px;
 .header { 
   font-family: $type-sans;
   @include padding-v(18px);
+  background: #fff;
+  border-bottom: divider();
 }
 
 .header-logo > a {

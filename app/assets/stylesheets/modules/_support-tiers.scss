@@ -1,12 +1,15 @@
 .support-tiers {
-  > * { @extend .support-tier; }
+  border: divider();
+  border-radius: 6px;
 }
 
-.support-tier {
+%support-tier {
   overflow: hidden;
-  padding: 1em 1em;
-  border-top: divider();
-  &:last-child {  border-bottom: divider(); }
+  padding: 1.5rem 1.5rem;
+  & + & { 
+    border-top: divider();
+  }
+  // &:last-child {  border-bottom: divider(); }
 
   .js & {
     cursor: pointer;
@@ -18,6 +21,10 @@
     background-color: rgba($color-link-blue-nicer, 0.025);
   }
 }
+
+.support-tiers > *,
+.support-tier { @extend %support-tier; }
+
 
 .support-tier-price,
 .support-tier-name {
@@ -34,12 +41,17 @@
   width:  4em;
   height: 4em;
   background-color: $color-divider;
+  display: none;
 }
 
-.support-tier-name,
-.support-tier-rewards {
+.support-tier-content {
   @include rem(margin-right, 4rem);
-  @include rem(margin-left,  6.5rem);
+}
+
+.support-tier-name {
+  font-weight: weight(bold);
+  margin-bottom: 1.25em;
+  margin-top: .5em;
 }
 
 .support-tier-price {
@@ -54,11 +66,13 @@
     font-family: $type-sans;
     width: 100%;
     @include rem(line-height, 1rem);
+
     padding: 0.5em  0.25em;
 
     border: 2px solid $color-link-blue-nicer;
     border-radius: 5px;
     color: $color-link-blue-nicer;
+
     text-align: center;
     letter-spacing: 0.05em;
     font-weight: weight(medium);
@@ -72,7 +86,7 @@
     }
   }
   
-  .support-tier:hover & button,
+  %support-tier:hover & button,
   button:hover {
     background-color: $color-link-blue-nicer;
     color: white;
@@ -95,57 +109,33 @@
   }
 }
 
-.support-tier-name,
-.support-tier-rewards {
-  @include rem(margin-right, 4.5rem);
-}
-
-.support-tier-name {
-  font-weight: weight(bold);
-  font-size: 0.9em;
-  margin-top:     0.5em;
-  margin-bottom:  0.75em;
-}
-
-
 
 .support-tier-rewards {
   @include rem(font-size, 19px);
   line-height: 1.5;
   margin-bottom: 0.5rem;
-  > * { margin-top: 0.3em; }
-
-          color: gray(50%);
-  .new  { color: gray(20%); }
   
-  // :nth-child(n+2) is the same as :not(:first-child)
-  // > *:before {
-  //   display: inline-block;
-  //   width: 1.2em;
-  //   color: gray(70%);
-  //   content: "•";
-  //   font-family: $type-sans;
-  //   margin-left: -1.2em;
-  // }
+  > * { margin-top: 0.5em; }
 
-  // > .new:before {
-  //   color: $color-link-blue-nicer;
-  // }
+          color: gray(60%);
+  .new  { color: gray(30%); }
+
+  > *:before {
+    font-family: $type-sans;
+    display: inline-block;
+    width: 1rem;
+    text-align: center;
+    margin-right: 0.3em;
+  }
 
   > .new:before {
-    content: "New";
-    color: white;
-    background: rgba($color-link-blue-nicer, 0.6);
-    border-radius: 2px;
-    font-family: $type-sans;
-    font-size: 12px;
-    text-transform: uppercase;
-    display: inline-block;
-    vertical-align: 20%;
-    width: 2.5em;
-    text-align: center;
-    margin-left: -3.5em;
-    margin-right: 1em;
+    content: "★";
+    font-size: 0.85em;
+    color: $color-link-blue-nicer;
+  }
+
+  > :not(.new):before {
+    content: "+";
+    font-weight: weight(regular);
   }
 }
-

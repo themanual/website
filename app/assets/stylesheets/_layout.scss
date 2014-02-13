@@ -41,15 +41,12 @@
 .g-half     { @include grid-half;   }
 .g-third    { @include grid-third;  }
 
-.page {
+main.is-padded {
   @include container-spacing(padding-left padding-right);
   @include container-spacing(padding-top padding-bottom, 2);
-  
-  > div { 
-    @include rem(max-width, 34rem);
-  }
-  
-  &.is-centered > div {
-    @include centered;
-  }
+}
+
+.c-single {
+  @include rem(max-width, 34rem);
+  &.is-centered { @include centered; }
 }

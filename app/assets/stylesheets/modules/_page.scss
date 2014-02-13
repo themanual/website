@@ -11,11 +11,13 @@
     font-weight: weight(bold);
     font-family: $type-sans;
     
-    display: inline-block;
+    display: inline;
     border-bottom: solid 4px $color-link-blue-nicer;
-    padding-bottom: 0.2em;
-    
-    margin-bottom: 0.75em;
+    line-height: 1.4;
+  }
+
+  > h1 + p {
+    margin-top: 1rem;
   }
 
   > p {
