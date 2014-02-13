@@ -10,8 +10,64 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "chosen";
+@import "codemirror";
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+
+/*
+  MDN-LIKE Theme - Mozilla
+  Ported to CodeMirror by Peter Kroon <plakroon@gmail.com>
+  Report bugs/issues here: https://github.com/marijnh/CodeMirror/issues
+  GitHub: @peterkroon
+
+  The mdn-like theme is inspired on the displayed code examples at: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+
+*/
+
+.cm-s-themanual.CodeMirror {
+  color: #555;
+  background-color: #fff;
+	width: 100%;
+	height: auto;
+	margin-top: 2em;
+	box-sizing: border-box;
+	font-size: 22px;
+	padding: 10px;}
+.cm-s-themanual .CodeMirror-selected { background: #cfc !important; }
+
+.cm-s-themanual .CodeMirror-gutters { background: #f8f8f8; border-left: 6px solid rgba(0,83,159,0.65); color: #333; }
+.cm-s-themanual .CodeMirror-linenumber { color: #aaa; margin-left: 3px; }
+div.cm-s-themanual .CodeMirror-cursor { border-left: 2px solid #222; }
+
+.cm-s-themanual .cm-keyword {  color: #6262FF; }
+.cm-s-themanual .cm-atom { color: #D80; }
+.cm-s-themanual .cm-number { color:  #ca7841; }
+.cm-s-themanual .cm-def { color: #8DA6CE; }
+.cm-s-themanual span.cm-tag { color: #690; }
+.cm-s-themanual span.cm-def { color: #07a; }
+
+.cm-s-themanual .cm-formatting-list { color: #aaa;}
+.cm-s-themanual .cm-variable { color: #07a; }
+.cm-s-themanual .cm-property { color: #905; }
+.cm-s-themanual .cm-qualifier { color: #690; }
+
+.cm-s-themanual .cm-operator { color: #cda869; }
+.cm-s-themanual .cm-comment { color:#777; font-weight:normal; font-family: monospace; }
+.cm-s-themanual .cm-string { color:#07a; }
+.cm-s-themanual .cm-string-2 { color:#bd6b18; } /*?*/
+.cm-s-themanual .cm-meta { color: #000; } /*?*/
+.cm-s-themanual .cm-builtin { color: #9B7536; } /*?*/
+.cm-s-themanual .cm-tag { color: #997643; }
+.cm-s-themanual .cm-attribute { color: #d6bb6d; } /*?*/
+.cm-s-themanual .cm-formatting-header { color: #aaa; }
+.cm-s-themanual .cm-hr { color: #AEAEAE; }
+.cm-s-themanual .cm-link {   text-decoration:none; }
+.cm-s-themanual .cm-formatting-link { color: #aaa;}
+.cm-s-themanual .cm-error { border-bottom: 1px solid red; }
+
+div.cm-s-themanual span.CodeMirror-matchingbracket {outline:1px solid grey; color: inherit;}
