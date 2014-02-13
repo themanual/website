@@ -21,7 +21,10 @@ TheManual::Application.routes.draw do
 
   root to: redirect("/issues")
 
-  get '/support',                   to: 'home#support',   as: :support
+  resource :support, controller: :support, only: [:show, :create] do
+    get :thanks
+  end
+
   get '/issues',                    to: 'issues#index',   as: :issues
   get '/issues/:issue',             to: 'issues#show',    as: :issue
   get '/issues/:issue/:key/:type',  to: 'issues#piece',   as: :piece
