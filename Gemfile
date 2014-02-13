@@ -53,6 +53,7 @@ group :development do
   gem 'sqlite3'
   gem 'guard-livereload'
   gem 'quiet_assets'
+  gem 'dotenv-rails'
 end
 
 group :production, :stage do
