@@ -9,10 +9,18 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//  
+//  jQuery
 //= require jquery/jquery
 //= require jquery-ujs/src/rails
+//
+//  Other Libs
+//= require trmix/dist/trmix
+//
+//  jQuery Plugins
 //= require fitvids/jquery.fitvids
 //= require nouislider/jquery.nouislider
-//= require trmix/dist/trmix
+//= require jquery.payment/lib/jquery.payment
+//
+//  Custom code
 //= require main
