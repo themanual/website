@@ -1,3 +1,4 @@
+<% payment_assets %>
 <main class="is-padded"><div class="c-single is-centered">
 
   <header class="page-header is-centered">
@@ -49,11 +50,3 @@
   </form>
 
 </div></main>
-
-
-<% content_for :footer do %>
-<script src="https://js.stripe.com/v2/"></script>
-<script>
-  Stripe.setPublishableKey('<%= STRIPE[:publishable_key] %>');
-</script>
-<% end %>

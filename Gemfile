@@ -42,6 +42,7 @@ gem 'shoppe', github: 'marcroberts/core', branch: 'patch-1', require: 'shoppe'
 # gem 'shoppe', '~> 0.0.0'
 
 gem 'shoppe-stripe', '~> 1.2.1', :require => 'shoppe/stripe'
+gem 'stripe'
 
 # to be built by Marc
 # gem 'shoppe-shipwire'
