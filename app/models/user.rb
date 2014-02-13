@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :email_addresses
   has_many :session_tokens, through: :email_addresses
+  has_many :cards
 
   after_create :add_email_address
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206171405) do
+ActiveRecord::Schema.define(version: 20140213173416) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -30,12 +30,24 @@ ActiveRecord::Schema.define(version: 20140206171405) do
 
   create_table "authors", force: true do |t|
     t.string   "name",       limit: 128, default: "", null: false
-    t.string   "bio",        limit: 256, default: "", null: false
+    t.string   "bio",        limit: 512, default: "", null: false
     t.string   "slug",       limit: 128, default: "", null: false
     t.string   "twitter",    limit: 32,  default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "cards", force: true do |t|
+    t.integer  "user_id"
+    t.string   "customer_token", limit: 24, null: false
+    t.string   "last4",          limit: 4,  null: false
+    t.integer  "exp_month",                 null: false
+    t.integer  "exp_year",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cards", ["user_id"], name: "index_cards_on_user_id"
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
