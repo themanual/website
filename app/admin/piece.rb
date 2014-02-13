@@ -19,4 +19,20 @@ ActiveAdmin.register Piece do
   	default_actions
   end
 
+  form do |f|
+
+  	f.inputs "Meta" do
+  		f.input :issue
+  		f.input :author, input_html: { class: 'chosen-select' }
+  		f.input :title
+  		f.input :synopsis
+  		f.input :illustrator
+  		f.input :position
+
+  		f.input :body, input_html: { class: 'editor-md' }
+
+  		f.actions
+  	end
+  end
+
 end
