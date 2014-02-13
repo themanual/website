@@ -15,4 +15,4 @@
 //= require fitvids/jquery.fitvids
 //= require nouislider/jquery.nouislider
 //= require trmix/dist/trmix
-//= require main
+//= require_tree ./modules
