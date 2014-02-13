@@ -1,7 +1,7 @@
 $(function() {
 
 	var handler = function(status, response) {
-		if status
+
 	};
 
 	$('form.stripe-form').submit(function(event) {
