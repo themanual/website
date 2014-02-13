@@ -1,10 +1,10 @@
 {
   "name": "The Manual",
   "dependencies": {
-    "jquery-ujs": "*",
-    "garnish":    "*",
-    "fitvids":    "*",
-    "trmix":      "*",
-    "nouislider": "*"
+    "jquery-ujs":     "*",    // For Rails
+    "garnish":        "*",    // Helpers and utilites for Sass
+    "fitvids":        "*",    // Responsive video embeds for popular sites
+    "trmix":          "*",    // Browser text rendering detection
+    "nouislider":     "*"     // Numeric sliders
   }
 }
