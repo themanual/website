@@ -5,6 +5,7 @@
     "garnish":        "*",    // Helpers and utilites for Sass
     "fitvids":        "*",    // Responsive video embeds for popular sites
     "trmix":          "*",    // Browser text rendering detection
-    "nouislider":     "*"     // Numeric sliders
+    "nouislider":     "*",    // Numeric sliders
+    "jquery.payment": "*"     // Payment details validation and autocompletion
   }
 }

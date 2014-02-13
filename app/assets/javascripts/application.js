@@ -20,6 +20,7 @@
 //  jQuery Plugins
 //= require fitvids/jquery.fitvids
 //= require nouislider/jquery.nouislider
+//= require jquery.payment/lib/jquery.payment
 //
 //  Custom code
 //= require main
