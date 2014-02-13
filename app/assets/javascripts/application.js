@@ -24,4 +24,3 @@
 //
 //  Custom code
 //= require_tree ./modules/global
-//= require main
