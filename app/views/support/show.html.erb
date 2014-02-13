@@ -11,30 +11,30 @@
     <div class="support-slider"></div>
   </div>
 
-  <form action="<%= support_path %>" method="post" class="stripe-form">
+  <form action="<%= support_path %>" method="post" class="stripe-form form-payment" autocomplete="on">
 
 		<input type="hidden" name="stripe_token" value="" />
-
-	 	<span class="payment-errors"></span>
+    <span class="payment-errors"></span>
 
     <dl>
       <dt><label for="support-panel-form-price">$</label></dt>
       <dd><input type="number" id="support-panel-form-price" /></dd>
     </dl>
 
-	  <div class="form-row">
-	    <label>
-	      <span>Card Number</span>
-	      <input type="text" size="20" data-stripe="number" value="4242424242424242"/>
-	    </label>
-	  </div>
+    <dl>
+      <dt><label for="">Card Number</label></dt>
+      <dd><input type="text" size="20" class="cc-number" data-stripe="number" pattern="\d*" value="4242 4242 4242 4242"/></dd>
+    </dl>
 
-	  <div class="form-row">
-	    <label>
-	      <span>CVC</span>
-	      <input type="text" size="4" data-stripe="cvc" value="123"/>
-	    </label>
-	  </div>
+    <dl>
+      <dt><label for="">CVC</label></dt>
+      <dd><input type="text" size="4" class="cc-csc" autocomplete="off" data-stripe="cvc" value="123"/></dd>
+    </dl>
+
+    <dl>
+      <dt>Expiration</dt>
+      <dd><input type="text" size="9" class="cc-exp" data-stripe="exp" placeholder="MM / YYYY" value="12 / 2020" /></dd>
+    </dl>
 
 	  <div class="form-row">
 	    <label>

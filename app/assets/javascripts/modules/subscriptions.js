@@ -1,24 +1,41 @@
 $(function() {
 
-	var $form;
 
-	var handler = function(status, response) {
-		if (response.error) {
-			// TODO show something to the user, form is not submitted
-		} else {
-			$form.find('[name=stripe_token]').val(response.id);
-			$form.get(0).submit();
-		}
-	};
+  // Stripe Forms
+  $('.stripe-form').each(function() {
 
-	$('form.stripe-form').submit(function(event) {
-		event.preventDefault();
     $form = $(this);
 
-    // Disable the submit button to prevent repeated clicks
-    $form.find('button').prop('disabled', true);
+    $('input.cc-number').payment('formatCardNumber');
+    $('input.cc-exp').payment('formatCardExpiry');
+    $('input.cc-csc').payment('formatCardCVC');
 
-    Stripe.card.createToken($form, handler);
+    // Response handler
+    var stripeHandler = function(status, response) {
+      if (response.error) {
+        // TODO show something to the user, form is not submitted
+      } else {
+        $form.find('[name=stripe_token]').val(response.id);
+        $form.get(0).submit();
+      }
+    };
+
+    $form.submit(function(event) {
+      
+      event.preventDefault();
+      event.stopPropagation();
+
+      $this = $(this);
+
+      // Disable the submit button to prevent repeated clicks
+      $this.find('button').prop('disabled', true);
+
+      // Submit
+      // TODO split the single expiration field into the two parts
+      Stripe.card.createToken($this, stripeHandler);
+
+      return false;
+    });
 
   });
 
