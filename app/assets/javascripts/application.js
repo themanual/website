@@ -23,4 +23,5 @@
 //= require jquery.payment/lib/jquery.payment
 //
 //  Custom code
+//= require_tree ./modules
 //= require main
