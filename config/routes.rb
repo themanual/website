@@ -13,8 +13,10 @@ TheManual::Application.routes.draw do
     get 'login'         => 'sessions#new',      :as => :new_user_session
     get 'logout'        => 'sessions#destroy',  :as => :destroy_user_session
     post 'login'        => 'sessions#create',   :as => :user_session
-    # get 'account' => 'devise/registrations#edit', :as => :edit_user_registration
-    # put 'account' => 'devise/registrations#update'
+  end
+
+  resource :account, controller: 'user/account', only: [:show, :update] do
+    resources :emails, controller: 'user/emails', only: [:create, :destroy, :update]
   end
 
   root to: redirect("/issues")
