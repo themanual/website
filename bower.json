@@ -4,6 +4,7 @@
     "jquery-ujs": "*",
     "garnish":    "*",
     "fitvids":    "*",
-    "trmix":      "*"
+    "trmix":      "*",
+    "nouislider": "*"
   }
 }
