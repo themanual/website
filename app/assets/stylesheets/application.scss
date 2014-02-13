@@ -34,6 +34,7 @@
 
 // Modules
 @import "modules/page";
+@import "modules/forms";
 @import "modules/support-tiers";
 @import "modules/box";
 @import "modules/issuetoc";
@@ -44,3 +45,6 @@
 @import "modules/keyword-list";
 @import "modules/post-list";
 @import "modules/piece-pagination";
+
+// Plugins code
+@import "nouislider/jquery.nouislider.css"
