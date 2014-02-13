@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem "bower-rails", "~> 0.6.1"
 
 gem 'cssminify' # replaces 'yui-compressor'
+gem 'sprockets-image_compressor'
 
 gem 'kramdown'
 
