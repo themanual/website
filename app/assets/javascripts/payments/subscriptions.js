@@ -6,10 +6,6 @@ $(function() {
 
     $form = $(this);
 
-    $('input.cc-number').payment('formatCardNumber');
-    $('input.cc-exp').payment('formatCardExpiry');
-    $('input.cc-csc').payment('formatCardCVC');
-
     // Response handler
     var stripeHandler = function(status, response) {
       if (response.error) {
