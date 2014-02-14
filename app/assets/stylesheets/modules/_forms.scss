@@ -71,24 +71,30 @@ input, select {
 }
 
 .payment-form {
-  width: 75%;
+  margin-top: 2rem;
+}
+
+.form.is-boxed {
   padding: 1rem;
   border: divider();
   border-radius: 6px;
-  margin-top: 2rem;
+
+  .form-actions {
+    padding: 1rem;
+    border-top: divider();
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: -1rem;
+  }
 }
 
 .form-actions {
   margin-top: 2rem;
-  border-top: divider();
-  margin: 1.5rem -1rem -1rem;
-  padding: 1rem;
   @include clearfix;
 }
 
 .form-actions .button {
-  float: left;
-  margin-right: 1rem;
+
 }
 
 .form-clarification {
@@ -99,6 +105,7 @@ input, select {
   color: gray(50%);
   overflow: hidden;
   margin-top: 0.25em;
+  display: none;
 }
 
 .button {
