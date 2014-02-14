@@ -1,6 +1,6 @@
 class EmailAddress < ActiveRecord::Base
 	belongs_to :user
-	has_many :session_tokens
+	has_many :session_tokens, :dependent => :delete_all
 
 	after_commit :sync_primary
 

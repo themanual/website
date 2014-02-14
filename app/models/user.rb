@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable
 
-  has_many :email_addresses
+  has_many :email_addresses, :dependent => :delete_all
   has_many :session_tokens, through: :email_addresses
-  has_many :cards
+  has_many :cards, :dependent => :delete_all
 
   after_create :add_email_address
 
@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
 
   def full_name
     name
+  end
+
+  def name
+    "#{first_name} #{last_name}"
   end
 
   # ensure devise always 'remembers' users
