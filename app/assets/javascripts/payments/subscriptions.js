@@ -1,10 +1,9 @@
 $(function() {
 
-
   // Stripe Forms
   $('.stripe-form').each(function() {
 
-    $form = $(this);
+    var $form = $(this);
 
     // Response handler
     var stripeHandler = function(status, response) {
@@ -18,17 +17,22 @@ $(function() {
 
     $form.submit(function(event) {
       
+      var $this           = $(this),
+          $submit_button  = $('*[type=submit]');
       event.preventDefault();
       event.stopPropagation();
 
-      $this = $(this);
-
       // Disable the submit button to prevent repeated clicks
-      $this.find('button').prop('disabled', true);
+      $submit_button.prop('disabled', true);
 
-      // Submit
-      // TODO split the single expiration field into the two parts
-      Stripe.card.createToken($this, stripeHandler);
+      // If passes client-side validation, submit.
+      // If it doesn’t, re-enable the form button
+      if ($this.validateCreditCard()) {
+        Stripe.card.createToken($this.parseCreditCard(), stripeHandler);
+      }
+      else {
+        $submit_button.prop('disabled', false);
+      }
 
       return false;
     });
