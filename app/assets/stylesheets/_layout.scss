@@ -47,6 +47,6 @@ main.is-padded {
 }
 
 .c-single {
-  @include rem(max-width, 34rem);
+  @include rem(max-width, 36rem);
   &.is-centered { @include centered; }
 }
