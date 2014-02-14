@@ -11,47 +11,48 @@
     <div class="support-slider"></div>
   </div>
 
-  <%= form_tag support_path, method: :post, class: "stripe-form form-payment", autocomplete: :on, novalidate: :novalidate do %>
-
+  <%= form_tag support_path, method: :post, class: "stripe-form form payment-form", autocomplete: :on, novalidate: :novalidate do %>
+    <!--
 		<input type="hidden" name="stripe_token" value="" />
     <span class="payment-errors"></span>
 
     <dl>
       <dt><label for="support-panel-form-price">$</label></dt>
       <dd><input type="number" id="support-panel-form-price" /></dd>
+    </dl>-->
+
+    <dl class="field has-multiple">
+      <dt><label for="">Name</label></dt>
+      <dd class="is-half"><input required type="text" name="first_name" class="is-long" placeholder="First" id="" /></dd>
+      <dd class="is-half"><input required type="text" name="last_name"  class="is-long" placeholder="Last" id="" /></dd>
     </dl>
 
-    <fieldset>
-      <dl>
-        <dt><label for="">Name</label></dt>
-        <dd><input required type="text" name="first_name" placeholder="First" id="" /></dd>
-        <dd><input required type="text" name="last_name" placeholder="Last" id="" /></dd>
-      </dl>
+    <dl class="field ">
+      <dt><label for="supporter-signup-email">Email</label></dt>
+      <dd><input required type="email" class="is-long" name="email" placeholder="yourname@domain.com" id="supporter-signup-email" /></dd>
+    </dl>
+    
+    <dl class="field">
+      <dt><label for="">Card Number</label></dt>
+      <dd><input required type="text" size="20" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
+    </dl>
 
-      <dl>
-        <dt><label for="">Email</label></dt>
-        <dd><input required type="email" name="email" placeholder="" id="" /></dd>
-      </dl>
-    </fieldset>
-
-    <fieldset>
-      <dl>
-        <dt><label for="">Card Number</label></dt>
-        <dd><input required type="text" size="20" class="cc-number"  pattern="\d*" value=""/></dd>
-      </dl>
-
-      <dl>
+    <div class="field is-group">
+      <dl class="field is-half">
         <dt><label for="">CVC</label></dt>
-        <dd><input required type="text" class="cc-csc" autocomplete="off" pattern="\d*" value=""/></dd>
+        <dd><input required type="text" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
       </dl>
 
-      <dl>
-        <dt>Expiration Date</dt>
-        <dd><input required type="text" class="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+      <dl class="field is-half">
+        <dt><label for="supporter-signup">Expiration Date</label></dt>
+        <dd><input id="supporter-signup" required type="text" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
       </dl>
-    </fieldset>
-
-		<button type="submit">Subscribe</button>
+    </div>
+    
+    <div class="form-actions">
+		  <button type="submit" class="button">Support The Manual</button>
+      <small class="form-clarification" for="">You won’t be charged right away. We’ll just authorize your card over a secure connection.</small>
+    </div>
 
   <% end %>
 
