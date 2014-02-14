@@ -11,9 +11,9 @@
     <div class="support-slider"></div>
   </div>
 
-  <%= form_tag support_path, method: :post, class: "stripe-form form is-boxed payment-form", autocomplete: :on, novalidate: :novalidate do %>
-    <!--
+  <%= form_for @user, url: support_path, html: {method: :post, class: "stripe-form form is-boxed payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
 		<input type="hidden" name="stripe_token" value="" />
+    <!--
     <span class="payment-errors"></span>
 
     <dl>
@@ -23,15 +23,15 @@
 
     <dl class="field has-multiple">
       <dt><label for="">Name</label></dt>
-      <dd class="is-half"><input required type="text" name="first_name" class="is-long" placeholder="First" id="" /></dd>
-      <dd class="is-half"><input required type="text" name="last_name"  class="is-long" placeholder="Last" id="" /></dd>
+      <dd class="is-half"><%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %></dd>
+      <dd class="is-half"><%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %></dd>
     </dl>
 
     <dl class="field ">
       <dt><label for="supporter-signup-email">Email</label></dt>
-      <dd><input required type="email" class="is-long" name="email" placeholder="yourname@domain.com" id="supporter-signup-email" /></dd>
+      <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true, id: 'supporter-signup-email' %></dd>
     </dl>
-    
+
     <dl class="field">
       <dt><label for="">Card Number</label></dt>
       <dd><input required type="text" size="20" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
@@ -48,7 +48,7 @@
         <dd><input id="supporter-signup" required type="text" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
       </dl>
     </div>
-    
+
     <div class="form-actions">
 		  <button type="submit" class="button">Support The Manual</button>
       <small class="form-clarification" for="">You won’t be charged right away. We’ll just authorize your card over a secure connection.</small>
