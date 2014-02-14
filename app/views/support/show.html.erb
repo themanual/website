@@ -11,7 +11,7 @@
     <div class="support-slider"></div>
   </div>
 
-  <%= form_tag support_path, method: :post, class: "stripe-form form-payment", autocomplete: :on do %>
+  <%= form_tag support_path, method: :post, class: "stripe-form form-payment", autocomplete: :on, novalidate: :novalidate do %>
 
 		<input type="hidden" name="stripe_token" value="" />
     <span class="payment-errors"></span>
@@ -21,20 +21,35 @@
       <dd><input type="number" id="support-panel-form-price" /></dd>
     </dl>
 
-    <dl>
-      <dt><label for="">Card Number</label></dt>
-      <dd><input type="text" size="20" class="cc-number"  pattern="\d*" value="4242 4242 4242 4242"/></dd>
-    </dl>
+    <fieldset>
+      <dl>
+        <dt><label for="">Name</label></dt>
+        <dd><input required type="text" name="first_name" placeholder="First" id="" /></dd>
+        <dd><input required type="text" name="last_name" placeholder="Last" id="" /></dd>
+      </dl>
 
-    <dl>
-      <dt><label for="">CVC</label></dt>
-      <dd><input type="text" class="cc-csc" autocomplete="off"  value="123"/></dd>
-    </dl>
+      <dl>
+        <dt><label for="">Email</label></dt>
+        <dd><input required type="email" name="email" placeholder="" id="" /></dd>
+      </dl>
+    </fieldset>
 
-    <dl>
-      <dt>Expiration</dt>
-      <dd><input type="text" class="cc-exp"  placeholder="MM / YY" value="12 / 20" /></dd>
-    </dl>
+    <fieldset>
+      <dl>
+        <dt><label for="">Card Number</label></dt>
+        <dd><input required type="text" size="20" class="cc-number"  pattern="\d*" value=""/></dd>
+      </dl>
+
+      <dl>
+        <dt><label for="">CVC</label></dt>
+        <dd><input required type="text" class="cc-csc" autocomplete="off" pattern="\d*" value=""/></dd>
+      </dl>
+
+      <dl>
+        <dt>Expiration Date</dt>
+        <dd><input required type="text" class="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+      </dl>
+    </fieldset>
 
 		<button type="submit">Subscribe</button>
 
