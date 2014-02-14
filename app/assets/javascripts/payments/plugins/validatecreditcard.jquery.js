@@ -12,23 +12,24 @@
         $exp    = $this.find('.cc-exp');
 
     var valid = true;
+    var errorClass = 'error';
 
     // Card Number
     if (!$.payment.validateCardNumber($number.val())) { 
       valid = false; 
-      $number.addClass('is-error');
+      $number.addClass(errorClass);
     }
     // CVC
     if (!$.payment.validateCardCVC($cvc.val())) {
       valid = false;
-      $cvc.addClass('is-error');
+      $cvc.addClass(errorClass);
     }
 
     // Expiration Date (needs processing first)
     var exp = $.payment.cardExpiryVal($exp.val());
     if (!$.payment.validateCardExpiry(exp.month, exp.year)) {
       valid = false;
-      $exp.addClass('is-error');
+      $exp.addClass(errorClass);
     }
 
     return valid;

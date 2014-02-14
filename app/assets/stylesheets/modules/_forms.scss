@@ -47,6 +47,10 @@ input {
     border-color: $color-link-blue-nicer;
     outline: none;
   }
+
+  &.error {
+    border-bottom-color: red;
+  }
 }
 
 .field,
