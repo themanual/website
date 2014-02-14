@@ -1,3 +1,7 @@
 .noUi-target {
   cursor: pointer;  
 }
+
+input.is-error {
+  border-color: red;
+}
