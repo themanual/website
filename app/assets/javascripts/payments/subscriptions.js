@@ -27,11 +27,14 @@ $(function() {
 
       // If passes client-side validation, submit.
       // If it doesn’t, re-enable the form button
+      // TODO validate non-CC normal form elements
       if ($this.validateCreditCard()) {
+        // TODO Change button name
         Stripe.card.createToken($this.parseCreditCard(), stripeHandler);
       }
       else {
         $submit_button.prop('disabled', false);
+        // TODO Shake button
       }
 
       return false;
