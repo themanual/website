@@ -3,17 +3,19 @@
 }
 
 input.is-error {
-  border-color: red;
+  border-color: #f00;
 }
 
 .field label {
-  display: block;
   @extend %heading-sc;
+  display: block;
   line-height: 1.2;
-  padding-bottom: 0.25em;
+  padding-bottom: .25em;
 }
 
-input, select, button {
+input,
+select,
+button {
   font-family: $type-sans;
 }
 
@@ -25,6 +27,7 @@ input {
 }
 
 .field + .field { margin-top: 1.5rem; }
+
 .field.is-group .field + .field { margin-top: 0; }
 
 
@@ -35,29 +38,36 @@ input {
 .field input[type='number'] {
 
   @include appearance(none);
-  @include transition(border-color 0.1s ease-in-out);
+  @include transition(border-color .1s ease-in-out);
   @include rem(font-size, 18px);
-  padding: 0.3em 0em;
+  padding: .3em 0;
   
-  border: none;
+  border: 0;
   border-bottom: solid 2px $color-divider;
   color: gray(30%);
   
   &:focus {
-    border-color: $color-link-blue-nicer;
     outline: none;
+    border-color: $color-link-blue-nicer;
   }
 
   &.error {
-    border-bottom-color: red;
+    border-bottom-color: #f00;
   }
 }
 
 .field,
 .field dd,
-input, select {
-  &.is-half { width: 50%; }
-  &.is-long { width: 100%; }
+input,
+select {
+
+  &.is-half { 
+    width: 50%;
+  }
+  
+  &.is-long { 
+    width: 100%;
+  }
 }
 
 
@@ -69,6 +79,7 @@ input, select {
 .field.has-multiple dd,
 .field.is-group .field { 
   float: left;
+
   + * {
     padding-left: 1rem;
   }
@@ -79,66 +90,60 @@ input, select {
 }
 
 .form.is-boxed {
-  padding: 1rem;
+  @include rem(padding, 1rem);
   border: divider();
   border-radius: 6px;
 
   .form-actions {
-    padding: 1rem;
+    @include rem(margin-right margin-bottom margin-left, -1rem);
+    @include rem(padding, 1rem);
     border-top: divider();
-    margin-left: -1rem;
-    margin-right: -1rem;
-    margin-bottom: -1rem;
   }
 }
 
 .form-actions {
-  margin-top: 2rem;
   @include clearfix;
-}
-
-.form-actions .button {
-
+  margin-top: 2rem;
 }
 
 .form-clarification {
-  display: block;
-  font-family: $type-sans;
-  font-size: 14px;
-  line-height: 1.4;
-  color: gray(50%);
-  overflow: hidden;
-  margin-top: 0.25em;
+  // display: block;
   display: none;
+  overflow: hidden;
+  margin-top: .25em;
+  color: gray(50%);
+  font-size: 14px;
+  font-family: $type-sans;
+  line-height: 1.4;
 }
 
 .button {
+  @include rem(font-size, 16px);
+
+  @include transition(color border-color .2s ease-in-out);
+
+  @include button-color($color-link-blue-nicer);
+
+  padding: .7em .85em .75em;
+  border: solid 2px $color-link-blue-nicer;
+  border-radius: 4px;
+  background: #fff;
+  color: $color-link-blue-nicer;
+  
+  text-transform: uppercase;
+  word-spacing: .1em;
+  
+  letter-spacing: .1em;
+  font-weight: weight(medium);
+
+  font-family: $type-sans;
+  
+  line-height: 1;
 
   @mixin button-color($color) {
     border-color: $color;
     color: $color;
   }
-
-  font-family: $type-sans;
-  background: white;
-  border: solid 2px $color-link-blue-nicer;
-  border-radius: 4px;
-  color: $color-link-blue-nicer;
-  
-  text-transform: uppercase;
-  font-weight: weight(medium);
-  @include rem(font-size, 16px);
-  
-  letter-spacing: 0.1em;
-  word-spacing: 0.1em;
-  
-  line-height: 1;
-
-  padding: 0.7em 0.85em 0.75em;
-
-  @include transition(color border-color 0.2s ease-in-out);
-
-  @include button-color($color-link-blue-nicer);
 
   &.is-secondary {
     @include button-color(gray(40%));
@@ -146,7 +151,7 @@ input, select {
 
   &.is-large {
     @include rem(font-size, 18px);
-    padding: 0.8em 1em 0.85em;
+    padding: .8em 1em .85em;
   }
 
   &:focus {
@@ -155,7 +160,7 @@ input, select {
   }
 
   &:hover {
-    @include button-color(black);
+    @include button-color(#000);
   }
 
   &:disabled,
