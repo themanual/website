@@ -9,8 +9,8 @@ input.is-error {
 .field label {
   @extend %heading-sc;
   display: block;
-  line-height: 1.2;
   padding-bottom: .25em;
+  line-height: 1.2;
 }
 
 input,
@@ -119,9 +119,7 @@ select {
 
 .button {
   @include rem(font-size, 16px);
-
   @include transition(color border-color .2s ease-in-out);
-
   @include button-color($color-link-blue-nicer);
 
   padding: .7em .85em .75em;
@@ -129,15 +127,11 @@ select {
   border-radius: 4px;
   background: #fff;
   color: $color-link-blue-nicer;
-  
   text-transform: uppercase;
   word-spacing: .1em;
-  
   letter-spacing: .1em;
   font-weight: weight(medium);
-
   font-family: $type-sans;
-  
   line-height: 1;
 
   @mixin button-color($color) {
