@@ -8,11 +8,11 @@
 .page-header {
   > h1 {
     @include rem(font-size, 40px);
-    font-weight: weight(bold);
-    font-family: $type-sans;
-    
+
     display: inline;
     border-bottom: solid 4px $color-link-blue-nicer;
+    font-weight: weight(bold);
+    font-family: $type-sans;
     line-height: 1.4;
   }
 
@@ -21,8 +21,8 @@
   }
 
   > p {
-    color: gray(30%);
     $line-height: 1.5;
+    color: gray(30%);
     line-height: $line-height;
 
     & + p { margin-top: $line-height * .5em; }
@@ -33,7 +33,7 @@
 
 .page-header.is-centered {
   > * {
-    @include centered
+    @include centered;
   }
 
   > h1 {
