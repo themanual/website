@@ -11,7 +11,7 @@
     <div class="support-slider"></div>
   </div>
 
-  <%= form_for @user, url: support_path, html: {method: :post, class: "stripe-form form is-boxed payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
+  <%= form_for @user, url: support_path, html: {method: :post, class: "stripe-form form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
     <input type="hidden" name="stripe_token" value="" />
     <!--
     <span class="payment-errors"></span>
@@ -51,7 +51,6 @@
 
     <div class="form-actions">
       <button type="submit" class="button">Support The Manual</button>
-      <small class="form-clarification" for="">You won’t be charged right away. We’ll just authorize your card over a secure connection.</small>
     </div>
 
   <% end %>
