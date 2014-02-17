@@ -1,4 +1,4 @@
-@mixin middot-break($h:0.5em) {
+@mixin middot-break($h:.5em) {
   display: block; visibility: hidden; height: $h;
 }
 
@@ -13,13 +13,17 @@
 @mixin colored-link {
   &:hover,
   &:focus,
-  &:active { color: black; }
+  &:active {
+    color: #000;
+  }
 }
 
 @mixin underlined-link {
   &:hover, 
   &:focus,
-  &:active { border-bottom: solid 1px; }
+  &:active {
+    border-bottom: solid 1px;
+  }
 }
 
 %visuallyhidden { 
@@ -34,8 +38,8 @@
   font-family: $type-sans;
   @include rem(font-size, 15px);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  word-spacing:   0.15em;
+  letter-spacing: .1em;
+  word-spacing: .15em;
 }
 
 @mixin smallcaps-heading {
@@ -54,17 +58,18 @@
   font-weight: weight(bold);
   @include color-by-issue(background);
   
-  font-size: 0.85em;
-  padding-right:  0.32em;
-  padding-left:   0.32em;
-  padding-bottom: 0.06em;
+  font-size: .85em;
+  padding-right: .32em;
+  padding-left: .32em;
+  padding-bottom: .06em;
 
-  color: white;
-  border-radius: 0.15em;
+  color: #fff;
+  border-radius: .15em;
 }
 
 @mixin blacklink {
-  color: black;
+  color: #000;
+  
   &:hover {
     text-decoration: underline;
   }
