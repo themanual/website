@@ -1,6 +1,7 @@
 {
   "name": "The Manual",
   "dependencies": {
+    "underscore":     "*",
     "jquery-ujs":     "*",    // For Rails
     "garnish":        "*",    // Helpers and utilites for Sass
     "fitvids":        "*",    // Responsive video embeds for popular sites

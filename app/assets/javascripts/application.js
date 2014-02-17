@@ -15,6 +15,7 @@
 //= require jquery-ujs/src/rails
 //
 //  Other Libs
+//= require underscore/underscore
 //= require trmix/dist/trmix
 //
 //  jQuery Plugins
