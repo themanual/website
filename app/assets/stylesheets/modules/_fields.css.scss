@@ -61,6 +61,8 @@ button {
 }
 
 input {
+  max-width: 100%;
+
   @include placeholder {
     color: darken($color-divider, 10%);
     font-weight: weight(light);
