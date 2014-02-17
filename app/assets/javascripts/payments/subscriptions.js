@@ -15,26 +15,18 @@ $(function() {
       }
     };
 
+    $form.validate();
+
     $form.submit(function(event) {
-      
-      var $this           = $(this),
-          $submit_button  = $('*[type=submit]');
+
+      var $this           = $(this);
+
       event.preventDefault();
-      event.stopPropagation();
+      event.stopPropagation()
 
-      // Disable the submit button to prevent repeated clicks
-      $submit_button.prop('disabled', true);
-
-      // If passes client-side validation, submit.
-      // If it doesn’t, re-enable the form button
-      // TODO validate non-CC normal form elements
       if ($this.validateCreditCard()) {
         // TODO Change button name
         Stripe.card.createToken($this.parseCreditCard(), stripeHandler);
-      }
-      else {
-        $submit_button.prop('disabled', false);
-        // TODO Shake button
       }
 
       return false;
@@ -49,5 +41,5 @@ $(function() {
     step:  1,
     handles: 1
   });
-  
+
 });
