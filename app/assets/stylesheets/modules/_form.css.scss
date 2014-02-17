@@ -4,7 +4,6 @@
 
 .form-actions {
   @include clearfix;
-  margin-top: 2rem;
 }
 
 .form-clarification {
@@ -16,6 +15,7 @@
   font-size: 14px;
   font-family: $type-sans;
   line-height: 1.4;
+  @include rem(margin-top, 2rem);
 }
 
 .payment-form {

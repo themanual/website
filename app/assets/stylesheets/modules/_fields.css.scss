@@ -1,7 +1,9 @@
 // Form Layout
 .field {
 
-  + .field { @include rem(margin-top, 1.5rem); }
+  + .field {
+    @include rem(margin-top, 1.5rem);
+  }
 
   .is-half {
     width: 50%;
@@ -18,11 +20,11 @@
 
   .field-element {
     float: left;
-    padding-right: .5rem;
+    @include rem(padding-right, .5rem);
   }
 
   .field-element + .field-element {
-    padding-left: .5rem;
+    @include rem(padding-left, .5rem);
     padding-right: 0;
   }
 }
