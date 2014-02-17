@@ -39,10 +39,6 @@
     @include text-and-border-color(darken($color-divider, 5%));
     cursor: default;
   }
-
-  &:active {
-    @include transform(translateY(1px));
-  }
 }
 
 button.button {
