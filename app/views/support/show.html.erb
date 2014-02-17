@@ -12,7 +12,7 @@
   </div>
 
   <%= form_for @user, url: support_path, html: {method: :post, class: "stripe-form form is-boxed payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
-		<input type="hidden" name="stripe_token" value="" />
+    <input type="hidden" name="stripe_token" value="" />
     <!--
     <span class="payment-errors"></span>
 
@@ -21,13 +21,13 @@
       <dd><input type="number" id="support-panel-form-price" /></dd>
     </dl>-->
 
-    <dl class="field has-multiple">
+    <dl class="field is-composed">
       <dt><label for="">Name</label></dt>
-      <dd class="is-half"><%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %></dd>
-      <dd class="is-half"><%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %></dd>
+      <dd class="field-element is-half"><%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %></dd>
+      <dd class="field-element is-half"><%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %></dd>
     </dl>
 
-    <dl class="field ">
+    <dl class="field">
       <dt><label for="supporter-signup-email">Email</label></dt>
       <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true, id: 'supporter-signup-email' %></dd>
     </dl>
@@ -37,20 +37,20 @@
       <dd><input required type="text" size="20" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
     </dl>
 
-    <div class="field is-group">
-      <dl class="field is-half">
+    <div class="field is-composed">
+      <dl class="field-element is-half">
         <dt><label for="">CVC</label></dt>
         <dd><input required type="text" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
       </dl>
 
-      <dl class="field is-half">
+      <dl class="field-element is-half">
         <dt><label for="supporter-signup">Expiration Date</label></dt>
         <dd><input id="supporter-signup" required type="text" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
       </dl>
     </div>
 
     <div class="form-actions">
-		  <button type="submit" class="button">Support The Manual</button>
+      <button type="submit" class="button">Support The Manual</button>
       <small class="form-clarification" for="">You won’t be charged right away. We’ll just authorize your card over a secure connection.</small>
     </div>
 

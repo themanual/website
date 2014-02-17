@@ -1,0 +1,50 @@
+.button {
+
+  @include rem(font-size, 16px);
+  @include transition(all .2s ease-in-out);
+  @include text-and-border-color($color-link-blue-nicer);
+
+  padding: .7em .85em .75em;
+  border: solid 2px $color-link-blue-nicer;
+  border-radius: 4px;
+  background: #fff;
+  color: $color-link-blue-nicer;
+  text-transform: uppercase;
+  word-spacing: .1em;
+  letter-spacing: .1em;
+  font-weight: weight(medium);
+  font-family: $type-sans;
+  line-height: 1;
+
+  &.is-secondary {
+    @include text-and-border-color(gray(40%));
+  }
+
+  &.is-large {
+    @include rem(font-size, 18px);
+    padding: .8em 1em .85em;
+  }
+
+  &:focus {
+    @include text-and-border-color(gray(20%));
+    outline: none;
+  }
+
+  &:hover {
+    @include text-and-border-color(#000);
+  }
+
+  &:disabled,
+  &.disabled {
+    @include text-and-border-color(darken($color-divider, 5%));
+    cursor: default;
+  }
+
+  &:active {
+    @include transform(translateY(1px));
+  }
+}
+
+button.button {
+  @include appearance(none);
+}

@@ -1,3 +1,8 @@
+@mixin text-and-border-color($color) {
+  border-color: $color;
+  color: $color;
+}
+
 @mixin middot-break($h:.5em) {
   display: block; visibility: hidden; height: $h;
 }

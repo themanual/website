@@ -1,0 +1,36 @@
+.noUi-target {
+  cursor: pointer;
+}
+
+.form-actions {
+  @include clearfix;
+  margin-top: 2rem;
+}
+
+.form-clarification {
+  // display: block;
+  display: none;
+  overflow: hidden;
+  margin-top: .25em;
+  color: gray(50%);
+  font-size: 14px;
+  font-family: $type-sans;
+  line-height: 1.4;
+}
+
+.payment-form {
+  margin-top: 2rem;
+}
+
+.form.is-boxed {
+  @include rem(padding, 1rem);
+  border: divider();
+  border-radius: 6px;
+
+  .form-actions {
+    @include rem(margin-right margin-bottom margin-left, -1rem);
+    @include rem(padding, 1rem);
+    border-top: divider();
+  }
+}
+

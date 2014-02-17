@@ -1,0 +1,95 @@
+// Form Layout
+.field {
+
+  + .field { @include rem(margin-top, 1.5rem); }
+
+  .is-half {
+    width: 50%;
+  }
+
+  .is-long {
+    width: 100%;
+  }
+
+}
+
+.field.is-composed {
+  @include clearfix;
+
+  .field-element {
+    float: left;
+    padding-right: .5rem;
+  }
+
+  .field-element + .field-element {
+    padding-left: .5rem;
+    padding-right: 0;
+  }
+}
+
+
+//
+// Field Labels
+//
+
+.field label {
+  @extend %heading-sc;
+  display: block;
+  line-height: 1.2;
+}
+
+.field dd {
+  margin-top: .25em;
+}
+
+
+
+
+
+
+
+//
+// Inputs
+//
+
+input,
+select,
+button {
+  font-family: $type-sans;
+}
+
+input {
+  @include placeholder {
+    color: darken($color-divider, 10%);
+    font-weight: weight(light);
+  }
+}
+
+%input-text {
+  @include appearance(none);
+  @include transition(border-color .1s ease-in-out);
+  @include rem(font-size, 18px);
+  padding: .3em 0;
+
+  border: 0;
+  border-bottom: solid 2px $color-divider;
+  color: gray(30%);
+
+  &:focus {
+    outline: none;
+    border-color: #000;
+  }
+
+  &.error {
+    border-bottom-color: #f00;
+  }
+}
+
+.field input[type='text'],
+.field input[type='email'],
+.field input[type='password'],
+.field input[type='url'],
+.field input[type='number'],
+.field input[type='search'] {
+  @extend %input-text;
+}
