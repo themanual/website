@@ -117,7 +117,7 @@
           .on('focusout focusin change keyup', function() { $(this).validateField(); });
       });
 
-      $(this).submit(function() {
+      $(this).submit(function(event) {
         var $form = $(this);
         var $submit_button  = $form.find('*[type=submit]');
 
