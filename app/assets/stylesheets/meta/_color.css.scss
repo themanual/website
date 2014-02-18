@@ -12,13 +12,16 @@ $color-divider:           gray(90%);
 $color-link-blue-tbl:   #0021C6;
 $color-link-blue-nicer: #0055DD;
 
+$color-field-invalid: #FF4D4D;
+$color-field-valid:   #54BF54;
+
 // Published issues, and issues colors
 $issues:        (1, 2, 3, 4);
 $issues-colors: (#EF3E42, #52BAE1, #EC9A3A, #2DC3AB);
 
 // Returns the color of issue $i or 'latest'
 @function issue-color($i) {
-  @if $i == 'latest'  { 
+  @if $i == 'latest'  {
     @return issue-color(nth($issues, length($issues)));
   }
   @else {
@@ -40,7 +43,7 @@ $issues-colors: (#EF3E42, #52BAE1, #EC9A3A, #2DC3AB);
   }
 }
 
-// Shorthand to set issue-colored links with hover states 
+// Shorthand to set issue-colored links with hover states
 @mixin link-color-by-issue {
   @include color-by-issue(color) {
     @include colored-link;

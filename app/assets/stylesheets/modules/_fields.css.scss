@@ -79,18 +79,23 @@ input {
   border-bottom: solid 2px $color-divider;
   color: gray(30%);
 
+  &.is-invalid,
+  &.is-invalid:focus {
+    border-color: $color-field-invalid;
+  }
+
+  &.is-valid:focus {
+    border-color: $color-field-valid;
+  }
+
   &:focus {
     outline: none;
-    border-color: #000;
+    border-color: darken($color-divider, 15%);
   }
 
-  &.is-invalid {
-    border-bottom-color: #f00;
-  }
 
-  &.is-valid {
-    border-bottom-color: green;
-  }
+
+
 }
 
 .field input[type='text'],
