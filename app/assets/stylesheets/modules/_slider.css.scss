@@ -1,0 +1,137 @@
+$noui-slider-thickness: 4px;
+$noui-slider-border:    0px;
+$noui-handler-size:     36px;
+
+.js {
+  .support-slider-legend {
+    position: relative;
+    height: 20px;
+  }
+  .support-slider-legend *[data-legend-value] {
+    @extend %heading-sc;
+    cursor: pointer;
+    position: absolute;
+    width: $noui-handler-size;
+    margin-left: $noui-handler-size / -2;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+
+    color: gray(80%);
+    font-weight: weight(light);
+    &.is-tier {
+      font-weight: weight(bold);
+      color: black;
+    }
+  }
+
+  .support-slider-legend {
+    @include clearfix;
+  }
+}
+
+
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+.noUi-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.noUi-origin {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+.noUi-handle {
+  position: relative;
+  z-index: 1;
+}
+.noUi-stacking .noUi-handle {
+/* This class is applied to the lower origin when
+   its values is > 50%. */
+  z-index: 10;
+}
+.noUi-stacking + .noUi-origin {
+/* Fix stacking order in IE7, which incorrectly
+   creates a new context for the origins. */
+  *z-index: -1;
+}
+
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+.noUi-state-tap .noUi-origin {
+  @include transition(all .15s ease-in-out);
+}
+
+$noui-slider-thickness: 4px;
+$noui-slider-border:    0px;
+$noui-handler-size:     36px;
+
+// .noUi-target
+// This class is added to the element you call .noUiSlider() on. Has border, background and other styling properties to establish the slider design.
+
+.noUi-target {
+  @include margin-v(($noui-handler-size - $noui-slider-thickness) / 2);
+}
+
+// .noUi-base
+// The slider bar. Serves as the calculating point for the slider handles, and has no visible styling.
+.noUi-base {
+  @include transition(background-color .1s linear);
+  background-color: darken($c-divider, 5%);
+  &.noUi-state-tap {
+    background-color: darken($c-divider, 15%);
+  }
+}
+
+// .noUi-handle
+// .noUi-handle-lower
+// .noUi-handle-upper
+// The actual, visible handles. Style these any way you like! The lower and upper handles can be targeted individually.
+.noUi-handle {
+  width:  $noui-handler-size;
+  height: $noui-handler-size;
+  border-radius: $noui-handler-size / 2;
+  $shift: ($noui-handler-size - $noui-slider-thickness + $noui-slider-border) / -2;
+  left: $shift;
+  top:  $shift;
+
+  background-color: white;
+  border: 2px solid $c-link-blue-nicer;
+  @include transition(border-color .15s linear);
+
+  &:hover,
+  &.noUi-active {
+    border-color: #000;
+  }
+}
+
+// .noUi-connect
+// Styling class for setting properties related to the slider connect segment.
+
+// .noUi-background
+// Styling class for setting properties related to the slider background.
+
+.noUi-horizontal  { height: $noui-slider-thickness; }
+.noUi-vertical    { width:  $noui-slider-thickness; }
+
+// .noUi-state-block
+// This class is added when the slider rejects a movement due to the margin option, or when one handle can't move past another. noUiSlider will remove this class after 600ms.
+
+// [disabled]
+// Apply this to your slider to disable it, and make sure the slider visuals reflect the disabled state.

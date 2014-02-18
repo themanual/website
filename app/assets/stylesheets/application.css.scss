@@ -33,10 +33,14 @@
 @import 'pages/piece-layout';
 @import 'pages/piece-style';
 
+// Default plugin example code
+// @import 'nouislider/jquery.nouislider';
+
 // Modules
 @import 'modules/buttons';
 @import 'modules/fields';
 @import 'modules/form';
+@import 'modules/slider';
 
 @import 'modules/page-header';
 
@@ -51,5 +55,3 @@
 @import 'modules/post-list';
 @import 'modules/piece-pagination';
 
-// Plugins code
-@import 'nouislider/jquery.nouislider';

@@ -7,8 +7,23 @@
     <p><strong>We publish three issues per year. You decide how much you want to pay for each.</strong></p>
   </header>
 
-  <div class="support-panel">
-    <div class="support-slider"></div>
+  <div class="support-slider">
+    <ul class="support-slider-legend">
+      <li data-legend-value="1" class="is-tier"><span class="currency">$</span>1</li>
+      <!-- <li data-legend-value="5"><span class="currency">$</span>5</li> -->
+      <li data-legend-value="10" class="is-tier"><span class="currency">$</span>10</li>
+      <!-- <li data-legend-value="15"><span class="currency">$</span>15</li> -->
+      <li data-legend-value="20" class="is-tier"><span class="currency">$</span>20</li>
+      <!-- <li data-legend-value="25"><span class="currency">$</span>25</li> -->
+      <li data-legend-value="30"><span class="currency">$</span>30</li>
+      <!-- <li data-legend-value="35"><span class="currency">$</span>35</li> -->
+      <li data-legend-value="40"><span class="currency">$</span>40</li>
+      <!-- <li data-legend-value="45"><span class="currency">$</span>45</li> -->
+      <li data-legend-value="50" class="is-tier"><span class="currency">$</span>50</li>
+      <!-- <li data-legend-value="55"><span class="currency">$</span>55</li> -->
+      <li data-legend-value="60"><span class="currency">$</span>60+</li>
+    </ul>
+    <div class="support-slider-control"></div>
   </div>
 
   <%= form_for @user, url: support_path, html: {method: :post, class: "stripe-form form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
