@@ -90,9 +90,7 @@
 
   $.fn.validateForm = function(callback) {
     var $form = $(this);
-    var $inputs = $form
-        .find(':input') // all inputs
-        .not($.validate.IGNORED_FIELDS.join(',')); // that are not in the ignore list
+    var $inputs = $form.find(':input').not($.validate.IGNORED_FIELDS.join(','));
 
     var valid   = true;
     var results = $inputs.map(function(index) {
@@ -110,24 +108,32 @@
 
   // Validate form
   $.fn.validate = function() {
+
     return this.each(function() {
 
+      var bindHandlers = _.once(function($form){
+        $form
+          .find(':input').not($.validate.IGNORED_FIELDS.join(','))
+          .on('focusout focusin change keyup', function() { $(this).validateField(); });
+      });
+
       $(this).submit(function() {
-        // store form
         var $form = $(this);
-        // Disable the submit button to prevent repeated clicks
         var $submit_button  = $form.find('*[type=submit]');
+
+        // Disable the submit button to prevent repeated clicks
         $submit_button.prop('disabled', true);
 
         var valid = $form.validateForm();
 
         if (!valid) {
+          // Prevent further submit handlers
           event.stopImmediatePropagation();
-          $submit_button
-            .prop('disabled', false)
-            .animate('shake');
-          return false;
+          bindHandlers($form);
+          $submit_button.prop('disabled', false).animate('shake');
         }
+
+        return false;
 
       });
 
