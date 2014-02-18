@@ -22,8 +22,8 @@ $issuebuy-pad: 0.75em;
 
   letter-spacing: 0.1em;
   word-spacing: 0.1em;
-  border-bottom: solid 1px $color-divider;
-  
+  border-bottom: solid 1px $c-divider;
+
   color: gray(60%);
   font-weight: weight(regular);
 
@@ -39,7 +39,7 @@ $issuebuy-pad: 0.75em;
 
   &:first-child { padding-top: 0; }
   &:last-child  { padding-bottom: 0; }
-  + .issuebuy-option { border-top: solid 1px $color-divider; }
+  + .issuebuy-option { border-top: solid 1px $c-divider; }
 }
 
 .issuebuy-option-text {
@@ -79,7 +79,7 @@ $issuebuy-pad: 0.75em;
 
     text-align: center;
     border-radius: 4px;
-    
+
     &:first-letter {
       font-weight: weight(regular);
       margin-right: 0.15em;
@@ -98,7 +98,7 @@ $issuebuy-pad: 0.75em;
 
 
 .issuebuy.is-boxed {
-  border: solid 1px $color-divider;
+  border: solid 1px $c-divider;
   border-radius: 5px;
 
   .issuebuy-option {
@@ -110,7 +110,7 @@ $issuebuy-pad: 0.75em;
   a {
     background-color: white;
     color: gray(20%);
-    border: solid 1px darken($color-divider, 10%);
+    border: solid 1px darken($c-divider, 10%);
   }
 
   a:first-letter {
@@ -146,6 +146,6 @@ $issuebuy-pad: 0.75em;
   }
 
   .issuebuy-option + .issuebuy-option {
-    border-left: solid 1px $color-divider;
+    border-left: solid 1px $c-divider;
   }
 }

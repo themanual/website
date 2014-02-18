@@ -2,13 +2,13 @@
 
   @include rem(font-size, 16px);
   @include transition(all .2s ease-in-out);
-  @include text-and-border-color($color-link-blue-nicer);
+  @include text-and-border-color($c-link-blue-nicer);
 
   padding: .7em .85em .75em;
-  border: solid 2px $color-link-blue-nicer;
+  border: solid 2px $c-link-blue-nicer;
   border-radius: 4px;
   background: #fff;
-  color: $color-link-blue-nicer;
+  color: $c-link-blue-nicer;
   text-transform: uppercase;
   word-spacing: .1em;
   letter-spacing: .1em;
@@ -36,7 +36,7 @@
 
   &:disabled,
   &.disabled {
-    @include text-and-border-color(darken($color-divider, 5%));
+    @include text-and-border-color(darken($c-divider, 5%));
     cursor: default;
   }
 }

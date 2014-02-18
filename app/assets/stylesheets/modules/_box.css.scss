@@ -5,7 +5,7 @@
   @include container-spacing(padding-bottom,  1.5);
 }
 
-.boxes { border-top:    solid 1px $color-divider; }
+.boxes { border-top:    solid 1px $c-divider; }
 .box { @include clearfix; }
 .box-group > .box + .box { @include container-spacing(padding-top, 4/3); }
 

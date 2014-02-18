@@ -1,5 +1,5 @@
 main.index {
-  
+
 
 
 
@@ -8,8 +8,8 @@ main.index {
    *
    *  LAYOUT
    *
-   * 
-   */  
+   *
+   */
   .highlight {
     > div {
       @include wrapper;
@@ -36,7 +36,7 @@ main.index {
   .shift-3 { @include shift(3); }
 
   .box-8 .box_issue {
-    
+
     @include row;
 
     > * {
@@ -45,7 +45,7 @@ main.index {
       &:nth-child(1), &:nth-child(2) {
         margin-top: 0;
       }
-      
+
       &:nth-child(2n)   {
         @include omega;
         + * { clear: left; }
@@ -62,15 +62,15 @@ main.index {
    *
    * STYLING
    *
-   * 
+   *
    */
   .boxes {
-    border-top: solid 1px $color-divider;
+    border-top: solid 1px $c-divider;
     padding-bottom: 3em;
   }
 
   .box-divider {
-    border-top: solid 1px $color-divider;
+    border-top: solid 1px $c-divider;
   }
 
   .box_heading {
@@ -102,7 +102,7 @@ main.index {
     & + * {
       margin-top: 2em;
     }
-    
+
     &.box-6 {
       & + * {
         margin-top: 0;
@@ -141,7 +141,7 @@ main.index {
       margin-top: 5px;
     }
   }
-  
+
   .box_piece-floated {
     figure {
       float: right;
@@ -199,7 +199,7 @@ main.index {
 
     > li + li {
       margin-top: 2.5em;
-      // border-top: solid 1px $color-divider;
+      // border-top: solid 1px $c-divider;
     }
 
     h3 {
@@ -229,8 +229,8 @@ main.index {
       text-transform: uppercase;
     }
   }
-  
-  .box_products > li, 
+
+  .box_products > li,
   .box_product {
     font-family: $type-sans;
     font-weight: normal;
@@ -291,7 +291,7 @@ main.index {
       font-weight: normal;
       text-transform: uppercase;
       color: gray(55%);
-      
+
       font-size: 14px;
       line-height: 1.25;
       margin-top: 5%;

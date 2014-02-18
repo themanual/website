@@ -1,19 +1,19 @@
 // General Colors
-$color-text-darker:       hsl(0, 0%, 5%);
-$color-text-body:         hsl(0, 0%, 20%);
-$color-text-heading:      #000000;
-$color-text-blockquote:   hsl(0, 0%, 40%);
-$color-text-caption:      hsl(0, 0%, 50%);
-$color-text-asides:       hsl(0, 0%, 40%);
-$color-text-dull:         hsl(0, 0%, 30%);
+$c-text-darker:       hsl(0, 0%, 5%);
+$c-text-body:         hsl(0, 0%, 20%);
+$c-text-heading:      #000000;
+$c-text-blockquote:   hsl(0, 0%, 40%);
+$c-text-caption:      hsl(0, 0%, 50%);
+$c-text-asides:       hsl(0, 0%, 40%);
+$c-text-dull:         hsl(0, 0%, 30%);
 
-$color-divider:           gray(90%);
+$c-divider:           gray(90%);
 
-$color-link-blue-tbl:   #0021C6;
-$color-link-blue-nicer: #0055DD;
+$c-link-blue-tbl:   #0021C6;
+$c-link-blue-nicer: #0055DD;
 
-$color-field-invalid: #FF4D4D;
-$color-field-valid:   #54BF54;
+$c-field-invalid: #FF4D4D;
+$c-field-valid:   #54BF54;
 
 // Published issues, and issues colors
 $issues:        (1, 2, 3, 4);

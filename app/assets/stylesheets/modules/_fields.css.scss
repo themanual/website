@@ -64,7 +64,7 @@ input {
   max-width: 100%;
 
   @include placeholder {
-    color: darken($color-divider, 10%);
+    color: darken($c-divider, 10%);
     font-weight: weight(light);
   }
 }
@@ -76,21 +76,21 @@ input {
   padding: .3em 0;
 
   border: 0;
-  border-bottom: solid 2px $color-divider;
+  border-bottom: solid 2px $c-divider;
   color: gray(30%);
 
   &.is-invalid,
   &.is-invalid:focus {
-    border-color: $color-field-invalid;
+    border-color: $c-field-invalid;
   }
 
   &.is-valid:focus {
-    border-color: $color-field-valid;
+    border-color: $c-field-valid;
   }
 
   &:focus {
     outline: none;
-    border-color: darken($color-divider, 15%);
+    border-color: darken($c-divider, 15%);
   }
 
 

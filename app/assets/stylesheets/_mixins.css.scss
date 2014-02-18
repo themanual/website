@@ -8,11 +8,11 @@
 }
 
 @function divider() {
-  @return solid 1px $color-divider;
+  @return solid 1px $c-divider;
 }
 
 @function sub-divider() {
-  @return dashed 1px darken($color-divider, 5%);
+  @return dashed 1px darken($c-divider, 5%);
 }
 
 @mixin colored-link {
@@ -24,19 +24,19 @@
 }
 
 @mixin underlined-link {
-  &:hover, 
+  &:hover,
   &:focus,
   &:active {
     border-bottom: solid 1px;
   }
 }
 
-%visuallyhidden { 
-  position: absolute; 
-  overflow: hidden; 
-  clip: rect(0 0 0 0); 
-  height: 1px; width: 1px; 
-  margin: -1px; padding: 0; border: 0; 
+%visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
 }
 
 %heading-sc {
@@ -62,7 +62,7 @@
   font-family: $type-sans;
   font-weight: weight(bold);
   @include color-by-issue(background);
-  
+
   font-size: .85em;
   padding-right: .32em;
   padding-left: .32em;
@@ -74,7 +74,7 @@
 
 @mixin blacklink {
   color: #000;
-  
+
   &:hover {
     text-decoration: underline;
   }

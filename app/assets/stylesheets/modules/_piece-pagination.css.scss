@@ -8,7 +8,7 @@
 .issue-pagination-list {
   @include clearfix;
 
-  background-image:     data-uri-svg(img-pixel($color-divider)),  data-uri-svg(img-pixel($color-divider));
+  background-image:     data-uri-svg(img-pixel($c-divider)),  data-uri-svg(img-pixel($c-divider));
   background-repeat:    repeat-y,                                 repeat-y;
   background-position:  40% 0,                                    60% 0;
 }
@@ -23,7 +23,7 @@
     width: 20%;
     @include container-spacing(padding-left padding-right, 0.4);
   }
-  
+
   &:last-child {
     float: right;
     border-right: none;
@@ -89,5 +89,5 @@
 }
 
 .issue-pagination-item > a:hover p strong {
-  border-bottom: solid 1px; 
+  border-bottom: solid 1px;
 }
