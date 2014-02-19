@@ -37,9 +37,13 @@
     </dl>-->
 
     <dl class="field is-composed">
-      <dt><label for="">Name</label></dt>
-      <dd class="field-element is-half"><%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %></dd>
-      <dd class="field-element is-half"><%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %></dd>
+      <dt><label for="supporter-signup-first-name">Name</label></dt>
+      <dd class="field-element is-half">
+        <%= f.text_field :first_name, id: 'supporter-signup-first-name', class: 'is-long', placeholder: 'First', required: true %>
+      </dd>
+      <dd class="field-element is-half">
+        <%= f.text_field :last_name, id: 'supporter-signup-last-name', class: 'is-long', placeholder: 'Last', required: true %>
+      </dd>
     </dl>
 
     <dl class="field">
@@ -48,19 +52,19 @@
     </dl>
 
     <dl class="field">
-      <dt><label for="">Card Number</label></dt>
-      <dd><input required type="text" size="20" name="cc-number" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
+      <dt><label for="supporter-signup-cc-number">Card Number</label></dt>
+      <dd><input required id="supporter-signup-cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
     </dl>
 
     <div class="field is-composed">
       <dl class="field-element is-half">
-        <dt><label for="">CVC</label></dt>
-        <dd><input required type="text" name="cc-cvc" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
+        <dt><label for="supporter-signup-cc-cvc">CVC</label></dt>
+        <dd><input required type="text" id="supporter-signup-cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
       </dl>
 
       <dl class="field-element is-half">
-        <dt><label for="supporter-signup">Expiration Date</label></dt>
-        <dd><input id="supporter-signup" required type="text" name="cc-exp" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+        <dt><label for="supporter-signup-cc-exp">Expiration Date</label></dt>
+        <dd><input id="supporter-signup-cc-exp" required type="text" name="cc-exp" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
       </dl>
     </div>
 
