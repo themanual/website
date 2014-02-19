@@ -1,10 +1,19 @@
-<main><div class="wrapper">
-  <h2>Log in</h2>
+<main class="is-padded"><div class="c-single is-centered">
 
-  <%= form_tag session_path(:user), :method => :post do |f| %>
-    <div><%= label_tag :email %><br />
-    <%= email_field_tag :email, '', :autofocus => true %></div>
+	<header class="page-header is-centered">
+    <h1>Login</h1>
+    <p>No passwords here, just give us your email address and we'll mail you a link to login</p>
+  </header>
 
-    <div><%= submit_tag "Sign in" %></div>
+  <%= form_tag session_path(:user), :method => :post, class: 'form' do |f| %>
+
+  	<dl class="field">
+      <dt><label for="supporter-signup-email">Email</label></dt>
+      <dd><%= email_field_tag :email, '', class: 'is-long', placeholder: 'yourname@domain.com', autofocus: true, required: true, id: 'supporter-signup-email' %></dd>
+    </dl>
+
+    <div class="form-actions">
+      <button type="submit" class="button">Sign In</button>
+    </div>
   <% end %>
 </div></main>

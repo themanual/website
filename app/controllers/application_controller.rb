@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_order, :has_order?, :push_page_title
-  before_filter :prep_page_title
+  before_filter :prep_page_title, :authenticate_user!
 
   protected
     def authenticate_admin_user!
