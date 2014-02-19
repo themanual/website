@@ -17,6 +17,7 @@ TheManual::Application.routes.draw do
 
   resource :account, controller: 'user/account', only: [:show, :update] do
     resources :emails, controller: 'user/emails', only: [:create, :destroy, :update]
+    resources :addresses, controller: 'user/addresses', only: [:create, :destroy, :update]
   end
 
   root to: redirect("/issues")

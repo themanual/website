@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214153814) do
+ActiveRecord::Schema.define(version: 20140219133934) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20140214153814) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "addresses", force: true do |t|
+    t.integer  "user_id"
+    t.string   "line1",      limit: 128, null: false
+    t.string   "line2",      limit: 128
+    t.string   "line3",      limit: 128
+    t.string   "line4",      limit: 128
+    t.string   "county",     limit: 128, null: false
+    t.string   "post_code",  limit: 32,  null: false
+    t.string   "country",    limit: 128, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
 
   create_table "authors", force: true do |t|
     t.string   "name",       limit: 128, default: "", null: false
@@ -58,6 +73,7 @@ ActiveRecord::Schema.define(version: 20140214153814) do
   end
 
   add_index "email_addresses", ["email"], name: "index_email_addresses_on_email", unique: true
+  add_index "email_addresses", ["user_id"], name: "index_email_addresses_on_user_id"
 
   create_table "issues", force: true do |t|
     t.integer  "number",            default: 1, null: false
@@ -67,6 +83,8 @@ ActiveRecord::Schema.define(version: 20140214153814) do
     t.integer  "shoppe_digital_id"
     t.integer  "shoppe_id"
   end
+
+  add_index "issues", ["volume_id"], name: "index_issues_on_volume_id"
 
   create_table "nifty_attachments", force: true do |t|
     t.integer  "parent_id"
@@ -101,6 +119,9 @@ ActiveRecord::Schema.define(version: 20140214153814) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pieces", ["author_id"], name: "index_pieces_on_author_id"
+  add_index "pieces", ["issue_id"], name: "index_pieces_on_issue_id"
 
   create_table "session_tokens", force: true do |t|
     t.integer  "email_address_id"
@@ -309,6 +330,7 @@ ActiveRecord::Schema.define(version: 20140214153814) do
     t.datetime "updated_at"
     t.string   "first_name",          default: "", null: false
     t.string   "last_name",           default: "", null: false
+    t.integer  "shipping_address_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

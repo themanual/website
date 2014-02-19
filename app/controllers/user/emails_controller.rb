@@ -1,5 +1,4 @@
 class User::EmailsController < ApplicationController
-	before_filter :authenticate_user!
 
 	def create
 		if (@email = current_user.email_addresses.create email_params)

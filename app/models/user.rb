@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :email_addresses, :dependent => :delete_all
   has_many :session_tokens, through: :email_addresses
   has_many :cards, :dependent => :delete_all
+  has_many :addresses
+  has_one :shipping_address, class_name: 'Address'
 
   after_create :add_email_address
 

@@ -18,6 +18,8 @@ gem 'sprockets-image_compressor'
 
 gem 'kramdown'
 
+# for country/geo data
+gem 'country_select'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'

@@ -17,6 +17,7 @@
 //  Other Libs
 //= require underscore/underscore
 //= require trmix/dist/trmix
+//= require chosen-jquery
 //
 //  jQuery Plugins
 //= require fitvids/jquery.fitvids

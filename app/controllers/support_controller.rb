@@ -19,6 +19,8 @@ class SupportController < ApplicationController
 
       @user.save!
 
+      sign_in @user
+
       customer.metadata = {id: @user.id}
       customer.save
 
@@ -29,6 +31,10 @@ class SupportController < ApplicationController
 
     redirect_to thanks_support_path
 
+  end
+
+  def thanks
+    @address = Address.new
   end
 
   protected

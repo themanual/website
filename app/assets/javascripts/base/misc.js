@@ -13,4 +13,6 @@ $(function() {
   // fitvids
   $(".video").fitVids();
 
+  $('select.chosen').chosen();
+
 });
