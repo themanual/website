@@ -61,7 +61,7 @@ end
 group :production, :stage do
 	gem 'memcachier'
   gem 'rails_12factor'
-  gem 'rack-cache'
+  gem 'heroku-deflater'
 
   gem 'newrelic_rpm'
 	gem 'airbrake'
