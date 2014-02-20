@@ -1,0 +1,101 @@
+.support-tiers {
+  display: flex;
+  align-items: stretch;
+}
+
+.support-tier-name,
+.support-tier-price {
+  text-align: center;
+  font-family: $type-sans;
+}
+
+.support-tier-image {
+  @include centered;
+  display: none;
+}
+
+.support-tier {
+  // border: solid 3px $c-link-blue-nicer;
+  border: solid 3px $c-divider;
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.support-tier-name {
+  font-family: $type-serif;
+  font-weight: weight(black);
+  font-size: 1.5em;
+  margin-top:    .75rem;
+  margin-bottom: 1rem;
+}
+
+.support-tier-price {
+
+  margin-bottom: .5em;
+
+  .number {
+    color: $c-link-blue-nicer;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+  }
+
+  .value {
+    font-weight: weight(bold);
+    @include padding-h(0.1em);
+  }
+
+  .plus {
+    font-weight: weight(light);
+  }
+
+  .currency {
+    opacity: 0.5;
+  }
+
+  small {
+    @extend %heading-sc;
+    color: gray(50%);
+    vertical-align: 30%;
+  }
+}
+
+.support-tier {
+  position: relative;
+  padding-bottom: 5em;
+}
+
+.support-tier .button-wrapper {
+  position: absolute;
+  bottom: 1.5em;
+  left: 0;
+  right: 0;
+}
+
+.support-tier .button {
+  display: block;
+  margin-top: 1.5rem;
+  @include centered;
+}
+
+.support-tier-rewards {
+  font-family: $type-sans;
+  font-size: 0.8em;
+  clear: both;
+  color: gray(30%);
+  line-height: 1.25;
+  text-align: center;
+
+  padding-top:  1.25rem;
+
+  margin-top: 1.5rem;
+  border-top: divider();
+
+  .highlight {
+    background-color: #FFFBDC;
+    color: black;
+  }
+
+  > * + * {
+    margin-top: 0.5em;
+  }
+}
