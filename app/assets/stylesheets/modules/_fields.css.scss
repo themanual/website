@@ -34,14 +34,63 @@
 // Field Labels
 //
 
-.field label {
+.field dt {
   @extend %heading-sc;
   display: block;
+  font-weight: weight(medium);
   line-height: 1.2;
+  margin-bottom: .25rem;
 }
 
-.field dd {
-  margin-top: .25em;
+.field-checkradio {
+  font-family: $type-sans;
+  @include rem(font-size, 16px);
+  margin-top: 0.5rem;
+
+  $left: 25px;
+  padding-left: $left;
+
+  * + & {
+    margin-top: .4rem;
+  }
+
+  dt + & {
+    margin-top: .6rem;
+  }
+
+  input {
+    display: block;
+    float: left;
+    margin-left: -$left;
+
+    &[type=checkbox] {
+      margin-top: 0.15em;
+    }
+
+    &[type=radio] {
+      margin-top: 0.1em;
+    }
+  }
+
+  label {
+    display: block;
+    font-family: $type-sans;
+    overflow: hidden;
+    line-height: 1.2;
+    color: gray(30%);
+
+    strong {
+      font-weight: weight(medium);
+    }
+  }
+
+  .label-note {
+    display: block;
+    @include rem(font-size, 15px);
+    line-height: 1.2;
+    color: gray(70%);
+    margin-top: 0.25em;
+  }
 }
 
 
