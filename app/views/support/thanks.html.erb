@@ -36,7 +36,7 @@
 
     <dl class="field">
       <dt><%= f.label :country %></dt>
-      <dd><%= f.country_select :country, [ "United Kingdom", "United States", "Canada" ], {}, class: 'is-long chosen', placeholder: '' %></dd>
+      <dd><%= f.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long chosen', placeholder: ''  %></dd>
     </dl>
 
     <div class="form-actions">
