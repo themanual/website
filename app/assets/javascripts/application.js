@@ -21,7 +21,6 @@
 //
 //  jQuery Plugins
 //= require fitvids/jquery.fitvids
-//= require nouislider/jquery.nouislider
 //
 //  Custom code
 //= require_tree ./base
