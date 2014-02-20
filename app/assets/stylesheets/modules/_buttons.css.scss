@@ -16,6 +16,8 @@
   font-family: $type-sans;
   line-height: 1;
 
+  cursor: pointer;
+
   &.is-secondary {
     @include text-and-border-color(gray(40%));
   }
