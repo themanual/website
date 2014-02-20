@@ -28,32 +28,4 @@ $(function() {
 
   });
 
-  $.fn.slider = function(sliderOptions) {
-    return this.each(function() {
-      var min = sliderOptions.range[0];
-      var max = sliderOptions.range[sliderOptions.range.length - 1];
-
-      // enable slider
-      $(this).find(".support-slider-control").noUiSlider(sliderOptions);
-
-      //
-      $(this).find(".support-slider-legend [data-legend-value]")
-        .each(function() {
-          var value = $(this).data('legend-value');
-          var percentage = ((value - min)  / (max - min) * 100) + "%";
-          $(this).css({left: percentage});
-        })
-        .click(function() {
-          $(".support-slider-control").val($(this).data('legend-value'), true);
-        });
-    });
-  };
-
-  $(".support-slider").slider({
-    range: [1, 60],
-    start: 20,
-    step:  1,
-    handles: 1
-  });
-
 });

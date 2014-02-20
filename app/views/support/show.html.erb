@@ -4,27 +4,7 @@
   <header class="page-header is-centered">
     <h1>Become a supporter.</h1>
     <p>We’re an independent publication. We pay all our writers and illustrators for their work, and our Ebook and Print Editions don’t contain advertisting. This means your contribution is fundamental to support The Manual and fund new issues.</p>
-    <p><strong>We publish three issues per year. You decide how much you want to pay for each.</strong></p>
   </header>
-
-  <div class="support-slider">
-    <ul class="support-slider-legend">
-      <li data-legend-value="1" class="is-tier"><span class="currency">$</span>1</li>
-      <!-- <li data-legend-value="5"><span class="currency">$</span>5</li> -->
-      <li data-legend-value="10" class="is-tier"><span class="currency">$</span>10</li>
-      <!-- <li data-legend-value="15"><span class="currency">$</span>15</li> -->
-      <li data-legend-value="20" class="is-tier"><span class="currency">$</span>20</li>
-      <!-- <li data-legend-value="25"><span class="currency">$</span>25</li> -->
-      <li data-legend-value="30"><span class="currency">$</span>30</li>
-      <!-- <li data-legend-value="35"><span class="currency">$</span>35</li> -->
-      <li data-legend-value="40"><span class="currency">$</span>40</li>
-      <!-- <li data-legend-value="45"><span class="currency">$</span>45</li> -->
-      <li data-legend-value="50" class="is-tier"><span class="currency">$</span>50</li>
-      <!-- <li data-legend-value="55"><span class="currency">$</span>55</li> -->
-      <li data-legend-value="60"><span class="currency">$</span>60+</li>
-    </ul>
-    <div class="support-slider-control"></div>
-  </div>
 
   <%= form_for @user, url: support_path, html: {method: :post, class: "stripe-form form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
     <input type="hidden" name="stripe_token" value="" />
@@ -75,50 +55,3 @@
   <% end %>
 
 </div></main>
-
-<% content_for :footer do %>
-  <script>
-    $(function() {
-      var slideCallback = function() {
-        var selectedPrice = this.val();
-        $('.support-tiers-list *[data-price]').each(function(index, el) {
-          var $this = $(this);
-          var tierPrice = $this.data('price');
-
-          if (selectedPrice >= tierPrice) {
-            $(this).addClass('is-included');
-            $(this).removeClass('is-excluded');
-          } else {
-            $(this).addClass('is-excluded');
-            $(this).removeClass('is-included');
-          }
-
-        });
-      };
-
-      $(".support-slider").slider({
-        range: [1, 50],
-        start: 25,
-        step:  1,
-        handles: 1,
-        slide:  slideCallback,
-        set:    slideCallback
-      });
-
-      $(".support-slider-control").val(25, true);
-
-      $('.support-tiers-list *[data-price]').click(function(event) {
-        console.log("CLICK");
-        console.log($(this).data('price'));
-        $('.support-slider-control').val($(this).data('price'), true);
-      });
-
-      $('.support-tiers-list > *').hover(function() {
-        var $target = $(this);
-        // $target.toggleClass('is-selected');
-        // $target.prevAll().toggleClass('is-included');
-        // $target.nextAll().toggleClass('is-excluded');
-      });
-    });
-  </script>
-<% end %>
