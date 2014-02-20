@@ -6,9 +6,10 @@
 }
 
 .page-header {
+  @include rem(max-width, 36rem);
+
   > h1 {
     @include rem(font-size, 40px);
-
     display: inline;
     border-bottom: solid 4px $c-link-blue-nicer;
     font-weight: weight(bold);
@@ -32,11 +33,6 @@
 }
 
 .page-header.is-centered {
-  > * {
-    @include centered;
-  }
-
-  > h1 {
-    // text-align: center;
-  }
+  @include centered;
+  text-align: center;
 }
