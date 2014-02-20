@@ -1,5 +1,7 @@
 class IssuesController < ApplicationController
 
+	before_filter	:check_access_to_issue, only: [:show, :piece]
+
 	def index
 
 	end
@@ -19,4 +21,11 @@ class IssuesController < ApplicationController
 
 		redirect_to issues_url unless @piece
 	end
+
+	protected
+
+		def check_access_to_issue
+			true
+			# TODO: allow for public issues, check users purchase history for non-public
+		end
 end
