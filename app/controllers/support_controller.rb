@@ -1,6 +1,7 @@
 class SupportController < ApplicationController
 
   skip_before_filter :authenticate_user!
+  before_filter :load_latest
 
   def show
     @user = User.new
@@ -38,6 +39,10 @@ class SupportController < ApplicationController
   end
 
   protected
+
+    def load_latest
+      @latest = Issue.latest
+    end
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email)

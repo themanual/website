@@ -20,13 +20,13 @@
       <dt>Choose your starting issue</dt>
       <dd class="field-checkradio is-half">
         <input type="radio" name="supporter-signup-start" id="supporter-signup-start-now" checked="checked" />
-        <label for="supporter-signup-start-now"><strong>Issue 4</strong>, our latest issue, which you’ll get immediately.</label>
-        <p class="label-note">We’ll charge you again for Issue 5, due in two months.</p>
+        <label for="supporter-signup-start-now"><strong>Issue <%= @latest.number %></strong>, our latest issue, which you’ll get immediately.</label>
+        <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %>, due in <%= due_on @latest.next %>.</p>
       </dd>
       <dd class="field-checkradio is-half">
         <input type="radio" name="supporter-signup-start" id="supporter-signup-start-next" />
-        <label for="supporter-signup-start-next"><strong>Issue 5</strong>, our next issue, which you’ll get in two months.</label>
-        <span class="label-note">We’ll only charge you again for Issue 6, due in six months.</span>
+        <label for="supporter-signup-start-next"><strong>Issue <%= @latest.next.number %></strong>, our next issue, which you’ll get in <%= due_on @latest.next %>.</label>
+        <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, due in <%= due_on @latest.next.next %>.</span>
       </dd>
     </dl>
 
@@ -79,6 +79,7 @@
         <span class="label-note">You’ll receive the latest published issue immediately, but you’ll be charged again for the following issue.</span>
       </div>
     </div> -->
+
 
     <div class="form-actions">
       <button type="submit" class="button">Support The Manual</button>

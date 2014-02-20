@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219133934) do
+ActiveRecord::Schema.define(version: 20140220162845) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140219133934) do
     t.string   "line4",      limit: 128
     t.string   "county",     limit: 128, null: false
     t.string   "post_code",  limit: 32,  null: false
-    t.string   "country",    limit: 128, null: false
+    t.integer  "country_id", limit: 128, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -76,12 +76,14 @@ ActiveRecord::Schema.define(version: 20140219133934) do
   add_index "email_addresses", ["user_id"], name: "index_email_addresses_on_user_id"
 
   create_table "issues", force: true do |t|
-    t.integer  "number",            default: 1, null: false
+    t.integer  "number",            default: 1,     null: false
     t.integer  "volume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "shoppe_digital_id"
     t.integer  "shoppe_id"
+    t.date     "published_on"
+    t.boolean  "public",            default: false, null: false
   end
 
   add_index "issues", ["volume_id"], name: "index_issues_on_volume_id"
@@ -315,6 +317,16 @@ ActiveRecord::Schema.define(version: 20140219133934) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "price",               default: 10, null: false
+    t.integer  "free_shipping_count", default: 0,  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",               default: "", null: false

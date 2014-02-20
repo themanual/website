@@ -9,15 +9,12 @@ class Issue < ActiveRecord::Base
 
 	acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
 
-	# TODO use publish_date
-	scope :ordered, -> { order('created_at DESC') }
+	scope :ordered, -> { order('published_on DESC') }
+	scope :published, -> { where(['published_on < ?', Time.now]) }
+	scope :public, -> { where(public: true) }
 
 	def title
 		"Issue ##{self.number}"
-	end
-
-	def self.public_issues
-		Issue.where(number: [1,2,3])
 	end
 
 	def purchasable?
@@ -30,6 +27,33 @@ class Issue < ActiveRecord::Base
 			Shoppe::Product.find(self.shoppe_digital_id)
 		when :physical
 			Shoppe::Product.find(self.shoppe_id)
+		end
+	end
+
+	def published?
+		self.published_on < Time.now
+	end
+
+	# TODO: horribly inneficient, sort this out later Marc
+	def next
+		@next ||= Issue.where(number: 1 + self.number).first
+	end
+
+	def self.public_issues
+		Rails.cache.fetch('issues:public', expires_in: 1.hour) do
+			Issue.published.ordered.public
+		end
+	end
+
+	def self.latest
+		Rails.cache.fetch('issues:latest', expires_in: 1.day) do
+			Issue.published.ordered.limit(1).first
+		end
+	end
+
+	def self.clear_caches
+		['issues:public','issues:latest'].each do |key|
+			Rails.cache.delete key
 		end
 	end
 end
