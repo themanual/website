@@ -39,8 +39,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'codemirror-rails'
 gem 'chosen-rails'
 
-gem 'shoppe', github: 'marcroberts/core', branch: 'patch-1', require: 'shoppe'
-# awaiting acceptance of my pull request - MR
+gem 'shoppe', github: 'tryshoppe/core', branch: 'master', require: 'shoppe'
+# pull request accepted, but no new gem release yet
 # gem 'shoppe', '~> 0.0.0'
 
 gem 'shoppe-stripe', '~> 1.2.1', :require => 'shoppe/stripe'

@@ -17,9 +17,9 @@ GIT
       sass-rails
 
 GIT
-  remote: git://github.com/marcroberts/core.git
-  revision: dfce39c4afbe0556733c6c4bf7d3d7f96f03284c
-  branch: patch-1
+  remote: git://github.com/tryshoppe/core.git
+  revision: a28480c233a838549c66e7742fba11f73e2f03b8
+  branch: master
   specs:
     shoppe (0.0.22)
       bcrypt-ruby (~> 3.1.2)
