@@ -44,7 +44,7 @@ $(function() {
           $(this).css({left: percentage});
         })
         .click(function() {
-          $(".support-slider-control").val($(this).data('legend-value'));
+          $(".support-slider-control").val($(this).data('legend-value'), true);
         });
     });
   };

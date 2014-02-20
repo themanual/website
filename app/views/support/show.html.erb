@@ -75,3 +75,50 @@
   <% end %>
 
 </div></main>
+
+<% content_for :footer do %>
+  <script>
+    $(function() {
+      var slideCallback = function() {
+        var selectedPrice = this.val();
+        $('.support-tiers-list *[data-price]').each(function(index, el) {
+          var $this = $(this);
+          var tierPrice = $this.data('price');
+
+          if (selectedPrice >= tierPrice) {
+            $(this).addClass('is-included');
+            $(this).removeClass('is-excluded');
+          } else {
+            $(this).addClass('is-excluded');
+            $(this).removeClass('is-included');
+          }
+
+        });
+      };
+
+      $(".support-slider").slider({
+        range: [1, 50],
+        start: 25,
+        step:  1,
+        handles: 1,
+        slide:  slideCallback,
+        set:    slideCallback
+      });
+
+      $(".support-slider-control").val(25, true);
+
+      $('.support-tiers-list *[data-price]').click(function(event) {
+        console.log("CLICK");
+        console.log($(this).data('price'));
+        $('.support-slider-control').val($(this).data('price'), true);
+      });
+
+      $('.support-tiers-list > *').hover(function() {
+        var $target = $(this);
+        // $target.toggleClass('is-selected');
+        // $target.prevAll().toggleClass('is-included');
+        // $target.nextAll().toggleClass('is-excluded');
+      });
+    });
+  </script>
+<% end %>
