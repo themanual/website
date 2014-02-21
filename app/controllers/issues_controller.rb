@@ -1,5 +1,7 @@
 class IssuesController < ApplicationController
 
+	# Keeping this here for easily testing locally
+	# skip_before_filter :authenticate_user!
 	before_filter	:check_access_to_issue, only: [:show, :piece]
 
 	def index

@@ -21,28 +21,32 @@
 }
 
 .support-tier {
-  border: solid 3px $c-divider;
+  border: solid 2px $c-divider;
   border-radius: 8px;
   padding: 1.5em 1em;
   background-color: white;
-  @include transition(all 0.15s ease-in-out);
+
+  @include transition(all 0.1s ease-in-out);
+  * { -webkit-transform: translateZ(0px); }
 
   &:hover {
-    border-color: $c-link-blue-nicer;
-    @include transform(translateY(-5px));
+    @include transform(translateY(-10px));
+    &, .support-tier-rewards {
+      border-color: darken($c-divider, 10%)
+    }
   }
 }
 
 .support-tier-digital {
-  @include animate(fadeInLeft, 1s);
+  // @include animate(fadeInLeft, 1s);
 }
 
 .support-tier-digital-print {
-  @include animate(fadeInDown, 1s);
+  // @include animate(fadeInDown, 1s);
 }
 
 .support-tier-friend {
-  @include animate(fadeInRight, 1s);
+  // @include animate(fadeInRight, 1s);
 }
 
 .support-tier-name {
@@ -53,7 +57,7 @@
 
 .footnote {
   vertical-align: text-top;
-  font-size: 0.75em;
+  font-size: 0.8em;
   padding-left: 0.2em;
   letter-spacing: 1px;
   font-weight: weight(bold);
@@ -100,28 +104,71 @@
 }
 
 .support-tier-rewards {
-  font-family: $type-sans;
-  font-size: 0.8em;
   clear: both;
-  color: gray(30%);
-  line-height: 1.25;
   text-align: center;
 
   padding-top:  1.25rem;
   border-top: divider();
+  border-top-width: 2px;
+  @include rem(margin-left margin-right,  -1rem);
+  @include rem(padding-left padding-right, 1rem);
+  @include transition(all 0.1s ease-in-out);
+}
 
-  .highlight {
-    background-color: #FFFBDC;
-    color: black;
-  }
+// .highlight {
+//   background-color: #FFFBDC;
+//   color: black;
+// }
+
+%supporter-reward {
+  font-family: $type-serif;
+  @include rem(font-size, 19px);
+  color: gray(20%);
+  line-height: 1.4;
 
   .striked {
     text-decoration: line-through;
     color: gray(80%);
-    font-weight: weight(light);
   }
 
-  > * + * {
-    margin-top: 0.5em;
+  & + & {
+    margin-top: 1em;
   }
 }
+
+.support-tier-rewards > *,
+.support-benefits-list > * {
+  @extend %supporter-reward;
+}
+
+.support-benefits {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.support-benefits-title {
+  @extend %heading-sc;
+  @include rem(font-size, 18px);
+  font-weight: weight(medium);
+  // border-bottom: divider();
+  margin-bottom: 2em;
+  // padding-bottom: 1.5em;
+
+  .highlight {
+    border-bottom: solid 2px $c-link-blue-nicer;
+    padding-bottom: 0.1em;
+  }
+}
+
+.support-benefits-list > * {
+  // padding-left: 1em;
+  // @include rem(font-size, 17px);
+}
+
+// .support-benefits-list > *:before {
+//   content: "+";
+//   float: left;
+//   margin-left: -1em;
+//   color: $c-link-blue-nicer;
+// }
