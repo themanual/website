@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220162845) do
+ActiveRecord::Schema.define(version: 20140220155333) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -30,15 +30,15 @@ ActiveRecord::Schema.define(version: 20140220162845) do
 
   create_table "addresses", force: true do |t|
     t.integer  "user_id"
-    t.string   "line1",      limit: 128, null: false
+    t.string   "line1",      limit: 128,             null: false
     t.string   "line2",      limit: 128
     t.string   "line3",      limit: 128
     t.string   "line4",      limit: 128
-    t.string   "county",     limit: 128, null: false
-    t.string   "post_code",  limit: 32,  null: false
-    t.integer  "country_id", limit: 128, null: false
+    t.string   "county",     limit: 128,             null: false
+    t.string   "post_code",  limit: 32,              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "country_id",             default: 0, null: false
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
