@@ -9,44 +9,48 @@
   }
 }
 
-@mixin wrapper {
+.l-wrapper {
   @include outer-container;
   @include container-spacing(padding-left padding-right);
 }
 
-@mixin wrapper-unpadded {
-  @include wrapper;
-  @include box-sizing(content-box);
-}
-
-@mixin grid-wrapper($direction: $default-layout-direction) {
-  @include wrapper;
-  @include row(block, $direction);
-}
-
-@mixin grid-half {
-  @include span-columns($grid-columns/2);
-}
-
-@mixin grid-third {
-  @include span-columns($grid-columns/3);
-}
-
-.wrapper    { @include wrapper; }
-
-.g-row      { @include row; }
-.g-wrapper  { @include grid-wrapper; }
-
-.g-total    { @include fill-parent; }
-.g-half     { @include grid-half;   }
-.g-third    { @include grid-third;  }
-
-main.is-padded {
+.l-padded {
   @include container-spacing(padding-left padding-right);
   @include container-spacing(padding-top padding-bottom, 2);
 }
 
-.c-single {
-  @include rem(max-width, 36rem);
+.l-padded-h {
+  @include container-spacing(padding-left padding-right);
+}
+
+.l-singlecol {
+  @include rem(max-width, $singlecol-width);
   &.is-centered { @include centered; }
+}
+
+.l-singlecol-centered {
+  @extend .l-singlecol;
+  @include centered;
+}
+
+.l-grid {
+  @include row;
+  @include outer-container;
+}
+
+.l-grid-padded {
+  @extend .l-grid;
+  @extend .l-padded-h;
+}
+
+.l-grid-unit-fill {
+  @include fill-parent;
+}
+
+.l-grid-unit-half {
+  @include span-columns($grid-columns/2);
+}
+
+.l-grid-unit-third {
+  @include span-columns($grid-columns/3);
 }

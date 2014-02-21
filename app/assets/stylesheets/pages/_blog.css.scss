@@ -1,5 +1,4 @@
 .blog > div {
-  @include grid-wrapper(RTL);
   @include container-spacing(padding-top);
   @include container-spacing(padding-bottom, 2);
 }

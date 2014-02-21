@@ -1,7 +1,6 @@
 $type-column-em-width: 30;
 
 .issue-piece > div {
-  @include wrapper;
   @include container-spacing(padding-top);
 }
 
@@ -13,10 +12,10 @@ $type-column-em-width: 30;
 
   .issue-piece-header-illustration,
   .issue-piece-header-text {
-    @include span-columns(6); 
+    @include span-columns(6);
   }
 
-  .issue-piece-header-illustration {    
+  .issue-piece-header-illustration {
     @include clearfix;
 
     figure {

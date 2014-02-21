@@ -4,7 +4,7 @@
 
   <main class="issue-<%= @issue.number %>">
 
-    <section class="issue"><div class="wrapper">
+    <section class="issue"><div class="l-wrapper">
 
       <header class="issue-header">
         <h1 class="issue-header-name">Issue <strong class="issue-header-name-number"><%= @issue.number %></strong></h1>
@@ -19,7 +19,7 @@
       </div>
       -->
 
-      <ul class="issue-content g-row">
+      <ul class="issue-content l-grid">
       <% @issue.articles.ordered.each do |article| %>
         <li class="issue_entry">
           <figure class="issue_entry-illo">
@@ -51,9 +51,9 @@
 
 
 
-    <aside class="boxes"><div>
+    <aside class="boxes"><div class="l-grid-padded">
 
-      <section class="box g-half">
+      <section class="box l-grid-unit-half">
         <h2 class="box-title"><a class="issue-current" href="<%= issue_url(@issue.number) %>">Buy this issue</a> and support The Manual</h2>
 
         <div class="issuebuy">
@@ -64,7 +64,7 @@
         </div>
       </section>
 
-      <section class="box g-half">
+      <section class="box l-grid-unit-half">
         <h2 class="box-title">Prints available at <a class="issue-current" href="/store">the Store</a></h2>
       </section>
     </div></aside>

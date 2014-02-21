@@ -1,10 +1,6 @@
 .site-footer {
   @include padding-v(1.5em);
 
-  > div {
-    @include grid-wrapper;
-  }
-
   font-family: $type-sans;
   color: gray(60%);
 
@@ -29,7 +25,7 @@
     font-weight: weight(medium);
     line-height: 1;
     color: gray(30%);
-    
+
     padding-top:    0.4em;
     padding-bottom: 0.8em;
   }
@@ -61,7 +57,7 @@ font-weight: normal;
     max-width:   32em;
   }
 
-  strong { 
+  strong {
     font-family: $type-sans;
     font-weight: weight(medium);
   }

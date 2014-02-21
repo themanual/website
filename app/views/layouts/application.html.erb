@@ -28,7 +28,7 @@
 </head>
 <body lang="en">
 
-  <header class="header"><div class="g-wrapper">
+  <header class="header"><div class="l-grid-padded">
     <h1 class="header-logo"><a href="<%= root_url %>"><!--The Manual--></a></h1>
     <button class="header-button">Show/Hide Menu</button>
     <nav class="header-nav"></nav>
@@ -36,8 +36,7 @@
 
   <%= yield %>
 
-  <footer class="site-footer">
-    <div>
+  <footer class="site-footer"><div class="l-grid-padded">
 
       <section class="site-footer-about">
         <p><strong>The Manual</strong> is a publication on web design as a discipline, capturing the voices of the profession as they explore what we do and who we are as designers. The Manual is published three times per year, in both print and digital editions, excluslively available online. <a href="#">Read more.</a></p>
@@ -56,8 +55,7 @@
         <p>Edit draft campaigns, even when you're offline with <a href="#">MailChimp Editor for iPad</a>.</p>
       </section>
 
-    </div>
-  </footer>
+  </div></footer>
 
   <%= javascript_include_tag :application, :debug => Rails.env.development? %>
   <%= yield :footer %>

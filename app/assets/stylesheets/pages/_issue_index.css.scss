@@ -2,8 +2,9 @@
   position: relative;
 }
 
-.issue_index-entry-header     { @include grid-half; }
-.issue_index-entry .issuetoc  { @include grid-half; }
+.issue_index-entry .issuetoc {
+  @extend .l-grid-unit-half;
+}
 
 .issue_index-entry .issuebuy {
   position: absolute;

@@ -4,9 +4,9 @@
 
   <% Issue.public_issues.ordered.each do |issue| %>
     <% cache issue do %>
-      <section class="issue_index-entry issue-<%= issue.number %>"><div class="wrapper row">
+      <section class="issue_index-entry issue-<%= issue.number %>"><div class="l-grid-padded">
 
-        <header class="issue_index-entry-header">
+        <header class="issue_index-entry-header l-grid-unit-half">
           <h1 class="issue_index-entry-header-name">Issue <strong><%= issue.number %></strong></h1>
           <p>Fall 2011 &middot; <a href="<%= issue_url(issue.number) %>">Browse Issue</a></p>
         </header>

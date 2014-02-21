@@ -1,8 +1,6 @@
 // Layout
 .boxes > div {
-  @include grid-wrapper;
-  @include container-spacing(padding-top,     1.5);
-  @include container-spacing(padding-bottom,  1.5);
+  @include container-spacing(padding-top padding-bottom, 1.5);
 }
 
 .boxes { border-top:    solid 1px $c-divider; }
