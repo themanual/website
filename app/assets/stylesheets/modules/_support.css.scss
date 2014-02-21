@@ -14,11 +14,32 @@
   display: none;
 }
 
+.support a {
+  @include colored-link {
+    color: $c-link-blue-nicer;
+  }
+}
+
 .support-tier {
-  // border: solid 3px $c-link-blue-nicer;
   border: solid 3px $c-divider;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 1em;
+  @include transition(border-color 0.2s ease-in-out);
+  &:hover {
+    border-color: $c-link-blue-nicer;
+  }
+}
+
+.support-tier-digital {
+  @include animate(fadeInLeft, 1s);
+}
+
+.support-tier-digital-print {
+  @include animate(fadeInDown, 1s);
+}
+
+.support-tier-friend {
+  @include animate(fadeInRight, 1s);
 }
 
 .support-tier-name {
@@ -27,6 +48,18 @@
   font-size: 1.5em;
   margin-top:    .75rem;
   margin-bottom: 1rem;
+}
+
+.footnote {
+  vertical-align: text-top;
+  font-size: 0.75em;
+  padding-left: 0.2em;
+  letter-spacing: 1px;
+  font-weight: weight(bold);
+
+  &:target {
+    outline: none;
+  }
 }
 
 .support-tier-price {
@@ -93,6 +126,12 @@
   .highlight {
     background-color: #FFFBDC;
     color: black;
+  }
+
+  .striked {
+    text-decoration: line-through;
+    color: gray(80%);
+    font-weight: weight(light);
   }
 
   > * + * {
