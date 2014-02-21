@@ -115,10 +115,11 @@
   @include transition(all 0.1s ease-in-out);
 }
 
-// .highlight {
-//   background-color: #FFFBDC;
-//   color: black;
-// }
+// TODO Remove this?
+.highlight {
+  background-color: #FFFBDC;
+  color: black;
+}
 
 %supporter-reward {
   font-family: $type-serif;
@@ -149,16 +150,12 @@
 
 .support-benefits-title {
   @extend %heading-sc;
+  display: inline-block;
   @include rem(font-size, 18px);
   font-weight: weight(medium);
-  // border-bottom: divider();
   margin-bottom: 2em;
-  // padding-bottom: 1.5em;
-
-  .highlight {
-    border-bottom: solid 2px $c-link-blue-nicer;
-    padding-bottom: 0.1em;
-  }
+  border-bottom: solid 2px $c-link-blue-nicer;
+  padding-bottom: 0.2em;
 }
 
 .support-benefits-list > * {
