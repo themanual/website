@@ -8,13 +8,13 @@
   @if not unitless($base) { $base: valueof($base); }
 
   @each $prop in $props {
-    @if unit($value) == "px" 
+    @if unit($value) == "px"
     {
       #{$prop}: $value;
       #{$prop}: (valueof($value) / $base) * 1rem;
-    } 
-    @else if unit($value) == "rem" 
-    { 
+    }
+    @else if unit($value) == "rem"
+    {
       #{$prop}: (valueof($value) * $base) * 1px;
       #{$prop}: $value;
     }
@@ -31,6 +31,8 @@ $column: 60px;
 $gutter: 35px;
 $grid-columns: 12;
 $max-width: 1350px;
+
+$singlecol-width: 36rem;
 
 // Breakpoints
 $bp-xs: 500px;

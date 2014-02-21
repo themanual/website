@@ -6,7 +6,7 @@
 }
 
 .page-header {
-  @include rem(max-width, 36rem);
+  @include rem(max-width, $singlecol-width);
 
   > h1 {
     @include rem(font-size, 40px);
