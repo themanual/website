@@ -16,6 +16,10 @@
 }
 
 @mixin colored-link {
+  &:link, &:visited {
+    @content
+  }
+
   &:hover,
   &:focus,
   &:active {
