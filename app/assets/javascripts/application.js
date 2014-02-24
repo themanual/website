@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //  jQuery
-//= require jquery/jquery
+//= require jquery/dist/jquery
 //= require jquery-ujs/src/rails
 //
 //  Other Libs

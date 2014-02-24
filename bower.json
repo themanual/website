@@ -7,5 +7,6 @@
     "fitvids":        "*",    // Responsive video embeds for popular sites
     "trmix":          "*",    // Browser text rendering detection
     "jquery.payment": "*"     // Payment details validation and autocompletion
+    "jquery":           "1.*",
   }
 }
