@@ -74,7 +74,7 @@
     </div>
   </section>
 
-  <%= form_for @user, url: support_path, html: {method: :post, class: "stripe-form form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
+  <%= form_for @user, url: support_path, html: {method: :post, class: "payment-form form l-singlecol is-centered", autocomplete: :on, novalidate: :novalidate } do |f| %>
     <input type="hidden" name="stripe_token" value="" />
 
     <!-- HIDDEN FIELD FOR NOW - MR -->

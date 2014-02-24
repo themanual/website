@@ -1,7 +1,7 @@
 $(function() {
 
   // Stripe Forms
-  $('.stripe-form').each(function() {
+  $('.payment-form').each(function() {
 
     var $form = $(this);
 
