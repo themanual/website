@@ -51,11 +51,7 @@
   padding-left: $left;
 
   * + & {
-    margin-top: .4rem;
-  }
-
-  dt + & {
-    margin-top: .6rem;
+    margin-top: .5rem;
   }
 
   input {
