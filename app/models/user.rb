@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :cards, :dependent => :delete_all
   has_many :addresses
   has_one :shipping_address, class_name: 'Address'
+  has_many :subscriptions
 
   after_create :add_email_address
 

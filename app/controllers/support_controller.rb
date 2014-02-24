@@ -17,16 +17,19 @@ class SupportController < ApplicationController
       card = customer.cards.first
 
       @user.cards.new customer_token: customer.id, last4: card.last4, exp_month: card.exp_month, exp_year: card.exp_year
-
       @user.save!
-
       sign_in @user
 
       customer.metadata = {id: @user.id}
       customer.save
 
-    rescue
-      flash[:warning] = "Error confirming credit card"
+      # create subscription
+      @user.subscriptions.create price: params[:price].to_i
+
+      # create order
+
+    rescue Stripe::StripeError
+      flash[:warning] = t 'errors.stripe'
       render :show and return
     end
 
