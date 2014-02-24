@@ -116,12 +116,6 @@
   @include transition(all 0.1s ease-in-out);
 }
 
-// TODO Remove this?
-.highlight {
-  background-color: #FFFBDC;
-  color: black;
-}
-
 %supporter-reward {
   font-family: $type-serif;
   @include rem(font-size, 19px);
