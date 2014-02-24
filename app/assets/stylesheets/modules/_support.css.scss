@@ -18,23 +18,31 @@
 .support-tier {
   border: solid 2px $c-divider;
   border-radius: 8px;
-  padding: 1.5em 1em;
   background-color: white;
 
   @include transition(all 0.1s ease-in-out);
-  @include animation-fix;
 
   &:hover {
-    @include transform(translateY(-10px));
-    &, .support-tier-rewards {
+    // @include transform(scale(1.1));
+    &, .support-tier-header {
       border-color: darken($c-divider, 10%)
     }
   }
 
   &.is-selected,
-  &.is-selected .support-tier-rewards {
+  &.is-selected .support-tier-header {
     border-color: $c-link-blue-nicer;
   }
+}
+
+.support-tier-header {
+  border-bottom: solid 2px $c-divider;
+}
+
+.support-tier-header,
+.support-tier-body {
+  @include rem(padding-left padding-right, 1rem);
+  @include rem(padding-top padding-bottom, 1.5rem);
 }
 
 .support-tier-digital {
@@ -70,7 +78,6 @@
 .support-tier-price {
 
   margin-top: .75em;
-  margin-bottom: 1.5em;
 
   .number {
     color: $c-link-blue-nicer;
@@ -107,12 +114,7 @@
 .support-tier-rewards {
   clear: both;
   text-align: center;
-
-  padding-top:  1.25rem;
-  border-top: divider();
   border-top-width: 2px;
-  @include rem(margin-left margin-right,  -1rem);
-  @include rem(padding-left padding-right, 1rem);
   @include transition(all 0.1s ease-in-out);
 }
 
@@ -138,23 +140,19 @@
 }
 
 .support-benefits {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  // text-align: center;
+  @include margin-v(3em);
 }
 
 .support-benefits-title {
   @extend %heading-sc;
-  display: inline-block;
   @include rem(font-size, 18px);
   font-weight: weight(medium);
   margin-bottom: 1.5em;
-  border-bottom: solid 2px $c-link-blue-nicer;
-  padding-bottom: 0.2em;
 }
 
 .support-benefits-list > * {
   text-align: left;
+  color: gray(30%);
   padding-left: 1em;
   + * {
     margin-top: 0.75em;
@@ -172,5 +170,4 @@
 
 .js .support-form {
   display: none;
-  @include animation-fix;
 }
