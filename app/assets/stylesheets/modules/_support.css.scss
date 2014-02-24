@@ -22,7 +22,7 @@
   background-color: white;
 
   @include transition(all 0.1s ease-in-out);
-  * { -webkit-transform: translateZ(0px); }
+  @include animation-fix;
 
   &:hover {
     @include transform(translateY(-10px));
@@ -85,6 +85,7 @@
 
   .plus {
     font-weight: weight(light);
+    display: none;
   }
 
   .currency {
@@ -173,6 +174,9 @@
   color: $c-link-blue-nicer;
 }
 
-.js .payment-form {
+.support-form { border-top: divider(); }
+
+.js .support-form {
   display: none;
+  @include animation-fix;
 }
