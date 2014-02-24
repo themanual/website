@@ -20,10 +20,9 @@
   border-radius: 8px;
   background-color: white;
 
-  @include transition(border-color 0.2s ease-in-out);
+  @include transition(border-color 0.1s ease-in-out);
 
   &:hover {
-    // @include transform(scale(1.1));
     &, .support-tier-header {
       border-color: darken($c-divider, 10%)
     }
@@ -37,6 +36,7 @@
 
 .support-tier-header {
   border-bottom: solid 2px $c-divider;
+  @include transition(border-color 0.1s ease-in-out);
 }
 
 .support-tier-header,
