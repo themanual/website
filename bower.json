@@ -1,12 +1,13 @@
 {
   "name": "The Manual",
   "dependencies": {
-    "underscore":     "*",
-    "jquery-ujs":     "*",    // For Rails
-    "garnish":        "*",    // Helpers and utilites for Sass
-    "fitvids":        "*",    // Responsive video embeds for popular sites
-    "trmix":          "*",    // Browser text rendering detection
-    "jquery.payment": "*"     // Payment details validation and autocompletion
+    "underscore":       "*",
     "jquery":           "1.*",
+    "jquery-ujs":       "*",    // For Rails
+    "jquery.scrollTo":  "*",    // Scrolling utilities
+    "garnish":          "*",    // Helpers and utilites for Sass
+    "fitvids":          "*",    // Responsive video embeds for popular sites
+    "jquery.payment":   "*",    // Payment details validation and autocompletion
+    "trmix":            "*"     // Browser text rendering detection
   }
 }
