@@ -74,90 +74,96 @@
     </div>
   </section>
 
-  <%= form_for @user, url: support_path, html: {method: :post, class: "payment-form form l-singlecol is-centered", autocomplete: :on, novalidate: :novalidate } do |f| %>
-    <input type="hidden" name="stripe_token" value="" />
+  <section class="support-form">
+    <%= form_for @user, url: support_path, html: {method: :post, class: "payment-form form l-singlecol is-centered", autocomplete: :on, novalidate: :novalidate } do |f| %>
+      <input type="hidden" name="stripe_token" value="" />
 
-    <!-- HIDDEN FIELD FOR NOW - MR -->
-    <input type="hidden" name="price" value="10" />
+      <!-- HIDDEN FIELD FOR NOW - MR -->
+      <input type="hidden" name="price" value="10" />
 
 
-    <!--
-    <span class="payment-errors"></span>
+      <!--
+      <span class="payment-errors"></span>
 
-    <dl>
-      <dt><label for="support-panel-form-price">$</label></dt>
-      <dd><input type="number" id="support-panel-form-price" /></dd>
-    </dl>-->
+      <dl>
+        <dt><label for="support-panel-form-price">$</label></dt>
+        <dd><input type="number" id="support-panel-form-price" /></dd>
+      </dl>-->
 
-    <dl class="field">
-      <dt>Choose your starting issue</dt>
-      <dd class="field-checkradio is-half">
-        <input type="radio" name="supporter-signup-start" id="supporter-signup-start-now" checked="checked" />
-        <label for="supporter-signup-start-now"><strong>Issue <%= @latest.number %></strong>, our latest issue, which you’ll get immediately.</label>
-        <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %>, due in <%= due_on @latest.next %>.</p>
-      </dd>
-      <dd class="field-checkradio is-half">
-        <input type="radio" name="supporter-signup-start" id="supporter-signup-start-next" />
-        <label for="supporter-signup-start-next"><strong>Issue <%= @latest.next.number %></strong>, our next issue, which you’ll get in <%= due_on @latest.next %>.</label>
-        <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, due in <%= due_on @latest.next.next %>.</span>
-      </dd>
-    </dl>
-
-    <div class="field is-composed">
-      <dl class="field-element is-composed is-half">
-        <dt><label for="supporter-signup-first-name">Name</label></dt>
-        <dd class="field-element is-half">
-          <%= f.text_field :first_name, id: 'supporter-signup-first-name', class: 'is-long', placeholder: 'First', required: true %>
-        </dd>
-        <dd class="field-element is-half">
-          <%= f.text_field :last_name, id: 'supporter-signup-last-name', class: 'is-long', placeholder: 'Last', required: true %>
-        </dd>
-      </dl>
-
-      <dl class="field-element is-half">
-        <dt><label for="supporter-signup-email">Email</label></dt>
-        <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true, id: 'supporter-signup-email' %></dd>
-      </dl>
-    </div>
-
-    <div class="field is-composed">
-      <dl class="field-element is-half">
-        <dt><label for="supporter-signup-cc-number">Card Number</label></dt>
-        <dd><input required id="supporter-signup-cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
-      </dl>
-
-      <div class="field-element is-composed is-half">
-        <dl class="field-element is-half">
-          <dt><label for="supporter-signup-cc-cvc">CVC</label></dt>
-          <dd><input required type="text" id="supporter-signup-cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
+      <div class="field is-composed">
+        <dl class="field-element is-composed is-half">
+          <dt><label for="supporter-signup-first-name">Name</label></dt>
+          <dd class="field-element is-half">
+            <%= f.text_field :first_name, id: 'supporter-signup-first-name', class: 'is-long', placeholder: 'First', required: true %>
+          </dd>
+          <dd class="field-element is-half">
+            <%= f.text_field :last_name, id: 'supporter-signup-last-name', class: 'is-long', placeholder: 'Last', required: true %>
+          </dd>
         </dl>
 
         <dl class="field-element is-half">
-          <dt><label for="supporter-signup-cc-exp">Expiration</label></dt>
-          <dd><input id="supporter-signup-cc-exp" required type="text" name="cc-exp" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+          <dt><label for="supporter-signup-email">Email</label></dt>
+          <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true, id: 'supporter-signup-email' %></dd>
         </dl>
       </div>
 
-    </div>
+      <div class="field is-composed">
+        <dl class="field-element is-half">
+          <dt><label for="supporter-signup-cc-number">Card Number</label></dt>
+          <dd><input required id="supporter-signup-cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
+        </dl>
 
-    <!-- <div class="field">
-      <div class="field-checkradio">
-        <input type="checkbox" name="" id="supporter-signup-current-issue" />
-        <label for="supporter-signup-current-issue">Start subscription on the most current issue</label>
-        <span class="label-note">You’ll receive the latest published issue immediately, but you’ll be charged again for the following issue.</span>
+        <div class="field-element is-composed is-half">
+          <dl class="field-element is-half">
+            <dt><label for="supporter-signup-cc-cvc">CVC</label></dt>
+            <dd><input required type="text" id="supporter-signup-cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
+          </dl>
+
+          <dl class="field-element is-half">
+            <dt><label for="supporter-signup-cc-exp">Expiration</label></dt>
+            <dd><input id="supporter-signup-cc-exp" required type="text" name="cc-exp" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+          </dl>
+        </div>
       </div>
-      <div class="field-checkradio">
-        <input type="checkbox" name="" id="supporter-signup-current-issue" />
-        <label for="supporter-signup-current-issue">Start subscription on the most current issue</label>
-        <span class="label-note">You’ll receive the latest published issue immediately, but you’ll be charged again for the following issue.</span>
+
+      <dl class="field is-composed">
+        <dt>Choose your starting issue</dt>
+        <dd class="field-checkradio field-element is-half">
+          <input type="radio" name="supporter-signup-start" id="supporter-signup-start-now" checked="checked" />
+          <label for="supporter-signup-start-now"><strong>Issue <%= @latest.number %></strong>, which you’ll get immediately.</label>
+          <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %> in <%= due_on @latest.next %>.</p>
+        </dd>
+        <dd class="field-checkradio field-element is-half">
+          <input type="radio" name="supporter-signup-start" id="supporter-signup-start-next" />
+          <label for="supporter-signup-start-next"><strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %>.</label>
+          <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, in <%= due_on @latest.next.next %>.</span>
+        </dd>
+      </dl>
+
+      <div class="form-actions">
+        <input type="submit" value="Support The Manual" data-disable-with="Processing..." class="button">
       </div>
-    </div> -->
-
-
-    <div class="form-actions">
-      <input type="submit" value="Support The Manual" data-disable-with="Processing..." class="button">
-    </div>
-
-  <% end %>
+    <% end %>
+  </section>
 
 </div></main>
+
+<% content_for :footer do %>
+  <script>$(function() {
+    $('.support-tier button[data-value]').click(function() {
+      var $wrapper    = $('.support-form');
+      var SLIDE_DELAY = 150;
+      // Toggle button
+      $(this)
+        .closest('.support-tier').addClass('is-selected')
+        .siblings().removeClass('is-selected');
+      // Reveal form
+      if (!$wrapper.is(':visible')) {
+        $wrapper.css('opacity', 0.0).slideDown(SLIDE_DELAY, function() {
+          $wrapper.animatecss('fadeInUp', function() { $wrapper.css('opacity', 1.0); });
+        });
+      }
+      window.setTimeout(function() { $.scrollTo($wrapper, { duration: 300, easing: 'easeInOutQuart'}); }, SLIDE_DELAY);
+    });
+  });</script>
+<% end %>
