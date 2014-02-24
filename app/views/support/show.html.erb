@@ -81,7 +81,12 @@
   </section>
 
   <section class="support-form">
-    <%= form_for @user, url: support_path, html: {method: :post, class: "payment-form form l-singlecol is-centered", autocomplete: :on, novalidate: :novalidate } do |f| %>
+    <header class="subheading l-singlecol-centered">
+      <h2>Now we just need you to fill this up.</h2>
+      <p>You’ll be charged immediately for your subscription, which is securely handled by Stripe.</p>
+    </header>
+    </header>
+    <%= form_for @user, url: support_path, html: {method: :post, class: "payment-form boxed-form l-singlecol-centered", autocomplete: :on, novalidate: :novalidate } do |f| %>
       <input type="hidden" name="stripe_token" value="" />
 
       <!-- HIDDEN FIELD FOR NOW - MR -->
