@@ -21,6 +21,8 @@
 //
 //  jQuery Plugins
 //= require fitvids/jquery.fitvids
+//= require jquery.easing/js/jquery.easing
+//= require jquery.scrollTo/jquery.scrollTo
 //
 //  Custom code
 //= require_tree ./base
