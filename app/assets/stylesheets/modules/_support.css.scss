@@ -1,8 +1,3 @@
-.support-tiers {
-  display: flex;
-  align-items: stretch;
-}
-
 .support-tier-name,
 .support-tier-price {
   text-align: center;
@@ -145,7 +140,7 @@
 .support-benefits {
   margin-top: 3rem;
   margin-bottom: 3rem;
-  text-align: center;
+  // text-align: center;
 }
 
 .support-benefits-title {
@@ -153,19 +148,26 @@
   display: inline-block;
   @include rem(font-size, 18px);
   font-weight: weight(medium);
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   border-bottom: solid 2px $c-link-blue-nicer;
   padding-bottom: 0.2em;
 }
 
 .support-benefits-list > * {
-  // padding-left: 1em;
-  // @include rem(font-size, 17px);
+  text-align: left;
+  padding-left: 1em;
+  + * {
+    margin-top: 0.75em;
+  }
 }
 
-// .support-benefits-list > *:before {
-//   content: "+";
-//   float: left;
-//   margin-left: -1em;
-//   color: $c-link-blue-nicer;
-// }
+.support-benefits-list > *:before {
+  content: "+";
+  float: left;
+  margin-left: -1em;
+  color: $c-link-blue-nicer;
+}
+
+.js .payment-form {
+  display: none;
+}

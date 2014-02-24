@@ -15,4 +15,12 @@ $(function() {
 
   $('select.chosen').chosen();
 
+  $('.support-tier button[data-value]').click(function() {
+    var $button = $(this);
+    var $form   = $('.payment-form');
+    if (!$form.is(':visible')) {
+      $form.slideDown().animatecss('fadeInDown');
+    }
+  });
+
 });
