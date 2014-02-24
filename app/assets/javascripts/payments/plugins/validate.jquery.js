@@ -124,7 +124,7 @@
 
     return this.each(function() {
 
-      var bindHandlers = _.once(function($form){
+      var bindOnTypeHandlers = _.once(function($form){
         $form
           .find(':input').not($.validate.IGNORED_FIELDS.join(','))
           .on('focusout focusin change keyup', function() { $(this).validateField(); });
@@ -142,8 +142,12 @@
         if (!valid) {
           // Prevent further submit handlers
           event.stopImmediatePropagation();
-          bindHandlers($form);
+          // Make button enabled
           $submit_button.prop('disabled', false).animatecss('shake');
+          // Focus on first invalid field
+          $form.find(':input.'+$.validate.CLASSES.invalid+':first').focus();
+          //
+          bindOnTypeHandlers($form);
         }
 
         return false;
