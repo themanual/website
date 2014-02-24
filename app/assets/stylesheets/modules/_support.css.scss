@@ -20,7 +20,7 @@
   border-radius: 8px;
   background-color: white;
 
-  @include transition(all 0.1s ease-in-out);
+  @include transition(border-color 0.2s ease-in-out);
 
   &:hover {
     // @include transform(scale(1.1));
