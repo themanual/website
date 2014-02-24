@@ -3,22 +3,22 @@
 }
 
 .form-actions {
+  @include rem(margin-top, 1.5rem);
+}
+
+.form {
+  @include rem(margin-top, 1.5rem);
+}
+
+.boxed-form {
   @include rem(margin-top, 2rem);
+  @include rem(padding, 1rem);
+  border: divider();
+  border-radius: 6px;
+
+  .form-actions {
+    @include rem(margin-right margin-bottom margin-left, -1rem);
+    @include rem(padding, 1rem);
+    border-top: divider();
+  }
 }
-
-.payment-form {
-  margin-top: 2rem;
-}
-
-// .form.is-boxed {
-//   @include rem(padding, 1rem);
-//   border: divider();
-//   border-radius: 6px;
-
-//   .form-actions {
-//     @include rem(margin-right margin-bottom margin-left, -1rem);
-//     @include rem(padding, 1rem);
-//     border-top: divider();
-//   }
-// }
-
