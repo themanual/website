@@ -143,7 +143,7 @@
           // Prevent further submit handlers
           event.stopImmediatePropagation();
           // Make button enabled
-          $submit_button.prop('disabled', false).animatecss('shake');
+          $submit_button.prop('disabled', false).animateCss('shake');
           // Focus on first invalid field
           $form.find(':input.'+$.validate.CLASSES.invalid+':first').focus();
           //

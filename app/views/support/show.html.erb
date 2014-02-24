@@ -160,7 +160,7 @@
       // Reveal form
       if (!$wrapper.is(':visible')) {
         $wrapper.css('opacity', 0.0).slideDown(SLIDE_DELAY, function() {
-          $wrapper.animatecss('fadeInUp', function() { $wrapper.css('opacity', 1.0); });
+          $wrapper.animateCss('fadeInUp', function() { $wrapper.css('opacity', 1.0); });
         });
       }
       window.setTimeout(function() { $.scrollTo($wrapper, { duration: 300, easing: 'easeInOutQuart'}); }, SLIDE_DELAY);
