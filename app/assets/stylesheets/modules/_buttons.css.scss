@@ -5,10 +5,10 @@
   @include text-and-border-color($c-link-blue-nicer);
 
   padding: .7em .85em .75em;
-  border: solid 2px $c-link-blue-nicer;
+  border-width: 2px;
+  border-style: solid;
   border-radius: 4px;
   background: #fff;
-  color: $c-link-blue-nicer;
   text-transform: uppercase;
   word-spacing: .1em;
   letter-spacing: .1em;
@@ -17,6 +17,9 @@
   line-height: 1;
 
   cursor: pointer;
+
+
+  @include text-and-border-color($c-link-blue-nicer);
 
   &.is-secondary {
     @include text-and-border-color(gray(40%));
