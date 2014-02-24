@@ -1,11 +1,11 @@
-.page-header {
+.heading {
   @include container-spacing(margin-top margin-bottom, 2);
   &:first-child {
     margin-top: 0;
   }
 }
 
-.page-header {
+.heading {
   @include rem(max-width, $singlecol-width);
 
   > h1 {
@@ -32,7 +32,36 @@
   }
 }
 
-.page-header.is-centered {
+.heading.is-centered {
   @include centered;
   text-align: center;
+}
+
+.subheading {
+  @include container-spacing(margin-top,    2);
+  @include container-spacing(margin-bottom, 1);
+
+  > h2 {
+    font-family: $type-sans;
+    font-weight: weight(medium);
+    display: inline;
+    border-bottom: solid 2px $c-link-blue-nicer;
+    padding-bottom: 0.05em;
+    line-height: 1.2;
+  }
+
+  > h2 + p {
+    @include rem(margin-top, .5rem);
+  }
+
+  > p {
+    font-size: 0.85em;
+    $line-height: 1.4;
+    color: gray(30%);
+    line-height: $line-height;
+
+    & + p { margin-top: $line-height * .75em; }
+
+    strong { font-weight: weight(bold); }
+  }
 }
