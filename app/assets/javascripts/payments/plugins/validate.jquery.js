@@ -143,7 +143,7 @@
           // Prevent further submit handlers
           event.stopImmediatePropagation();
           bindHandlers($form);
-          $submit_button.prop('disabled', false).animate('shake');
+          $submit_button.prop('disabled', false).animatecss('shake');
         }
 
         return false;

@@ -1,5 +1,5 @@
 (function($) {
-  $.fn.animate = function(type) {
+  $.fn.animatecss = function(type) {
     return this.each(function() {
       $(this)
         .addClass("animated "+type)
