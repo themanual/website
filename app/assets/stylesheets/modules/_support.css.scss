@@ -30,6 +30,11 @@
       border-color: darken($c-divider, 10%)
     }
   }
+
+  &.is-selected,
+  &.is-selected .support-tier-rewards {
+    border-color: $c-link-blue-nicer;
+  }
 }
 
 .support-tier-digital {

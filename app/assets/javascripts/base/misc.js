@@ -18,9 +18,9 @@ $(function() {
   $('.support-tier button[data-value]').click(function() {
     var $button = $(this);
     var $form   = $('.payment-form');
-    if (!$form.is(':visible')) {
-      $form.slideDown().animatecss('fadeInDown');
-    }
+    $(this).closest('.support-tier').addClass('is-selected').siblings().removeClass('is-selected');
+    if (!$form.is(':visible')) { $form.slideDown(500).animatecss('fadeInDown'); }
+    window.setTimeout(function() { $.scrollTo($form, { duration: 500, easing: 'easeInOutQuart'}); }, 150);
   });
 
 });
