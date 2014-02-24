@@ -3,6 +3,10 @@
   color: $color;
 }
 
+@mixin animation-fix {
+  * { -webkit-transform: translateZ(0px); }
+}
+
 @mixin middot-break($h:.5em) {
   display: block; visibility: hidden; height: $h;
 }
