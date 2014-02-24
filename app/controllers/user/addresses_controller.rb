@@ -5,7 +5,14 @@ class User::AddressesController < ApplicationController
 		if (@address.save)
 
 			# save as users shipping address if they don't have one (new user)
-			current_user.update_attribute(:shipping_address_id, @address.id) if current_user.shipping_address_id.nil?
+			if current_user.shipping_address_id.nil?
+				current_user.update_attribute(:shipping_address_id, @address.id)
+
+				# place order(s) as neccessary
+
+
+
+			end
 
 			redirect_to account_path
 		else
