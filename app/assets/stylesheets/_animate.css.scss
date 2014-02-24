@@ -10,6 +10,11 @@
   animation-fill-mode: both;
 }
 
+.animated.half {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
 @-webkit-keyframes shake {
   0%, 100% {
     -webkit-transform: translateX(0);
