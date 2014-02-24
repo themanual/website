@@ -1,5 +1,5 @@
 /*
-  
+
   # TODO
 
   - ::selection
@@ -20,7 +20,7 @@ body {
   background-color: white;
 }
 
-body { 
+body {
   background: gray(95%);
 }
 
@@ -37,9 +37,9 @@ figure img {
 
 a {
   text-decoration: none;
-  
+
   color: gray(30%);
-  
+
   @include colored-link;
 
   @each $i in $issues {
@@ -49,7 +49,7 @@ a {
       @include colored-link;
     }
   }
-  
+
 }
 
 .highlight {
