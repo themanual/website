@@ -18,12 +18,10 @@
 .support-tier {
   border: solid 2px $c-divider;
   border-radius: 8px;
-  background-color: white;
-  @include transition(border-color 0.1s ease-in-out);
 
   &:hover {
     &, .support-tier-header {
-      border-color: darken($c-divider, 10%)
+      border-color: darken($c-divider, 20%)
     }
   }
 
@@ -79,11 +77,6 @@
   .value {
     font-weight: weight(bold);
     @include padding-h(0.1em);
-  }
-
-  .plus {
-    font-weight: weight(light);
-    display: none;
   }
 
   .currency {
