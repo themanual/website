@@ -58,6 +58,18 @@ a {
   display: inline;
 }
 
+.footnote {
+  vertical-align: text-top;
+  font-size: 0.8em;
+  padding-left: 0.2em;
+  letter-spacing: 1px;
+  font-weight: weight(bold);
+
+  &:target {
+    outline: none;
+  }
+}
+
 .debug, .debug * {
   background: rgba(255,0,0,0.05);
 }
