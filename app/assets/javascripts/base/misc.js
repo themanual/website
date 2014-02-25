@@ -1,7 +1,3 @@
-$(window).load(function() {
-  $("body").removeClass("preload");
-});
-
 $(function() {
 
   $(".header-nav-menu > li.has-dropdown > a").click(function() {
