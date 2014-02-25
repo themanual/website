@@ -1,23 +1,19 @@
-.support-tier-name,
-.support-tier-price {
+.support-tiers-note {
+  // @extend %heading-sc;
+  // @include rem(font-size, 16px);
   text-align: center;
-  font-family: $type-sans;
-}
-
-.support-tier-image {
-  @include centered;
-  display: none;
-}
-
-.support a {
-  @include colored-link {
-    color: $c-link-blue-nicer;
-  }
+  // color: gray(30%);
+  // color: $c-link-blue-nicer;
+  font-style: italic;
+  // font-weight: weight(medium);
+  @include container-spacing(margin-top,    1.5);
+  @include container-spacing(margin-bottom, 1.75);
 }
 
 .support-tier {
   border: solid 2px $c-divider;
   border-radius: 8px;
+  text-align: center;
 
   &:hover {
     &, .support-tier-header {
@@ -45,6 +41,20 @@
   @include rem(padding-left padding-right, 1rem);
   @include rem(padding-top padding-bottom, 1.5rem);
 }
+
+.support-tier-price {
+  font-family: $type-sans;
+}
+
+.support-tier a {
+  @include colored-link {
+    color: $c-link-blue-nicer;
+  }
+}
+
+
+
+
 
 .support-tier-name {
   font-family: $type-serif;
@@ -78,16 +88,10 @@
   }
 }
 
-.support-tier .button-wrapper {
-  text-align: center;
-  margin-top: 1.5em;
-}
-
 .support-tier-rewards {
-  clear: both;
-  text-align: center;
   border-top-width: 2px;
   @include transition(all 0.1s ease-in-out);
+  margin-bottom: 1.5em;
 }
 
 %supporter-reward {
@@ -106,13 +110,13 @@
   }
 }
 
-.support-tier-rewards > *,
-.support-benefits-list > * {
+.support-tier-rewards > * {
   @extend %supporter-reward;
 }
 
 .support-benefits {
-  @include margin-v(3em);
+  margin-top: 3em;
+  text-align: center;
 }
 
 .support-benefits-title {
@@ -120,20 +124,22 @@
   @include rem(font-size, 18px);
   font-weight: weight(medium);
   margin-bottom: 1.5em;
-}
-
-.support-benefits-list > * {
-  text-align: left;
-  color: gray(30%);
-  padding-left: 1em;
-  + * {
-    margin-top: 0.75em;
+  // color: $c-link-blue-nicer;
+  .underline {
+    display: inline;
+    padding-bottom: 0.1em;
+    border-bottom: solid 0.15em $c-link-blue-nicer;
   }
 }
 
-.support-benefits-list > *:before {
-  content: "+";
-  float: left;
-  margin-left: -1em;
-  color: $c-link-blue-nicer;
+.support-benefits-list {
+  @include rem(font-size, 19px);
+}
+
+.support-benefits-list > * {
+  color: gray(25%);
+  line-height: 1.5;
+  + * {
+    margin-top: 0.75em;
+  }
 }
