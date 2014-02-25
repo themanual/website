@@ -1,7 +1,7 @@
 (function($) {
 
   $.validate = {
-    CLASSES:          { valid: 'is-valid', invalid: 'is-invalid'},
+    CLASSES:          { valid: 'valid', invalid: 'invalid'},
     PAYMENT_CLASSES:  ['cc-number', 'cc-csc', 'cc-exp'],
     IGNORED_FIELDS:   ['[type=hidden]', 'button', '[type=submit]'],
     SPECIAL_TYPES:    { check: 'checkbox', radio: 'radio' },

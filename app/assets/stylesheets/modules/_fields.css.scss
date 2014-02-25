@@ -125,12 +125,12 @@ input {
   border-bottom: solid 2px $c-divider;
   color: gray(30%);
 
-  &.is-invalid,
-  &.is-invalid:focus {
+  &.invalid,
+  &.invalid:focus {
     border-color: $c-field-invalid;
   }
 
-  &.is-valid:focus {
+  &.valid:focus {
     border-color: $c-field-valid;
   }
 
