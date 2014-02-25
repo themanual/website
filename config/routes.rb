@@ -4,11 +4,11 @@ TheManual::Application.routes.draw do
   mount Shoppe::Engine => "/shoppe"
 
   devise_for :users,
-  					 :skip => [:password, :sessions, :registrations],
-	           :path => ''
+             :skip => [:password, :sessions, :registrations],
+             :path => ''
 
 
-	as :user do
+  as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token
     get 'login'         => 'sessions#new',      :as => :new_user_session
     get 'logout'        => 'sessions#destroy',  :as => :destroy_user_session
@@ -22,16 +22,17 @@ TheManual::Application.routes.draw do
 
   root to: redirect("/issues")
 
-  resource :support, controller: :support, only: [:show, :create] do
-    get :thanks
-  end
+  get   '/support',                 to: 'support#show'
+  post  '/support',                 to: 'support#create'
+  get   '/support/checkout/:tier',  to: 'support#checkout', as: :support_checkout
+  get   '/support/thanks',          to: 'support#thanks'
 
-  get '/issues',                    to: 'issues#index',   as: :issues
-  get '/issues/:issue',             to: 'issues#show',    as: :issue
-  get '/issues/:issue/:key/:type',  to: 'issues#piece',   as: :piece
+  get '/issues',                    to: 'issues#index',     as: :issues
+  get '/issues/:issue',             to: 'issues#show',      as: :issue
+  get '/issues/:issue/:key/:type',  to: 'issues#piece',     as: :piece
 
-  post  '/buy/:permalink',          to: 'orders#update',  as: :purchase
-  get   '/checkout',                to: 'orders#show',    as: :basket
+  post  '/buy/:permalink',          to: 'orders#update',    as: :purchase
+  get   '/checkout',                to: 'orders#show',      as: :basket
 
   get '/blog', to: redirect("http://blog.alwaysreadthemanual.com")
 

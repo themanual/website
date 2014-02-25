@@ -4,8 +4,15 @@ class SupportController < ApplicationController
   before_filter :load_latest
 
   def show
-    @user = User.new
+
   end
+
+  def checkout
+    @tier = params[:tier]
+    @user = User.new
+    @address = Address.new
+  end
+
   def create
     begin
 

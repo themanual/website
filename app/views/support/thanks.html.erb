@@ -1,46 +1,7 @@
 <main class="l-padded"><div class="l-singlecol-centered">
 
-  <header class="heading is-centered">
+  <header class="heading">
     <h1>Thanks for being a supporter.</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, cum, ipsa sed id quos optio deserunt magnam fuga reprehenderit eligendi voluptas iure saepe iste repudiandae perspiciatis velit cumque nostrum modi.</p>
   </header>
-
-  <%= form_for @address, url: account_addresses_path, class: 'form' do |f| %>
-    <%= hidden_field_tag :from_support, true %>
-
-    <dl class="field">
-      <dt><%= f.label :line1 %></dt>
-      <dd><%= f.text_field :line1, class: 'is-long', placeholder: '29 Acacia Road', required: true %></dd>
-    </dl>
-
-    <dl class="field">
-      <dt><%= f.label :line2 %></dt>
-      <dd><%= f.text_field :line2, class: 'is-long', placeholder: 'Dandytown'%></dd>
-    </dl>
-
-    <dl class="field">
-      <dt><%= f.label :line3 %></dt>
-      <dd><%= f.text_field :line3, class: 'is-long', placeholder: '' %></dd>
-    </dl>
-
-    <dl class="field">
-      <dt><%= f.label :line4 %></dt>
-      <dd><%= f.text_field :line4, class: 'is-long', placeholder: '' %></dd>
-    </dl>
-
-    <dl class="field is-composed">
-      <dt><label for="">Name</label></dt>
-      <dd class="field-element is-half"><%= f.text_field :county, class: 'is-long', placeholder: 'County/State', required: true %></dd>
-      <dd class="field-element is-half"><%= f.text_field :post_code, class: 'is-long', placeholder: 'Postcode / Zipcode', required: true %></dd>
-    </dl>
-
-    <dl class="field">
-      <dt><%= f.label :country %></dt>
-      <dd><%= f.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long chosen', placeholder: ''  %></dd>
-    </dl>
-
-    <div class="form-actions">
-      <button type="submit" class="button">Add Address</button>
-    </div>
-	<% end %>
 </div></main>

@@ -6,156 +6,76 @@
     <p>We’re an independent publication. We pay all our writers and illustrators for their work, and our Ebook and Print Editions don’t contain advertisting. This means your contribution is fundamental to support The Manual and fund new issues.</p>
   </header>
 
-  <section class="support">
-    <header>
+  <ul class="l-grid">
+    <li class="l-grid-unit-third support-tier animated fadeInLeft">
+      <div class="support-tier-header">
+        <figure class="support-tier-image"><img src="http://placehold.it/550x350/ffffff/0055DD" alt=""></figure>
+        <h2 class="support-tier-name">Digital</h2>
+        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">10</span></span></h3>
+      </div>
+      <div class="support-tier-body">
+        <ul class="support-tier-rewards">
+          <li>Ebook download (ePub, Mobi, PDF)</li>
+          <li><span class="striked">Hardback shipped worldwide</span></li>
+          <li><span class="striked">Name listed in issue’s colophon</span></li>
+          <li><span class="striked">Limited edition gift with every issue</span></li>
+        </ul>
+        <div class="button-wrapper">
+          <a href="<%= support_checkout_path(:digital) %>" class="button">Get Digital</a>
+        </div>
+      </div>
+    </li>
 
-    </header>
+    <li class="l-grid-unit-third support-tier animated fadeInUp">
+      <div class="support-tier-header">
+        <figure class="support-tier-image"><img src="http://placehold.it/550x350/ffffff/0055DD" alt=""></figure>
+        <h2 class="support-tier-name">Digital + Print</h2>
+        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">20</span></span> <small>+ shipping</small></h3>
+      </div>
+      <div class="support-tier-body">
+        <ul class="support-tier-rewards">
+          <li>Ebook download (ePub, Mobi, PDF)</li>
+          <li><span class="highlight">Hardback shipped worldwide<sup class="footnote"><a href="#">*</a></sup></span></li>
+          <li><span class="striked">Name listed in issue’s colophon</span></li>
+          <li><span class="striked">Limited edition gift with every issue</span></li>
+        </ul>
+        <div class="button-wrapper">
+          <a href="<%= support_checkout_path(:print) %>" class="button">Get Digital + Print</a>
+        </div>
+      </div>
+    </li>
 
-    <ul class="l-grid">
+    <li class="l-grid-unit-third support-tier animated fadeInRight">
+      <div class="support-tier-header">
+        <figure class="support-tier-image"><img src="http://placehold.it/550x350/ffffff/0055DD" alt=""></figure>
+        <h2 class="support-tier-name">Friend</h2>
+        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">50</span></span> <small>+ shipping</small></h3>
+      </div>
+      <div class="support-tier-body">
+        <ul class="support-tier-rewards">
+          <li>Ebook download (ePub, Mobi, PDF)</li>
+          <li>Hardback shipped worldwide<sup class="footnote"><a href="#">*</a></sup></li>
+          <li><span class="highlight">Name listed in issue’s colophon</span></li>
+          <li><span class="highlight">Limited edition gift with every issue<sup class="footnote"><a href="#">&dagger;</a></sup></span></li>
+        </ul>
+        <div class="button-wrapper">
+          <a href="<%= support_checkout_path(:friend) %>" class="button">Become a Friend</a>
+        </div>
+      </div>
+    </li>
+  </ul>
 
-      <li class="l-grid-unit-third support-tier support-tier-digital animated fadeInLeft">
-        <div class="support-tier-header">
-          <figure class="support-tier-image"><img src="http://placehold.it/550x350/ffffff/0055DD" alt=""></figure>
-          <h2 class="support-tier-name">Digital</h2>
-          <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">10</span><span class="plus">+</span></span> <small>per issue</small></h3>
-        </div>
-        <div class="support-tier-body">
-          <ul class="support-tier-rewards">
-            <li>Ebook download (ePub, Mobi, PDF)</li>
-            <li><span class="striked">Hardback shipped worldwide</span></li>
-            <li><span class="striked">Name listed in issue’s colophon</span></li>
-            <li><span class="striked">Limited edition gift with every issue</span></li>
-          </ul>
-          <div class="button-wrapper">
-            <button class="button" data-value="10">Get Digital</button>
-          </div>
-        </div>
-      </li>
-
-      <li class="l-grid-unit-third support-tier support-tier-digital-print animated fadeInUp">
-        <div class="support-tier-header">
-          <figure class="support-tier-image"><img src="http://placehold.it/550x350/ffffff/0055DD" alt=""></figure>
-          <h2 class="support-tier-name">Digital + Print</h2>
-          <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">20</span><span class="plus">+</span></span> <small>per issue</small></h3>
-        </div>
-        <div class="support-tier-body">
-          <ul class="support-tier-rewards">
-            <li>Ebook download (ePub, Mobi, PDF)</li>
-            <li><span class="highlight">Hardback shipped worldwide<sup class="footnote"><a href="#">*</a></sup></span></li>
-            <li><span class="striked">Name listed in issue’s colophon</span></li>
-            <li><span class="striked">Limited edition gift with every issue</span></li>
-          </ul>
-          <div class="button-wrapper">
-            <button class="button" data-value="20">Get Digital + Print</button>
-          </div>
-        </div>
-      </li>
-
-      <li class="l-grid-unit-third support-tier support-tier-friend animated fadeInRight">
-        <div class="support-tier-header">
-          <figure class="support-tier-image"><img src="http://placehold.it/550x350/ffffff/0055DD" alt=""></figure>
-          <h2 class="support-tier-name">Friend</h2>
-          <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">50</span><span class="plus">+</span></span> <small>per issue</small></h3>
-        </div>
-        <div class="support-tier-body">
-          <ul class="support-tier-rewards">
-            <li>Ebook download (ePub, Mobi, PDF)</li>
-            <li>Hardback shipped worldwide<sup class="footnote"><a href="#">*</a></sup></li>
-            <li><span class="highlight">Name listed in issue’s colophon</span></li>
-            <li><span class="highlight">Limited edition gift with every issue<sup class="footnote"><a href="#">&dagger;</a></sup></span></li>
-          </ul>
-          <div class="button-wrapper">
-            <button class="button" data-value="50">Become a Friend</button>
-          </div>
-        </div>
-      </li>
+  <div class="support-benefits l-singlecol-centered animated fadeInDown">
+    <h3 class="support-benefits-title">All supporters also get</h3>
+    <ul class="support-benefits-list">
+      <li><span class="highlight">Early access to Web and Ebook editions</span> of new issues, before they’re released to general public.</li>
+      <li>Supporters-only newsletter, where we’ll <span class="highlight">announce writers and illustrations of future issues</span>, and other progress updates and behind-the-scenes news about making The Manual.</li>
     </ul>
-
-    <div class="support-benefits l-singlecol-centered">
-      <h3 class="support-benefits-title">All supporters also get</h3>
-      <ul class="support-benefits-list">
-        <li><span class="highlight">Early access to Web and Ebook editions</span> of new issues, before they’re released to general public.</li>
-        <li>Supporters-only newsletter, where we’ll <span class="highlight">announce writers and illustrations of future issues</span>, and other progress updates and behind-the-scenes news about making The Manual.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="support-form">
-    <header class="subheading l-singlecol-centered">
-      <h2>Now we just need you to fill this up.</h2>
-      <p>You’ll be charged immediately for your subscription, which is securely handled by Stripe.</p>
-    </header>
-    </header>
-    <%= form_for @user, url: support_path, html: {method: :post, class: "payment-form boxed-form l-singlecol-centered", autocomplete: :on, novalidate: :novalidate } do |f| %>
-      <input type="hidden" name="stripe_token" value="" />
-
-      <!-- HIDDEN FIELD FOR NOW - MR -->
-      <input type="hidden" name="price" value="10" />
-
-
-      <!--
-      <span class="payment-errors"></span>
-
-      <dl>
-        <dt><label for="support-panel-form-price">$</label></dt>
-        <dd><input type="number" id="support-panel-form-price" /></dd>
-      </dl>-->
-
-      <div class="field is-composed">
-        <dl class="field-element is-composed is-half">
-          <dt><label for="supporter-signup-first-name">Name</label></dt>
-          <dd class="field-element is-half">
-            <%= f.text_field :first_name, id: 'supporter-signup-first-name', class: 'is-long', placeholder: 'First', required: true %>
-          </dd>
-          <dd class="field-element is-half">
-            <%= f.text_field :last_name, id: 'supporter-signup-last-name', class: 'is-long', placeholder: 'Last', required: true %>
-          </dd>
-        </dl>
-
-        <dl class="field-element is-half">
-          <dt><label for="supporter-signup-email">Email</label></dt>
-          <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true, id: 'supporter-signup-email' %></dd>
-        </dl>
-      </div>
-
-      <div class="field is-composed">
-        <dl class="field-element is-half">
-          <dt><label for="supporter-signup-cc-number">Card Number</label></dt>
-          <dd><input required id="supporter-signup-cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
-        </dl>
-
-        <div class="field-element is-composed is-half">
-          <dl class="field-element is-half">
-            <dt><label for="supporter-signup-cc-cvc">CVC</label></dt>
-            <dd><input required type="text" id="supporter-signup-cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
-          </dl>
-
-          <dl class="field-element is-half">
-            <dt><label for="supporter-signup-cc-exp">Expiration</label></dt>
-            <dd><input id="supporter-signup-cc-exp" required type="text" name="cc-exp" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
-          </dl>
-        </div>
-      </div>
-
-      <dl class="field is-composed">
-        <dt>Choose your starting issue</dt>
-        <dd class="field-checkradio field-element is-half">
-          <input type="radio" name="supporter-signup-start" id="supporter-signup-start-now" checked="checked" />
-          <label for="supporter-signup-start-now"><strong>Issue <%= @latest.number %></strong>, which you’ll get immediately.</label>
-          <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %> in <%= due_on @latest.next %>.</p>
-        </dd>
-        <dd class="field-checkradio field-element is-half">
-          <input type="radio" name="supporter-signup-start" id="supporter-signup-start-next" />
-          <label for="supporter-signup-start-next"><strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %>.</label>
-          <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, in <%= due_on @latest.next.next %>.</span>
-        </dd>
-      </dl>
-
-      <div class="form-actions">
-        <input type="submit" value="Become a Supporter" data-disable-with="Processing..." class="button">
-      </div>
-    <% end %>
-  </section>
+    <ul class="support-footnotes">
+      <li><span>*</span> Hardbacks <strong>do not</strong> include shipping, which will be charged in addition to your subscription fee.</li>
+      <li><span>&dagger;</span> Limited edition gifts are shipped for free.</li>
+    </ul>
+  </div>
 
 </div></main>
 
