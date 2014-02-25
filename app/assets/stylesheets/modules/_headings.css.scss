@@ -1,5 +1,5 @@
 .heading {
-  @include container-spacing(margin-top margin-bottom, 2);
+  @include container-spacing(margin-top margin-bottom, 1);
   &:first-child {
     margin-top: 0;
   }
@@ -9,7 +9,7 @@
   @include rem(max-width, $singlecol-width);
 
   > h1 {
-    @include rem(font-size, 40px);
+    @include rem(font-size, 36px);
     display: inline;
     border-bottom: solid 4px $c-link-blue-nicer;
     font-weight: weight(bold);
