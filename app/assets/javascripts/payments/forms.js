@@ -4,10 +4,10 @@ $(function() {
     num: [
       'input.cc-number',
       '[data-stripe=number]',
-      '[autocompletetype=cc-number]']
+      '[autocompletetype=cc-number]'],
     exp: [
       'input.cc-exp',
-      '[autocompletetype=cc-exp]']
+      '[autocompletetype=cc-exp]'],
     csc: [
       'input.cc-csc',
       'input.cc-cvc',
