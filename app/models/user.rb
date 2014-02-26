@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_one :shipping_address, class_name: 'Address'
   has_many :subscriptions
 
+  accepts_nested_attributes_for :addresses
+
   after_create :add_email_address
 
   def self.anon_user

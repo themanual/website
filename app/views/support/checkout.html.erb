@@ -1,3 +1,4 @@
+<% payment_assets %>
 <main class="l-padded"><div class="l-singlecol-centered">
 
   <header class="heading">
@@ -14,7 +15,7 @@
     <input type="hidden" name="stripe_token" value="" />
 
     <!-- HIDDEN FIELD FOR NOW - MR -->
-    <input type="hidden" name="price" value="10" />
+    <input type="hidden" name="tier" value="<%= @tier %>" />
 
 
     <!--
@@ -75,49 +76,51 @@
       </dd>
     </dl>
 
-    <div class="form-actions">
+
+  <!--   <div class="form-actions">
       <input type="submit" value="Become a Supporter" data-disable-with="Processing..." class="button">
-    </div>
-  <% end %>
-  <% if @tier != 'digital' %>
-  <%= form_for @address, url: account_addresses_path, class: 'form' do |f| %>
-    <%= hidden_field_tag :from_support, true %>
+    </div> -->
+
+  <% if @tier != 'digital'%>
+  <%= f.fields_for :addresses, @user.addresses.new do |a| %>
 
     <dl class="field">
-      <dt><%= f.label :line1 %></dt>
-      <dd><%= f.text_field :line1, class: 'is-long', placeholder: '29 Acacia Road', required: true %></dd>
+      <dt><%= a.label :line1 %></dt>
+      <dd><%= a.text_field :line1, class: 'is-long', placeholder: '29 Acacia Road', required: true %></dd>
     </dl>
 
     <dl class="field">
-      <dt><%= f.label :line2 %></dt>
-      <dd><%= f.text_field :line2, class: 'is-long', placeholder: 'Dandytown'%></dd>
+      <dt><%= a.label :line2 %></dt>
+      <dd><%= a.text_field :line2, class: 'is-long', placeholder: 'Dandytown'%></dd>
     </dl>
 
     <dl class="field">
-      <dt><%= f.label :line3 %></dt>
-      <dd><%= f.text_field :line3, class: 'is-long', placeholder: '' %></dd>
+      <dt><%= a.label :line3 %></dt>
+      <dd><%= a.text_field :line3, class: 'is-long', placeholder: '' %></dd>
     </dl>
 
     <dl class="field">
-      <dt><%= f.label :line4 %></dt>
-      <dd><%= f.text_field :line4, class: 'is-long', placeholder: '' %></dd>
+      <dt><%= a.label :line4 %></dt>
+      <dd><%= a.text_field :line4, class: 'is-long', placeholder: '' %></dd>
     </dl>
 
     <dl class="field is-composed">
       <dt><label for="">Name</label></dt>
-      <dd class="field-element is-half"><%= f.text_field :county, class: 'is-long', placeholder: 'County/State', required: true %></dd>
-      <dd class="field-element is-half"><%= f.text_field :post_code, class: 'is-long', placeholder: 'Postcode / Zipcode', required: true %></dd>
+      <dd class="field-element is-half"><%= a.text_field :county, class: 'is-long', placeholder: 'County/State', required: true %></dd>
+      <dd class="field-element is-half"><%= a.text_field :post_code, class: 'is-long', placeholder: 'Postcode / Zipcode', required: true %></dd>
     </dl>
 
     <dl class="field">
-      <dt><%= f.label :country %></dt>
-      <dd><%= f.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long chosen', placeholder: ''  %></dd>
+      <dt><%= a.label :country %></dt>
+      <dd><%= a.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long chosen', placeholder: ''  %></dd>
     </dl>
 
     <div class="form-actions">
-      <button type="submit" class="button">Add Address</button>
+      <input type="submit" value="Become a Supporter" data-disable-with="Processing..." class="button">
     </div>
 	<% end %>
+  <% end %>
+
   <% end %>
 
 </div></main>
