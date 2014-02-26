@@ -7,19 +7,56 @@ class HomeController < ApplicationController
   def shipping_estimate
 
     begin
-      geo_ip = MultiJson.load(open("http://freegeoip.net/json/#{ENV['REMOTE_ADDR']}"))
+      raise ActionController::InvalidAuthenticityToken unless form_authenticity_token == params[:authenticity_token]
 
-      country = geo_ip['country_code']
+      if params[:country].present?
+        country = params[:country]
+        city = params[:city] || ''
+        county = params[:county] || ''
+        zip = params[:post_code] || ''
+      else
+        geo_ip = MultiJson.load(open("http://freegeoip.net/json/#{ENV['REMOTE_ADDR']}"))
+        country = ip_country = geo_ip['country_code']
+        county = geo_ip['region_name']
+        city = geo_ip['city']
+        zip = geo_ip['zipcode']
+      end
 
       order = Shipwire::Order.new(nil)
-      order.address = {address1:'', city: '', country: country}
+      order.address = {
+        address1: (params[:line1] || ''),
+        city: city,
+        country: country,
+        state: county,
+        zip: zip
+      }
       order.add_item Shipwire::OrderItem.new('C85NOT001', 1) # use Issue.latest when we have shipwire data in there
 
       rates = Shipwire::Api.new.rate(order)
 
-      render json: rates['RateResponse']['Order']['Quotes']['Quote'].first
+      quotes = rates['RateResponse']['Order']['Quotes']
+
+      if quotes.nil?
+        render json: {status: 'missing'}
+
+      else
+        quote = quotes['Quote'].first
+
+        render json: {
+          status: :ok,
+          response: {
+            ip_country: ip_country,
+            service: quote['method'],
+            warehouse: quote['Warehouse'],
+            carrier_code: quote['Service']['__content__'],
+            cost: quote['Cost']['__content__']
+          }
+        }
+      end
+    rescue ActionController::InvalidAuthenticityToken
+      render json: {status: 'error'}, status: 403
     rescue Exception
-      render nothing: true, status: 404
+      render json: {status: 'error'}
     end
   end
 end

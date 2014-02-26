@@ -35,7 +35,7 @@ TheManual::Application.routes.draw do
   get   '/checkout',                to: 'orders#show',      as: :basket
 
   # TODO move this somewhere sensible
-  get   '/shipping_estimate',       to: 'home#shipping_estimate'
+  get   '/shipping_estimate',       to: 'home#shipping_estimate', as: :shipping
 
   get '/blog', to: redirect("http://blog.alwaysreadthemanual.com")
 
