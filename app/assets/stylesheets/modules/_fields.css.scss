@@ -9,6 +9,18 @@
     width: 50%;
   }
 
+  .is-third {
+    width: 33.33%;
+  }
+
+  .is-two-thirds {
+    width: 66.66%
+  }
+
+  .is-quarter {
+    width: 25%;
+  }
+
   .is-long {
     width: 100%;
   }
@@ -34,13 +46,25 @@
 // Field Labels
 //
 
+.field dt {
+  font-family: $type-sans;
+  margin-bottom: .2em;
+}
+
 .field dt label {
   @extend %heading-sc;
   display: block;
   font-weight: weight(medium);
   line-height: 1.2;
-  margin-bottom: .25rem;
-  color: gray(30%);
+  color: gray(40%);
+}
+
+.label-note {
+  display: block;
+  @include rem(font-size, 15px);
+  line-height: 1.2;
+  color: gray(70%);
+  margin-top: 0.25em;
 }
 
 .field-checkradio {
@@ -71,7 +95,6 @@
 
   label {
     display: block;
-    font-family: $type-sans;
     overflow: hidden;
     line-height: 1.2;
     color: gray(40%);
@@ -79,14 +102,6 @@
     strong {
       font-weight: weight(medium);
     }
-  }
-
-  .label-note {
-    display: block;
-    @include rem(font-size, 15px);
-    line-height: 1.2;
-    color: gray(70%);
-    margin-top: 0.25em;
   }
 }
 
@@ -102,7 +117,8 @@
 
 input,
 select,
-button {
+button,
+textarea {
   font-family: $type-sans;
 }
 
@@ -119,11 +135,13 @@ input {
   @include appearance(none);
   @include transition(border-color .2s ease-in-out);
   @include rem(font-size, 18px);
+
   padding: .3em 0;
 
   border: 0;
-  border-bottom: solid 2px $c-divider;
-  color: gray(30%);
+  border-bottom: solid 1px darken($c-divider, 5%);
+
+  color: gray(25%);
 
   &.invalid,
   &.invalid:focus {
@@ -136,12 +154,18 @@ input {
 
   &:focus {
     outline: none;
-    border-color: darken($c-divider, 15%);
+    border-color: darken($c-divider, 30%);
   }
+}
 
+textarea {
+  @extend %input-text;
+  border: 1px solid darken($c-divider, 5%);
+  padding: .3em;
 
-
-
+  &.noresize {
+    resize: none;
+  }
 }
 
 .field input[type='text'],
