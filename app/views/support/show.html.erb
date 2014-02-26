@@ -11,60 +11,47 @@
       <span class="highlight">The Manual publishes three issues per year. All prices per issue.</span>
     </p>
 
-    <ul class="l-grid">
-      <li class="l-grid-unit-third support-tier animated fadeInLeft">
-        <div class="support-tier-header">
-
-          <h2 class="support-tier-name">Digital</h2>
-          <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">10</span></span></h3>
-        </div>
-        <div class="support-tier-body">
-          <ul class="support-tier-rewards">
-            <li>Ebook download (ePub, Mobi, PDF)</li>
-            <li><span class="striked">Hardback shipped worldwide</span></li>
-            <li><span class="striked">Name listed in issue’s colophon</span></li>
-            <li><span class="striked">Limited edition gift with every issue</span></li>
-          </ul>
-          <a href="<%= support_checkout_path(:digital) %>" class="button">Get Digital</a>
-        </div>
+    <ul class="l-grid support-tiers-list animated fadeInDown">
+      <li class="l-grid-unit-third support-tier">
+        <h2 class="support-tier-name">Digital</h2>
+        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">10</span></span></h3>
+        <ul class="support-tier-rewards">
+          <li>Ebook download (ePub, Mobi, PDF)</li>
+          <li><span class="striked">Hardback shipped worldwide</span></li>
+          <li><span class="striked">Name listed in issue’s colophon</span></li>
+          <li><span class="striked">Limited edition gift with every issue</span></li>
+        </ul>
+        <a href="<%= support_checkout_path(:digital) %>" class="button">Get Digital</a>
       </li>
 
-      <li class="l-grid-unit-third support-tier animated fadeInUp">
-        <div class="support-tier-header">
-          <h2 class="support-tier-name">Digital + Print</h2>
-          <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">20</span></span> <small>+ shipping</small></h3>
-        </div>
-        <div class="support-tier-body">
-          <ul class="support-tier-rewards">
-            <li>Ebook download (ePub, Mobi, PDF)</li>
-            <li><span class="">Hardback shipped worldwide</span></li>
-            <li><span class="striked">Name listed in issue’s colophon</span></li>
-            <li><span class="striked">Limited edition gift with every issue</span></li>
-          </ul>
-          <a href="<%= support_checkout_path(:print) %>" class="button">Get Digital + Print</a>
-        </div>
+      <li class="l-grid-unit-third support-tier">
+        <h2 class="support-tier-name">Digital + Print</h2>
+        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">20</span></span> <small>+ shipping</small></h3>
+        <ul class="support-tier-rewards">
+          <li>Ebook download (ePub, Mobi, PDF)</li>
+          <li><span class="">Hardback shipped worldwide</span></li>
+          <li><span class="striked">Name listed in issue’s colophon</span></li>
+          <li><span class="striked">Limited edition gift with every issue</span></li>
+        </ul>
+        <a href="<%= support_checkout_path(:print) %>" class="button">Get Digital + Print</a>
       </li>
 
-      <li class="l-grid-unit-third support-tier animated fadeInRight">
-        <div class="support-tier-header">
-          <h2 class="support-tier-name">Friend</h2>
-          <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">50</span></span> <small>+ shipping</small></h3>
-        </div>
-        <div class="support-tier-body">
-          <ul class="support-tier-rewards">
-            <li>Ebook download (ePub, Mobi, PDF)</li>
-            <li>Hardback shipped worldwide</li>
-            <li><span class="">Name listed in issue’s colophon</span></li>
-            <li><span class="">Limited edition gift with every issue</span></li>
-          </ul>
-          <a href="<%= support_checkout_path(:friend) %>" class="button">Become a Friend</a>
-        </div>
+      <li class="l-grid-unit-third support-tier">
+        <h2 class="support-tier-name">Friend</h2>
+        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">50</span></span> <small>+ shipping</small></h3>
+        <ul class="support-tier-rewards">
+          <li>Ebook download (ePub, Mobi, PDF)</li>
+          <li>Hardback shipped worldwide</li>
+          <li><span class="">Name listed in issue’s colophon</span></li>
+          <li><span class="">Limited edition gift with every issue</span></li>
+        </ul>
+        <a href="<%= support_checkout_path(:friend) %>" class="button">Become a Friend</a>
       </li>
     </ul>
 
-    <div class="support-benefits l-singlecol-centered">
-      <h3 class="support-benefits-title"><span class="underline">All supporters also get</span></h3>
-      <ul class="support-benefits-list">
+    <div class="support-perks l-singlecol-centered">
+      <h3 class="support-perks-title"><span class="underline">All supporters also get</span></h3>
+      <ul class="support-perks-list">
         <li>Early access to Web and Ebook editions of new issues, before they’re released publicly.</li>
         <li>Supporters-only newsletter, where we’ll announce writers and illustrations of future issues, and other progress updates and behind-the-scenes news about making The Manual.</li>
       </ul>
@@ -73,23 +60,3 @@
   </section>
 
 </div></main>
-
-<% content_for :footer do %>
-  <script>$(function() {
-    $('.support-tier button[data-value]').click(function() {
-      var $wrapper    = $('.support-form');
-      var SLIDE_DELAY = 150;
-      // Toggle button
-      $(this)
-        .closest('.support-tier').addClass('is-selected')
-        .siblings().removeClass('is-selected');
-      // Reveal form
-      if (!$wrapper.is(':visible')) {
-        $wrapper.css('opacity', 0.0).slideDown(SLIDE_DELAY, function() {
-          $wrapper.animateCss('fadeInUp', function() { $wrapper.css('opacity', 1.0); });
-        });
-      }
-      window.setTimeout(function() { $.scrollTo($wrapper, { duration: 500, easing: 'easeInOutQuart'}); }, SLIDE_DELAY);
-    });
-  });</script>
-<% end %>

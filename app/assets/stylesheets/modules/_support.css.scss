@@ -1,19 +1,21 @@
 .support-tiers-note {
-  // @extend %heading-sc;
-  // @include rem(font-size, 16px);
-  text-align: center;
-  // color: gray(30%);
-  // color: $c-link-blue-nicer;
   font-style: italic;
-  // font-weight: weight(medium);
-  @include container-spacing(margin-top,    1.5);
-  @include container-spacing(margin-bottom, 1.75);
+  text-align: center;
+  @include container-spacing(margin-top margin-bottom, 1.5);
+}
+
+.support-tiers-list {
+  @include container-spacing(margin-top margin-bottom, 2);
+  background-repeat:    repeat-y, repeat-y;
+  background-image:     image_url('ui/pixel-divider.svg'),
+                        image_url('ui/pixel-divider.svg');
+  background-position:  (flex-grid($grid-columns/3) + (flex-gutter()/2))    0,
+                        (flex-grid($grid-columns*2/3) + (flex-gutter()/2))  0;
 }
 
 .support-tier {
-  border: solid 2px $c-divider;
-  border-radius: 8px;
   text-align: center;
+  @include padding-v(1.5em);
 
   &:hover {
     &, .support-tier-header {
@@ -25,21 +27,6 @@
   &.is-selected .support-tier-header {
     border-color: $c-link-blue-nicer;
   }
-}
-
-.support-tier,
-.support-tier-header {
-  @include transition(border-color 0.1s ease-in-out);
-}
-
-.support-tier-header {
-  border-bottom: solid 2px $c-divider;
-}
-
-.support-tier-header,
-.support-tier-body {
-  @include rem(padding-left padding-right, 1rem);
-  @include rem(padding-top padding-bottom, 1.5rem);
 }
 
 .support-tier-price {
@@ -90,41 +77,35 @@
 
 .support-tier-rewards {
   border-top-width: 2px;
-  @include transition(all 0.1s ease-in-out);
-  margin-bottom: 1.5em;
+  @include margin-v(1.5em);
 }
 
-%supporter-reward {
+.support-tier-rewards > * {
   font-family: $type-serif;
   @include rem(font-size, 19px);
   color: gray(20%);
   line-height: 1.4;
 
+  + * {
+    margin-top: 1em;
+  }
+
   .striked {
     text-decoration: line-through;
     color: gray(80%);
   }
-
-  & + & {
-    margin-top: 1em;
-  }
 }
 
-.support-tier-rewards > * {
-  @extend %supporter-reward;
-}
-
-.support-benefits {
+.support-perks {
   margin-top: 3em;
   text-align: center;
 }
 
-.support-benefits-title {
+.support-perks-title {
   @extend %heading-sc;
   @include rem(font-size, 18px);
   font-weight: weight(medium);
   margin-bottom: 1.5em;
-  // color: $c-link-blue-nicer;
   .underline {
     display: inline;
     padding-bottom: 0.1em;
@@ -132,14 +113,15 @@
   }
 }
 
-.support-benefits-list {
+.support-perks-list {
   @include rem(font-size, 19px);
-}
 
-.support-benefits-list > * {
-  color: gray(25%);
-  line-height: 1.5;
-  + * {
-    margin-top: 0.75em;
+  > * {
+    color: gray(25%);
+    line-height: 1.5;
+    + * {
+      margin-top: 0.75em;
+    }
   }
+
 }
