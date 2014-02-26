@@ -9,16 +9,11 @@
   @include rem(max-width, $singlecol-width);
 
   > h1 {
-    @include rem(font-size, 36px);
-    display: inline;
-    border-bottom: solid 4px $c-link-blue-nicer;
-    font-weight: weight(bold);
     font-family: $type-sans;
+    @include rem(font-size, 36px);
+    font-weight: weight(bold);
     line-height: 1.4;
-  }
-
-  > h1 + p {
-    @include rem(margin-top, 1rem);
+    margin-bottom: .25em;
   }
 
   > p {
