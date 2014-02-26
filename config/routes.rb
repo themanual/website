@@ -22,10 +22,10 @@ TheManual::Application.routes.draw do
 
   root to: redirect("/issues")
 
-  get   '/support',                 to: 'support#show'
-  post  '/support',                 to: 'support#create'
-  get   '/support/checkout/:tier',  to: 'support#checkout', as: :support_checkout
-  get   '/support/thanks',          to: 'support#thanks'
+  resource :support, controller: :support, only: [:show, :create] do
+    get :thanks
+    get 'checkout/:tier', action: :checkout, as: :checkout
+  end
 
   get '/issues',                    to: 'issues#index',     as: :issues
   get '/issues/:issue',             to: 'issues#show',      as: :issue
