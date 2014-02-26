@@ -27,5 +27,8 @@ en:
         shoppe: Print Product
         shoppe_digital_id: Digital Product
         shoppe_digital: Digital Product
+      address:
+        county: State/County/Region
+        post_code: Postal/Zip Code
   errors:
     stripe: There was an error processing your credit card

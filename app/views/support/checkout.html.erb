@@ -6,120 +6,116 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, cum, ipsa sed id quos optio deserunt magnam fuga reprehenderit eligendi voluptas iure saepe iste repudiandae perspiciatis velit cumque nostrum modi.</p>
   </header>
 
-  <header class="subheading l-singlecol-centered">
+  <!-- <header class="subheading">
     <h2>Now we just need you to fill this up.</h2>
     <p>You’ll be charged immediately for your subscription, which is securely handled by Stripe.</p>
-  </header>
+  </header> -->
 
-  <%= form_for @user, url: support_path, html: {method: :post, class: "payment-form boxed-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
+  <%= form_for @user, url: support_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
     <input type="hidden" name="stripe_token" value="" />
-
     <!-- HIDDEN FIELD FOR NOW - MR -->
     <input type="hidden" name="tier" value="<%= @tier %>" />
+    <!--<span class="payment-errors"></span>-->
 
-
-    <!--
-    <span class="payment-errors"></span>
-
-    <dl>
-      <dt><label for="support-panel-form-price">$</label></dt>
-      <dd><input type="number" id="support-panel-form-price" /></dd>
-    </dl>-->
+  <fieldset class="form-section">
+    <h2 class="form-heading">Information and Credit Card</h2>
 
     <div class="field is-composed">
       <dl class="field-element is-composed is-half">
-        <dt><label for="supporter-signup-first-name">Name</label></dt>
+        <dt><%= f.label :first_name, 'First Name' %></dt>
         <dd class="field-element is-half">
-          <%= f.text_field :first_name, id: 'supporter-signup-first-name', class: 'is-long', placeholder: 'First', required: true %>
+          <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %>
         </dd>
         <dd class="field-element is-half">
-          <%= f.text_field :last_name, id: 'supporter-signup-last-name', class: 'is-long', placeholder: 'Last', required: true %>
+          <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %>
         </dd>
       </dl>
 
       <dl class="field-element is-half">
-        <dt><label for="supporter-signup-email">Email</label></dt>
-        <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true, id: 'supporter-signup-email' %></dd>
+        <dt><%= f.label :email %></dt>
+        <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %></dd>
       </dl>
     </div>
 
     <div class="field is-composed">
       <dl class="field-element is-half">
-        <dt><label for="supporter-signup-cc-number">Card Number</label></dt>
-        <dd><input required id="supporter-signup-cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
+        <dt><label for="user_cc-number">Card Number</label></dt>
+        <dd><input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" /></dd>
       </dl>
 
       <div class="field-element is-composed is-half">
         <dl class="field-element is-half">
-          <dt><label for="supporter-signup-cc-cvc">CVC</label></dt>
-          <dd><input required type="text" id="supporter-signup-cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="" pattern="\d*" value=""/></dd>
+          <dt><label for="user_cc-cvc">CVC</label></dt>
+          <dd><input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/></dd>
         </dl>
 
         <dl class="field-element is-half">
-          <dt><label for="supporter-signup-cc-exp">Expiration</label></dt>
-          <dd><input id="supporter-signup-cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+          <dt><label for="user_cc-exp">Expiration</label></dt>
+          <dd><input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
         </dl>
       </div>
     </div>
-
-    <dl class="field is-composed">
-      <dt><label>Choose your starting issue</label></dt>
-      <dd class="field-checkradio field-element is-half">
-        <input type="radio" name="supporter-signup-start" id="supporter-signup-start-now" checked="checked" />
-        <label for="supporter-signup-start-now"><strong>Issue <%= @latest.number %></strong>, which you’ll get immediately.</label>
-        <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %> in <%= due_on @latest.next %>.</p>
-      </dd>
-      <dd class="field-checkradio field-element is-half">
-        <input type="radio" name="supporter-signup-start" id="supporter-signup-start-next" />
-        <label for="supporter-signup-start-next"><strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %>.</label>
-        <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, in <%= due_on @latest.next.next %>.</span>
-      </dd>
-    </dl>
-
-
-  <!--   <div class="form-actions">
-      <input type="submit" value="Become a Supporter" data-disable-with="Processing..." class="button">
-    </div> -->
+  </fieldset>
 
   <% if @tier != 'digital'%>
-  <%= f.fields_for :addresses, @user.addresses.new do |a| %>
-
+  <fieldset class="form-section">
+    <h2 class="form-heading">Shipping Address</h2>
+    <%= f.fields_for :addresses, @user.addresses.new do |a| %>
     <dl class="field">
-      <dt><%= a.label :line1 %></dt>
-      <dd><%= a.text_field :line1, class: 'is-long', placeholder: '29 Acacia Road', required: true %></dd>
+      <dt>
+        <label for="">Street, Number</label>
+        <small class="label-note">You may include company or office name</small>
+      </dt>
+      <dd><textarea name="" id="" rows="3" class="is-long noresize" spellcheck="false" required></textarea></dd>
     </dl>
 
-    <dl class="field">
-      <dt><%= a.label :line2 %></dt>
-      <dd><%= a.text_field :line2, class: 'is-long', placeholder: 'Dandytown'%></dd>
-    </dl>
+    <div class="field is-composed">
+      <dl class="field-element is-half">
+        <dt><%= a.label :city %></dt>
+        <dd><input type="text" name="" id="" required class="is-long"></dd>
+      </dl>
 
-    <dl class="field">
-      <dt><%= a.label :line3 %></dt>
-      <dd><%= a.text_field :line3, class: 'is-long', placeholder: '' %></dd>
-    </dl>
-
-    <dl class="field">
-      <dt><%= a.label :line4 %></dt>
-      <dd><%= a.text_field :line4, class: 'is-long', placeholder: '' %></dd>
-    </dl>
-
-    <dl class="field is-composed">
-      <dt><label for="">Name</label></dt>
-      <dd class="field-element is-half"><%= a.text_field :county, class: 'is-long', placeholder: 'County/State', required: true %></dd>
-      <dd class="field-element is-half"><%= a.text_field :post_code, class: 'is-long', placeholder: 'Postcode / Zipcode', required: true %></dd>
-    </dl>
-
-    <dl class="field">
-      <dt><%= a.label :country %></dt>
-      <dd><%= a.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long chosen', placeholder: ''  %></dd>
-    </dl>
-
-    <div class="form-actions">
-      <input type="submit" value="Become a Supporter" data-disable-with="Processing..." class="button">
+      <dl class="field-element is-half">
+        <dt><%= a.label :county %></dt>
+        <dd><%= a.text_field :county, class: 'is-long', placeholder: 'optional' %></dd>
+      </dl>
     </div>
-	<% end %>
+
+    <div class="field is-composed">
+      <dl class="field-element is-half">
+        <dt><%= a.label :post_code %></dt>
+        <dd><%= a.text_field :post_code, class: 'is-long', required: true %></dd>
+      </dl>
+
+      <dl class="field-element is-half">
+        <dt><%= a.label :country %></dt>
+        <dd><%= a.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long chosen'  %></dd>
+      </dl>
+    </div>
+
+  	<% end %>
+  </fieldset>
   <% end %>
+
+  <fieldset class="form-section">
+    <h2 class="form-heading is-close">Choose your starting issue</h2>
+    <dl class="field is-composed">
+      <dd class="field-checkradio field-element is-half">
+        <input type="radio" name="user-start" id="user-start-now" checked="checked" />
+        <label for="user-start-now"><strong>Issue <%= @latest.number %></strong>, which you’ll get immediately</label>
+        <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %> in <%= due_on @latest.next %></p>
+      </dd>
+      <dd class="field-checkradio field-element is-half">
+        <input type="radio" name="user-start" id="user-start-next" />
+        <label for="user-start-next"><strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %></label>
+        <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, in <%= due_on @latest.next.next %></span>
+      </dd>
+    </dl>
+  </fieldset>
+
+  <div class="form-actions">
+    <input type="submit" value="Become a Supporter" data-disable-with="Processing..." class="button">
+  </div>
 
   <% end %>
 
