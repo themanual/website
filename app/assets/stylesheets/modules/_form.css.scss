@@ -1,13 +1,10 @@
-.noUi-target {
-  cursor: pointer;
+.form,
+.form-section + .form-section {
+  margin-top: 2.5em;
 }
 
 .form-actions {
-  @include rem(margin-top, 1.5rem);
-}
-
-.form {
-  @include rem(margin-top, 1.5rem);
+  margin-top: 2em;
 }
 
 .boxed-form {
@@ -21,4 +18,19 @@
     @include rem(padding, 1rem);
     border-top: divider();
   }
+}
+
+.form-heading {
+  font-family: $type-sans;
+  @include rem(font-size, 19px);
+  font-weight: weight(bold);
+  @include rem(margin-bottom, 1rem);
+
+  &.is-close {
+    margin-bottom: .5em;
+  }
+}
+
+.form-section {
+
 }
