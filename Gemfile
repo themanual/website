@@ -47,6 +47,9 @@ gem 'stripe'
 # gem 'shoppe-shipwire'
 gem 'shipwire', github: 'marcroberts/shipwire'
 
+
+gem 'numbers_and_words'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
