@@ -34,6 +34,9 @@ TheManual::Application.routes.draw do
   post  '/buy/:permalink',          to: 'orders#update',    as: :purchase
   get   '/checkout',                to: 'orders#show',      as: :basket
 
+  # TODO move this somewhere sensible
+  get   '/shipping_estimate',       to: 'home#shipping_estimate'
+
   get '/blog', to: redirect("http://blog.alwaysreadthemanual.com")
 
 end
