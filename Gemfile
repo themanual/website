@@ -45,6 +45,7 @@ gem 'stripe'
 
 # to be built by Marc
 # gem 'shoppe-shipwire'
+gem 'shipwire', github: 'marcroberts/shipwire'
 
 group :development do
   gem 'better_errors'
