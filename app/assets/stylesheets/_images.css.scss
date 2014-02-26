@@ -44,6 +44,16 @@
   @return "<?xml version='1.0' encoding='UTF-8' standalone='no'?><svg width='24px' height='45px' viewBox='0 0 24 45' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><path d='M22.5,44.4203102 L0.579689783,22.5 L22.5,0.579689783 L23.9862946,2.06598434 L3.57968978,22.4725891 L24.0137054,42.9066048 L22.5,44.4203102 Z' id='Rectangle-1' fill='#{$color}'></path></g></svg>";
 }
 
+%image-pixel-ruler-h {
+  background-repeat:  repeat-x;
+  background-image:   image_url('ui/pixel-divider.svg');
+}
+
+%image-pixel-ruler-v {
+  background-repeat:  repeat-y;
+  background-image:   image_url('ui/pixel-divider.svg');
+}
+
 @function img-pixel($color: #000000) {
   @return "<?xml version='1.0' encoding='UTF-8' standalone='no'?><svg width='1px' height='1px' viewBox='0 0 1 1' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'><rect id='Rectangle-1' fill='#{$color}' x='0' y='0' width='1' height='1'></rect></g></svg>";
 }
