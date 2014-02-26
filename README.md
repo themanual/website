@@ -342,3 +342,18 @@ This should closely follow Shopify's order data model
 **Administrators** can also:
 - Create, update and destroy **Staffers**
 - Promote staffers to **Administrators**
+
+
+## post-checkout flow
+
+After a user completes the checkout form successfully the following happens:
+- Their user account is created (A User instance is created)
+- Their address is saved and made the default shipping address (A Address instance is created associated with the User, and the users shipping_address_id is set to it)
+- Their stripe token is saved (A Card instance is created (including expiry and last 4 digits) associated with the user, the user's id is added as metadata)
+- The user is signed in (should we maybe confrim the purchase and the login via an email? **)
+- A subscroption is created (a Subscription instance, with their price paid noted)
+
+*not yet implemented, but will happen*
+- An order created for the selected start issue (immediate order in the case of the current issue, or a back-order in the case of the next issue)
+- Email confirmation send (see above **)
+- Handle validation of user/address data better ()
