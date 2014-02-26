@@ -46,18 +46,18 @@
     <div class="field is-composed">
       <dl class="field-element is-half">
         <dt><label for="supporter-signup-cc-number">Card Number</label></dt>
-        <dd><input required id="supporter-signup-cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
+        <dd><input required id="supporter-signup-cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="0000 0000 0000 0000" pattern="\d*" /></dd>
       </dl>
 
       <div class="field-element is-composed is-half">
         <dl class="field-element is-half">
           <dt><label for="supporter-signup-cc-cvc">CVC</label></dt>
-          <dd><input required type="text" id="supporter-signup-cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" placeholder="" pattern="\d*" value=""/></dd>
+          <dd><input required type="text" id="supporter-signup-cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="" pattern="\d*" value=""/></dd>
         </dl>
 
         <dl class="field-element is-half">
           <dt><label for="supporter-signup-cc-exp">Expiration</label></dt>
-          <dd><input id="supporter-signup-cc-exp" required type="text" name="cc-exp" class="cc-exp is-long"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+          <dd><input id="supporter-signup-cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
         </dl>
       </div>
     </div>
