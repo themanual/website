@@ -15,4 +15,6 @@ $(function() {
 
   $('select.chosen').chosen();
 
+  $('[data-toggle=tooltip]').tooltip({animation: false});
+
 });

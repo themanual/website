@@ -24,5 +24,8 @@
 //= require jquery.easing/js/jquery.easing
 //= require jquery.scrollTo/jquery.scrollTo
 //
+//  Bootstrap Components
+//= require bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip
+//
 //  Custom code
 //= require_tree ./base
