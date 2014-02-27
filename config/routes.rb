@@ -39,4 +39,7 @@ TheManual::Application.routes.draw do
 
   get '/blog', to: redirect("http://blog.alwaysreadthemanual.com")
 
+  # seo stuff
+  get "robots(.:format)" => 'seo#robots'
+  get "sitemap(.:format)" => 'seo#sitemap'
 end

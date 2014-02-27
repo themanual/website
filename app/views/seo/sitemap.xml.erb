@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url><loc><%= support_url %></loc></url>
+
+<url><loc><%= issues_url %></loc></url>
+<% public_ids = Issue.public_issues.collect(&:id) -%>
+
+<% Issue.public_issues.collect(&:number).sort.each do |number| -%>
+<url><loc><%= issue_url number %></loc></url>
+<% end -%>
+
+<% Piece.where(issue_id: public_ids).each do |piece| -%>
+<url><loc><%= URI.join(root_url, piece.path) %></loc></url>
+<% end -%>
+
+</urlset>
