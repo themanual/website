@@ -6,7 +6,7 @@ class SupportController < ApplicationController
   before_filter :load_latest
 
   def show
-
+    @shipping = {price: '$10', country: 'Germany'}
   end
 
   def checkout
