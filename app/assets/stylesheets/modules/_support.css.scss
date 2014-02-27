@@ -73,6 +73,10 @@
     color: gray(50%);
     vertical-align: 30%;
   }
+
+  [data-toggle="tooltip"] {
+    border-bottom: dashed 1px $c-link-blue-nicer;
+  }
 }
 
 .support-tier-rewards {

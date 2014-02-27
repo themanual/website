@@ -25,7 +25,10 @@
 
       <li class="l-grid-unit-third support-tier">
         <h2 class="support-tier-name">Digital + Print</h2>
-        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">20</span></span> <small>+ shipping</small></h3>
+        <h3 class="support-tier-price">
+          <span class="number"><span class="currency">$</span><span class="value">20</span></span>
+          <small>+ <% if @shipping %><span data-toggle="tooltip" title="Estimated for <%= @shipping[:country] %>"><%= @shipping[:price] %></span> <% end %>shipping</small>
+        </h3>
         <ul class="support-tier-rewards">
           <li>Ebook download (ePub, Mobi, PDF)</li>
           <li><span class="">Hardback shipped worldwide</span></li>
@@ -37,7 +40,10 @@
 
       <li class="l-grid-unit-third support-tier">
         <h2 class="support-tier-name">Friend</h2>
-        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">50</span></span> <small>+ shipping</small></h3>
+        <h3 class="support-tier-price">
+          <span class="number"><span class="currency">$</span><span class="value">50</span></span>
+          <small>+ <% if @shipping %><span data-toggle="tooltip" title="Estimated for <%= @shipping[:country] %>"><%= @shipping[:price] %></span> <% end %>shipping</small>
+        </h3>
         <ul class="support-tier-rewards">
           <li>Ebook download (ePub, Mobi, PDF)</li>
           <li>Hardback shipped worldwide</li>
