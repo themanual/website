@@ -1,12 +1,18 @@
 (function($) {
 
-  $.getEstimatedShippingCost = function(addressJSON, callback) {
+  /**
+   * Get estimated shipping cost for an address, or via IP
+   * @param   {Object}    [address] - Shipping address. If 'country', all other keys are ignored. Defaults to {}.
+   * @param   {Function}  [callback] - Handler for AJAX response, takes data. Defaults to logger.
+   * @return  {jqXHR} - jQuery XHR object
+   */
+  $.getEstimatedShippingCost = function(address, callback) {
 
     // API Endpoint
     var path = "<%= TheManual::Application.routes.url_helpers.shipping_path %>";
 
-    // Takes undefined
-    var params = addressJSON || {};
+    // Default address to {}
+    var params = address || {};
 
     // CSRF protection to mitigate abuse of this
     params[$('meta[name=csrf-param]').attr('content')] = $('meta[name=csrf-token]').attr('content');
@@ -16,8 +22,7 @@
       callback = function(data) { console.log(data); };
     }
 
-    // Make request, pass callback
-    $.getJSON(path, params, callback);
+    return $.getJSON(path, params, callback);
   };
 
 }(jQuery));
