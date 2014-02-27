@@ -1,6 +1,8 @@
 require 'sass'
 require 'base64'
 
+Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
+
 module Sass::Script::Functions
   def base64(string)
     assert_type string, :String
