@@ -89,7 +89,7 @@
 
       <dl class="field-element is-half">
         <dt><%= a.label :country %></dt>
-        <dd><%= a.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long chosen'  %></dd>
+        <dd class="select"><%= a.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long'  %></dd>
       </dl>
     </div>
 
