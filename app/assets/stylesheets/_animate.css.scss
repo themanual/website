@@ -1,6 +1,6 @@
-@mixin animate($name, $delay:1s) {
+@mixin animate($name, $duration:1s) {
   @include prefixer(animation-name, $name, webkit);
-  @include prefixer(animation-duration, $delay, webkit);
+  @include prefixer(animation-duration, $duration, webkit);
 }
 
 .animated {
