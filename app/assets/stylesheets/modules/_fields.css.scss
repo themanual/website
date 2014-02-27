@@ -5,38 +5,28 @@
     @include rem(margin-top, 1.5rem);
   }
 
-  .is-half {
-    width: 50%;
+  &.is-composed {
+    @include clearfix;
   }
 
-  .is-third {
-    width: 33.33%;
-  }
-
-  .is-two-thirds {
-    width: 66.66%
-  }
-
-  .is-quarter {
-    width: 25%;
-  }
-
-  .is-long {
-    width: 100%;
-  }
+  .is-half        { width: 100% * 1/2; }
+  .is-third       { width: 100% * 1/3; }
+  .is-two-thirds  { width: 100% * 2/3; }
+  .is-quarter     { width: 100% * 1/4; }
+  .is-long        { width: 100%; }
 
 }
 
-.field.is-composed {
-  @include clearfix;
+// Nested under .field.is-composed
+.field-element {
+  float: left;
+  @include rem(padding-right, .5rem);
 
-  .field-element {
-    float: left;
-    @include rem(padding-right, .5rem);
+  + .field-element {
+    @include rem(padding-left, .5rem);
   }
 
-  .field-element + .field-element {
-    @include rem(padding-left, .5rem);
+  &:last-child {
     padding-right: 0;
   }
 }
@@ -46,12 +36,7 @@
 // Field Labels
 //
 
-.field dt {
-  font-family: $type-sans;
-  margin-bottom: .2em;
-}
-
-.field dt label {
+%label {
   @extend %heading-sc;
   display: block;
   font-weight: weight(medium);
@@ -59,15 +44,95 @@
   color: gray(40%);
 }
 
-.label-note {
+%label-note {
   display: block;
+  font-family: $type-sans;
   @include rem(font-size, 15px);
   line-height: 1.2;
   color: gray(70%);
   margin-top: 0.25em;
 }
 
-.field-checkradio {
+
+
+
+
+
+
+
+//
+// Inputs
+//
+
+label, input, textarea,
+select, option,
+.label, .value {
+  font-family: $type-sans;
+}
+
+input, textarea {
+  max-width: 100%;
+
+  @include placeholder {
+    color: darken($c-divider, 10%);
+    font-weight: weight(light);
+  }
+}
+
+%input-text {
+  @include appearance(none);
+  @include transition(border-color .2s ease-in-out);
+  @include rem(font-size, 18px);
+
+  display: inline-block;
+
+  margin: 0;
+  padding: .3em 0;
+  line-height: normal;
+
+  border: 0;
+  border-bottom: solid 1px darken($c-divider, 5%);
+
+  color: gray(25%);
+
+  &.strong {
+    font-weight: weight(bold);
+  }
+
+  &[disabled],
+  &.disabled,
+  &.value {
+    border-bottom-color: transparent;
+  }
+
+  &.invalid,
+  &.invalid:focus {
+    border-color: $c-field-invalid;
+  }
+
+  &.valid:focus {
+    border-color: $c-field-valid;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: darken($c-divider, 30%);
+  }
+}
+
+%textarea {
+  @extend %input-text;
+  border: 1px solid darken($c-divider, 5%);
+  padding: .3em;
+  &.noresize { resize: none; }
+}
+
+//
+// Radio Buttons and Checkboxes
+//
+
+
+.field .checkradio {
   font-family: $type-sans;
   @include rem(font-size, 16px);
   margin-top: 0.5rem;
@@ -110,79 +175,39 @@
 
 
 
-
 //
-// Inputs
+// Apply styles to .field descendants
 //
 
-input,
-select,
-option,
-button,
-textarea {
-  font-family: $type-sans;
-}
+.field {
 
-select {
-  vertical-align: bottom;
-}
-
-input {
-  max-width: 100%;
-
-  @include placeholder {
-    color: darken($c-divider, 10%);
-    font-weight: weight(light);
-  }
-}
-
-%input-text {
-  @include appearance(none);
-  @include transition(border-color .2s ease-in-out);
-  @include rem(font-size, 18px);
-
-  padding: .3em 0;
-  line-height: 1.2;
-
-  border: 0;
-  border-bottom: solid 1px darken($c-divider, 5%);
-
-  color: gray(25%);
-
-  &.invalid,
-  &.invalid:focus {
-    border-color: $c-field-invalid;
+  dt {
+    @include rem(margin-bottom, .2rem);
   }
 
-  &.valid:focus {
-    border-color: $c-field-valid;
+  dt label {
+    @extend %label;
   }
 
-  &:focus {
-    outline: none;
-    border-color: darken($c-divider, 30%);
+  .label-note {
+    @extend %label-note;
   }
-}
 
-dd.select {
-  line-height: 1.5rem;
-}
-
-textarea {
-  @extend %input-text;
-  border: 1px solid darken($c-divider, 5%);
-  padding: .3em;
-
-  &.noresize {
-    resize: none;
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='url'],
+  input[type='number'],
+  input[type='search'] {
+    @extend %input-text;
   }
-}
 
-.field input[type='text'],
-.field input[type='email'],
-.field input[type='password'],
-.field input[type='url'],
-.field input[type='number'],
-.field input[type='search'] {
-  @extend %input-text;
+  textarea {
+    @extend %textarea;
+  }
+
+  // Fake labels and values
+  .label { @extend %label;      }
+  .value { @extend %input-text; }
+
 }
