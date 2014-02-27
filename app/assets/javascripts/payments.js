@@ -5,4 +5,3 @@
 //= require_tree  ./payments/plugins
 //= require       payments/forms
 //= require       payments/subscriptions
-//= require       payments/shipping

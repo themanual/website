@@ -1,0 +1,23 @@
+(function($) {
+
+  $.getEstimatedShippingCost = function(addressJSON, callback) {
+
+    // API Endpoint
+    var path = "<%= TheManual::Application.routes.url_helpers.shipping_path %>";
+
+    // Takes undefined
+    var params = addressJSON || {};
+
+    // CSRF protection to mitigate abuse of this
+    params[$('meta[name=csrf-param]').attr('content')] = $('meta[name=csrf-token]').attr('content');
+
+    // Default callback
+    if (typeof callback !== 'function') {
+      callback = function(data) { console.log(data); };
+    }
+
+    // Make request, pass callback
+    $.getJSON(path, params, callback);
+  };
+
+}(jQuery));
