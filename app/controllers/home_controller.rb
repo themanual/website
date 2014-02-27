@@ -12,12 +12,12 @@ class HomeController < ApplicationController
       if params[:country].present?
         country = params[:country]
         city = params[:city] || ''
-        county = params[:county] || ''
+        region = params[:region] || ''
         zip = params[:post_code] || ''
       else
         geo_ip = MultiJson.load(open("http://freegeoip.net/json/#{ENV['REMOTE_ADDR']}"))
         country = ip_country = geo_ip['country_code']
-        county = geo_ip['region_name']
+        region = geo_ip['region_name']
         city = geo_ip['city']
         zip = geo_ip['zipcode']
       end
@@ -27,7 +27,7 @@ class HomeController < ApplicationController
         address1: (params[:line1] || ''),
         city: city,
         country: country,
-        state: county,
+        state: region,
         zip: zip
       }
       order.add_item Shipwire::OrderItem.new('C85NOT001', 1) # use Issue.latest when we have shipwire data in there
