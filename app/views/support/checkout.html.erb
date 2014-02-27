@@ -80,8 +80,8 @@
       </dl>
 
       <dl class="field-element is-half">
-        <dt><%= a.label :county %></dt>
-        <dd><%= a.text_field :county, class: 'is-long', placeholder: 'optional' %></dd>
+        <dt><%= a.label :region %></dt>
+        <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional' %></dd>
       </dl>
     </div>
 
@@ -93,7 +93,7 @@
 
       <dl class="field-element is-half">
         <dt><%= a.label :country %></dt>
-        <dd class="select"><%= a.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, class: 'is-long'  %></dd>
+        <dd class="select"><%= custom_country_select a, :country, class: 'is-long fill-on-load' %></dd>
       </dl>
     </div>
 
