@@ -73,3 +73,7 @@ a {
 .debug, .debug * {
   background: rgba(255,0,0,0.05);
 }
+
+[data-toggle="tooltip"] {
+  cursor: pointer;
+}
