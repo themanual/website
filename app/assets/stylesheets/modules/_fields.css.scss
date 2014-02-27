@@ -95,7 +95,8 @@ input, textarea {
 
   color: gray(25%);
 
-  &.strong {
+  &.strong,
+  strong {
     font-weight: weight(bold);
   }
 
