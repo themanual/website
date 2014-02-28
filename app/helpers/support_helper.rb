@@ -13,17 +13,19 @@ module SupportHelper
 
       content_tag_string(:option, country.name, html_attributes)
     end
-    # priority countries
 
-    options << content_tag_string(:option, 'Top Countries', {value: nil, disabled: :disabled})
-    Shoppe::Country.ordered.where(code2: ['US','CA', 'GB', 'AU', 'DE']).each do |country|
-      options << country_to_option.call(country)
+    countries = Hash[Shoppe::Country.ordered.map{|c| [c.code2, c]}]
+
+    options << content_tag(:optgroup, label: 'Top Countries') do
+      ['US','CA', 'GB', 'AU', 'DE'].collect do |code|
+        country_to_option.call(countries[code])
+      end.join.html_safe
     end
 
-    options << content_tag_string(:option, 'All Countries', {value: nil, disabled: :disabled})
-
-    Shoppe::Country.ordered.each do |country|
-      options << country_to_option.call(country)
+    options << content_tag(:optgroup, label: 'All Countries') do
+      countries.collect do |code, country|
+        country_to_option.call(country)
+      end.join.html_safe
     end
 
     form.select field_name, options.join.html_safe, {}, html_options
