@@ -12,7 +12,7 @@
     var $exp    = $this.find('.cc-exp');
     var exp     = $.payment.cardExpiryVal($exp.val());
 
-    var stripeData {
+    var stripeData = {
       number:     $number.val().replace(/\s+/g, ''),
       cvc:        $cvc.val().replace(/\s+/g, ''),
       exp_month:  exp.month,
