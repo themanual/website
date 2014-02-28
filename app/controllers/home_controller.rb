@@ -17,6 +17,7 @@ class HomeController < ApplicationController
       else
         geo_ip = MultiJson.load(open("http://freegeoip.net/json/#{ENV['REMOTE_ADDR']}"))
         country = ip_country = geo_ip['country_code']
+        ip_country_name = geo_ip['country_name']
         region = geo_ip['region_name']
         city = geo_ip['city']
         zip = geo_ip['zipcode']
@@ -46,6 +47,7 @@ class HomeController < ApplicationController
           status: :ok,
           response: {
             ip_country: ip_country,
+            ip_country_name: (defined?(ip_country_name) ? ip_country_name : ''),
             service: quote['method'],
             warehouse: quote['Warehouse'],
             carrier_code: quote['Service']['__content__'],
