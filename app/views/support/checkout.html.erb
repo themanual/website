@@ -63,10 +63,10 @@
       <%= f.fields_for :addresses, @user.addresses.new do |a| %>
       <dl class="field">
         <dt>
-          <label for="">Street, Number</label>
+          <%= a.label :lines %>
           <small class="label-note">You may include company or office name</small>
         </dt>
-        <dd><textarea name="" id="" rows="3" class="is-long noresize" spellcheck="false" required></textarea></dd>
+        <dd><%= a.text_area :lines, rows: 3, class: "is-long noresize", spellcheck: false, required: true %></dd>
       </dl>
 
       <div class="field is-composed">

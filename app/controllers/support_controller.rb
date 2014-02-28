@@ -63,6 +63,6 @@ class SupportController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, addresses_attributes: [:line1, :line2, :line3, :city, :region, :post_code, :country_id])
+      params.require(:user).permit(:first_name, :last_name, :email, addresses_attributes: [:lines, :city, :region, :post_code, :country_id])
     end
 end
