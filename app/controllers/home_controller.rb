@@ -16,6 +16,7 @@ class HomeController < ApplicationController
         zip = params[:post_code] || ''
       else
         geo_ip = MultiJson.load(open("http://freegeoip.net/json/#{request.remote_ip}"))
+        Rails.logger.info geo_ip
         country = ip_country = geo_ip['country_code']
         ip_country_name = geo_ip['country_name']
         region = geo_ip['region_name']
@@ -31,7 +32,7 @@ class HomeController < ApplicationController
         state: region,
         zip: zip
       }
-      order.add_item Shipwire::OrderItem.new('C85NOT001', 1) # use Issue.latest when we have shipwire data in there
+      order.add_item Shipwire::OrderItem.new('MNUISS003', 1) # use Issue.latest when we have shipwire data in there
 
       rates = Shipwire::Api.new.rate(order)
 
