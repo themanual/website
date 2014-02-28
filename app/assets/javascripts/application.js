@@ -10,12 +10,11 @@
 //  Other Libs
 //= require underscore/underscore
 //= require trmix/dist/trmix
-//= require chosen-jquery
 //
 //  jQuery Plugins
 //= require fitvids/jquery.fitvids
 //= require jquery.easing/js/jquery.easing
-//= require jquery.scrollTo/jquery.scrollTo
+//= require chosen-jquery
 //
 //  Bootstrap Components
 //= require bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip

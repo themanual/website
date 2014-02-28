@@ -4,7 +4,6 @@
     "underscore":               "*",
     "jquery":                   "1.*",
     "jquery-ujs":               "*",    // For Rails
-    "jquery.scrollTo":          "*",    // Scrolling utilities
     "jquery.easing":            "*",    // Easing functions
     "garnish":                  "*",    // Helpers and utilites for Sass
     "fitvids":                  "*",    // Responsive video embeds for popular sites
