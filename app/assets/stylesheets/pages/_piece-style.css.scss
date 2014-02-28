@@ -296,7 +296,7 @@
   margin-bottom:  flex-gutter()*2;
 
   p {
-    font-size: em(20, $type-main-value);
+    font-size: em(20, $rem-value);
     line-height: 1.45;
     font-style: italic;
     margin-top: 0.5em;
@@ -310,7 +310,7 @@
 
     font-family: $type-sans;
     font-weight: weight(medium);
-    font-size: em(17, $type-main-value);
+    font-size: em(17, $rem-value);
     text-transform: uppercase;
 
     text-align: center;

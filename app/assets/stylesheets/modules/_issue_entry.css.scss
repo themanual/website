@@ -12,14 +12,14 @@
   @include smallcaps-heading-thin;
   margin-bottom: 1.5em;
 }
-  
+
 .issue_entry-piece + .issue_entry-piece {
   margin-top: 1.1em;
 }
 
 .issue_entry-piece-title {
   font-family: $type-sans;
-  font-size: em(23, $type-main-value);
+  font-size: em(23, $rem-value);
   font-weight: weight(medium);
   line-height: 1.2;
   margin-bottom: 0.25em;
@@ -31,10 +31,10 @@
 }
 
 .issue_entry-piece-synopsis {
-  font-size: em(19, $type-main-value); 
+  font-size: em(19, $rem-value);
   font-weight: weight(regular);
   font-style: italic;
-  
+
   max-width: 20em;
   line-height: 1.35;
 

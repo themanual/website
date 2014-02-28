@@ -22,9 +22,8 @@
 }
 
 // Base type
-$rem-base:                22px;
-$type-main-value:         valueof($rem-base);
-$type-main-size:          $rem-base;
+$rem-base:  22px;
+$rem-value: valueof($rem-base);
 
 // Grid
 $column: 60px;
