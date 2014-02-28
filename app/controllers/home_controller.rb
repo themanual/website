@@ -59,7 +59,7 @@ class HomeController < ApplicationController
     rescue ActionController::InvalidAuthenticityToken
       render json: {status: 'error'}, status: 403
     rescue Exception => e
-      Airbrake.notify_airbrake e
+      Airbrake.notify e
       render json: {status: 'error'}
     end
   end
