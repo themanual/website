@@ -5,11 +5,11 @@ module ApplicationHelper
   	end
   end
 
-  def payment_assets
+  def include_payment_assets
   	content_for :footer do
   		javascript_include_tag("https://js.stripe.com/v2/") +
-  		javascript_tag("Stripe.setPublishableKey('#{Rails.configuration.stripe[:publishable_key]}');") +
-      javascript_include_tag(:payments);
+      javascript_include_tag(:payments) +
+  		javascript_tag("Stripe.setPublishableKey('#{Rails.configuration.stripe[:publishable_key]}');")
   	end
   end
 end

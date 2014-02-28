@@ -1,3 +1,9 @@
+/**
+ * Handles submit events for Stripe forms
+ * 1. Parses a credit card form, using $.fn.parseCreditCard
+ * 2. Creates the Stripe token, using Stripe.card.createToken
+ * 3. Injects the token in the form and submits again
+ */
 (function($) {
 
   $.fn.stripe = function() {

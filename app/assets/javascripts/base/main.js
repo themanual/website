@@ -17,4 +17,6 @@ $(function() {
 
   $('[data-toggle=tooltip]').tooltip({animation: false});
 
+  $('form').validate();
+
 });

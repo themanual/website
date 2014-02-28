@@ -32,7 +32,14 @@
     var paymentFieldClasses = _.intersection($field.classArray(), $.validate.PAYMENT_CLASSES);
     var isPaymentField = (paymentFieldClasses.length > 0);
 
-    if (isPaymentField) { // It's a payment field
+    /**
+     * Three options
+     * 1.    it's a payment field and $.payment is loaded
+     * 2. or it's a special field (checkbox/radio) and is required
+     * 3. or it's a regular field
+     */
+    if (isPaymentField && $.payment) {
+
       var paymentFieldClass = paymentFieldClasses[0];
       // set validation results
       switch (paymentFieldClass) {
@@ -54,7 +61,7 @@
       }
 
     }
-    else if (isSpecialType && required) { // If it's a non-payment field of a special type
+    else if (isSpecialType && required) {
       var checked = $field.is(':checked');
       switch(type) {
         case $.validate.SPECIAL_TYPES.check:
@@ -65,7 +72,7 @@
           break;
       }
     }
-    else { // If it's a regular, non-payment, non-special field
+    else {
 
       // validate standard HTML 'type' attributes
       if (type && _.indexOf($.validate.HTML_INPUT_TYPES, type) >= 0 && $.validate.PATTERNS[type]) {
