@@ -20,13 +20,13 @@
         Stripe.card.createToken(creditCardData, function(status, response) {
           if (response.error) {
             // TODO show something to the user, form is not submitted
+            $.rails.enableFormElements($form);
+            $form.find(':submit').animateCss('shake');
           } else {
             $form.find('[name=stripe_token]').val(response.id);
             $form.get(0).submit();
           }
         });
-
-        return false;
 
       });
 

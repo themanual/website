@@ -140,11 +140,11 @@
       $(this).submit(function(event) {
 
         var $form = $(this);
-        var $submit_button  = $form.find('*[type=submit]');
+        var $submit_button  = $form.find(':submit');
 
-        // Disable the submit button to prevent repeated clicks
+        // Disable button
         $submit_button.prop('disabled', true);
-
+        // Validate form
         var valid = $form.validateForm();
 
         if (!valid) {
@@ -152,7 +152,9 @@
           event.preventDefault();
           event.stopImmediatePropagation();
           // Make button enabled
-          $submit_button.prop('disabled', false).animateCss('shake').blur();
+          $submit_button.prop('disabled', false);
+          // Shake the focused element and the button
+          $form.find(":focus").animateCss('shake');
           // Bind individual validation handlers
           bindOnTypeHandlers($form);
         }
