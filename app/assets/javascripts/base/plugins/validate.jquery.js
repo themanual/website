@@ -138,6 +138,7 @@
       });
 
       $(this).submit(function(event) {
+
         var $form = $(this);
         var $submit_button  = $form.find('*[type=submit]');
 
@@ -148,14 +149,13 @@
 
         if (!valid) {
           // Prevent further submit handlers
+          event.preventDefault();
           event.stopImmediatePropagation();
           // Make button enabled
-          $submit_button.prop('disabled', false).animateCss('shake');
+          $submit_button.prop('disabled', false).animateCss('shake').blur();
           // Bind individual validation handlers
           bindOnTypeHandlers($form);
         }
-
-        return false;
 
       });
 
