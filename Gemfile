@@ -47,6 +47,7 @@ gem 'stripe'
 # gem 'shoppe-shipwire'
 gem 'shipwire', github: 'marcroberts/shipwire'
 
+gem 'airbrake'
 
 gem 'numbers_and_words'
 
@@ -67,7 +68,6 @@ group :production, :stage do
   gem 'heroku-deflater'
 
   gem 'newrelic_rpm'
-	gem 'airbrake'
 	gem 'lograge'
 
   gem 'pg'
