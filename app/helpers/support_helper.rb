@@ -15,11 +15,12 @@ module SupportHelper
     end
     # priority countries
 
-    Shoppe::Country.ordered.where(code2: ['GB','US','CA']).each do |country|
+    options << content_tag_string(:option, 'Top Countries', {value: nil, disabled: :disabled})
+    Shoppe::Country.ordered.where(code2: ['US','CA', 'GB', 'AU', 'DE']).each do |country|
       options << country_to_option.call(country)
     end
 
-    options << content_tag_string(:option, '--', {value: nil, disabled: :disabled})
+    options << content_tag_string(:option, 'All Countries', {value: nil, disabled: :disabled})
 
     Shoppe::Country.ordered.each do |country|
       options << country_to_option.call(country)
