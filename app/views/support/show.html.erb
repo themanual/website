@@ -87,10 +87,11 @@
   });
 
   $.getEstimatedShippingCost({}, function(data){
-    if (data.status == 'ok' && 'cost' in data.response && 'ip_country' in data.response) {
-      var message = '<em>Estimated shipping cost for ' + data.response.ip_country + ' is <strong>$' + data.response.cost + '.</strong></em>';
-      $("#shipping .support-shipping-estimate").animateCss('flash').html(message);
+    var message = 'We could not estimate shipping cost for your location.';
+    if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
+      message = '<em>Estimated shipping cost for ' + data.response.ip_country_name + ' is <strong>$' + data.response.cost + '.</strong></em>';
     }
+    $("#shipping .support-shipping-estimate").animateCss('flash').html(message);
   });
 });</script>
 <% end %>
