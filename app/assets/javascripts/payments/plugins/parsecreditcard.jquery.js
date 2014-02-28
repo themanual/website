@@ -1,24 +1,25 @@
+/**
+ * Parses credit card form fields and returns an Stripe-compatible object
+ * This is required to deal with unified (month + year) expiration date fields
+ */
 (function($) {
-  
+
   $.fn.parseCreditCard = function() {
-    // Stored for optimization
-    var $this = $(this);
 
-    // Form fields
-    var $number = $this.find('.cc-number'),
-        $cvc    = $this.find('.cc-csc'),
-        $exp    = $this.find('.cc-exp');
+    var $this   = $(this);
+    var $number = $this.find('.cc-number');
+    var $cvc    = $this.find('.cc-csc');
+    var $exp    = $this.find('.cc-exp');
+    var exp     = $.payment.cardExpiryVal($exp.val());
 
-    var exp = $.payment.cardExpiryVal($exp.val());
-
-    var stripe_data = {
+    var stripeData {
       number:     $number.val().replace(/\s+/g, ''),
       cvc:        $cvc.val().replace(/\s+/g, ''),
       exp_month:  exp.month,
       exp_year:   exp.year
     };
 
-    return stripe_data;
+    return stripeData;
   }
 
 }(jQuery));
