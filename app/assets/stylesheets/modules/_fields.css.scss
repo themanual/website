@@ -150,11 +150,11 @@ input, textarea {
     float: left;
     margin-left: -$left;
 
-    &[type=checkbox] {
+    &[type="checkbox"] {
       margin-top: 0.15em;
     }
 
-    &[type=radio] {
+    &[type="radio"] {
       margin-top: 0.1em;
     }
   }
@@ -194,12 +194,12 @@ input, textarea {
     @extend %label-note;
   }
 
-  input[type='text'],
-  input[type='email'],
-  input[type='password'],
-  input[type='url'],
-  input[type='number'],
-  input[type='search'] {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"],
+  input[type="number"],
+  input[type="search"] {
     @extend %input-text;
   }
 
