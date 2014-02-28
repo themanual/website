@@ -3,6 +3,16 @@
   @return ($val / ($val * 0 + 1));
 }
 
+@function em($value, $base: $rem-value) {
+  @if not unitless($value) {
+      $value: strip-units($value);
+  }
+  @if not unitless($base) {
+      $base: strip-units($base);
+  }
+  @return ($value / $base) * 1em;
+}
+
 @mixin rem($props, $value, $base: $rem-base) {
   @if unitless($value)    { $value: $value * 1px; }
   @if not unitless($base) { $base: valueof($base); }
