@@ -148,3 +148,7 @@
   color: $c-link-blue-nicer;
   font-weight: weight(bold);
 }
+
+.no-js .support-shipping-estimate {
+  display: none;
+}
