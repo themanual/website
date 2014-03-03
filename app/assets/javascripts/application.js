@@ -21,5 +21,6 @@
 //= require bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip
 //
 //  Custom code
+//= require_tree  ./base/extensions
 //= require_tree  ./base/plugins
 //= require       ./base/main
