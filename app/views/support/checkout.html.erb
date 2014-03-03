@@ -74,24 +74,24 @@
       <div class="field is-composed">
         <dl class="field-element is-half">
           <dt><%= a.label :city %></dt>
-          <dd><%= a.text_field :city, required: true, class: "is-long" %></dd>
+          <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
         </dl>
 
         <dl class="field-element is-half">
           <dt><%= a.label :region %></dt>
-          <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional' %></dd>
+          <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional', :'data-shipping-address' => 'region' %></dd>
         </dl>
       </div>
 
       <div class="field is-composed">
         <dl class="field-element is-half">
           <dt><%= a.label :post_code %></dt>
-          <dd><%= a.text_field :post_code, class: 'is-long', required: true %></dd>
+          <dd><%= a.text_field :post_code, class: 'is-long', required: true, :'data-shipping-address' => 'post_code' %></dd>
         </dl>
 
         <dl class="field-element is-half">
           <dt><%= a.label :country %></dt>
-          <dd class="select"><%= custom_country_select a, :country, class: 'is-long fill-on-load' %></dd>
+          <dd class="select"><%= custom_country_select a, :country, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
         </dl>
       </div>
 
@@ -108,15 +108,15 @@
         </dl>
         <dl class="field-element is-quarter">
           <dt class="label">Price</dt>
-          <dd class="value is-long">$20</dd>
+          <dd class="value is-long" data-shipping-cost="subtotal">$20</dd>
         </dl>
         <dl class="field-element is-quarter">
           <dt class="label">Shipping</dt>
-          <dd class="value is-long">$7</dd>
+          <dd class="value is-long" data-shipping-cost="shipping">---</dd>
         </dl>
         <dl class="field-element is-quarter">
           <dt class="label">Total</dt>
-          <dd class="value is-long"><strong>$27</strong></dd>
+          <dd class="value is-long" data-shipping-cost="total">---</dd>
         </dl>
       </div>
       <dl class="field is-composed">
@@ -135,7 +135,7 @@
     </div>
 
     <div class="form-actions">
-      <p class="form-message">Your credit card will be charged $27 immediately.</p>
+      <p class="form-message">Your credit card will be charged <span data-shipping-cost="total">$27</span> immediately.</p>
       <input type="submit" value="Subscribe to The Manual" data-disable-with="Processing..." class="button">
     </div>
 

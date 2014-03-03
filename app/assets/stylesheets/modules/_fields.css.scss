@@ -210,5 +210,11 @@ input, textarea {
   // Fake labels and values
   .label { @extend %label;      }
   .value { @extend %input-text; }
+  .value {
+    &[data-shipping-cost="total"] {
+      font-weight: weight(bold);
+    }
+  }
+
 
 }
