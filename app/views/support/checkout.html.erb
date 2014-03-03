@@ -148,7 +148,7 @@
   // pre-fill country selector with country via geoip lookup
   $.getEstimatedShippingCost({}, function(data){
     if (data.status == 'ok' && data.response.ip_country) {
-      $('select.fill-on-load').find('option[data-code=' + data.response.ip_country +']:first').prop('selected', true);
+      $('select[data-shipping-address="country"]').find('option[data-code=' + data.response.ip_country +']:first').prop('selected', true);
     }
   });
 });</script>
