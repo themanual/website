@@ -30,5 +30,6 @@ en:
       address:
         region: State/County/Region
         post_code: Postal/Zip Code
+        lines: Street, Number
   errors:
     stripe: There was an error processing your credit card
