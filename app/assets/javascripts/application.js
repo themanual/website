@@ -12,9 +12,10 @@
 //= require trmix/dist/trmix
 //
 //  jQuery Plugins
-//= require fitvids/jquery.fitvids
 //= require jquery.easing/js/jquery.easing
 //= require jquery.scrollTo/jquery.scrollTo
+//= require fitvids/jquery.fitvids
+//= require jquery-loadingdots/jquery.loadingdots
 //= require chosen-jquery
 //
 //  Bootstrap Components
