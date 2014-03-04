@@ -20,7 +20,7 @@
         <dl class="field-element is-composed is-half">
           <dt><%= f.label :first_name, 'Name' %></dt>
           <dd class="field-element is-half">
-            <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true, tabindex: 1 %>
+            <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true, autofocus: true %>
           </dd>
           <dd class="field-element is-half">
             <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %>
@@ -91,7 +91,7 @@
 
         <dl class="field-element is-half">
           <dt><%= a.label :country %></dt>
-          <dd class="select"><%= custom_country_select a, :country, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
+          <dd class="select"><%= custom_country_select a, :country, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
         </dl>
       </div>
 
@@ -107,16 +107,16 @@
           <dd class="value is-long">Digital + Print</dd>
         </dl>
         <dl class="field-element is-quarter">
-          <dt class="label">Price</dt>
+          <dt class="label">Subtotal</dt>
           <dd class="value is-long" data-shipping-cost="subtotal">$20</dd>
         </dl>
         <dl class="field-element is-quarter">
           <dt class="label">Shipping</dt>
-          <dd class="value is-long" data-shipping-cost="shipping">---</dd>
+          <dd class="value is-long" data-shipping-cost="shipping">...</dd>
         </dl>
         <dl class="field-element is-quarter">
           <dt class="label">Total</dt>
-          <dd class="value is-long" data-shipping-cost="total">---</dd>
+          <dd class="value is-long" data-shipping-cost="total">...</dd>
         </dl>
       </div>
       <dl class="field is-composed">
@@ -135,7 +135,7 @@
     </div>
 
     <div class="form-actions">
-      <p class="form-message">Your credit card will be charged <span data-shipping-cost="total">$27</span> immediately.</p>
+      <!--<p class="form-message">Your credit card will be charged <span data-shipping-cost="total"></span> immediately.</p>-->
       <input type="submit" value="Subscribe to The Manual" data-disable-with="Processing..." class="button">
     </div>
 
