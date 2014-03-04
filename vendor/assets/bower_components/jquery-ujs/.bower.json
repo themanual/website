@@ -15,11 +15,11 @@
     "bower_components",
     "test"
   ],
-  "_release": "980e1c5b4b",
+  "_release": "7317021aa2",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "980e1c5b4ba566d463a7f97bd3ac9a8bcab40ae5"
+    "commit": "7317021aa251792fbf7d7911306a5204bd4b66f3"
   },
   "_source": "git://github.com/rails/jquery-ujs.git",
   "_target": "*",
