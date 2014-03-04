@@ -1,5 +1,10 @@
 (function($) {
 
+  /**
+   * Parses any shipment form, prepping the params for $.getEstimatedShippingCost and calling it
+   * @param  {Function} callback - Callback passed to $.getEstimateShippingCost
+   * @return {jQuery}
+   */
   $.fn.getFormShippingCost = function(callback) {
     return this.each(function() {
       var $form   = $(this);
