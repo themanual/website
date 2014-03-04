@@ -1,3 +1,3 @@
 $(function() {
-  $('.payment-form').prettifyPaymentForm().stripe();
+  $('.payment-form').prettifyPaymentForm().shippingForm().stripe();
 });

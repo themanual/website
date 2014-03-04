@@ -142,14 +142,3 @@
   <% end %>
 
 </div></main>
-
-<% content_for :footer do %>
-<script>$(function() {
-  // pre-fill country selector with country via geoip lookup
-  $.getEstimatedShippingCost({}, function(data){
-    if (data.status == 'ok' && data.response.ip_country) {
-      $('select[data-shipping-address="country"]').find('option[data-code=' + data.response.ip_country +']:first').prop('selected', true);
-    }
-  });
-});</script>
-<% end %>
