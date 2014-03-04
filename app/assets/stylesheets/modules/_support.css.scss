@@ -1,9 +1,3 @@
-.support-tiers-note {
-  font-style: italic;
-  text-align: center;
-  @include container-spacing(margin-top margin-bottom, 1.5);
-}
-
 .support-tiers-list {
   @include container-spacing(margin-top margin-bottom, 2);
   background-repeat:    repeat-y, repeat-y;
@@ -100,37 +94,15 @@
   }
 }
 
-.support-perks {
-  margin-top: 3em;
+.support-tiers-note {
   text-align: center;
-}
-
-.support-perks-title {
-  @extend %heading-sc;
-  @include rem(font-size, 18px);
+  font-family: $type-sans;
+  font-size: .85em;
   font-weight: weight(medium);
-  margin-bottom: 1.5em;
-  .underline {
-    display: inline;
-    padding-bottom: 0.1em;
-    border-bottom: solid 0.15em $c-link-blue-nicer;
-  }
-}
-
-.support-perks-list {
-  @include rem(font-size, 19px);
-
-  > * {
-    color: gray(25%);
-    line-height: 1.5;
-    + * {
-      margin-top: 0.75em;
-    }
-  }
+  margin-bottom: .5rem;
 }
 
 .support-shipping {
-  @include rem(margin-top, 2.5rem);
   font-size: em(16);
   color: gray(60%);
   text-align: center;

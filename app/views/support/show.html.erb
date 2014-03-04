@@ -1,71 +1,66 @@
 <main class="l-padded"><div>
 
   <header class="heading is-centered">
-    <h1>Become a supporter</h1>
-    <p>We’re an independent publication. We pay all our writers and illustrators for their work, and our Ebook and Print Editions don’t contain advertisting. This means your contribution is fundamental to support The Manual and fund new issues.</p>
+    <h1>Become a subscriber</h1>
+    <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising. Please consider subscribing to support The Manual.</p>
   </header>
 
   <section class="support-tiers">
-    <p class="support-tiers-note">
-      <span class="highlight">The Manual publishes three issues per year. All prices per issue.</span>
-    </p>
-
     <ul class="l-grid support-tiers-list animated fadeInDown">
       <li class="l-grid-unit-third support-tier">
         <h2 class="support-tier-name">Digital</h2>
         <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">10</span></span></h3>
         <ul class="support-tier-rewards">
-          <li>Ebook download (ePub, Mobi, PDF)</li>
-          <li><span class="striked">Hardback shipped worldwide</span></li>
-          <li><span class="striked">Name listed in issue’s colophon</span></li>
-          <li><span class="striked">Limited edition gift with every issue</span></li>
+          <li>Early access to new issues</li>
+          <li>Digital edition (ePub, Mobi, PDF)</li>
+          <li><span class="striked">Print edition (A5 hardbound book)</span></li>
+          <li><span class="striked">Exclusive gift with each issue</span></li>
+          <li><span class="striked">Listed as a patron in each issue</span></li>
         </ul>
-        <a href="<%= checkout_support_path(:digital) %>" class="button">Get Digital</a>
+        <a href="<%= checkout_support_path(:digital) %>" class="button">Subscribe to Digital</a>
       </li>
 
       <li class="l-grid-unit-third support-tier">
-        <h2 class="support-tier-name">Digital + Print</h2>
+        <h2 class="support-tier-name">Print</h2>
         <h3 class="support-tier-price">
           <span class="number"><span class="currency">$</span><span class="value">20</span></span>
           <small>+ shipping<a href="#shipping" class="footnote">*</a></small>
         </h3>
         <ul class="support-tier-rewards">
-          <li>Ebook download (ePub, Mobi, PDF)</li>
-          <li><span class="">Hardback shipped worldwide</span></li>
-          <li><span class="striked">Name listed in issue’s colophon</span></li>
-          <li><span class="striked">Limited edition gift with every issue</span></li>
+          <li>Early access to new issues</li>
+          <li>Digital edition (ePub, Mobi, PDF)</li>
+          <li><span class="">Print edition (A5 hardbound book)</span></li>
+          <li><span class="striked">Exclusive gift with each issue</span></li>
+          <li><span class="striked">Listed as a patron in each issue</span></li>
         </ul>
-        <a href="<%= checkout_support_path(:print) %>" class="button">Get Digital + Print</a>
+        <a href="<%= checkout_support_path(:print) %>" class="button">Subscribe to Print</a>
       </li>
 
       <li class="l-grid-unit-third support-tier">
-        <h2 class="support-tier-name">Friend</h2>
+        <h2 class="support-tier-name">Patron</h2>
         <h3 class="support-tier-price">
           <span class="number"><span class="currency">$</span><span class="value">50</span></span>
           <small>+ shipping<a href="#shipping" class="footnote">*</a></small>
         </h3>
         <ul class="support-tier-rewards">
-          <li>Ebook download (ePub, Mobi, PDF)</li>
-          <li>Hardback shipped worldwide</li>
-          <li><span class="">Name listed in issue’s colophon</span></li>
-          <li><span class="">Limited edition gift with every issue</span></li>
+          <li>Early access to new issues</li>
+          <li>Digital edition (ePub, Mobi, PDF)</li>
+          <li>Print edition (A5 hardbound book)</li>
+          <li><span class="">Exclusive gift with each issue</span></li>
+          <li><span class="">Listed as a patron in each issue</span></li>
         </ul>
-        <a href="<%= checkout_support_path(:friend) %>" class="button">Become a Friend</a>
+        <a href="<%= checkout_support_path(:friend) %>" class="button">Become a Patron</a>
       </li>
     </ul>
 
-    <div class="support-perks l-singlecol-centered">
-      <h3 class="support-perks-title"><span class="underline">All supporters also get</span></h3>
-      <ul class="support-perks-list">
-        <li>Early access to Web and Ebook editions of new issues, before they’re released publicly.</li>
-        <li>Supporters-only newsletter, where we’ll announce writers and illustrations of future issues, and other progress updates and behind-the-scenes news about making The Manual.</li>
-      </ul>
-    </div>
+    <p class="support-tiers-note">
+      The Manual publishes three issues per year. All prices per issue.
+    </p>
 
     <p class="support-shipping" id="shipping">
       <span class="support-shipping-mark">*</span>
       <span class="support-shipping-estimate">Estimating shipping cost for your location…</span>
-      Exact cost can only be calculated at checkout.
+      Exact cost will be calculated at checkout.
     </p>
 
   </section>
@@ -89,9 +84,9 @@
   $.getEstimatedShippingCost({}, function(data){
     var message = 'We could not estimate shipping cost for your location.';
     if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
-      message = '<em>Estimated shipping cost for ' + data.response.ip_country_name + ' is <strong>$' + data.response.cost + '.</strong></em>';
+      message = 'Estimated shipping for ' + data.response.ip_country_name + '.';
     }
-    $("#shipping .support-shipping-estimate").animateCss('flash').html(message);
+    $("#shipping .support-shipping-estimate").animateCss('fadeIn').html(message);
   });
 });</script>
 <% end %>
