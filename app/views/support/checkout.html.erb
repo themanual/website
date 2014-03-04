@@ -63,11 +63,11 @@
       <%= f.fields_for :addresses, @user.addresses.new do |a| %>
       <dl class="field">
         <dt>
-          <%= a.label :line1, 'Street, Number' %>
+          <%= a.label :lines, 'Street, Number' %>
           <small class="label-note">You may include company or office name</small>
         </dt>
         <dd>
-          <%= a.text_area :line1, required: true, class: 'is-long noresize', spellcheck: false, rows: 3, :'data-shipping-address' => 'line1' %>
+          <%= a.text_area :lines, required: true, class: 'is-long noresize', spellcheck: false, rows: 3, :'data-shipping-address' => 'line1' %>
         </dd>
       </dl>
 

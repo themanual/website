@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20140228180824) do
 
   create_table "addresses", force: true do |t|
     t.integer  "user_id"
-    t.string   "lines",      limit: 512, default: "", null: false
     t.string   "city",       limit: 128
     t.string   "region",     limit: 128,              null: false
     t.string   "post_code",  limit: 32,               null: false
+    t.integer  "country_id", limit: 128,              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "country_id",             default: 0,  null: false
+    t.string   "lines",      limit: 512, default: "", null: false
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"

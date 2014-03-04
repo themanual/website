@@ -25,7 +25,7 @@ class HomeController < ApplicationController
 
       order = Shipwire::Order.new(nil)
       order.address = {
-        address1: (params[:line1] || ''),
+        address1: (params[:lines] || ''),
         city: city,
         country: country,
         state: region,
