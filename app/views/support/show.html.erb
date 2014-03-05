@@ -1,15 +1,18 @@
-<main class="l-padded"><div>
+<main class=""><div>
 
-  <header class="heading is-centered">
-    <h1>Become a subscriber</h1>
-    <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising. Please consider subscribing to support The Manual.</p>
+  <header class="l-wrapper heading">
+    <h1>Subscribe to The Manual</h1>
+    <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising.</p>
   </header>
 
-  <section class="support-tiers">
-    <ul class="l-grid support-tiers-list animated fadeInDown">
-      <li class="l-grid-unit-third support-tier">
-        <h2 class="support-tier-name">Digital</h2>
-        <h3 class="support-tier-price"><span class="number"><span class="currency">$</span><span class="value">10</span></span></h3>
+  <section class="support-tiers l-padded-h">
+    <ul class="l-grid support-tiers-list">
+      <li class="l-grid-unit-third support-tier animated fadeInLeft">
+        <div class="support-tier-heading">
+          <h2 class="support-tier-name">Digital</h2>
+          <h3 class="support-tier-price"><span class="currency">$</span>10</h3>
+        </div>
+        <p class="support-tier-note">per issue</p>
         <ul class="support-tier-rewards">
           <li>Early access to new issues</li>
           <li>Digital edition (ePub, Mobi, PDF)</li>
@@ -20,12 +23,12 @@
         <a href="<%= checkout_support_path(:digital) %>" class="button">Subscribe to Digital</a>
       </li>
 
-      <li class="l-grid-unit-third support-tier">
-        <h2 class="support-tier-name">Print</h2>
-        <h3 class="support-tier-price">
-          <span class="number"><span class="currency">$</span><span class="value">20</span></span>
-          <small>+ shipping<a href="#shipping" class="footnote">*</a></small>
-        </h3>
+      <li class="l-grid-unit-third support-tier animated fadeInUp">
+        <div class="support-tier-heading">
+          <h2 class="support-tier-name">Print</h2>
+          <h3 class="support-tier-price"><span class="currency">$</span>25</h3>
+        </div>
+        <p class="support-tier-note">per Issue + <span data-shipping="cost"></span> shipping<a href="#shipping" class="footnote">*</a></p>
         <ul class="support-tier-rewards">
           <li>Early access to new issues</li>
           <li>Digital edition (ePub, Mobi, PDF)</li>
@@ -36,12 +39,12 @@
         <a href="<%= checkout_support_path(:print) %>" class="button">Subscribe to Print</a>
       </li>
 
-      <li class="l-grid-unit-third support-tier">
-        <h2 class="support-tier-name">Patron</h2>
-        <h3 class="support-tier-price">
-          <span class="number"><span class="currency">$</span><span class="value">50</span></span>
-          <small>+ shipping<a href="#shipping" class="footnote">*</a></small>
-        </h3>
+      <li class="l-grid-unit-third support-tier animated fadeInRight">
+        <div class="support-tier-heading">
+          <h2 class="support-tier-name">Patron</h2>
+          <h3 class="support-tier-price"><span class="currency">$</span>50</h3>
+        </div>
+        <p class="support-tier-note">per Issue + <span data-shipping="cost"></span> shipping<a href="#shipping" class="footnote">*</a></p>
         <ul class="support-tier-rewards">
           <li>Early access to new issues</li>
           <li>Digital edition (ePub, Mobi, PDF)</li>
@@ -52,16 +55,10 @@
         <a href="<%= checkout_support_path(:friend) %>" class="button">Become a Patron</a>
       </li>
     </ul>
+  </section>
 
-    <p class="support-tiers-note">
-      The Manual publishes three issues per year. All prices per issue.
-    </p>
-
-    <p class="support-shipping" id="shipping">
-      <span class="support-shipping-mark">*</span>
-      <span class="support-shipping-estimate">Estimating shipping cost for your location…</span>
-      Exact cost will be calculated at checkout.
-    </p>
+  <p class="support-notes" id="shipping">
+    <span class="support-notes-mark">*</span> The Manual publishes three issues per year. <span data-shipping="message">Exact shipping cost can only be calculated at checkout.</span></p>
 
   </section>
 
@@ -82,11 +79,14 @@
   });
 
   $.getEstimatedShippingCost({}, function(data){
-    var message = 'We could not estimate shipping cost for your location.';
     if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
-      message = 'Estimated shipping for ' + data.response.ip_country_name + '.';
+      // Update cost
+      var cost = Number(data.response.cost).toFixed();
+      $('[data-shipping="cost"]').html(prefixCurrency(cost));
+      // Update message
+      message = 'Estimated shipping cost for ' + data.response.ip_country_name + ', accurate cost will be calculated at checkout.';
+      $('[data-shipping="message"]').animateCss('fadeIn').text(message);
     }
-    $("#shipping .support-shipping-estimate").animateCss('fadeIn').html(message);
   });
 });</script>
 <% end %>

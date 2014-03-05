@@ -1,30 +1,16 @@
-.support-tiers-list {
-  @include container-spacing(margin-top margin-bottom, 2);
-  background-repeat:    repeat-y, repeat-y;
-  background-image:     image_url('ui/pixel-divider.svg'),
-                        image_url('ui/pixel-divider.svg');
-  background-position:  (flex-grid($grid-columns/3) + (flex-gutter()/2))    0,
-                        (flex-grid($grid-columns*2/3) + (flex-gutter()/2))  0;
+.support-tiers {
+  border-top: divider();
+  padding-top: 2.5em;
+  padding-bottom: 1em;
 }
 
 .support-tier {
   text-align: center;
-  @include padding-v(1.5em);
-
-  &:hover {
-    &, .support-tier-header {
-      border-color: darken($c-divider, 20%)
-    }
-  }
 
   &.is-selected,
   &.is-selected .support-tier-header {
     border-color: $c-link-blue-nicer;
   }
-}
-
-.support-tier-price {
-  font-family: $type-sans;
 }
 
 .support-tier a {
@@ -34,48 +20,45 @@
 }
 
 
-
-
+.support-tier-heading > * {
+  display: inline;
+  @include padding-h(.2em);
+  &:first-child { padding-left: 0; }
+  &:last-child  { padding-right: 0; }
+}
 
 .support-tier-name {
   font-family: $type-serif;
   font-weight: weight(black);
-  font-size: 1.5em;
+  font-size: 1.7em;
 }
 
 .support-tier-price {
-
-  margin-top: .75em;
-
-  .number {
-    color: $c-link-blue-nicer;
-    font-size: 1.25em;
-    letter-spacing: 0.05em;
-  }
-
-  .value {
-    font-weight: weight(bold);
-    @include padding-h(0.1em);
-  }
+  font-size: 1.6em;
+  color: $c-link-blue-nicer;
+  font-family: $type-sans;
+  font-weight: weight(bold);
 
   .currency {
     opacity: 0.5;
+    font-weight: weight(light);
   }
+}
 
-  small {
-    @extend %heading-sc;
+.support-tier-note {
+  @extend %heading-sc;
+  color: gray(65%);
+  margin-top: .75em;
+  [data-shipping="cost"] {
     color: gray(50%);
-    vertical-align: 30%;
-  }
-
-  [data-toggle="tooltip"] {
-    border-bottom: dashed 1px $c-link-blue-nicer;
+    font-weight: weight(medium);
   }
 }
 
 .support-tier-rewards {
+  clear: both;
   border-top-width: 2px;
-  @include margin-v(1.5em);
+  @include margin-v(2em);
 }
 
 .support-tier-rewards > * {
@@ -94,33 +77,16 @@
   }
 }
 
-.support-tiers-note {
+.support-notes {
+  @include container-spacing(padding, 1.5);
+  &:last-child { padding-bottom: 0; }
   text-align: center;
   font-family: $type-sans;
-  font-size: .85em;
-  font-weight: weight(medium);
-  margin-bottom: .5rem;
-}
-
-.support-shipping {
-  font-size: em(16);
+  @include rem(font-size, 16px);
   color: gray(60%);
-  text-align: center;
-  font-family: $type-sans;
-  line-height: 1.4;
-  em {
-    color: gray(40%);
-  }
-  strong {
-    font-weight: weight(medium);
-  }
 }
 
-.support-shipping-mark {
+.support-notes-mark {
   color: $c-link-blue-nicer;
-  font-weight: weight(bold);
-}
-
-.no-js .support-shipping-estimate {
-  display: none;
+  font-weight: weight(medium);
 }
