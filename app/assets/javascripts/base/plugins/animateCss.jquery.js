@@ -1,5 +1,5 @@
 (function($) {
-  $.fn.animateCss = function(animation, onEndCallback) {
+  $.fn.animatecss = function(animation, onEndCallback) {
     return this.each(function() {
       $(this)
         .addClass("animated "+animation)

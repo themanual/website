@@ -35,8 +35,8 @@
         cost.total    = Number((cost.subtotal + cost.shipping).toFixed(2));
 
         // Update DOM
-        $elements.shipping.loadingdots('stop').html(prefixCurrency(cost.shipping)).animateCss(UPDATE_ANIMATION);
-        $elements.total.loadingdots('stop').html(prefixCurrency(cost.total)).animateCss(UPDATE_ANIMATION);
+        $elements.shipping.loadingdots('stop').html(prefixCurrency(cost.shipping)).animatecss(UPDATE_ANIMATION);
+        $elements.total.loadingdots('stop').html(prefixCurrency(cost.total)).animatecss(UPDATE_ANIMATION);
 
         if (_.isFunction(callback)) {
           callback(data, cost, $elements);

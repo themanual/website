@@ -23,7 +23,7 @@
           console.log('Got it');
           if (data.status == 'ok' && data.response.ip_country && _($countrySelect.val()).isEmpty()) {
             $countrySelect.find('option[data-code='+data.response.ip_country +']:first').prop('selected', true);
-            $countrySelect.animateCss('flash');
+            $countrySelect.animatecss('flash');
           }
         });
       }
