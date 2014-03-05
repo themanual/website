@@ -1,8 +1,5 @@
 .heading {
-  @include container-spacing(margin-top margin-bottom, 1);
-  &:first-child {
-    margin-top: 0;
-  }
+  @include container-spacing(padding-top padding-bottom, 1.5);
 }
 
 .heading {
