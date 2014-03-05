@@ -18,9 +18,9 @@ GIT
 
 GIT
   remote: git://github.com/marcroberts/shipwire.git
-  revision: 583e979a7ac91c6e8ee4c0422fbd0b23870f3347
+  revision: 62209e1b07c341b27f2a419053e85f35f6ddefa9
   specs:
-    shipwire (0.1)
+    shipwire (0.0.1)
       builder
       httparty (~> 0.13.0)
 

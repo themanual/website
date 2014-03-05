@@ -15,7 +15,10 @@ class HomeController < ApplicationController
         region = params[:region] || ''
         zip = params[:post_code] || ''
       else
-        geo_ip = MultiJson.load(open("http://freegeoip.net/json/#{Rails.env.development? ? nil : request.remote_ip}"))
+        geo_ip = {}
+        open("http://freegeoip.net/json/#{Rails.env.development? ? nil : request.remote_ip}", read_timeout: 3) do |http|
+          geo_ip = MultiJson.load(http.read)
+        end
         country = ip_country = geo_ip['country_code']
         ip_country_name = geo_ip['country_name']
         region = geo_ip['region_name']
@@ -24,13 +27,14 @@ class HomeController < ApplicationController
       end
 
       order = Shipwire::Order.new(nil)
-      order.address = {
-        address1: (params[:lines] || ''),
-        city: city,
-        country: country,
-        state: region,
-        zip: zip
-      }
+      order.address = Shipwire::Address.new( {address1: (params[:lines] || ''),
+                                              city: city,
+                                              country: country,
+                                              state: region,
+                                              zip: zip
+                                            }, false)
+
+      Rails.logger.info order.address
       order.add_item Shipwire::OrderItem.new('MNUISS003', 1) # use Issue.latest when we have shipwire data in there
 
       rates = Shipwire::Api.new.rate(order)
@@ -56,7 +60,9 @@ class HomeController < ApplicationController
         }
       end
     rescue ActionController::InvalidAuthenticityToken
-      render json: {status: 'error'}, status: 403
+      render json: {status: 'error', message: 'not authorized'}, status: 403
+    rescue Net::OpenTimeout, Shipwire::ApiTimeout
+      render json: {status: 'error', message: 'api timeout'}
     rescue Exception => e
       Airbrake.notify e
       render json: {status: 'error'}

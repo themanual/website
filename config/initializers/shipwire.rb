@@ -3,4 +3,6 @@ Shipwire.config do |config|
   config.password = ENV['SHIPWIRE_PASSWORD']
 
   config.environment = :live
+
+  config.timeout = 3
 end
