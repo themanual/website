@@ -48,7 +48,7 @@ class SupportController < ApplicationController
       render :show and return
     end
 
-    redirect_to thanks_support_path
+    redirect_to thanks_subscribe_path
 
   end
 

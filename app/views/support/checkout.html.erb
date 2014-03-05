@@ -7,7 +7,7 @@
   </div></header>
 
   <section class="l-singlecol-centered">
-    <%= form_for @user, url: support_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
+    <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
       <input type="hidden" name="stripe_token" value="" />
       <!-- HIDDEN FIELD FOR NOW - MR -->
       <input type="hidden" name="tier" value="<%= @tier %>" />
