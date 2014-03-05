@@ -3,9 +3,6 @@
 }
 
 .heading {
-  &.is-lined {
-    border-bottom: divider();
-  }
 
   > * {
     @include rem(max-width, 40rem);
