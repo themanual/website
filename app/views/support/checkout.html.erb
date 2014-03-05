@@ -1,144 +1,143 @@
 <% include_payment_assets %>
 
-<main class="l-padded"><div class="l-singlecol-centered">
-
-  <header class="heading">
+<main>
+  <header class="l-divider-bottom"><div class="l-singlecol-centered heading">
     <h1>Subscribe</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, cum, ipsa sed id quos optio deserunt magnam fuga reprehenderit eligendi voluptas iure saepe iste repudiandae perspiciatis velit cumque nostrum modi.</p>
-  </header>
+  </div></header>
 
-  <%= form_for @user, url: support_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
-    <input type="hidden" name="stripe_token" value="" />
-    <!-- HIDDEN FIELD FOR NOW - MR -->
-    <input type="hidden" name="tier" value="<%= @tier %>" />
-    <!--<span class="payment-errors"></span>-->
+  <section class="l-singlecol-centered">
+    <%= form_for @user, url: support_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
+      <input type="hidden" name="stripe_token" value="" />
+      <!-- HIDDEN FIELD FOR NOW - MR -->
+      <input type="hidden" name="tier" value="<%= @tier %>" />
+      <!--<span class="payment-errors"></span>-->
 
-    <fieldset class="form-section">
-      <h2 class="form-heading">Personal Information</h2>
+      <fieldset class="form-section">
+        <h2 class="form-heading">Personal Information</h2>
 
-      <div class="field is-composed">
-        <dl class="field-element is-composed is-half">
-          <dt><%= f.label :first_name, 'Name' %></dt>
-          <dd class="field-element is-half">
-            <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true, autofocus: true %>
-          </dd>
-          <dd class="field-element is-half">
-            <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %>
-          </dd>
-        </dl>
-
-        <dl class="field-element is-half">
-          <dt><%= f.label :email %></dt>
-          <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %></dd>
-        </dl>
-      </div>
-    </fieldset>
-
-    <fieldset class="form-section">
-      <h2 class="form-heading">Payment Information</h2>
-
-      <div class="field is-composed">
-        <dl class="field-element is-half">
-          <dt><label for="user_cc-number">Credit Card</label></dt>
-          <dd><input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" /></dd>
-        </dl>
-
-        <div class="field-element is-composed is-half">
-          <dl class="field-element is-half">
-            <dt><label for="user_cc-cvc">CVC</label></dt>
-            <dd><input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/></dd>
+        <div class="field is-composed">
+          <dl class="field-element is-composed is-half">
+            <dt><%= f.label :first_name, 'Name' %></dt>
+            <dd class="field-element is-half">
+              <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true, autofocus: true %>
+            </dd>
+            <dd class="field-element is-half">
+              <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %>
+            </dd>
           </dl>
 
           <dl class="field-element is-half">
-            <dt><label for="user_cc-exp">Expiration</label></dt>
-            <dd><input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+            <dt><%= f.label :email %></dt>
+            <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %></dd>
           </dl>
         </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <h2 class="form-heading">Payment Information</h2>
+
+        <div class="field is-composed">
+          <dl class="field-element is-half">
+            <dt><label for="user_cc-number">Credit Card</label></dt>
+            <dd><input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" /></dd>
+          </dl>
+
+          <div class="field-element is-composed is-half">
+            <dl class="field-element is-half">
+              <dt><label for="user_cc-cvc">CVC</label></dt>
+              <dd><input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/></dd>
+            </dl>
+
+            <dl class="field-element is-half">
+              <dt><label for="user_cc-exp">Expiration</label></dt>
+              <dd><input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+            </dl>
+          </div>
+        </div>
+      </fieldset>
+
+      <% if @tier != 'digital'%>
+      <fieldset class="form-section">
+        <h2 class="form-heading">Shipping Address</h2>
+        <%= f.fields_for :addresses, @user.addresses.new do |a| %>
+        <dl class="field">
+          <dt>
+            <%= a.label :lines, 'Street, Number' %>
+            <small class="label-note">You may include company or office name</small>
+          </dt>
+          <dd>
+            <%= a.text_area :lines, required: true, class: 'is-long noresize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
+          </dd>
+        </dl>
+
+        <div class="field is-composed">
+          <dl class="field-element is-half">
+            <dt><%= a.label :city %></dt>
+            <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
+          </dl>
+
+          <dl class="field-element is-half">
+            <dt><%= a.label :region %></dt>
+            <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional', :'data-shipping-address' => 'region' %></dd>
+          </dl>
+        </div>
+
+        <div class="field is-composed">
+          <dl class="field-element is-half">
+            <dt><%= a.label :post_code %></dt>
+            <dd><%= a.text_field :post_code, class: 'is-long', required: true, :'data-shipping-address' => 'post_code' %></dd>
+          </dl>
+
+          <dl class="field-element is-half">
+            <dt><%= a.label :country %></dt>
+            <dd class="select"><%= custom_country_select a, :country, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
+          </dl>
+        </div>
+
+      	<% end %>
+      </fieldset>
+      <% end %>
+
+      <div class="form-section">
+        <h2 class="form-heading">Review your subscription</h2>
+        <div class="field is-composed">
+          <dl class="field-element is-quarter">
+            <dt class="label">Type</dt>
+            <dd class="value is-long">Digital + Print</dd>
+          </dl>
+          <dl class="field-element is-quarter">
+            <dt class="label">Subtotal</dt>
+            <dd class="value is-long" data-shipping-cost="subtotal">$20</dd>
+          </dl>
+          <dl class="field-element is-quarter">
+            <dt class="label">Shipping</dt>
+            <dd class="value is-long" data-shipping-cost="shipping">...</dd>
+          </dl>
+          <dl class="field-element is-quarter">
+            <dt class="label">Total</dt>
+            <dd class="value is-long" data-shipping-cost="total">...</dd>
+          </dl>
+        </div>
+        <dl class="field is-composed">
+          <dt><label>Choose your starting issue</label></dt>
+          <dd class="field-element checkradio is-half">
+            <input type="radio" name="user-start" id="user-start-now" checked="checked" />
+            <label for="user-start-now"><strong>Issue <%= @latest.number %></strong>, which you’ll get immediately</label>
+            <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %> in <%= due_on @latest.next %></p>
+          </dd>
+          <dd class="field-element checkradio is-half">
+            <input type="radio" name="user-start" id="user-start-next" />
+            <label for="user-start-next"><strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %></label>
+            <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, in <%= due_on @latest.next.next %></span>
+          </dd>
+        </dl>
       </div>
-    </fieldset>
 
-    <% if @tier != 'digital'%>
-    <fieldset class="form-section">
-      <h2 class="form-heading">Shipping Address</h2>
-      <%= f.fields_for :addresses, @user.addresses.new do |a| %>
-      <dl class="field">
-        <dt>
-          <%= a.label :lines, 'Street, Number' %>
-          <small class="label-note">You may include company or office name</small>
-        </dt>
-        <dd>
-          <%= a.text_area :lines, required: true, class: 'is-long noresize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
-        </dd>
-      </dl>
-
-      <div class="field is-composed">
-        <dl class="field-element is-half">
-          <dt><%= a.label :city %></dt>
-          <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
-        </dl>
-
-        <dl class="field-element is-half">
-          <dt><%= a.label :region %></dt>
-          <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional', :'data-shipping-address' => 'region' %></dd>
-        </dl>
+      <div class="form-actions">
+        <!--<p class="form-message">Your credit card will be charged <span data-shipping-cost="total"></span> immediately.</p>-->
+        <input type="submit" value="Subscribe to The Manual" data-disable-with="Processing..." class="button">
       </div>
-
-      <div class="field is-composed">
-        <dl class="field-element is-half">
-          <dt><%= a.label :post_code %></dt>
-          <dd><%= a.text_field :post_code, class: 'is-long', required: true, :'data-shipping-address' => 'post_code' %></dd>
-        </dl>
-
-        <dl class="field-element is-half">
-          <dt><%= a.label :country %></dt>
-          <dd class="select"><%= custom_country_select a, :country, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
-        </dl>
-      </div>
-
-    	<% end %>
-    </fieldset>
     <% end %>
-
-    <div class="form-section">
-      <h2 class="form-heading">Review your subscription</h2>
-      <div class="field is-composed">
-        <dl class="field-element is-quarter">
-          <dt class="label">Type</dt>
-          <dd class="value is-long">Digital + Print</dd>
-        </dl>
-        <dl class="field-element is-quarter">
-          <dt class="label">Subtotal</dt>
-          <dd class="value is-long" data-shipping-cost="subtotal">$20</dd>
-        </dl>
-        <dl class="field-element is-quarter">
-          <dt class="label">Shipping</dt>
-          <dd class="value is-long" data-shipping-cost="shipping">...</dd>
-        </dl>
-        <dl class="field-element is-quarter">
-          <dt class="label">Total</dt>
-          <dd class="value is-long" data-shipping-cost="total">...</dd>
-        </dl>
-      </div>
-      <dl class="field is-composed">
-        <dt><label>Choose your starting issue</label></dt>
-        <dd class="field-element checkradio is-half">
-          <input type="radio" name="user-start" id="user-start-now" checked="checked" />
-          <label for="user-start-now"><strong>Issue <%= @latest.number %></strong>, which you’ll get immediately</label>
-          <p class="label-note">We’ll charge you again for Issue <%= @latest.next.number %> in <%= due_on @latest.next %></p>
-        </dd>
-        <dd class="field-element checkradio is-half">
-          <input type="radio" name="user-start" id="user-start-next" />
-          <label for="user-start-next"><strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %></label>
-          <span class="label-note">We’ll only charge you again for Issue <%= @latest.next.next.number %>, in <%= due_on @latest.next.next %></span>
-        </dd>
-      </dl>
-    </div>
-
-    <div class="form-actions">
-      <!--<p class="form-message">Your credit card will be charged <span data-shipping-cost="total"></span> immediately.</p>-->
-      <input type="submit" value="Subscribe to The Manual" data-disable-with="Processing..." class="button">
-    </div>
-
-  <% end %>
-
-</div></main>
+  </section>
+</main>
