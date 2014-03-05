@@ -175,6 +175,8 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
+    ish (0.0.1)
+      rake
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -332,6 +334,7 @@ DEPENDENCIES
   dotenv-rails
   guard-livereload
   heroku-deflater
+  ish
   kgio
   kramdown
   lograge

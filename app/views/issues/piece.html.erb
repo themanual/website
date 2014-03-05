@@ -46,7 +46,7 @@
     </div></aside>
   <% end %>
 
-  <% cache [@piece, :random], expires_in: 300 do %>
+  <% cache [@piece, :random], expires_in: 300.ish do %>
     <aside class="boxes"><div class="l-grid-padded">
 
     <!-- <div class="box-group l-grid-unit-half"> -->

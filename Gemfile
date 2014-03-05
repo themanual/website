@@ -50,6 +50,7 @@ gem 'shipwire', github: 'marcroberts/shipwire'
 gem 'airbrake'
 
 gem 'numbers_and_words'
+gem 'ish'
 
 group :development do
   gem 'better_errors'

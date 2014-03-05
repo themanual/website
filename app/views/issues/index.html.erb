@@ -3,7 +3,7 @@
 <main class="issue_index">
 
   <% Issue.public_issues.ordered.each do |issue| %>
-    <% cache issue do %>
+    <% cache issue, expires_in: 12.hours.ish do %>
       <section class="issue_index-entry issue-<%= issue.number %>"><div class="l-grid-padded">
 
         <header class="issue_index-entry-header l-grid-unit-half">
