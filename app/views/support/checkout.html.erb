@@ -7,7 +7,7 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, cum, ipsa sed id quos optio deserunt magnam fuga reprehenderit eligendi voluptas iure saepe iste repudiandae perspiciatis velit cumque nostrum modi.</p>
   </header>
 
-  <%= form_for @user, url: support_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
+  <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
     <input type="hidden" name="stripe_token" value="" />
     <!-- HIDDEN FIELD FOR NOW - MR -->
     <input type="hidden" name="tier" value="<%= @tier %>" />

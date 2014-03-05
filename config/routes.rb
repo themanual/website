@@ -22,7 +22,7 @@ TheManual::Application.routes.draw do
 
   root to: redirect("/issues")
 
-  resource :support, controller: :support, only: [:show, :create] do
+  resource :subscribe, controller: :support, only: [:show, :create] do
     get :thanks
     get 'checkout/:tier', action: :checkout, as: :checkout
   end
