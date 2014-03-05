@@ -8,14 +8,14 @@
     @include rem(max-width, 40rem);
   }
 
-  > h1 {
+  h1 {
     font-family: $type-sans;
     @include rem(font-size, 42px);
     font-weight: weight(bold);
     line-height: 1.2;
   }
 
-  > p {
+  p {
     $line-height: 1.5;
     color: gray(40%);
     line-height: $line-height;
