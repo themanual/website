@@ -1,9 +1,9 @@
 <main class=""><div>
 
-  <header class="l-wrapper heading">
+  <header class="l-wrapper heading"><div class="l-singlecol-centered">
     <h1>Subscribe to The Manual</h1>
     <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising.</p>
-  </header>
+  </div></header>
 
   <section class="subscribe-tiers l-padded-h">
     <ul class="l-grid subscribe-tiers-list">
@@ -72,7 +72,7 @@
     $.scrollTo($shipping, {
       duration: 250,
       onAfter: function() {
-        $shipping.animateCss('flash');
+        $shipping.animatecss('flash');
       }
     });
     return false;
@@ -82,10 +82,10 @@
     if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
       // Update cost
       var cost = Number(data.response.cost).toFixed();
-      $('[data-shipping="cost"]').html(prefixCurrency(cost));
+      $('[data-shipping="cost"]').animatecss('flash').html(prefixCurrency(cost));
       // Update message
-      message = 'Estimated shipping cost for ' + data.response.ip_country_name + ', accurate cost will be calculated at checkout.';
-      $('[data-shipping="message"]').animateCss('fadeIn').text(message);
+      message = 'Estimated shipping cost for ' + data.response.ip_country_name + ', exact cost will be calculated at checkout.';
+      $('[data-shipping="message"]').animatecss('fadeIn').text(message);
     }
   });
 });</script>
