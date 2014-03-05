@@ -2,6 +2,7 @@ class Issue < ActiveRecord::Base
 	has_many :articles
 	has_many :authors, through: :articles
 	has_many :lessons
+	has_many :subscription_orders
 
 	belongs_to :volume
 	belongs_to :shoppe, class_name: 'Shoppe::Product'
