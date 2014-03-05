@@ -34,7 +34,6 @@ class HomeController < ApplicationController
                                               zip: zip
                                             }, false)
 
-      Rails.logger.info order.address
       order.add_item Shipwire::OrderItem.new('MNUISS003', 1) # use Issue.latest when we have shipwire data in there
 
       rates = Shipwire::Api.new.rate(order)
