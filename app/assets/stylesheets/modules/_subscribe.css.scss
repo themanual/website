@@ -1,39 +1,39 @@
-.support-tiers {
+.subscribe-tiers {
   border-top: divider();
   padding-top: 2.5em;
   padding-bottom: 1em;
 }
 
-.support-tier {
+.subscribe-tier {
   text-align: center;
 
   &.is-selected,
-  &.is-selected .support-tier-header {
+  &.is-selected .subscribe-tier-header {
     border-color: $c-link-blue-nicer;
   }
 }
 
-.support-tier a {
+.subscribe-tier a {
   @include colored-link {
     color: $c-link-blue-nicer;
   }
 }
 
 
-.support-tier-heading > * {
+.subscribe-tier-heading > * {
   display: inline;
   @include padding-h(.2em);
   &:first-child { padding-left: 0; }
   &:last-child  { padding-right: 0; }
 }
 
-.support-tier-name {
+.subscribe-tier-name {
   font-family: $type-serif;
   font-weight: weight(black);
   font-size: 1.7em;
 }
 
-.support-tier-price {
+.subscribe-tier-price {
   font-size: 1.6em;
   color: $c-link-blue-nicer;
   font-family: $type-sans;
@@ -45,7 +45,7 @@
   }
 }
 
-.support-tier-note {
+.subscribe-tier-note {
   @extend %heading-sc;
   color: gray(65%);
   margin-top: .75em;
@@ -55,13 +55,13 @@
   }
 }
 
-.support-tier-rewards {
+.subscribe-tier-rewards {
   clear: both;
   border-top-width: 2px;
   @include margin-v(2em);
 }
 
-.support-tier-rewards > * {
+.subscribe-tier-rewards > * {
   font-family: $type-serif;
   @include rem(font-size, 19px);
   color: gray(20%);
@@ -77,7 +77,7 @@
   }
 }
 
-.support-notes {
+.subscribe-notes {
   @include container-spacing(padding, 1.5);
   &:last-child { padding-bottom: 0; }
   text-align: center;
@@ -86,7 +86,7 @@
   color: gray(60%);
 }
 
-.support-notes-mark {
+.subscribe-notes-mark {
   color: $c-link-blue-nicer;
   font-weight: weight(medium);
 }
