@@ -6,20 +6,26 @@
 }
 
 .heading {
-  @include rem(max-width, $singlecol-width);
+  &.is-lined {
+    border-bottom: divider();
+  }
+
+  > * {
+    @include rem(max-width, 40rem);
+  }
 
   > h1 {
     font-family: $type-sans;
-    @include rem(font-size, 36px);
+    @include rem(font-size, 42px);
     font-weight: weight(bold);
-    line-height: 1.4;
-    margin-bottom: .25em;
+    line-height: 1.2;
   }
 
   > p {
     $line-height: 1.5;
-    color: gray(30%);
+    color: gray(40%);
     line-height: $line-height;
+    margin-top: .5em;
 
     & + p { margin-top: $line-height * .5em; }
 
