@@ -57,3 +57,16 @@
 .l-grid-unit-third {
   @include span-columns($grid-columns/3);
 }
+
+.l-divider-bottom {
+  border-bottom: divider();
+}
+
+.l-divider-top {
+  border-top: divider();
+}
+
+.l-divider {
+  @extend .l-divider-top;
+  @extend .l-divider-bottom;
+}
