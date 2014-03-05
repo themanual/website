@@ -19,8 +19,7 @@
 }
 
 .l-padded {
-  @include container-spacing(padding-left padding-right);
-  @include container-spacing(padding-top padding-bottom, 2);
+  @include container-spacing(padding);
 }
 
 .l-padded-h {
