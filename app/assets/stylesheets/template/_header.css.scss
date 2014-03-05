@@ -1,7 +1,7 @@
 /*
  *
  * LAYOUT
- * 
+ *
  */
 .header-nav     { display: none; }
 .header-logo    { float: left; }
@@ -11,30 +11,30 @@
  *
  * STYLING
  *
- * 
+ *
  */
 $logo-size: 45px;
-.header { 
+
+.header {
   font-family: $type-sans;
   @include padding-v(18px);
-  background: #fff;
   border-bottom: divider();
 }
 
 .header-logo > a {
   @extend %image-logo;
   @extend %heading-sc;
-  
+
   font-size: 16px;
   line-height: $logo-size;
 
   background-size: auto 100%;
   background-position: top left;
-  
+
   display:    block;
   height:     $logo-size;
   min-width:  $logo-size;
-  
+
   font-weight: weight(medium);
   padding-left: $logo-size + 20px;
 

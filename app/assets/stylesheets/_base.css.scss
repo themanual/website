@@ -21,12 +21,12 @@ body {
 }
 
 body {
-  background: gray(95%);
+  background: gray(96%);
 }
 
 body > main {
   background: white;
-  overflow: hidden;
+  @include container-spacing(padding-bottom, 1.5);
 }
 
 figure img {

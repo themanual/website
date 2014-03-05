@@ -1,7 +1,8 @@
 .site-footer {
-  @include padding-v(1.5em);
-
+  @include container-spacing(padding-top padding-bottom);
+  @include clearfix;
   font-family: $type-sans;
+  border-top: divider();
   color: gray(60%);
 
   a { font-weight: weight(medium); }
