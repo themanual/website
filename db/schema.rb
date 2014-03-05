@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228180824) do
+ActiveRecord::Schema.define(version: 20140305173249) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -74,16 +74,16 @@ ActiveRecord::Schema.define(version: 20140228180824) do
   add_index "email_addresses", ["user_id"], name: "index_email_addresses_on_user_id"
 
   create_table "issues", force: true do |t|
-    t.integer  "number",            default: 1,     null: false
+    t.integer  "number",       default: 1,     null: false
     t.integer  "volume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "shoppe_digital_id"
-    t.integer  "shoppe_id"
     t.date     "published_on"
-    t.boolean  "public",            default: false, null: false
+    t.boolean  "public",       default: false, null: false
   end
 
+  add_index "issues", ["number"], name: "index_issues_on_number"
+  add_index "issues", ["published_on"], name: "index_issues_on_published_on"
   add_index "issues", ["volume_id"], name: "index_issues_on_volume_id"
 
   create_table "nifty_attachments", force: true do |t|
@@ -252,6 +252,9 @@ ActiveRecord::Schema.define(version: 20140228180824) do
     t.boolean  "public",     default: true
   end
 
+  add_index "shoppe_product_attributes", ["key", "value"], name: "index_shoppe_product_attributes_on_key_and_value"
+  add_index "shoppe_product_attributes", ["product_id"], name: "index_shoppe_product_attributes_on_product_id"
+
   create_table "shoppe_product_categories", force: true do |t|
     t.string   "name"
     t.string   "permalink"
@@ -280,6 +283,8 @@ ActiveRecord::Schema.define(version: 20140228180824) do
     t.boolean  "stock_control",                               default: true
     t.boolean  "default",                                     default: false
   end
+
+  add_index "shoppe_products", ["product_category_id"], name: "index_shoppe_products_on_product_category_id"
 
   create_table "shoppe_settings", force: true do |t|
     t.string "key"

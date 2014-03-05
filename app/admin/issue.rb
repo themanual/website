@@ -1,6 +1,6 @@
 ActiveAdmin.register Issue do
 
-  permit_params :number, :shoppe_id, :shoppe_digital_id
+  permit_params :number
 
   filter :authors
   filter :volume

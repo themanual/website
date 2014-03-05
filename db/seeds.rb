@@ -53,11 +53,11 @@ cat = Shoppe::ProductCategory.create name: 'The Manual', permalink: 'the-manual'
 [1,2,3].each do |i|
 
   name = "Issue ##{i}"
-  parent = Shoppe::Product.create sku: "ISSUE00#{i}", name: name, permalink: "issue-#{i}", description: name, short_description: name, product_category_id: cat.id, stock_control: false
 
-  digital = Shoppe::Product.create sku: "ISSUE00#{i}DIG", name: 'Digital', permalink: "issue-#{i}-digital", description: name, short_description: name, product_category_id: cat.id, parent_id: parent.id, stock_control: false, price: 10
+  digital = Shoppe::Product.create sku: "ISSUE00#{i}DIG", name: "Issue ##{i} Digital", permalink: "issue-#{i}-digital", description: name, short_description: name, product_category_id: cat.id, stock_control: false, price: 10, product_attributes_array: [{'key' => :issue_number, 'value' => i, 'searchable' => 1, 'public' => 1},{'key' => :format, 'value' => :digital, 'searchable' => 1, 'public' => 1}]
 
-  print = Shoppe::Product.create sku: "ISSUE00#{i}PRN", name: 'Print', permalink: "issue-#{i}-print", description: name, short_description: name, product_category_id: cat.id, parent_id: parent.id, stock_control: false, price: 25
+  print = Shoppe::Product.create sku: "ISSUE00#{i}PRN", name: "Issue ##{i} Print", permalink: "issue-#{i}-print", description: name, short_description: name, product_category_id: cat.id, stock_control: false, price: 25, product_attributes_array: [{'key' => :issue_number, 'value' => i, 'searchable' => 1, 'public' => 1},{'key' => :format, 'value' => :print, 'searchable' => 1, 'public' => 1}]
 
-  Issue.where(number: i).update_all(shoppe_id: print.id, shoppe_digital_id: digital.id)
 end
+
+User.create email: 'marc@neutroncreations.com', password: SecureRandom.hex, access_level: 2

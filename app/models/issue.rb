@@ -18,16 +18,11 @@ class Issue < ActiveRecord::Base
 	end
 
 	def purchasable?
-		self.shoppe_id.present? or self.shoppe_digital_id.present?
+		Shoppe::Product.with_attributes(:issue_number, self.number).any?
 	end
 
-	def shoppe_item item = :physical
-		case item
-		when :digital
-			Shoppe::Product.find(self.shoppe_digital_id)
-		when :physical
-			Shoppe::Product.find(self.shoppe_id)
-		end
+	def shoppe_item format = :print
+		Shoppe::Product.with_attributes(:issue_number, self.number).with_attributes(:format, format).first
 	end
 
 	def published?
