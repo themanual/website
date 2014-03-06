@@ -21,6 +21,7 @@
         console.log('Fetching your country based on your IP...');
         $.getEstimatedShippingCost(function(data) {
           console.log('Got it');
+          console.log(data);
           if (data.status == 'ok' && data.response.ip_country && _($countrySelect.val()).isEmpty()) {
             $countrySelect.find('option[data-code='+data.response.ip_country +']:first').prop('selected', true);
             $countrySelect.animatecss('flash');
@@ -34,26 +35,43 @@
        *
        */
 
+      // $.shipping.saveAddressData($form);
+
       // 2.1. Trigger custom address change event
-      $form.on('change keyup', '[data-shipping-address]', function(event) {
+      $form.on('change focusout keyup', '[data-shipping-address]', function(event) {
+
+        var $form   = $(this).closest('form');
+
+        // Disable form?
+        if ($.shipping.isAddressComplete($form)) {
+          $.shipping.toggleForm($form, false);
+        }
+
+        // Clear previous timeout
         window.clearTimeout(timeout.func);
+
+        // Set new timeout
         if (event.type === 'keyup') {
-          timeout.func = window.setTimeout(function(){ $form.trigger(addressChangeEvent); }, timeout.DELAY);
-        } else if (event.type === 'change') {
+          timeout.func = window.setTimeout(function(){
+            $form.trigger(addressChangeEvent);
+          }, timeout.DELAY);
+        } else {
           $form.trigger(addressChangeEvent);
         }
+
       });
 
       // 2.2. Handle custom address change event
       $form.on(addressChangeEvent, function(){
-        var isAddressComplete = $(this)
-            .find('[data-shipping-address][required]')
-            .filter(function() { return _($.trim($(this).val())).isEmpty()})
-            .length === 0;
+        var $form   = $(this);
 
-        if (isAddressComplete) {
-          $(this).updateFormShippingCost();
+        if ($.shipping.isAddressComplete($form)) {
+          $.shipping.updateCostForAddress($form);
         }
+        else {
+          $.shipping.toggleForm($form, true);
+        }
+
       });
 
     });
