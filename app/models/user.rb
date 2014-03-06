@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   def add_email_address
   	self.email_addresses.create email: self.email, primary: true
   end
+
+  def current_card
+    cards.latest.first
+  end
 end

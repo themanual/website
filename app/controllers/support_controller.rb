@@ -23,25 +23,29 @@ class SupportController < ApplicationController
 
       # TODO validatate params[:tier]
 
-      @user = User.new user_params
-      customer = Stripe::Customer.create(
-        :card  => params[:stripe_token]
-      )
+      ActiveRecord::Base.transaction do
 
-      card = customer.cards.first
+        @user = User.new user_params
+        customer = Stripe::Customer.create(
+          :card  => params[:stripe_token]
+        )
 
-      @user.cards.new customer_token: customer.id, last4: card.last4, exp_month: card.exp_month, exp_year: card.exp_year
-      @user.save!
-      @user.update_attribute :shipping_address_id, @user.addresses.first.id
-      sign_in @user
+        card = customer.cards.first
 
-      customer.metadata = {id: @user.id}
-      customer.save
+        @user.cards.new customer_token: customer.id, last4: card.last4, exp_month: card.exp_month, exp_year: card.exp_year
+        @user.save!
+        @user.update_attribute :shipping_address_id, @user.addresses.first.id
+        sign_in @user
 
-      # create subscription
-      @user.subscriptions.create price: PRICES[params[:tier]]
+        customer.metadata = {id: @user.id}
+        customer.save
 
-      # create order
+        # create subscription
+        sub = @user.subscriptions.create :price => PRICES[params[:tier]]
+
+        # create order
+        sub.place_order Issue.latest # TODO get issue based on choice
+      end
 
     rescue Stripe::StripeError
       flash[:warning] = t 'errors.stripe'
