@@ -1,5 +1,10 @@
 class SubscriptionWorker
 
+  #
+  # IGNORE ALL THIS FOR NOW, JUST THROWING IDEAS DOWN
+  #
+  #
+
   def place_subscription_orders
     SubscriptionOrder.where(status: :pending).includes(:issue).each do |sub_order|
       if sub_order.issue.published?
