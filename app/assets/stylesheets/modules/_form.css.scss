@@ -20,15 +20,27 @@
   }
 }
 
-.form-heading {
+.form-heading, .form-subheading {
   font-family: $type-sans;
-  @include rem(font-size, 19px);
-  font-weight: weight(bold);
-  @include rem(margin-bottom, 1rem);
 
-  &.is-close {
-    margin-bottom: .5em;
-  }
+}
+
+.form-heading {
+  font-weight: weight(bold);
+  @include rem(font-size, 19px);
+  @include rem(margin-bottom, .25rem);
+
+  + * { @include rem(margin-top,  1rem); }
+  + .form-subheading { margin-top: 0; }
+}
+
+.form-subheading {
+  font-family: $type-sans;
+  @include rem(font-size, 16px);
+  color: gray(55%);
+
+               @include rem(margin-bottom, 1rem);
+  &.is-close { @include rem(margin-bottom, .5rem); }
 }
 
 .form-section {
