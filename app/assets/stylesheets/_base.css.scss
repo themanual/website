@@ -26,7 +26,7 @@ body {
 
 body > main {
   background: white;
-  @include container-spacing(padding-bottom, 1.5);
+  // @include container-spacing(padding-bottom, 1.5);
 }
 
 figure img {
