@@ -108,7 +108,7 @@
           </dl>
           <dl class="field-element is-quarter">
             <dt class="label">Subtotal</dt>
-            <dd class="value is-long" data-shipping-cost="subtotal">$25</dd>
+            <dd class="value is-long" data-shipping-cost="subtotal">$<%= Subscription::TIERS[@tier][:price] %></dd>
           </dl>
           <dl class="field-element is-quarter">
             <dt class="label">Shipping</dt>
