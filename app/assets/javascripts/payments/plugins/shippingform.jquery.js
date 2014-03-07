@@ -18,13 +18,12 @@
        */
       var $countrySelect = $form.find('select[data-shipping-address="country"]');
       if (_($countrySelect.val()).isEmpty()) {
-        console.log('Fetching your country based on your IP...');
         $.getEstimatedShippingCost(function(data) {
-          console.log('Got it');
-          console.log(data);
           if (data.status == 'ok' && data.response.ip_country && _($countrySelect.val()).isEmpty()) {
-            $countrySelect.find('option[data-code='+data.response.ip_country +']:first').prop('selected', true);
-            $countrySelect.animatecss('flash');
+            $countrySelect
+              .find('option[data-code='+data.response.ip_country +']:first')
+              .prop('selected', true)
+              .animatecss('flash');
           }
         });
       }
