@@ -1,3 +1,11 @@
+@mixin coretext {
+  .tr-coretext & {
+    -webkit-font-smoothing: antialiased;
+    font-weight: 500;
+    @content;
+  }
+}
+
 @mixin opacity($opacity) {
   opacity: $opacity;
   // IE8 filter
