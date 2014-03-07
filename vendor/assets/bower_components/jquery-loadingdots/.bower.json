@@ -1,6 +1,6 @@
 {
   "name": "jquery-loadingdots",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "main": [
     "jquery.loadingdots.js",
     "jquery.loadingdots.min.js"
@@ -14,11 +14,11 @@
     "jquery": ">=1.4.0"
   },
   "homepage": "https://github.com/paulozoom/jquery-loadingdots",
-  "_release": "1.1.2",
+  "_release": "1.2.0",
   "_resolution": {
     "type": "version",
-    "tag": "v1.1.2",
-    "commit": "9e0eb69e71e02f694cd3639a2ff506cd66151219"
+    "tag": "v1.2.0",
+    "commit": "cbc505b2972fc22473341f9424af459e882e8241"
   },
   "_source": "git://github.com/paulozoom/jquery-loadingdots.git",
   "_target": "*",
