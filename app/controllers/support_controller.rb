@@ -19,6 +19,9 @@ class SupportController < ApplicationController
   end
 
   def create
+
+    redirect_to thanks_subscribe_path and return if Rails.env.stage?
+
     begin
 
       # TODO validatate params[:tier]
