@@ -29,15 +29,15 @@
 
 .subscribe-tier-name {
   font-family: $type-serif;
-  font-weight: weight(black);
-  font-size: 1.7em;
+  font-weight: weight(bold);
+  font-size: 1.8em;
 }
 
 .subscribe-tier-price {
-  font-size: 1.6em;
+  font-size: 1.7em;
   color: $c-link-blue-nicer;
   font-family: $type-sans;
-  font-weight: weight(bold);
+  font-weight: weight(medium);
 
   .currency {
     opacity: 0.5;
