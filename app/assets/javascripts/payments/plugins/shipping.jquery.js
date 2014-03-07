@@ -43,7 +43,7 @@
       return $form
               .find(shipping.addressFieldsSelector)
               .filter('[required]')
-              .filter(function() { return _($.trim($(this).val())).isEmpty()})
+              .filter(function() { return _($.trim($(this).value())).isEmpty()})
               .length === 0;
     },
 
@@ -55,7 +55,7 @@
     saveAddressData: function($form) {
       var address  = {};
       $form.find(shipping.addressFieldsSelector).each(function() {
-        address[$(this).data('shipping-address')] = $(this).val();
+        address[$(this).data('shipping-address')] = $(this).value();
       });
       $form.data('shipping-address', address);
       return address;
@@ -71,9 +71,9 @@
 
       $form.find(shipping.addressFieldsSelector).each(function() {
         var key       = $(this).data('shipping-address');
-        var oldValue  = $form.data('shipping-address')[key] || '';
-        var newValue  = $(this).val();
-        if (newValue !== oldValue) {
+        var oldValue  = ($form.data('shipping-address') && (key in $form.data('shipping-address'))) ? $form.data('shipping-address')[key] : '';
+
+        if ($(this).value() !== oldValue) {
           changed = true;
           return;
         }
@@ -89,23 +89,19 @@
      */
     setCosts: function($form, newShippingCost) {
 
-      var cost = {};
-
+      // Costs
+      var costs = {};
       // Shipping
-      cost.shipping = parseCurrency(newShippingCost.toString());
-
+      costs.shipping = parseCurrency(newShippingCost.toString());
       // Subtotal
-      var $subtotal = $form.find(shipping.subtotalFieldSelector);
-      var method    = !$subtotal.is(':input') || $subtotal.is('button') ? 'html' : 'val';
-      cost.subtotal = parseCurrency($subtotal[method]());
-
+      costs.subtotal = parseCurrency($form.find(shipping.subtotalFieldSelector).value());
       // Total
-      cost.total    = cost.subtotal + cost.shipping;
+      costs.total    = costs.subtotal + costs.shipping;
 
       // Save
-      $form.data('shipping-cost', cost);
+      $form.data('shipping-cost', costs);
 
-      return cost;
+      return costs;
 
     },
 
@@ -124,18 +120,25 @@
      * @param  {jQuery} $form - Base form
      * @return {jQuery}       - jQuery object with dynamic fields
      */
-    updateDynamicFields: function($form) {
-      $form
-        .find(shipping.dynamicFieldsSelector)
+    updateDynamicFields: function($form, animation) {
+
+      animation = typeof animation === 'undefined' ? true : animation;
+      var $fields = $form.find(shipping.dynamicFieldsSelector);
+
+      $fields
         .loadingdots('stop')
         .each(function() {
           var $element = $(this);
-          var method   = !$element.is(':input') || $element.is('button') ? 'html' : 'val';
           var key      = $element.data('shipping-cost');
           var value    = $form.data('shipping-cost')[key];
-          $element[method](prefixCurrency(value));
-        })
-        .animatecss(shipping.costUpdateAnimation);
+          $element.value(prefixCurrency(value));
+        });
+
+      if (animation) {
+        $fields.animatecss(typeof animation === 'string' ? animation : shipping.costUpdateAnimation);
+      };
+
+      return $fields;
     },
 
     /**
@@ -149,7 +152,7 @@
       $form.find(shipping.addressFieldsSelector).each(function() {
         var key = $(this).data('shipping-address');
         if (key === 'country')  { params[key] = $(this).find(':selected').first().text(); }
-        else                    { params[key] = $(this).val(); }
+        else                    { params[key] = $(this).value(); }
       });
       return $.getEstimatedShippingCost(params, callback);
     },
@@ -194,8 +197,15 @@
           return false;
         }
 
-        shipping.setCosts($form, data.response.cost);
-        shipping.updateDynamicFields($form);
+        var oldCosts = $form.data('shipping-cost');
+        var newCosts = shipping.setCosts($form, data.response.cost);
+        var animation = _.isEqual(oldCosts, newCosts) ? 'fadeIn' : true;
+
+        // Only animate if costs are different
+        shipping.updateDynamicFields($form, !_.isEqual(oldCosts, newCosts));
+
+        // Save address for future comparisons
+        shipping.saveAddressData($form);
         shipping.toggleForm($form, true);
 
         // Call optional callback
