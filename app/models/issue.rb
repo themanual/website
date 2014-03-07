@@ -18,11 +18,11 @@ class Issue < ActiveRecord::Base
 	end
 
 	def purchasable?
-		Shoppe::Product.with_attributes(:issue_number, self.number).any?
+		Shoppe::Product.with_attributes(:issue_number, self.number.to_s).any?
 	end
 
 	def shoppe_item format = :print
-		Shoppe::Product.with_attributes(:issue_number, self.number).with_attributes(:format, format).first
+		Shoppe::Product.with_attributes(:issue_number, self.number.to_s).with_attributes(:format, format).first
 	end
 
 	def published?
