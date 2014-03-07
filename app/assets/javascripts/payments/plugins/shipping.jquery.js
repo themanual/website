@@ -96,7 +96,7 @@
       // Subtotal
       costs.subtotal = parseCurrency($base.find(shipping.subtotalFieldSelector).value());
       // Total
-      costs.total    = costs.subtotal + costs.shipping;
+      costs.total    = (costs.subtotal + costs.shipping).toFixed(2);
 
       // Save
       $base.data('shipping-cost', costs);
