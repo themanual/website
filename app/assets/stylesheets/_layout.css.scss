@@ -18,15 +18,18 @@
   @include outer-container;
 }
 
-.l-padded {
-  @include container-spacing(padding);
-}
 
-.l-padded-h {
-  @include container-spacing(padding-left padding-right);
-}
+
+.l-padded-h       { @include container-spacing(padding-left padding-right); }
+.l-padded-h-more  { @include container-spacing(padding-left padding-right, 1.5); }
+.l-padded-v       { @include container-spacing(padding-top padding-bottom); }
+.l-padded-v-more  { @include container-spacing(padding-top padding-bottom, 1.5); }
+
+.l-padded         { @include container-spacing(padding); }
+.l-padded-more-v  { @extend .l-padded-h; @extend .l-padded-v-more; }
 
 .l-singlecol {
+  @include box-sizing(content-box);
   @include rem(max-width, $singlecol-width);
   &.is-centered { @include centered; }
 }
