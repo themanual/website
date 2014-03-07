@@ -33,22 +33,32 @@
 @import 'pages/piece-style';
 
 // Default plugin example code
-// @import 'nouislider/jquery.nouislider';
 @import 'chosen';
 
-// Modules
-@import 'modules/tooltip';
-@import 'modules/subscribe';
+// Component Modules
 @import 'modules/buttons';
 @import 'modules/fields';
 @import 'modules/form';
 @import 'modules/headings';
 @import 'modules/box';
+@import 'modules/tooltip';
+
+// Section Modules
+@import 'modules/faq';
+
+// Page-specific Modules
+@import 'modules/subscribe';
+
+// Issue Modules
 @import 'modules/issuetoc';
 @import 'modules/issuebuy';
 @import 'modules/issue_entry';
+
+// Piece Modules
+@import 'modules/piece-pagination';
 @import 'modules/featured_piece';
+
+// Blog Modules
 @import 'modules/blog-post';
 @import 'modules/keyword-list';
 @import 'modules/post-list';
-@import 'modules/piece-pagination';

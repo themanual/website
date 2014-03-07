@@ -1,5 +1,6 @@
 .heading {
   @include container-spacing(padding-top padding-bottom, 1.5);
+  @include coretext;
 }
 
 .heading {
@@ -10,14 +11,14 @@
 
   h1 {
     font-family: $type-sans;
-    @include rem(font-size, 42px);
-    font-weight: weight(bold);
+    @include rem(font-size, 48px);
+    font-weight: weight(black);
     line-height: 1.2;
   }
 
   p {
     $line-height: 1.5;
-    color: gray(40%);
+    color: gray(30%);
     line-height: $line-height;
     margin-top: .5em;
 

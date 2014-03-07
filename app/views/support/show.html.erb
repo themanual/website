@@ -1,18 +1,18 @@
 <main class=""><div>
 
-  <header class="l-wrapper heading"><div class="l-singlecol-centered">
+  <header class="l-wrapper l-singlecol-centered heading">
     <h1>Subscribe to The Manual</h1>
     <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising.</p>
-  </div></header>
+  </header>
 
-  <section class="subscribe-tiers l-padded-h">
+  <section class="subscribe-tiers l-padded l-divider">
     <ul class="l-grid subscribe-tiers-list">
       <li class="l-grid-unit-third subscribe-tier animated fadeInLeft">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:digital][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:digital][:price] %></h3>
         </div>
-        <p class="subscribe-tier-note">per issue<a href="#shipping" class="footnote">*</a></p>
+        <p class="subscribe-tier-note">per issue</p>
         <ul class="subscribe-tier-rewards">
           <li>Early access to new issues</li>
           <li>Digital edition (ePub, Mobi, PDF)</li>
@@ -55,10 +55,64 @@
         <a href="<%= checkout_subscribe_path(:patron) %>" class="button">Become a Patron</a>
       </li>
     </ul>
+    <p class="subscribe-notes" id="shipping">
+      <span class="subscribe-notes-mark">*</span> <span data-shipping="message">Exact shipping cost can only be calculated at checkout.</span>
+    </p>
   </section>
 
-  <p class="subscribe-notes" id="shipping">
-    <span class="subscribe-notes-mark">*</span> The Manual publishes three issues per year. <span data-shipping="message">Exact shipping cost can only be calculated at checkout.</span></p>
+  <section class="faq l-singlecol-centered l-padded-more-v">
+    <ul class="faq-list">
+      <li>
+        <h3 class="faq-q">How often do you publish new issues?</h3>
+        <div class="faq-a">
+          <p>Three times per year, on March, July, and November.</p>
+        </div>
+      </li>
+      <li>
+        <h3 class="faq-q">Where does my money go to?</h3>
+        <div class="faq-a">
+          <p>We’re a completely independent publication, with no investors, and no advertising on our issues. This means all sales and subscriptions money go towards paying our writers, illustrators, and staffers for their work, producing new issues, and keeping the website up.</p>
+        </div>
+      </li>
+
+      <li>
+        <h3 class="faq-q">How “early” is subscribers’ access to new issues?</h3>
+        <div class="faq-a">
+          <p>From two to four weeks. Subscribers can read new Web and Ebook editions as soon as they’re done, but non-subscribers have to wait until the Print edition is printed.</p>
+        </div>
+      </li>
+
+      <li>
+        <h3 class="faq-q">How do you calculate shipping?</h3>
+        <div class="faq-a">
+          <p>It depends on your address. Before we charge you for an issue, we’ll email you to let you know how much shipping will cost, and give you time to cancel or change your address.</p>
+        </div>
+      </li>
+
+      <li>
+        <h3 class="faq-q">Can I change, upgrade or cancel my subscription later?</h3>
+        <div class="faq-a">
+          <p>Of course. Subscribers can log in at any time using just their email address to change or cancel a subscription, change their shipping address, and get early access to new issues.</p>
+        </div>
+      </li>
+
+      <li>
+        <h3 class="faq-q">How long does a subscription last?</h3>
+        <div class="faq-a">
+          <p>Until you cancel it. We’ll email you beforehand everytime we charge your card.</p>
+        </div>
+      </li>
+
+      <li>
+        <h3 class="faq-q">Can’t I buy just one issue instead?</h3>
+        <div class="faq-a">
+          <p>Yes, you can buy individual issues at <a href="http://buy.alwaysreadthemanual.com/">our store</a>.</p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
 
   </section>
 

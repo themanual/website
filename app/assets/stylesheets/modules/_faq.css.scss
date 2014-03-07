@@ -1,0 +1,30 @@
+.faq {
+  @include coretext;
+  a {
+    @include colored-link { color: $c-link-blue-nicer; }
+  }
+}
+
+.faq-list {
+}
+
+.faq-list > * + * {
+  margin-top: 1.5em;
+}
+
+.faq-q, .faq-a {
+  line-height: 1.5;
+}
+
+.faq-q {
+  font-weight: weight(bold);
+  // margin-bottom: .25em;
+}
+
+.faq-a {
+  color: gray(30%);
+  p + p {
+    margin-top: .75em;
+  }
+}
+

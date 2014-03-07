@@ -1,7 +1,7 @@
 .subscribe-tiers {
   border-top: divider();
-  padding-top: 2.5em;
-  padding-bottom: 1em;
+  padding-top:    2em;
+  padding-bottom: 2em;
 }
 
 .subscribe-tier {
@@ -58,12 +58,12 @@
 .subscribe-tier-rewards {
   clear: both;
   border-top-width: 2px;
-  @include margin-v(2em);
+  @include margin-v(1.75em);
 }
 
 .subscribe-tier-rewards > * {
   font-family: $type-serif;
-  @include rem(font-size, 19px);
+  @include rem(font-size, 20px);
   color: gray(20%);
   line-height: 1.4;
 
