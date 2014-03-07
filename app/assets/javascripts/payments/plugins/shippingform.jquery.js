@@ -35,15 +35,13 @@
        *
        */
 
-      // $.shipping.saveAddressData($form);
-
       // 2.1. Trigger custom address change event
       $form.on('change focusout keyup', '[data-shipping-address]', function(event) {
 
         var $form   = $(this).closest('form');
 
         // Disable form?
-        if ($.shipping.isAddressComplete($form)) {
+        if ($.shipping.isAddressComplete($form) && $.shipping.didAddressChange($form)) {
           $.shipping.toggleForm($form, false);
         }
 
@@ -64,14 +62,13 @@
       // 2.2. Handle custom address change event
       $form.on(addressChangeEvent, function(){
         var $form   = $(this);
-
-        if ($.shipping.isAddressComplete($form)) {
+        // Recalculate cost if address changed
+        if ($.shipping.isAddressComplete($form) && $.shipping.didAddressChange($form)) {
           $.shipping.updateCostForAddress($form);
         }
         else {
           $.shipping.toggleForm($form, true);
         }
-
       });
 
     });
