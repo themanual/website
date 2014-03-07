@@ -86,7 +86,7 @@ TheManual::Application.configure do
   end
 
   config.action_mailer.default_url_options = {
-    :host => 'themanual-stage.herokuapp.com'
+    :host => 'beta.alwaysreadthemanual.com'
   }
 
   ActionMailer::Base.smtp_settings = {

@@ -10,7 +10,8 @@ class TheManual::Mailer < ActionMailer::Base
       mail.subject = "[#{Rails.env.upcase}] #{mail.subject}" unless Rails.env.production?
 
       mail.headers({
-		  	'X-MC-Track' => 'opens, clicks',
+        #  disable click tracking for now
+		  	'X-MC-Track' => 'opens',
 		  	'X-MC-Autotext' => 'true',
 		  	'X-MC-GoogleAnalytics' => 'www.alwaysreadthemanual.com,alwaysreadthemanual.com',
 		  	'X-MC-GoogleAnalyticsCampaign' => 'system_email',
