@@ -2,7 +2,7 @@ class SupportController < ApplicationController
 
   PRICES = ActiveSupport::HashWithIndifferentAccess.new(digital: 10, print: 20, friend: 50)
 
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, unless: Proc.new { Rails.env.stage? }
   before_filter :load_latest
 
   def show
