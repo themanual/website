@@ -3,7 +3,6 @@
 <main>
   <header class="l-divider-bottom"><div class="l-singlecol-centered l-padded-h heading">
     <h1>Subscription Payment</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, cum, ipsa sed id quos optio deserunt magnam fuga reprehenderit eligendi voluptas iure saepe iste repudiandae perspiciatis velit cumque nostrum modi.</p>
   </div></header>
 
   <section class="l-singlecol-centered l-padded-more-v">
@@ -118,7 +117,7 @@
           </dl>
           <dl class="field-element is-quarter">
             <dt class="label">Total</dt>
-            <dd class="value is-long" data-shipping-cost="total" data-loadingdots-word="Shitting"><%= Subscription::TIERS[@tier][:shipping] ? '...' : "$#{Subscription::TIERS[@tier][:price]}" %></dd>
+            <dd class="value is-long" data-shipping-cost="total"><%= Subscription::TIERS[@tier][:shipping] ? '...' : "$#{Subscription::TIERS[@tier][:price]}" %></dd>
           </dl>
         </div>
         <dl class="field is-composed">
