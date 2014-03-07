@@ -3,6 +3,18 @@ class Subscription < ActiveRecord::Base
 
 	belongs_to :user
 
+  TIERS = ActiveSupport::HashWithIndifferentAccess.new(
+    digital: {
+      price: 10
+    },
+    print: {
+      price: 25
+    },
+    patron: {
+      price: 50
+    }
+  )
+
 
 
   def place_order issue

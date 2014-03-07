@@ -1,8 +1,6 @@
 class SupportController < ApplicationController
 
-  PRICES = ActiveSupport::HashWithIndifferentAccess.new(digital: 10, print: 20, friend: 50)
-
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, unless: Proc.new { Rails.env.stage? }
   before_filter :load_latest
 
   def show
@@ -19,6 +17,9 @@ class SupportController < ApplicationController
   end
 
   def create
+
+    redirect_to thanks_subscribe_path and return if Rails.env.stage?
+
     begin
 
       # TODO validatate params[:tier]
@@ -41,7 +42,7 @@ class SupportController < ApplicationController
         customer.save
 
         # create subscription
-        sub = @user.subscriptions.create :price => PRICES[params[:tier]]
+        sub = @user.subscriptions.create :price => Subscription::TIERS[params[:tier]][:price]
 
         # create order
         sub.place_order Issue.latest # TODO get issue based on choice
