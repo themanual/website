@@ -9,7 +9,7 @@
     <ul class="l-grid subscribe-tiers-list">
       <li class="l-grid-unit-third subscribe-tier animated fadeInLeft">
         <div class="subscribe-tier-heading">
-          <h2 class="subscribe-tier-name">Digital</h2>
+          <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:digital][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:digital][:price] %></h3>
         </div>
         <p class="subscribe-tier-note">per issue<a href="#shipping" class="footnote">*</a></p>
@@ -25,7 +25,7 @@
 
       <li class="l-grid-unit-third subscribe-tier animated fadeInUp">
         <div class="subscribe-tier-heading">
-          <h2 class="subscribe-tier-name">Print</h2>
+          <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:print][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:print][:price] %></h3>
         </div>
         <p class="subscribe-tier-note">per Issue + <span data-shipping="cost"></span> shipping<a href="#shipping" class="footnote">*</a></p>
@@ -41,7 +41,7 @@
 
       <li class="l-grid-unit-third subscribe-tier animated fadeInRight">
         <div class="subscribe-tier-heading">
-          <h2 class="subscribe-tier-name">Patron</h2>
+          <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:patron][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:patron][:price] %></h3>
         </div>
         <p class="subscribe-tier-note">per Issue + <span data-shipping="cost"></span> shipping<a href="#shipping" class="footnote">*</a></p>

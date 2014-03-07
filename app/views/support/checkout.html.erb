@@ -57,7 +57,7 @@
         </div>
       </fieldset>
 
-      <% if @tier != 'digital'%>
+      <% if Subscription::TIERS[@tier][:shipping] %>
       <fieldset class="form-section">
         <h2 class="form-heading">Shipping Address</h2>
         <%= f.fields_for :addresses, @user.addresses.new do |a| %>
@@ -104,7 +104,7 @@
         <div class="field is-composed">
           <dl class="field-element is-quarter">
             <dt class="label">Type</dt>
-            <dd class="value is-long">Print</dd>
+            <dd class="value is-long"><%= Subscription::TIERS[@tier][:name] %></dd>
           </dl>
           <dl class="field-element is-quarter">
             <dt class="label">Subtotal</dt>
@@ -112,11 +112,11 @@
           </dl>
           <dl class="field-element is-quarter">
             <dt class="label">Shipping</dt>
-            <dd class="value is-long" data-shipping-cost="shipping">...</dd>
+            <dd class="value is-long" data-shipping-cost="shipping"><%= Subscription::TIERS[@tier][:shipping] ? '...' : '$0' %></dd>
           </dl>
           <dl class="field-element is-quarter">
             <dt class="label">Total</dt>
-            <dd class="value is-long" data-shipping-cost="total">...</dd>
+            <dd class="value is-long" data-shipping-cost="total" data-loadingdots-word="Shitting"><%= Subscription::TIERS[@tier][:shipping] ? '...' : "$#{Subscription::TIERS[@tier][:price]}" %></dd>
           </dl>
         </div>
         <dl class="field is-composed">

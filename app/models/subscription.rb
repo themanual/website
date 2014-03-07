@@ -5,13 +5,19 @@ class Subscription < ActiveRecord::Base
 
   TIERS = ActiveSupport::HashWithIndifferentAccess.new(
     digital: {
-      price: 10
+      name:     "Digital",
+      price:    10,
+      shipping: false,
     },
     print: {
-      price: 25
+      name:     "Print",
+      price:    25,
+      shipping: true
     },
     patron: {
-      price: 50
+      name:     "Patron",
+      price:    50,
+      shipping: true
     }
   )
 
