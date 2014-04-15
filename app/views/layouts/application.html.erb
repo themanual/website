@@ -36,24 +36,22 @@
 
   <%= yield %>
 
-  <footer class="site-footer"><div class="l-grid-padded">
+  <footer class="site-footer"><div class="l-grid l-padded l-stacked-l">
 
-      <section class="site-footer-about">
-        <p><strong>The Manual</strong> is a publication on web design as a discipline, capturing the voices of the profession as they explore what we do and who we are as designers. The Manual is published three times per year, in both print and digital editions, excluslively available online. <a href="#">Read more.</a></p>
+      <section class="l-col-l-6">
+        <p><strong>The Manual</strong> is a publication on web design as a discipline, capturing the voices of the profession as they explore what we do and who we are as designers. The Manual is published three times per year, in both print and digital editions, excluslively available online. <a href="#">Read more about The&nbsp;Manual</a></p>
       </section>
 
-      <ul class="site-footer-nav">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Sponsorship</a></li>
-        <li><a href="#">Terms &amp; Privacy</a></li>
-      </ul>
-
-      <section class="site-footer-sponsor">
-        <a href="#" class="banner"><%= image_tag 'misc/mailchimp_ipad.png' %></a>
-        <h2>Our Sponsor</h2>
-        <p>Edit draft campaigns, even when you're offline with <a href="#">MailChimp Editor for iPad</a>.</p>
+      <section class="l-col-l-4 l-shift-l-2 site-footer-sponsor">
+        <a href="#" class="banner">
+          <%= image_tag 'misc/mailchimp_ipad.png', size: '120x90' %>
+        </a>
+        <div>
+          <p><strong>Sponsorship</strong></p>
+          <p>Edit draft campaigns, even when you're offline with <a href="#">MailChimp Editor for iPad</a>.</p>
+        </div>
       </section>
+
 
   </div></footer>
 

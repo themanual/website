@@ -18,8 +18,6 @@
   @include outer-container;
 }
 
-
-
 .l-padded-h       { @include container-spacing(padding-left padding-right); }
 .l-padded-h-more  { @include container-spacing(padding-left padding-right, 1.5); }
 .l-padded-v       { @include container-spacing(padding-top padding-bottom); }
@@ -39,36 +37,8 @@
   @include centered;
 }
 
-.l-grid {
-  @include row;
-  @include outer-container;
-}
-
-.l-grid-padded {
-  @extend .l-grid;
-  @extend .l-padded-h;
-}
-
-.l-grid-unit-fill {
-  @include fill-parent;
-}
-
-.l-grid-unit-half {
-  @include span-columns($grid-columns/2);
-}
-
-.l-grid-unit-third {
-  @include span-columns($grid-columns/3);
-}
-
-.l-divider-bottom {
-  border-bottom: divider();
-}
-
-.l-divider-top {
-  border-top: divider();
-}
-
+.l-divider-bottom { border-bottom: divider(); }
+.l-divider-top    { border-top: divider(); }
 .l-divider {
   @extend .l-divider-top;
   @extend .l-divider-bottom;

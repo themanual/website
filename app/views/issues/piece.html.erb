@@ -49,16 +49,16 @@
   <% cache [@piece, :random], expires_in: 300.ish do %>
     <aside class="boxes"><div class="l-grid-padded">
 
-    <!-- <div class="box-group l-grid-unit-half"> -->
+    <!-- <div class="box-group l-col-half"> -->
 
-      <section class="box l-grid-unit-half">
+      <section class="box l-col-half">
         <h2 class="box-title">
           Read something from <a href="/issues/<%= @piece.random.issue_number %>" class="issue-<%= @piece.random.issue_number %>">Issue <%= @piece.random.issue_number %></a>
         </h2>
         <%= render 'featured_piece', featured: @piece.random %>
       </section>
 
-      <section class="box l-grid-unit-half">
+      <section class="box l-col-half">
         <h2 class="box-title">
           <a class="issue-current" href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
         </h2>

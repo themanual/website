@@ -1,54 +1,23 @@
-// TODO remove in favour for newest bourbon/sass
-@function valueof($val) {
-  @return ($val / ($val * 0 + 1));
-}
-
-@function em($value, $base: $rem-value) {
-  @if not unitless($value) {
-      $value: strip-units($value);
-  }
-  @if not unitless($base) {
-      $base: strip-units($base);
-  }
-  @return ($value / $base) * 1em;
-}
-
-@mixin rem($props, $value, $base: $rem-base) {
-  @if unitless($value)    { $value: $value * 1px; }
-  @if not unitless($base) { $base: valueof($base); }
-
-  @each $prop in $props {
-    @if unit($value) == "px"
-    {
-      #{$prop}: $value;
-      #{$prop}: (valueof($value) / $base) * 1rem;
-    }
-    @else if unit($value) == "rem"
-    {
-      #{$prop}: (valueof($value) * $base) * 1px;
-      #{$prop}: $value;
-    }
-  }
-}
-
 // Base type
 $rem-base:  22px;
-$rem-value: valueof($rem-base);
-
-// Grid
-$column: 60px;
-$gutter: 35px;
-$grid-columns: 12;
-$max-width: 1350px;
+$rem-value: 22;
 
 $singlecol-width: 38rem;
 
 // Breakpoints
+// TODO update to Sass 3.3 Maps
 $bp-xs: 500px;
 $bp-s:  650px;
 $bp-l:  850px;
-$bp-xl: 1100px;
+$bp-xl: 1000px;
+
+$bps: (
+  ("xs",  $bp-xs),
+  ("s",   $bp-s),
+  ("l",   $bp-l),
+  ("xl",  $bp-xl)
+);
 
 // Type
-$type-sans:               "franklin-gothic-urw", sans-serif;
-$type-serif:              "freight-text-pro", serif;
+$type-sans:  "franklin-gothic-urw", sans-serif;
+$type-serif: "freight-text-pro", serif;
