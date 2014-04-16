@@ -1,5 +1,5 @@
 .heading {
-  @include container-spacing(padding-top padding-bottom, 1.5);
+  @include spacing(padding-top padding-bottom, 1.5);
   @include coretext;
 }
 
@@ -11,9 +11,11 @@
 
   h1 {
     font-family: $type-sans;
-    @include rem(font-size, 48px);
     font-weight: weight(black);
     line-height: 1.2;
+    @include rem(font-size, 48px);
+    @include media-upto($bp-s)  { @include rem(font-size, 38px); }
+    @include media-upto($bp-xs) { @include rem(font-size, 28px); }
   }
 
   p {
@@ -34,8 +36,8 @@
 }
 
 .subheading {
-  @include container-spacing(margin-top,    2);
-  @include container-spacing(margin-bottom, 1);
+  @include spacing(margin-top,    2);
+  @include spacing(margin-bottom, 1);
 
   > h2 {
     font-family: $type-sans;
