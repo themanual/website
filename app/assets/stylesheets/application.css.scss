@@ -3,20 +3,21 @@
 @import 'garnish/src/garnish';
 
 // Base Settings
-@import 'meta/settings';
-@import 'meta/color';
+@import '_meta/settings';
+@import '_meta/color';
 
 // First output-creating code
-@import 'meta/reset';
+@import '_meta/reset';
 @import 'mixins';
 
 // Neat and custom extensions
 @import 'neat';
-@import 'meta/neat-extensions';
+@import '_meta/neat-extensions';
 
 // Base
-@import 'layout';
-@import 'grid';
+@import 'layout/grid';
+@import 'layout/layout';
+@import 'layout/units';
 @import 'images';
 @import 'base';
 @import 'animate';

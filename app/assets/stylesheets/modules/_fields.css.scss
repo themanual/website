@@ -1,40 +1,7 @@
 // Form Layout
-.field {
+.field      { @include rem(margin-top, 1.2rem); }
+.sub-field  { @include rem(margin-top, .5rem); }
 
-  + .field {
-    @include rem(margin-top, 1.5rem);
-  }
-
-  &.is-composed {
-    @include clearfix;
-  }
-
-  .is-half        { width: 100% * 1/2; }
-  .is-third       { width: 100% * 1/3; }
-  .is-two-thirds  { width: 100% * 2/3; }
-  .is-quarter     { width: 100% * 1/4; }
-  .is-long        { width: 100%; }
-
-}
-
-// Nested under .field.is-composed
-.field-element {
-  float: left;
-  @include rem(padding-right, .5rem);
-
-  + .field-element {
-    @include rem(padding-left, .5rem);
-  }
-
-  &:last-child {
-    padding-right: 0;
-  }
-}
-
-
-//
-// Field Labels
-//
 
 %label {
   @extend %heading-sc;
@@ -48,9 +15,8 @@
   display: block;
   font-family: $type-sans;
   @include rem(font-size, 15px);
-  line-height: 1.2;
+  line-height: 1.4;
   color: gray(70%);
-  margin-top: 0.05em;
 }
 
 
@@ -85,6 +51,7 @@ input, textarea {
   @include rem(font-size, 18px);
 
   display: inline-block;
+  width: 100%;
 
   margin: 0;
   padding: .3em 0;
@@ -93,6 +60,7 @@ input, textarea {
   border: 0;
   border-radius: 0;
   border-bottom: solid 1px darken($c-divider, 5%);
+  // margin-bottom: 1px;
 
   color: gray(25%);
 
@@ -125,7 +93,8 @@ input, textarea {
 %textarea {
   @extend %input-text;
   border: 1px solid darken($c-divider, 5%);
-  padding: .3em;
+  padding:    .3em;
+  margin-top: .2em;
   &.noresize { resize: none; }
 }
 
@@ -137,19 +106,12 @@ input, textarea {
 .field .checkradio {
   font-family: $type-sans;
   @include rem(font-size, 16px);
-  margin-top: 0.5rem;
-
-  $left: 25px;
-  padding-left: $left;
-
-  * + & {
-    margin-top: .5rem;
-  }
+  @include rem(margin-top, .5rem);
 
   input {
     display: block;
     float: left;
-    margin-left: -$left;
+    margin-right: 0.5em;
 
     &[type="checkbox"] {
       margin-top: 0.15em;
@@ -165,10 +127,7 @@ input, textarea {
     overflow: hidden;
     line-height: 1.2;
     color: gray(40%);
-
-    strong {
-      font-weight: weight(medium);
-    }
+    strong { font-weight: weight(medium); }
   }
 }
 
@@ -183,8 +142,8 @@ input, textarea {
 
 .field {
 
-  dt {
-    @include rem(margin-bottom, .2rem);
+  dd {
+    @include rem(margin-top, .1rem);
   }
 
   dt label {
@@ -202,6 +161,10 @@ input, textarea {
   input[type="number"],
   input[type="search"] {
     @extend %input-text;
+  }
+
+  select {
+    width: 100%;
   }
 
   textarea {

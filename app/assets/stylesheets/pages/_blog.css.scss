@@ -1,6 +1,6 @@
 .blog > div {
-  @include container-spacing(padding-top);
-  @include container-spacing(padding-bottom, 2);
+  @include spacing(padding-top);
+  @include spacing(padding-bottom, 2);
 }
 
 .blog-main {
@@ -13,7 +13,7 @@
 }
 
 .blog-featured-posts {
-  @include container-spacing(margin-bottom, 2);
+  @include spacing(margin-bottom, 2);
 }
 
 .blog-main-aside.has-two {

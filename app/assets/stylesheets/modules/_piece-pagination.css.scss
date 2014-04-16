@@ -14,14 +14,14 @@
 }
 
 .issue-pagination-item {
-  @include container-spacing(padding-top  padding-bottom, 0.6);
+  @include spacing(padding-top  padding-bottom, 0.6);
 
   float: left;
   width: 40%;
 
   &.is-current {
     width: 20%;
-    @include container-spacing(padding-left padding-right, 0.4);
+    @include spacing(padding-left padding-right, 0.4);
   }
 
   &:last-child {
@@ -30,7 +30,7 @@
   }
 
   &.is-previous, &.is-next {
-    @include container-spacing(padding-left padding-right);
+    @include spacing(padding-left padding-right);
   }
 
   &.is-next {
@@ -43,13 +43,13 @@
 }
 
 .issue-pagination-item.is-previous > a {
-  @include container-spacing(padding-left, 1.4);
+  @include spacing(padding-left, 1.4);
   background-position: top left;
   background-repeat: no-repeat;
 }
 
 .issue-pagination-item.is-next > a {
-  @include container-spacing(padding-right, 1.4);
+  @include spacing(padding-right, 1.4);
   background-position: top right;
   background-repeat: no-repeat;
 }

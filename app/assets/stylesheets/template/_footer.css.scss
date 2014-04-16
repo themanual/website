@@ -19,7 +19,7 @@
 
 .site-footer-sponsor {
   @include media-object {
-    @include container-spacing(margin-right, .5);
+    @include spacing(margin-right, .5);
   }
   p {
     max-width: 20em;

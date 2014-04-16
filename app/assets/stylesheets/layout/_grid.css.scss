@@ -1,0 +1,63 @@
+//
+// Columns
+//
+@mixin make-cols($class: "") {
+  @if ($class != "") { $class: "-#{$class}" }
+
+  // Numeric classes (1 to $grid-columns)
+  @for $i from 1 through ($grid-columns) {
+    .l-col#{$class}-#{$i} { @include span-columns($i); }
+  }
+  // Word classes
+  .l-col#{$class}-half   { @include span-columns($grid-columns/2); }
+  .l-col#{$class}-third  { @include span-columns($grid-columns/3); }
+  .l-col#{$class}-fourth { @include span-columns($grid-columns/4); }
+  .l-col#{$class}-fill   { @include fill-parent(); }
+}
+
+//
+// Stacked Elements
+//
+@mixin make-stacked($class: "") {
+  @if ($class != "") { $class: "-#{$class}" }
+  .l-stacked#{$class} > * + * {
+    @include spacing(margin-top);
+  }
+}
+
+//
+// Gaps and Shifts
+//
+@mixin make-gaps($class: "") {
+  @if ($class != "") { $class: "-#{$class}" }
+  // Omega
+  .l-omega#{$class} { @include omega; }
+  // Shift
+  @for $i from 1 through ($grid-columns - 1) {
+    .l-shift#{$class}-#{$i} { @include shift($i); }
+  }
+}
+
+//
+// Full Grid
+//
+@mixin make-grid {
+
+  // NOT Breakpoint-Specific
+  @include make-cols();
+  @include make-gaps();
+  @include make-stacked();
+
+  // Breakpoint-specific
+  @each $bp in $bps {
+    $class: nth($bp, 1);
+    $value: nth($bp, 2);
+    @include media-from($value) {
+      @include make-cols($class);
+      @include make-gaps($class);
+    }
+    @include media-upto($value) {
+      @include make-stacked($class);
+    }
+  }
+}

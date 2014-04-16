@@ -26,7 +26,7 @@ body {
 
 body > main {
   background: white;
-  // @include container-spacing(padding-bottom, 1.5);
+  // @include spacing(padding-bottom, 1.5);
 }
 
 figure img {
@@ -72,7 +72,7 @@ a {
 }
 
 .debug, .debug * {
-  background: rgba(255,0,0,0.05);
+  background-color: rgba(255,0,0,0.05);
 }
 
 [data-toggle="tooltip"] {

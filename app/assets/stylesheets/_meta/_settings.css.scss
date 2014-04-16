@@ -4,6 +4,12 @@ $rem-value: 22;
 
 $singlecol-width: 38rem;
 
+// Grid
+$column: 60px;
+$gutter: 35px;
+$grid-columns: 12;
+$max-width: 1350px;
+
 // Breakpoints
 // TODO update to Sass 3.3 Maps
 $bp-xs: 500px;

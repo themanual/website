@@ -27,10 +27,6 @@
 .form-heading {
   font-weight: weight(bold);
   @include rem(font-size, 19px);
-  @include rem(margin-bottom, .25rem);
-
-  + * { @include rem(margin-top,  1rem); }
-  + .form-subheading { margin-top: 0; }
 }
 
 .form-subheading {
@@ -43,8 +39,7 @@
     color: gray(40%);
   }
 
-               @include rem(margin-bottom, 1rem);
-  &.is-close { @include rem(margin-bottom, .5rem); }
+  margin-top: .2em;
 }
 
 .form-section {

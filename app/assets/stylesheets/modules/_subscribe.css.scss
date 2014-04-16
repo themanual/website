@@ -78,7 +78,7 @@
 }
 
 .subscribe-notes {
-  @include container-spacing(padding, 1.5);
+  @include spacing(padding, 1.5);
   &:last-child { padding-bottom: 0; }
   text-align: center;
   font-family: $type-sans;

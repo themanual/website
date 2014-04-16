@@ -21,7 +21,7 @@
 
 
 .issue_index-entry {
-  @include container-spacing(padding-top padding-bottom, 1.5);
+  @include spacing(padding-top padding-bottom, 1.5);
   & + & { border-top: solid 1px $c-divider; }
 }
 

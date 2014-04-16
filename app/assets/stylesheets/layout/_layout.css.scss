@@ -1,0 +1,63 @@
+// General rules
+.l-center     { @include centered; }
+.l-container  { @include outer-container; }
+.l-row        { @include row; }
+
+// Spacing Mixin
+@mixin spacing($props, $times: 1) {
+  @each $prop in $props {
+    @include rem($prop, $times * 1.5rem);
+  }
+  @include media-upto($bp-xs) {
+    @each $prop in $props {
+      @include rem($prop, $times * 1rem);
+    }
+  }
+}
+
+// Padding
+.l-pad         { @include spacing(padding); }
+.l-pad-h       { @include spacing(padding-left padding-right); }
+.l-pad-v       { @include spacing(padding-top padding-bottom); }
+.l-pad-h-more  { @include spacing(padding-left padding-right, 1.5); }
+.l-pad-v-more  { @include spacing(padding-top padding-bottom, 1.5); }
+
+.l-pad-more-v  { @extend .l-pad-h; @extend .l-pad-v-more; }
+
+
+// Wrappers and Containers
+.l-wrapper {
+  @extend .l-container;
+  @extend .l-pad-h;
+}
+
+// Single columns
+.l-col-single {
+  @include box-sizing(content-box);
+  @include rem(max-width, $singlecol-width);
+}
+
+.l-col-single-center {
+  @extend .l-col-single;
+  @extend .l-center;
+}
+
+// Dividers
+.l-divider-top    { border-top: divider(); }
+.l-divider-bottom { border-bottom: divider(); }
+.l-divider {
+  @extend .l-divider-top;
+  @extend .l-divider-bottom;
+}
+
+// Grid
+.l-grid {
+  @extend .l-container;
+  @extend .l-row;
+}
+
+.l-grid-pad   { @extend .l-grid; @extend .l-pad; }
+.l-grid-pad-h { @extend .l-grid; @extend .l-pad-h; }
+.l-grid-pad-v { @extend .l-grid; @extend .l-pad-v; }
+
+@include make-grid();

@@ -1,6 +1,6 @@
 .blog-post {
   font-size: em(20, $rem-value);
-  @include container-spacing(padding-bottom, 2/(20/25));
+  @include spacing(padding-bottom, 2/(20/25));
 
   + .blog-post {
     border-top: divider();
