@@ -20,7 +20,7 @@ TheManual::Application.routes.draw do
     resources :addresses, controller: 'user/addresses', only: [:create, :destroy, :update]
   end
 
-  root to: redirect("/issues")
+  root to: redirect("/subscribe")
 
   resource :subscribe, controller: :support, only: [:show, :create] do
     get :thanks

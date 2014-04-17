@@ -34,7 +34,7 @@
   line-height: 1.05;
   letter-spacing: -1px;
 
-  @include media-from($bp-s) {
+  @include media-from($bp-m) {
     font-size: 2em;
     max-width: 8em;
   }
@@ -74,12 +74,12 @@
     font-weight: weight(medium);
   }
 
-  @include media-upto($bp-s) {
+  @include media-upto($bp-m) {
     @include rem(font-size, 19px);
   }
 
   .middot {
-    @include media-upto($bp-s)            { @include middot-break; }
+    @include media-upto($bp-m)            { @include middot-break; }
     @include media-between($bp-l, $bp-xl) { @include middot-break(0.25em); }
   }
 

@@ -12,21 +12,19 @@
   h1 {
     font-family: $type-sans;
     font-weight: weight(black);
-    line-height: 1.2;
+    line-height: 1.1;
     @include rem(font-size, 48px);
-    @include media-upto($bp-s)  { @include rem(font-size, 38px); }
-    @include media-upto($bp-xs) { @include rem(font-size, 28px); }
+    @include media-upto($bp-m)  { @include rem(font-size, 40px); }
+    @include media-upto($bp-s) { @include rem(font-size, 28px); }
   }
 
   p {
-    $line-height: 1.5;
     color: gray(30%);
-    line-height: $line-height;
     margin-top: .5em;
-
-    & + p { margin-top: $line-height * .5em; }
-
     strong { font-weight: weight(bold); }
+
+    line-height: 1.4;
+    @include media-upto($bp-s) { line-height: 1.25; }
   }
 }
 

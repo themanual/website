@@ -12,14 +12,14 @@ $max-width: 1350px;
 
 // Breakpoints
 // TODO update to Sass 3.3 Maps
-$bp-xs: 500px;
-$bp-s:  650px;
+$bp-s: 500px;
+$bp-m:  650px;
 $bp-l:  850px;
 $bp-xl: 1000px;
 
 $bps: (
-  ("xs",  $bp-xs),
-  ("s",   $bp-s),
+  ("s",  $bp-s),
+  ("m",   $bp-m),
   ("l",   $bp-l),
   ("xl",  $bp-xl)
 );

@@ -8,7 +8,7 @@
   @each $prop in $props {
     @include rem($prop, $times * 1.5rem);
   }
-  @include media-upto($bp-xs) {
+  @include media-upto($bp-s) {
     @each $prop in $props {
       @include rem($prop, $times * 1rem);
     }

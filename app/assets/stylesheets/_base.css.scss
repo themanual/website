@@ -12,7 +12,7 @@ html {
   font-size: $rem-base;
   @include media-upto($bp-xl) { font-size: $rem-base - 1px; }
   @include media-upto($bp-l)  { font-size: $rem-base - 2px; }
-  @include media-upto($bp-s)  { font-size: $rem-base - 4px; }
+  @include media-upto($bp-m)  { font-size: $rem-base - 4px; }
 }
 
 body {

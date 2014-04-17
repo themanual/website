@@ -17,30 +17,21 @@ $logo-size: 45px;
 
 .header {
   font-family: $type-sans;
-  @include padding-v(18px);
+  @include rem(padding-top padding-bottom, 18px);
   border-bottom: divider();
+}
+
+.header-logo > a,
+.header-button {
+  display: block;
+  @include rem(width height, $logo-size);
 }
 
 .header-logo > a {
   @extend %image-logo;
-  @extend %heading-sc;
-
-  font-size: 16px;
-  line-height: $logo-size;
-
+  display:    block;
   background-size: auto 100%;
   background-position: top left;
-
-  display:    block;
-  height:     $logo-size;
-  min-width:  $logo-size;
-
-  font-weight: weight(medium);
-  padding-left: $logo-size + 20px;
-
-
-            color: black;
-  &:hover { text-decoration: underline; }
 }
 
 .header-button {
@@ -49,20 +40,12 @@ $logo-size: 45px;
   background-color: transparent;
   background-position: right center;
 
-  display: block;
-  width: $logo-size;
-  height: $logo-size;
-  font-size: 16px;
-
   text-indent: -9999em;
   overflow: hidden;
 
   font-weight: weight(medium);
   @include appearance(none);
   border: none;
-  height: $logo-size;
-
   color: gray(45%);
-
   border-left: solid 1px transparent;
 }
