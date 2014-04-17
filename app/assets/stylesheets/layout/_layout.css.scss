@@ -1,8 +1,3 @@
-// General rules
-.l-center     { @include centered; }
-.l-container  { @include outer-container; }
-.l-row        { @include row; }
-
 // Spacing Mixin
 @mixin spacing($props, $times: 1) {
   @each $prop in $props {
@@ -39,34 +34,24 @@
 .l-pad-xx-yyy   { @extend .l-pad-xx;  @extend .l-pad-yyy; }
 .l-pad-yy-xxx   { @extend .l-pad-yy;  @extend .l-pad-xxx; }
 .l-pad-xxx-yyy  { @extend .l-pad-xxx; @extend .l-pad-yyy; }
+// Margin Y
+.l-margin-y    { @include spacing(margin-top  margin-bottom, 1.0); }
+.l-margin-yy   { @include spacing(margin-top  margin-bottom, 1.5); }
+.l-margin-yyy  { @include spacing(margin-top  margin-bottom, 2.0); }
 
+// General rules
+.l-center     { @include centered; }
+.l-container  { @include outer-container; }
+.l-row        { @include row; }
 
-// Wrappers and Containers
 .l-wrapper {
   @extend .l-container;
   @extend .l-pad-h;
 }
 
-// Single columns
-.l-col-single {
-  // Max width
-  @include rem(max-width, $singlecol-width);
-  // Reset box-sizing so padding can be applied "outside" the content
-  @include box-sizing(content-box);
-}
-
-.l-col-single-center {
-  @extend .l-col-single;
-  @extend .l-center;
-}
-
 // Dividers
-.l-divider-top    { border-top: divider(); }
-.l-divider-bottom { border-bottom: divider(); }
-.l-divider {
-  @extend .l-divider-top;
-  @extend .l-divider-bottom;
-}
+.l-divider, .l-divider-top    { border-top: divider(); }
+.l-divider, .l-divider-bottom { border-bottom: divider(); }
 
 // Grid
 .l-grid {
@@ -74,4 +59,12 @@
   @extend .l-row;
 }
 
+// Single columns
+.l-col {
+  @extend .l-center;
+  @include rem(max-width, $singlecol-width);  // Max width
+  @include box-sizing(content-box);           // Reset box-sizing so padding can be applied "outside" the content
+}
+
+// Other columns
 @include make-grid();

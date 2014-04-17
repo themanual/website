@@ -1,14 +1,14 @@
 <main class=""><div>
 
-  <header class="l-pad-x-yy l-col-single-center text">
+  <header class="l-pad-x-yy l-col text">
     <h1>Subscribe to The Manual</h1>
     <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising.</p>
   </header>
 
-  <section class="subscribe-tiers l-pad l-divider">
-    <ul class="l-grid subscribe-tiers-list">
+  <section class="l-divider l-pad-x">
+    <ul class="l-grid subscribe-tiers">
 
-      <li class="l-col-m-half l-col-l-third subscribe-tier animated fadeInLeft">
+      <li class="l-col-xl-third l-pad-yy subscribe-tier animated fadeInLeft">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:digital][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:digital][:price] %></h3>
@@ -24,7 +24,7 @@
         <a href="<%= checkout_subscribe_path(:digital) %>" class="button">Subscribe to Digital</a>
       </li>
 
-      <li class="l-col-m-half l-col-l-third subscribe-tier animated fadeInUp">
+      <li class="l-col-xl-third l-pad-yy subscribe-tier animated fadeInUp">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:print][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:print][:price] %></h3>
@@ -40,7 +40,7 @@
         <a href="<%= checkout_subscribe_path(:print) %>" class="button">Subscribe to Print</a>
       </li>
 
-      <li class="l-col-m-half l-col-l-third subscribe-tier animated fadeInRight">
+      <li class="l-col-xl-third l-pad-yy subscribe-tier animated fadeInRight">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:patron][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:patron][:price] %></h3>
@@ -55,14 +55,13 @@
         </ul>
         <a href="<%= checkout_subscribe_path(:patron) %>" class="button">Become a Patron</a>
       </li>
-
     </ul>
     <p class="subscribe-notes" id="shipping">
       <span class="subscribe-notes-mark">*</span> <span data-shipping="message">Exact shipping cost can only be calculated at checkout.</span>
     </p>
   </section>
 
-  <section class="text l-col-single-center l-pad-x-yy">
+  <section class="text l-col l-pad-x-yy">
     <ul class="faq">
       <li>
         <h3 class="faq-q">How often do you publish new issues?</h3>

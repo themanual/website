@@ -1,9 +1,3 @@
-.subscribe-tiers {
-  border-top: divider();
-  padding-top:    2em;
-  padding-bottom: 2em;
-}
-
 .subscribe-tier {
   text-align: center;
 
@@ -12,6 +6,26 @@
     border-color: $c-link-blue-nicer;
   }
 }
+
+.subscribe-tiers {
+
+  + .subscribe-notes {
+    @include spacing(padding-bottom, 1.5);
+  }
+
+  @include media-upto($bp-xl) {
+    .subscribe-tier {
+      @include spacing(padding-top padding-bottom, 1.5);
+      border-bottom: divider();
+    }
+
+    + .subscribe-notes {
+      @include spacing(padding-top padding-bottom, 1.5);
+    }
+  }
+}
+
+
 
 .subscribe-tier a {
   @include colored-link {
@@ -31,6 +45,9 @@
   font-family: $type-serif;
   font-weight: weight(black);
   font-size: 1.75em;
+  @include media-upto($bp-s) {
+    font-size: 1.4em;
+  }
 }
 
 .subscribe-tier-price {
@@ -58,7 +75,7 @@
 .subscribe-tier-rewards {
   clear: both;
   border-top-width: 2px;
-  @include margin-v(1.75em);
+  @include spacing(margin-top margin-bottom, 1.25);
 }
 
 .subscribe-tier-rewards > * {
@@ -67,9 +84,8 @@
   color: gray(20%);
   line-height: 1.4;
 
-  + * {
-    margin-top: 1em;
-  }
+  margin-top: .7em;
+  &:first-child { margin-top: 0 !important; }
 
   .striked {
     text-decoration: line-through;
@@ -78,8 +94,6 @@
 }
 
 .subscribe-notes {
-  @include spacing(padding, 1.5);
-  &:last-child { padding-bottom: 0; }
   text-align: center;
   font-family: $type-sans;
   @include rem(font-size, 16px);
