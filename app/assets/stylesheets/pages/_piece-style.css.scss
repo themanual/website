@@ -1,6 +1,9 @@
 //
 // 2. STYLING
 // ---------------------------------------------------
+//
+// TODO bump font-size back to 22/24 on pieces only
+//
 .issue-piece a {
   @include link-color-by-issue;
 }

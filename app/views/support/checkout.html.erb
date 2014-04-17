@@ -1,11 +1,11 @@
 <% include_payment_assets %>
 
 <main>
-  <header class="l-divider-bottom"><div class="l-col-single-center l-pad-h heading">
+  <header class="l-divider-bottom"><div class="l-col-single-center l-pad-x-yy text">
     <h1>Subscription Payment</h1>
   </div></header>
 
-  <section class="l-col-single-center l-pad-more-v">
+  <section class="l-col-single-center l-pad-x-yy">
     <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
       <input type="hidden" name="stripe_token" value="" />
       <!-- HIDDEN FIELD FOR NOW - MR -->
@@ -18,7 +18,7 @@
 
         <div class="l-units">
 
-          <div class="l-unit-xs-half">
+          <div class="l-unit-s-half">
             <dl class="field l-units">
               <dt class="l-unit-fill"><%= f.label :first_name, 'Name' %></dt>
               <dd class="l-unit-half">
@@ -30,7 +30,7 @@
             </dl>
           </div>
 
-          <dl class="field l-unit-xs-half">
+          <dl class="field l-unit-s-half">
             <dt><%= f.label :email %></dt>
             <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %></dd>
           </dl>
@@ -41,17 +41,17 @@
         <h2 class="form-heading">Payment Information</h2>
 
         <div class="l-units">
-          <dl class="field l-unit-xs-half">
+          <dl class="field l-unit-s-half">
             <dt><label for="user_cc-number">Credit Card</label></dt>
             <dd><input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" /></dd>
           </dl>
 
-          <dl class="field l-unit-half l-unit-xs-fourth">
+          <dl class="field l-unit-half l-unit-s-fourth">
             <dt><label for="user_cc-exp">Expires</label></dt>
             <dd><input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
           </dl>
 
-          <dl class="field l-unit-half l-unit-xs-fourth">
+          <dl class="field l-unit-half l-unit-s-fourth">
             <dt><label for="user_cc-cvc">Code</label></dt>
             <dd><input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/></dd>
           </dl>
@@ -74,22 +74,22 @@
         </dl>
 
         <div class="l-units">
-          <dl class="field l-unit-xs-half">
+          <dl class="field l-unit-s-half">
             <dt><%= a.label :city %></dt>
             <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
           </dl>
 
-          <dl class="field l-unit-xs-half">
+          <dl class="field l-unit-s-half">
             <dt><%= a.label :region %></dt>
             <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional', :'data-shipping-address' => 'region' %></dd>
           </dl>
 
-          <dl class="field l-unit-xs-half">
+          <dl class="field l-unit-s-half">
             <dt><%= a.label :post_code %></dt>
             <dd><%= a.text_field :post_code, class: 'is-long', required: true, :'data-shipping-address' => 'post_code' %></dd>
           </dl>
 
-          <dl class="field l-unit-xs-half">
+          <dl class="field l-unit-s-half">
             <dt><%= a.label :country_id %></dt>
             <dd class="select"><%= custom_country_select a, :country_id, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
           </dl>
@@ -122,14 +122,14 @@
 
         <dl class="field l-units">
           <dt class="l-unit-fill"><label>Choose your starting issue</label></dt>
-          <dd class="l-unit-xs-half checkradio">
+          <dd class="l-unit-s-half checkradio">
             <input type="radio" name="user-start" id="user-start-now" checked="checked" />
             <label for="user-start-now">
               <strong>Issue <%= @latest.number %></strong>, which you’ll get immediately
               <small class="label-note">We’ll charge you again in <%= due_on @latest.next %> for Issue <%= @latest.next.number %></small>
             </label>
           </dd>
-          <dd class="l-unit-xs-half checkradio">
+          <dd class="l-unit-s-half checkradio">
             <input type="radio" name="user-start" id="user-start-next" />
             <label for="user-start-next">
               <strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %>

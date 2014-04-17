@@ -1,0 +1,53 @@
+.text {
+
+  @include coretext;
+  color: gray(30%);
+
+  // line-height
+  line-height: 1.4;
+  @include media-upto($bp-s) { line-height: 1.25; }
+
+  h1, h2, h3 {
+    color: black;
+  }
+
+  h1, h2 {
+    font-family: $type-sans;
+  }
+
+  h1 {
+    // font-size
+    @include rem(font-size, 48px);
+    @include media-upto($bp-m)  { @include rem(font-size, 40px); }
+    @include media-upto($bp-s) { @include rem(font-size, 28px); }
+    // other
+    line-height: 1.1;
+    font-weight: weight(black);
+  }
+
+  h2 {
+    font-size: 1.1em;
+    font-weight: weight(semibold);
+    margin-top: 1em;
+    &:first-child { margin-top: 0; }
+  }
+
+  h3 {
+    font-weight: weight(bold);
+    margin-top: 1em;
+    &:first-child { margin-top: 0; }
+    + * { margin-top: .25em; }
+  }
+
+  p {
+    margin-top: .5em;
+    &:first-child { margin-top: 0; }
+  }
+
+  a {
+    @include colored-link { color: $c-link-blue-nicer; }
+  }
+
+  strong { font-weight: weight(bold); }
+
+}

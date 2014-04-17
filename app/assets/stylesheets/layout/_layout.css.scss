@@ -15,14 +15,30 @@
   }
 }
 
+//
 // Padding
-.l-pad         { @include spacing(padding); }
-.l-pad-h       { @include spacing(padding-left padding-right); }
-.l-pad-v       { @include spacing(padding-top padding-bottom); }
-.l-pad-h-more  { @include spacing(padding-left padding-right, 1.5); }
-.l-pad-v-more  { @include spacing(padding-top padding-bottom, 1.5); }
+// TODO update to Sass 3.3 w/ function
+//
 
-.l-pad-more-v  { @extend .l-pad-h; @extend .l-pad-v-more; }
+// Padding X
+.l-pad-x    { @include spacing(padding-left padding-right,  1.0); }
+.l-pad-xx   { @include spacing(padding-left padding-right,  1.5); }
+.l-pad-xxx  { @include spacing(padding-left padding-right,  2.0); }
+// Padding Y
+.l-pad-y    { @include spacing(padding-top  padding-bottom, 1.0); }
+.l-pad-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
+.l-pad-yyy  { @include spacing(padding-top  padding-bottom, 2.0); }
+// Padding XY
+.l-pad          { @include spacing(padding); }
+.l-pad-x-y      { @extend .l-pad; }
+.l-pad-x-yy     { @extend .l-pad-x;   @extend .l-pad-yy;  }
+.l-pad-x-yyy    { @extend .l-pad-x;   @extend .l-pad-yyy; }
+.l-pad-y-xx     { @extend .l-pad-y;   @extend .l-pad-xx;  }
+.l-pad-y-xxx    { @extend .l-pad-y;   @extend .l-pad-xx;  }
+.l-pad-xx-yy    { @extend .l-pad-xx;  @extend .l-pad-yy;  }
+.l-pad-xx-yyy   { @extend .l-pad-xx;  @extend .l-pad-yyy; }
+.l-pad-yy-xxx   { @extend .l-pad-yy;  @extend .l-pad-xxx; }
+.l-pad-xxx-yyy  { @extend .l-pad-xxx; @extend .l-pad-yyy; }
 
 
 // Wrappers and Containers
@@ -33,8 +49,10 @@
 
 // Single columns
 .l-col-single {
-  @include box-sizing(content-box);
+  // Max width
   @include rem(max-width, $singlecol-width);
+  // Reset box-sizing so padding can be applied "outside" the content
+  @include box-sizing(content-box);
 }
 
 .l-col-single-center {
@@ -55,9 +73,5 @@
   @extend .l-container;
   @extend .l-row;
 }
-
-.l-grid-pad   { @extend .l-grid; @extend .l-pad; }
-.l-grid-pad-h { @extend .l-grid; @extend .l-pad-h; }
-.l-grid-pad-v { @extend .l-grid; @extend .l-pad-v; }
 
 @include make-grid();

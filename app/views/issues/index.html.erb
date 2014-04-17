@@ -4,7 +4,7 @@
 
   <% Issue.public_issues.ordered.each do |issue| %>
     <% cache issue, expires_in: 12.hours.ish do %>
-      <section class="issue_index-entry issue-<%= issue.number %>"><div class="l-grid-pad-h">
+      <section class="issue_index-entry issue-<%= issue.number %>"><div class="l-grid l-pad-x">
 
         <header class="issue_index-entry-header l-col-half">
           <h1 class="issue_index-entry-header-name">Issue <strong><%= issue.number %></strong></h1>

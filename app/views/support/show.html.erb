@@ -1,6 +1,6 @@
 <main class=""><div>
 
-  <header class="l-wrapper l-col-single-center heading">
+  <header class="l-pad-x-yy l-col-single-center text">
     <h1>Subscribe to The Manual</h1>
     <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising.</p>
   </header>
@@ -8,7 +8,7 @@
   <section class="subscribe-tiers l-pad l-divider">
     <ul class="l-grid subscribe-tiers-list">
 
-      <li class="l-col-s-half l-col-l-third subscribe-tier animated fadeInLeft">
+      <li class="l-col-m-half l-col-l-third subscribe-tier animated fadeInLeft">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:digital][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:digital][:price] %></h3>
@@ -24,7 +24,7 @@
         <a href="<%= checkout_subscribe_path(:digital) %>" class="button">Subscribe to Digital</a>
       </li>
 
-      <li class="l-col-s-half l-col-l-third subscribe-tier animated fadeInUp">
+      <li class="l-col-m-half l-col-l-third subscribe-tier animated fadeInUp">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:print][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:print][:price] %></h3>
@@ -40,7 +40,7 @@
         <a href="<%= checkout_subscribe_path(:print) %>" class="button">Subscribe to Print</a>
       </li>
 
-      <li class="l-col-s-half l-col-l-third subscribe-tier animated fadeInRight">
+      <li class="l-col-m-half l-col-l-third subscribe-tier animated fadeInRight">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:patron][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:patron][:price] %></h3>
@@ -62,8 +62,8 @@
     </p>
   </section>
 
-  <section class="faq l-col-single-center l-pad-more-v">
-    <ul class="faq-list">
+  <section class="text l-col-single-center l-pad-x-yy">
+    <ul class="faq">
       <li>
         <h3 class="faq-q">How often do you publish new issues?</h3>
         <div class="faq-a">
