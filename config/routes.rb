@@ -23,8 +23,8 @@ TheManual::Application.routes.draw do
   root to: redirect("/subscribe")
 
   resource :subscribe, controller: :support, only: [:show, :create] do
-    get :thanks
-    get 'checkout/:tier', action: :checkout, as: :checkout
+    get ':tier/thanks',   action: :thanks,   as: :thanks
+    get ':tier/checkout', action: :checkout, as: :checkout
   end
 
   get '/issues',                    to: 'issues#index',     as: :issues
