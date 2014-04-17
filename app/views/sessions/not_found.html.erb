@@ -1,8 +1,14 @@
-<main class="l-pad"><div class="l-col">
+<main class="l-pad-x-yy"><div class="l-col">
 
-	<header class="heading is-centered">
-    <h1>Login</h1>
-    <p>No account found with that email address</p>
+	<header class="text">
+    <h1>Account Not Found</h1>
+    <p>We couldn’t find an existing account for <strong><%= params[:email] %></strong>.</p>
+    <h4>Wrong email address?</h4>
+    <p><%= link_to "Try again", :new_user_session %> with a different one.</p>
+    <h4>Don’t have an account?</h4>
+    <p>Create one by <%= link_to "becoming a subscriber", subscribe_path %>.</p>
+    <h4>Is something wrong?</h4>
+    <p>Please <a href="mailto:hi@alwaysreadthemanual.com">email us</a> to let us know.</p>
   </header>
 
 </div></main>

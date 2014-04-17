@@ -1,0 +1,10 @@
+<%= form_tag session_path(:user), method: :post, novalidate: :novalidate, class: 'form' do |f| %>
+  <dl class="field">
+    <dt><label for="supporter-signup-email">Email Address</label></dt>
+    <dd><%= email_field_tag :email, '', class: 'is-long', placeholder: 'yourname@domain.com', autofocus: true, required: true, id: 'supporter-signup-email' %></dd>
+  </dl>
+
+  <div class="form-actions">
+    <button type="submit" class="button">Send Login Link</button>
+  </div>
+<% end %>
