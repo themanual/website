@@ -2,13 +2,17 @@
 
 <main class="issue_index">
 
+  <header class="text l-pad-x-yy"><div class="l-container">
+    <h1>Issue Index</h1>
+  </div></header>
+
   <% Issue.public_issues.ordered.each do |issue| %>
     <% cache issue, expires_in: 12.hours.ish do %>
-      <section class="issue_index-entry issue-<%= issue.number %>"><div class="l-grid l-pad-x">
+      <section class="l-pad-x-yy l-divider-top issue-<%= issue.number %>"><div class="l-grid">
 
-        <header class="issue_index-entry-header l-col-half">
-          <h1 class="issue_index-entry-header-name">Issue <strong><%= issue.number %></strong></h1>
-          <p>Fall 2011 &middot; <a href="<%= issue_url(issue.number) %>">Browse Issue</a></p>
+        <header class="l-col-l-half issueheader">
+          <h1>Issue <strong><%= issue.number %></strong></h1>
+          <p>Fall 2011 &middot; <a class="color-issue" href="<%= issue_url(issue.number) %>">Browse Issue</a></p>
         </header>
 
         <% if issue.purchasable? %>
@@ -18,7 +22,9 @@
         </div>
         <% end %>
 
-        <%= render 'issue_toc', issue: issue %>
+        <div class="l-col-l-half">
+          <%= render 'issue_toc', issue: issue %>
+        </div>
 
       </div></section>
     <% end %>

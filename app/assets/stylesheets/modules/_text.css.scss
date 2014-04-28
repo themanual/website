@@ -1,3 +1,6 @@
+strong  { font-weight: weight(bold); }
+em      { font-weight: italic; }
+
 .text {
 
   @include coretext;
@@ -51,7 +54,5 @@
   a {
     @include colored-link { color: $c-link-blue-nicer; }
   }
-
-  strong { font-weight: weight(bold); }
 
 }

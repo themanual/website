@@ -39,18 +39,18 @@ figure img {
 a {
   text-decoration: none;
 
-  color: gray(30%);
-
-  @include colored-link;
+  @include colored-link {
+    color: gray(20%);
+  }
 
   @each $i in $issues {
     &.issue-#{$i},
-    .issue-#{$i} &.issue-current {
-      &:link, &:visited { color: issue-color($i); }
-      @include colored-link;
+    .issue-#{$i} &.color-issue {
+      @include colored-link {
+        color: issue-color($i);
+      }
     }
   }
-
 }
 
 .highlight {

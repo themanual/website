@@ -129,13 +129,17 @@
   font-weight: weight(bold);
   @include color-by-issue(background);
 
-  font-size: .85em;
-  padding-right: .32em;
-  padding-left: .32em;
-  padding-bottom: .06em;
+  padding-right:  .36em;
+  padding-left:   .36em;
+  padding-bottom: .07em;
+  padding-top:    .03em;
 
   color: #fff;
   border-radius: .15em;
+}
+
+.issue-number {
+  @include issue-number;
 }
 
 @mixin blacklink {

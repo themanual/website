@@ -2,7 +2,7 @@ class IssuesController < ApplicationController
 
 	# Keeping this here for easily testing locally
 	# TODO: uncomment this when we're ready to show the public issues
-	# skip_before_filter :authenticate_user!
+	skip_before_filter :authenticate_user!
 
 	before_filter	:check_access_to_issue, only: [:show, :piece]
 
