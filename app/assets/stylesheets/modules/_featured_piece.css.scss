@@ -49,7 +49,7 @@
 }
 
 .featured_piece-author {
-  @include smallcaps-heading-thin;
+  @extend %heading-sc-light;
   padding-top: 1em;
 
   &:first-child {

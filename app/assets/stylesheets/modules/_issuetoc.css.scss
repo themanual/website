@@ -17,7 +17,8 @@
   float: left;
   font-weight: weight(semibold);
 
-  &.is-lesson a {
+  &.is-lesson a:link,
+  &.is-lesson a:visited {
     color: gray(40%);
   }
 

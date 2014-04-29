@@ -57,7 +57,7 @@
 }
 
 .blog-index-heading {
-  @include smallcaps-heading-thin;
+  @extend %heading-sc-light;
   margin-top:     1.5em;
   margin-bottom:  1.5em;
   * + & { margin-top: 3em; }
@@ -80,7 +80,7 @@
 }
 
 .blog-index-date {
-  @include smallcaps-heading-thin;
+  @extend %heading-sc-light;
   float: right;
   font-size: 13px;
   margin-left: 2em;

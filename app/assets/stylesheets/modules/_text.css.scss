@@ -26,6 +26,10 @@ em      { font-weight: italic; }
     // other
     line-height: 1.1;
     font-weight: weight(black);
+
+    &.center {
+      text-align: center;
+    }
   }
 
   h1 + * {

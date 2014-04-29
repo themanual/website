@@ -113,15 +113,15 @@
   word-spacing: .15em;
 }
 
-@mixin smallcaps-heading {
-  @extend %heading-sc;
-  font-weight: weight(bold);
-  color: gray(20%);
-}
-
-@mixin smallcaps-heading-thin {
+%heading-sc-light {
   @extend %heading-sc;
   color: gray(60%);
+}
+
+%heading-sc-heavy {
+  @extend %heading-sc;
+  font-weight: weight(medium);
+  color: gray(20%);
 }
 
 @mixin issue-number {
@@ -136,6 +136,10 @@
 
   color: #fff;
   border-radius: .15em;
+}
+
+.text h1 .issue-number {
+  font-weight: weight(black);
 }
 
 .issue-number {

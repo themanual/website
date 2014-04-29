@@ -9,35 +9,32 @@
 }
 
 .issue_entry-author {
-  @include smallcaps-heading-thin;
-  margin-bottom: 1.5em;
+  @extend %heading-sc-light;
 }
 
-.issue_entry-piece + .issue_entry-piece {
-  margin-top: 1.1em;
+.issue_entry-piece {
+  margin-top: 1em;
 }
 
 .issue_entry-piece-title {
+  font-size: 1.1em;
   font-family: $type-sans;
-  font-size: em(23, $rem-value);
-  font-weight: weight(medium);
-  line-height: 1.2;
-  margin-bottom: 0.25em;
+  font-weight: weight(bold);
+  line-height: 1.1;
 
-                  &, a:link, a:visited { color: gray(0%); }
-  .is-lesson &  { &, a:link, a:visited { color: gray(45%); } }
+  .is-lesson & a:link,
+  .is-lesson & a:visited {
+    // color: gray(40%);
+  }
 
   a:hover { border-bottom: solid 1px; }
 }
 
 .issue_entry-piece-synopsis {
-  font-size: em(19, $rem-value);
-  font-weight: weight(regular);
+  font-size: .85em;
   font-style: italic;
-
   max-width: 20em;
-  line-height: 1.35;
-
-                  color: gray(40%);
-  .is-lesson &  { color: gray(60%); }
+  line-height: 1.3;
+  margin-top: .3em;
+  color: gray(50%);
 }

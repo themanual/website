@@ -1,8 +1,5 @@
-.issue-pagination {
-  border-top: divider();
-  > div {
-    @include outer-container;
-  }
+.issue-pagination > div {
+  @include outer-container;
 }
 
 .issue-pagination-list {
@@ -65,7 +62,7 @@
 }
 
 .issue-pagination-item h2 {
-  @include smallcaps-heading-thin;
+  @extend %heading-sc-light;
   margin-bottom: 0.8em;
 }
 

@@ -3,38 +3,6 @@
   margin-bottom: 2em;
 }
 
-.issue-header {
-  padding-top: 3em;
-  padding-bottom: 4em;
-}
-
-.issue_entry {
-  @include span-columns(6);
-  @include omega(2n);
-  
-  &:nth-child(n+3)  { padding-top: 5%; }
-                      padding-bottom: 5%;
-}
-
-.issue-header-name {
-  padding-bottom: 0.15em;
-  font-weight:  weight(extrabold);
-  font-size:    3em;
-  text-align: center;
-  line-height: 1;
-}
-
-.issue-header-name-number {
-  font-family: $type-sans;
-  font-weight: weight(bold);
-  @include color-by-issue(background);
-  
-  padding-right:  0.29em;
-  padding-bottom: 0.06em;
-  padding-left:   0.32em;
-  border-radius: 0.15em;
-
-  color: white;
-  
-  font-size: 0.85em;
+.issue .issue_entry:nth-child(n+3) {
+  @include spacing(padding-top, 2);
 }

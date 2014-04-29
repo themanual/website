@@ -8,6 +8,7 @@ $type-column-em-width: 30;
 @include media-from($bp-l) {
   .issue-piece-header {
     @include row;
+    @include spacing(padding-left padding-right);
   }
 
   .issue-piece-header-illustration,

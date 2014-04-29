@@ -4,24 +4,24 @@
 
   <main class="issue-<%= @issue.number %>">
 
-    <section class="issue"><div class="l-wrapper">
+    <header class="l-pad-x-yy text"><div class="l-container issueheader">
+      <h1 class="center">Issue <strong class="issue-number"><%= @issue.number %></strong></h1>
+    </div></header>
 
-      <header class="issue-header">
-        <h1 class="issue-header-name">Issue <strong class="issue-header-name-number"><%= @issue.number %></strong></h1>
-      </header>
+    <section class="issue l-divider"><div class="l-pad-x-yy">
 
       <!--
       <div class="issuebuy is-wide is-boxed">
         <h2 class="issuebuy-caption">
           <strong>Buy this issue. Support the manual.</strong> Or read for free below.
         </h2>
-	      <%#= render 'issue_buy_options', sub: false %>
+        <%#= render 'issue_buy_options', sub: false %>
       </div>
       -->
 
       <ul class="issue-content l-grid">
       <% @issue.articles.ordered.each do |article| %>
-        <li class="issue_entry">
+        <li class="issue_entry l-col-half">
           <figure class="issue_entry-illo">
             <%= illustration_tag @issue.number, article.author_slug, 'small' %>
           </figure>
@@ -48,13 +48,12 @@
       </ul>
     </div></section>
 
+    <aside class="l-pad"><div class="l-grid">
 
-
-
-    <aside class="boxes"><div class="l-grid l-pad-x">
-
-      <section class="box l-col-half">
-        <h2 class="box-title"><a class="color-issue" href="<%= issue_url(@issue.number) %>">Buy this issue</a> and support The Manual</h2>
+      <section class="l-col-half box">
+        <h2 class="box-title">
+          <a class="color-issue" href="<%= issue_url(@issue.number) %>">Buy this issue</a> and support The Manual
+        </h2>
 
         <div class="issuebuy">
           <figure class="issuebuy-figure">
@@ -64,7 +63,7 @@
         </div>
       </section>
 
-      <section class="box l-col-half">
+      <section class="l-col-half box">
         <h2 class="box-title">Prints available at <a class="color-issue" href="/store">the Store</a></h2>
       </section>
     </div></aside>

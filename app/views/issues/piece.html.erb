@@ -15,7 +15,7 @@
       <%= render 'piece_footer' %>
     </div></article>
 
-    <aside class="issue-pagination"><div>
+    <aside class="issue-pagination l-divider"><div>
       <ul class="issue-pagination-list">
         <li class="issue-pagination-item is-previous">
         <% if (prev_article = @piece.prev) %>
@@ -47,7 +47,7 @@
   <% end %>
 
   <% cache [@piece, :random], expires_in: 300.ish do %>
-    <aside class="boxes"><div class="l-grid l-pad-x">
+    <aside class="l-pad"><div class="l-grid">
 
     <!-- <div class="box-group l-col-half"> -->
 
