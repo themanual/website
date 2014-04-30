@@ -3,11 +3,10 @@ class TheManual::Mailer < ActionMailer::Base
 	default :from => "The Manual <hi@alwaysreadthemanual.com>"
   layout 'email'
 
-
   class Interceptor
     def self.delivering_email(mail)
 
-      mail.subject = "[#{Rails.env.upcase}] #{mail.subject}" unless Rails.env.production?
+      mail.subject = "[#{Rails.env}] #{mail.subject}" if Rails.env.development?
 
       mail.headers({
         #  disable click tracking for now
