@@ -28,9 +28,17 @@ class Subscription < ActiveRecord::Base
 
     if product.nil?
       # uh-oh throw an error
-      Airbrake.notify StandardError.new("Could not find a Shoppe product for Issue ##{issue.number} #{product_level} when placing subscription order")
-      return
+      err = StandardError.new("Could not find a Shoppe product for Issue ##{issue.number} #{product_level} when placing subscription order")
+      Airbrake.notify err
+      if Rails.env.development?
+        raise err
+      else
+        return
+      end
     end
+
+    # TODO ensure this order is acceptable without an address, ie only digital products
+    billing_address = user.shipping_address || Address.blank_address
 
     order = Shoppe::Order.new first_name: user.first_name,
                               last_name: user.last_name,

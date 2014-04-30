@@ -18,8 +18,6 @@ class SupportController < ApplicationController
 
   def create
 
-    params[:tier]
-
     redirect_to thanks_subscribe_path(tier: params[:tier]) and return if Rails.env.stage? or Rails.env.development?
 
     begin
@@ -37,7 +35,7 @@ class SupportController < ApplicationController
 
         @user.cards.new customer_token: customer.id, last4: card.last4, exp_month: card.exp_month, exp_year: card.exp_year
         @user.save!
-        @user.update_attribute :shipping_address_id, @user.addresses.first.id
+        @user.update_attribute :shipping_address_id, @user.addresses.first.id if @user.addresses.first
         sign_in @user
 
         customer.metadata = {id: @user.id}
