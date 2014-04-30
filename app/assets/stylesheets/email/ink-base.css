@@ -328,6 +328,7 @@ body, table.body, h1, h2, h3, h4, h5, h6, p, td {
 
 h1, h2, h3, h4, h5, h6 {
   word-break: normal;
+  font-weight: bold;
 }
 
 h1 {font-size: 40px;}
@@ -340,7 +341,7 @@ body, table.body, p, td {font-size: 14px;line-height:19px;}
 
 p.lead, p.lede, p.leed {
   font-size: 18px;
-  line-height:21px;
+  line-height: 22px;
 }
 
 p {
@@ -349,6 +350,7 @@ p {
 
 small {
   font-size: 10px;
+  line-height: 12px;
 }
 
 a {
@@ -422,6 +424,12 @@ table.large-button {
   overflow: hidden;
 }
 
+/* The Manual */
+table.spaced {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 table.button td,
 table.tiny-button td,
 table.small-button td,
@@ -430,10 +438,14 @@ table.large-button td {
   display: block;
   width: auto !important;
   text-align: center;
-  background: #2ba6cb;
-  border: 1px solid #2284a1;
-  color: #ffffff;
   padding: 8px 0;
+
+  background: #2ba6cb;
+  border: none !important;
+  color: #ffffff;
+
+  /* The Manual */
+  background: #0055DD;
 }
 
 table.tiny-button td {
@@ -457,11 +469,11 @@ table.tiny-button td a,
 table.small-button td a,
 table.medium-button td a,
 table.large-button td a {
+  font-size: 16px;
   font-weight: bold;
   text-decoration: none;
   font-family: Helvetica, Arial, sans-serif;
   color: #ffffff;
-  font-size: 16px;
 }
 
 table.tiny-button td a {
@@ -485,6 +497,8 @@ table.button:hover td,
 table.button:visited td,
 table.button:active td {
   background: #2795b6 !important;
+  /* The Manual */
+  background: #0055DD !important;
 }
 
 table.button:hover td a,
@@ -499,6 +513,8 @@ table.small-button:hover td,
 table.medium-button:hover td,
 table.large-button:hover td {
   background: #2795b6 !important;
+  /* The Manual */
+  background: #0055DD !important;
 }
 
 table.button:hover td a,
