@@ -24,7 +24,7 @@ class SessionsController < Devise::SessionsController
 
         @token = email.session_tokens.create token: SecureRandom.hex(32), expires_at: SessionToken.login_token_expiry
 
-        SessionsMailer.login_token(@token).deliver
+        SessionsMailer.login_token(email.user, @token).deliver
 
         render :login_sent
 

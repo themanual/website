@@ -1,0 +1,17 @@
+<% if @user.first_name.present? %>
+<p class="lead"><strong>Hi <%= @user.first_name %>.</strong></p>
+<% else %>
+<p class="lead"><strong>Hi there.</strong></h6>
+<% end %>
+
+<p>Press the button below to log in.</p>
+
+<table class="medium-button spaced round">
+  <tr>
+    <td>
+      <%= link_to 'Log in to The Manual', login_token_url(@token.token) %>
+    </td>
+  </tr>
+</table>
+
+<p><small>This login expires in 24h. Didn't try to log in? Ignore this email.</small></p>

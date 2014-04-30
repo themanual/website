@@ -28,6 +28,10 @@ gem "second_level_cache", "~> 2.0.0"
 gem 'dalli'
 gem 'kgio'
 
+# email css inlining
+gem 'premailer-rails'
+gem 'nokogiri'
+
 gem 'puma'
 
 gem 'devise'
