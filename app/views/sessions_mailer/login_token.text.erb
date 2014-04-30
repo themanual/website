@@ -1,5 +1,6 @@
-We've received a request to login to The Manual from this address, please follow the link below to login
+<% if @user.first_name.present? %>Hi <%= @user.first_name %>.<% else %>Hi there.<% end %>
 
+Follow this link to log in:
 <%= login_token_url(@token.token) %>
 
-Think link will work for the next 24 hours.
+This login expires in 24h. Didn't try to log in? Ignore this email.

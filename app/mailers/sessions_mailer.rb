@@ -4,6 +4,6 @@ class SessionsMailer < TheManual::Mailer
     @token = token
     @user = user
 
-		mail to: token.email_address.email, subject: 'Login to The Manual'
+		mail to: token.email_address.email, subject: 'Log in to The Manual'
 	end
 end
