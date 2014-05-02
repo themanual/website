@@ -154,6 +154,10 @@ input, textarea {
     @extend %label-note;
   }
 
+  input + .label-note {
+    margin-top: .5em;
+  }
+
   input[type="text"],
   input[type="email"],
   input[type="password"],

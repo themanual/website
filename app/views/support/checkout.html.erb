@@ -43,17 +43,26 @@
         <div class="l-units">
           <dl class="field l-unit-s-half">
             <dt><label for="user_cc-number">Credit Card</label></dt>
-            <dd><input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" /></dd>
+            <dd>
+              <input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" />
+              <small class="label-note"><span class="highlight">Test with 4242 4242 4242 4242</span></small>
+            </dd>
           </dl>
 
           <dl class="field l-unit-half l-unit-s-fourth">
             <dt><label for="user_cc-exp">Expires</label></dt>
-            <dd><input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" /></dd>
+            <dd>
+              <input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" />
+              <small class="label-note"><span class="highlight">Any future date</span></small>
+            </dd>
           </dl>
 
           <dl class="field l-unit-half l-unit-s-fourth">
             <dt><label for="user_cc-cvc">Code</label></dt>
-            <dd><input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/></dd>
+            <dd>
+              <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
+              <small class="label-note"><span class="highlight">Any code</span></small>
+            </dd>
           </dl>
         </div>
       </fieldset>
@@ -100,7 +109,7 @@
 
       <div class="form-section">
         <h2 class="form-heading">Review your subscription</h2>
-        <p class="form-subheading"><span class="highlight">Your credit card will be immediately charged <strong data-shipping-cost="total" data-loadingdots-word=""></strong> for your choice of Issue <%= @latest.number %> or <%= @latest.next.number %></span></p>
+        <p class="form-subheading"><span class="highlight">You’ll be <strong>immediately charged</strong> <strong data-shipping-cost="total" data-loadingdots-word=""></strong> for your choice of Issue <%= @latest.number %> or <%= @latest.next.number %></span></p>
         <div class="l-units">
           <dl class="field l-unit-fourth">
             <dt class="label">Type</dt>
