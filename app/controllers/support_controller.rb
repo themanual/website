@@ -1,6 +1,6 @@
 class SupportController < ApplicationController
 
-  skip_before_filter :authenticate_user!, unless: Proc.new { Rails.env.stage? }
+  # skip_before_filter :authenticate_user!, unless: Proc.new { Rails.env.stage? }
   before_filter :load_latest
 
   def show
