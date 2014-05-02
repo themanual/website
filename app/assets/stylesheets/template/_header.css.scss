@@ -3,9 +3,11 @@
  * LAYOUT
  *
  */
-.header-nav     { display: none; }
+// .header-nav     { display: none; }
+.header-nav { float: right; }
 .header-logo    { float: left; }
-.header-button  { float: right; }
+// .header-button  { float: right; }
+.header-button  { display: none; }
 
 /*
  *
@@ -48,4 +50,19 @@ $logo-size: 45px;
   border: none;
   color: gray(45%);
   border-left: solid 1px transparent;
+}
+
+.header-nav li {
+  list-style: none;
+  float: left;
+  margin-left: 1.5em;
+  font-size: em(17, $rem-value);
+  line-height: $logo-size;
+}
+
+.header-nav a {
+  @include hover {
+    color: black;
+    border-bottom: solid 1px;
+  }
 }

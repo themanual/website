@@ -30,8 +30,12 @@
 
   <header class="header l-pad-x"><div class="l-grid">
     <h1 class="header-logo"><a href="<%= root_url %>"><!--The Manual--></a></h1>
-    <button class="header-button">Show/Hide Menu</button>
-    <nav class="header-nav"></nav>
+    <!-- <button class="header-button">Show/Hide Menu</button> -->
+    <nav class="header-nav">
+      <li><%= link_to "Read", issues_path %></li>
+      <li><%= link_to "Subscribe", subscribe_path %></li>
+      <li><%= user_signed_in? ? link_to("Log in", new_user_session_path) : link_to("Log out", destroy_user_session_path)  %></li>
+    </nav>
   </div></header>
 
   <%= yield %>
