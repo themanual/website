@@ -57,7 +57,7 @@ $logo-size: 45px;
   float: left;
   margin-left: 1.5em;
   font-size: em(17, $rem-value);
-  line-height: $logo-size;
+  @include rem(line-height, $logo-size);
 }
 
 .header-nav a {
