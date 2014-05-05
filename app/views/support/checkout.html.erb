@@ -37,36 +37,6 @@
         </div>
       </fieldset>
 
-      <fieldset class="form-section">
-        <h2 class="form-heading">Payment Information</h2>
-
-        <div class="l-units">
-          <dl class="field l-unit-s-half">
-            <dt><label for="user_cc-number">Credit Card</label></dt>
-            <dd>
-              <input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" />
-              <small class="label-note"><span class="highlight">Test with 4242 4242 4242 4242</span></small>
-            </dd>
-          </dl>
-
-          <dl class="field l-unit-half l-unit-s-fourth">
-            <dt><label for="user_cc-exp">Expires</label></dt>
-            <dd>
-              <input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" />
-              <small class="label-note"><span class="highlight">Any future date</span></small>
-            </dd>
-          </dl>
-
-          <dl class="field l-unit-half l-unit-s-fourth">
-            <dt><label for="user_cc-cvc">Code</label></dt>
-            <dd>
-              <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
-              <small class="label-note"><span class="highlight">Any code</span></small>
-            </dd>
-          </dl>
-        </div>
-      </fieldset>
-
       <% if Subscription::TIERS[@tier][:shipping] %>
       <fieldset class="form-section">
         <h2 class="form-heading">Shipping Address</h2>
@@ -106,6 +76,37 @@
       	<% end %>
       </fieldset>
       <% end %>
+
+      <fieldset class="form-section">
+        <h2 class="form-heading">Payment Information</h2>
+        <p class="form-subheading">All payment and card information is handled by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a> over a secure connection.</p>
+
+        <div class="l-units">
+          <dl class="field l-unit-s-half">
+            <dt><label for="user_cc-number">Card Number</label></dt>
+            <dd>
+              <input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" />
+              <small class="label-note">Test with 4242 4242 4242 4242</small>
+            </dd>
+          </dl>
+
+          <dl class="field l-unit-half l-unit-s-fourth">
+            <dt><label for="user_cc-exp">Expiration</label></dt>
+            <dd>
+              <input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" />
+              <small class="label-note">Any future date</small>
+            </dd>
+          </dl>
+
+          <dl class="field l-unit-half l-unit-s-fourth">
+            <dt><label for="user_cc-cvc">Code</label></dt>
+            <dd>
+              <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
+              <small class="label-note">Any code</small>
+            </dd>
+          </dl>
+        </div>
+      </fieldset>
 
       <div class="form-section">
         <h2 class="form-heading">Review your subscription</h2>
