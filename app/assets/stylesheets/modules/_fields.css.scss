@@ -8,7 +8,7 @@
   display: block;
   font-weight: weight(medium);
   line-height: 1.2;
-  color: gray(40%);
+  color: gray(30%);
 }
 
 %label-note {
@@ -16,7 +16,7 @@
   font-family: $type-sans;
   @include rem(font-size, 15px);
   line-height: 1.4;
-  color: gray(70%);
+  color: gray(50%);
 }
 
 
