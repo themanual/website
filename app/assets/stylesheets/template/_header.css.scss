@@ -61,8 +61,7 @@ $logo-size: 45px;
 }
 
 .header-nav a {
-  @include hover {
-    color: black;
-    border-bottom: solid 1px;
+  @include underlined-link {
+    color: gray(20%);
   }
 }

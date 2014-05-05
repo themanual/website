@@ -26,12 +26,13 @@
   font-weight: weight(bold);
   line-height: 1.1;
 
-  .is-lesson & a:link,
-  .is-lesson & a:visited {
-    // color: gray(40%);
-  }
-
   a:hover { border-bottom: solid 1px; }
+}
+
+.issue_entry-piece-title a {
+  @include underlined-link {
+    color: black;
+  }
 }
 
 .issue_entry-piece-synopsis {

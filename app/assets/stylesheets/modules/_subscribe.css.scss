@@ -27,13 +27,6 @@
 
 
 
-.subscribe-tier a {
-  @include colored-link {
-    color: $c-link-blue-nicer;
-  }
-}
-
-
 .subscribe-tier-heading > * {
   display: inline;
   @include padding-h(.2em);

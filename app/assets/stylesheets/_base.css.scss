@@ -40,7 +40,7 @@ a {
   text-decoration: none;
 
   @include colored-link {
-    color: gray(20%);
+    color: $c-link-blue-nicer;
   }
 
   @each $i in $issues {

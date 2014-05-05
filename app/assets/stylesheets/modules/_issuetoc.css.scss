@@ -17,9 +17,12 @@
   float: left;
   font-weight: weight(semibold);
 
-  &.is-lesson a:link,
-  &.is-lesson a:visited {
-    color: gray(40%);
+  a {
+    @include underlined-link { color: black; }
+  }
+
+  &.is-lesson a {
+    @include underlined-link { color: gray(40%); }
   }
 
   a:hover {

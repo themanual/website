@@ -90,6 +90,11 @@
 }
 
 @mixin underlined-link {
+  &:link,
+  &:visited {
+    @content;
+  }
+
   &:hover,
   &:focus,
   &:active {

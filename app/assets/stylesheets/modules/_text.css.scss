@@ -54,9 +54,4 @@ em      { font-weight: italic; }
   p + p {
     margin-top: .5em;
   }
-
-  a {
-    @include colored-link { color: $c-link-blue-nicer; }
-  }
-
 }
