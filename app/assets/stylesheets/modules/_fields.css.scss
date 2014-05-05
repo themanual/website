@@ -1,6 +1,6 @@
 // Form Layout
-.field      { @include rem(margin-top, 1.2rem); }
-.sub-field  { @include rem(margin-top, .5rem); }
+.field        { @include rem(margin-top, 1.2rem); }
+.field-close  { @include rem(margin-top, .4rem); }
 
 
 %label {

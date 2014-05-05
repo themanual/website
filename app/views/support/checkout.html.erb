@@ -78,8 +78,27 @@
       <% end %>
 
       <fieldset class="form-section">
-        <h2 class="form-heading">Payment Information</h2>
+        <h2 class="form-heading">Payment</h2>
         <p class="form-subheading">All payment and card information is handled by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a> over a secure connection.</p>
+
+        <div class="l-units">
+          <dl class="field l-unit-fourth">
+            <dt class="label">Tier</dt>
+            <dd class="value is-long"><%= Subscription::TIERS[@tier][:name] %></dd>
+          </dl>
+          <dl class="field l-unit-fourth">
+            <dt class="label">Price</dt>
+            <dd class="value is-long" data-shipping-cost="subtotal">$<%= Subscription::TIERS[@tier][:price] %></dd>
+          </dl>
+          <dl class="field l-unit-fourth">
+            <dt class="label">Shipping</dt>
+            <dd class="value is-long" data-shipping-cost="shipping"><%= Subscription::TIERS[@tier][:shipping] ? '...' : '$0' %></dd>
+          </dl>
+          <dl class="field l-unit-fourth">
+            <dt class="label">Total</dt>
+            <dd class="value is-long" data-shipping-cost="total"><%= Subscription::TIERS[@tier][:shipping] ? '...' : "$#{Subscription::TIERS[@tier][:price]}" %></dd>
+          </dl>
+        </div>
 
         <div class="l-units">
           <dl class="field l-unit-s-half">
@@ -109,29 +128,10 @@
       </fieldset>
 
       <div class="form-section">
-        <h2 class="form-heading">Review your subscription</h2>
+        <h2 class="form-heading">Choose your starting issue</h2>
         <p class="form-subheading"><span class="highlight">You’ll be <strong>immediately charged</strong> <strong data-shipping-cost="total" data-loadingdots-word=""></strong> for your choice of Issue <%= @latest.number %> or <%= @latest.next.number %></span></p>
-        <div class="l-units">
-          <dl class="field l-unit-fourth">
-            <dt class="label">Type</dt>
-            <dd class="value is-long"><%= Subscription::TIERS[@tier][:name] %></dd>
-          </dl>
-          <dl class="field l-unit-fourth">
-            <dt class="label">Subtotal</dt>
-            <dd class="value is-long" data-shipping-cost="subtotal">$<%= Subscription::TIERS[@tier][:price] %></dd>
-          </dl>
-          <dl class="field l-unit-fourth">
-            <dt class="label">Shipping</dt>
-            <dd class="value is-long" data-shipping-cost="shipping"><%= Subscription::TIERS[@tier][:shipping] ? '...' : '$0' %></dd>
-          </dl>
-          <dl class="field l-unit-fourth">
-            <dt class="label">Total</dt>
-            <dd class="value is-long" data-shipping-cost="total"><%= Subscription::TIERS[@tier][:shipping] ? '...' : "$#{Subscription::TIERS[@tier][:price]}" %></dd>
-          </dl>
-        </div>
 
-        <dl class="field l-units">
-          <dt class="l-unit-fill"><label>Choose your starting issue</label></dt>
+        <dl class="field field-close l-units">
           <dd class="l-unit-s-half checkradio">
             <input type="radio" name="user-start" id="user-start-now" checked="checked" />
             <label for="user-start-now">
