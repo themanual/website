@@ -1,5 +1,5 @@
 .form-section + .form-section {
-  margin-top: 2.5em;
+  @include spacing(margin-top, 1.5);
 }
 
 .form-actions {
