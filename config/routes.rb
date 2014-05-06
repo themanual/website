@@ -8,6 +8,8 @@ TheManual::Application.routes.draw do
              :path => ''
 
 
+  root to: redirect("/subscribe")
+
   as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token
     get 'login'         => 'sessions#new',      :as => :new_user_session # TODO rename to "login" ?
@@ -20,12 +22,14 @@ TheManual::Application.routes.draw do
     resources :addresses, controller: 'user/addresses', only: [:create, :destroy, :update]
   end
 
-  root to: redirect("/subscribe")
+  get '/support_us', to: 'home#support', as: :support_us
 
   resource :subscribe, controller: :support, only: [:show, :create] do
     get ':tier/thanks',   action: :thanks,   as: :thanks
     get ':tier/checkout', action: :checkout, as: :checkout
   end
+
+  get '/support', to: 'home#support', as: :support
 
   get '/issues',                    to: 'issues#index',     as: :issues
   get '/issues/:issue',             to: 'issues#show',      as: :issue

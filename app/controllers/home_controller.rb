@@ -67,4 +67,8 @@ class HomeController < ApplicationController
       render json: {status: 'error'}
     end
   end
+
+  def support
+  end
+
 end
