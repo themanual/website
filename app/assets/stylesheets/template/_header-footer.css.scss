@@ -5,17 +5,13 @@
  *
  */
 
-body > header {
-  @extend .bg-gray;
-}
-
 .site-header,
 .site-footer {
   font-family: $type-sans;
   font-size: em(16, $rem-value);
   @include spacing(padding-left padding-right);
   @include spacing(padding-top padding-bottom, .5);
-
+  background-color: $c-bg-gray;
   color: gray(40%);
 
   a {

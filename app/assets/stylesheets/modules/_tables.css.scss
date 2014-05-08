@@ -75,7 +75,7 @@
     font-weight: weight(bold);
     color: black;
     font-size: 1.1em;
-    background-color: gray(96%);
+    background-color: $c-bg-gray;
   }
 
   tbody > tr > th:first-child,
@@ -85,7 +85,7 @@
 
   thead th {
     text-align: center;
-    background-color: gray(96%);
+    background-color: $c-bg-gray;
   }
 
   > thead.outside > tr > * {
