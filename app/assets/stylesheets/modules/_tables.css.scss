@@ -99,6 +99,17 @@
     background: none;
   }
 
+  tbody > tr.subhead > th {
+    border-top: divider();
+    border-bottom: divider();
+    text-align: center;
+  }
+
+  tbody > tr.lined > * {
+    border-top: divider();
+    border-bottom: divider();
+  }
+
   .price {
     color: $c-link-blue-nicer;
     font-weight: weight(semibold);
