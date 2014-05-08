@@ -183,3 +183,14 @@ input, textarea {
 .field [data-shipping-cost="total"] {
   font-weight: weight(bold);
 }
+
+.field-half {
+  float: left;
+  width: 50%;
+  padding-right: .2em;
+}
+
+.field-half + .field-half {
+  padding-right: 0em;
+  padding-left: .2em;
+}

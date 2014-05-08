@@ -19,12 +19,12 @@
         <div class="l-units">
 
           <div class="l-unit-s-half">
-            <dl class="field l-units">
-              <dt class="l-unit-fill"><%= f.label :first_name, 'Name' %></dt>
-              <dd class="l-unit-half">
+            <dl class="field">
+              <dt><%= f.label :first_name, 'Name' %></dt>
+              <dd class="field-half">
                 <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true, autofocus: true %>
               </dd>
-              <dd class="l-unit-half">
+              <dd class="field-half">
                 <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true, autofocus: true %>
               </dd>
             </dl>
