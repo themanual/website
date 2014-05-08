@@ -4,12 +4,12 @@ em      { font-weight: italic; }
 .text {
 
   @include coretext;
-  color: gray(30%);
 
   // line-height
   line-height: 1.4;
   @include media-upto($bp-s) { line-height: 1.25; }
 
+  color: gray(30%);
   h1, h2, h3, h4 {
     color: black;
   }
@@ -37,10 +37,10 @@ em      { font-weight: italic; }
   }
 
   h2 {
-    font-size: 1.1em;
-    font-weight: weight(semibold);
-    margin-top: 1em;
-    margin-bottom: .454545em;
+    font-size: 1.3em;
+    font-weight: weight(black);
+    margin-top:     1.5em;
+    margin-bottom:  1rem;
     &:first-child { margin-top: 0; }
   }
 
@@ -54,5 +54,18 @@ em      { font-weight: italic; }
 
   p + p {
     margin-top: 1em;
+  }
+
+  p.spaced {
+    margin-top: 1.5em;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: weight(bold);
+    color: black;
   }
 }
