@@ -41,24 +41,19 @@
 
   <%= yield %>
 
-
   <footer class="site-footer"><div class="l-grid l-stacked-l">
-
-      <section class="l-col-l-6">
-        <p>The Manual is a publication for designers.</p>
-      </section>
-
-      <section class="l-col-l-6">
-        <ul class="inline-list l-right">
-          <li><a href="http://buy.alwaysreadthemanual.com">About</a></li>
-          <li><a href="http://buy.alwaysreadthemanual.com">Store</a></li>
-          <li><a href="mailto:hi@alwaysreadthemanual.com">Email</a></li>
-          <li><a href="https://twitter.com/themanual">Twitter</a></li>
-        </ul>
-      </section>
-
+    <section class="l-col-l-6">
+      <p>The Manual is a publication for designers.</p>
+    </section>
+    <section class="l-col-l-6">
+      <ul class="inline-list l-right">
+        <li><a href="http://buy.alwaysreadthemanual.com/pages/about">About</a></li>
+        <li><a href="http://buy.alwaysreadthemanual.com">Store</a></li>
+        <li><a href="mailto:hi@alwaysreadthemanual.com">Email</a></li>
+        <li><a href="https://twitter.com/themanual">Twitter</a></li>
+      </ul>
+    </section>
   </div></footer>
-
 
   <%= javascript_include_tag :application, :debug => Rails.env.development? %>
   <%= yield :footer %>
