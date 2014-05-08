@@ -8,7 +8,7 @@ TheManual::Application.routes.draw do
              :path => ''
 
 
-  root to: redirect("/subscribe")
+  root to: redirect("/support_us")
 
   as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token
