@@ -18,7 +18,8 @@
 }
 
 .table.ver {
-  tr > * + * {
+  tbody > tr > * + *,
+  thead > tr > * + * {
     border-left: divider();
   }
 }
@@ -26,8 +27,8 @@
 .table thead > tr:first-child > :empty {
   background: none;
   border-top: none;
-  &:first-child { border-left: none; }
-  &:last-child  { border-right: none; }
+  &:first-child { border-left: none; border-right: divider(); }
+  &:last-child  { border-right: none; border-left: divider(); }
 }
 
 .table {
@@ -53,13 +54,14 @@
   > tbody > tr,
   > thead > tr,
   > tr {
-    > *:first-child { border-left: divider(); border-right: divider(); }
-    > *:last-child  { border-right: divider(); border-left: divider(); }
+    > *:first-child { border-left: divider(); }
+    > *:last-child  { border-right: divider(); }
   }
 
   th, td {
     padding: .5rem .7rem;
     text-align: left;
+    line-height: 1.4;
   }
 
   td, th {
@@ -109,10 +111,14 @@
     }
   }
 
-  small,
-  tfoot tr * {
-    @extend %heading-sc;
+  strong {
     font-weight: weight(medium);
+    color: black;
+  }
+
+  small {
+    @extend %heading-sc;
+    font-weight: weight(regular);
     color: gray(60%);
   }
 
