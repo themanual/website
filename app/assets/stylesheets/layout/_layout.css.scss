@@ -60,10 +60,14 @@
 }
 
 // Single columns
-.l-col {
-  @extend .l-center;
+.l-col-left {
   @include rem(max-width, $singlecol-width);  // Max width
   @include box-sizing(content-box);           // Reset box-sizing so padding can be applied "outside" the content
+}
+
+.l-col {
+  @extend .l-center;
+  @extend .l-col-left;
 }
 
 // Other columns
