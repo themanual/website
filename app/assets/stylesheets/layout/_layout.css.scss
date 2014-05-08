@@ -49,6 +49,9 @@
   @extend .l-pad-x;
 }
 
+.l-left  { float: left;  }
+.l-right { float: right; }
+
 // Dividers
 .l-divider, .l-divider-top    { border-top: divider(); }
 .l-divider, .l-divider-bottom { border-bottom: divider(); }
