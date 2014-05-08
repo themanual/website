@@ -22,7 +22,7 @@ body {
 }
 
 body {
-  background: gray(96%);
+  @extend .bg-gray;
 }
 
 body > main {
@@ -51,6 +51,10 @@ a {
       }
     }
   }
+}
+
+.bg-gray {
+  background-color: gray(97%);
 }
 
 .highlight {
