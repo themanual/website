@@ -28,44 +28,37 @@
 </head>
 <body lang="en" class="preload">
 
-  <header class="header l-pad-x"><div class="l-grid">
-    <h1 class="header-logo"><a href="<%= root_url %>"><!--The Manual--></a></h1>
-    <!-- <button class="header-button">Show/Hide Menu</button> -->
-    <nav class="header-nav">
-      <li><%= link_to "Read", issues_path %></li>
-      <li><%= link_to "Subscribe", subscribe_path %></li>
-      <li><%= user_signed_in? ? link_to("Log out", destroy_user_session_path) : link_to("Log in", new_user_session_path) %></li>
+  <header class="site-header"><div class="l-grid">
+    <h1 class="l-left"><a href="<%= root_url %>">The Manual</a></h1>
+    <nav class="l-right">
+      <ul class="inline-list">
+        <li><%= link_to "Read", issues_path %></li>
+        <li><%= link_to "Support", support_us_path %></li>
+        <li><%= user_signed_in? ? link_to("Log out", destroy_user_session_path) : link_to("Log in", new_user_session_path) %></li>
+      </ul>
     </nav>
   </div></header>
 
   <%= yield %>
 
-  <footer class="site-footer l-pad"><div class="l-grid l-stacked-l">
+
+  <footer class="site-footer"><div class="l-grid l-stacked-l">
 
       <section class="l-col-l-6">
-        <p><strong>The Manual</strong> is a publication on web design as a discipline, capturing the voices of the profession as they explore what we do and who we are as designers. The Manual is published three times per year, in both print and digital editions, excluslively online.</p>
+        <p>The Manual is a publication for designers.</p>
       </section>
 
-      <section class="l-col-s-4 l-col-l-2">
-        <ul>
+      <section class="l-col-l-6">
+        <ul class="inline-list l-right">
+          <li><a href="http://buy.alwaysreadthemanual.com">About</a></li>
+          <li><a href="http://buy.alwaysreadthemanual.com">Store</a></li>
           <li><a href="mailto:hi@alwaysreadthemanual.com">Email</a></li>
           <li><a href="https://twitter.com/themanual">Twitter</a></li>
-          <li><a href="http://buy.alwaysreadthemanual.com">Store</a></li>
         </ul>
       </section>
 
-      <section class="l-col-s-8 l-col-l-4 site-footer-sponsor">
-        <a href="#" class="banner">
-          <%= image_tag 'http://placehold.it/240x180', size: '120x90' %>
-        </a>
-        <div>
-          <p><strong>Sponsorship</strong></p>
-          <p>Well-written and interesting sponsorship message from someone. <a href="#">Try it now.</a></p>
-        </div>
-      </section>
-
-
   </div></footer>
+
 
   <%= javascript_include_tag :application, :debug => Rails.env.development? %>
   <%= yield :footer %>
