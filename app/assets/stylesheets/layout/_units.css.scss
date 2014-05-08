@@ -1,11 +1,11 @@
 // Row
 .l-units {
-  @include rem(margin-left margin-right, -.5rem);
+  @include rem(margin-left margin-right, -1rem);
   @include clearfix;
 }
 
 .l-unit {
-  @include rem(padding-left padding-right, .5rem);
+  @include rem(padding-left padding-right, 1rem);
 }
 
 // Breakpoint-Triggered
