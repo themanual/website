@@ -1,0 +1,9 @@
+.inline-list {
+  overflow: auto;
+  list-style: none;
+  > * {
+    float: left;
+    margin-left: 1.5em;
+    &:first-child { margin-left: 0; }
+  }
+}
