@@ -67,7 +67,7 @@ group :development do
   gem 'dotenv-rails'
 end
 
-group :production, :stage, :dev do
+group :production, :stage, :beta do
 	gem 'memcachier'
   gem 'rails_12factor'
   gem 'heroku-deflater'
