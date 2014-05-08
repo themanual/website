@@ -23,6 +23,14 @@
 .l-pad-y    { @include spacing(padding-top  padding-bottom, 1.0); }
 .l-pad-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
 .l-pad-yyy  { @include spacing(padding-top  padding-bottom, 2.0); }
+// Padding Top
+.l-pad-t    { @include spacing(margin-top,  1.0); }
+.l-pad-tt   { @include spacing(margin-top,  1.5); }
+.l-pad-ttt  { @include spacing(margin-top,  2.0); }
+// Padding Bottom
+.l-pad-b    { @include spacing(margin-bottom,  1.0); }
+.l-pad-bb   { @include spacing(margin-bottom,  1.5); }
+.l-pad-bbb  { @include spacing(margin-bottom,  2.0); }
 // Padding XY
 .l-pad          { @include spacing(padding); }
 .l-pad-x-y      { @extend .l-pad; }
