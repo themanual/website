@@ -71,4 +71,7 @@ class HomeController < ApplicationController
   def support
   end
 
+  def store
+  end
+
 end
