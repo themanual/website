@@ -18,7 +18,7 @@ class SupportController < ApplicationController
 
   def create
 
-    redirect_to thanks_subscribe_path(tier: params[:tier]) and return if Rails.env.stage? or Rails.env.development?
+    redirect_to thanks_subscribe_path(tier: params[:tier])
 
     begin
 
