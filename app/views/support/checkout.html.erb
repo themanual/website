@@ -143,7 +143,7 @@
             <input type="radio" name="user-start" id="user-start-next" />
             <label for="user-start-next">
               <strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %>
-              <small class="label-note">We’ll only charge you again in <%= due_on @latest.next.next %> for Issue <%= @latest.next.next.number %></small>
+              <small class="label-note">We’ll charge you again in <%= due_on @latest.next.next %> for Issue <%= @latest.next.next.number %></small>
             </label>
           </dd>
         </dl>
