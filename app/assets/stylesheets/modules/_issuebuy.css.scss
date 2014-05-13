@@ -1,4 +1,4 @@
-$issuebuy-pad: 0.75em;
+$issuebuy-pad: 0.8em;
 
 .issuebuy {
   @include clearfix;
@@ -35,22 +35,22 @@ $issuebuy-pad: 0.75em;
 
 .issuebuy-option {
   overflow: hidden;
-  @include padding-v($issuebuy-pad);
-
-  &:first-child { padding-top: 0; }
-  &:last-child  { padding-bottom: 0; }
-  + .issuebuy-option { border-top: solid 1px $c-divider; }
+  // @include padding-v($issuebuy-pad);
+  // &:first-child { padding-top: 0; }
+  // &:last-child  { padding-bottom: 0; }
+  // + .issuebuy-option { border-top: solid 1px $c-divider; }
+  + .issuebuy-option { margin-top: $issuebuy-pad; }
 }
 
 .issuebuy-option-text {
   float: left;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .issuebuy-option-name {
-  font-size: 16px;
+  font-size: 17px;
   color: gray(20%);
-  font-weight: weight(medium);
+  font-weight: weight(semibold);
 }
 
 .issuebuy-option-description {
@@ -60,34 +60,66 @@ $issuebuy-pad: 0.75em;
 
 .issuebuy-option-button {
   float: right;
+  text-align: right;
 
   a {
-    display: inline-block;
     font-weight: weight(medium);
-
+    background-color: $c-link-blue-nicer;
     @include color-by-issue(background);
-
-    font-size: 18px;
-    letter-spacing: 1px;
+    font-size: 16px;
+    letter-spacing: .1em;
     text-transform: uppercase;
     color: white;
 
-    width: 3.4em;
-
-    height:       2.1em;
-    line-height:  2.1em;
+    line-height: 1;
+    padding: .7em .8em;
+    margin-top: .2em;
+    display: inline-block;
 
     text-align: center;
     border-radius: 4px;
 
-    &:first-letter {
+    &.price,
+     .price {
+      font-weight: weight(medium);
+    }
+
+    .currency {
       font-weight: weight(regular);
       margin-right: 0.15em;
       color: rgba(white, 0.75);
     }
 
+    .shipping {
+      font-size: .8em;
+      letter-spacing: 0;
+    }
+
+    sup {
+      font-size: .7em;
+      vertical-align: text-top;
+      padding-left: .3em;
+    }
+
     &:hover, &:focus {
       background: black;
+    }
+  }
+
+  small {
+    display: block;
+    @include rem(font-size, 12px);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .1em;
+    font-weight: weight(medium);
+    color: gray(50%);
+    margin-top: .5em;
+    .price {
+      color: black;
+      &:first-letter {
+        opacity: .5;
+      }
     }
   }
 
@@ -100,9 +132,13 @@ $issuebuy-pad: 0.75em;
 .issuebuy.is-boxed {
   border: solid 1px $c-divider;
   border-radius: 5px;
-
   .issuebuy-option {
     padding: $issuebuy-pad;
+  }
+
+  .issuebuy-option + .issuebuy-option {
+    margin-top: 0;
+    border-top: divider();
   }
 }
 
