@@ -37,16 +37,16 @@
 @import 'chosen';
 
 // Component Modules
-@import 'modules/buttons';
-@import 'modules/text';
-@import 'modules/fields';
-@import 'modules/tables';
-@import 'modules/form';
-@import 'modules/box';
-@import 'modules/tooltip';
-@import 'modules/lists';
+@import 'components/buttons';
+@import 'components/fields';
+@import 'components/form';
+@import 'components/lists';
+@import 'components/tables';
+@import 'components/text';
+@import 'components/tooltip';
 
-// Section Modules
+// General Modules
+@import 'modules/box';
 @import 'modules/faq';
 
 // Page-specific Modules
