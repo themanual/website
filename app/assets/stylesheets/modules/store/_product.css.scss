@@ -1,22 +1,12 @@
 .products-heading {
   @include span-columns(3);
 }
-
-.product-list {
-  @include span-columns(9);
-}
-
-.product-list .product {
-  @include span-columns(3 of 9);
-  @include omega(3n);
-}
-
-.product-shot {
-}
+.product-list               { @include span-columns(9); }
+.product-list .product      { @include row(); }
+.product-list .product + .product { @include spacing(padding-top, 2); }
+.product-list .product > *  { @include span-columns(3 of 9); }
 
 .product-shot figure {
-  max-width: 90%;
-  // background-color: $c-bg-gray;
 }
 
 .product-shot p {
@@ -32,14 +22,13 @@
 
 .product-info h3 {
   font-weight: weight(bold);
-  padding-top: 1em;
   padding-bottom: .75em;
-  font-size: 1.2em;
+  font-size: em(19, $rem-value);
 }
 
 .product-info ul {
   font-family: $type-sans;
-  font-size: em(17, $rem-value);
+  font-size: em(16, $rem-value);
   color: gray(40%);
   line-height: 1.4;
 }
