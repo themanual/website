@@ -12,4 +12,17 @@ module ApplicationHelper
   		javascript_tag("Stripe.setPublishableKey('#{Rails.configuration.stripe[:publishable_key]}');")
   	end
   end
+
+  # From https://coderwall.com/p/d1vplg
+  def inline_svg filename, options={}
+    path = "app/assets/images/#{filename}".split('/')
+    file = File.read(Rails.root.join(*path))
+    doc = Nokogiri::HTML::DocumentFragment.parse file
+    svg = doc.at_css 'svg'
+    if options[:class].present?
+      svg['class'] = options[:class]
+    end
+    doc.to_html.html_safe
+  end
+
 end

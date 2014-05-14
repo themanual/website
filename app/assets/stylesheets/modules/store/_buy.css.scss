@@ -1,0 +1,88 @@
+.buy {
+  font-family: $type-sans;
+  font-size: .85em;
+}
+
+.buy-item {
+  padding: .85em 0;
+}
+
+.buy-item {
+  border-top: divider();
+}
+
+.buy-item:last-child {
+  border-bottom: divider();
+}
+
+.buy-item-name {
+  font-weight: weight(semibold);
+  line-height: 1.2;
+}
+
+.buy-item-description {
+  color: gray(60%);
+  font-size: .9em;
+  line-height: 1.2;
+  margin-top: .2em;
+}
+
+.buy-item-action {
+  margin-top: .5em;
+  overflow: hidden;
+
+  border-radius: 4px;
+  @each $i in $issues {
+    .issue-#{$i} & {
+      border-color: issue-color($i);
+      // background-color: rgba(issue-color($i), .1);
+    }
+  }
+}
+
+.buy-item-price {
+  padding-top: .3em;
+  color: gray(40%);
+
+  .currency {
+    font-weight: weight(light);
+    opacity: .7;
+  }
+  .value {
+    font-weight: weight(medium);
+  }
+
+  .price-cost {
+    font-size: 1.15em;
+    .currency { margin-right: .1em; }
+    .currency, .value { @include color-by-issue(color); }
+  }
+  .price-shipping {
+    font-size: .8em;
+  }
+}
+
+.buy-item-button {
+  @extend .button;
+  letter-spacing: 0;
+  padding: .35em;
+  display: block;
+  float: right;
+
+  svg {
+    vertical-align: middle;
+  }
+
+  @each $i in $issues {
+    .issue-#{$i} &                    { border-color: issue-color($i); }
+    .issue-#{$i} &:hover .icon-add-to-cart  { fill: issue-color($i); }
+    .issue-#{$i} &:hover { background-color: white; }
+
+    .issue-#{$i} &                    { background-color: issue-color($i); }
+    .issue-#{$i} & .icon-add-to-cart  { fill: white; }
+  }
+}
+
+.buy-item-price {
+
+}
