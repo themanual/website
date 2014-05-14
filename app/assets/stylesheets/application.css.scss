@@ -56,13 +56,13 @@
 @import 'modules/store/product';
 
 // Issue Modules
-@import 'modules/issueheader';
-@import 'modules/issuetoc';
-@import 'modules/issuebuy';
-@import 'modules/issue_entry';
+@import 'modules/issues/issueheader';
+@import 'modules/issues/issuetoc';
+@import 'modules/issues/issuebuy';
+@import 'modules/issues/issue_entry';
+@import 'modules/issues/piece-pagination';
 
 // Piece Modules
-@import 'modules/piece-pagination';
 @import 'modules/featured_piece';
 
 // Blog Modules
