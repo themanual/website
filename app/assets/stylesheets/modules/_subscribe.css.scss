@@ -3,7 +3,7 @@
 
   &.is-selected,
   &.is-selected .subscribe-tier-header {
-    border-color: $c-link-blue-nicer;
+    border-color: $c-blue;
   }
 }
 
@@ -45,7 +45,7 @@
 
 .subscribe-tier-price {
   font-size: 1.65em;
-  color: $c-link-blue-nicer;
+  color: $c-blue;
   font-family: $type-sans;
   font-weight: weight(bold);
 
@@ -94,6 +94,6 @@
 }
 
 .subscribe-notes-mark {
-  color: $c-link-blue-nicer;
+  color: $c-blue;
   font-weight: weight(medium);
 }

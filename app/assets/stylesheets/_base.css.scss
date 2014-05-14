@@ -41,7 +41,7 @@ a {
   text-decoration: none;
 
   @include colored-link {
-    color: $c-link-blue-nicer;
+    color: $c-blue;
   }
 
   @each $i in $issues {

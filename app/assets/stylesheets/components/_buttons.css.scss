@@ -2,7 +2,7 @@
 
   @include rem(font-size, 16px);
   @include transition(color .2s ease-in-out, border-color .2s ease-in-out);
-  @include text-and-border-color($c-link-blue-nicer);
+  @include text-and-border-color($c-blue);
 
   display: inline-block;
   padding: .7em .85em .75em;
@@ -20,7 +20,7 @@
   cursor: pointer;
 
 
-  @include text-and-border-color($c-link-blue-nicer);
+  @include text-and-border-color($c-blue);
 
   &.is-secondary {
     @include text-and-border-color(gray(40%));
