@@ -28,25 +28,17 @@
 }
 
 .buy-item-action {
-  margin-top: .5em;
+  margin-top: .25em;
   overflow: hidden;
-
-  border-radius: 4px;
-  @each $i in $issues {
-    .issue-#{$i} & {
-      border-color: issue-color($i);
-      // background-color: rgba(issue-color($i), .1);
-    }
-  }
 }
 
 .buy-item-price {
-  padding-top: .3em;
+  padding-top: .35em;
   color: gray(40%);
 
   .currency {
     font-weight: weight(light);
-    opacity: .7;
+    opacity: .5;
   }
   .value {
     font-weight: weight(medium);

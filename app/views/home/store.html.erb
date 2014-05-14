@@ -1,21 +1,21 @@
 <% push_page_title "Store"  %>
 
 <main>
-  <header class="l-pad-x-yy bg-gray l-divider-bottom"><div class="l-col text">
+  <header class="l-pad-x-yy bg-gray l-divider-bottom"><div class="l-container text">
     <h1>Store</h1>
   </div></header>
 
-  <section id="issues" class="products l-pad-x-yy">
+  <section id="issues" class="products l-pad-x-yy"><div class="l-container">
     <h2 class="products-heading">Individual Issues</h2>
-    <ul class="product-list">
+    <ul class="product-list l-pad-tt">
       <li class="product issue-4">
-        <h3 class="product-name">Issue <span class="issue-number">4</span></h3>
         <div class="product-shot">
           <figure>
             <%= image_tag 'store/products/issue-4.png' %>
           </figure>
           <p><a href="#">More photos</a> <span class="middot">&middot;</span> <a href="#">Ebook sample</a></p>
         </div>
+        <h3 class="product-name">Issue <span class="issue-number">4</span></h3>
         <div class="product-info">
           <ul>
             <li>Wilson Miner</li>
@@ -26,12 +26,12 @@
             <li>Paul Ford</li>
           </ul>
         </div>
-        <div>
+        <div class="product-buy">
           <div class="buy">
             <div class="buy-item">
               <h4 class="buy-item-name">Print + Ebook</h4>
               <div class="buy-item-description">
-                <p>Hardbound book + DRM&#8209;Free ePub, Mobi, and PDF</p>
+                <p>Hardback book + DRM-Free Ebook.</p>
               </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#">
@@ -46,7 +46,7 @@
             <div class="buy-item">
               <h4 class="buy-item-name">Ebook</h4>
               <div class="buy-item-description">
-                <p>DRM&#8209;Free ePub, Mobi, and PDF</p>
+                <p>DRM&#8209;Free ePub, Mobi, and PDF files.</p>
               </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
@@ -59,13 +59,13 @@
         </div>
       </li>
       <li class="product issue-3">
-        <h3 class="product-name">Issue <span class="issue-number">3</span></h3>
         <div class="product-shot">
           <figure>
             <%= image_tag 'store/products/issue-3.png' %>
           </figure>
           <p><a href="#">More photos</a> <span class="middot">&middot;</span> <a href="#">Ebook sample</a></p>
         </div>
+        <h3 class="product-name">Issue <span class="issue-number">3</span></h3>
         <div class="product-info">
           <ul>
             <li>Paul Soulellis</li>
@@ -76,60 +76,12 @@
             <li>Ethan Marcotte</li>
           </ul>
         </div>
-        <div class="buy">
-          <div class="buy-item">
-            <h4 class="buy-item-name">Print + Ebook</h4>
-            <div class="buy-item-description">
-              <p>Hardbound book + DRM&#8209;Free ePub, Mobi, and PDF</p>
-            </div>
-            <div class="buy-item-action">
-              <a class="buy-item-button" href="#">
-                <%= inline_svg 'ui/icon-add-to-cart.svg' %>
-              </a>
-              <p class="buy-item-price">
-                <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                <span class="price-shipping">+ <span class="currency">$</span><span class="value">5</span> shipping</span>
-              </p>
-            </div>
-          </div>
-          <div class="buy-item">
-            <h4 class="buy-item-name">Ebook</h4>
-            <div class="buy-item-description">
-              <p>DRM&#8209;Free ePub, Mobi, and PDF</p>
-            </div>
-            <div class="buy-item-action">
-              <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-              <p class="buy-item-price">
-                <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="product issue-2">
-        <h3 class="product-name">Issue <span class="issue-number">2</span></h3>
-        <div class="product-shot">
-          <figure>
-            <%= image_tag 'store/products/issue-2.png' %>
-          </figure>
-          <p><a href="#">More photos</a> <span class="middot">&middot;</span> <a href="#">Ebook sample</a></p>
-        </div>
-        <div class="product-info">
-          <ul>
-            <li>Alex Charchar</li>
-            <li>Karen McGrane</li>
-            <li>Trent Walton</li>
-            <li>Josh Brewer</li>
-            <li>Cennydd Bowles</li>
-            <li>Mark Boulton</li>
-          </ul>
-        </div>
-        <div>
+        <div class="product-buy">
           <div class="buy">
             <div class="buy-item">
               <h4 class="buy-item-name">Print + Ebook</h4>
               <div class="buy-item-description">
-                <p>Hardbound book + DRM&#8209;Free ePub, Mobi, and PDF</p>
+                <p>Hardback book + DRM-Free Ebook.</p>
               </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#">
@@ -144,7 +96,57 @@
             <div class="buy-item">
               <h4 class="buy-item-name">Ebook</h4>
               <div class="buy-item-description">
-                <p>DRM&#8209;Free ePub, Mobi, and PDF</p>
+                <p>DRM&#8209;Free ePub, Mobi, and PDF files.</p>
+              </div>
+              <div class="buy-item-action">
+                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
+                <p class="buy-item-price">
+                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="product issue-2">
+        <div class="product-shot">
+          <figure>
+            <%= image_tag 'store/products/issue-2.png' %>
+          </figure>
+          <p><a href="#">More photos</a> <span class="middot">&middot;</span> <a href="#">Ebook sample</a></p>
+        </div>
+        <h3 class="product-name">Issue <span class="issue-number">2</span></h3>
+        <div class="product-info">
+          <ul>
+            <li>Alex Charchar</li>
+            <li>Karen McGrane</li>
+            <li>Trent Walton</li>
+            <li>Josh Brewer</li>
+            <li>Cennydd Bowles</li>
+            <li>Mark Boulton</li>
+          </ul>
+        </div>
+        <div class="product-buy">
+          <div class="buy">
+            <div class="buy-item">
+              <h4 class="buy-item-name">Print + Ebook</h4>
+              <div class="buy-item-description">
+                <p>Hardback book + DRM-Free Ebook.</p>
+              </div>
+              <div class="buy-item-action">
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-add-to-cart.svg' %>
+                </a>
+                <p class="buy-item-price">
+                  <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
+                  <span class="price-shipping">+ <span class="currency">$</span><span class="value">5</span> shipping</span>
+                </p>
+              </div>
+            </div>
+            <div class="buy-item">
+              <h4 class="buy-item-name">Ebook</h4>
+              <div class="buy-item-description">
+                <p>DRM&#8209;Free ePub, Mobi, and PDF files.</p>
               </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
@@ -157,13 +159,13 @@
         </div>
       </li>
       <li class="product issue-1">
-        <h3 class="product-name">Issue <span class="issue-number">1</span></h3>
         <div class="product-shot">
           <figure>
             <%= image_tag 'store/products/issue-1.png' %>
           </figure>
           <p><a href="#">More photos</a> <span class="middot">&middot;</span> <a href="#">Ebook sample</a></p>
         </div>
+        <h3 class="product-name">Issue <span class="issue-number">1</span></h3>
         <div class="product-info">
           <ul>
             <li>Simon Collison</li>
@@ -174,12 +176,12 @@
             <li>The Standardistas</li>
           </ul>
         </div>
-        <div>
+        <div class="product-buy">
           <div class="buy">
             <div class="buy-item">
               <h4 class="buy-item-name">Print + Ebook</h4>
               <div class="buy-item-description">
-                <p>Hardbound book + DRM&#8209;Free ePub, Mobi, and PDF</p>
+                <p>Hardback book + DRM-Free Ebook.</p>
               </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#">
@@ -194,7 +196,7 @@
             <div class="buy-item">
               <h4 class="buy-item-name">Ebook</h4>
               <div class="buy-item-description">
-                <p>DRM&#8209;Free ePub, Mobi, and PDF</p>
+                <p>DRM&#8209;Free ePub, Mobi, and PDF files.</p>
               </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
@@ -207,6 +209,6 @@
         </div>
       </li>
     </ul>
-  </section>
+  </div></section>
 
 </main>
