@@ -74,12 +74,14 @@
   }
 
   @each $i in $issues {
-    .issue-#{$i} &                    { border-color: issue-color($i); }
-    .issue-#{$i} &:hover .icon-add-to-cart  { fill: issue-color($i); }
-    .issue-#{$i} &:hover { background-color: white; }
-
-    .issue-#{$i} &                    { background-color: issue-color($i); }
-    .issue-#{$i} & .icon-add-to-cart  { fill: white; }
+    // Always colored border
+    .issue-#{$i} & { border-color: issue-color($i); }
+    // Normal: white with colored icon
+    .issue-#{$i} & .icon-add-to-cart  { fill: issue-color($i); }
+    .issue-#{$i} &                    { background-color: white; }
+    // Hover: colored with white icon
+    .issue-#{$i} &:hover                    { background-color: issue-color($i); }
+    .issue-#{$i} &:hover .icon-add-to-cart  { fill: white; }
   }
 }
 
