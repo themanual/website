@@ -13,6 +13,10 @@
   font-weight: weight(bold);
 }
 
+.product-info a {
+  @include link-color-by-issue;
+}
+
 .product-shot p {
   display: none;
   color: gray(50%);
@@ -42,15 +46,15 @@
   margin-top: 1em;
 }
 
-// @include media-upto($bp-s) {
-//   .product-info li {
-//     display: inline;
-//     margin-top: 0 !important;
-//     &:after {
-//       content: ",";
-//     }
-//     &:last-child:after {
-//       content: ".";
-//     }
-//   }
-// }
+@include media-upto($bp-s) {
+  .product-info li {
+    display: inline;
+    margin-top: 0 !important;
+    &:after {
+      content: ",";
+    }
+    &:last-child:after {
+      content: ".";
+    }
+  }
+}
