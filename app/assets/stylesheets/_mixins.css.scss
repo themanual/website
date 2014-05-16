@@ -129,6 +129,10 @@
   color: gray(20%);
 }
 
+.heading-sc { @extend %heading-sc; }
+.heading-sc-light { @extend %heading-sc-light; }
+.heading-sc-heavy { @extend %heading-sc-heavy; }
+
 @mixin issue-number {
   font-family: $type-sans;
   font-weight: weight(bold);
