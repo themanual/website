@@ -5,7 +5,11 @@
     <h1>Store</h1>
   </div></header>
 
-  <section id="issues" class="products l-pad-yy"><div class="l-container">
+  <section id="subscriptions" class="l-pad-yy"><div class="l-container">
+    <h2 class="products-heading">Subscriptions</h2>
+  </div></section>
+
+  <section id="issues" class="products l-pad-yy l-divider-top"><div class="l-container">
     <h2 class="products-heading">Individual Issues</h2>
     <ul class="product-list l-pad-tt">
       <li class="product issue-4">
@@ -42,12 +46,12 @@
                 </a>
                 <p class="buy-item-price">
                   <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span class="currency">$</span><span class="value">5</span>&nbsp;shipping</span>
+                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
                 </p>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Ebook <span class="info">i</span></h4>
+              <h4 class="buy-item-name">Ebook</h4>
               <!--
               <div class="buy-item-description">
                 <p>DRM&#8209;Free ePub, Mobi, and PDF</p>
@@ -113,7 +117,7 @@
                 </a>
                 <p class="buy-item-price">
                   <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span class="currency">$</span><span class="value">5</span>&nbsp;shipping</span>
+                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
                 </p>
               </div>
             </div>
@@ -184,7 +188,7 @@
                 </a>
                 <p class="buy-item-price">
                   <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span class="currency">$</span><span class="value">5</span>&nbsp;shipping</span>
+                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
                 </p>
               </div>
             </div>
@@ -255,7 +259,7 @@
                 </a>
                 <p class="buy-item-price">
                   <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span class="currency">$</span><span class="value">5</span>&nbsp;shipping</span>
+                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
                 </p>
               </div>
             </div>
@@ -296,14 +300,44 @@
   </div></section>
 
   <section id="info" class="l-pad l-divider-top"><div class="l-grid text">
-    <div class="l-col-half">
+    <div class="l-col-third" id="fn:shipping">
+      <h4>Shipping</h4>
+      <p data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
+    </div>
+    <div class="l-col-third">
       <h4>Digital Formats</h4>
       <p>Ebooks come in ePub, Mobi, and PDF format. Audiobooks come in MP3 and M4B format. All files are DRM-free.</p>
     </div>
-    <div class="l-col-half">
+    <div class="l-col-third">
       <h4>Bulk Orders</h4>
       <p>We offer discounts on large orders. If you’re interested in buying more than 20 issues in any format, <a href="mailto:hi@alwaysreadthemanual.com">drop us a line.</a></p>
     </div>
   </div></section>
 
 </main>
+
+<% content_for :footer do %>
+<script>$(function() {
+  $("a[href='#fn:shipping']").click(function() {
+    var $shipping = $("[id='fn:shipping']");
+    $.scrollTo($shipping, {
+      duration: 250,
+      onAfter: function() {
+        $shipping.animatecss('flash');
+      }
+    });
+    return false;
+  });
+
+  $.getEstimatedShippingCost({}, function(data){
+    if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
+      // Update cost
+      var cost = Number(data.response.cost).toFixed();
+      $('[data-shipping="cost"]').animatecss('flash').html(prefixCurrency(cost)+"&nbsp;");
+      // Update message
+      message = 'Shipping costs <span class="highlight">estimated for ' + data.response.ip_country_name + '.</span> Exact cost depends on shipping address and will be calculated at checkout.';
+      $('[data-shipping="message"]').animatecss('fadeIn').html(message);
+    }
+  });
+});</script>
+<% end %>
