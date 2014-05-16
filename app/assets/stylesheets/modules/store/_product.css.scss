@@ -13,6 +13,10 @@
   font-weight: weight(bold);
 }
 
+.product-info {
+  margin-bottom: 1em;
+}
+
 .product-info a {
   @include link-color-by-issue;
 }
@@ -27,9 +31,9 @@
 .product-name {
   font-family: $type-sans;
   font-weight: weight(bold);
-  font-size: 1.25em;
-  padding-top:    .8em;
-  padding-bottom: .8em;
+  font-size: 1.2em;
+  padding-top:    1em;
+  padding-bottom: .5em;
 }
 
 .product-info ul {
@@ -40,10 +44,6 @@
   li + li {
     margin-top: .3em;
   }
-}
-
-.product-buy {
-  margin-top: 1em;
 }
 
 @include media-upto($bp-s) {

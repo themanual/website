@@ -1,40 +1,41 @@
 .buy {
   font-family: $type-sans;
   font-size: .85em;
+  border-top: divider();
+  border-bottom: divider();
 }
 
 .buy a {
   @include link-color-by-issue;
 }
 
-.buy-item {
-  padding: .6em 0;
-}
+.buy-item { @include padding-v(.6em); }
+.buy-item + .buy-item { border-top: divider(); }
 
-.buy-item {
-  border-top: divider();
-}
-
-.buy-item:last-child {
-  border-bottom: divider();
+.buy.is-boxed {
+  border: divider();
+  border-radius: 3px;
+  .buy-item { padding: .5em; }
+  .buy-item:first-child { border-top: none; }
+  .buy-item:last-child { border-bottom: none; }
 }
 
 .buy-item-name {
+  color: gray(30%);
   @extend %heading-sc-heavy;
-  font-weight: weight(bold);
+  font-weight: weight(medium);
   line-height: 1.2;
-  margin-top: .2em;
-  margin-bottom: .6em;
 }
 
 .buy-item-description {
   color: gray(60%);
   font-size: .9em;
   line-height: 1.3;
+  // display: none;
 }
 
 .buy-item-action {
-  margin-top: .4em;
+  margin-top: .2em;
   overflow: hidden;
 }
 
