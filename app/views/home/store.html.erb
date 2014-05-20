@@ -5,14 +5,118 @@
     <h1>Store</h1>
   </div></header>
 
-  <section id="subscriptions" class="l-pad-yy"><div class="l-container">
-    <h2 class="products-heading">Subscriptions</h2>
+  <section id="subscriptions" class="store-subscriptions l-pad-x-yy"><div class="l-grid">
+    <div class="l-col-third">
+      <h2 class="product-name">Subscriptions</h2>
+      <div class="product-info">
+        <p>Becoming a subscriber makes sure you’ll never miss new issues of The Manual.</p>
+        <p>We publish three issues per year and you can cancel your subscription at any time.</p>
+      </div>
+    </div>
+    <div class="l-col-third">
+      yada
+    </div>
+    <div class="l-col-third">
+      yada
+    </div>
   </div></section>
 
-  <section id="issues" class="products l-pad-x-yy l-divider-top"><div class="l-container">
-    <h2 class="products-heading">Individual Issues</h2>
-    <ul class="product-list l-pad-tt">
-      <li class="product issue-4">
+  <section id="collections" class="products l-pad-x-yy l-divider-top"><div class="l-container">
+    <h2 class="products-heading">All Items</h2>
+    <div class="l-row l-stacked-grid">
+
+
+      <!-- Collections -->
+
+
+      <div class="product l-col-fourth">
+        <div class="product-shot">
+          <figure><%= image_tag 'http://placehold.it/800x600' %></figure>
+        </div>
+        <h2 class="product-name">All Issues</h2>
+        <div class="product-info">
+          <p>The perfect introduction to The Manual, <%= link_to "all four Issues", issues_path %> <span class="highlight">at 20% off.</span></p>
+        </div>
+        <div class="product-buy">
+          <div class="buy">
+            <div class="buy-item">
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              </div>
+              <div class="buy-item-action">
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">80</span>
+                </a>
+              </div>
+            </div>
+            <div class="buy-item">
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Ebook</h4>
+              </div>
+              <div class="buy-item-action">
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">35</span>
+                </a>
+              </div>
+            </div>
+            <div class="buy-item">
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Audiobook</h4>
+              </div>
+              <div class="buy-item-action">
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">35</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product l-col-fourth">
+        <div class="product-shot">
+          <figure><%= image_tag 'http://placehold.it/800x600' %></figure>
+        </div>
+        <h2 class="product-name">Volume I</h2>
+        <div class="product-info">
+          <p>A collector’s item and a great gift for any occasion, Volume I contains Issues 1–3 in a beatiful limited-edition engraved plywood case.</p>
+        </div>
+        <div class="product-buy">
+          <div class="buy">
+            <div class="buy-item">
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Issues &amp; Case</h4>
+              </div>
+              <div class="buy-item-action">
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">100</span>
+                </a>
+              </div>
+            </div>
+            <div class="buy-item">
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Case Only</h4>
+              </div>
+              <div class="buy-item-action">
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">30</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Individual Issues -->
+
+
+      <div class="product l-col-fourth issue-4">
         <div class="product-shot">
           <figure>
             <%= image_tag 'store/products/issue-4.png' %>
@@ -31,41 +135,45 @@
           </ul>
         </div>
         <div class="product-buy">
-          <div class="buy is-boxed">
+          <div class="buy">
             <div class="buy-item">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#">
-                  <%= inline_svg 'ui/icon-add-to-cart.svg' %>
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">25</span>
                 </a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
-                </p>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Ebook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Audiobook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Audiobook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </li>
-      <li class="product issue-3">
+      </div>
+
+      <div class="product l-col-fourth issue-3">
         <div class="product-shot">
           <figure>
             <%= image_tag 'store/products/issue-3.png' %>
@@ -78,47 +186,51 @@
             <li>Paul Soulellis</li>
             <li>Nina Stössinger</li>
             <li>Jeremy Keith</li>
-            <li>Tiffani Jones Brow</li>
+            <li>Tiffani Jones Brown</li>
             <li>Duane King</li>
             <li>Ethan Marcotte</li>
           </ul>
         </div>
         <div class="product-buy">
-          <div class="buy is-boxed">
+          <div class="buy">
             <div class="buy-item">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#">
-                  <%= inline_svg 'ui/icon-add-to-cart.svg' %>
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">25</span>
                 </a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
-                </p>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Ebook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Audiobook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Audiobook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </li>
-      <li class="product issue-2">
+      </div>
+
+      <div class="product l-col-fourth issue-2">
         <div class="product-shot">
           <figure>
             <%= image_tag 'store/products/issue-2.png' %>
@@ -137,41 +249,45 @@
           </ul>
         </div>
         <div class="product-buy">
-          <div class="buy is-boxed">
+          <div class="buy">
             <div class="buy-item">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#">
-                  <%= inline_svg 'ui/icon-add-to-cart.svg' %>
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">25</span>
                 </a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
-                </p>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Ebook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Audiobook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Audiobook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </li>
-      <li class="product issue-1">
+      </div>
+
+      <div class="product l-col-fourth issue-1">
         <div class="product-shot">
           <figure>
             <%= image_tag 'store/products/issue-1.png' %>
@@ -190,44 +306,49 @@
           </ul>
         </div>
         <div class="product-buy">
-          <div class="buy is-boxed">
+          <div class="buy">
             <div class="buy-item">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Print &amp; Ebook</h4>
+              </div>
               <div class="buy-item-action">
                 <a class="buy-item-button" href="#">
-                  <%= inline_svg 'ui/icon-add-to-cart.svg' %>
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">25</span>
                 </a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">25</span></span>
-                  <span class="price-shipping">+&nbsp;<span data-shipping="cost"></span>shipping<a class="footnote" href="#fn:shipping">*</a></span>
-                </p>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Ebook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Ebook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
             <div class="buy-item">
-              <h4 class="buy-item-name">Audiobook</h4>
+              <div class="buy-item-text">
+                <h4 class="buy-item-name">Audiobook</h4>
+              </div>
               <div class="buy-item-action">
-                <a class="buy-item-button" href="#"><%= inline_svg 'ui/icon-add-to-cart.svg' %></a>
-                <p class="buy-item-price">
-                  <span class="price-cost"><span class="currency">$</span><span class="value">10</span></span>
-                </p>
+                <a class="buy-item-button" href="#">
+                  <%= inline_svg 'ui/icon-plus.svg' %>
+                  <span class="currency">$</span><span class="value">10</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+
+
+    </div>
   </div></section>
 
-  <section id="info" class="l-pad l-divider-top"><div class="l-grid text">
+  <section id="info" class="l-pad-x-yy l-divider-top"><div class="l-grid text">
     <div class="l-col-third" id="fn:shipping">
       <h4>Shipping</h4>
       <p data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
