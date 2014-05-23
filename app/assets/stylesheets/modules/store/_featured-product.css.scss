@@ -1,0 +1,31 @@
+.featured-product > * {
+  background-color: $c-bg-gray;
+  padding: 2em;
+}
+
+.featured-product-name {
+  font-family: $type-serif;
+  font-size: 2em;
+  font-weight: weight(black);
+  padding-top: .25em;
+}
+
+.featured-product-description {
+  font-family: $type-sans;
+  line-height: 1.3;
+  @include margin-v(1.5em);
+
+  ul {
+    overflow: hidden;
+  }
+
+  li {
+    margin-bottom: .3em;
+    float: left;
+    width: 50%;
+  }
+}
+
+.featured-product-buy {
+  font-size: .85em;
+}

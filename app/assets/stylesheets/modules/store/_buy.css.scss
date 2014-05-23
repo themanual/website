@@ -1,6 +1,6 @@
 .buy {
   font-family: $type-sans;
-  @include rem(font-size, 16px);
+  // @include rem(font-size, 16px);
   // background-color: $c-bg-gray;
   border-top: divider();
   border-bottom: divider();
@@ -71,10 +71,17 @@
   line-height: 1;
   letter-spacing: em(1,16);
 
+  &:before {
+    content: "+";
+    padding-right: .15em;
+    opacity: .6;
+  }
+
   svg {
-    display: inline-block;
     margin-right: .1em;
     opacity: .6;
+    vertical-align: middle;
+    display: none;
   }
 
   background-color: $c-blue;
