@@ -1,4 +1,5 @@
-<% push_page_title "Store"  %>
+<% push_page_title "Issues" %>
+<% push_page_title "Store" %>
 
 <main>
   <header class="l-pad-x-yy bg-gray"><div class="l-container text">
@@ -7,14 +8,13 @@
 
   <nav class="l-pad-x l-divider bg-gray"><div class="sub-nav l-container">
     <ul class="sub-nav-list">
-      <li><a href="#">Featured</a></li>
-      <li><a href="#">Subscriptions</a></li>
-      <li><a href="#">Collections</a></li>
-      <li><a href="#" class="is-current">Issues</a></li>
-      <li><a href="#">Goods</a></li>
+      <li><%= link_to "Featured",       {:action => 'featured'} %></li>
+      <li><%= link_to "Subscriptions",  {:action => 'subscriptions' } %></li>
+      <li><%= link_to "Collections",    {:action => 'collections' } %></li>
+      <li><%= link_to "Issues",         {:action => 'issues' }, :class => 'is-current'  %></li>
+      <li><%= link_to "Goods",          {:action => 'goods' } %></li>
     </ul>
   </div></nav>
-
 
   <section id="featured-issue" class="featured-product issue-4 l-pad-x-yy"><div class="l-container">
     <div class="l-units">

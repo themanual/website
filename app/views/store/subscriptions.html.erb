@@ -1,0 +1,19 @@
+<% push_page_title "Subscriptions" %>
+<% push_page_title "Store" %>
+
+<main>
+  <header class="l-pad-x-yy bg-gray"><div class="l-container text">
+    <h1>Store</h1>
+  </div></header>
+
+  <nav class="l-pad-x l-divider bg-gray"><div class="sub-nav l-container">
+    <ul class="sub-nav-list">
+      <li><%= link_to "Featured",       {:action => 'featured'} %></li>
+      <li><%= link_to "Subscriptions",  {:action => 'subscriptions' }, :class => 'is-current'  %></li>
+      <li><%= link_to "Collections",    {:action => 'collections' }%></li>
+      <li><%= link_to "Issues",         {:action => 'issues' } %></li>
+      <li><%= link_to "Goods",          {:action => 'goods' } %></li>
+    </ul>
+  </div></nav>
+
+</main>

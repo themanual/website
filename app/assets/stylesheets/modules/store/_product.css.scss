@@ -2,7 +2,18 @@
   @include spacing(margin-bottom, 1.5);
   @extend %heading-sc-heavy;
   color: black;
-  font-weight: weight(bold);
+  font-weight: weight(medium);
+  @include clearfix;
+
+  h2 {
+    float: left;
+  }
+
+  p {
+    float: right;
+    font-weight: weight(regular);
+    color: gray(50%);
+  }
 }
 
 .product-name { font-size: 1.4em; }

@@ -23,7 +23,6 @@ TheManual::Application.routes.draw do
   end
 
   get '/support_us',  to: 'home#support', as: :support_us
-  get '/store',       to: 'home#store',   as: :store
 
   resource :subscribe, controller: :support, only: [:show, :create] do
     get ':tier/thanks',   action: :thanks,   as: :thanks
@@ -45,4 +44,7 @@ TheManual::Application.routes.draw do
   # seo stuff
   get "robots(.:format)" => 'seo#robots'
   get "sitemap(.:format)" => 'seo#sitemap'
+
+  get '/store', to: 'store#index', as: :store
+  get ':controller(/:action(/:id))'
 end
