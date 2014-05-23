@@ -1,0 +1,44 @@
+.sub-nav {
+  // border-bottom: divider();
+}
+
+.sub-nav-list {
+  @include clearfix;
+  @extend %heading-sc;
+  line-height: 1;
+}
+
+.sub-nav-list > * {
+  float: left;
+
+  + * { margin-left: 2em; }
+
+  a {
+    display: block;
+    // border-bottom: solid 2px transparent;
+    margin-bottom: -1px;
+    @include padding-v(1.2em);
+    @include transition(all .15s ease-in-out);
+
+    &:link,
+    &:visited {
+      color: gray(60%);
+    }
+
+    &.is-current {
+      font-weight: weight(bold);
+      border-bottom-color: black;
+      &:link,
+      &:visited {
+        color: black;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #000;
+      // border-bottom-color: black;
+    }
+  }
+}
