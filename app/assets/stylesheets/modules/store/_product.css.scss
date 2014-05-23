@@ -20,8 +20,12 @@
   font-family: $type-serif;
   font-weight: weight(black);
   font-size: 1.25em;
-  padding-top: .8em;
+  padding-top: .4em;
   padding-bottom: .4em;
+}
+
+.product-shot + .product-name {
+  padding-top: .8em;
 }
 
 .product-info {
