@@ -55,6 +55,12 @@
 .l-wrapper {
   @extend .l-container;
   @extend .l-pad-x;
+  @include box-sizing(content-box);
+}
+
+.l-wrapper-grid {
+  @extend .l-wrapper;
+  @extend .l-row;
 }
 
 .l-left  { float: left;  }

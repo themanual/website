@@ -10,15 +10,12 @@
 
 .sub-nav-list > * {
   float: left;
-
   + * { margin-left: 2em; }
 
   a {
     display: block;
-    // border-bottom: solid 2px transparent;
     margin-bottom: -1px;
     @include padding-v(1.2em);
-    // @include transition(all .15s ease-in-out);
 
     &:link,
     &:visited {
@@ -27,7 +24,7 @@
 
     &.is-current {
       font-weight: weight(bold);
-      border-bottom-color: black;
+
       &:link,
       &:visited {
         color: black;

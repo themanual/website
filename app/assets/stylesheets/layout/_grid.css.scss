@@ -12,6 +12,7 @@
   .l-col#{$class}-half   { @include span-columns($grid-columns/2); @include omega(2n); }
   .l-col#{$class}-third  { @include span-columns($grid-columns/3); @include omega(3n); }
   .l-col#{$class}-fourth { @include span-columns($grid-columns/4); @include omega(4n); }
+  .l-col#{$class}-two-thirds  { @include span-columns(2*$grid-columns/3); }
   .l-col#{$class}-fill   { @include fill-parent(); }
   .l-col#{$class}-rest   { overflow: hidden; }
 }
