@@ -6,10 +6,7 @@ class StoreController < ApplicationController
   def featured
   end
 
-  def subscriptions
-  end
-
-  def collections
+  def subscription
   end
 
   def issues

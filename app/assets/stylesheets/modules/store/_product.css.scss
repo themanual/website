@@ -1,7 +1,6 @@
 .products-heading {
-  @include spacing(margin-bottom, 1.5);
   @extend %heading-sc-heavy;
-  color: black;
+  color: gray(30%);
   font-weight: weight(medium);
   @include clearfix;
 
@@ -16,7 +15,7 @@
   }
 }
 
-.product-name { font-size: 1.4em; }
+.product-name { font-size: 1.5em; }
 .product-description { font-size: .85em; }
 .product-buy { font-size: .8em; }
 
@@ -24,21 +23,20 @@
   display: none;
   color: gray(50%);
   font-family: $type-sans;
-  // font-size: em(14, $rem-value);
 }
 
 .product-name {
   font-family: $type-serif;
   font-weight: weight(black);
-  margin-top: .75em;
+  margin-top: 1em;
+  margin-bottom: .5em;
 }
 
 .product-description {
   font-family: $type-sans;
   color: gray(30%);
   line-height: 1.4;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.176470588em;
 }
 
 .product-description a {
