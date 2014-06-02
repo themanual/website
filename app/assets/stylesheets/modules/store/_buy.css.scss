@@ -74,8 +74,9 @@
 
   &:before {
     content: "+";
-    padding-right: .15em;
-    opacity: .6;
+    padding-right: .1em;
+    opacity: .75;
+    font-weight: weight(medium);
   }
 
   svg {
