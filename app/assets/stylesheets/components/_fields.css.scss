@@ -30,10 +30,12 @@
 // Inputs
 //
 
-label, input, textarea,
-select, option,
-.label, .value {
-  font-family: $type-sans;
+form {
+  label, input, textarea,
+  select, option,
+  .label, .value {
+    font-family: $type-sans;
+  }
 }
 
 input, textarea {
