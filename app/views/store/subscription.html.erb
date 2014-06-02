@@ -1,4 +1,4 @@
-<% push_page_title "Subscriptions" %>
+<% push_page_title "Subscription" %>
 <% push_page_title "Store" %>
 
 <main>
@@ -14,4 +14,166 @@
     </ul>
   </div></nav>
 
+  <section class="l-pad"><div class="l-container">
+
+    <div class="subscription-step subscription-type">
+      <div class="subscription-step-header">
+        <h2 class="subscription-step-heading">Pick a format</h2>
+        <p class="subscription-step-detail">Every format includes the previous ones</p>
+      </div>
+
+      <ul class="subscription-options subscription-options-connected">
+        <li class="subscription-option">
+          <label>
+            <input type="radio" name="subscription[type]" value="web" />
+            <div class="subscription-option-row">
+              <figure class="subscription-option-illo">
+                <img src="http://placehold.it/150x150" alt="">
+              </figure>
+              <div class="subscription-option-text">
+                <div class="subscription-option-header">
+                  <h2 class="subscription-option-name">Web</h2>
+                  <p class="subscription-option-price"><span class="currency">$</span>15</p>
+                </div>
+                <div class="subscription-option-description">
+                  <ul>
+                    <li>Read the Online Edition of Issues 5, 6 and 7 one month ahead of non-subscribers.</li>
+                    <li>Beta-tester access to future website features and sections.</li>
+                    <li>Our heartfelt gratitute for supporting the continuous publication of The Manual</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </label>
+        </li>
+
+        <li class="subscription-option">
+          <label>
+            <input type="radio" name="subscription[type]" value="ebook" />
+            <div class="subscription-option-row">
+              <figure class="subscription-option-illo">
+                <img src="http://placehold.it/150x150" alt="">
+              </figure>
+              <div class="subscription-option-text">
+                <div class="subscription-option-header">
+                  <h2 class="subscription-option-name">Ebook</h2>
+                  <p class="subscription-option-price"><span class="plus">+</span><span class="currency">$</span>10</p>
+                </div>
+                <div class="subscription-option-description">
+                  <ul>
+                    <li>Download of Ebook Edition of Issues 5, 6 and 7 one month ahead of non-subscribers.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </label>
+        </li>
+
+        <li class="subscription-option">
+          <label>
+            <input type="radio" name="subscription[type]" value="print" />
+            <div class="subscription-option-row">
+              <figure class="subscription-option-illo">
+                <img src="http://placehold.it/150x150" alt="">
+              </figure>
+              <div class="subscription-option-text">
+                <div class="subscription-option-header">
+                  <h2 class="subscription-option-name">Print</h2>
+                  <p class="subscription-option-price"><span class="plus">+</span><span class="currency">$</span>35</p>
+                </div>
+                <div class="subscription-option-description">
+                  <ul>
+                    <li>Print Edition of Issues 5, 6 and 7 in a beautiful hardback format.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="subscription-step">
+      <div class="subscription-step-header">
+        <h2 class="subscription-step-heading">Add optional extras</h2>
+        <p class="subscription-step-detail">More ways to enjoy The Manual</p>
+      </div>
+
+      <ul class="subscription-options subscription-extras">
+        <li class="subscription-option">
+          <label>
+            <input type="checkbox" name="subscription[extras][]" value="audiobook" />
+            <div class="subscription-option-row">
+              <figure class="subscription-option-illo">
+                <img src="http://placehold.it/150x150" alt="">
+              </figure>
+              <div class="subscription-option-text">
+                <div class="subscription-option-header">
+                  <h2 class="subscription-option-name">Audiobooks</h2>
+                  <p class="subscription-option-price"><span class="plus">+</span><span class="currency">$</span>25</p>
+                </div>
+                <div class="subscription-option-description">
+                  <ul>
+                    <li>Download of Audiobook Edition of Issues 5, 6 and 7.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </label>
+        </li>
+
+        <li class="subscription-option">
+          <label>
+            <input type="checkbox" name="subscription[extras][]" value="prints" />
+            <div class="subscription-option-row">
+              <figure class="subscription-option-illo">
+                <img src="http://placehold.it/150x150" alt="">
+              </figure>
+              <div class="subscription-option-text">
+                <div class="subscription-option-header">
+                  <h2 class="subscription-option-name">Illustration Prints</h2>
+                  <p class="subscription-option-price"><span class="plus">+</span><span class="currency">$</span>5</p>
+                </div>
+                <div class="subscription-option-description">
+                  <ul>
+                    <li>Postcard-sized prints of each illustration in Issues 5, 6, and 7.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="subscription-step">
+      <div class="subscription-step-header">
+        <h2 class="subscription-step-heading">Review subscription</h2>
+      </div>
+
+      <div class="subscription-review">
+        <input type="text" readonly="readonly" class="subscription-price" />
+
+        <button type="submit">Add to Cart</button>
+      </div>
+    </div>
+
+  </div></section>
+
 </main>
+
+<% content_for :footer do %>
+<script>$(function() {
+  $('.subscription-type :radio').change(function(event) {
+    var $option = $(this).closest('.subscription-option');
+    $option.prevAll('.subscription-option').find(':radio').addClass('checked')
+    $option.nextAll('.subscription-option').andSelf().find(':radio').removeClass('checked');
+  });
+
+  $('.subscription-type .subscription-option').hover(function() {
+    $(this).prevAll('.subscription-option').addClass('hover');
+  }, function() {
+    $(this).prevAll('.subscription-option').andSelf().removeClass('hover');
+  });
+});</script>
+<% end %>
