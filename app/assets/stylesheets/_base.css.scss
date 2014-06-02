@@ -59,7 +59,7 @@ a {
 }
 
 .highlight {
-  background-color: #FFFBDC;
+  background-color: $c-highlight;
   color: black;
   display: inline;
   > * { color: black !important; }
