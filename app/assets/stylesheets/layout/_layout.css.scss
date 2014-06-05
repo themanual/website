@@ -14,6 +14,10 @@
 
 // Paddings
 .l-p      { @include spacing(padding); }
+.l-p-t    { @include spacing(padding-top,  1.0); }
+.l-p-tt   { @include spacing(padding-top,  1.5); }
+.l-p-b    { @include spacing(padding-bottom,  1.0); }
+.l-p-bb   { @include spacing(padding-bottom,  1.5); }
 .l-p-x    { @include spacing(padding-left padding-right,  1.0); }
 .l-p-y    { @include spacing(padding-top  padding-bottom, 1.0); }
 .l-p-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
