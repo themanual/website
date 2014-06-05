@@ -20,14 +20,17 @@
 .l-pad-xx   { @include spacing(padding-left padding-right,  1.5); }
 .l-pad-xxx  { @include spacing(padding-left padding-right,  2.0); }
 // Padding Y
+.l-pad-yh   { @include spacing(padding-top  padding-bottom, 0.5); }
 .l-pad-y    { @include spacing(padding-top  padding-bottom, 1.0); }
 .l-pad-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
 .l-pad-yyy  { @include spacing(padding-top  padding-bottom, 2.0); }
 // Padding Top
+.l-pad-th   { @include spacing(margin-top,  0.5); }
 .l-pad-t    { @include spacing(margin-top,  1.0); }
 .l-pad-tt   { @include spacing(margin-top,  1.5); }
 .l-pad-ttt  { @include spacing(margin-top,  2.0); }
 // Padding Bottom
+.l-pad-bh   { @include spacing(margin-bottom,  0.5); }
 .l-pad-b    { @include spacing(margin-bottom,  1.0); }
 .l-pad-bb   { @include spacing(margin-bottom,  1.5); }
 .l-pad-bbb  { @include spacing(margin-bottom,  2.0); }
