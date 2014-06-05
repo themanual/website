@@ -1,0 +1,46 @@
+/* Button toggle styling inspired by http://wtfforms.com */
+
+.button-toggle {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button-toggle input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.button-toggle .indicator {
+  display: inline-block;
+  padding: .4em;
+  line-height: 1;
+  border: solid 2px;
+  border-radius: 4px;
+  background-color: white;
+  border: solid 2px $c-blue;
+  color: $c-blue;
+  @include transition(all .1s linear);
+}
+
+.button-toggle:hover .indicator {
+  border-color: $c-blue;
+  background-color: $c-blue;
+  color: white;
+}
+.button-toggle input:focus + .indicator {
+  border-color: black;
+  background-color: white;
+  color: black;
+}
+
+.button-toggle input:checked + .indicator {
+  border-color: $c-field-valid;
+  background-color: $c-field-valid;
+  color: white;
+}
+
+.button-toggle input:checked + .indicator {
+
+}
