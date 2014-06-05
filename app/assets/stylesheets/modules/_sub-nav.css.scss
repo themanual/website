@@ -9,7 +9,7 @@
 }
 
 .sub-nav-list > * {
-  float: left;
+  display: inline-block;
   + * { margin-left: 2em; }
 
   a {
