@@ -46,7 +46,8 @@ a {
 
   @each $i in $issues {
     &.issue-#{$i},
-    .issue-#{$i} &.color-issue {
+    .issue-#{$i} &.color-issue,
+    .issue-#{$i} .colored-links & {
       @include colored-link {
         color: issue-color($i);
       }
