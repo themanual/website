@@ -1,0 +1,18 @@
+.price {
+
+  font-family: $type-sans;
+
+  .value {
+    font-weight: weight(bold);
+  }
+
+  .plus {
+    font-weight: weight(light);
+    padding-right: .2em;
+    opacity: .5;
+  }
+
+  .currency {
+    font-weight: weight(regular);
+  }
+}
