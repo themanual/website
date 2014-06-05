@@ -14,12 +14,12 @@
     </ul>
   </div></nav>
 
-  <section class="l-p-xyy"><div class="l-container">
+  <section class="l-p-xyy"><div class="l-container"><form id="subscription-form" action="">
 
-    <header class="l-shift-3 l-m-bb">
-      <h1 class="h2">Build an Annual Subscription</h1>
-      <div class="text t-small-sans">
-        <ul class="outdented loose">
+    <header class="l-m-bb l-row">
+      <h1 class="l-col-3 h2">Make an Annual Subscription</h1>
+      <div class="l-col-rest text t-small-sans">
+        <ul class="plain loose">
           <li>Annual Subscriptions include the <span class="highlight">next three issues: 5, 6, and 7,</span> available in multiple formats.</li>
           <li>Subscribers have early access to new issues, and <span class="highlight">20% off regular price</span> on Ebook and Print editions.</li>
           <li>We publish everything online for free, so <span class="highlight">we rely on our readers’ generous support</span>. Thank you.</li>
@@ -30,41 +30,56 @@
     <div class="l-line-t l-row">
       <div class="l-col-fourth l-m-y">
         <h2 class="h1-sc">Get Started</h2>
-        <p class="h2-sc">Pick an option</p>
+        <p class="h2-sc">Pick one format</p>
       </div>
 
       <ul class="l-col-rest">
         <li class="l-col-third l-m-y">
           <figure><img src="http://placehold.it/600x300/F5F5F5/0055DD" alt=""></figure>
-          <h2 class="h4">Web</h2>
+          <h2 class="h3">Web</h2>
           <div class="text t-note">
             <p>Early access (1 month) to the free Web edition of Issues 5, 6, and 7</p>
             <p><del>Ebook of Issues 5, 6, and 7, one onth beforepublicly available</del></p>
             <p><del>Printed copy of Issues 5, 6, and 7; shipped on the day of release</del></p>
           </div>
-          <p class="h4 price"><span class="currency">$</span><span class="value">15</span></p>
+          <label class="h4 button-toggle">
+            <input type="radio" name="subscription[type]" value="web" data-price="15" />
+            <span class="indicator price">
+              &#10004; <span class="currency">$</span><span class="value">15</span>
+            </span>
+          </label>
         </li>
 
         <li class="l-col-third l-m-y">
           <figure><img src="http://placehold.it/600x300/F5F5F5/0055DD" alt=""></figure>
-          <h2 class="h4">Ebook</h2>
+          <h2 class="h3">Ebook</h2>
           <div class="text t-note">
             <p>Early access (1 month) to the free Web edition of Issues 5, 6, and 7</p>
             <p>Ebook copy of Issues 5, 6, and 7; one month before publicly available</p>
             <p><del>Printed copy of Issues 5, 6, and 7; shipped on the day of release</del></p>
           </div>
-          <p class="h4 price"><span class="currency">$</span><span class="value">25</span></p>
+          <label class="h4 button-toggle">
+            <input type="radio" name="subscription[type]" value="ebook" data-price="25" />
+            <span class="indicator price">
+              &#10004; <span class="currency">$</span><span class="value">25</span>
+            </span>
+          </label>
         </li>
 
         <li class="l-col-third l-m-y">
           <figure><img src="http://placehold.it/600x300/F5F5F5/0055DD" alt=""></figure>
-          <h2 class="h4">Print</h2>
+          <h2 class="h3">Print</h2>
           <div class="text t-note">
             <p>Early access (1 month) to the free Web edition of Issues 5, 6, and 7</p>
             <p>Ebook copy of Issues 5, 6, and 7; one month before publicly available</p>
             <p>Printed copy of Issues 5, 6, and 7; shipped on the day of release</p>
           </div>
-          <p class="h4 price"><span class="currency">$</span><span class="value">60</span></p>
+          <label class="h4 button-toggle">
+            <input type="radio" name="subscription[type]" value="print" data-price="60" data-shipping="true" />
+            <span class="indicator price">
+              &#10004; <span class="currency">$</span><span class="value">60</span>
+            </span>
+          </label>
         </li>
       </ul>
     </div>
@@ -73,38 +88,83 @@
 
       <div class="l-col-fourth l-m-y">
         <h2 class="h1-sc">Add Any Extras</h2>
-        <p class="h2-sc">Optional</p>
+        <p class="h2-sc">These are optional</p>
       </div>
 
       <ul class="l-col-rest">
-        <li class="l-m-y">
-          <h2 class="h5-heavy">Audiobooks</h2>
-          <div class="text t-note">
-            <p>Audiobook of Issues 5, 6 and 7; narrated by John Appleseed</p>
+        <li class="l-m-y l-row">
+          <h2 class="h5">Audiobooks</h2>
+          <div class="l-col-4">
+            <div class="text t-note">
+              <p>Audiobook of Issues 5, 6 and 7; narrated by John Appleseed</p>
+            </div>
           </div>
+          <label class="l-col-rest button-toggle">
+            <input type="checkbox" name="subscription[extras][]" value="audiobooks" data-price="25" />
+            <span class="indicator price">
+              + <span class="currency">$</span><span class="value">25</span>
+            </span>
+          </label>
         </li>
 
-        <li class="l-m-y">
-          <h2 class="h5-heavy">Illustration Prints</h2>
-          <div class="text t-note">
-            <p>Postcard-sized physical prints of each illustration in Issues 5, 6 and 7</p>
+        <li class="l-m-y l-row">
+          <h2 class="h5">Illustration Prints</h2>
+          <div class="l-col-4">
+            <div class="text t-note">
+              <p>Postcard-sized physical prints of each illustration in Issues 5, 6 and 7</p>
+            </div>
           </div>
+          <label class="l-rest button-toggle">
+            <input type="checkbox" name="subscription[extras][]" value="illustrations" data-price="30" data-shipping="true" />
+            <span class="indicator price">
+              + <span class="currency">$</span><span class="value">30</span>
+            </span>
+          </label>
         </li>
       </ul>
     </div>
 
     <div class="l-row l-line-t">
       <div class="l-col-fourth l-m-y">
-        <h2 class="h1-sc">Review</h2>
+        <h2 class="h1-sc">Total</h2>
       </div>
 
-      <div class="l-col-rest l-m-y">
-        <input type="text" readonly="readonly" class="subscription-price" />
-
-        <button type="submit" class="button is-large">Add to Cart</button>
+      <div class="l-shift-3 l-m-y">
+        <div class="l-col-4">
+          <strong id="subscription-total"   class="t-huge price"></strong>
+          <small id="subscription-shipping" class="h2-sc">+ shipping</small>
+          <small class="h2-sc"> / year</small>
+        </div>
+        <div class="l-col-rest">
+          <button type="submit" class="button is-large">Add to Cart</button>
+        </div>
       </div>
     </div>
 
-  </div></section>
+  </form></div></section>
 
 </main>
+
+<% content_for :footer do %>
+<script>$(function() {
+
+  var updateSubscriptionTotal = function($form) {
+    var total = 0;
+    var shipping = false;
+    $form.find('input[data-price]:checked').each(function(index, el) {
+      $this = $(this);
+      total += parseInt($this.data('price'));
+      if ($this.data('shipping')) { shipping = true; }
+    });
+    $("#subscription-total").html(prefixCurrency(total)).animatecss('flash');
+    $("#subscription-shipping").toggle(shipping);
+  };
+
+  $form = $("#subscription-form");
+  $form.find('input[data-price]').change(function() {
+    updateSubscriptionTotal($form);
+  });
+  updateSubscriptionTotal($form);
+
+});</script>
+<% end %>
