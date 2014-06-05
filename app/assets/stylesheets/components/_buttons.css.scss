@@ -1,7 +1,7 @@
 .button {
 
   @include rem(font-size, 16px);
-  @include transition(color .2s ease-in-out, border-color .2s ease-in-out);
+  @include transition(all .1s linear);
   @include text-and-border-color($c-blue);
 
   display: inline-block;
@@ -19,7 +19,6 @@
 
   cursor: pointer;
 
-
   @include text-and-border-color($c-blue);
 
   &.is-secondary {
@@ -28,16 +27,17 @@
 
   &.is-large {
     @include rem(font-size, 18px);
-    padding: .8em 1em .85em;
+    padding: .85em;
   }
 
   &:focus {
-    @include text-and-border-color(gray(20%));
+    @include text-and-border-color(black);
     outline: none;
   }
 
   &:hover {
-    @include text-and-border-color(#000);
+    background-color: $c-blue;
+    color: white;
   }
 
   &:disabled,

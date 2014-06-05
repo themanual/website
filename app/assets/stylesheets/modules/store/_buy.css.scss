@@ -67,6 +67,7 @@
   border-radius: 4px;
   line-height: 1;
   letter-spacing: em(1,16);
+  @include transition(all .1s linear);
 
   &:before {
     content: "+";
