@@ -1,74 +1,199 @@
 strong  { font-weight: weight(bold); }
 em      { font-weight: italic; }
 
-.text {
+.t-center {
+  text-align: center;
+}
 
-  @include coretext;
+%h1, %h2, %h3, %h4, %h5 {
+  line-height: 1.25;
+  * + & { margin-top: 1em; }
+  margin-bottom: .5em;
+  &:last-child { margin-bottom: 0; }
+}
+
+%h1 {
+  // font-size
+  @include rem(font-size, 48px);
+  @include media-upto($bp-m)  { @include rem(font-size, 40px); }
+  @include media-upto($bp-s) { @include rem(font-size, 28px); }
+  // other
+  font-weight: weight(black);
+}
+
+%h2 {
+  font-size: 1.5em;
+  font-weight: weight(black);
+}
+
+%h3 {
+  font-size: 1.3em;
+  font-weight: weight(bold);
+}
+
+%h4 {
+  font-size: 1.1em;
+  font-weight: weight(bold);
+}
+
+%h5 {
+  font-weight: weight(medium);
+}
+
+.h1 {
+  @extend %h1;
+  font-family: $type-sans;
+}
+
+.h1-serif {
+  @extend %h1;
+  font-family: $type-serif;
+}
+
+.h2 {
+  @extend %h2;
+  font-family: $type-sans;
+}
+
+.h2-serif {
+  @extend %h2;
+  font-family: $type-serif;
+  font-weight: weight(black);
+}
+
+.h3 {
+  @extend %h3;
+  font-family: $type-sans;
+}
+
+.h3-heavy {
+  @extend .h3;
+  font-weight: weight(black);
+}
+
+.h3-serif {
+  @extend %h3;
+  font-family: $type-serif;
+  font-weight: weight(black);
+}
+
+.h4 {
+  @extend %h4;
+  font-family: $type-sans;
+}
+
+.h4-heavy {
+  @extend .h4;
+  font-weight: weight(black);
+}
+
+.h4-serif {
+  @extend .h4;
+  font-family: $type-serif;
+  font-weight: weight(bold);
+}
+
+.h5 {
+  @extend %h5;
+  font-family: $type-sans;
+}
+
+.h5-heavy {
+  @extend .h5;
+  font-weight: weight(bold);
+}
+
+.h5-serif {
+  @extend %h5;
+  font-family: $type-serif;
+  font-weight: weight(bold);
+}
+
+.h1-sc {
+  @extend %heading-sc;
+  font-weight: weight(bold);
+  line-height: 1.25;
+  margin-bottom: .5em;
+}
+
+.h2-sc {
+  @extend %heading-sc;
+  font-weight: weight(regular);
+  color: gray(50%);
+  line-height: 1.25;
+}
+
+.text {
 
   // line-height
   line-height: 1.4;
   @include media-upto($bp-s) { line-height: 1.25; }
 
-  color: gray(30%);
+  color: gray(20%);
   h1, h2, h3, h4 {
     color: black;
-    &.center { text-align: center; }
   }
 
-  h1, h2, h3 {
-    font-family: $type-sans;
+  h1 { @extend .h1; }
+  h2 { @extend .h2; }
+  h3 { @extend .h3; }
+  h4 { @extend .h4; }
+
+  p             { margin-top: 1em; }
+  p:first-child { margin-top: 0; }
+  p.spaced      { margin-top: 1.5em; }
+
+  ul, ol {
+    list-style-position: outside;
+    padding-left: 1.5em;
+    li + li { margin-top: .25em; }
+
+    &.plain { list-style-type: none; }
+
+    &.plain,
+    &.outdented { padding-left: 0; }
+
+    &.loose {
+      li + li { margin-top: .5em; }
+    }
   }
 
-  h1 {
-    // font-size
-    @include rem(font-size, 48px);
-    @include media-upto($bp-m)  { @include rem(font-size, 40px); }
-    @include media-upto($bp-s) { @include rem(font-size, 28px); }
-    // other
-    line-height: 1.1;
-    font-weight: weight(black);
+  ol {
+    list-style-type: decimal;
   }
 
-  h1 + * {
-    margin-top: .5em;
+  ul {
+    list-style-type: disc;
   }
 
-  h2 {
-    font-size: 1.3em;
-    font-weight: weight(bold);
-    margin-top:     1.5em;
-    margin-bottom:  1rem;
-    &:first-child { margin-top: 0; }
-    &:last-child  { margin-bottom: 0; }
+  del {
+    opacity: .4;
   }
+}
 
-  h3, h4 {
-    font-weight: weight(bold);
-    margin-top: 1em;
-    &:first-child { margin-top: 0; }
-  }
+.text-sans {
+  font-family: $type-sans;
+}
 
-  h3 {
-    font-size: 1.1em;
-    font-weight: weight(medium);
-  }
+.text-small {
+  font-size: .85em;
+}
 
-  h3 + * { margin-top: .25em; }
+.text-small-sans {
+  @extend .text-small;
+  @extend .text-sans;
+}
 
-  p + p {
-    margin-top: 1em;
-  }
+.text-note {
+  @extend .text-small-sans;
+  color: gray(40%);
+}
 
-  p.spaced {
-    margin-top: 1.5em;
-  }
+.text-spaced {
+  margin-top: 1.5em;
+}
 
-  em {
-    font-style: italic;
-  }
-
-  strong {
-    font-weight: weight(bold);
-    color: black;
-  }
+.text-intro {
+  font-family: $type-sans;
+  font-size: 1.25em;
 }
