@@ -5,7 +5,8 @@ em      { font-weight: italic; }
   text-align: center;
 }
 
-%h1, %h2, %h3, %h4, %h5 {
+.t-heading {
+  font-family: $type-sans;
   line-height: 1.25;
   * + & { margin-top: 1em; }
   margin-bottom: .5em;
@@ -20,79 +21,18 @@ em      { font-weight: italic; }
   // other
   font-weight: weight(black);
 }
-%h2 { font-size: 1.5em; font-weight: weight(black); }
-%h3 { font-size: 1.3em; font-weight: weight(bold); }
-%h4 { font-size: 1.1em; font-weight: weight(bold); }
-%h5 {                   font-weight: weight(medium); }
 
-.h1 {
-  @extend %h1;
-  font-family: $type-sans;
-}
+.t-huge     { font-size: 2.4em; }
+.t-biggest  { font-size: 1.5em; }
+.t-bigger   { font-size: 1.3em; }
+.t-big      { font-size: 1.1em; }
+.t-normal   { font-size: 1em; }
 
-.h1-serif {
-  @extend %h1;
-  font-family: $type-serif;
-}
-
-.h2 {
-  @extend %h2;
-  font-family: $type-sans;
-}
-
-.h2-serif {
-  @extend %h2;
-  font-family: $type-serif;
-  font-weight: weight(black);
-}
-
-.h3 {
-  @extend %h3;
-  font-family: $type-sans;
-}
-
-.h3-heavy {
-  @extend .h3;
-  font-weight: weight(black);
-}
-
-.h3-serif {
-  @extend %h3;
-  font-family: $type-serif;
-  font-weight: weight(black);
-}
-
-.h4 {
-  @extend %h4;
-  font-family: $type-sans;
-}
-
-.h4-heavy {
-  @extend .h4;
-  font-weight: weight(black);
-}
-
-.h4-serif {
-  @extend .h4;
-  font-family: $type-serif;
-  font-weight: weight(bold);
-}
-
-.h5 {
-  @extend %h5;
-  font-family: $type-sans;
-}
-
-.h5-heavy {
-  @extend .h5;
-  font-weight: weight(bold);
-}
-
-.h5-serif {
-  @extend %h5;
-  font-family: $type-serif;
-  font-weight: weight(bold);
-}
+.h1       { @extend .t-heading; @extend .t-huge;    font-weight: weight(black); }
+.h2       { @extend .t-heading; @extend .t-biggest; font-weight: weight(bold);  }
+.h3       { @extend .t-heading; @extend .t-bigger;  font-weight: weight(bold);  }
+.h4       { @extend .t-heading; @extend .t-big;     font-weight: weight(bold); }
+.h5       { @extend .t-heading; @extend .t-normal;  font-weight: weight(bold); }
 
 .h1-sc {
   @extend %heading-sc;
@@ -109,7 +49,6 @@ em      { font-weight: italic; }
 }
 
 .text {
-
   // line-height
   line-height: 1.4;
   @include media-upto($bp-s) { line-height: 1.25; }
@@ -154,6 +93,10 @@ em      { font-weight: italic; }
   del {
     opacity: .4;
   }
+}
+
+.t-heavy {
+  font-weight: weight(black);
 }
 
 .t-sans {
