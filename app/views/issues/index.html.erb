@@ -2,13 +2,13 @@
 
 <main class="issue_index">
 
-  <header class="text l-pad-x-yy bg-gray"><div class="l-container">
+  <header class="text l-p-xyy bg-gray"><div class="l-container">
     <h1>All Issues</h1>
   </div></header>
 
   <% Issue.public_issues.ordered.each do |issue| %>
     <% cache issue, expires_in: 12.hours.ish do %>
-      <section class="l-pad-x-yy l-divider-top issue-<%= issue.number %>"><div class="l-grid">
+      <section class="l-p-xyy l-line-t issue-<%= issue.number %>"><div class="l-grid">
 
         <header class="l-col-l-half issueheader">
           <h1>Issue <strong><%= issue.number %></strong></h1>

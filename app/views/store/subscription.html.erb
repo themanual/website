@@ -2,11 +2,11 @@
 <% push_page_title "Store" %>
 
 <main>
-  <header class="l-pad-x-yy bg-gray"><div class="l-container text">
+  <header class="l-p-xyy bg-gray"><div class="l-container text">
     <h1>Store</h1>
   </div></header>
 
-  <nav class="l-pad-x l-divider bg-gray"><div class="sub-nav l-container">
+  <nav class="l-p-x l-line bg-gray"><div class="sub-nav l-container">
     <ul class="sub-nav-list">
       <li><%= link_to "Home",       {:action => 'featured'} %></li>
       <li><%= link_to "Subscribe",  {:action => 'subscription'}, :class => 'is-current'  %></li>
@@ -14,9 +14,9 @@
     </ul>
   </div></nav>
 
-  <section class="l-pad-x-yy"><div class="l-container">
+  <section class="l-p-xyy"><div class="l-container">
 
-    <header class="l-shift-3 l-pad-bb">
+    <header class="l-shift-3 l-m-bb">
       <h1 class="h2">Build an Annual Subscription</h1>
       <div class="text t-small-sans">
         <ul class="outdented loose">
@@ -27,14 +27,14 @@
       </div>
     </header>
 
-    <div class="l-divider-top l-row">
-      <div class="l-col-fourth l-margin-y">
+    <div class="l-line-t l-row">
+      <div class="l-col-fourth l-m-y">
         <h2 class="h1-sc">Get Started</h2>
         <p class="h2-sc">Pick an option</p>
       </div>
 
       <ul class="l-col-rest">
-        <li class="l-col-third l-margin-y">
+        <li class="l-col-third l-m-y">
           <figure><img src="http://placehold.it/600x300/F5F5F5/0055DD" alt=""></figure>
           <h2 class="h4">Web</h2>
           <div class="text t-note">
@@ -45,7 +45,7 @@
           <p class="h4 price"><span class="currency">$</span><span class="value">15</span></p>
         </li>
 
-        <li class="l-col-third l-margin-y">
+        <li class="l-col-third l-m-y">
           <figure><img src="http://placehold.it/600x300/F5F5F5/0055DD" alt=""></figure>
           <h2 class="h4">Ebook</h2>
           <div class="text t-note">
@@ -56,7 +56,7 @@
           <p class="h4 price"><span class="currency">$</span><span class="value">25</span></p>
         </li>
 
-        <li class="l-col-third l-margin-y">
+        <li class="l-col-third l-m-y">
           <figure><img src="http://placehold.it/600x300/F5F5F5/0055DD" alt=""></figure>
           <h2 class="h4">Print</h2>
           <div class="text t-note">
@@ -69,22 +69,22 @@
       </ul>
     </div>
 
-    <div class="l-divider-top l-row">
+    <div class="l-line-t l-row">
 
-      <div class="l-col-fourth l-margin-y">
+      <div class="l-col-fourth l-m-y">
         <h2 class="h1-sc">Add Any Extras</h2>
         <p class="h2-sc">Optional</p>
       </div>
 
       <ul class="l-col-rest">
-        <li class="l-margin-y">
+        <li class="l-m-y">
           <h2 class="h5-heavy">Audiobooks</h2>
           <div class="text t-note">
             <p>Audiobook of Issues 5, 6 and 7; narrated by John Appleseed</p>
           </div>
         </li>
 
-        <li class="l-margin-y">
+        <li class="l-m-y">
           <h2 class="h5-heavy">Illustration Prints</h2>
           <div class="text t-note">
             <p>Postcard-sized physical prints of each illustration in Issues 5, 6 and 7</p>
@@ -93,12 +93,12 @@
       </ul>
     </div>
 
-    <div class="l-row l-divider-top">
-      <div class="l-col-fourth l-margin-y">
+    <div class="l-row l-line-t">
+      <div class="l-col-fourth l-m-y">
         <h2 class="h1-sc">Review</h2>
       </div>
 
-      <div class="l-col-rest l-margin-y">
+      <div class="l-col-rest l-m-y">
         <input type="text" readonly="readonly" class="subscription-price" />
 
         <button type="submit" class="button is-large">Add to Cart</button>
