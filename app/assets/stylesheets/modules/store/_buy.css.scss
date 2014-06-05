@@ -1,7 +1,5 @@
 .buy {
   font-family: $type-sans;
-  // @include rem(font-size, 16px);
-  // background-color: $c-bg-gray;
   border-top: divider();
   border-bottom: divider();
 }
@@ -29,12 +27,10 @@
 
 .buy-item {
   @include clearfix;
+  font-weight: weight(medium);
   .currency {
-    font-weight: weight(light);
-    // opacity: .6;
-  }
-  .value {
-    font-weight: weight(medium);
+    opacity: .7;
+    font-weight: weight(regular);
   }
 }
 
@@ -75,7 +71,6 @@
   &:before {
     content: "+";
     padding-right: .1em;
-    opacity: .75;
     font-weight: weight(medium);
   }
 
@@ -86,37 +81,26 @@
     display: none;
   }
 
-  background-color: $c-blue;
+  background-color: white;
   border-color: $c-blue;
-  &:link,
-  &:visited {
-    color: white;
-  }
-  svg *[fill] { fill: white; }
 
   &:hover,
   &:focus,
   &:active {
-    background-color: white;
-    border-color: $c-blue;
-    color: $c-blue;
-    svg *[fill] { fill: $c-blue; }
+    background-color: $c-blue;
+    color: white;
   }
 
   @each $i in $issues {
     .issue-#{$i} & {
-      background-color: issue-color($i);
       border-color: issue-color($i);
-      color: white;
-      svg *[fill] { fill: white; }
+      color: issue-color($i);
     }
 
     .issue-#{$i} &:hover,
     .issue-#{$i} &:focus {
-      background-color: white;
-      border-color: issue-color($i);
-      color: issue-color($i);
-      svg *[fill] { fill: issue-color($i); }
+      background-color: issue-color($i);
+      color: white;
     }
   }
 }
