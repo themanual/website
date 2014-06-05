@@ -20,25 +20,10 @@ em      { font-weight: italic; }
   // other
   font-weight: weight(black);
 }
-
-%h2 {
-  font-size: 1.5em;
-  font-weight: weight(black);
-}
-
-%h3 {
-  font-size: 1.3em;
-  font-weight: weight(bold);
-}
-
-%h4 {
-  font-size: 1.1em;
-  font-weight: weight(bold);
-}
-
-%h5 {
-  font-weight: weight(medium);
-}
+%h2 { font-size: 1.5em; font-weight: weight(black); }
+%h3 { font-size: 1.3em; font-weight: weight(bold); }
+%h4 { font-size: 1.1em; font-weight: weight(bold); }
+%h5 {                   font-weight: weight(medium); }
 
 .h1 {
   @extend %h1;
@@ -171,29 +156,24 @@ em      { font-weight: italic; }
   }
 }
 
-.text-sans {
+.t-sans {
   font-family: $type-sans;
 }
 
-.text-small {
+.t-small {
   font-size: .85em;
 }
 
-.text-small-sans {
-  @extend .text-small;
-  @extend .text-sans;
+.t-small-sans {
+  @extend .t-small;
+  @extend .t-sans;
 }
 
-.text-note {
-  @extend .text-small-sans;
+.t-note {
+  @extend .t-small-sans;
   color: gray(40%);
 }
 
 .text-spaced {
   margin-top: 1.5em;
-}
-
-.text-intro {
-  font-family: $type-sans;
-  font-size: 1.25em;
 }
