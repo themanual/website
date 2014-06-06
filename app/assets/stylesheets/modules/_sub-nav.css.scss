@@ -19,11 +19,11 @@
 
     &:link,
     &:visited {
-      color: gray(60%);
+      color: gray(50%);
     }
 
     &.is-current {
-      font-weight: weight(bold);
+      font-weight: weight(medium);
 
       &:link,
       &:visited {
