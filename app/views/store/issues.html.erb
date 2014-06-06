@@ -8,9 +8,9 @@
 
   <nav class="l-p-x l-line bg-gray"><div class="sub-nav l-container">
     <ul class="sub-nav-list">
-      <li><%= link_to "Home",       {:action => 'featured'} %></li>
-      <li><%= link_to "Subscribe",   {:action => 'subscription'} %></li>
-      <li><%= link_to "Buy Issues",         {:action => 'issues' }, :class => 'is-current'  %></li>
+      <li><%= link_to "Featured",       {:action => 'featured'} %></li>
+      <li><%= link_to "Annual Subscription",   {:action => 'subscription'} %></li>
+      <li><%= link_to "Issues",         {:action => 'issues' }, :class => 'is-current'  %></li>
     </ul>
   </div></nav>
 
@@ -18,7 +18,7 @@
 
     <article class="issue-4 l-col-half">
       <figure>
-        <%= image_tag 'http://placehold.it/900x450' %>
+        <%= image_tag 'http://placehold.it/900x450/F5F5F5/FFFFFF' %>
       </figure>
       <h1 class="h3">Issue <span class="issue-number">4</span></h1>
       <div class="l-row">
@@ -26,6 +26,26 @@
           <p>Our current issue contains articles and lessons from Wilson Miner, Craig Mod, Jennifer Brook, Diana Kimball, David Cole and Paul Ford.</p>
         </div>
         <div class="l-col-half buy t-small-sans">
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Audiobook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
+          </div>
           <div class="buy-item">
             <div class="buy-item-text">
               <h4 class="buy-item-name">Print &amp; Ebook</h4>
@@ -36,33 +56,13 @@
               </a>
             </div>
           </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
-              <h4 class="buy-item-name">Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
-              <h4 class="buy-item-name">Audiobook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </article>
 
     <article class="l-col-half">
       <figure class="product-shot">
-        <%= image_tag 'http://placehold.it/900x450' %>
+        <%= image_tag 'http://placehold.it/900x450/F5F5F5/FFFFFF' %>
       </figure>
       <h1 class="h3">The Collection</h1>
       <div class="l-row">
@@ -72,16 +72,6 @@
         <div class="l-col-half t-small-sans buy">
           <div class="buy-item">
             <div class="buy-item-text">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">80</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
               <h4 class="buy-item-name">Ebook</h4>
             </div>
             <div class="buy-item-action">
@@ -97,6 +87,16 @@
             <div class="buy-item-action">
               <a class="button price" href="#">
                 <span class="symbol">+</span><span class="currency">$</span><span class="value">30</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">80</span>
               </a>
             </div>
           </div>
@@ -128,16 +128,6 @@
         <div class="buy l-m-t t-small-sans">
           <div class="buy-item">
             <div class="buy-item-text">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
               <h4 class="buy-item-name">Ebook</h4>
             </div>
             <div class="buy-item-action">
@@ -153,6 +143,16 @@
             <div class="buy-item-action">
               <a class="button price" href="#">
                 <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
               </a>
             </div>
           </div>
@@ -177,16 +177,6 @@
         <div class="buy l-m-t t-small-sans">
           <div class="buy-item">
             <div class="buy-item-text">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
               <h4 class="buy-item-name">Ebook</h4>
             </div>
             <div class="buy-item-action">
@@ -202,6 +192,16 @@
             <div class="buy-item-action">
               <a class="button price" href="#">
                 <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
               </a>
             </div>
           </div>
@@ -226,16 +226,6 @@
         <div class="buy t-small-sans l-m-t">
           <div class="buy-item">
             <div class="buy-item-text">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
               <h4 class="buy-item-name">Ebook</h4>
             </div>
             <div class="buy-item-action">
@@ -251,6 +241,16 @@
             <div class="buy-item-action">
               <a class="button price" href="#">
                 <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
               </a>
             </div>
           </div>
@@ -275,16 +275,6 @@
         <div class="t-small-sans buy">
           <div class="buy-item">
             <div class="buy-item-text">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
               <h4 class="buy-item-name">Ebook</h4>
             </div>
             <div class="buy-item-action">
@@ -300,6 +290,16 @@
             <div class="buy-item-action">
               <a class="button price" href="#">
                 <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
               </a>
             </div>
           </div>
