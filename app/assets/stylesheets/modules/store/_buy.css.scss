@@ -6,102 +6,20 @@
 
 .buy-item {
   padding: .35em 0;
+  @include clearfix;
 }
+
 .buy-item + .buy-item {
   border-top: divider();
 }
 
-.buy.is-boxed {
-  border: divider();
-  border-radius: 3px;
-  padding: .25em .5em;
-}
-
-.buy-header {
-  @extend %heading-sc;
-  font-weight: weight(regular);
-  color: gray(60%);
-  // border-bottom: divider();
-  padding-top: .5em;
-}
-
-.buy-item {
-  @include clearfix;
-  font-weight: weight(medium);
-  .currency {
-    opacity: .7;
-    font-weight: weight(regular);
-  }
-}
-
-.buy-item-text {
-  float: left;
-}
-
-.buy-item-action {
-  float: right;
-}
+.buy-item-text    { float: left; }
+.buy-item-action  { float: right; }
 
 .buy-item-name {
   color: gray(25%);
   font-weight: weight(medium);
-  line-height: 1.3;
-  padding-top: .3em;
-}
-
-.buy-item-description {
-  color: gray(60%);
-  font-size: .9em;
-  padding-bottom: .35em;
-}
-
-.buy-item-description a {
-  @include link-color-by-issue;
-}
-
-.buy-item-button {
-  display: block;
-  float: right;
-  padding: .35em;
-  border: solid 2px;
-  border-radius: 4px;
   line-height: 1;
-  letter-spacing: em(1,16);
-  @include transition(all .1s linear);
-
-  &:before {
-    content: "+";
-    padding-right: .1em;
-    font-weight: weight(medium);
-  }
-
-  svg {
-    margin-right: .1em;
-    opacity: .6;
-    vertical-align: middle;
-    display: none;
-  }
-
-  background-color: white;
-  border-color: $c-blue;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $c-blue;
-    color: white;
-  }
-
-  @each $i in $issues {
-    .issue-#{$i} & {
-      border-color: issue-color($i);
-      color: issue-color($i);
-    }
-
-    .issue-#{$i} &:hover,
-    .issue-#{$i} &:focus {
-      background-color: issue-color($i);
-      color: white;
-    }
-  }
+  padding-top: .4em;
+  padding-top: calc(.4em + 1px);
 }
