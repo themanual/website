@@ -41,6 +41,12 @@
   }
 }
 
+.button-sc {
+  @extend %heading-sc;
+  padding: .6em;
+  font-weight: weight(medium);
+}
+
 button.button {
   @include appearance(none);
 }
