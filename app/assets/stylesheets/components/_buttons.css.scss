@@ -2,7 +2,7 @@
   // @include transition(all .1s linear);
 
   display: inline-block;
-  padding: .4em .35em;
+  padding: .4em .3em;
   border-radius: 4px;
   line-height: 1;
   cursor: pointer;
@@ -12,27 +12,25 @@
 
   // Styles
   &.is-large      { padding: .6em .5em; }
-  &.is-secondary  { color: gray(40%); border-color: gray(40%); }
 
+  // &.is-secondary  {
+  //   color: gray(40%);
+  //   border-color: gray(40%);
+  // }
 
-  color: $c-blue;
+  &,
+  &:link,
+  &:visited { color: white; }
   border: solid 2px $c-blue;
-  background-color: white;
+  background-color: $c-blue;
 
-  @include color-by-issue(color border-color);
+  @include color-by-issue(border-color background-color);
 
-  &:focus         {
-    color: black;
+  &:focus,
+  &:hover {
+    background-color: black;
     border-color: black;
     outline: none;
-  }
-
-  &:hover {
-    color: white;
-    border-color: $c-blue;
-    background-color: $c-blue;
-
-    @include color-by-issue(border-color background-color);
   }
 
   &:disabled,
