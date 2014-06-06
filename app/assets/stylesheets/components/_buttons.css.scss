@@ -1,48 +1,44 @@
 .button {
-
-  @include rem(font-size, 16px);
-  @include transition(all .1s linear);
-  @include text-and-border-color($c-blue);
+  // @include transition(all .1s linear);
 
   display: inline-block;
-  padding: .7em .85em .75em;
-  border-width: 2px;
-  border-style: solid;
+  padding: .4em .35em;
   border-radius: 4px;
-  background: #fff;
-  text-transform: uppercase;
-  word-spacing: .1em;
-  letter-spacing: .1em;
-  font-weight: weight(medium);
-  font-family: $type-sans;
   line-height: 1;
-
   cursor: pointer;
 
-  @include text-and-border-color($c-blue);
+  margin-right: .3em;
+  &:last-child { margin-right: 0; }
 
-  &.is-secondary {
-    @include text-and-border-color(gray(40%));
-  }
+  // Styles
+  &.is-large      { padding: .6em .5em; }
+  &.is-secondary  { color: gray(40%); border-color: gray(40%); }
 
-  &.is-large {
-    @include rem(font-size, 18px);
-    padding: .85em;
-  }
 
-  &:focus {
-    @include text-and-border-color(black);
+  color: $c-blue;
+  border: solid 2px $c-blue;
+  background-color: white;
+
+  @include color-by-issue(color border-color);
+
+  &:focus         {
+    color: black;
+    border-color: black;
     outline: none;
   }
 
   &:hover {
-    background-color: $c-blue;
     color: white;
+    border-color: $c-blue;
+    background-color: $c-blue;
+
+    @include color-by-issue(border-color background-color);
   }
 
   &:disabled,
   &.disabled {
-    @include text-and-border-color(darken($c-divider, 5%));
+    color: darken($c-divider, 5%);
+    border-color: darken($c-divider, 5%);
     cursor: default;
   }
 }
