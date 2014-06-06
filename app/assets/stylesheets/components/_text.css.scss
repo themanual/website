@@ -96,7 +96,7 @@ em      { font-weight: italic; }
 }
 
 .t-heavy {
-  font-weight: weight(black);
+  font-weight: weight(black) !important;
 }
 
 .t-sans {
