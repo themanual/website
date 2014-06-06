@@ -77,9 +77,8 @@ em      { font-weight: italic; }
     &.plain,
     &.outdented { padding-left: 0; }
 
-    &.loose {
-      li + li { margin-top: .5em; }
-    }
+    &.loose  li + li { margin-top: .5em; }
+    &.looser li + li { margin-top: .75em; }
   }
 
   ol {
