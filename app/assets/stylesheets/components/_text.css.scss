@@ -6,6 +6,7 @@ em      { font-weight: italic; }
 }
 
 .t-heading {
+  color: black;
   font-family: $type-sans;
   line-height: 1.25;
   * + & { margin-top: 1em; }
@@ -62,9 +63,11 @@ em      { font-weight: italic; }
   h2 { @extend .h2; }
   h3 { @extend .h3; }
   h4 { @extend .h4; }
+  h5 { @extend .h5; }
 
   p             { margin-top: 1em; }
-  p:first-child { margin-top: 0; }
+  p:first-child,
+  p.unspaced    { margin-top: 0; }
   p.spaced      { margin-top: 1.5em; }
 
   ul, ol {
