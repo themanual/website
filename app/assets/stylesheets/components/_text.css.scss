@@ -1,9 +1,8 @@
 strong  { font-weight: weight(bold); }
 em      { font-weight: italic; }
 
-.t-center {
-  text-align: center;
-}
+.t-center { text-align: center; }
+.t-right  { text-align: right; }
 
 .t-heading {
   color: black;
@@ -99,6 +98,10 @@ em      { font-weight: italic; }
 
 .t-heavy {
   font-weight: weight(black) !important;
+}
+
+.t-strong {
+  font-weight: weight(bold) !important;
 }
 
 .t-sans {

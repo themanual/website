@@ -28,3 +28,37 @@
 .cart-item-actions {
   text-align: right;
 }
+
+.mini-cart {
+  color: black;
+}
+
+.mini-cart-items > * {
+  @include clearfix;
+  border-bottom: dashed 1px $c-divider;
+  padding-bottom: .6em;
+  + * {
+    margin-top: .6em;
+  }
+}
+
+.mini-cart-item-remove {
+  background: none;
+  border: none;
+  @include appearance(none);
+  color: $c-red;
+}
+
+.mini-cart-item-name { font-weight: weight(medium); line-height: 1.2; }
+.mini-cart-item-type { color: gray(60%); line-height: 1.2; }
+
+.mini-cart-item-left { float: left; }
+.mini-cart-item-right { float: right; text-align: right; }
+
+.mini-cart-total {
+  @include padding-v(.8em);
+  .shipping {
+    display: inline-block;
+    margin-top: .25em;
+  }
+}

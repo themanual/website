@@ -1,6 +1,6 @@
 .inline-list {
-  overflow: auto;
   list-style: none;
+  @include clearfix;
   > * {
     float: left;
     margin-left: 1.5em;

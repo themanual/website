@@ -26,4 +26,9 @@ $(function() {
 
   $('form').validate();
 
+  $("#cart-label").click(function(event) {
+    $("#cart-popover").fadeToggle(100);
+    return false;
+  });
+
 });

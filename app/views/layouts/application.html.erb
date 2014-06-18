@@ -34,7 +34,40 @@
       <ul class="inline-list">
         <li><%= link_to "Read",   issues_path %></li>
         <li><%= link_to "Store",  store_path %></li>
-        <li><%= link_to "Cart",   cart_path, id: 'cart-label' %></li>
+        <li class="contains-popover">
+          <%= link_to "Cart",   cart_path, id: 'cart-label' %>
+          <div class="popover mini-cart" id="cart-popover">
+            <ul class="mini-cart-items">
+              <li>
+                <div class="mini-cart-item-left">
+                  <p class="mini-cart-item-name">Issue 4</p>
+                  <p class="mini-cart-item-type">Print &amp; Ebook</p>
+                </div>
+                <div class="mini-cart-item-right">
+                  <p class="price"><span class="currency">$</span><span class="value">25</span></p>
+                  <button class="mini-cart-item-remove">remove</button>
+                </div>
+              </li>
+              <li>
+                <div class="mini-cart-item-left">
+                  <p class="mini-cart-item-name">The Collection</p>
+                  <p class="mini-cart-item-type">Print &amp; Ebook</p>
+                </div>
+                <div class="mini-cart-item-right">
+                  <p class="price"><span class="currency">$</span><span class="value">80</span></p>
+                  <button class="mini-cart-item-remove">remove</button>
+                </div>
+              </li>
+            </ul>
+            <div class="mini-cart-total t-center">
+              <p class="price price-strong t-biggest"><span class="currency">$</span><span class="value">105</span></p>
+              <small class="shipping h2-sc">+ <span class="price"><span class="currency">$</span><span class="value">12</span> Shipping</span></small>
+            </div>
+            <div class="mini-cart-button">
+              <%= link_to "Pay Now", cart_path, class: 'button is-wide t-bigger t-strong' %>
+            </div>
+          </div>
+        </li>
         <li><%= user_signed_in? ? link_to("Log out", destroy_user_session_path) : link_to("Log in", new_user_session_path) %></li>
       </ul>
     </nav>

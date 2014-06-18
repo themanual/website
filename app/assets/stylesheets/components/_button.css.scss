@@ -16,6 +16,11 @@
     padding: .6em;
   }
 
+  &.is-wide {
+    display: block;
+    text-align: center;
+  }
+
   // &.is-secondary  {
   //   color: gray(40%);
   //   border-color: gray(40%);
@@ -23,7 +28,7 @@
 
   &,
   &:link,
-  &:visited { color: white; }
+  &:visited { color: white !important; }
   border: solid 2px $c-blue;
   background-color: $c-blue;
 

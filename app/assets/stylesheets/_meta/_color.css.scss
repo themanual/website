@@ -1,3 +1,4 @@
+
 // General Colors
 $c-text-darker:       hsl(0, 0%, 5%);
 $c-text-body:         hsl(0, 0%, 20%);
@@ -17,6 +18,9 @@ $c-purple:  #8200E6;
 
 $c-field-invalid: #FF4D4D;
 $c-field-valid:   #54BF54;
+$c-red:   $c-field-invalid;
+$c-green: $c-field-valid;
+
 
 // Published issues, and issues colors
 $issues:        (1, 2, 3, 4);

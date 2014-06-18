@@ -1,18 +1,12 @@
 .price {
-
   font-family: $type-sans;
   letter-spacing: .06em;
+  font-weight: weight(light);
+  .symbol { padding-right: .3em; }
+  .value { font-weight: weight(medium); }
+}
 
-  .value {
-    font-weight: weight(medium);
-  }
-
-  .symbol {
-    font-weight: weight(light);
-    padding-right: .3em;
-  }
-
-  .currency {
-    font-weight: weight(light);
-  }
+.price-strong {
+  font-weight: weight(regular);
+  .value { font-weight: weight(bold); }
 }
