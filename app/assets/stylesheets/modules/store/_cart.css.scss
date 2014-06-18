@@ -1,0 +1,30 @@
+#cart {
+  font-family: $type-sans;
+}
+
+.cart-item-name { @include span-columns(6); }
+.cart-item-price { @include span-columns(2); }
+.cart-item-actions { @include span-columns(4); }
+
+.cart-summary {
+  text-align: right;
+  > * { display: inline-block; vertical-align: top; }
+}
+
+.cart-actions { margin-left: 1em; }
+
+.cart-items { clear: both; }
+
+
+.cart-items > * {
+  @include border-sandwich(divider());
+  @include padding-v(.5em);
+}
+
+.cart-item-price {
+  text-align: right;
+}
+
+.cart-item-actions {
+  text-align: right;
+}

@@ -45,6 +45,7 @@ TheManual::Application.routes.draw do
   get "robots(.:format)" => 'seo#robots'
   get "sitemap(.:format)" => 'seo#sitemap'
 
-  get '/store', to: 'store#index', as: :store
+  get '/store', to: 'store#index',  as: :store
+  get '/cart',  to: 'home#cart',    as: :cart
   get ':controller(/:action(/:id))'
 end

@@ -74,4 +74,13 @@ class HomeController < ApplicationController
   def store
   end
 
+  def cart
+    @latest = Issue.latest
+    @tier = params[:tier]
+    @tier ||= 'print'
+    @user = User.new
+    @address = Address.new
+    render layout: "payment"
+  end
+
 end
