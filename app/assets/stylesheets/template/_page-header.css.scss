@@ -1,0 +1,14 @@
+.page-header {
+  @include spacing(padding-left padding-right);
+  @include spacing(padding-bottom, 1.5);
+  @include spacing(padding-top, 2.5);
+  background: $c-bg-gray;
+}
+
+.page-header > div {
+  @include outer-container;
+}
+
+.page-header h1 {
+  @extend .h1;
+}

@@ -18,8 +18,7 @@ html {
 
 body {
   font-family: $type-serif;
-  background-color: white;
-  @extend .bg-gray;
+  background-color: $c-bg-gray;
 
   display: flex;
   min-height: 100vh;
@@ -55,9 +54,8 @@ a {
   }
 }
 
-.bg-gray {
-  background-color: $c-bg-gray;
-}
+.bg-gray  { background-color: $c-bg-gray; }
+.bg-white { background-color: white; }
 
 .highlight {
   background-color: $c-highlight;
