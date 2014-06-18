@@ -310,46 +310,21 @@
     </div>
   </div></section>
 
-
-  <footer id="info" class="l-p-xyy l-line-t"><div class="l-grid text t-note">
+  <footer class="l-p l-line-t bg-gray"><div class="l-grid text t-note">
     <div class="l-col-third" id="fn:shipping">
       <h5>Shipping</h5>
       <p class="unspaced" data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
     </div>
     <div class="l-col-third">
       <h5>Digital Formats</h5>
-      <p class="unspaced">Ebooks come in ePub, Mobi, and PDF format. Audiobooks come in MP3 and M4B format. All files are DRM-free.</p>
+      <p class="unspaced">Ebooks: DRM-Free ePub, Mobi, and PDF.</p>
+      <p class="unspaced">Audiobooks: DRM-Free MP3 and M4B.</p>
     </div>
     <div class="l-col-third">
       <h5>Bulk Orders</h5>
-      <p class="unspaced">We offer discounts on large orders. If you’re interested in buying more than 20 issues in any format, <a href="mailto:hi@alwaysreadthemanual.com">drop us a line.</a></p>
+      <p class="unspaced">We offer discounts on large orders. If you’re interested in 20+ issues in any format, <a href="mailto:hi@alwaysreadthemanual.com">email us.</a></p>
     </div>
   </div></footer>
 
 </main>
 
-<% content_for :footer do %>
-<script>$(function() {
-  $("a[href='#fn:shipping']").click(function() {
-    var $shipping = $("[id='fn:shipping']");
-    $.scrollTo($shipping, {
-      duration: 250,
-      onAfter: function() {
-        $shipping.animatecss('flash');
-      }
-    });
-    return false;
-  });
-
-  $.getEstimatedShippingCost({}, function(data){
-    if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
-      // Update cost
-      var cost = Number(data.response.cost).toFixed();
-      $('[data-shipping="cost"]').animatecss('flash').html(prefixCurrency(cost)+"&nbsp;");
-      // Update message
-      message = 'Shipping costs <span class="highlight">estimated for ' + data.response.ip_country_name + '.</span> Exact cost depends on shipping address and will be calculated at checkout.';
-      $('[data-shipping="message"]').animatecss('fadeIn').html(message);
-    }
-  });
-});</script>
-<% end %>
