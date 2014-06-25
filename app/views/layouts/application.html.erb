@@ -35,36 +35,38 @@
         <li><%= link_to "Read",   issues_path %></li>
         <li><%= link_to "Store",  store_path %></li>
         <li class="contains-popover">
-          <%= link_to "Cart",   cart_path, id: 'cart-label' %>
-          <div class="popover mini-cart" id="cart-popover">
-            <ul class="mini-cart-items">
+          <%= link_to "Cart",   cart_path, id: 'cart-label', data: { :'open-popover' => 'cart' }  %>
+          <div class="popover mc" data-popover="cart">
+            <ul class="mc-items">
               <li>
-                <div class="mini-cart-item-left">
-                  <p class="mini-cart-item-name">Issue 4</p>
-                  <p class="mini-cart-item-type">Print &amp; Ebook</p>
+                <div class="mc-i-l">
+                  <p class="mc-i-name">Issue 4</p>
+                  <p class="mc-i-type">Print &amp; Ebook</p>
                 </div>
-                <div class="mini-cart-item-right">
+                <div class="mc-i-r">
                   <p class="price"><span class="currency">$</span><span class="value">25</span></p>
-                  <button class="mini-cart-item-remove">remove</button>
+                  <button class="text-button mc-i-remove">remove</button>
                 </div>
               </li>
               <li>
-                <div class="mini-cart-item-left">
-                  <p class="mini-cart-item-name">The Collection</p>
-                  <p class="mini-cart-item-type">Print &amp; Ebook</p>
+                <div class="mc-i-l">
+                  <p class="mc-i-name">The Collection</p>
+                  <p class="mc-i-type">Print &amp; Ebook</p>
                 </div>
-                <div class="mini-cart-item-right">
+                <div class="mc-i-r">
                   <p class="price"><span class="currency">$</span><span class="value">80</span></p>
-                  <button class="mini-cart-item-remove">remove</button>
+                  <button class="text-button mc-i-remove">remove</button>
                 </div>
               </li>
             </ul>
-            <div class="mini-cart-total t-center">
-              <p class="price t-biggest"><span class="currency">$</span><span class="value">105</span></p>
-              <small class="shipping h2-sc">+ <span class="price"><span class="currency">$</span><span class="value">12</span> Shipping</span></small>
-            </div>
-            <div class="mini-cart-button">
-              <%= link_to "Pay Now", cart_path, class: 'button is-wide t-bigger t-strong' %>
+            <div class="mc-total t-center">
+              <p class="mc-price price t-big">
+                <span class="currency">$</span><span class="value">105</span>
+                <small class="shipping h2-sc">+ <span class="price"><span class="currency">$</span><span class="value">12</span> Shipping</span></small>
+              </p>
+              <p class="mc-button">
+                <%= link_to "Pay Now", cart_path, class: 'button is-larger button-sc' %>
+              </p>
             </div>
           </div>
         </li>

@@ -26,8 +26,9 @@ $(function() {
 
   $('form').validate();
 
-  $("#cart-label").click(function(event) {
-    $("#cart-popover").fadeToggle(100);
+  $('[data-open-popover]').click(function(event) {
+    var $popover = $('[data-popover="' + $(this).data('open-popover') + '"]');
+    $popover.is(':visible') ? $popover.animatecss('fadeOut fastest', function(){ $popover.hide(); }) : $popover.show().animatecss('fadeInDown fastest');
     return false;
   });
 

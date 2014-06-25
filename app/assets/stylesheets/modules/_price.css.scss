@@ -1,8 +1,6 @@
 .price {
   font-family: $type-sans;
   letter-spacing: .06em;
-  .symbol { padding-right: .3em; }
-
-  .currency { font-weight: weight(medium); }
+  .symbol   { padding-right: .3em; }
   .value    { font-weight: weight(bold); }
 }

@@ -16,6 +16,10 @@
     padding: .6em;
   }
 
+  &.is-larger {
+    padding: .8em;
+  }
+
   &.is-wide {
     display: block;
     text-align: center;
@@ -51,7 +55,6 @@
 
 .button-sc {
   @extend %t-sc;
-  padding: .6em;
   font-weight: weight(semibold);
 }
 
@@ -62,4 +65,23 @@ button.button {
 .button-row {
   margin-top: 1em;
   > * { vertical-align: middle; }
+}
+
+.text-button {
+  @include appearance(none);
+  background: transparent;
+  border-bottom: solid 1px transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+
+  &:focus,
+  &:hover {
+    color: black;
+    outline: none;
+  }
 }

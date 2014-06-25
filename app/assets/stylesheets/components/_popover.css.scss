@@ -4,18 +4,29 @@
 }
 
 .popover {
-  // display: none;
+  display: none;
   border-radius: 3px;
   top: 2em;
-  right: -1em;
+  right: -20px;
   position: absolute;
   background-color: white;
   border: divider();
   width: 20em;
   padding: 1em;
-  display: none;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 11px;
+    position: absolute;
+    background-image: image-url('ui/popover-arrow-top.svg');
+    background-size: 100% 100%;
+    top: -11px;
+    right: 20px;
+  }
 }
 
-#cart-popover {
-  width: 18em;
+.popover-right {
+
 }
