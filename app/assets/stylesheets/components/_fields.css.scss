@@ -4,7 +4,7 @@
 
 
 %label {
-  @extend %heading-sc;
+  @extend %t-sc;
   display: block;
   font-weight: weight(medium);
   line-height: 1.2;
@@ -13,7 +13,6 @@
 
 %label-note {
   display: block;
-  font-family: $type-sans;
   @include rem(font-size, 15px);
   line-height: 1.4;
   color: gray(50%);
@@ -50,7 +49,7 @@ input, textarea {
 %input-text {
   @include appearance(none);
   @include transition(border-color .2s ease-in-out);
-  @include rem(font-size, 18px);
+  @include rem(font-size, 17px);
 
   display: inline-block;
   width: 100%;

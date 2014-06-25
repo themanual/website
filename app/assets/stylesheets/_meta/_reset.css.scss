@@ -45,15 +45,19 @@ table {
 }
 
 
-/* HTML5 Boilerplate */
-html {
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+*, *:before, *:after {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-a:focus { outline: thin dotted; }
-a:hover, a:active { outline: 0; }
+html, button {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 abbr[title] { border-bottom: 1px dotted; }
 

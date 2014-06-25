@@ -1,7 +1,3 @@
-#cart {
-  font-family: $type-sans;
-}
-
 .cart-item-name { @include span-columns(6); }
 .cart-item-price { @include span-columns(2); }
 .cart-item-actions { @include span-columns(4); }

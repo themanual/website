@@ -33,7 +33,6 @@
 
 .table {
   width: 100%;
-  font-family: $type-sans;
   font-size: .8em;
   font-weight: weight(regular);
 
@@ -91,7 +90,7 @@
   > thead.outside > tr > * {
     background: none;
     border: none;
-    @extend %heading-sc;
+    @extend %t-sc;
     font-size: 1em;
   }
 
@@ -128,7 +127,7 @@
   }
 
   small {
-    @extend %heading-sc;
+    @extend %t-sc;
     font-weight: weight(regular);
     color: gray(60%);
   }

@@ -16,7 +16,7 @@
   }
 
   @include media-from($bp-l) {
-    margin-top: 22%;
+    margin-top: 18%;
   }
 
   @include media-between($bp-l, $bp-xl) {
@@ -27,44 +27,35 @@
 }
 
 .issue-piece-header-title {
-  font-family: $type-sans;
   font-weight: weight(black);
 
   color: $c-text-heading;
   text-rendering: optimizeLegibility;
 
-  font-size: 1.65em;
+  @include rem(font-size, 48px);
   line-height: 1.05;
-  letter-spacing: -1px;
-
-  @include media-from($bp-m) {
-    @include rem(font-size, 48px);
-  }
 
 }
 
 .issue-piece-header-synopsis {
   font-family: $type-serif;
-  font-weight: weight(regular);
+  font-weight: weight(medium);
   font-style: italic;
-  color: gray(60%);
+  color: $c-text-blockquote;
 
-  font-size:      1.1em;
+  font-size:      1.5em;
   line-height:    1.25;
   margin-top:     0.6em;
   margin-bottom:  2em;
   max-width: 20em;
 
   @include media-from($bp-l) {
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin-bottom: 1.4em;
   }
 }
 
 .issue-piece-header-byline {
-  font-family: $type-sans;
-  font-weight: weight(light);
-  @include rem(font-size, 17px);
   color: $c-text-caption;
   line-height: 1.25;
 
@@ -92,21 +83,21 @@
 
 
 
-
+.issue-piece-text,
+.issue-piece-footer {
+  @include rem(font-size, 23px);
+  font-family: $type-serif;
+  max-width: $type-column-em-width*1em;
+  @include centered;
+}
 
 
 .issue-piece-text {
-
   color: $c-text-body;
-  @include rem(font-size, 25px);
+  font-family: $type-serif;
 
-  strong { font-weight: 600; }
-
-  .tr-coretext & {
-    -webkit-font-smoothing: antialiased;
-    font-weight: 500;
-    strong { font-weight: 700; }
-  }
+  strong  { font-weight: weight(semibold); }
+  em      { font-style: italic; }
 
   &:before, &:after {
     content: "\00d7";
@@ -117,25 +108,11 @@
     font-size: 30px;
     text-align: center;
 
-    @include spacing(padding-top margin-bottom, 1.5);
+    @include spacing(padding-top margin-bottom, 1);
     color: $c-divider;
 
     @include color-by-issue(color);
   }
-
-  //
-  // Headings
-  //
-  > h2 {
-    // $fz: 1.1;
-    // font-size: $fz * 1em;
-    line-height: 1.1;
-    font-family: $type-sans;
-    font-weight: weight(semibold);
-
-    color: $c-text-heading;
-  }
-
 
 
   //
@@ -167,11 +144,13 @@
   }
 
   > h2 {
-    @include rem(margin-top, 2rem * $line-height);
-  }
-
-  > h2 + * {
-    margin-top: 0.5em;
+    @include rem(font-size, 25px);
+    line-height: 1.1;
+    font-family: $type-sans;
+    font-weight: weight(semibold);
+    color: black;
+    margin-top:    3em;
+    margin-bottom: .5em;
   }
 
   dl {
@@ -272,7 +251,7 @@
   //
 
   .footnotes {
-    margin-top: 3em;
+    @include spacing(margin-top, 2);
 
     font-family: $type-sans;
     font-weight: normal;
@@ -297,15 +276,12 @@
 .issue-piece-footer {
 
   margin-bottom:  flex-gutter()*2;
+  color: $c-text-body;
+  font-style: italic;
+  line-height: 1.4;
 
-  p {
-    font-size: em(20, $rem-value);
-    line-height: 1.45;
-    font-style: italic;
-    margin-top: 0.5em;
-  }
+  p { @include rem(font-size, 20px); }
 
-            color: gray(50%);
   a       { color: gray(25%); font-weight: 500; }
   a:hover { color: black; }
 

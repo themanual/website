@@ -8,7 +8,7 @@
       <h1>Issue <strong class="issue-number"><%= @issue.number %></strong></h1>
     </div></header>
 
-    <section class="issue l-line-t"><div class="l-p-xyy">
+    <section class="issue l-line-t"><div class="l-p">
 
       <!--
       <div class="issuebuy is-wide is-boxed">
@@ -19,9 +19,9 @@
       </div>
       -->
 
-      <ul class="issue-content l-grid">
+      <ul class="l-grid">
       <% @issue.articles.ordered.each do |article| %>
-        <li class="issue_entry l-col-l-half">
+        <li class="issue_entry l-col-l-half l-p-y">
           <figure class="issue_entry-illo">
             <%= illustration_tag @issue.number, article.author_slug, 'small' %>
           </figure>

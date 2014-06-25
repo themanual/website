@@ -1,12 +1,12 @@
 
 // General Colors
+$c-text-heading:      #000000;
 $c-text-darker:       hsl(0, 0%, 5%);
 $c-text-body:         hsl(0, 0%, 20%);
-$c-text-heading:      #000000;
-$c-text-blockquote:   hsl(0, 0%, 40%);
-$c-text-caption:      hsl(0, 0%, 50%);
-$c-text-asides:       hsl(0, 0%, 40%);
 $c-text-dull:         hsl(0, 0%, 30%);
+$c-text-blockquote:   hsl(0, 0%, 40%);
+$c-text-asides:       hsl(0, 0%, 40%);
+$c-text-caption:      hsl(0, 0%, 60%);
 
 $c-divider:           gray(90%);
 $c-bg-gray:           gray(96%);

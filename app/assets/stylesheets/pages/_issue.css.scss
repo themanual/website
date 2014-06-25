@@ -2,7 +2,3 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
-
-.issue .issue_entry:nth-child(n+3) {
-  @include spacing(padding-top, 2);
-}
