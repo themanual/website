@@ -46,7 +46,6 @@
 .subscribe-tier-price {
   font-size: 1.65em;
   color: $c-blue;
-  font-family: $type-sans;
   font-weight: weight(bold);
 
   .currency {
@@ -56,7 +55,7 @@
 }
 
 .subscribe-tier-note {
-  @extend %heading-sc;
+  @extend %t-sc;
   color: gray(65%);
   margin-top: .75em;
   [data-shipping="cost"] {

@@ -4,7 +4,7 @@
   <% cache @piece do %>
 
     <!-- Article -->
-    <article class="issue-piece is-<%= @piece.type.downcase %>"><div class="l-wrapper">
+    <article class="issue-piece is-<%= @piece.type.downcase %> l-p-x"><div class="l-container">
 
       <%= render 'piece_header' %>
 
@@ -47,7 +47,7 @@
   <% end %>
 
   <% cache [@piece, :random], expires_in: 300.ish do %>
-    <aside class="l-p"><div class="l-grid">
+    <aside class="l-p-xyy"><div class="l-grid">
 
     <!-- <div class="box-group l-col-half"> -->
 

@@ -1,14 +1,14 @@
-$type-column-em-width: 30;
-
-.issue-piece > div {
-  @include spacing(padding-top);
-}
+$type-column-em-width: 34;
 
 // HEADER
+
+.issue-piece-header {
+  padding-top: 2.5em;
+}
+
 @include media-from($bp-l) {
   .issue-piece-header {
     @include row;
-    @include spacing(padding-left padding-right);
   }
 
   .issue-piece-header-illustration,
@@ -22,7 +22,7 @@ $type-column-em-width: 30;
     figure {
       float: right;
       @include clearfix;
-      @include rem(max-width, 22rem);
+      @include rem(max-width, 24rem);
     }
   }
 }
@@ -30,7 +30,7 @@ $type-column-em-width: 30;
 .issue-piece-header-illustration img {
   @include media-upto($bp-l)  { max-height: 28em; }
   @include media-upto($bp-m)  { max-height: 24em; }
-  @include media-upto($bp-s) { max-height: 20em; }
+  @include media-upto($bp-s)  { max-height: 20em; }
 }
 
 .issue-piece-header-text:first-child { // If it’s a lesson
@@ -44,13 +44,6 @@ $type-column-em-width: 30;
 
 // TEXT
 
-
-
-.issue-piece-text,
-.issue-piece-footer {
-  @include centered;
-  max-width: $type-column-em-width*1em;
-}
 
 .issue-piece-footer {
 

@@ -7,31 +7,23 @@
 }
 
 .issuetoc-author {
-  @extend %heading-sc;
-  display: block;
-  margin-bottom: 0.4em;
-  color: gray(70%);
+  @extend %t-sc-light;
+  margin-bottom: .5em;
 }
 
 .issuetoc-piece {
-  float: left;
+  display: inline-block;
+  font-family: $type-serif;
+  @include rem(font-size, 22px);
   font-weight: weight(semibold);
 
   a {
     @include underlined-link { color: black; }
   }
 
-  &.is-lesson a {
-    @include underlined-link { color: gray(40%); }
-  }
-
-  a:hover {
-    border-bottom: solid 1px;
-  }
-
   &.is-lesson:before {
-    padding-left: 0.4em;
-    padding-right: 0.1em;
+    padding-left:  .15em;
+    padding-right: .1em;
     @include color-by-issue(color);
     content: "+";
   }

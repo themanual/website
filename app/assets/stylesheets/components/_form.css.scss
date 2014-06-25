@@ -19,18 +19,12 @@
   }
 }
 
-.form-heading, .form-subheading {
-  font-family: $type-sans;
-
-}
-
 .form-heading {
   font-weight: weight(bold);
   @include rem(font-size, 19px);
 }
 
 .form-subheading {
-  font-family: $type-sans;
   @include rem(font-size, 16px);
   color: gray(55%);
 

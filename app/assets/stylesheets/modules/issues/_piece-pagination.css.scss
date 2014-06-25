@@ -1,3 +1,7 @@
+.issue-pagination {
+  @include spacing(padding-left padding-right);
+}
+
 .issue-pagination > div {
   @include outer-container;
 }
@@ -26,9 +30,8 @@
     border-right: none;
   }
 
-  &.is-previous, &.is-next {
-    @include spacing(padding-left padding-right);
-  }
+  &.is-previous { @include spacing(padding-right); }
+  &.is-next     { @include spacing(padding-left); }
 
   &.is-next {
     text-align: right;
@@ -40,13 +43,13 @@
 }
 
 .issue-pagination-item.is-previous > a {
-  @include spacing(padding-left, 1.4);
+  @include spacing(padding-left, 2);
   background-position: top left;
   background-repeat: no-repeat;
 }
 
 .issue-pagination-item.is-next > a {
-  @include spacing(padding-right, 1.4);
+  @include spacing(padding-right, 2);
   background-position: top right;
   background-repeat: no-repeat;
 }
@@ -62,8 +65,9 @@
 }
 
 .issue-pagination-item h2 {
-  @extend %heading-sc-light;
-  margin-bottom: 0.8em;
+  @extend %t-sc-light;
+  padding-top:   .2em;
+  margin-bottom: .5em;
 }
 
 .issue-pagination-item.is-current h2 {
@@ -74,8 +78,7 @@
 }
 
 .issue-pagination-item p {
-  font-size: em(17, $rem-value);
-  font-family: $type-sans;
+  font-size: em(18, $rem-value);
 }
 
 .issue-pagination-item p strong {

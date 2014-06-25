@@ -10,14 +10,10 @@
 // Base font sizes
 html {
   font-size: $rem-base;
-  @include media-upto($bp-xl) { font-size: $rem-base - 1px; }
-  @include media-upto($bp-l)  { font-size: $rem-base - 2px; }
-  @include media-upto($bp-m)  { font-size: $rem-base - 3px; }
-  @include media-upto($bp-s)  { font-size: $rem-base - 5px; }
 }
 
 body {
-  font-family: $type-serif;
+  font-family: $type-sans;
   background-color: $c-bg-gray;
 
   display: flex;

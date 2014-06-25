@@ -90,6 +90,7 @@
   &:focus,
   &:active {
     color: #000;
+    outline: none;
   }
 }
 
@@ -103,6 +104,13 @@
   &:focus,
   &:active {
     border-bottom: solid 1px;
+    outline: none;
+  }
+}
+
+@mixin black-link {
+  @include underlined-link {
+    color: black;
   }
 }
 
@@ -112,51 +120,6 @@
   clip: rect(0 0 0 0);
   height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
-}
-
-%heading-sc {
-  font-family: $type-sans;
-  @include rem(font-size, 15px);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  word-spacing: .15em;
-}
-
-%heading-sc-light {
-  @extend %heading-sc;
-  color: gray(60%);
-}
-
-%heading-sc-heavy {
-  @extend %heading-sc;
-  font-weight: weight(medium);
-  color: gray(20%);
-}
-
-.heading-sc { @extend %heading-sc; }
-.heading-sc-light { @extend %heading-sc-light; }
-.heading-sc-heavy { @extend %heading-sc-heavy; }
-
-@mixin issue-number {
-  font-family: $type-sans;
-  font-weight: weight(bold);
-  @include color-by-issue(background);
-
-  padding-right:  .36em;
-  padding-left:   .36em;
-  padding-bottom: .07em;
-  padding-top:    .03em;
-
-  color: #fff;
-  border-radius: .15em;
-}
-
-.text h1 .issue-number {
-  font-weight: weight(black);
-}
-
-.issue-number {
-  @include issue-number;
 }
 
 @mixin blacklink {

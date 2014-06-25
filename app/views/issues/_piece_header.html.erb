@@ -16,7 +16,7 @@
       <%= @piece.synopsis %>
     </h2>
     <p class="issue-piece-header-byline byline vcard">
-      By <strong class="fn author" rel="author"><%= @piece.author.name %></strong>
+      by <strong class="fn author" rel="author"><%= @piece.author.name %></strong>
       for <a href="<%= issue_path @piece.issue_number %>">Issue <%= @piece.issue_number %></a>
       <% if @piece.illustrator %>
         <span class="middot"> &middot; </span>Illustration by <strong><%= @piece.illustrator %></strong>

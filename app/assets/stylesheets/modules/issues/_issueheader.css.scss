@@ -1,5 +1,6 @@
 .issueheader h1 {
   @include rem(font-size, 48px);
+  font-family: $type-serif;
   // TODO responsive
   font-weight: weight(black);
 
@@ -13,7 +14,7 @@
 }
 
 .issueheader p {
-  @extend %heading-sc;
+  @extend %t-sc;
   color: gray(70%);
   margin-top: 1.5em;
 }

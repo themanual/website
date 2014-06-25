@@ -15,7 +15,6 @@
 
   font-weight: weight(bold);
   font-size: em(24, $rem-value);
-  font-family: $type-sans;
   line-height: 1.2;
   margin-bottom: 0.25em;
 
@@ -28,28 +27,27 @@
 
 
 .featured_piece-synopsis {
-  max-width: 20em;
-  color: gray(45%);
+  font-family: $type-serif;
+  max-width: 18em;
+  color: $c-text-blockquote;
   font-style: italic;
   font-size: em(20, $rem-value);
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
 .featured_piece-byline {
   // margin-top: 1.4em;
   color: gray(60%);
   font-size: em(16, $rem-value);
-  font-family: $type-sans;
 
   a {
-    font-family: $type-sans;
     font-weight: weight(medium);
   }
   strong { color: gray(30%); }
 }
 
 .featured_piece-author {
-  @extend %heading-sc-light;
+  @extend %t-sc-light;
   padding-top: 1em;
 
   &:first-child {

@@ -50,9 +50,9 @@
 }
 
 .button-sc {
-  @extend %heading-sc;
+  @extend %t-sc;
   padding: .6em;
-  font-weight: weight(medium);
+  font-weight: weight(semibold);
 }
 
 button.button {
