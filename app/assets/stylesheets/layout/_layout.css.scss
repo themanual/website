@@ -31,6 +31,7 @@
 .l-m-bb   { @include spacing(margin-bottom,  1.5); }
 .l-m-y    { @extend .l-m-t;  @extend .l-m-b; }
 .l-m-yy   { @extend .l-m-tt; @extend .l-m-bb; }
+.l-m-t0   { margin-top: 0 !important; }
 
 // General rules
 .l-center     { @include centered; }
