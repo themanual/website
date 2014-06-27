@@ -7,7 +7,6 @@
 
 */
 
-// Base font sizes
 html {
   font-size: $rem-base;
 }
@@ -50,13 +49,20 @@ a {
   }
 }
 
+.clearfix { @include clearfix; }
+.cl-b     { clear: both; }
+.cl-l     { clear: left; }
+.cl-r     { clear: right; }
+
 .bg-gray  { background-color: $c-bg-gray; }
 .bg-white { background-color: white; }
 
+.no-resize { resize: none; }
+
 .highlight {
+  display: inline;
   background-color: $c-highlight;
   color: black;
-  display: inline;
   > * { color: black !important; }
 }
 
@@ -70,10 +76,6 @@ a {
   &:target {
     outline: none;
   }
-}
-
-.clearfix {
-  @include clearfix;
 }
 
 .debug, .debug * {
