@@ -1,6 +1,15 @@
-.price {
+%price {
   font-family: $type-sans;
-  letter-spacing: .06em;
+  letter-spacing: .05em;
   .symbol   { padding-right: .3em; }
-  .value    { font-weight: weight(bold); }
+}
+.price {
+  @extend %price;
+  .value { font-weight: weight(medium); }
+}
+
+.price-heavy {
+  @extend %price;
+  font-weight: weight(medium);
+  .value { font-weight: weight(bold); }
 }
