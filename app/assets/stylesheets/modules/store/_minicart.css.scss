@@ -1,0 +1,44 @@
+.mc { color: black; }
+
+.mc-items > * {
+  @include clearfix;
+
+  line-height: 1.2;
+  padding-bottom: .6em;
+  border-bottom: dotted 1px $c-divider;
+  + * { padding-top: .6em; }
+}
+
+.mc-i-remove {
+  color: $c-red;
+  @extend .t-sc-small;
+}
+
+.mc-i-name { font-weight: weight(semibold); }
+.mc-i-type { color: gray(60%); }
+
+.mc-i-l { float: left; }
+.mc-i-r { float: right; text-align: right; }
+
+.mc-total {
+  @include clearfix;
+  padding-top: 1em;
+}
+
+.mc-price {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+.mc-button {
+  float: left;
+  text-align: left;
+  width: 50%;
+}
+
+.mc-total {
+  .shipping {
+    display: block;
+    margin-top: .2em;
+  }
+}
