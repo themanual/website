@@ -2,11 +2,14 @@ strong  { font-weight: weight(bold); }
 em      { font-weight: italic; }
 
 .t-center { text-align: center; }
-.t-right  { text-align: right; }
+.t-r  { text-align: right; }
+
+%h {
+  color: black;
+  font-weight: weight(bold);
+}
 
 .t-heading {
-  color: black;
-  font-family: $type-sans;
   line-height: 1.25;
   * + & { margin-top: 1em; }
   margin-bottom: .5em;
@@ -23,29 +26,54 @@ em      { font-weight: italic; }
 }
 
 .t-huge     { font-size: 2.5em; }
+.h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
+.h1       { @extend .t-heading; @extend .h-huge; }
+
 .t-biggest  { font-size: 2.0em; }
+.h-biggest  { @extend %h; @extend .t-biggest; }
+.h2         { @extend .t-heading; @extend .h-biggest; }
+
 .t-bigger   { font-size: 1.55em; }
-.t-big      { font-size: 1.35em; }
+.h-bigger   { @extend %h; @extend .t-bigger; }
+.h3       { @extend .t-heading; @extend .h-bigger; }
+
+.t-big      { font-size: em(20, $rem-value); }
+.h-big      { @extend %h; @extend .t-big; }
+.h4       { @extend .t-heading; @extend .h-big; }
+
 .t-normal   { font-size: 1em; }
+.h-normal   { @extend %h; @extend .t-normal; }
+.h5         { @extend .t-heading; @extend .h-normal; }
 
-.h1       { @extend .t-heading; @extend .t-huge;    font-weight: weight(black); }
-.h2       { @extend .t-heading; @extend .t-biggest; font-weight: weight(bold);  }
-.h3       { @extend .t-heading; @extend .t-bigger;  font-weight: weight(bold);  }
-.h4       { @extend .t-heading; @extend .t-big;     font-weight: weight(bold); }
-.h5       { @extend .t-heading; @extend .t-normal;  font-weight: weight(bold); }
+.h-note     { color: $c-text-caption; margin-top: .25em; }
 
-.h1-sc {
-  @extend %t-sc;
-  font-weight: weight(bold);
-  line-height: 1.25;
-  margin-bottom: .5em;
+.t-sc {
+  @include rem(font-size, 16px);
+  text-transform: uppercase;
+  letter-spacing: .0625em;
+  word-spacing: .15em;
 }
 
-.h2-sc {
-  @extend %t-sc;
-  font-weight: weight(regular);
-  color: gray(50%);
-  line-height: 1.25;
+.t-sc-light {
+  @extend .t-sc;
+  color: $c-text-caption;
+}
+
+.t-sc-heavy {
+  @extend .t-sc;
+  color: black;
+  font-weight: weight(medium);
+}
+
+.t-sc-small {
+  @include rem(font-size, 14px);
+  text-transform: uppercase;
+  letter-spacing: .08;
+}
+
+.t-caps {
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
 
 .text {
@@ -96,39 +124,8 @@ em      { font-weight: italic; }
   }
 }
 
-.t-heavy {
-  font-weight: weight(black) !important;
-}
-
-.t-strong {
-  font-weight: weight(bold) !important;
-}
-
-.text-spaced {
-  margin-top: 1.5em;
-}
-
-%t-sc {
-  @include rem(font-size, 16px);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  word-spacing: .15em;
-}
-
-%t-sc-light {
-  @extend %t-sc;
-  color: gray(60%);
-}
-
-%t-sc-heavy {
-  @extend %t-sc;
-  font-weight: weight(medium);
-  color: gray(20%);
-}
-
-.t-sc { @extend %t-sc; }
-.t-sc-light { @extend %t-sc-light; }
-.t-sc-heavy { @extend %t-sc-heavy; }
+.t-heavy { font-weight: weight(black) !important; }
+.t-strong { font-weight: weight(bold) !important; }
 
 @mixin issue-number {
   font-family: $type-sans;

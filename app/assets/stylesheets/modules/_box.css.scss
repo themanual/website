@@ -8,12 +8,12 @@
 .box-group > .box + .box { @include spacing(padding-top, 4/3); }
 
 .box-title {
-  @extend %t-sc-heavy;
+  @extend .t-sc;
   margin-bottom: 2em;
 }
 
 .box-subtitle {
-  @extend %t-sc-light;
+  @extend .t-sc-light;
   line-height: 1em;
   margin-bottom:  0.75em;
   * + & { margin-top: 2em; }

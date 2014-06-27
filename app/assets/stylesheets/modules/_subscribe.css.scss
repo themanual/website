@@ -55,7 +55,7 @@
 }
 
 .subscribe-tier-note {
-  @extend %t-sc;
+  @extend .t-sc;
   color: gray(65%);
   margin-top: .75em;
   [data-shipping="cost"] {

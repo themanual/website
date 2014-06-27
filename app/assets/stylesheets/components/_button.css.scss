@@ -54,7 +54,7 @@
 }
 
 .button-sc {
-  @extend %t-sc;
+  @extend .t-sc;
   font-weight: weight(semibold);
 }
 

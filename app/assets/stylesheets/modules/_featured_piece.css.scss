@@ -47,7 +47,7 @@
 }
 
 .featured_piece-author {
-  @extend %t-sc-light;
+  @extend .t-sc-light;
   padding-top: 1em;
 
   &:first-child {
