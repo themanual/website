@@ -1,90 +1,140 @@
+<% @physical = true %>
 
-<main class="l-p"><div class="l-col">
+<main class="l-p-x"><div class="l-col">
 
-  <section id="cart" class="cart">
-    <h2 class="h2 t-heavy l-p-y">Cart</h2>
-    <ul class="cart-items">
-      <li class="l-row">
-        <h4 class="cart-item-name">
-          Issue 4: Print &amp; Ebook
-        </h4>
-        <div class="cart-item-price price">
-          <span class="currency">$</span><span class="value">25</span>
-        </div>
-        <div class="cart-item-actions l-col-2">
-          <span class="cart-item-quantity">
-            <button data-change="-1">-</button>
-            1
-            <!-- <input type="text" pattern="\d*" readonly="readonly" value="1" /> -->
-            <button data-change="1">+</button>
-          </span>
-          <button class="cart-item-remove">X</button>
-        </div>
-      </li>
-      <li class="l-row">
-        <h4 class="cart-item-name">
-          The Collection: Print &amp; Ebook
-        </h4>
-        <div class="cart-item-price price">
-          <span class="currency">$</span><span class="value">80</span>
-        </div>
-        <div class="cart-item-actions l-col-2">
-          <span class="cart-item-quantity">
-            <button data-change="-1">-</button>
-            1
-            <!-- <input type="text" pattern="\d*" readonly="readonly" value="1" /> -->
-            <button data-change="1">+</button>
-          </span>
-          <button class="cart-item-remove">X</button>
-        </div>
-      </li>
-    </ul>
-    <div class="cart-summary">
-      <div class="cart-total">
-        <p class="price t-huge">
-          <span class="currency">$</span><span class="value t-heavy">100</span>
-        </p>
-        <small class="h2-sc">+ $15 shipping</small>
-      </div>
-    </div>
-  </section>
+  <header class="page-header-plain">
+    <h1>Checkout</h1>
+  </header>
 
-  <section id="form">
-    <h2 class="h2 t-heavy l-p-y">Payment</h2>
+  <section class="l-p-bb">
     <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
       <input type="hidden" name="stripe_token" value="" />
-      <!-- HIDDEN FIELD FOR NOW - MR -->
-      <input type="hidden" name="tier" value="<%= @tier %>" />
       <!--<span class="payment-errors"></span>-->
-
       <fieldset class="form-section">
-        <h2 class="form-heading">Personal Information</h2>
-        <p class="form-subheading">Use your own name, even if different from the credit card. Email will be your login.</p>
+        <div class="form-heading">
+          <h2 class="h-big">Cart</h2>
+          <p class="h-note">Missed something? <a href="#">Browse the store.</a></p>
+        </div>
+        <ul class="cart-rows">
+          <li class="l-row">
+            <h4 class="l-col-6">
+              <strong><a href="#" target="_blank">Issue 4</a></strong> &mdash; Print &amp; Ebook
+            </h4>
+            <div class="l-col-4">
+              <button class="text-button cart-item-remove">remove</button>
+            </div>
+            <div class="l-col-2 t-r price-plain">
+              <span class="currency">$</span><span class="value">25</span>
+            </div>
+          </li>
+          <li class="l-row">
+            <h4 class="l-col-6">
+              <strong><a href="#" target="_blank">The Collection</a></strong> &mdash; Print &amp; Ebook
+            </h4>
+            <div class="l-col-4">
+              <button class="text-button cart-item-remove">remove</button>
+            </div>
+            <div class="l-col-2 t-r price-plain">
+              <span class="currency">$</span><span class="value">80</span>
+            </div>
+          </li>
+        </ul>
+        <% if @physical %>
+        <div class="cart-rows">
+          <dl class="l-row">
+            <dt class="l-col-6">
+              Country
+            </dt>
+            <dd class="l-col-6 t-r">
+              <select id="cart-shipping-country"><option value="">United States of America</option></select>
+            </dd>
+          </dl>
+          <dl class="l-row">
+            <dt class="l-col-6">
+              Postal/ZIP Code
+            </dt>
+            <dd class="l-col-6 t-r">
+              <input type="text" id="cart-shipping-post-code" class="input t-r" placeholder="123456">
+            </dd>
+          </dl>
+        </div>
+        <% end %>
 
-        <div class="l-units">
+        <div class="cart-rows">
+          <% if @physical %>
+          <dl class="l-row">
+            <dt class="l-col-6"><strong>Shipping</strong></dt>
+            <dd class="l-col-6 price t-r"><span class="currency">$</span><span class="value">17</span></dd>
+          </dl>
+          <% end %>
+          <dl class="l-row t-strong">
+            <dt class="l-col-10 t-caps">TOTAL</dt>
+            <dd class="l-col-2 t-r price-heavy"><span class="currency">$</span><span class="value"><%= @physical ? "132" : "115" %></span></dd>
 
-          <div class="l-unit-s-half">
-            <dl class="field">
-              <dt><%= f.label :first_name, 'Name' %></dt>
-              <dd class="field-half">
-                <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true, autofocus: true %>
-              </dd>
-              <dd class="field-half">
-                <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true, autofocus: true %>
-              </dd>
-            </dl>
-          </div>
-
-          <dl class="field l-unit-s-half">
-            <dt><%= f.label :email %></dt>
-            <dd><%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %></dd>
           </dl>
         </div>
       </fieldset>
 
-      <% if Subscription::TIERS[@tier][:shipping] %>
       <fieldset class="form-section">
-        <h2 class="form-heading">Shipping Address</h2>
+
+        <div class="form-heading">
+          <h2 class="h-big">Reader Account &amp; Payment</h2>
+          <p class="h-note">You’ll be able to log back in to read, download files and invoices.</p>
+        </div>
+
+        <div class="l-units">
+          <div class="l-unit-s-half">
+            <dl class="field">
+              <dt><%= f.label :first_name, 'Name' %></dt>
+              <dd class="field-half">
+                <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %>
+              </dd>
+              <dd class="field-half">
+                <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %>
+              </dd>
+            </dl>
+            <small class="label-note">Can differ from credit card name</small>
+          </div>
+
+          <dl class="field l-unit-s-half">
+            <dt><%= f.label :email %></dt>
+            <dd>
+              <%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %>
+              <small class="label-note">Will be your reader login</small>
+            </dd>
+          </dl>
+
+          <dl class="field l-unit-s-half">
+            <dt><label for="user_cc-number">Credit Card</label></dt>
+            <dd>
+              <input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" />
+            </dd>
+          </dl>
+
+          <dl class="field l-unit-half l-unit-s-fourth">
+            <dt><label for="user_cc-exp">Expiration</label></dt>
+            <dd>
+              <input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" />
+            </dd>
+          </dl>
+
+          <dl class="field l-unit-half l-unit-s-fourth">
+            <dt><label for="user_cc-cvc">Code</label></dt>
+            <dd>
+              <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
+            </dd>
+          </dl>
+
+          <small class="cl-b label-note l-unit-fill">All payment data is securely handled and stored by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a>.</small>
+        </div>
+      </fieldset>
+
+      <% if @physical %>
+      <fieldset class="form-section">
+        <div class="form-heading">
+          <h2 class="h-big">Shipping Address</h2>
+          <p class="h-note">Need a different billing address? You can do it after completing your order.</p>
+        </div>
         <%= f.fields_for :addresses, @user.addresses.new do |a| %>
 
         <dl class="field">
@@ -93,7 +143,7 @@
             <small class="label-note">You may include company or office name</small>
           </dt>
           <dd>
-            <%= a.text_area :lines, required: true, class: 'is-long noresize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
+            <%= a.text_area :lines, required: true, class: 'is-long no-resize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
           </dd>
         </dl>
 
@@ -122,37 +172,11 @@
       </fieldset>
       <% end %>
 
-      <fieldset class="form-section">
-        <h2 class="form-heading">Credit Card</h2>
-        <p class="form-subheading">All payment and card information is handled by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a> over a secure connection.</p>
+      <div class="form-actions">
+        <p class="t-big">
+          <button type="submit" class="button is-large" data-disable-with="Processing...">Purchase for <span class="price price-heavy"><span class="currency">$</span><span class="value"><%= @physical ? "132" : "115" %></span></span></button>
 
-        <div class="l-units">
-          <dl class="field l-unit-s-half">
-            <dt><label for="user_cc-number">Number</label></dt>
-            <dd>
-              <input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" />
-            </dd>
-          </dl>
-
-          <dl class="field l-unit-half l-unit-s-fourth">
-            <dt><label for="user_cc-exp">Expiration</label></dt>
-            <dd>
-              <input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" />
-            </dd>
-          </dl>
-
-          <dl class="field l-unit-half l-unit-s-fourth">
-            <dt><label for="user_cc-cvc">Code</label></dt>
-            <dd>
-              <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
-            </dd>
-          </dl>
-        </div>
-      </fieldset>
-
-      <div class="form-actions form-section">
-        <!--<p class="form-message">Your credit card will be charged <span data-shipping-cost="total"></span> immediately.</p>-->
-        <button type="submit" class="button is-large t-big" data-disable-with="Processing...">Pay Now</button>
+        </p>
       </div>
     <% end %>
   </section>
