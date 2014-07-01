@@ -2,11 +2,17 @@
   font-family: $type-sans;
   border-top: divider();
   border-bottom: divider();
+  &.buy-boxed {
+    border-left: divider();
+    border-right: divider();
+    border-radius: 4px;
+  }
 }
 
 .buy-item {
-  padding: .35em 0;
   @include clearfix;
+  padding: .35em 0;
+  .buy-boxed & { padding: .4em; }
 }
 
 .buy-item + .buy-item {

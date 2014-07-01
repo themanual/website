@@ -27,7 +27,7 @@ em      { font-weight: italic; }
 
 .t-huge     { font-size: 2.5em; }
 .h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
-.h1       { @extend .t-heading; @extend .h-huge; }
+.h1         { @extend .t-heading; @extend .h-huge; }
 
 .t-biggest  { font-size: 2.0em; }
 .h-biggest  { @extend %h; @extend .t-biggest; }
@@ -35,17 +35,19 @@ em      { font-weight: italic; }
 
 .t-bigger   { font-size: 1.55em; }
 .h-bigger   { @extend %h; @extend .t-bigger; }
-.h3       { @extend .t-heading; @extend .h-bigger; }
+.h3         { @extend .t-heading; @extend .h-bigger; }
 
 .t-big      { font-size: em(20, $rem-value); }
 .h-big      { @extend %h; @extend .t-big; }
-.h4       { @extend .t-heading; @extend .h-big; }
+.h4         { @extend .t-heading; @extend .h-big; }
 
 .t-normal   { font-size: 1em; }
 .h-normal   { @extend %h; @extend .t-normal; }
 .h5         { @extend .t-heading; @extend .h-normal; }
 
 .h-note     { color: $c-text-caption; margin-top: .25em; }
+
+.t-serif    { font-family: $type-serif; }
 
 .t-sc {
   @include rem(font-size, 16px);
@@ -100,6 +102,7 @@ em      { font-weight: italic; }
   ul, ol {
     list-style-position: outside;
     padding-left: 1.5em;
+    margin-top: 1em;
     li + li { margin-top: .25em; }
 
     &.plain { list-style-type: none; }

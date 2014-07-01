@@ -74,6 +74,10 @@ class HomeController < ApplicationController
   def store
   end
 
+  def index
+    @issue = Issue.where(number: 3).first
+  end
+
   def cart
     @latest = Issue.latest
     @tier = params[:tier]

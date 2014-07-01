@@ -8,7 +8,7 @@ TheManual::Application.routes.draw do
              :path => ''
 
 
-  root to: redirect("/store")
+  root to: 'home#index'
 
   as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token

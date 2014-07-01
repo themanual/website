@@ -1,21 +1,19 @@
 .issuetoc-entry {
   @include clearfix;
-
-  & + & {
-    margin-top: 1.5em;
-  }
+  margin-bottom: 1.5em;
+  &:last-child { margin-bottom: 0; }
 }
 
 .issuetoc-author {
   @extend .t-sc-light;
-  margin-bottom: .5em;
+  margin-bottom: .35em;
 }
 
 .issuetoc-piece {
   display: inline-block;
   font-family: $type-serif;
-  @include rem(font-size, 22px);
-  font-weight: weight(semibold);
+  @include rem(font-size, 21px);
+  font-weight: weight(bold);
 
   a {
     @include underlined-link { color: black; }
@@ -23,7 +21,7 @@
 
   &.is-lesson:before {
     padding-left:  .15em;
-    padding-right: .1em;
+    padding-right: .3em;
     @include color-by-issue(color);
     content: "+";
   }
