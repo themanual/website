@@ -52,7 +52,10 @@
 @import 'modules/faq';
 @import 'modules/sub-nav';
 @import 'modules/price';
+@import 'modules/banner';
 
+// Units
+@import 'modules/units/piece';
 
 // Page-specific Modules
 @import 'modules/subscribe';
@@ -71,9 +74,6 @@
 @import 'modules/issues/issuebuy';
 @import 'modules/issues/issue_entry';
 @import 'modules/issues/piece-pagination';
-
-// Piece Modules
-@import 'modules/featured_piece';
 
 // Blog Modules
 @import 'modules/blog-post';

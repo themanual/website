@@ -7,10 +7,10 @@ em      { font-weight: italic; }
 %h {
   color: black;
   font-weight: weight(bold);
+  line-height: 1.25;
 }
 
 .t-heading {
-  line-height: 1.25;
   * + & { margin-top: 1em; }
   margin-bottom: .5em;
   &:last-child { margin-bottom: 0; }
@@ -25,15 +25,15 @@ em      { font-weight: italic; }
   font-weight: weight(black);
 }
 
-.t-huge     { font-size: 2.5em; }
+.t-huge     { font-size: em(48, $rem-value); }
 .h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
 .h1         { @extend .t-heading; @extend .h-huge; }
 
-.t-biggest  { font-size: 2.0em; }
-.h-biggest  { @extend %h; @extend .t-biggest; }
+.t-biggest  { font-size: em(36, $rem-value); }
+.h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
 .h2         { @extend .t-heading; @extend .h-biggest; }
 
-.t-bigger   { font-size: 1.55em; }
+.t-bigger   { font-size: em(24, $rem-value); }
 .h-bigger   { @extend %h; @extend .t-bigger; }
 .h3         { @extend .t-heading; @extend .h-bigger; }
 
@@ -65,6 +65,10 @@ em      { font-weight: italic; }
   @extend .t-sc;
   color: black;
   font-weight: weight(medium);
+}
+.h-sc {
+  @extend .t-sc-heavy;
+  @include spacing(margin-bottom);
 }
 
 .t-sc-small {
@@ -98,6 +102,8 @@ em      { font-weight: italic; }
   p:first-child,
   p.unspaced    { margin-top: 0; }
   p.spaced      { margin-top: 1.5em; }
+  p.close       { margin-top: .5em; }
+  p.closer      { margin-top: .25em; }
 
   ul, ol {
     list-style-position: outside;
@@ -127,6 +133,7 @@ em      { font-weight: italic; }
   }
 }
 
+.t-close { margin-top: .5em !important; }
 .t-heavy { font-weight: weight(black) !important; }
 .t-strong { font-weight: weight(bold) !important; }
 
@@ -146,4 +153,21 @@ em      { font-weight: italic; }
 
 .issue-number {
   @include issue-number;
+}
+
+.synopsis {
+  font-family: $type-serif;
+  color: $c-text-blockquote;
+  font-style: italic;
+  font-weight: weight(medium);
+  @include rem(font-size, 20px);
+  max-width: 20em;
+  line-height: 1.25;
+}
+
+.byline {
+  color: $c-text-caption;
+  line-height: 1.25;
+  a, strong { font-weight: weight(medium); }
+  strong  { color: $c-text-heading; font-weight: weight(regular); }
 }

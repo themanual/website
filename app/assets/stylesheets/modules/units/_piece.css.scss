@@ -1,0 +1,26 @@
+// Layout
+.piece-unit {
+  overflow: hidden;
+}
+
+.piece-unit-illo {
+  float: left;
+  width: 20%;
+  margin-right: 5%;
+}
+
+.piece-unit-text {
+  overflow: hidden;
+  padding-top: .75em;
+}
+
+.piece-unit-title {
+  @extend .h-bigger;
+  a { @include black-link; }
+}
+
+.piece-unit-synopsis {
+  @extend .synopsis;
+  margin-top:  .25em;
+  margin-bottom: .75em;
+}

@@ -76,6 +76,7 @@ class HomeController < ApplicationController
 
   def index
     @issue = Issue.where(number: 3).first
+    @pieces = Piece.all.sample(6)
   end
 
   def cart

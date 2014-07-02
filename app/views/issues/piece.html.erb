@@ -53,9 +53,9 @@
 
       <section class="box l-col-half">
         <h2 class="box-title">
-          Read something from <a href="/issues/<%= @piece.random.issue_number %>" class="issue-<%= @piece.random.issue_number %>">Issue <%= @piece.random.issue_number %></a>
+          Recommended reading
         </h2>
-        <%= render 'featured_piece', featured: @piece.random %>
+        <%= render partial: 'shared/piece', object: @piece.random %>
       </section>
 
       <section class="box l-col-half">

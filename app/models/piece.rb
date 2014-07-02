@@ -26,6 +26,14 @@ class Piece < ActiveRecord::Base
     end
   end
 
+  def article?
+    self.is_a? Article
+  end
+
+  def lesson?
+    self.is_a? Lesson
+  end
+
   def prev
     if self.is_a? Lesson
 

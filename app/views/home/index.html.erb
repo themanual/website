@@ -1,12 +1,12 @@
 <main>
-  <section class="l-p-xyy issue-4 l-line-b"><div class="l-container">
+  <section class="issue-4 bg-gray l-p-yy l-p-menu"><div class="l-container">
 
-    <div class="l-row l-p-yy">
+    <div class="l-row">
       <div class="text colored-links l-col-3">
         <p class="t-sc-heavy">Our latest issue</p>
         <h1>Issue <span class="issue-number">4</span></h1>
         <p>Six articles and six lessons from outstanding writers, available in print, digital, and online editions.</p>
-        <p><a href="#" class="button is-large t-strong is-wide">Explore Issue 4</a></p>
+        <p><a href="#" class="button button-sc is-wide">Explore Issue 4</a></p>
       </div>
       <figure class="l-col-9">
         <img src="http://placehold.it/1200x600" alt="">
@@ -14,8 +14,8 @@
     </div>
 
     <div class="l-row">
-      <div class="l-col-3">
-        <h2 class="t-sc-heavy">Buy issue</h2>
+      <div class="l-m-tt l-col-3 ">
+        <h2 class="t-sc-heavy colored-links">Buy from the <%= link_to "Store", store_path %></h2>
         <div class="buy buy-boxed l-m-y">
           <div class="buy-item">
             <div class="buy-item-text">
@@ -49,8 +49,8 @@
           </div>
         </div>
       </div>
-      <div class="l-col-9">
-        <h2 class="t-sc-heavy l-m-b">Read issue online</h2>
+      <div class="l-m-tt l-col-9">
+        <h2 class="t-sc-heavy l-m-b colored-links">Read <%= link_to "this issue", issue_path(issue: 4) %> online</h2>
         <ul class="issuetoc">
           <li class="issuetoc-entry l-col-half">
             <h3 class="issuetoc-author">Craig Mod</h3>
@@ -86,5 +86,45 @@
       </div>
     </div>
 
+  </div></section>
+
+  <section class="l-p-xyy l-line-t"><div class="l-container">
+    <div class="l-row">
+      <h2 class="l-col-half h2">Staff Picks</h2>
+      <p class="l-col-half t-r"><%= link_to "Explore All Issues", issues_path, class: 'ghost-button button-sc' %></p>
+    </div>
+    <div class="l-row">
+      <% @pieces.each do |p| %>
+      <div class="l-p-y l-col-half">
+        <%= render partial: 'shared/piece', object: p  %>
+      </div>
+      <% end %>
+    </div>
+  </div></section>
+
+  <section class="l-p-xyy l-line-t"><div class="l-container">
+    <div class="l-row">
+      <div class="l-col-half">
+        <p class="h-sc"><%= link_to "Buy from the store", store_path %> and support The Manual</p>
+        <%= link_to 'store/subscription', class: 'plain-banner t-center' do %>
+          <figure class="banner-image">
+            <%= image_tag 'banners/banner-subscription.svg' %>
+          </figure>
+          <div class="banner-text">
+            <p class="banner-title">Yearly Subscription</p>
+            <p class="banner-description">The next three issues at 10% off.</p>
+          </div>
+        <% end %>
+        <%= link_to 'store/issues', class: 'plain-banner t-center' do %>
+          <figure class="banner-image">
+            <%= image_tag 'banners/banner-collection.svg' %>
+          </figure>
+          <div class="banner-text">
+            <p class="banner-title">The Collection</p>
+            <p class="banner-description">All four published issues, at 20% off.</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div></section>
 </main>

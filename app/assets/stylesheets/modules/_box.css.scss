@@ -8,7 +8,7 @@
 .box-group > .box + .box { @include spacing(padding-top, 4/3); }
 
 .box-title {
-  @extend .t-sc;
+  @extend .t-sc-heavy;
   margin-bottom: 2em;
 }
 

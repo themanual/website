@@ -5,6 +5,7 @@
   border-radius: 4px;
   line-height: 1 !important;
   cursor: pointer;
+  font-weight: weight(bold);
 
   margin-right: .3em;
   margin-left:  .3em;
@@ -64,6 +65,9 @@
 .button-sc {
   @extend .t-sc;
   font-weight: weight(semibold);
+  padding: .8em;
+  &.is-large { padding: 1em;    }
+  &.is-larger { padding: 1.2em; }
 }
 
 button.button {
