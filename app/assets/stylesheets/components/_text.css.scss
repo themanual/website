@@ -29,7 +29,7 @@ em      { font-weight: italic; }
 .h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
 .h1         { @extend .t-heading; @extend .h-huge; }
 
-.t-biggest  { font-size: em(36, $rem-value); }
+.t-biggest  { font-size: em(30, $rem-value); }
 .h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
 .h2         { @extend .t-heading; @extend .h-biggest; }
 
