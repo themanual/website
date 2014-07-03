@@ -48,8 +48,6 @@
 .ghost-button {
   @extend %button;
 
-  background-color: white;
-  font-weight: weight(medium);
   border: solid 2px $c-blue;
   color: $c-blue;
   @include color-by-issue(border-color color);
@@ -59,6 +57,10 @@
     color: black;
     border-color: black;
     outline: none;
+  }
+
+  &.is-white {
+    background-color: white;
   }
 }
 
