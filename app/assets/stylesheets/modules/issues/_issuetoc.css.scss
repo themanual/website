@@ -1,7 +1,9 @@
+.issuetoc {
+  margin-top: -2em;
+}
 .issuetoc-entry {
   @include clearfix;
-  margin-bottom: 1.5em;
-  &:last-child { margin-bottom: 0; }
+  margin-top: 2em;
 }
 
 .issuetoc-author {
@@ -15,9 +17,7 @@
   @include rem(font-size, 21px);
   font-weight: weight(bold);
 
-  a {
-    @include underlined-link { color: black; }
-  }
+  a { @include underlined-link { color: black; } }
 
   &.is-lesson:before {
     padding-left:  .15em;
