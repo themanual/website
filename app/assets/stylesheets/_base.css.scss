@@ -20,6 +20,7 @@ body {
   flex-direction: column;
 }
 
+body > #content,
 body > main {
   background: white;
   flex: 1;
@@ -29,6 +30,18 @@ figure img {
   display: block;
   max-width: 100%;
   margin: 0 auto;
+}
+
+#sectionnav {
+  padding-top: 5em;
+}
+
+#sectionnav,
+.site-header h1 {
+  float: left;
+  width: 8em;
+  @include spacing(margin-right);
+  & + * { overflow: hidden; }
 }
 
 a {

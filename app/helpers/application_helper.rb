@@ -13,6 +13,14 @@ module ApplicationHelper
   	end
   end
 
+  def nav_link_to(name, options, html_options = {})
+    if current_page?(options)
+      html_options[:class] ||= ""
+      html_options[:class] += " current"
+    end
+    link_to name, options, html_options
+  end
+
   # From https://coderwall.com/p/d1vplg
   def inline_svg filename, options={}
     path = "app/assets/images/#{filename}".split('/')

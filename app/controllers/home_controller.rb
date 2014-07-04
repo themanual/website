@@ -74,6 +74,10 @@ class HomeController < ApplicationController
   def store
   end
 
+  def test
+    render layout: "reading"
+  end
+
   def index
     @issue = Issue.where(number: 3).first
     @pieces = Piece.all.sample(6)
