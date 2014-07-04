@@ -25,11 +25,11 @@ em      { font-weight: italic; }
   font-weight: weight(black);
 }
 
-.t-huge     { font-size: em(48, $rem-value); }
+.t-huge     { font-size: em(50, $rem-value); }
 .h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
 .h1         { @extend .t-heading; @extend .h-huge; }
 
-.t-biggest  { font-size: em(30, $rem-value); }
+.t-biggest  { font-size: em(32, $rem-value); }
 .h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
 .h2         { @extend .t-heading; @extend .h-biggest; }
 
@@ -104,6 +104,8 @@ em      { font-weight: italic; }
   p.spaced      { margin-top: 1.5em; }
   p.close       { margin-top: .5em; }
   p.closer      { margin-top: .25em; }
+  p.loose       { margin-top: 1.5em; }
+  p.looser      { margin-top: 2em; }
 
   ul, ol {
     list-style-position: outside;
@@ -140,7 +142,9 @@ em      { font-weight: italic; }
 @mixin issue-number {
   font-family: $type-sans;
   font-weight: weight(black);
+  background: black;
   @include color-by-issue(background);
+  @include color-this-by-issue(background);
 
   padding-right:  .35em;
   padding-left:   .35em;
@@ -161,7 +165,7 @@ em      { font-weight: italic; }
   font-style: italic;
   font-weight: weight(medium);
   @include rem(font-size, 20px);
-  max-width: 19em;
+  max-width: 19.5em;
   line-height: 1.25;
 }
 
