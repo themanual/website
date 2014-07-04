@@ -51,6 +51,17 @@ $issues-colors: (#EE4246, #6AB7E6, #EC9840, darken(#1CCFB5, 3%));
   }
 }
 
+@mixin color-this-by-issue($props) {
+  @each $i in $issues {
+    &.issue-#{$i} {
+      @each $prop in $props {
+        #{$prop}: issue-color($i);
+        @content;
+      }
+    }
+  }
+}
+
 // Shorthand to set issue-colored links with hover states
 @mixin link-color-by-issue {
   @include color-by-issue(color) {
