@@ -3,8 +3,9 @@
 }
 
 .issue_entry-illo {
+  margin-top: 2em;
   float: left;
-  width: 27.5%;
+  width: 25%;
   margin-right: 5%;
 }
 
@@ -17,13 +18,14 @@
 }
 
 .issue_entry-piece {
-  margin-top: 1.5em;
+  margin-top: 1em;
 }
 
 .issue_entry-piece-title {
-  @include rem(font-size, 24px);
+  @include rem(font-size, 22px);
   font-weight: weight(bold);
-  line-height: 1.2;
+  line-height: 1.25;
+  margin-bottom: .2em;
 }
 
 .issue_entry-piece-title a {
@@ -31,12 +33,5 @@
 }
 
 .issue_entry-piece-synopsis {
-  font-family: $type-serif;
-  color: $c-text-blockquote;
-  font-style: italic;
-  font-weight: weight(medium);
-  @include rem(font-size, 20px);
-  max-width: 18em;
-  line-height: 1.25;
-  margin-top:  .25em;
+  @extend .synopsis;
 }
