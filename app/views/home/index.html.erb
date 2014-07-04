@@ -55,17 +55,17 @@
   <section class="l-p-xyy l-line-t"><div class="l-grid">
 
     <div class="l-col-half">
-      <h2 class="h2">Staff Picks</h2>
+      <!-- <h2 class="h2">Staff Picks</h2> -->
       <!-- <p class="l-col-half t-r"><%= link_to "Explore All Issues", issues_path, class: 'ghost-button button-sc' %></p> -->
       <% @pieces.each do |p| %>
-      <div class="l-m-yy">
+      <div class="l-m-bb">
         <%= render partial: 'shared/piece', object: p  %>
       </div>
       <% end %>
     </div>
 
     <div class="l-col-half">
-      <p class="h-sc"><%= link_to "Buy from the store", store_path %> and support The Manual</p>
+      <!-- <p class="h-sc"><%= link_to "Buy from the store", store_path %> and support The Manual</p> -->
       <%= link_to 'store/subscription', class: 'plain-banner t-center' do %>
         <figure class="banner-image">
           <%= image_tag 'banners/banner-subscription.svg' %>
