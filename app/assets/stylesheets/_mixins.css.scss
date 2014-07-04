@@ -114,6 +114,10 @@
   }
 }
 
+.black-links a {
+  @include black-link;
+}
+
 %visuallyhidden {
   position: absolute;
   overflow: hidden;

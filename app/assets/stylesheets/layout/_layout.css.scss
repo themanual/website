@@ -50,8 +50,8 @@
 }
 
 // Floats
-.l-fl-l { float: left;  }
-.l-fl-r { float: right; }
+.l-fl-l { float: left !important; }
+.l-fl-r { float: right !important; }
 
 // Dividers
 .l-line-t { border-top: divider(); }
