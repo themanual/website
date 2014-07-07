@@ -60,6 +60,12 @@ a {
       }
     }
   }
+
+  &.c-periodical {
+    @include colored-link {
+      color: $c-purple;
+    }
+  }
 }
 
 .clearfix { @include clearfix; }
