@@ -74,7 +74,7 @@ class HomeController < ApplicationController
   def store
   end
 
-  def test
+  def popular
     render layout: "reading"
   end
 
