@@ -39,7 +39,7 @@ figure img {
 #sectionnav,
 .site-header h1 {
   float: left;
-  width: 8em;
+  width: 9em;
   @include spacing(margin-right);
   & + * { overflow: hidden; }
 }
