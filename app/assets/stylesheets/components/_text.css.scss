@@ -33,7 +33,7 @@ em      { font-weight: italic; }
 .h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
 .h2         { @extend .t-heading; @extend .h-biggest; }
 
-.t-bigger   { font-size: em(24, $rem-value); }
+.t-bigger   { font-size: em(23, $rem-value); }
 .h-bigger   { @extend %h; @extend .t-bigger; }
 .h3         { @extend .t-heading; @extend .h-bigger; }
 
@@ -164,8 +164,7 @@ em      { font-weight: italic; }
   color: $c-text-blockquote;
   font-style: italic;
   font-weight: weight(medium);
-  @include rem(font-size, 20px);
-  max-width: 19.5em;
+  @include rem(font-size, 21px);
   line-height: 1.25;
 }
 
