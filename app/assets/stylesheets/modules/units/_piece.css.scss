@@ -11,7 +11,7 @@
 
 .piece-unit-text {
   overflow: hidden;
-  padding-top: .75em;
+  // padding-top: .75em;
 }
 
 .piece-unit-title {
@@ -21,5 +21,10 @@
 
 .piece-unit-synopsis {
   @extend .synopsis;
-  margin-bottom: .5em;
+  margin-bottom: .25em;
+  &:last-child { margin-bottom: 0; }
+}
+
+.piece-unit .t-sc-heavy {
+  margin-bottom: .35em;
 }

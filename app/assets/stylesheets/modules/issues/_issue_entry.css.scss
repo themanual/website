@@ -3,7 +3,6 @@
 }
 
 .issue_entry-illo {
-  margin-top: 2em;
   float: left;
   width: 25%;
   margin-right: 5%;
@@ -22,9 +21,7 @@
 }
 
 .issue_entry-piece-title {
-  @include rem(font-size, 22px);
-  font-weight: weight(bold);
-  line-height: 1.25;
+  @extend .h-bigger;
   margin-bottom: .2em;
 }
 
@@ -34,4 +31,22 @@
 
 .issue_entry-piece-synopsis {
   @extend .synopsis;
+}
+
+.issue_entry {
+  @include row;
+  border-bottom: divider();
+  @include spacing(padding-top padding-bottom, .25);
+}
+
+.issue_entry-illo {
+  float: left;
+  width: 9em;
+  margin-right: 1.25em;
+  + * { overflow: hidden; }
+}
+
+.issue_entry-text {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }

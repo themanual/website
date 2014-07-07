@@ -5,11 +5,11 @@
   <h1 class="h1">Issue <strong class="issue-number issue-<%= @issue.number %>"><%= @issue.number %></strong></h1>
 
   <section class="issue l-line-t">
-    <ul class="l-grid">
+    <ul class="">
     <% @issue.articles.ordered.each do |article| %>
-      <li class="issue_entry l-col-l-half l-p-yy">
+      <li class="issue_entry">
         <figure class="issue_entry-illo">
-          <%= illustration_tag @issue.number, article.author_slug, 'small' %>
+          <%= illustration_tag @issue.number, article.author_slug, 'print' %>
         </figure>
         <div class="issue_entry-text">
           <h2 class="issue_entry-author"><%= article.author.name %></h2>

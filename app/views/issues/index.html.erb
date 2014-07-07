@@ -4,15 +4,15 @@
 
 <% Issue.public_issues.ordered.each do |issue| %>
   <% cache issue, expires_in: 12.hours.ish do %>
-    <section class="l-p-yy l-line-t issue-<%= issue.number %>">
+    <section class="l-p-yy l-line-t l-row issue-<%= issue.number %>">
 
-      <header class="l-col-l-half">
+      <header class="l-col-l-third">
         <h2 class="h2 t-strong">Issue <strong class="issue-number issue-<%= issue.number %>"><%= issue.number %></strong></h1>
       </header>
 
-      <ul class="issuetoc l-row">
+      <ul class="issuetoc l-col-l-two-thirds">
         <% issue.articles.ordered.each do |article| %>
-          <li class="issuetoc-entry l-col-half">
+          <li class="issuetoc-entry">
             <h3 class="issuetoc-author"><%= article.author.name %></h3>
             <% ['article', 'lesson'].each do |type| %>
             <p class="issuetoc-piece is-<%= type %>"><a <%= (@piece.present? && @piece.id == article.id) ? 'class="current"' : '' %> href="<%= piece_url(issue.number, article.author_slug, type) %>"><%= type == 'lesson' ? 'Lesson' : article.title %></a></p>
