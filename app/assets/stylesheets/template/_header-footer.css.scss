@@ -2,7 +2,6 @@
 .site-footer {
   color: gray(40%);
   @include spacing(padding-left padding-right);
-  @include padding-v(1em);
   a { @include colored-link { color: gray(60%); } }
 }
 
@@ -11,6 +10,44 @@
   left: 0;
   right: 0;
   border-bottom: divider();
+}
+
+.site-header a,
+.site-footer {
+  @include padding-v(1em);
+}
+
+.site-header a {
+  display: inline-block;
+}
+
+.site-header nav {
+  position: relative;
+  // left: -1em;
+}
+
+.site-header nav li + li {
+  // margin-left: .5em;
+}
+
+.site-header nav {
+  margin-bottom: -1px;
+}
+
+.site-header nav a {
+  // padding-left:  1em;
+  // padding-right: 1em;
+  // border-bottom: solid 1px transparent;
+  // &.current {
+  //   border-left: divider();
+  //   border-right: divider();
+  //   border-bottom: solid 1px white;
+  // }
+  &.current {
+    color: black;
+    border-bottom: solid 2px black;
+    font-weight: weight(medium);
+  }
 }
 
 .l-p-menu {
