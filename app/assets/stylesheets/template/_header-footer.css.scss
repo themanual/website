@@ -19,11 +19,15 @@
 
 .site-header nav {
   position: relative;
-  font-weight: weight(medium);
   overflow: visible;
 
   li + li {
     margin-left: 0.5em;
+  }
+
+  // compensate padding
+  li:first-child {
+    margin-left: -1em;
   }
 
   a {
