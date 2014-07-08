@@ -78,6 +78,10 @@ class HomeController < ApplicationController
     render layout: "read"
   end
 
+  def popular
+    render layout: "read"
+  end
+
   def index
     @issue = Issue.where(number: 3).first
     @pieces = Piece.all.sample(6)
