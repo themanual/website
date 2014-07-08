@@ -13,8 +13,7 @@ html {
 
 body {
   font-family: $type-sans;
-  background-color: $c-bg-gray;
-
+  background-color: white;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -22,7 +21,6 @@ body {
 
 body > #content,
 body > main {
-  background: white;
   flex: 1;
 }
 
@@ -33,7 +31,8 @@ figure img {
 }
 
 #sectionnav {
-  padding-top: 5em;
+  padding-top: 7em;
+  padding-bottom: 1.5em;
 }
 
 #sectionnav,

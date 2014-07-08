@@ -1,10 +1,12 @@
 <% push_page_title "Issues" %>
 
-<h1 class="h1">Issues</h1>
+<header class="page-header">
+  <h1>Issues</h1>
+</header>
 
 <% Issue.public_issues.ordered.each do |issue| %>
   <% cache issue, expires_in: 12.hours.ish do %>
-    <section class="l-p-yy l-line-t l-row issue-<%= issue.number %>">
+    <section class="l-p-y l-line-t l-row issue-<%= issue.number %>">
 
       <header class="l-col-l-third">
         <h2 class="h2 t-strong">Issue <strong class="issue-number issue-<%= issue.number %>"><%= issue.number %></strong></h1>

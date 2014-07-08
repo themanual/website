@@ -1,30 +1,47 @@
 // Layout
 .piece-unit {
-  overflow: hidden;
+  @include clearfix;
 }
 
 .piece-unit-illo {
   float: left;
   width: 18%;
   margin-right: 5%;
-}
-
-.piece-unit-text {
-  overflow: hidden;
-  // padding-top: .75em;
+  + * {
+    overflow: hidden;
+  }
 }
 
 .piece-unit-title {
   @extend .h-bigger;
-  a { @include black-link; }
+  margin-top: .6rem;
 }
 
 .piece-unit-synopsis {
-  @extend .synopsis;
-  margin-bottom: .25em;
-  &:last-child { margin-bottom: 0; }
+  font-family: $type-serif;
+  font-weight: weight(medium);
+  @include rem(font-size, 21px);
+  line-height: 1.4;
+  max-width: 28em;
+  color: $c-text-body;
 }
 
-.piece-unit .t-sc-heavy {
-  margin-bottom: .35em;
+.piece-unit-author {
+  @extend .t-sc-light;
+  color: $c-text-blockquote;
+}
+
+.piece-unit-metadata {
+  color: $c-text-caption;
+  margin-top: .75rem;
+}
+
+.piece-unit-topics a {
+  @include colored-link { color: $c-text-dull; }
+}
+
+.piece-unit-silo + .piece-unit-topics:before {
+  content: "\00b7\00a0";
+  display: inline-block;
+  @include padding-h(.3em);
 }

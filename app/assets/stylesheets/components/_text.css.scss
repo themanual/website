@@ -12,7 +12,7 @@ em      { font-weight: italic; }
 
 .t-heading {
   * + & { margin-top: 1em; }
-  @include rem(margin-bottom, 1rem);
+  margin-bottom: .5em;
   &:last-child { margin-bottom: 0; }
 }
 
@@ -33,7 +33,7 @@ em      { font-weight: italic; }
 .h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
 .h2         { @extend .t-heading; @extend .h-biggest; }
 
-.t-bigger   { font-size: em(23, $rem-value); }
+.t-bigger   { font-size: em(24, $rem-value); }
 .h-bigger   { @extend %h; @extend .t-bigger; }
 .h3         { @extend .t-heading; @extend .h-bigger; }
 
@@ -173,4 +173,8 @@ em      { font-weight: italic; }
   line-height: 1.25;
   a, strong { font-weight: weight(medium); }
   strong  { color: $c-text-heading; font-weight: weight(regular); }
+}
+
+.t-downcase {
+  text-transform: lowercase !important;
 }

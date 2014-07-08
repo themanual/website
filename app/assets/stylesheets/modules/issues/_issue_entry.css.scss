@@ -35,8 +35,8 @@
 
 .issue_entry {
   @include row;
-  border-bottom: divider();
   @include spacing(padding-top padding-bottom, .25);
+  & + & { border-top: divider(); }
 }
 
 .issue_entry-illo {

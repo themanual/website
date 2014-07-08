@@ -2,10 +2,6 @@ $type-column-em-width: 34;
 
 // HEADER
 
-.issue-piece-header {
-  padding-top: 2.5em;
-}
-
 @include media-from($bp-l) {
   .issue-piece-header {
     @include row;

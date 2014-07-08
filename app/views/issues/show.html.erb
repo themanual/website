@@ -2,7 +2,11 @@
 
 <% cache @issue do %>
 
-  <h1 class="h1">Issue <strong class="issue-number issue-<%= @issue.number %>"><%= @issue.number %></strong></h1>
+  <header class="page-header">
+    <h1>
+      Issue <strong class="issue-number issue-<%= @issue.number %>"><%= @issue.number %></strong>
+    </h1>
+  </header>
 
   <section class="issue l-line-t">
     <ul class="">

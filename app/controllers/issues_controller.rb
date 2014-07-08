@@ -3,8 +3,9 @@ class IssuesController < ApplicationController
   # skip_before_filter :authenticate_user!
   before_filter :check_access_to_issue, only: [:show, :piece]
 
+  layout "read"
+
   def index
-    render layout: "read"
   end
 
   def show
@@ -12,8 +13,6 @@ class IssuesController < ApplicationController
     @issue = Issue.where(number: params[:issue].to_i).first
 
     redirect_to issues_url unless @issue
-
-    render layout: "read"
   end
 
   def piece
@@ -22,7 +21,7 @@ class IssuesController < ApplicationController
 
     @piece = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: author.id).first
 
-    redirect_to issues_url unless @piece
+    render layout: "piece"
   end
 
   protected
