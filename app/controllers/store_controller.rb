@@ -1,4 +1,7 @@
 class StoreController < ApplicationController
+
+  layout "store"
+
   def index
     redirect_to :action => 'featured'
   end
@@ -12,6 +15,4 @@ class StoreController < ApplicationController
   def issues
   end
 
-  def goods
-  end
 end

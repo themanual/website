@@ -1,0 +1,37 @@
+<nav id="sectionnav">
+  <h2 class="navgroup-title">Browse</h2>
+  <ul class="navgroup-items">
+    <li><%= nav_link_to "Staff Picks", controller: "home", action: "staffpicks" %></li>
+    <li><a href="#">Recent</a></li>
+    <li><a href="#">Popular</a></li>
+  </ul>
+
+  <h2 class="navgroup-title">Sections</h2>
+  <ul class="navgroup-items">
+    <li>
+      <%= nav_link_to "Issues", issues_path %>
+      <ul>
+        <li><%= nav_link_to "Issue 3", issue_path(issue: 3) %></li>
+        <li><%= nav_link_to "Issue 2", issue_path(issue: 2) %></li>
+        <li><%= nav_link_to "Issue 1", issue_path(issue: 1) %></li>
+      </ul>
+    </li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+
+  <h2 class="navgroup-title">Topics</h2>
+  <ul class="navgroup-items">
+    <li><a href="#">Business</a></li>
+    <li><a href="#">Community</a></li>
+    <li><a href="#">Content</a></li>
+    <li><a href="#">Creativity</a></li>
+    <li><a href="#">Culture</a></li>
+    <li><a href="#">Growth</a></li>
+    <li><a href="#">Industry</a></li>
+    <li><a href="#">Layout</a></li>
+    <li><a href="#">Learning</a></li>
+    <li><a href="#">Teamwork</a></li>
+    <li><a href="#">Typography</a></li>
+    <li><a href="#">Writing</a></li>
+  </ul>
+</nav>

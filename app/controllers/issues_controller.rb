@@ -4,7 +4,7 @@ class IssuesController < ApplicationController
   before_filter :check_access_to_issue, only: [:show, :piece]
 
   def index
-    render layout: "reading"
+    render layout: "read"
   end
 
   def show
@@ -13,7 +13,7 @@ class IssuesController < ApplicationController
 
     redirect_to issues_url unless @issue
 
-    render layout: "reading"
+    render layout: "read"
   end
 
   def piece

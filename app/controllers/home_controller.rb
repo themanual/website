@@ -74,8 +74,8 @@ class HomeController < ApplicationController
   def store
   end
 
-  def popular
-    render layout: "reading"
+  def staffpicks
+    render layout: "read"
   end
 
   def index

@@ -1,122 +1,109 @@
 <% push_page_title "Subscription" %>
-<% push_page_title "Store" %>
+<% push_page_title "Shop" %>
 
-<main>
-  <header class="page-header"><div>
-    <h1>Store</h1>
-  </div></header>
+<h1 class="h1">Subscription</h1>
 
-  <nav class="l-p-x l-line bg-gray"><div class="sub-nav l-container">
-    <ul class="sub-nav-list">
-      <li><%= link_to "Featured",       {:action => 'featured'} %></li>
-      <li><%= link_to "Annual Subscription",  {:action => 'subscription'}, :class => 'is-current'  %></li>
-      <li><%= link_to "Issues",         {:action => 'issues' } %></li>
-    </ul>
-  </div></nav>
+<section class="l-p-y l-line-t"><form id="subscription-form" action="">
 
-  <section class="l-p-xyy"><div class="l-container"><form id="subscription-form" action="">
+  <figure>
+    <img src="http://placehold.it/1200x400/F5F5F5/FFFFFF" alt="">
+  </figure>
 
-    <figure>
-      <img src="http://placehold.it/1200x400/F5F5F5/FFFFFF" alt="">
-    </figure>
+  <ul class="l-row">
+    <li class="l-col-fourth l-m-y">
+      <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
+      <h3 class="h3">Web</h3>
+      <div class="text">
+        <ul class="plain looser">
+          <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
+          <li><del>Ebook copy of Issues 5, 6, and 7; one month before publicly available</del></li>
+          <li><del>Audiobook of Issues 5, 6, and 7</del></li>
+          <li><del>Printed copy of Issues 5, 6, and 7</del></li>
+        </ul>
+      </div>
+      <div class="button-row">
+        <button class="t-big button price">
+          <span class="symbol">+</span><span class="currency">$</span><span class="value">15</span>
+        </button>
+        <span class="t-sc-light">/ year</span>
+      </div>
+    </li>
 
-    <ul class="l-row">
-      <li class="l-col-fourth l-m-y">
-        <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
-        <h3 class="h3">Web</h3>
-        <div class="text">
-          <ul class="plain looser">
-            <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
-            <li><del>Ebook copy of Issues 5, 6, and 7; one month before publicly available</del></li>
-            <li><del>Audiobook of Issues 5, 6, and 7</del></li>
-            <li><del>Printed copy of Issues 5, 6, and 7</del></li>
-          </ul>
-        </div>
-        <div class="button-row">
-          <button class="t-big button price">
-            <span class="symbol">+</span><span class="currency">$</span><span class="value">15</span>
-          </button>
-          <span class="t-sc-light">/ year</span>
-        </div>
-      </li>
+    <li class="l-col-fourth l-m-y">
+      <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
+      <h3 class="h3">Ebook</h3>
+      <div class="text">
+        <ul class="plain looser">
+          <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
+          <li>Ebook copy of Issues 5, 6, and 7; one month before publicly available</li>
+          <li><del>Audiobook of Issues 5, 6, and 7</del></li>
+          <li><del>Printed copy of Issues 5, 6, and 7</del></li>
+        </ul>
+      </div>
+      <div class="button-row">
+        <button class="t-big button price">
+          <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
+        </button>
+        <span class="t-sc-light">/ year</span>
+      </div>
 
-      <li class="l-col-fourth l-m-y">
-        <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
-        <h3 class="h3">Ebook</h3>
-        <div class="text">
-          <ul class="plain looser">
-            <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
-            <li>Ebook copy of Issues 5, 6, and 7; one month before publicly available</li>
-            <li><del>Audiobook of Issues 5, 6, and 7</del></li>
-            <li><del>Printed copy of Issues 5, 6, and 7</del></li>
-          </ul>
-        </div>
-        <div class="button-row">
-          <button class="t-big button price">
-            <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
-          </button>
-          <span class="t-sc-light">/ year</span>
-        </div>
+    </li>
 
-      </li>
+    <li class="l-col-fourth l-m-y">
+      <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
+      <h3 class="h3">Audiobook</h3>
+      <div class="text">
+        <ul class="plain looser">
+          <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
+          <li>Ebook copy of Issues 5, 6, and 7; one month before publicly available</li>
+          <li>Audiobook of Issues 5, 6, and 7</li>
+          <li><del>Printed copy of Issues 5, 6, and 7</del></li>
+        </ul>
+      </div>
+      <div class="button-row">
+        <button class="t-big button price">
+          <span class="symbol">+</span><span class="currency">$</span><span class="value">50</span>
+        </button>
+        <span class="t-sc-light">/ year</span>
+      </div>
+    </li>
 
-      <li class="l-col-fourth l-m-y">
-        <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
-        <h3 class="h3">Audiobook</h3>
-        <div class="text">
-          <ul class="plain looser">
-            <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
-            <li>Ebook copy of Issues 5, 6, and 7; one month before publicly available</li>
-            <li>Audiobook of Issues 5, 6, and 7</li>
-            <li><del>Printed copy of Issues 5, 6, and 7</del></li>
-          </ul>
-        </div>
-        <div class="button-row">
-          <button class="t-big button price">
-            <span class="symbol">+</span><span class="currency">$</span><span class="value">50</span>
-          </button>
-          <span class="t-sc-light">/ year</span>
-        </div>
-      </li>
+    <li class="l-col-fourth l-m-y">
+      <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
+      <h3 class="h3">Print</h3>
+      <div class="text">
+        <ul class="plain looser">
+          <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
+          <li>Ebook copy of Issues 5, 6, and 7; one month before publicly available</li>
+          <li>Audiobook of Issues 5, 6, and 7</li>
+          <li>Printed copy of Issues 5, 6, and 7</li>
+        </ul>
+      </div>
+      <div class="button-row">
+        <button class="t-big button price">
+          <span class="symbol">+</span><span class="currency">$</span><span class="value">75</span>
+        </button>
+        <span class="t-sc-light">/ year</span>
+      </div>
+    </li>
+  </ul>
+</form></section>
 
-      <li class="l-col-fourth l-m-y">
-        <!-- <figure><img src="http://placehold.it/600x400/F5F5F5/0055DD" alt=""></figure> -->
-        <h3 class="h3">Print</h3>
-        <div class="text">
-          <ul class="plain looser">
-            <li>One month early access to free Web edition of Issues 5, 6, and 7</li>
-            <li>Ebook copy of Issues 5, 6, and 7; one month before publicly available</li>
-            <li>Audiobook of Issues 5, 6, and 7</li>
-            <li>Printed copy of Issues 5, 6, and 7</li>
-          </ul>
-        </div>
-        <div class="button-row">
-          <button class="t-big button price">
-            <span class="symbol">+</span><span class="currency">$</span><span class="value">75</span>
-          </button>
-          <span class="t-sc-light">/ year</span>
-        </div>
-      </li>
-    </ul>
-  </form></div></section>
-
-  <footer class="l-p l-line-t bg-gray"><div class="l-grid text">
-    <div class="l-col-third" id="fn:shipping">
-      <h5>Shipping</h5>
-      <p class="unspaced" data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
-    </div>
-    <div class="l-col-third">
-      <h5>Digital Formats</h5>
-      <p class="unspaced">Ebooks: DRM-Free ePub, Mobi, and PDF.</p>
-      <p class="unspaced">Audiobooks: DRM-Free MP3 and M4B.</p>
-    </div>
-    <div class="l-col-third">
-      <h5>Bulk Orders</h5>
-      <p class="unspaced">We offer discounts on large orders. If you’re interested in 20+ issues in any format, <a href="mailto:hi@alwaysreadthemanual.com">email us.</a></p>
-    </div>
-  </div></footer>
-
-</main>
+<footer class="l-p-y l-grid l-line-t text">
+  <div class="l-col-third" id="fn:shipping">
+    <h5>Shipping</h5>
+    <p class="unspaced" data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
+  </div>
+  <div class="l-col-third">
+    <h5>Digital Formats</h5>
+    <p class="unspaced">Ebooks: DRM-Free ePub, Mobi, and PDF.</p>
+    <p class="unspaced">Audiobooks: DRM-Free MP3 and M4B.</p>
+  </div>
+  <div class="l-col-third">
+    <h5>Bulk Orders</h5>
+    <p class="unspaced">We offer discounts on large orders. If you’re interested in 20+ issues in any format, <a href="mailto:hi@alwaysreadthemanual.com">email us.</a></p>
+  </div>
+</footer>
 
 <% content_for :footer do %>
 <script>$(function() {
