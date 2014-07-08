@@ -1,8 +1,8 @@
 .site-header,
 .site-footer {
-  color: gray(40%);
+  color: $c-text-caption;
   @include spacing(padding-left padding-right);
-  a { @include colored-link { color: gray(60%); } }
+  a { @include blue-link { color: $c-text-dull; } }
 }
 
 .site-header {
@@ -23,41 +23,17 @@
 
 .site-header nav {
   position: relative;
-  // left: -1em;
-}
-
-.site-header nav li + li {
-  // margin-left: .5em;
-}
-
-.site-header nav {
   margin-bottom: -1px;
-}
-
-.site-header nav a {
-  // padding-left:  1em;
-  // padding-right: 1em;
-  // border-bottom: solid 1px transparent;
-  // &.current {
-  //   border-left: divider();
-  //   border-right: divider();
-  //   border-bottom: solid 1px white;
-  // }
-  &.current {
+  a.current {
     color: black;
-    border-bottom: solid 2px black;
+    border-bottom: solid 1px black;
     font-weight: weight(medium);
   }
 }
 
-.l-p-menu {
-  padding-top: (2 * 1em + 1em) + 5em;
-}
-
-.l-m-menu {
-  margin-top: (2 * 1em + 1em) + 5em;
-}
+.l-p-menu   { padding-top: (2 * 1em + 1em) + 5em; }
+.l-m-menu  { margin-top: (2 * 1em + 1em) + 5em; }
 
 .site-footer {
-  border-top: divider();
+  margin-top: 4em;
 }

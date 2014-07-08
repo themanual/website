@@ -94,6 +94,20 @@
   }
 }
 
+@mixin blue-link {
+  &:link,
+  &:visited {
+    @content;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $c-blue;
+    outline: none;
+  }
+}
+
 @mixin underlined-link {
   &:link,
   &:visited {
