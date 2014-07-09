@@ -24,15 +24,13 @@
   }
 
   a {
-    @include blue-link {
-      color: gray(60%);
+    @include colored-link {
+      color: $c-text-caption;
     }
   }
 
   a.current {
     font-weight: weight(medium);
-    @include blue-link {
-      color: black;
-    }
+    @include black-link;
   }
 }

@@ -2,7 +2,7 @@
 .site-footer {
   color: $c-text-caption;
   @include spacing(padding-left padding-right);
-  a { @include blue-link { color: $c-text-caption; } }
+  a { @include colored-link { color: $c-text-caption; } }
 }
 
 .site-header { margin-bottom: 1.5em; border-bottom: divider(); }

@@ -37,7 +37,7 @@
 }
 
 .piece-unit-topics a {
-  @include colored-link { color: $c-text-dull; }
+  @include colored-link { color: gray(35%); }
 }
 
 .piece-unit-silo + .piece-unit-topics:before {
