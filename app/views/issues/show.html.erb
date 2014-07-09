@@ -8,35 +8,43 @@
     </h1>
   </header>
 
-  <section class="issue l-line-t">
-    <ul class="">
+  <ul class="l-issue l-line-t">
     <% @issue.articles.ordered.each do |article| %>
-      <li class="issue_entry">
-        <figure class="issue_entry-illo">
-          <%= illustration_tag @issue.number, article.author_slug, 'print' %>
-        </figure>
-        <div class="issue_entry-text">
-          <h2 class="issue_entry-author"><%= article.author.name %></h2>
+    <li>
+      <figure class="l-issue-illo">
+        <%= illustration_tag @issue.number, article.author_slug, 'print' %>
+      </figure>
+      <div class="l-issue-text">
 
-          <ul class="issue_entry-pieces">
-            <li class="issue_entry-piece is-article">
-              <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue.number, article.author_slug, :article %>"><%= article.title %></a></h3>
-              <blockquote class="issue_entry-piece-synopsis">
-                <p><%= article.synopsis %></p>
-              </blockquote>
-            </li>
-            <li class="issue_entry-piece is-lesson">
-              <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue.number, article.author_slug, :lesson %>">Lesson</a></h3>
-              <blockquote class="issue_entry-piece-synopsis">
-                <p><%= article.lesson.synopsis %></p>
-              </blockquote>
-            </li>
-          </ul>
+        <h2 class="piece-unit-author"><%= article.author.name %></h2>
+
+        <div class="piece-unit-entry">
+          <h3 class="piece-unit-title">
+            <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article), class: "issue-#{@issue.number}"  %>
+          </h3>
+          <p class="piece-unit-synopsis is-wide">
+            <%= article.synopsis %>
+          </p>
+          <p class="piece-unit-metadata">
+            <span class="piece-unit-topics">On <a href="#">Thing</a>, <a href="#">Other</a>, <a href="#">Another</a></span>
+          </p>
         </div>
-      </li>
+
+        <div class="piece-unit-entry">
+          <h3 class="piece-unit-title">
+            <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson), class: "issue-#{@issue.number}" %>
+          </h3>
+          <p class="piece-unit-synopsis is-wide">
+            <%= article.lesson.synopsis %>
+          </p>
+          <p class="piece-unit-metadata">
+            <span class="piece-unit-topics">On <a href="#">Thing</a>, <a href="#">Other</a>, <a href="#">Another</a></span>
+          </p>
+        </div>
+      </div>
+    </li>
     <% end %>
-    </ul>
-  </section>
+  </ul>
   <!--
   <aside class="l-p"><div class="l-grid">
 

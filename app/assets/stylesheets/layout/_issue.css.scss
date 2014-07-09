@@ -1,0 +1,16 @@
+.l-issue > * {
+  overflow: auto;
+  + * { border-top: divider(); }
+}
+
+.l-issue-illo {
+  float: right;
+  width: 10.5em;
+  margin-left: 1.5em;
+  + * { overflow: hidden; }
+}
+
+.l-issue-text {
+  overflow: hidden;
+  @include spacing(margin-top margin-bottom);
+}

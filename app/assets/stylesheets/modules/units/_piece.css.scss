@@ -12,28 +12,35 @@
   }
 }
 
+.piece-unit-entry + .piece-unit-entry {
+  margin-top: 1em;
+}
+
 .piece-unit-title {
   @extend .h-bigger;
   margin-top: .6rem;
 }
 
 .piece-unit-synopsis {
+  @include rem(font-size, 21px);
   font-family: $type-serif;
   font-weight: weight(medium);
-  @include rem(font-size, 21px);
-  line-height: 1.4;
-  max-width: 28em;
+  line-height: 1.3;
   color: $c-text-body;
+  max-width: 28em;
+  &.is-short  { max-width: 20em; }
+  &.is-wide   { max-width: none; }
 }
 
 .piece-unit-author {
   @extend .t-sc-light;
   color: $c-text-blockquote;
+  @include rem(margin-bottom, .5rem);
 }
 
 .piece-unit-metadata {
   color: $c-text-caption;
-  margin-top: .75rem;
+  margin-top: .6rem;
 }
 
 .piece-unit-topics a {
