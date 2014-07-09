@@ -27,7 +27,7 @@
         </li>
 
         <li class="issue-pagination-item is-current">
-          <a class="issue-<%= @piece.issue_number %>" href="<%= issue_url @piece.issue_number %>">
+          <a class="c-issue" href="<%= issue_url @piece.issue_number %>">
             <h2>Browse Issue&nbsp;<%= @piece.issue_number %></h2>
           </a>
         </li>
@@ -60,7 +60,7 @@
 
       <section class="box l-col-half">
         <h2 class="box-title">
-          <a class="color-issue" href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
+          <a href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
         </h2>
 
         <div class="issuebuy">

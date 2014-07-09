@@ -21,16 +21,14 @@
 
   @extend %button;
 
-  &,
-  &:link,
-  &:visited { color: white !important; }
+  color: white;
   border: solid 2px $c-blue;
   background-color: $c-blue;
 
   @include color-by-issue(border-color background-color);
 
-  &:focus,
-  &:hover {
+  @include hover {
+    color: white;
     background-color: black;
     border-color: black;
     outline: none;
@@ -52,8 +50,7 @@
   color: $c-blue;
   @include color-by-issue(border-color color);
 
-  &:focus,
-  &:hover {
+  @include hover {
     color: black;
     border-color: black;
     outline: none;
@@ -93,8 +90,7 @@ button.button {
   font-size: inherit;
   font-family: inherit;
 
-  &:focus,
-  &:hover {
+  @include hover {
     color: black;
     outline: none;
   }

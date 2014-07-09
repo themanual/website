@@ -5,7 +5,7 @@
 // TODO bump font-size back to 22/24 on pieces only
 //
 .issue-piece a {
-  @include link-color-by-issue;
+  @include link-color-issue;
 }
 
 .issue-piece-header-text {
@@ -29,7 +29,7 @@
 .issue-piece-header-title {
   font-weight: weight(black);
 
-  color: $c-text-heading;
+  color: black;
   text-rendering: optimizeLegibility;
 
   @include rem(font-size, 48px);
@@ -41,7 +41,7 @@
   font-family: $type-serif;
   font-weight: weight(medium);
   font-style: italic;
-  color: $c-text-blockquote;
+  color: $c-text-aside;
 
   font-size:      1.5em;
   line-height:    1.25;
@@ -60,7 +60,7 @@
   line-height: 1.25;
 
   .middot { @include padding-h(0.3em); }
-  strong  { color: $c-text-heading; font-weight: weight(regular); }
+  strong  { color: black; font-weight: weight(regular); }
 
   a,
   strong.issue-current {
@@ -174,7 +174,7 @@
   blockquote {
     @include margin-v(1em);
 
-    color: $c-text-blockquote;
+    color: $c-text-aside;
     border-left: solid 1px transparent;
 
     @include color-by-issue(border-color);

@@ -88,6 +88,12 @@
   font-family: $type-serif;
 }
 
-.issue-pagination-item > a:hover p strong {
-  border-bottom: solid 1px;
+@each $i in $issues {
+  .issue-#{$i} .issue-pagination-item  a {
+    @include hover {
+      p strong {
+        color: issue-color($i);
+      }
+    }
+  }
 }

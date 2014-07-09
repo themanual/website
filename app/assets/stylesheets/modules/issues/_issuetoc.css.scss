@@ -1,23 +1,22 @@
-.issuetoc {
-  margin-top: -1.5em;
-}
-.issuetoc-entry {
-  @include clearfix;
-  margin-top: 1.5em;
+.issuetoc-entry + .issuetoc-entry {
+  margin-top: 1em;
 }
 
 .issuetoc-author {
-  @extend .t-sc-light;
-  margin-bottom: .35em;
+  @extend .t-sc;
+  color: $c-text-caption;
 }
 
 .issuetoc-piece {
   display: inline-block;
-  font-family: $type-serif;
-  @include rem(font-size, 21px);
-  font-weight: weight(bold);
 
-  a { @include underlined-link { color: black; } }
+  @include rem(font-size, 21px);
+  font-family: $type-serif;
+  font-weight: weight(bold);
+  line-height: 1.25;
+  margin-top: .1em;
+
+  a { @include link-hover-issue { color: black; } }
 
   &.is-lesson:before {
     padding-left:  .15em;

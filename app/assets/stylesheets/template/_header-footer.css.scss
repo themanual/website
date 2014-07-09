@@ -2,7 +2,14 @@
 .site-footer {
   color: $c-text-caption;
   @include spacing(padding-left padding-right);
-  a { @include colored-link { color: $c-text-caption; } }
+
+  a {
+    @include link-hover-blue { color: $c-text-caption; }
+  }
+  a.current {
+    @include link-hover-blue { color: black; }
+  }
+
 }
 
 .site-header { margin-bottom: 1.5em; border-bottom: divider(); }
@@ -38,8 +45,6 @@
   }
 
   a.current {
-    color: black;
-    font-weight: weight(medium);
     border-left: divider();
     border-right: divider();
     position: relative;

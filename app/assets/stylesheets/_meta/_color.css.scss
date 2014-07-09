@@ -1,14 +1,12 @@
 
 // General Colors
-$c-text-heading:      #000000;
-$c-text-darker:       hsl(0, 0%, 5%);
 $c-text-body:         hsl(0, 0%, 20%);
 $c-text-dull:         hsl(0, 0%, 30%);
-$c-text-blockquote:   hsl(0, 0%, 40%);
-$c-text-asides:       hsl(0, 0%, 40%);
+$c-text-aside:        hsl(0, 0%, 40%);
+$c-text-menu:         hsl(0, 0%, 50%);
 $c-text-caption:      hsl(0, 0%, 60%);
 
-$c-divider:           gray(90%);
+$c-divider:           gray(87.5%);
 $c-divider-darker:    darken($c-divider, 5%);
 $c-bg-gray:           gray(96%);
 
@@ -29,12 +27,8 @@ $issues-colors: (#EE4246, #6AB7E6, #EC9840, darken(#1CCFB5, 3%));
 
 // Returns the color of issue $i or 'latest'
 @function issue-color($i) {
-  @if $i == 'latest'  {
-    @return issue-color(nth($issues, length($issues)));
-  }
-  @else {
-    @return nth($issues-colors, $i);
-  }
+  @if $i == 'latest'  { @return issue-color(nth($issues, length($issues))); }
+  @else { @return nth($issues-colors, $i); }
 }
 
 // Prefixes the CSS rule which calls the mixin
@@ -51,7 +45,7 @@ $issues-colors: (#EE4246, #6AB7E6, #EC9840, darken(#1CCFB5, 3%));
   }
 }
 
-@mixin color-this-by-issue($props) {
+@mixin color-by-issue-self($props) {
   @each $i in $issues {
     &.issue-#{$i} {
       @each $prop in $props {
@@ -59,12 +53,5 @@ $issues-colors: (#EE4246, #6AB7E6, #EC9840, darken(#1CCFB5, 3%));
         @content;
       }
     }
-  }
-}
-
-// Shorthand to set issue-colored links with hover states
-@mixin link-color-by-issue {
-  @include color-by-issue(color) {
-    @include colored-link;
   }
 }

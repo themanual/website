@@ -1,36 +1,27 @@
-.nav-group {
-
-}
-
 .navgroup-title {
-  @extend .t-sc-heavy;
-  color: gray(30%);
-  font-weight: weight(medium);
+  @extend .t-sc;
   line-height: 1.5em;
   margin-bottom: .25em;
   * + & { margin-top: 2em; }
 }
 
 .navgroup-items {
-  line-height: 1.2;
-
-  li + li,
-  ul {
-    margin-top: .4em;
-  }
+  $link-pad: .2em;
+  line-height: 1.1;
+  margin-top:  -1 * $link-pad;
 
   ul {
-    margin-left: .5em;
+    padding-left: .5em;
   }
 
   a {
-    @include colored-link {
-      color: $c-text-caption;
-    }
+    display: block;
+    @include padding-v($link-pad);
+    @include link-hover-blue { color: $c-text-menu };
+  }
+  a.current {
+    @include link-hover-blue { color: black; }
   }
 
-  a.current {
-    font-weight: weight(medium);
-    @include black-link;
-  }
+
 }

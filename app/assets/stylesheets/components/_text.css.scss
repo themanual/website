@@ -7,7 +7,7 @@ em      { font-weight: italic; }
 %h {
   color: black;
   font-weight: weight(bold);
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .t-heading {
@@ -144,7 +144,7 @@ em      { font-weight: italic; }
   font-weight: weight(black);
   background: black;
   @include color-by-issue(background);
-  @include color-this-by-issue(background);
+  @include color-by-issue-self(background);
 
   padding-right:  .35em;
   padding-left:   .35em;
@@ -161,7 +161,7 @@ em      { font-weight: italic; }
 
 .synopsis {
   font-family: $type-serif;
-  color: $c-text-blockquote;
+  color: $c-text-aside;
   font-style: italic;
   font-weight: weight(medium);
   @include rem(font-size, 21px);
@@ -172,7 +172,7 @@ em      { font-weight: italic; }
   color: $c-text-caption;
   line-height: 1.25;
   a, strong { font-weight: weight(medium); }
-  strong  { color: $c-text-heading; font-weight: weight(regular); }
+  strong  { color: black; font-weight: weight(regular); }
 }
 
 .t-downcase {

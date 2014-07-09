@@ -8,7 +8,7 @@
     </h1>
   </header>
 
-  <ul class="l-issue l-line-t">
+  <ul class="l-issue l-line-t issue-<%= @issue.number %>">
     <% @issue.articles.ordered.each do |article| %>
     <li>
       <figure class="l-issue-illo">
@@ -20,9 +20,9 @@
 
         <div class="piece-unit-entry">
           <h3 class="piece-unit-title">
-            <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article), class: "issue-#{@issue.number}"  %>
+            <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article)  %>
           </h3>
-          <p class="piece-unit-synopsis is-wide">
+          <p class="piece-unit-synopsis is-short">
             <%= article.synopsis %>
           </p>
           <p class="piece-unit-metadata">
@@ -32,9 +32,9 @@
 
         <div class="piece-unit-entry">
           <h3 class="piece-unit-title">
-            <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson), class: "issue-#{@issue.number}" %>
+            <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
           </h3>
-          <p class="piece-unit-synopsis is-wide">
+          <p class="piece-unit-synopsis is-short">
             <%= article.lesson.synopsis %>
           </p>
           <p class="piece-unit-metadata">
@@ -45,26 +45,5 @@
     </li>
     <% end %>
   </ul>
-  <!--
-  <aside class="l-p"><div class="l-grid">
-
-    <section class="l-col-half box">
-      <h2 class="box-title">
-        <a class="color-issue" href="<%= issue_url(@issue.number) %>">Buy this issue</a> and support The Manual
-      </h2>
-
-      <div class="issuebuy">
-        <figure class="issuebuy-figure">
-          <%= image_tag "ui/devices-#{@issue.number}.png" %>
-        </figure>
-        <%= render 'issue_buy_options', sub: false, issue: @issue %>
-      </div>
-    </section>
-
-    <section class="l-col-half box">
-      <h2 class="box-title">Prints available at <a class="color-issue" href="/store">the Store</a></h2>
-    </section>
-  </div></aside>
-  -->
 
 <% end %>

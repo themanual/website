@@ -1,25 +1,25 @@
 <nav id="sectionnav">
-  <h2 class="navgroup-title">Browse</h2>
   <ul class="navgroup-items">
     <li><%= nav_link_to "Staff Picks", controller: "home", action: "staffpicks" %></li>
     <li><a href="#">Recent</a></li>
     <li><%= nav_link_to "Popular", controller: "home", action: "popular" %></li>
   </ul>
 
-  <h2 class="navgroup-title">Sections</h2>
+  <h2 class="navgroup-title">Section</h2>
   <ul class="navgroup-items">
     <li>
       <%= nav_link_to "Issues", issues_path %>
       <ul>
-        <li><%= nav_link_to "Issue 3", issue_path(issue: 3) %></li>
-        <li><%= nav_link_to "Issue 2", issue_path(issue: 2) %></li>
-        <li><%= nav_link_to "Issue 1", issue_path(issue: 1) %></li>
+        <li><%= nav_link_to "Issue 3", issue_path(issue: 3), class: "issue-3" %></li>
+        <li><%= nav_link_to "Issue 2", issue_path(issue: 2), class: "issue-2" %></li>
+        <li><%= nav_link_to "Issue 1", issue_path(issue: 1), class: "issue-1" %></li>
       </ul>
     </li>
     <li><a href="#">Blog</a></li>
+    <li><a href="#">Periodical</a></li>
   </ul>
 
-  <h2 class="navgroup-title">Topics</h2>
+  <h2 class="navgroup-title">Topic</h2>
   <ul class="navgroup-items">
     <li><a href="#">Business</a></li>
     <li><a href="#">Community</a></li>

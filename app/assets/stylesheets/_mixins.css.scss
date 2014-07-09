@@ -45,24 +45,11 @@
   > *:first-child ~ * { overflow: hidden; }
 }
 
-@mixin coretext {
-  .tr-coretext & {
-    -webkit-font-smoothing: antialiased;
-    font-weight: 500;
-    @content;
-  }
-}
-
 @mixin opacity($opacity) {
   opacity: $opacity;
   // IE8 filter
   $opacity-ie: ($opacity * 100);
   filter: #{alpha(opacity=$opacity-ie)};
-}
-
-@mixin text-and-border-color($color) {
-  border-color: $color;
-  color: $color;
 }
 
 @mixin animation-fix {
@@ -77,79 +64,10 @@
   @return solid 1px $c-divider;
 }
 
-@function sub-divider() {
-  @return dashed 1px darken($c-divider, 5%);
-}
-
-@mixin colored-link {
-  &:link, &:visited {
-    @content
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: #000;
-    outline: none;
-  }
-}
-
-@mixin blue-link {
-  &:link,
-  &:visited {
-    @content;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $c-blue;
-    outline: none;
-  }
-}
-
-@mixin underlined-link {
-  &:link,
-  &:visited {
-    @content;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-bottom: solid 1px;
-    outline: none;
-  }
-}
-
-@mixin black-link {
-  @include underlined-link {
-    color: black;
-  }
-}
-
-.black-links a {
-  @include black-link;
-}
-
 %visuallyhidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
   height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
-}
-
-@mixin blacklink {
-  color: #000;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-@mixin blacklink-child {
-  a {
-    @include blacklink;
-  }
 }

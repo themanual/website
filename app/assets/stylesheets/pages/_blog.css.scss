@@ -26,7 +26,7 @@
 .blog a {
   &:link, &:visited { color: $c-blue; }
   // &:visited { color: #AA22AA; }
-  @include colored-link;
+  @include link-hover-black;
 }
 
 .blog-sidebar {
