@@ -5,6 +5,10 @@ module ApplicationHelper
   	end
   end
 
+  def page_namespace
+    request.path.split('/').reject(&:blank?).first
+  end
+
   def include_payment_assets
   	content_for :footer do
   		javascript_include_tag("https://js.stripe.com/v2/") +
