@@ -1,7 +1,5 @@
 class StoreController < ApplicationController
 
-  layout "store"
-
   def index
     redirect_to :action => 'featured'
   end

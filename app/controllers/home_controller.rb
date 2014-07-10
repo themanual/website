@@ -68,16 +68,10 @@ class HomeController < ApplicationController
     end
   end
 
-
-  def store
-  end
-
   def staffpicks
-    render layout: "read"
   end
 
   def popular
-    render layout: "read"
   end
 
   def index
