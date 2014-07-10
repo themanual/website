@@ -22,7 +22,6 @@ TheManual::Application.routes.draw do
     resources :addresses, controller: 'user/addresses', only: [:create, :destroy, :update]
   end
 
-  get '/support_us',  to: 'home#support', as: :support_us
 
   resource :subscribe, controller: :support, only: [:show, :create] do
     get ':tier/thanks',   action: :thanks,   as: :thanks
