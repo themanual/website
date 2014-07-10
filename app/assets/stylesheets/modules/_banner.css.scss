@@ -14,7 +14,7 @@
 .plain-banner {
   @extend %banner;
   background-color: $c-bg-gray;
-  &, * { color: black; }
+  &, * { color: $c-text-black; }
   &:hover, &:focus, &:active {
     &, * { color: $c-blue; }
   }

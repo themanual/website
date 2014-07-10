@@ -29,7 +29,7 @@
 .issue-piece-header-title {
   font-weight: weight(black);
 
-  color: black;
+  color: $c-text-black;
   text-rendering: optimizeLegibility;
 
   @include rem(font-size, 48px);
@@ -41,7 +41,7 @@
   font-family: $type-serif;
   font-weight: weight(medium);
   font-style: italic;
-  color: $c-text-aside;
+  color: $c-text-caption;
 
   font-size:      1.5em;
   line-height:    1.25;
@@ -56,11 +56,11 @@
 }
 
 .issue-piece-header-byline {
-  color: $c-text-caption;
+  color: $c-text-faint;
   line-height: 1.25;
 
   .middot { @include padding-h(0.3em); }
-  strong  { color: black; font-weight: weight(regular); }
+  strong  { color: $c-text-black; font-weight: weight(regular); }
 
   a,
   strong.issue-current {
@@ -78,21 +78,8 @@
 
 }
 
-
-
-
-
-
-.issue-piece-text,
-.issue-piece-footer {
-  @include rem(font-size, 23px);
-  font-family: $type-serif;
-  max-width: $type-column-em-width*1em;
-  @include centered;
-}
-
-
 .issue-piece-text {
+  @include rem(font-size, 23px);
   color: $c-text-body;
   font-family: $type-serif;
 
@@ -148,7 +135,7 @@
     line-height: 1.1;
     font-family: $type-sans;
     font-weight: weight(semibold);
-    color: black;
+    color: $c-text-black;
     margin-top:    3em;
     margin-bottom: .5em;
   }
@@ -167,14 +154,14 @@
     @include margin-v(1em);
     @include rem(margin-left, 1.5rem);
     font-family: Monaco;
-    color: $c-text-dull;
+    color: $c-text-body;
     font-size: 0.7em;
   }
 
   blockquote {
     @include margin-v(1em);
 
-    color: $c-text-aside;
+    color: $c-text-caption;
     border-left: solid 1px transparent;
 
     @include color-by-issue(border-color);
@@ -226,7 +213,7 @@
       font-size: 18px;
       line-height: 1.8;
       font-weight: 300;
-      color: $c-text-caption;
+      color: $c-text-faint;
       margin-top: 0.75em;
       text-align: left;
 
@@ -255,7 +242,7 @@
 
     font-family: $type-sans;
     font-weight: normal;
-    color: gray(60%);
+    color: $c-text-faint;
 
     ol {
       font-size: 0.65em;
@@ -264,7 +251,7 @@
 
     :target {
       font-weight: weight(medium);
-      color: gray(20%);
+      color: $c-text-body;
     }
 
     hr { display: none; }
@@ -274,48 +261,8 @@
 }
 
 .issue-piece-footer {
-
-  margin-bottom:  flex-gutter()*2;
-  color: $c-text-body;
-  font-style: italic;
+  @include rem(font-size, 19px);
+  @include spacing(margin-bottom, 2);
+  color: $c-text-gray;
   line-height: 1.4;
-
-  p { @include rem(font-size, 20px); }
-
-  a       { color: gray(25%); font-weight: 500; }
-  a:hover { color: black; }
-
-  .companion {
-
-    font-family: $type-sans;
-    font-weight: weight(medium);
-    font-size: em(17, $rem-value);
-    text-transform: uppercase;
-
-    text-align: center;
-    color: black;
-
-    margin-top: 2em;
-    letter-spacing: 1px;
-    word-spacing: 1px;
-
-    a {
-      display: block;
-
-      color: gray(20%);
-      strong {
-        @include color-by-issue(color);
-      }
-
-      border: solid 2px $c-divider;
-      border-radius: 5px;
-      padding: 1em;
-
-      &:hover {
-        color: black;
-        border-color: gray(80%);
-      }
-    }
-
-  }
 }

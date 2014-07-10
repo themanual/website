@@ -1,13 +1,13 @@
 .site-header,
 .site-footer {
-  color: $c-text-caption;
+  color: $c-text-faint;
   @include spacing(padding-left padding-right);
 
   a {
-    @include link-hover-blue { color: $c-text-caption; }
+    @include link-hover-blue { color: $c-text-faint; }
   }
   a.current {
-    @include link-hover-blue { color: black; }
+    @include link-hover-blue { color: $c-text-black; }
   }
 
 }

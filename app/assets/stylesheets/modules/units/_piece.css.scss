@@ -18,7 +18,7 @@
 
 .piece-unit-author {
   @extend .t-sc;
-  color: $c-text-aside;
+  color: $c-text-caption;
   @include rem(margin-bottom, .7rem);
 }
 
@@ -44,21 +44,19 @@
 }
 
 .piece-unit-metadata {
+  color: $c-text-faint;
   line-height: 1.2;
-  color: $c-text-caption;
   margin-top: .6em;
   .piece-unit-entry & {
     margin-top: .35em;
   }
 }
 
-
-
 .piece-unit-topics a {
-  @include link-hover-black { color: gray(40%); }
+  @include link-hover-black { color: $c-text-gray; }
 }
 
-.piece-unit-silo + .piece-unit-topics:before {
+.piece-unit-metadata > * + *:before {
   content: "\00b7\00a0";
   display: inline-block;
   @include padding-h(.3em);

@@ -1,10 +1,10 @@
 
 // General Colors
-$c-text-body:         hsl(0, 0%, 20%);
-$c-text-dull:         hsl(0, 0%, 30%);
-$c-text-aside:        hsl(0, 0%, 40%);
-$c-text-menu:         hsl(0, 0%, 50%);
-$c-text-caption:      hsl(0, 0%, 60%);
+$c-text-black:        hsl(0, 0%, 0%);
+$c-text-body:         hsl(0, 0%, 15%);
+$c-text-gray:         hsl(0, 0%, 30%);
+$c-text-caption:      hsl(0, 0%, 45%);
+$c-text-faint:        hsl(0, 0%, 60%);
 
 $c-divider:           gray(87.5%);
 $c-divider-darker:    darken($c-divider, 5%);

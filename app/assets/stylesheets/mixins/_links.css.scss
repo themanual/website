@@ -1,6 +1,6 @@
 @mixin link-hover-black {
   @content;
-  @include hover { color: black; }
+  @include hover { color: $c-text-black; }
 }
 
 @mixin link-hover-blue {
@@ -32,7 +32,7 @@
   }
 
   @include hover {
-    color: black;
+    color: $c-text-black;
   }
 }
 
@@ -46,6 +46,6 @@
   }
 
   @include hover {
-    color: black;
+    color: $c-text-black;
   }
 }

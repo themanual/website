@@ -51,7 +51,7 @@
   @include color-by-issue(border-color color);
 
   @include hover {
-    color: black;
+    color: $c-text-black;
     border-color: black;
     outline: none;
   }
@@ -91,7 +91,7 @@ button.button {
   font-family: inherit;
 
   @include hover {
-    color: black;
+    color: $c-text-black;
     outline: none;
   }
 }

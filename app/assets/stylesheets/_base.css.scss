@@ -72,7 +72,7 @@ a {
 .highlight {
   display: inline;
   background-color: $c-highlight;
-  color: black;
+  color: $c-text-black;
   > * { color: black !important; }
 }
 

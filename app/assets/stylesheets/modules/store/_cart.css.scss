@@ -41,7 +41,7 @@
   color: $c-red;
   &:hover,
   &:focus {
-    color: black;
+    color: $c-text-black;
   }
 }
 

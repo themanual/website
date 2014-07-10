@@ -52,7 +52,7 @@ label, input, textarea, select,
   margin: 0;
   padding: .3em 0;
   line-height: normal;
-  color: black;
+  color: $c-text-black;
 
   border-radius: 0;
   border-width: 0;
@@ -80,7 +80,7 @@ select {
   @include rem(font-size, 15px);
   display: block;
   line-height: 1.4;
-  color: $c-text-aside;
+  color: $c-text-caption;
   input  + &,
   .field + & { padding-top: .25em; }
 }
@@ -120,7 +120,7 @@ input, textarea {
     display: block;
     overflow: hidden;
     line-height: 1.2;
-    color: $c-text-aside;
+    color: $c-text-caption;
     strong { font-weight: weight(medium); }
   }
 }

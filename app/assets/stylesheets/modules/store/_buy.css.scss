@@ -23,7 +23,7 @@
 .buy-item-action  { float: right; }
 
 .buy-item-name {
-  color: gray(25%);
+  color: $c-text-gray;
   font-weight: weight(medium);
   line-height: 1;
   padding-top: .4em;

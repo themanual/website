@@ -47,7 +47,7 @@
   font-size: 2em;
   line-height: 1.25;
 
-  a:link, a:visited { color: black; }
+  a:link, a:visited { color: $c-text-black; }
   a:hover, a:focus  { border-bottom: solid 1px; }
 }
 
@@ -86,7 +86,7 @@
   > h2 {
     font-family: $type-sans;
     font-weight: weight(bold);
-    color: black;
+    color: $c-text-black;
     margin-top: 2.5em;
     + * { margin-top: 0.5em; }
   }

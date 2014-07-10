@@ -17,10 +17,10 @@
   a {
     display: block;
     @include padding-v($link-pad);
-    @include link-hover-blue { color: $c-text-menu };
+    @include link-hover-blue { color: $c-text-caption };
   }
   a.current {
-    @include link-hover-blue { color: black; }
+    @include link-hover-blue { color: $c-text-black; }
   }
 
 

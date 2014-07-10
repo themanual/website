@@ -82,7 +82,7 @@
 }
 
 .issue-pagination-item p strong {
-  color: black;
+  color: $c-text-black;
   font-weight: weight(bold);
   font-size: em(19, 17);
   font-family: $type-serif;

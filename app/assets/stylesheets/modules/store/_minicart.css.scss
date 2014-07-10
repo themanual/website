@@ -1,4 +1,4 @@
-.mc { color: black; }
+.mc { color: $c-text-black; }
 
 .mc-items > * {
   @include clearfix;
@@ -15,7 +15,7 @@
 }
 
 .mc-i-name { font-weight: weight(semibold); }
-.mc-i-type { color: gray(60%); }
+.mc-i-type { color: $c-text-faint; }
 
 .mc-i-l { float: left; }
 .mc-i-r { float: right; text-align: right; }

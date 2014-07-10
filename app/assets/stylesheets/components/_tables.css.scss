@@ -64,7 +64,7 @@
   }
 
   td, th {
-    color: gray(30%);
+    color: $c-text-gray;
     text-align: center;
     vertical-align: middle;
   }
@@ -72,7 +72,7 @@
   thead th,
   tbody > tr > th, {
     font-weight: weight(bold);
-    color: black;
+    color: $c-text-black;
     font-size: 1.1em;
     background-color: $c-bg-gray;
   }
@@ -123,13 +123,13 @@
 
   strong {
     font-weight: weight(medium);
-    color: black;
+    color: $c-text-black;
   }
 
   small {
     @extend .t-sc;
     font-weight: weight(regular);
-    color: gray(60%);
+    color: $c-text-faint;
   }
 
   small {

@@ -19,7 +19,7 @@
 
     &:link,
     &:visited {
-      color: gray(50%);
+      color: $c-text-caption;
     }
 
     &.is-current {
@@ -27,7 +27,7 @@
 
       &:link,
       &:visited {
-        color: black;
+        color: $c-text-black;
       }
     }
 

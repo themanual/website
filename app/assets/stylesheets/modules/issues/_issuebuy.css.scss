@@ -23,11 +23,11 @@ $issuebuy-pad: 0.8em;
   word-spacing: 0.1em;
   border-bottom: solid 1px $c-divider;
 
-  color: gray(60%);
+  color: $c-text-faint;
   font-weight: weight(regular);
 
   strong {
-    color: gray(20%);
+    color: $c-text-body;
     font-weight: weight(medium);
   }
 }
@@ -48,13 +48,13 @@ $issuebuy-pad: 0.8em;
 
 .issuebuy-option-name {
   font-size: 17px;
-  color: gray(20%);
+  color: $c-text-body;
   font-weight: weight(semibold);
 }
 
 .issuebuy-option-description {
   font-size: 15px;
-  color: gray(65%);
+  color: $c-text-faint;
 }
 
 .issuebuy-option-button {
@@ -112,10 +112,10 @@ $issuebuy-pad: 0.8em;
     text-align: center;
     letter-spacing: .1em;
     font-weight: weight(medium);
-    color: gray(50%);
+    color: $c-text-caption;
     margin-top: .5em;
     .price {
-      color: black;
+      color: $c-text-black;
       &:first-letter {
         opacity: .5;
       }
@@ -144,7 +144,7 @@ $issuebuy-pad: 0.8em;
 .issuebuy.has-whitebuttons .issuebuy-option-button {
   a {
     background-color: white;
-    color: gray(20%);
+    color: $c-text-body;
     border: solid 1px darken($c-divider, 10%);
   }
 

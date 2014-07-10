@@ -5,7 +5,7 @@ em      { font-weight: italic; }
 .t-r  { text-align: right; }
 
 %h {
-  color: black;
+  color: $c-text-black;
   font-weight: weight(bold);
   line-height: 1.2;
 }
@@ -45,7 +45,7 @@ em      { font-weight: italic; }
 .h-normal   { @extend %h; @extend .t-normal; }
 .h5         { @extend .t-heading; @extend .h-normal; }
 
-.h-note     { color: $c-text-caption; margin-top: .25em; }
+.h-note     { color: $c-text-faint; margin-top: .25em; }
 
 .t-serif    { font-family: $type-serif; }
 
@@ -58,12 +58,12 @@ em      { font-weight: italic; }
 
 .t-sc-light {
   @extend .t-sc;
-  color: $c-text-caption;
+  color: $c-text-faint;
 }
 
 .t-sc-heavy {
   @extend .t-sc;
-  color: black;
+  color: $c-text-black;
   font-weight: weight(medium);
 }
 .h-sc {
@@ -87,9 +87,9 @@ em      { font-weight: italic; }
   line-height: 1.4;
   @include media-upto($bp-s) { line-height: 1.25; }
 
-  color: gray(20%);
+  color: $c-text-body;
   h1, h2, h3, h4 {
-    color: black;
+    color: $c-text-black;
   }
 
   h1 { @extend .h1; }
@@ -161,7 +161,7 @@ em      { font-weight: italic; }
 
 .synopsis {
   font-family: $type-serif;
-  color: $c-text-aside;
+  color: $c-text-caption;
   font-style: italic;
   font-weight: weight(medium);
   @include rem(font-size, 21px);
@@ -169,10 +169,10 @@ em      { font-weight: italic; }
 }
 
 .byline {
-  color: $c-text-caption;
+  color: $c-text-faint;
   line-height: 1.25;
   a, strong { font-weight: weight(medium); }
-  strong  { color: black; font-weight: weight(regular); }
+  strong  { color: $c-text-black; font-weight: weight(regular); }
 }
 
 .t-downcase {
