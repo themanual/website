@@ -59,6 +59,7 @@
 
 // Units
 @import 'modules/units/piece';
+@import 'modules/units/index-item';
 
 // Page-specific Modules
 @import 'modules/subscribe';
@@ -72,7 +73,6 @@
 @import 'modules/store/minicart';
 
 // Issue Modules
-@import 'modules/issues/issuetoc';
 @import 'modules/issues/issuebuy';
 @import 'modules/issues/piece-pagination';
 

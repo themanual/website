@@ -12,12 +12,12 @@
         Issue <strong class="issue-number issue-<%= issue.number %>"><%= issue.number %></strong>
       </h2>
 
-      <ul class="issuetoc l-col-half">
+      <ul class="l-col-half index-items">
         <% issue.articles.ordered.each do |article| %>
-          <li class="issuetoc-entry">
-            <h3 class="issuetoc-author"><%= article.author.name %></h3>
+          <li class="index-item">
+            <h3 class="index-item-author"><%= article.author.name %></h3>
             <% ['article', 'lesson'].each do |type| %>
-            <p class="issuetoc-piece is-<%= type %>"><a <%= (@piece.present? && @piece.id == article.id) ? 'class="current"' : '' %> href="<%= piece_url(issue.number, article.author_slug, type) %>"><%= type == 'lesson' ? 'Lesson' : article.title %></a></p>
+            <p class="index-item-piece is-<%= type %>"><a <%= (@piece.present? && @piece.id == article.id) ? 'class="current"' : '' %> href="<%= piece_url(issue.number, article.author_slug, type) %>"><%= type == 'lesson' ? 'Lesson' : article.title %></a></p>
             <% end %>
           </li>
         <% end %>
