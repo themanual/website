@@ -19,6 +19,7 @@ class IssuesController < ApplicationController
 
     @piece = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: author.id).first
 
+    render layout: "plain"
   end
 
   protected

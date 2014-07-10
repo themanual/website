@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+  <%= render partial: "shared/layout/head" %>
+  <%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
+</head>
+<body lang="en" class="preload bg-white">
+
+  <%= render partial: "shared/layout/header" %>
+
+  <main id="content l-wrapper">
+    <%= yield %>
+  </main>
+
+  <%= render partial: "shared/layout/footer" %>
+
+  <%= javascript_include_tag :application, :debug => Rails.env.development? %>
+  <%= yield :footer %>
+</body>
+</html>
