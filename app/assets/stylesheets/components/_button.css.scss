@@ -15,6 +15,9 @@
   &.is-large  { padding: .6em; }
   &.is-larger { padding: .8em; }
   &.is-wide   { display: block; }
+
+  .last-child   { margin-left: .15em; }
+  .first-child  { margin-right: .15em; }
 }
 
 .button {
@@ -50,10 +53,17 @@
   color: $c-blue;
   @include color-by-issue(border-color color);
 
+  svg *[fill] {
+    @include color-by-issue(fill);
+  }
+
   @include hover {
     color: $c-text-black;
     border-color: black;
     outline: none;
+    svg *[fill] {
+      fill: $c-text-black;
+    }
   }
 
   &.is-white {
