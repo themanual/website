@@ -10,6 +10,7 @@
 @import '_meta/reset';
 @import 'mixins';
 @import 'mixins/links';
+@import 'mixins/animate';
 
 // Neat and custom extensions
 @import 'neat';
@@ -22,7 +23,6 @@
 @import 'layout/issue';
 @import 'images';
 @import 'base';
-@import 'animate';
 
 // Template
 @import 'template/header-footer';
