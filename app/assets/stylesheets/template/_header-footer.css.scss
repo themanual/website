@@ -1,15 +1,9 @@
 .site-header,
 .site-footer {
-  color: $c-text-faint;
+  color: $c-text-body;
   @include spacing(padding-left padding-right);
-
-  a {
-    @include link-hover-blue { color: $c-text-faint; }
-  }
-  a.current {
-    @include link-hover-blue { color: $c-text-black; }
-  }
-
+  a.current { color: $c-text-black; font-weight: weight(medium); }
+  a { @include link-hover-blue { color: $c-text-caption; } }
 }
 
 .site-header { margin-bottom: 1.5em; border-bottom: divider(); }
