@@ -139,6 +139,12 @@ em      { font-weight: italic; }
 .t-heavy { font-weight: weight(black) !important; }
 .t-strong { font-weight: weight(bold) !important; }
 
+.tagline {
+  @extend .t-big;
+  font-weight: weight(medium);
+  color: $c-text-body;
+}
+
 @mixin issue-number {
   font-family: $type-sans;
   font-weight: weight(black);
@@ -177,4 +183,29 @@ em      { font-weight: italic; }
 
 .t-downcase {
   text-transform: lowercase !important;
+}
+
+.t-reset {
+  @include rem(font-size, 1rem);
+  font-weight: weight(regular);
+}
+
+%tag {
+  text-transform: uppercase;
+  font-size: .7em;
+  font-weight: weight(bold);
+  padding: 2px 4px 2px;
+  line-height: 1;
+  border-radius: 3px;
+  background: $c-text-caption;
+  color: white;
+  margin-left: .15em;
+  position: relative;
+  top: -.1em;
+}
+
+.tag {
+  @extend %tag;
+  // background-color: $c-blue;
+  // @include color-by-issue(background);
 }
