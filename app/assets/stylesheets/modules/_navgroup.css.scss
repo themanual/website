@@ -1,27 +1,30 @@
 .navgroup-title {
   @extend .t-sc;
-  line-height: 1.5em;
-  margin-bottom: .25em;
-  * + & { margin-top: 2em; }
+  color: $c-text-body;
+  font-weight: weight(medium);
+  line-height: 1.1;
+  margin-bottom: .2em;
 }
 
 .navgroup-items {
   $link-pad: .2em;
   line-height: 1.1;
-  margin-top:  -1 * $link-pad;
 
   ul {
     padding-left: .5em;
   }
 
-  a {
+  li > *:first-child {
     display: block;
     @include padding-v($link-pad);
-    @include link-hover-blue { color: $c-text-caption };
-  }
-  a.current {
-    @include link-hover-blue { color: $c-text-black; }
   }
 
+  a {
+    &.current { font-weight: weight(medium); color: $c-text-gray; }
+    @include link-hover-blue { color: $c-text-caption; };
+  }
+}
 
+.navgroup-items + .navgroup-title {
+  margin-top: 1.5em;
 }
