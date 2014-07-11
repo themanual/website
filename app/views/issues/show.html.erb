@@ -8,6 +8,51 @@
     </h1>
   </header>
 
+  <div class="l-line-t l-p-y tagline issue-<%= @issue.number %>">
+    <span class="has-popover">
+      <a href="#" class="button is-large" data-popover="trigger">
+        Buy this issue
+        <%= inline_svg('ui/thin-down-arrow.svg', :class => "last-child") %>
+      </a>
+      <div class="buy-popover" data-popover="popover">
+        <div class="buy is-unlined">
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Audiobook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">20</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+    or <%= link_to 'subscribe to The Manual', {:controller => 'store', :action => 'subscription'}, :class => 'c-issue' %>
+    and support our future issues.
+  </div>
+
   <ul class="l-issue l-line-t issue-<%= @issue.number %>">
     <% @issue.articles.ordered.each do |article| %>
     <li>
