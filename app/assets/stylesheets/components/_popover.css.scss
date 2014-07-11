@@ -1,17 +1,21 @@
-.contains-popover {
+.has-popover {
   position: relative;
   overflow: visible;
+  display: inline-block;
 }
 
-.popover {
+%popover {
   display: none;
-  border-radius: 3px;
-  top: 2em;
-  right: -20px;
+  border-radius: 4px;
+  @extend .t-reset;
+
+  top: 100%;
+  margin-top: 15px;
+
   position: absolute;
   background-color: white;
   border: divider();
-  width: 20em;
+
   padding: 1em;
 
   &:before {
@@ -23,10 +27,24 @@
     background-image: image-url('ui/popover-arrow-top.svg');
     background-size: 100% 100%;
     top: -11px;
-    right: 20px;
   }
+
+  @include rem(width, 16rem);
+}
+
+.popover-left {
+  @extend %popover;
+  left: 0;
+  &:before { left: 10px; }
 }
 
 .popover-right {
+  @extend %popover;
+  right: 0;
+  &:before { right: 10px; }
+}
 
+.buy-popover {
+  @extend .popover-left;
+  padding: .6em;
 }
