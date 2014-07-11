@@ -1,29 +1,31 @@
 .buy {
   font-family: $type-sans;
-  border-top: divider();
-  border-bottom: divider();
-  &.buy-boxed {
-    border-left: divider();
-    border-right: divider();
+
+  &.with-border,
+  &.with-bg {
+    padding: .4em;
     border-radius: 4px;
+  }
+
+  &.with-border {
+    border: divider();
+  }
+
+  &.with-bg {
+    background: $c-bg-gray;
   }
 }
 
 .buy-item {
   @include clearfix;
-  padding: .35em 0;
-  .buy-boxed & { padding: .4em; }
-}
-
-.buy-item + .buy-item {
-  border-top: divider();
+  & + & { margin-top: .4em; }
 }
 
 .buy-item-text    { float: left; }
 .buy-item-action  { float: right; }
 
 .buy-item-name {
-  color: $c-text-gray;
+  color: $c-text-body;
   font-weight: weight(medium);
   line-height: 1;
   padding-top: .4em;
