@@ -21,8 +21,8 @@
 .l-p-x    { @include spacing(padding-left padding-right,  1.0); }
 .l-p-y    { @include spacing(padding-top  padding-bottom, 1.0); }
 .l-p-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
-.l-p-xyy  { @extend .l-p-x;   @extend .l-p-yy;  }
-.l-p-xyyy { @include spacing(padding-top  padding-bottom, 2); }
+.l-p-xyy  { @extend .l-p-x; @extend .l-p-yy;  }
+.l-p-xyyy { @extend .l-p-x; @include spacing(padding-top  padding-bottom, 2); }
 
 // Margins
 .l-m-t    { @include spacing(margin-top,  1.0); }
