@@ -1,23 +1,37 @@
 %button {
   font-family: $type-sans;
   display: inline-block;
-  padding: .4em .3em;
   border-radius: 4px;
   line-height: 1 !important;
   cursor: pointer;
   font-weight: weight(bold);
 
+  padding: .4em;
+  &.is-large  { padding: .6em; }
+  &.is-larger { padding: .8em; }
+
   margin-right: .3em;
   margin-left:  .3em;
+
   &:first-child { margin-left: 0; }
   &:last-child  { margin-right: 0; }
 
-  &.is-large  { padding: .6em; }
-  &.is-larger { padding: .8em; }
-  &.is-wide   { display: block; }
+  &.is-wide     { display: block; text-align: center; }
 
-  .last-child   { margin-left: .15em; }
-  .first-child  { margin-right: .15em; }
+  &.in-caps {
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    word-spacing: .1em;
+    font-size: .7em;
+  }
+
+  &.in-sc {
+    @extend .t-sc;
+    font-weight: weight(semibold);
+    padding: .8em;
+    &.is-large  { padding: 1em;    }
+    &.is-larger { padding: 1.2em; }
+  }
 }
 
 .button {
@@ -44,17 +58,29 @@
     cursor: default;
   }
 
+  &.in-black {
+    background-color: black;
+    border-color:     black;
+    @include hover {
+      background-color: white;
+      color: black;
+    }
+  }
 }
 
 .ghost-button {
+
   @extend %button;
 
   border: solid 2px $c-blue;
   color: $c-blue;
   @include color-by-issue(border-color color);
+  svg *[fill] { @include color-by-issue(fill); }
 
-  svg *[fill] {
-    @include color-by-issue(fill);
+  &.in-white {
+    border-color: white;
+    color: white;
+    svg *[fill] { fill: white; }
   }
 
   @include hover {
@@ -66,27 +92,23 @@
     }
   }
 
-  &.is-white {
-    background-color: white;
+  &.in-black {
+    border-color: black;
+    color: black;
+    svg *[fill] { fill: black; }
+    @include hover {
+      color: white;
+      border-color: white;
+      svg *[fill] { fill: white; }
+    }
   }
-}
-
-.button-sc {
-  @extend .t-sc;
-  font-weight: weight(semibold);
-  padding: .8em;
-  &.is-large { padding: 1em;    }
-  &.is-larger { padding: 1.2em; }
 }
 
 button.button {
   @include appearance(none);
 }
 
-.button-row {
-  margin-top: 1em;
-  > * { vertical-align: middle; }
-}
+.button-row > * { vertical-align: middle; }
 
 .text-button {
   @include appearance(none);
