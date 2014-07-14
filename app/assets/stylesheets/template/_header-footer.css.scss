@@ -14,26 +14,24 @@
   @include padding-v(1em);
 }
 
-.site-header a {
-  display: inline-block;
+.site-header a  { display: block; }
+
+.site-header h1 {
+  float: left;
+  width: $sidebar-width;
 }
 
 .site-header nav {
-  position: relative;
-  overflow: visible;
+  $tab-pad: 1em;
+  margin-left: $sidebar-width + $sidebar-gutter - $tab-pad;
 
   li + li {
     margin-left: 0.5em;
   }
 
-  // compensate padding
-  li:first-child {
-    margin-left: -1em;
-  }
-
   a {
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: $tab-pad;
+    padding-right: $tab-pad;
     border-left: solid 1px transparent;
     border-right: solid 1px transparent;
   }

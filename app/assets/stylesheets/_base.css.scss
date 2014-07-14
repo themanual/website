@@ -19,8 +19,7 @@ body {
   flex-direction: column;
 }
 
-body > #content,
-body > main {
+body > #content {
   flex: 1;
 }
 
@@ -35,11 +34,10 @@ figure img {
   margin-bottom: 1.5em;
 }
 
-#sectionnav,
-.site-header h1 {
+#sectionnav {
   float: left;
   width: 9em;
-  @include spacing(margin-right);
+  margin-right: $sidebar-gutter;
   & + * { overflow: hidden; }
 }
 
