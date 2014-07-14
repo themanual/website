@@ -1,7 +1,6 @@
 %banner {
   display: block;
   padding: 1.5em 1em;
-  * + & { margin-top: 1em; }
 }
 
 .solid-banner {
@@ -32,5 +31,6 @@
 }
 
 .banner-title {
-  font-weight: weight(black);
+  @extend .t-big;
+  font-weight: weight(bold);
 }
