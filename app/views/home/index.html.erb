@@ -1,90 +1,38 @@
-<main>
-  <section class="issue-4 bg-gray l-p-bb"><div class="l-grid">
-
-      <div class="text l-col-half">
-        <p class="h-sc">Our Latest Issue</p>
-        <h1>Issue <span class="issue-number">4</span></h1>
-        <div class="t-biggest">
-          <p>Six outstanding writers.</p>
-          <p class="unspaced">Six articles on design.</p>
-          <p class="unspaced">Six lessons learned.</p>
-        </div>
-        <div class="l-m-tt">
-          <a href="#" class="button button-sc is-larger">Buy Issue</a>
-          <a href="#" class="ghost-button button-sc is-larger">Subscribe</a>
-        </div>
-      </div>
-
-      <div class="l-col-half">
-        <ul class="issuetoc l-row l-m-tt">
-          <li class="issuetoc-entry">
-            <h3 class="issuetoc-author">Craig Mod</h3>
-            <p class="issuetoc-piece is-article"><a href="#">On Permission</a></p>
-            <p class="issuetoc-piece is-lesson"><a href="#">Lesson</a></p>
-          </li>
-          <li class="issuetoc-entry">
-            <h3 class="issuetoc-author">Wilson Miner</h3>
-            <p class="issuetoc-piece is-article"><a href="#">Perennial Design</a></p>
-            <p class="issuetoc-piece is-lesson"><a href="#">Lesson</a></p>
-          </li>
-          <li class="issuetoc-entry">
-            <h3 class="issuetoc-author">Diana Kimball</h3>
-            <p class="issuetoc-piece is-article"><a href="#">On Mentoring</a></p>
-            <p class="issuetoc-piece is-lesson"><a href="#">Lesson</a></p>
-          </li>
-          <li class="issuetoc-entry">
-            <h3 class="issuetoc-author">Jennifer Brook</h3>
-            <p class="issuetoc-piece is-article"><a href="#">Platforms as Cultures</a></p>
-            <p class="issuetoc-piece is-lesson"><a href="#">Lesson</a></p>
-          </li>
-          <li class="issuetoc-entry">
-            <h3 class="issuetoc-author">Paul Ford</h3>
-            <p class="issuetoc-piece is-article"><a href="#">On File Formats, Very Briefly</a></p>
-            <p class="issuetoc-piece is-lesson"><a href="#">Lesson</a></p>
-          </li>
-          <li class="issuetoc-entry">
-            <h3 class="issuetoc-author">David Cole</h3>
-            <p class="issuetoc-piece is-article"><a href="#">Made to Measure</a></p>
-            <p class="issuetoc-piece is-lesson"><a href="#">Lesson</a></p>
-          </li>
-        </ul>
-      </div>
-
-  </div></section>
-
-  <section class="l-p-xyy l-line-t"><div class="l-grid">
-
-    <div class="l-col-half">
-      <!-- <h2 class="h2">Staff Picks</h2> -->
-      <!-- <p class="l-col-half t-r"><%= link_to "Explore All Issues", issues_path, class: 'ghost-button button-sc' %></p> -->
-      <% @pieces.each do |p| %>
-      <div class="l-m-bb">
-        <%= render partial: 'shared/piece', object: p  %>
-      </div>
-      <% end %>
+<% @header_classes = "bg-dark issue-4" %>
+<section class="<%= @header_classes %> l-p-xyyy"><div class="l-grid">
+    <figure class="">
+      <%= image_tag 'illustrations/illo-new-issue-4.svg' %>
+    </figure>
+    <div class="text t-biggest t-strong t-center l-m-tt">
+      <p>The fourth issue of The Manual is here.</p>
+      <p class="unspaced">Now in Print, Ebook, and Web editions.</p>
+      <p>
+        <a href="#" class="button in-black in-caps is-larger">Buy Issue 4</a>
+        <a href="#" class="button in-black in-caps is-larger">Read Online</a>
+      </p>
     </div>
 
-    <div class="l-col-half">
-      <!-- <p class="h-sc"><%= link_to "Buy from the store", store_path %> and support The Manual</p> -->
-      <%= link_to 'store/subscription', class: 'plain-banner t-center' do %>
-        <figure class="banner-image">
-          <%= image_tag 'banners/banner-subscription.svg' %>
-        </figure>
-        <div class="banner-text">
-          <p class="banner-title">Yearly Subscription</p>
-          <p class="banner-description">The next three issues at 10% off.</p>
-        </div>
-      <% end %>
-      <%= link_to 'store/issues', class: 'plain-banner t-center' do %>
-        <figure class="banner-image">
-          <%= image_tag 'banners/banner-collection.svg' %>
-        </figure>
-        <div class="banner-text">
-          <p class="banner-title">The Collection</p>
-          <p class="banner-description">All four published issues, at 20% off.</p>
-        </div>
-      <% end %>
-    </div>
+</div></section>
 
-  </div></section>
-</main>
+<section class="l-p-xyy"><div class="l-grid">
+
+  <div class="l-col-half">
+
+  </div>
+
+  <div class="l-col-half">
+    <%= link_to 'store/subscription', class: 'plain-banner t-center' do %>
+      <figure class="banner-image">
+        <%= image_tag 'banners/banner-subscription.svg' %>
+      </figure>
+      <div class="banner-text">
+        <p class="banner-title">Yearly Subscription</p>
+        <p class="banner-description">The next three issues at 10% off.</p>
+      </div>
+    <% end %>
+    <p class="l-m-t">
+      <a href="#" class="ghost-button in-sc is-large is-wide">Buy The Manual and Support us</a>
+    </p>
+  </div>
+
+</div></section>
