@@ -33,7 +33,9 @@ TheManual::Application.routes.draw do
   end
 
   # STORE
-  get '/store', to: 'store#index',  as: :store
+  get '/store',              to: 'store#index',        as: :store
+  get '/store/issues',       to: 'store#issues',       as: :shop_issues
+  get '/store/subscription', to: 'store#subscription', as: :shop_subscription
 
   # ABOUT
   get '/about', to: 'about#index',  as: :about
@@ -43,10 +45,11 @@ TheManual::Application.routes.draw do
     get ':tier/thanks',   action: :thanks,   as: :thanks
     get ':tier/checkout', action: :checkout, as: :checkout
   end
+
   post  '/buy/:permalink',          to: 'orders#update',    as: :purchase
   get   '/checkout',                to: 'orders#show',      as: :basket
   get   '/shipping_estimate',       to: 'home#shipping_estimate', as: :shipping
-  get '/cart',  to: 'home#cart',    as: :cart
+  get   '/cart',  to: 'home#cart',    as: :cart
 
   # SEO
   get "robots(.:format)" => 'seo#robots'
