@@ -17,10 +17,14 @@
 <section class="l-p-xyy"><div class="l-grid">
 
   <div class="l-col-half">
-
+    <h2 class="h-sc"><%= link_to "Read", read_path %> our staff picks</h2>
+    <p class="l-m-y">
+      <%= link_to "Explore all our pieces", store_path, :class => "button in-sc is-wide" %>
+    </p>
   </div>
 
   <div class="l-col-half">
+    <h2 class="h-sc"><%= link_to "Buy Issues", shop_issues_path %> or <%= link_to "Subscribe", shop_subscription_path %> and Support Us</h2>
     <%= link_to 'store/subscription', class: 'plain-banner t-center' do %>
       <figure class="banner-image">
         <%= image_tag 'banners/banner-subscription.svg' %>
@@ -30,8 +34,17 @@
         <p class="banner-description">The next three issues at 10% off.</p>
       </div>
     <% end %>
-    <p class="l-m-t">
-      <a href="#" class="ghost-button in-sc is-large is-wide">Buy The Manual and Support us</a>
+    <%= link_to 'store/issues', class: 'plain-banner t-center l-m-t' do %>
+      <figure class="banner-image">
+        <%= image_tag 'banners/banner-collection.svg' %>
+      </figure>
+      <div class="banner-text">
+        <p class="banner-title">The Collection</p>
+        <p class="banner-description">All four published issues, at 20% off.</p>
+      </div>
+    <% end %>
+    <p class="l-m-y">
+      <%= link_to "See all our products", store_path, :class => "button in-sc is-wide" %>
     </p>
   </div>
 
