@@ -34,6 +34,10 @@ figure img {
   margin-bottom: 1.5em;
 }
 
+.bg-dark {
+  @include color-by-issue-self(background);
+}
+
 #sectionnav {
   float: left;
   width: 9em;
