@@ -1,3 +1,8 @@
+@mixin link-hover-white {
+  @content;
+  @include hover { color: $c-text-white; }
+}
+
 @mixin link-hover-black {
   @content;
   @include hover { color: $c-text-black; }
