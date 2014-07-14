@@ -7,14 +7,13 @@
     <% end %>
   </figure>
   <div class="piece-unit-text">
+    <p class="piece-unit-author"><%= piece.author.name %></p>
     <h3 class="piece-unit-title">
       <a class="c-issue" href="<%= piece_url(piece.issue_number, piece.author_slug, piece.class.name.underscore) %>"><%= piece.title %></a>
     </h3>
-    <blockquote class="piece-unit-synopsis">
-      <p><%= piece.synopsis %></p>
-    </blockquote>
-    <p class="byline">
-      by <strong><%= piece.author.name %></strong> for <%= link_to "Issue #{piece.issue_number}", issue_path(piece.issue_number), class: "c-issue" %>
+    <p class="piece-unit-synopsis"><%= piece.synopsis %></p>
+    <p class="piece-unit-metadata">
+      On <%= link_to "Issue #{piece.issue_number}", issue_path(piece.issue_number), class: "c-issue" %>
     </p>
   </div>
 </div>
