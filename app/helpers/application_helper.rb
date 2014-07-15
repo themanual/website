@@ -5,6 +5,12 @@ module ApplicationHelper
   	end
   end
 
+  def page_is path, output = nil
+    if current_page?(path)
+      output.nil? ? true : output.html_safe
+    end
+  end
+
   def page_namespace
     request.path.split('/').reject(&:blank?).first
   end
@@ -17,7 +23,7 @@ module ApplicationHelper
   	end
   end
 
-  def nav_link_to(name, options, html_options = {})
+  def link_to_current(name, options, html_options = {})
     if current_page?(options)
       html_options[:class] ||= ""
       html_options[:class] += " current"

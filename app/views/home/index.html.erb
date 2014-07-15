@@ -1,63 +1,16 @@
-<% @body = "bg-colored issue-4" %>
+<% content_for :class_body, "bg-colored issue-4" %>
+<% content_for :class_main, "l-flex-center" %>
 
-<section class="<%= @header_classes %> l-p-xyyy"><div class="l-grid">
-    <figure class="">
-      <%= image_tag 'illustrations/illo-new-issue-4.svg' %>
-    </figure>
-    <div class="text t-biggest t-strong t-center l-m-tt">
-      <p>The fourth issue of The Manual is here.</p>
-      <p class="unspaced">Now in Print, Ebook, and Web editions.</p>
-      <p>
-        <a href="#" class="button in-black in-caps is-larger">Buy Issue 4</a>
-        <a href="#" class="button in-black in-caps is-larger">Read Online</a>
-      </p>
-    </div>
-
-</div></section>
-
-<!--
-<section class="l-p-xyy"><div class="l-grid">
-
-  <div class="l-col-half l-stack">
-    <h2 class="h-sc"><%= link_to "Read", read_path %> some staff picks</h2>
-    <div class="l-lined-stack l-line-t l-p-t">
-      <% @pieces.each do |p| %>
-      <%= render partial: 'shared/piece', object: p %>
-      <% end %>
-    </div>
+<div class="l-p-xyyy">
+  <figure>
+    <%= image_tag 'illustrations/illo-new-issue-4-desktop.svg' %>
+  </figure>
+  <div class="text t-biggest t-strong t-center l-m-tt">
+    <p>Issue 4 of The Manual is finally here.</p>
+    <p class="unspaced">Now in Print, Ebook, and Web editions.</p>
     <p>
-      <%= link_to "Explore all our pieces", store_path, :class => "button in-sc is-wide" %>
+      <a href="#" class="button in-black in-caps is-larger">Read Online</a>
+      <a href="#" class="button in-black in-caps is-larger">Buy Issue 4</a>
     </p>
   </div>
-
-  <div class="l-col-half l-stack">
-
-    <h2 class="h-sc"><%= link_to "Buy Issues", shop_issues_path %> or <%= link_to "Subscribe", shop_subscription_path %> and Support Us</h2>
-
-    <%= link_to 'store/subscription', class: 'plain-banner t-center' do %>
-      <figure class="banner-image">
-        <%= image_tag 'banners/banner-subscription.svg' %>
-      </figure>
-      <div class="banner-text">
-        <p class="banner-title">Yearly Subscription</p>
-        <p class="banner-description">The next three issues at 10% off.</p>
-      </div>
-    <% end %>
-
-    <%= link_to 'store/issues', class: 'plain-banner t-center' do %>
-      <figure class="banner-image">
-        <%= image_tag 'banners/banner-collection.svg' %>
-      </figure>
-      <div class="banner-text">
-        <p class="banner-title">The Collection</p>
-        <p class="banner-description">All four published issues, at 20% off.</p>
-      </div>
-    <% end %>
-
-    <p class="l-m-y">
-      <%= link_to "See all our products", store_path, :class => "button in-sc is-wide" %>
-    </p>
-
-  </div>
-</div></section>
--->
+</div>

@@ -1,7 +1,7 @@
 <nav id="sectionnav">
   <ul class="navgroup-items">
-    <li><%= nav_link_to "Featured",      {:action => 'featured'} %></li>
-    <li><%= nav_link_to "Subscription",  {:action => 'subscription'} %></li>
-    <li><%= nav_link_to "Issues",        {:action => 'issues' } %></li>
+    <li><%= link_to_current "Featured",      {:action => 'featured'} %></li>
+    <li><%= link_to_current "Subscription",  {:action => 'subscription'} %></li>
+    <li><%= link_to_current "Issues",        {:action => 'issues' } %></li>
   </ul>
 </nav>

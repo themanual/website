@@ -1,14 +1,14 @@
 .site-header,
 .site-footer {
-  color: $c-text-body;
+  color: $c-text-caption;
   @include spacing(padding-left padding-right);
   a.current { color: $c-text-black; font-weight: weight(medium); }
   a { @include link-hover-blue { color: $c-text-caption; } }
 
   .bg-colored & {
-    color: rgba(black, .5);
+    color: rgba(black, .75);
     border-color: rgba(black, .15);
-    a { @include link-hover-white { color: black; } }
+    a { @include link-hover-white { color: rgba(black, .75); } }
   }
 }
 

@@ -22,6 +22,11 @@
   a {
     &.current { font-weight: weight(medium); color: $c-text-gray; }
     @include link-hover-blue { color: $c-text-caption; };
+    @include color-by-issue-self(color) {
+      &:hover {
+        color: black;
+      }
+    };
   }
 }
 

@@ -66,6 +66,16 @@
       color: black;
     }
   }
+
+  &.in-white {
+    background-color: white;
+    border-color:     black;
+    color: black;
+    @include hover {
+      background-color: black;
+      color: white;
+    }
+  }
 }
 
 .ghost-button {

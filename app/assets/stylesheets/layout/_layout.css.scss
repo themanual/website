@@ -38,6 +38,12 @@
 .l-container  { @include outer-container; }
 .l-row        { @include row; }
 
+.l-flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .l-wrapper {
   @extend .l-container;
   @extend .l-p-x;

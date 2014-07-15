@@ -8,21 +8,21 @@
   <%= render partial: "shared/layout/head" %>
   <%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
 </head>
-<body lang="en" class="preload <%= @body %>">
+<body lang="en" class="<%= yield (:class_body) %>">
 
   <%= render partial: "shared/layout/header" %>
 
   <% if %w(read store about).include?(page_namespace) %>
-   <div id="content">
-     <div class="l-wrapper-grid">
-       <%= render partial: "shared/nav/#{page_namespace}" %>
-       <main>
-         <%= yield %>
-       </main>
-     </div>
-   </div>
+  <div id="content">
+    <div class="l-wrapper-grid">
+      <%= render partial: "shared/nav/#{page_namespace}" %>
+      <main class="<%= yield (:class_main) %>">
+        <%= yield %>
+      </main>
+    </div>
+  </div>
   <% else %>
-  <main id="content">
+  <main id="content" class="<%= yield (:class_main) %>">
     <%= yield %>
   </main>
   <% end %>

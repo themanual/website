@@ -135,6 +135,7 @@ em      { font-weight: italic; }
   }
 }
 
+.t-white { color: white; }
 .t-close { margin-top: .5em !important; }
 .t-heavy { font-weight: weight(black) !important; }
 .t-strong { font-weight: weight(bold) !important; }
@@ -207,5 +208,5 @@ em      { font-weight: italic; }
 .tag {
   @extend %tag;
   // background-color: $c-blue;
-  // @include color-by-issue(background);
+  @include color-by-issue(background);
 }

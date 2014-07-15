@@ -1,23 +1,27 @@
 <nav id="sectionnav">
   <h2 class="navgroup-title">Browse</h2>
   <ul class="navgroup-items">
-    <li><%= nav_link_to "Staff Picks", controller: "home", action: "staffpicks" %></li>
+    <li><%= link_to_current "Staff Picks", controller: "home", action: "staffpicks" %></li>
     <li><a href="#">Latest</a></li>
-    <li><%= nav_link_to "Popular", controller: "home", action: "popular" %></li>
+    <li><%= link_to_current "Popular", controller: "home", action: "popular" %></li>
   </ul>
 
   <h2 class="navgroup-title">Issues</h2>
   <ul class="navgroup-items">
-    <li><a href="#">Issue 4 <small class="tag">New</small></a></li>
-    <li><%= nav_link_to "Issue 3", issue_path(issue: 3), class: "issue-3" %></li>
-    <li><%= nav_link_to "Issue 2", issue_path(issue: 2), class: "issue-2" %></li>
-    <li><%= nav_link_to "Issue 1", issue_path(issue: 1), class: "issue-1" %></li>
-    <li><%= nav_link_to "Archive", issues_path %></li>
+    <li>
+      <%= link_to issue_path(issue: 3), class: "issue-4" do %>
+      Issue 4 <small class="tag">New</small>
+      <% end %>
+    </li>
+    <li><%= link_to_current "Issue 3", issue_path(issue: 3), class: "issue-3" %></li>
+    <li><%= link_to_current "Issue 2", issue_path(issue: 2), class: "issue-2" %></li>
+    <li><%= link_to_current "Issue 1", issue_path(issue: 1), class: "issue-1" %></li>
+    <li><%= link_to_current "Archive", issues_path %></li>
   </ul>
 
   <h2 class="navgroup-title">Blog</h2>
   <ul class="navgroup-items">
-    <li><%= nav_link_to "Posts", blog_path %></li>
+    <li><%= link_to_current "Posts", blog_path %></li>
     <li><a href="#">Archive</a></li>
   </ul>
 
