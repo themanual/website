@@ -4,10 +4,24 @@
   @include spacing(padding-left padding-right);
   a.current { color: $c-text-black; font-weight: weight(medium); }
   a { @include link-hover-blue { color: $c-text-caption; } }
+
+  .bg-colored & {
+    color: rgba(black, .5);
+    border-color: rgba(black, .15);
+    a { @include link-hover-white { color: black; } }
+  }
 }
 
-.site-header { margin-bottom: 1.5em; border-bottom: divider(); }
-.site-footer { border-top: divider(); }
+.site-header {
+  margin-bottom: 1.5em;
+  border-bottom: divider();
+  .bg-colored & {
+    margin-bottom: 0;
+  }
+}
+.site-footer {
+  border-top: divider();
+}
 
 .site-header a,
 .site-footer {
@@ -37,7 +51,7 @@
   }
 
   a.current {
-    border-left: divider();
+    border-left:  divider();
     border-right: divider();
     position: relative;
     &:after {
@@ -50,10 +64,4 @@
       background: white;
     }
   }
-}
-
-.site-header.bg-dark {
-  border-bottom: none;
-  margin-bottom: 0;
-  a { @include link-hover-white { color: black; } }
 }

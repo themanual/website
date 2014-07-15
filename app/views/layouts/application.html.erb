@@ -8,7 +8,7 @@
   <%= render partial: "shared/layout/head" %>
   <%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
 </head>
-<body lang="en" class="preload bg-white">
+<body lang="en" class="preload <%= @body %>">
 
   <%= render partial: "shared/layout/header" %>
 

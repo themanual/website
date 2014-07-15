@@ -34,7 +34,7 @@ figure img {
   margin-bottom: 1.5em;
 }
 
-.bg-dark {
+.bg-colored {
   @include color-by-issue-self(background);
 }
 
