@@ -22,11 +22,15 @@
 //
 @mixin make-stacked($class: "") {
   @if ($class != "") { $class: "-#{$class}" }
-  .l-stacked#{$class} > * {
-    @include spacing(margin-bottom);
+
+  .l-stack#{$class} > * + * {
+    @include spacing(margin-top);
   }
-  .l-stacked-grid#{$class} > * {
-    margin-bottom: flex-gutter();
+
+  .l-lined-stack#{$class} > * + * {
+    @include spacing(margin-top);
+    @include spacing(padding-top);
+    border-top: divider();
   }
 }
 
