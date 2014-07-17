@@ -54,6 +54,7 @@ a {
 .c-issue { @include link-color-issue; }
 
 @each $i in $issues {
+  .issue-#{$i}.c-issue a,
   .c-issue-#{$i} {
     @include link-hover-black {
       color: issue-color($i);

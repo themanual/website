@@ -54,6 +54,7 @@
     border-left:  divider();
     border-right: divider();
     position: relative;
+    font-weight: weight(medium);
     &:after {
       content: "";
       width: 100%;

@@ -1,8 +1,10 @@
 %price {
   font-family: $type-sans;
   letter-spacing: .05em;
+  font-weight: weight(regular);
   .symbol   { padding-right: .3em; }
 }
+
 .price {
   @extend %price;
   .value { font-weight: weight(medium); }
