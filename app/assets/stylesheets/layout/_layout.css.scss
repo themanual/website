@@ -81,5 +81,12 @@
   @extend .l-col-left;
 }
 
+.l-hero-image {
+  // max-height: 50vh;
+  img {
+    max-height: 100%;
+  }
+}
+
 // Other columns
 @include make-grid();
