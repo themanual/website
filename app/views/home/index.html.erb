@@ -9,8 +9,8 @@
     <p>Issue 4 of The Manual is finally here.</p>
     <p class="unspaced">Now in Print, Ebook, and Web editions.</p>
     <p>
-      <a href="#" class="button in-black in-caps is-larger">Read Online</a>
-      <a href="#" class="button in-black in-caps is-larger">Buy Issue 4</a>
+      <%= link_to "Read Online", issue_path(issue:4), class: "button in-black in-caps is-larger" %>
+      <%= link_to "Buy Issue 4", shop_issue_path(issue:4), class: "button in-black in-caps is-larger" %>
     </p>
   </div>
 </div>
