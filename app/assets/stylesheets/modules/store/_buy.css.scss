@@ -3,7 +3,12 @@
 
   &.with-border,
   &.with-bg {
-    padding: .4em;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    > * {
+      padding-left: .4rem;
+      padding-right: .4rem;
+    }
     border-radius: 4px;
   }
 
@@ -13,6 +18,21 @@
 
   &.with-bg {
     background: $c-bg-gray;
+  }
+}
+
+.buy-title {
+  @extend .t-sc-heavy;
+  color: black;
+  .with-border &,
+  .with-bg & {
+    padding-top:    .2rem;
+    padding-bottom: .6rem;
+    margin-bottom:  .4rem;
+  }
+
+  .with-border & {
+    border-bottom: divider();
   }
 }
 
