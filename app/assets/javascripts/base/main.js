@@ -27,7 +27,8 @@ $(function() {
   $('form').validate();
 
   $('[data-popover="trigger"]').click(function(event) {
-    var $popover = $(this).nextAll('[data-popover="popover"');
+    var $popover = $(this).nextAll('[data-popover="popover"]');
+    console.log($popover.length);
     if ($popover.is(':visible')) {
       $popover.animatecss('fadeOut faster', function(){ $popover.hide(); });
     }
@@ -36,5 +37,14 @@ $(function() {
     }
     return false;
   });
+
+  $(document)
+    .on('click', '[data-popover]', function(e) {
+      e.stopPropagation();
+    })
+    .on('click', ':not([data-popover], [data-popover] *)', function () {
+      $popovers = $('[data-popover="popover"]:visible');
+      $popovers.animatecss('fadeOut faster', function(){ $(this).hide(); });
+    });
 
 });
