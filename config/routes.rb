@@ -33,9 +33,10 @@ TheManual::Application.routes.draw do
   end
 
   # STORE
-  get '/store',              to: 'store#index',        as: :store
+  get '/store',              to: 'store#index',        as: :shop
   get '/store/issues',       to: 'store#issues',       as: :shop_issues
   get '/store/subscription', to: 'store#subscription', as: :shop_subscription
+  get '/store/issue/:issue', to: 'store#issue',        as: :shop_issue
 
   # ABOUT
   get '/about', to: 'about#index',  as: :about

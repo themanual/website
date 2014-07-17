@@ -1,0 +1,75 @@
+<% push_page_title ["Issue #{@issue.number}", "Shop"] %>
+<header class="page-header">
+  <h1>Issue <span class="issue-number issue-<%= @issue.number %>"><%= @issue.number %></span></h1>
+</header>
+<div class="l-row l-line-t l-p-t">
+  <figure class="">
+    <img src="http://placehold.it/1200x600" alt="">
+  </figure>
+  <div class="l-row">
+
+    <div class="l-m-y l-col-6 text issue-<%= @issue.number %> c-issue">
+      <h6>Contents</h6>
+      <p>Six articles and six lessons written by <%= @issue.authors.map(&:name).to_sentence %>. <%= link_to "Read online.", issue_path(issue: @issue.number) %></p>
+      <p>Print and Ebook editions are illustrated by <%= @issue.articles.map(&:illustrator).to_sentence %>.</p>
+      <h6>Specifications</h6>
+      <ul class="loose">
+        <li>Ebook edition designed in-house. <a href="#">Download a sample.</a></li>
+        <li>Audiobook edition narrated by Roman Mars. <a href="#">Listen to a sample.</a></li>
+        <li>Print edition comes in a A5 hardback format, designed by Jez Burrows, printed on in 96 high-quality 140gsm A5 uncoated pages, and contains a center spread illustration by Janette Doe.</li>
+      </ul>
+    </div>
+
+    <div class="l-m-y l-col-4 l-shift-2 buy with-border with-bg issue-<%= @issue.number %>">
+      <h3 class="buy-title">Add to Cart</h3>
+      <div class="buy-item">
+        <div class="buy-item-text">
+          <h4 class="buy-item-name">Ebook</h4>
+        </div>
+        <div class="buy-item-action">
+          <a class="button price-heavy" href="#">
+            <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+          </a>
+        </div>
+      </div>
+      <div class="buy-item">
+        <div class="buy-item-text">
+          <h4 class="buy-item-name">Audiobook</h4>
+        </div>
+        <div class="buy-item-action">
+          <a class="button price-heavy" href="#">
+            <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+          </a>
+        </div>
+      </div>
+      <div class="buy-item">
+        <div class="buy-item-text">
+          <h4 class="buy-item-name">Print &amp; Ebook</h4>
+        </div>
+        <div class="buy-item-action">
+          <a class="button price-heavy" href="#">
+            <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="l-p-y l-grid l-line-t text">
+  <div class="l-col-third" id="fn:shipping">
+    <h6>Shipping</h6>
+    <p class="unspaced" data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
+  </div>
+  <div class="l-col-third">
+    <h6>Digital Formats</h6>
+    <p class="unspaced">Ebooks: DRM-Free ePub, Mobi, and PDF.</p>
+    <p class="unspaced">Audiobooks: DRM-Free MP3 and M4B.</p>
+  </div>
+  <div class="l-col-third">
+    <h6>Bulk Orders</h6>
+    <p class="unspaced">We offer bulk discounts. Interested in 20+ issues in any format? <a href="mailto:hi@alwaysreadthemanual.com">Email us.</a></p>
+  </div>
+</footer>

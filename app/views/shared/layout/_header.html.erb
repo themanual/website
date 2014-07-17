@@ -4,9 +4,9 @@
   </h1>
   <nav>
     <ul class="inline-list">
-      <li><%= link_to "Read", read_path,    class: page_is_subpath_of('/read', 'current') %></li>
-      <li><%= link_to "Shop", store_path,   class: page_is_subpath_of('/store', 'current') %></li>
-      <li><%= link_to "About", about_path,  class: page_is_subpath_of('/about', 'current') %></li>
+      <li><%= link_to "Read",   read_path,  class: page_is_subpath_of('/read', 'current') %></li>
+      <li><%= link_to "Shop",   shop_path,  class: page_is_subpath_of('/store', 'current') %></li>
+      <li><%= link_to "About",  about_path, class: page_is_subpath_of('/about', 'current') %></li>
       <li class="l-fl-r">
         <%= user_signed_in? ? link_to_current("Log out", destroy_user_session_path) : link_to_current("Log in", new_user_session_path) %>
       </li>

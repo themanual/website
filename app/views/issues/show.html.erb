@@ -49,8 +49,8 @@
         </div>
       </div>
     </span>
-    or <%= link_to 'subscribe to The Manual', {:controller => 'store', :action => 'subscription'}, :class => 'c-issue' %>
-    and support our future issues.
+    from the <%= link_to "store", shop_issue_path(issue: @issue.number), :class => 'c-issue' %> or <%= link_to 'subscribe', {:controller => 'store', :action => 'subscription'}, :class => 'c-issue' %>
+    and support The Manual.
   </div>
 
   <ul class="l-issue l-line-t issue-<%= @issue.number %>">
