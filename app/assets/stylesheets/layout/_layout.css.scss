@@ -88,5 +88,9 @@
   }
 }
 
+.l-small-stack > * + * {
+  margin-top: 1em;
+}
+
 // Other columns
 @include make-grid();
