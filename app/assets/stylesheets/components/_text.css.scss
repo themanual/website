@@ -1,5 +1,5 @@
-strong  { font-weight: weight(bold); }
-em      { font-weight: italic; }
+strong  { font-weight: weight(medium); }
+em      { font-style: italic; }
 
 .t-center { text-align: center; }
 .t-r  { text-align: right; }
@@ -92,6 +92,10 @@ em      { font-weight: italic; }
     color: $c-text-black;
   }
 
+  a {
+    font-weight: weight(medium);
+  }
+
   h1 { @extend .h1; }
   h2 { @extend .h2; }
   h3 { @extend .h3; }
@@ -100,8 +104,8 @@ em      { font-weight: italic; }
 
   h6 {
     @extend .t-sc-heavy;
-    margin-top: 1.5em;
-    &:first-child { margin-top: 0; }
+    @extend .t-heading;
+    margin-bottom: .25em;
   }
 
   p             { margin-top: 1em; }
@@ -138,6 +142,15 @@ em      { font-weight: italic; }
 
   del {
     opacity: .4;
+  }
+
+  h1 + *,
+  h2 + *,
+  h3 + *,
+  h4 + *,
+  h5 + *,
+  h6 + * {
+    margin-top: 0;
   }
 }
 
