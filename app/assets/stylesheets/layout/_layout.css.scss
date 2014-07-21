@@ -92,5 +92,10 @@
   margin-top: 1em;
 }
 
+.l-piecelist > * {
+  @include spacing(padding-top padding-bottom);
+  border-top: divider();
+}
+
 // Other columns
 @include make-grid();

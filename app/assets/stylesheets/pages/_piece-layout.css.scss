@@ -40,7 +40,7 @@
 
 .issue-piece-text,
 .issue-piece-footer {
-  @include rem(max-width, 48rem);
+  @include rem(max-width, 44rem);
   @include centered;
 }
 
