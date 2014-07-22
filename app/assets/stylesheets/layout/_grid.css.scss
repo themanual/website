@@ -50,6 +50,10 @@
     @include spacing(margin-top);
   }
 
+  .l-small-stack#{$class} > * + * {
+    margin-top: 1em;
+  }
+
   .l-lined-stack#{$class} > * + * {
     @include spacing(margin-top);
     @include spacing(padding-top);

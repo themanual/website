@@ -3,14 +3,7 @@
   @each $prop in $props {
     @include rem($prop, $times * 1.5rem);
   }
-  // @include media-upto($bp-s) {
-  //   @each $prop in $props {
-  //     @include rem($prop, $times * 1rem);
-  //   }
-  // }
 }
-
-// TODO update to Sass 3.3 w/ function
 
 // Paddings
 .l-p      { @include spacing(padding); }
@@ -70,26 +63,14 @@
   @extend .l-row;
 }
 
-// Single columns
-.l-col-left {
+.l-col {
+  @extend .l-center;
   @include rem(max-width, $singlecol-width);  // Max width
   @include box-sizing(content-box);           // Reset box-sizing so padding can be applied "outside" the content
 }
 
-.l-col {
-  @extend .l-center;
-  @extend .l-col-left;
-}
-
-.l-hero-image {
-  // max-height: 50vh;
-  img {
-    max-height: 100%;
-  }
-}
-
-.l-small-stack > * + * {
-  margin-top: 1em;
+.l-hero-image img {
+  max-height: 100%;
 }
 
 .l-piecelist > * {
