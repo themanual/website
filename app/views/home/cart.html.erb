@@ -2,7 +2,7 @@
 
 <main class="l-p-x"><div class="l-col">
 
-  <header class="page-header-plain">
+  <header class="page-header">
     <h1>Checkout</h1>
   </header>
 
@@ -12,7 +12,7 @@
       <!--<span class="payment-errors"></span>-->
       <fieldset class="form-section">
         <div class="form-heading">
-          <h2 class="h-big">Cart</h2>
+          <h2 class="h-bigger">Cart</h2>
           <p class="h-note">Missed something? <a href="#">Browse the store.</a></p>
         </div>
         <ul class="cart-rows">
@@ -41,19 +41,15 @@
         </ul>
         <% if @physical %>
         <div class="cart-rows">
-          <dl class="l-row">
-            <dt class="l-col-6">
-              Country
-            </dt>
-            <dd class="l-col-6 t-r">
+          <dl class="l-row-halves">
+            <dt>Country</dt>
+            <dd class="t-r">
               <select id="cart-shipping-country"><option value="">United States of America</option></select>
             </dd>
           </dl>
-          <dl class="l-row">
-            <dt class="l-col-6">
-              Postal/ZIP Code
-            </dt>
-            <dd class="l-col-6 t-r">
+          <dl class="l-row-halves">
+            <dt>Postal/ZIP Code</dt>
+            <dd class="t-r">
               <input type="text" id="cart-shipping-post-code" class="input t-r" placeholder="123456">
             </dd>
           </dl>
