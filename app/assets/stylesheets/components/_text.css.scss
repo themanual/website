@@ -185,22 +185,6 @@ em      { font-style: italic; }
   @include issue-number;
 }
 
-.synopsis {
-  font-family: $type-serif;
-  color: $c-text-caption;
-  font-style: italic;
-  font-weight: weight(medium);
-  @include rem(font-size, 21px);
-  line-height: 1.25;
-}
-
-.byline {
-  color: $c-text-faint;
-  line-height: 1.25;
-  a, strong { font-weight: weight(medium); }
-  strong  { color: $c-text-black; font-weight: weight(regular); }
-}
-
 .t-downcase {
   text-transform: lowercase !important;
 }
