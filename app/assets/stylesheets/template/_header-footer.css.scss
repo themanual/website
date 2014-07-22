@@ -25,7 +25,7 @@
 
 .site-header a,
 .site-footer {
-  @include padding-v(1em);
+  @include padding-v(1.2em);
 }
 
 .site-header a  { display: block; }
@@ -36,7 +36,7 @@
 }
 
 .site-header nav {
-  $tab-pad: 1em;
+  $tab-pad: 1.2em;
   margin-left: $sidebar-width + $sidebar-gutter - $tab-pad;
 
   li + li {
