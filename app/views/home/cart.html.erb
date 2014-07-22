@@ -78,61 +78,57 @@
       <fieldset class="form-section">
 
         <div class="form-heading">
-          <h2 class="h-big">Reader Account &amp; Payment</h2>
+          <h2 class="h-bigger">Reader Account &amp; Payment</h2>
           <p class="h-note">You’ll be able to log back in to read, download files and invoices.</p>
         </div>
 
-        <div class="l-units">
-          <div class="l-unit-s-half">
-            <dl class="field">
+        <div class="l-row">
+          <div class="field l-col-s-half">
+            <dl class="l-row">
               <dt><%= f.label :first_name, 'Name' %></dt>
-              <dd class="field-half">
+              <dd class="l-col-half">
                 <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %>
               </dd>
-              <dd class="field-half">
+              <dd class="l-col-half">
                 <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %>
               </dd>
             </dl>
             <small class="label-note">Can differ from credit card name</small>
           </div>
-
-          <dl class="field l-unit-s-half">
+          <dl class="field l-col-s-half l-omega-s">
             <dt><%= f.label :email %></dt>
             <dd>
               <%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %>
               <small class="label-note">Will be your reader login</small>
             </dd>
           </dl>
-
-          <dl class="field l-unit-s-half">
+          <dl class="field l-col-s-half">
             <dt><label for="user_cc-number">Credit Card</label></dt>
             <dd>
               <input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" />
             </dd>
           </dl>
-
-          <dl class="field l-unit-half l-unit-s-fourth">
+          <dl class="field l-col-s-fourth">
             <dt><label for="user_cc-exp">Expiration</label></dt>
             <dd>
               <input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" />
             </dd>
           </dl>
-
-          <dl class="field l-unit-half l-unit-s-fourth">
+          <dl class="field l-col-s-fourth l-omega-s">
             <dt><label for="user_cc-cvc">Code</label></dt>
             <dd>
               <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
             </dd>
           </dl>
-
-          <small class="cl-b label-note l-unit-fill">All payment data is securely handled and stored by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a>.</small>
+          <small class="cl-b label-note">All payment data is securely handled and stored by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a>.</small>
         </div>
+
       </fieldset>
 
       <% if @physical %>
       <fieldset class="form-section">
         <div class="form-heading">
-          <h2 class="h-big">Shipping Address</h2>
+          <h2 class="h-bigger">Shipping Address</h2>
           <p class="h-note">Need a different billing address? You can do it after completing your order.</p>
         </div>
         <%= f.fields_for :addresses, @user.addresses.new do |a| %>
@@ -147,23 +143,23 @@
           </dd>
         </dl>
 
-        <div class="l-units">
-          <dl class="field l-unit-s-half">
+        <div class="l-row-halves">
+          <dl class="field">
             <dt><%= a.label :city %></dt>
             <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
           </dl>
 
-          <dl class="field l-unit-s-half">
+          <dl class="field">
             <dt><%= a.label :region %></dt>
             <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional', :'data-shipping-address' => 'region' %></dd>
           </dl>
 
-          <dl class="field l-unit-s-half">
+          <dl class="field">
             <dt><%= a.label :post_code %></dt>
             <dd><%= a.text_field :post_code, class: 'is-long', required: true, :'data-shipping-address' => 'post_code' %></dd>
           </dl>
 
-          <dl class="field l-unit-s-half">
+          <dl class="field">
             <dt><%= a.label :country_id %></dt>
             <dd class="select"><%= custom_country_select a, :country_id, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
           </dl>
