@@ -1,15 +1,5 @@
 .field        { margin-top: 1.5em; }
 .field-close  { margin-top: .5em; }
-.field-half {
-  $p: .2em;
-  float: left;
-  width: 50%;
-  padding-right: $p;
-  & + & {
-    padding-right: 0em;
-    padding-left: $p;
-  }
-}
 
 label, input, textarea, select,
 .label, .value {
@@ -81,8 +71,8 @@ select {
   display: block;
   line-height: 1.4;
   color: $c-text-caption;
-  input  + &,
-  .field + & { padding-top: .25em; }
+  padding-top: .25em;
+  label + & { padding-top: 0;  }
 }
 
 input, textarea {
