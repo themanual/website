@@ -27,9 +27,6 @@
 @import 'template/header-footer';
 @import 'template/page-header';
 
-@import 'pages/piece-layout';
-@import 'pages/piece-style';
-
 // Default plugin example code
 @import 'chosen';
 
@@ -50,6 +47,8 @@
 @import 'modules/price';
 @import 'modules/banner';
 @import 'modules/navgroup';
+@import 'modules/piece/piece-layout';
+@import 'modules/piece/piece-style';
 
 // Units
 @import 'modules/units/piece';

@@ -4,15 +4,19 @@
   <% cache @piece do %>
 
     <!-- Article -->
-    <article class="issue-piece is-<%= @piece.type.downcase %> l-p-x"><div class="l-container">
+    <article class="piece is-<%= @piece.type.downcase %> l-p-x"><div class="l-container">
 
       <%= render 'piece_header' %>
 
-      <div class="issue-piece-text">
-        <%=raw Kramdown::Document.new(@piece.body).to_html %>
-      </div>
+      <div class="piece-wrapper">
 
-      <%= render 'piece_footer' %>
+        <div class="piece-body">
+          <%=raw Kramdown::Document.new(@piece.body).to_html %>
+        </div>
+
+        <%= render 'piece_footer' %>
+
+      </div>
     </div></article>
 
     <aside class="issue-pagination l-line"><div>
@@ -32,7 +36,6 @@
           </a>
         </li>
 
-
         <li class="issue-pagination-item is-next">
         <% if (next_article = @piece.next) %>
           <a href="<%= next_article.path %>">
@@ -47,18 +50,14 @@
   <% end %>
 
   <% cache [@piece, :random], expires_in: 300.ish do %>
-    <aside class="l-p-xyy"><div class="l-grid">
+    <aside class="l-p-xyy"><div class="l-container l-row-halves">
 
-    <!-- <div class="box-group l-col-half"> -->
-
-      <section class="box l-col-half">
-        <h2 class="box-title">
-          Recommended reading
-        </h2>
+      <section class="box">
+        <h2 class="box-title">Recommended reading</h2>
         <%= render partial: 'shared/units/piece', object: @piece.random %>
       </section>
 
-      <section class="box l-col-half">
+      <section class="box">
         <h2 class="box-title">
           <a href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
         </h2>
@@ -70,8 +69,6 @@
           <%= render 'issue_buy_options', sub: false, issue: @piece.issue %>
         </div>
       </section>
-
-    <!-- </div> -->
 
     </div></aside>
   <% end %>

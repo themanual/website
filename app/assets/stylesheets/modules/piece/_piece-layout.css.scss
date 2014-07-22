@@ -1,0 +1,71 @@
+// HEADER
+
+.piece.is-article {
+  @include media-from($bp-l) {
+    .piece-header {
+      @include row;
+    }
+
+    .piece-header-illustration,
+    .piece-header-text {
+      @include span-columns(6);
+    }
+
+    .piece-header-illustration {
+      @include clearfix;
+
+      figure {
+        float: right;
+        @include clearfix;
+        @include rem(max-width, 24rem);
+      }
+    }
+  }
+}
+
+.piece-header-text {
+
+  @include media-upto($bp-l) {
+    text-align: center;
+    > * { @include centered; }
+  }
+
+  @include media-from($bp-l) {
+    margin-top: 15%;
+  }
+
+}
+
+.piece-header-illustration img {
+  @include media-upto($bp-l)  { max-height: 28em; }
+  @include media-upto($bp-m)  { max-height: 24em; }
+  @include media-upto($bp-s)  { max-height: 20em; }
+}
+
+.piece-wrapper {
+  @include spacing(margin-top margin-bottom, 2);
+  @include rem(max-width, 44rem);
+  @include centered;
+}
+
+.piece.is-lesson .piece-header-text {
+  @extend .piece-wrapper;
+  text-align: center;
+  > * { @include centered; }
+}
+
+.piece-footer {
+  @include spacing(margin-top, 2);
+  overflow: hidden;
+}
+
+.piece-footer-portrait {
+  float: left;
+  width: 6.5em;
+  margin-right: 1.5em;
+}
+
+.piece-footer-bio {
+  margin-top: 1em;
+  overflow: hidden;
+}
