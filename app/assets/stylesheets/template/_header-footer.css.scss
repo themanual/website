@@ -35,11 +35,18 @@
   width: $sidebar-width;
 }
 
+.site-header .tabs    { float: left; }
+.site-header .actions { float: right; }
+
+.site-header nav > ul > * {
+  float: left;
+}
+
 .site-header nav {
   $tab-pad: 1.2em;
   margin-left: $sidebar-width + $sidebar-gutter - $tab-pad;
 
-  li + li {
+  > ul > li + li {
     margin-left: 0.5em;
   }
 
@@ -64,5 +71,34 @@
       bottom: -1px;
       background: white;
     }
+  }
+
+  .nav-popover a {
+    padding: .75em;
+  }
+
+  .icon {
+    > a {
+      text-indent: -9999em;
+      @include box-sizing(content-box);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 2em auto;
+      width: 2em;
+      @include padding-h(0);
+      &.current { @include padding-h(.8em); }
+    }
+
+    .nav-popover:before {
+      right: .4em;
+    }
+
+    > a.current + .nav-popover:before {
+      right: 1.2em;
+    }
+  }
+
+  .icon.account > a {
+    background-image: image-url('ui/reader-account.svg');
   }
 }
