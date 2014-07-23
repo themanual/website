@@ -1,76 +1,74 @@
 <% push_page_title ["#{@piece.title}, by #{@piece.author.name}", "Issue #{@piece.issue_number}"] %>
+<% content_for :class_main, "issue-#{@piece.issue_number}" %>
 
-<main class="issue-<%= @piece.issue_number %>" role="main">
-  <% cache @piece do %>
+<% cache @piece do %>
 
-    <!-- Article -->
-    <article class="piece is-<%= @piece.type.downcase %> l-p-x"><div class="l-container">
+  <!-- Article -->
+  <article class="piece is-<%= @piece.type.downcase %> l-p-x"><div class="l-container">
 
-      <%= render 'piece_header' %>
+    <%= render 'piece_header' %>
 
-      <div class="piece-wrapper">
+    <div class="piece-wrapper">
 
-        <div class="piece-body">
-          <%=raw Kramdown::Document.new(@piece.body).to_html %>
-        </div>
-
-        <%= render 'piece_footer' %>
-
+      <div class="piece-body">
+        <%=raw Kramdown::Document.new(@piece.body).to_html %>
       </div>
-    </div></article>
 
-    <aside class="issue-pagination l-line"><div>
-      <ul class="issue-pagination-list">
-        <li class="issue-pagination-item is-previous">
-        <% if (prev_article = @piece.prev) %>
-          <a href="<%= prev_article.path %>">
-            <h2><%= prev_article.author.name %></h2>
-            <p><strong class="piece-title"><%= prev_article.title %></strong></p>
-          </a>
-        <% end %>
-        </li>
+      <%= render 'piece_footer' %>
 
-        <li class="issue-pagination-item is-current">
-          <a class="c-issue" href="<%= issue_url @piece.issue_number %>">
-            <h2>Browse Issue&nbsp;<%= @piece.issue_number %></h2>
-          </a>
-        </li>
+    </div>
+  </div></article>
 
-        <li class="issue-pagination-item is-next">
-        <% if (next_article = @piece.next) %>
-          <a href="<%= next_article.path %>">
-            <h2><%= next_article.author.name %></h2>
-            <p><strong class="piece-title"><%= next_article.title %></strong></p>
-          </a>
-        <% end %>
-        </li>
+  <aside class="issue-pagination l-line"><div>
+    <ul class="issue-pagination-list">
+      <li class="issue-pagination-item is-previous">
+      <% if (prev_article = @piece.prev) %>
+        <a href="<%= prev_article.path %>">
+          <h2><%= prev_article.author.name %></h2>
+          <p><strong class="piece-title"><%= prev_article.title %></strong></p>
+        </a>
+      <% end %>
+      </li>
 
-      </ul>
-    </div></aside>
-  <% end %>
+      <li class="issue-pagination-item is-current">
+        <a class="c-issue" href="<%= issue_url @piece.issue_number %>">
+          <h2>Browse Issue&nbsp;<%= @piece.issue_number %></h2>
+        </a>
+      </li>
 
-  <% cache [@piece, :random], expires_in: 300.ish do %>
-    <aside class="l-p-xyy"><div class="l-container l-row-halves">
+      <li class="issue-pagination-item is-next">
+      <% if (next_article = @piece.next) %>
+        <a href="<%= next_article.path %>">
+          <h2><%= next_article.author.name %></h2>
+          <p><strong class="piece-title"><%= next_article.title %></strong></p>
+        </a>
+      <% end %>
+      </li>
 
-      <section class="box">
-        <h2 class="box-title">Recommended reading</h2>
-        <%= render partial: 'shared/units/piece', object: @piece.random %>
-      </section>
+    </ul>
+  </div></aside>
+<% end %>
 
-      <section class="box">
-        <h2 class="box-title">
-          <a href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
-        </h2>
+<% cache [@piece, :random], expires_in: 300.ish do %>
+  <aside class="l-p-xyy"><div class="l-container l-row-halves">
 
-        <div class="issuebuy">
-          <figure class="issuebuy-figure">
-            <%= image_tag "ui/devices-#{@piece.issue_number}.png" %>
-          </figure>
-          <%= render 'issue_buy_options', sub: false, issue: @piece.issue %>
-        </div>
-      </section>
+    <section class="box">
+      <h2 class="box-title">Recommended reading</h2>
+      <%= render partial: 'shared/units/piece', object: @piece.random %>
+    </section>
 
-    </div></aside>
-  <% end %>
+    <section class="box">
+      <h2 class="box-title">
+        <a href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
+      </h2>
 
-</main>
+      <div class="issuebuy">
+        <figure class="issuebuy-figure">
+          <%= image_tag "ui/devices-#{@piece.issue_number}.png" %>
+        </figure>
+        <%= render 'issue_buy_options', sub: false, issue: @piece.issue %>
+      </div>
+    </section>
+
+  </div></aside>
+<% end %>

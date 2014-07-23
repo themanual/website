@@ -8,11 +8,11 @@
   <%= render partial: "shared/layout/head" %>
   <%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
 </head>
-<body lang="en" class="preload bg-white">
+<body lang="en" class="<%= yield (:class_body) %>">
 
   <%= render partial: "shared/layout/header" %>
 
-  <main id="content">
+  <main id="content" class="<%= yield (:class_main) %>" role="main">
     <%= yield %>
   </main>
 

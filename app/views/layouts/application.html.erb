@@ -12,20 +12,18 @@
 
   <%= render partial: "shared/layout/header" %>
 
+  <div id="content"><div class="l-wrapper">
   <% if %w(read store about).include?(page_namespace) %>
-  <div id="content">
-    <div class="l-wrapper-grid">
-      <%= render partial: "shared/nav/#{page_namespace}" %>
-      <main class="<%= yield (:class_main) %>">
-        <%= yield %>
-      </main>
-    </div>
-  </div>
+    <%= render partial: "shared/nav/#{page_namespace}" %>
+    <main class="<%= yield (:class_main) %>" role="main">
+      <%= yield %>
+    </main>
   <% else %>
-  <main id="content" class="<%= yield (:class_main) %>">
-    <%= yield %>
-  </main>
+    <main class="l-shifted <%= yield (:class_main) %>" role="main">
+      <%= yield %>
+    </main>
   <% end %>
+  </div></div>
 
   <%= render partial: "shared/layout/footer" %>
 

@@ -77,6 +77,7 @@ class HomeController < ApplicationController
   def index
     @issue = Issue.where(number: 3).first
     @pieces = Article.all.sample(3)
+    render layout: "plain"
   end
 
   def cart

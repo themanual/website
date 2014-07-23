@@ -78,5 +78,9 @@
   border-top: divider();
 }
 
+.l-shifted {
+  padding-left: ($sidebar-width + $sidebar-gutter);
+}
+
 // Other columns
 @include make-grid();

@@ -40,7 +40,7 @@ figure img {
 
 #sectionnav {
   float: left;
-  width: 9em;
+  width: $sidebar-width;
   margin-right: $sidebar-gutter;
   & + * { overflow: hidden; }
 }
