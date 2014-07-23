@@ -3,21 +3,21 @@
   <h1>Issue <span class="issue-number issue-<%= @issue.number %>"><%= @issue.number %></span></h1>
 </header>
 
-<section class="l-line-t l-row">
-  <figure class="l-m-y l-col-10">
-    <img src="http://placehold.it/1200x800" alt="">
-  </figure>
+<figure class="l-m-b">
+  <img src="http://placehold.it/1200x800/E6E6E6/FFFFFF" alt="">
+</figure>
 
-  <aside class="l-m-y l-col-2 l-omega l-small-stack">
-    <figure><img src="http://placehold.it/300x200" alt=""></figure>
-    <figure><img src="http://placehold.it/300x200" alt=""></figure>
-    <figure><img src="http://placehold.it/300x200" alt=""></figure>
-    <figure><img src="http://placehold.it/300x200" alt=""></figure>
-    <figure><img src="http://placehold.it/300x200" alt=""></figure>
-  </aside>
-</section>
+<aside class="l-m-y l-row">
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+</aside>
 
 <section class="l-row">
+
   <div class="l-m-y l-col-7 text issue-<%= @issue.number %> c-issue">
     <div class="t-big l-m-b">
       <p>Six articles and six lessons written by <%= @issue.authors.map(&:name).to_sentence %>. <%= link_to "Read online.", issue_path(issue: @issue.number) %></p>
@@ -64,6 +64,7 @@
       </div>
     </div>
   </div>
+
 </section>
 
 <footer class="l-m-t l-p-y l-grid l-line-t text issue-<%= @issue.number %> c-issue">
