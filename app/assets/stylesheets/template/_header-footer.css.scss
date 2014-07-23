@@ -79,6 +79,7 @@
 
   .icon {
     > a {
+      height: 1em;
       text-indent: -9999em;
       @include box-sizing(content-box);
       background-repeat: no-repeat;
@@ -98,6 +99,7 @@
     }
   }
 
+  // TODO improve with hover/current/colored-bg colors
   .icon.account > a {
     background-image: image-url('ui/reader-account.svg');
   }
