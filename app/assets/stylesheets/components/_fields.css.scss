@@ -1,6 +1,11 @@
 .field        { margin-top: 1.5em; }
 .field-close  { margin-top: .5em; }
 
+.form > div:first-child + .field,
+.form > .field:first-child {
+  margin-top: 0;
+}
+
 label, input, textarea, select,
 .label, .value {
   font-family: $type-sans;
@@ -38,6 +43,7 @@ label, input, textarea, select,
 
   display: inline-block;
   width: 100%;
+  max-width: 100%;
 
   margin: 0;
   padding: .3em 0;
@@ -51,6 +57,18 @@ label, input, textarea, select,
   border-bottom-width: 1px;
 
   @extend %input-border;
+
+  &.is-s {
+    width: 10em;
+  }
+
+  &.is-m {
+    width: 20em;
+  }
+
+  &.is-l {
+    width: 30em;
+  }
 }
 
 select {
