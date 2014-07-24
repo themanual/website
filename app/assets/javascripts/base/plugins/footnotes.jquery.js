@@ -1,6 +1,7 @@
 (function($) {
 
   $.fn.footnotes = function() {
+
     $(this).find('sup[id^="fnref:"]').each(function () {
       var $ref    = $(this);
       var $link   = $(this).find('a[href^="#fn:"]').first();
@@ -16,7 +17,10 @@
         'class': 'footnote-popover is-center',
         'data-popover': 'popover'
       }).append($note.html()).appendTo($ref);
+      // Hide return arrows
+      $note.find('.reversefootnote').hide();
     });
+
   };
 
 }(jQuery));
