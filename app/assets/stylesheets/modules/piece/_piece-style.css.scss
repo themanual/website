@@ -156,7 +156,7 @@
     @include spacing(margin-top, 1.5);
 
     font-family: $type-sans;
-    font-weight: normal;
+    font-weight: weight(regular);
     color: $c-text-faint;
 
     ol {
