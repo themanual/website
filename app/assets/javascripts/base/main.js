@@ -26,7 +26,7 @@ $(function() {
 
   $('form').validate();
 
-  $('[data-popover="trigger"]').click(function(event) {
+  $(document).on('click', '[data-popover="trigger"]', function(event) {
     var $popover = $(this).nextAll('[data-popover="popover"]');
     console.log($popover.length);
     if ($popover.is(':visible')) {

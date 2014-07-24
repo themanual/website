@@ -54,7 +54,7 @@
 
 .piece-body {
 
-  $type-size: 23px;
+  $type-size: 24px;
   @include rem(font-size, $type-size);
   font-family: $type-serif;
   color: $c-text-body;
@@ -134,12 +134,17 @@
   ul { list-style-type: square; }
   li > p:first-child { margin-top: 0; }
 
+  sup {
+    text-indent: 0;
+    display: inline-block;
+    margin-left: .1em;
+  }
+
   .footnote {
     font-family: $type-sans;
     font-weight: weight(medium);
     vertical-align: text-top;
     font-size: 0.6em;
-    padding-left: 0.3em;
     letter-spacing: 1px;
 
     &:target {
@@ -167,6 +172,13 @@
     }
 
     hr { display: none; }
+  }
+
+  .footnote-popover {
+    .reversefootnote { display: none !important; }
+    color: $c-text-gray;
+    text-indent: 0;
+    padding: .8em;
   }
 }
 
