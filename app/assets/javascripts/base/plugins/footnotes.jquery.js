@@ -12,7 +12,7 @@
       // Link is the popover trigger
       $link.attr('data-popover', 'trigger');
       // Create popover with content and data attr, and append to reference
-      $("<div />", {
+      $("<aside />", {
         'class': 'footnote-popover is-center',
         'data-popover': 'popover'
       }).append($note.html()).appendTo($ref);
