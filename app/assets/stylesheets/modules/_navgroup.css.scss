@@ -47,5 +47,9 @@
 }
 
 .navgroup-items + .navgroup-title {
-  margin-top: 1.5em;
+  margin-top: 2em;
+}
+
+.navgroup-items + .navgroup-items {
+  margin-top: 1em;
 }
