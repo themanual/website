@@ -17,7 +17,7 @@
       figure {
         float: right;
         @include clearfix;
-        @include rem(max-width, 28rem);
+        @include rem(max-width, 27rem);
       }
     }
   }
@@ -31,7 +31,7 @@
   }
 
   @include media-from($bp-l) {
-    margin-top: 18%;
+    margin-top: 16%;
   }
 
 }
@@ -44,7 +44,7 @@
 
 .piece-wrapper {
   @include spacing(margin-top margin-bottom, 2);
-  @include rem(max-width, 48rem);
+  @include rem(max-width, 47rem);
   @include centered;
 }
 
