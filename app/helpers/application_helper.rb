@@ -37,9 +37,10 @@ module ApplicationHelper
     file = File.read(Rails.root.join(*path))
     doc = Nokogiri::HTML::DocumentFragment.parse file
     svg = doc.at_css 'svg'
-    if options[:class].present?
-      svg['class'] = options[:class]
-    end
+    options.each { |k,v|
+      svg[k] ||= ""
+      svg[k] = (svg[k] + " " + v).strip
+    }
     doc.to_html.html_safe
   end
 
