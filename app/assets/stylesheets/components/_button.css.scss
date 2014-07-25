@@ -53,7 +53,7 @@
 
   &:disabled,
   &.disabled {
-    color: darken($c-divider, 5%);
+    background-color: darken($c-divider, 5%);
     border-color: darken($c-divider, 5%);
     cursor: default;
   }
