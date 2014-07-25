@@ -47,4 +47,9 @@ $(function() {
       $popovers.animatecss('fadeOut faster', function(){ $(this).hide(); });
     });
 
+  $(document).on('click', '.footnote-popover a[href^="http"], .footnotes a[href^="http"]', function () {
+    window.open($(this).attr('href'));
+    return false;
+  });
+
 });

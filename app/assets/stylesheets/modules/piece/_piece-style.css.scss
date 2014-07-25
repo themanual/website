@@ -137,7 +137,7 @@
   sup {
     text-indent: 0;
     display: inline-block;
-    margin-left: .1em;
+    margin-left: .15em;
   }
 
   .footnote {
@@ -161,9 +161,9 @@
 
     ol {
       font-size: 15px;
-      line-height: 1.2;
+      line-height: 1.25;
       @include padding-v(0);
-      li + li { margin-top: .3em; }
+      li + li { margin-top: .35em; }
     }
 
     :target {
@@ -172,14 +172,27 @@
     }
 
     hr { display: none; }
+
+    a {
+      &[href^="http"] { border-bottom: solid 1px; }
+      @include link-hover-black { color: inherit; }
+    }
   }
 
   .footnote-popover {
     .reversefootnote { display: none !important; }
+    font-family: $type-sans;
     color: $c-text-gray;
     text-indent: 0;
-    padding: .8em;
+    padding: .65em .75em;
+    line-height: 1.35;
     text-align: left;
+    @include rem(font-size, .9*$rem-base);
+  }
+
+  .footnote-popover a[href^="http"],
+  .footnotes a[href^="http"] {
+    @extend .external;
   }
 }
 

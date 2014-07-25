@@ -13,6 +13,7 @@
   margin-top: 15px;
 
   position: absolute;
+  z-index: $z-popover;
   background-color: white;
   border: divider();
 
@@ -29,7 +30,7 @@
     top: -11px;
   }
 
-  @include rem(width, 16rem);
+  @include rem(width, 18rem);
 
   &.is-right {
     right: 0;
@@ -47,7 +48,7 @@
       margin-left: -10px;
     }
     left: 50%;
-    @include rem(margin-left, -8rem);
+    @include rem(margin-left, -9rem);
   }
 }
 
