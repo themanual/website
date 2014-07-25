@@ -1,14 +1,37 @@
 .site-header,
 .site-footer {
   color: $c-text-caption;
+  @include svg { stroke: $c-icon-gray; }
+
+  line-height: 1;
   @include spacing(padding-left padding-right);
-  a.current { color: $c-text-black; font-weight: weight(medium); }
-  a { @include link-hover-blue { color: $c-text-caption; } }
+
+  a.current {
+    color: $c-text-black;
+    @include svg { stroke: $c-text-gray; }
+    font-weight: weight(medium);
+  }
+
+  a {
+    @include link-hover-blue(stroke) {
+      color: $c-text-caption;
+      @include svg { stroke: $c-icon-gray; }
+    }
+  }
 
   .bg-colored & {
     color: rgba(black, .75);
+    @include svg { stroke: rgba(black, .6); }
     border-color: rgba(black, .15);
-    a { @include link-hover-white { color: rgba(black, .75); } }
+
+    a {
+      @include link-hover-white(stroke) {
+        color: rgba(black, .75);
+        stroke: rgba(black, .6);
+      }
+    }
+
+    .nav-popover a { @include link-hover-blue(stroke) { color: $c-text-caption; } }
   }
 }
 
@@ -22,9 +45,12 @@
   border-top: divider();
 }
 
+$site-menu-pad: 1.2em;
+$site-menu-icon: 2em;
+
 .site-header a,
 .site-footer {
-  @include padding-v(1.2em);
+  @include padding-v($site-menu-pad);
 }
 
 .site-header a  { display: block; }
@@ -42,16 +68,15 @@
 }
 
 .site-header nav {
-  $tab-pad: 1.2em;
-  margin-left: $sidebar-width + $sidebar-gutter - $tab-pad;
+  margin-left: $sidebar-width + $sidebar-gutter - $site-menu-pad;
 
   > ul > li + li {
     margin-left: 0.5em;
   }
 
   a {
-    padding-left: $tab-pad;
-    padding-right: $tab-pad;
+    padding-left: $site-menu-pad;
+    padding-right: $site-menu-pad;
     border-left: solid 1px transparent;
     border-right: solid 1px transparent;
   }
@@ -76,18 +101,22 @@
     padding: .75em;
   }
 
+  .icon-text    { @extend %visuallyhidden; }
+  .icon svg {
+    display: block !important;
+    width: $site-menu-icon;
+    height: $site-menu-icon;
+  }
+
+  .icon > a {
+    padding: 0;
+    @include padding-v(($site-menu-pad * 2 + 1em - $site-menu-icon) / 2);
+    &.current { @include padding-h(.8em); }
+  }
+
   .icon {
-    > a {
-      height: 1em;
-      text-indent: -9999em;
-      @include box-sizing(content-box);
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 2em auto;
-      width: 2em;
-      @include padding-h(0);
-      &.current { @include padding-h(.8em); }
-    }
+
+
 
     .nav-popover:before {
       right: .4em;
@@ -96,10 +125,5 @@
     > a.current + .nav-popover:before {
       right: 1.2em;
     }
-  }
-
-  // TODO improve with hover/current/colored-bg colors
-  .icon.account > a {
-    background-image: image-url('ui/reader-account.svg');
   }
 }
