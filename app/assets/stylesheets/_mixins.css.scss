@@ -1,3 +1,7 @@
+@mixin svg {
+  svg * { @content; }
+}
+
 @mixin max-width-columns($n) {
   max-width: flex-grid($n) / 100% * $max-width;
 }
