@@ -1,16 +1,31 @@
-@mixin link-hover-white {
+@mixin link-hover-white($svg: false) {
   @content;
-  @include hover { color: $c-text-white; }
+  @include hover {
+    color: $c-text-white;
+    @if ($svg) {
+      @include svg { #{$svg}: $c-text-white; }
+    }
+  }
 }
 
-@mixin link-hover-black {
+@mixin link-hover-black($svg: false) {
   @content;
-  @include hover { color: $c-text-black; }
+  @include hover {
+    color: $c-text-black;
+    @if ($svg) {
+      @include svg { #{$svg}: $c-text-black; }
+    }
+  }
 }
 
-@mixin link-hover-blue {
+@mixin link-hover-blue($svg: false) {
   @content;
-  @include hover { color: $c-blue; }
+  @include hover {
+    color: $c-blue;
+    @if ($svg) {
+      @include svg { #{$svg}: $c-blue; }
+    }
+  }
 }
 
 @mixin link-hover-issue {
