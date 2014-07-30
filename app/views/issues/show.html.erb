@@ -8,7 +8,7 @@
     </h1>
   </header>
 
-  <div class="l-line-t l-p-y tagline issue-<%= @issue.number %>">
+  <div class="l-line-t l-p-y tagline issue-<%= @issue.number %> c-issue">
     <span class="has-popover">
       <a href="#" class="button is-large" data-popover="trigger">
         Buy this issue
@@ -49,7 +49,7 @@
         </div>
       </div>
     </span>
-    from the <%= link_to "store", shop_issue_path(issue: @issue.number), :class => 'c-issue' %> or <%= link_to 'subscribe', {:controller => 'store', :action => 'subscription'}, :class => 'c-issue' %>
+    from the <%= link_to "store", shop_issue_path(issue: @issue.number) %> or <%= link_to 'subscribe', {:controller => 'store', :action => 'subscription'} %>
     and support The Manual.
   </div>
 

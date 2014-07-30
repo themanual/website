@@ -1,7 +1,6 @@
 <% push_page_title ["#{@piece.title}, by #{@piece.author.name}", "Issue #{@piece.issue_number}"] %>
-<% content_for :class_main, "issue-#{@piece.issue_number}" %>
-
 <% cache @piece do %>
+<article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-wrapper">
 
   <!-- Article -->
   <article class="piece is-<%= @piece.type.downcase %> l-p-x"><div class="l-container">
