@@ -25,7 +25,7 @@ $c-green: $c-field-valid;
 
 // Published issues, and issues colors
 $issues:        (1, 2, 3, 4);
-$issues-colors: (#EE4246, #6AB7E6, #EC9840, darken(#1CCFB5, 3%));
+$issues-colors: (#EE4246, #6AB7E6, #EC9840, #00CFB5);
 
 // Returns the color of issue $i or 'latest'
 @function issue-color($i) {
