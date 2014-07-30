@@ -2,80 +2,62 @@
 <% cache @piece do %>
 <article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-wrapper">
 
-  <!-- Article -->
-  <article class="piece is-<%= @piece.type.downcase %> l-p-x"><div class="l-container">
+  <%= render 'piece_header' %>
 
-    <%= render 'piece_header' %>
+  <div class="piece-body l-reading">
+    <%=raw Kramdown::Document.new(@piece.body).to_html %>
+  </div>
 
-    <div class="piece-wrapper">
-
-      <div class="piece-body">
-        <%=raw Kramdown::Document.new(@piece.body).to_html %>
-      </div>
-
-      <%= render 'piece_footer' %>
-
+  <footer class="l-reading piece-info">
+    <div class="l-row">
+      <h2 class="t-sc-heavy l-col-2">Part Of</h2>
+      <p class="l-col-10 text"><a href="#">Issue <%= @piece.issue_number %></a></p>
     </div>
-  </div></article>
-
-  <aside class="issue-pagination l-line"><div>
-    <ul class="issue-pagination-list">
-      <li class="issue-pagination-item is-previous">
-      <% if (prev_article = @piece.prev) %>
-        <a href="<%= prev_article.path %>">
-          <h2><%= prev_article.author.name %></h2>
-          <p><strong class="piece-title"><%= prev_article.title %></strong></p>
-        </a>
-      <% end %>
-      </li>
-
-      <li class="issue-pagination-item is-current">
-        <a class="c-issue" href="<%= issue_url @piece.issue_number %>">
-          <h2>Browse Issue&nbsp;<%= @piece.issue_number %></h2>
-        </a>
-      </li>
-
-      <li class="issue-pagination-item is-next">
-      <% if (next_article = @piece.next) %>
-        <a href="<%= next_article.path %>">
-          <h2><%= next_article.author.name %></h2>
-          <p><strong class="piece-title"><%= next_article.title %></strong></p>
-        </a>
-      <% end %>
-      </li>
-
-    </ul>
-  </div></aside>
-<% end %>
-
-<% cache [@piece, :random], expires_in: 300.ish do %>
-  <aside class="l-p-xyy"><div class="l-container l-row-halves">
-
-    <section class="box">
-      <h2 class="box-title">Recommended reading</h2>
-      <%= render partial: 'shared/units/piece', object: @piece.random %>
-    </section>
-
-    <section class="box">
-      <h2 class="box-title">
-        <a href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
-      </h2>
-
-      <div class="issuebuy">
-        <figure class="issuebuy-figure">
-          <%= image_tag "ui/devices-#{@piece.issue_number}.png" %>
+    <div class="l-row">
+      <h2 class="t-sc-heavy l-col-2">Topics</h2>
+      <p class="l-col-10 text"><a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></p>
+    </div>
+    <div class="l-row">
+      <h2 class="t-sc-heavy l-col-2">Author</h2>
+      <div class="l-col-10 piece-footer-author">
+        <figure class="piece-footer-author-portrait">
+          <%= portrait_tag(@piece.issue_number, @piece.author_slug) %>
         </figure>
-        <%= render 'issue_buy_options', sub: false, issue: @piece.issue %>
+        <div class="text">
+          <p><%= raw @piece.author.bio %></p>
+        </div>
       </div>
-    </section>
+    </div>
+    <div class="l-row">
+      <h2 class="t-sc-heavy l-col-2">Next</h2>
+      <p class="l-col-10 text">
+        Read the author’s
+        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym) do %>
+           companion <%= @companion.type.downcase %>
+        <% end %>
+        to this <%= @piece.type.downcase %>.
+      </p>
+    </div>
+  </footer>
 
-  </div></aside>
+</article>
 <% end %>
+
+<aside class="support issue-<%= @piece.issue_number %> l-line-t text t-big c-issue"><div>
+  <h4>This piece is available for free thanks to our supporters.</h4>
+  <p>We’re a <a href="#">100% independent publication</a>, and rely on our readers’ support to continue publishing online for free. <strong>If you liked this piece, please consider supporting us.</strong></p>
+  <p>
+    <button class="button is-large">Buy this Issue</button>
+    <button class="button is-large">Subscribe to The Manual</button> or
+    <a href="#">browse the shop.</a>
+  </p>
+</div></aside>
+
+<aside class="l-section l-line-t"><div class="l-reading">
+  <h2 class="h-sc">Recommended Reading</h2>
+  <%= render :partial => 'shared/units/piece', :object  => @piece.random %>
+</div></aside>
 
 <% content_for :footer do %>
-<script>
-  $(function() {
-    $('.piece-body').footnotes();
-  });
-</script>
+<script>$(function() { $('.piece-body').footnotes(); });</script>
 <% end %>

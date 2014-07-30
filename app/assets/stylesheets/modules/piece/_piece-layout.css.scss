@@ -24,7 +24,6 @@
 }
 
 .piece-header-text {
-
   @include media-upto($bp-l) {
     text-align: center;
     > * { @include centered; }
@@ -33,7 +32,17 @@
   @include media-from($bp-l) {
     margin-top: 16%;
   }
+  .is-lesson & {
+    @include spacing(margin-top margin-bottom, 2.5);
+  }
+}
 
+.piece-body {
+  @include spacing(margin-bottom, 2.5);
+  .footnotes { @include spacing(margin-top, 1.5); }
+}
+.piece-footer {
+  @include spacing(margin-bottom, 1.5);
 }
 
 .piece-header-illustration img {
@@ -42,30 +51,22 @@
   @include media-upto($bp-s)  { max-height: 20em; }
 }
 
-.piece-wrapper {
-  @include spacing(margin-top margin-bottom, 2);
-  @include rem(max-width, 47rem);
-  @include centered;
-}
-
 .piece.is-lesson .piece-header-text {
-  @extend .piece-wrapper;
+  @extend .l-reading;
   text-align: center;
   > * { @include centered; }
 }
 
-.piece-footer {
-  @include spacing(margin-top, 2);
+.piece-footer-author {
   overflow: hidden;
 }
 
-.piece-footer-portrait {
-  float: left;
-  width: 6.5em;
-  margin-right: 1.5em;
+.piece-footer-author-portrait {
+  float: right;
+  width: 7em;
+  margin-left: 1.5em;
 }
 
-.piece-footer-bio {
-  margin-top: 1em;
+.piece-footer-author-bio {
   overflow: hidden;
 }

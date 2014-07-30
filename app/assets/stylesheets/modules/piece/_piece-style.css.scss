@@ -152,8 +152,6 @@
   }
 
   .footnotes {
-    @include spacing(margin-top, 1.5);
-
     font-family: $type-sans;
     font-weight: weight(regular);
     color: $c-text-faint;
@@ -196,7 +194,24 @@
 }
 
 .piece-footer {
+  // border-top: divider();
+  // @include spacing(padding-top);
+}
+
+.piece-footer-author-bio {
   @include rem(font-size, 18px);
   color: $c-text-gray;
-  line-height: 1.4;
+  line-height: 1.3;
+  a {
+    font-weight: weight(medium);
+  }
+}
+
+.piece-info > * {
+  @include padding-v(1em);
+  border-top: divider();
+  > h2 {
+    @extend .t-sc-heavy;
+    @include rem(padding-top, .22rem);
+  }
 }
