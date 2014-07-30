@@ -18,7 +18,7 @@
         'data-popover': 'popover'
       }).append($note.html()).appendTo($ref);
       // Hide return arrows
-      $note.find('.reversefootnote').hide();
+      $note.find('.reversefootnote').fadeOut();
     });
 
   };
