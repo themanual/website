@@ -2,73 +2,93 @@
 
 <% cache @issue do %>
 
-  <main class="issue-<%= @issue.number %>">
+  <header class="page-header">
+    <h1>
+      Issue <strong class="issue-number issue-<%= @issue.number %>"><%= @issue.number %></strong>
+    </h1>
+  </header>
 
-    <header class="l-pad-x-yy text"><div class="l-container issueheader">
-      <h1>Issue <strong class="issue-number"><%= @issue.number %></strong></h1>
-    </div></header>
-
-    <section class="issue l-divider-top"><div class="l-pad-x-yy">
-
-      <!--
-      <div class="issuebuy is-wide is-boxed">
-        <h2 class="issuebuy-caption">
-          <strong>Buy this issue. Support the manual.</strong> Or read for free below.
-        </h2>
-        <%#= render 'issue_buy_options', sub: false %>
-      </div>
-      -->
-
-      <ul class="issue-content l-grid">
-      <% @issue.articles.ordered.each do |article| %>
-        <li class="issue_entry l-col-l-half">
-          <figure class="issue_entry-illo">
-            <%= illustration_tag @issue.number, article.author_slug, 'small' %>
-          </figure>
-          <div class="issue_entry-text">
-            <h2 class="issue_entry-author"><%= article.author.name %></h2>
-
-            <ul class="issue_entry-pieces">
-              <li class="issue_entry-piece is-article">
-                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue.number, article.author_slug, :article %>"><%= article.title %></a></h3>
-                <blockquote class="issue_entry-piece-synopsis">
-                  <p><%= article.synopsis %></p>
-                </blockquote>
-              </li>
-              <li class="issue_entry-piece is-lesson">
-                <h3 class="issue_entry-piece-title"><a href="<%= piece_path @issue.number, article.author_slug, :lesson %>">Lesson</a></h3>
-                <blockquote class="issue_entry-piece-synopsis">
-                  <p><%= article.lesson.synopsis %></p>
-                </blockquote>
-              </li>
-            </ul>
+  <div class="l-line-t l-p-y tagline issue-<%= @issue.number %>">
+    <span class="has-popover">
+      <a href="#" class="button is-large" data-popover="trigger">
+        Buy this issue
+        <%= inline_svg('ui/thin-down-arrow.svg', :class => "last-child") %>
+      </a>
+      <div class="buy-popover is-left" data-popover="popover">
+        <div class="buy is-unlined">
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+              </a>
+            </div>
           </div>
-        </li>
-      <% end %>
-      </ul>
-    </div></section>
-    <!--
-    <aside class="l-pad"><div class="l-grid">
-
-      <section class="l-col-half box">
-        <h2 class="box-title">
-          <a class="color-issue" href="<%= issue_url(@issue.number) %>">Buy this issue</a> and support The Manual
-        </h2>
-
-        <div class="issuebuy">
-          <figure class="issuebuy-figure">
-            <%= image_tag "ui/devices-#{@issue.number}.png" %>
-          </figure>
-          <%= render 'issue_buy_options', sub: false, issue: @issue %>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Audiobook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">20</span>
+              </a>
+            </div>
+          </div>
+          <div class="buy-item">
+            <div class="buy-item-text">
+              <h4 class="buy-item-name">Print &amp; Ebook</h4>
+            </div>
+            <div class="buy-item-action">
+              <a class="button price" href="#">
+                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
+              </a>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </span>
+    from the <%= link_to "store", shop_issue_path(issue: @issue.number), :class => 'c-issue' %> or <%= link_to 'subscribe', {:controller => 'store', :action => 'subscription'}, :class => 'c-issue' %>
+    and support The Manual.
+  </div>
 
-      <section class="l-col-half box">
-        <h2 class="box-title">Prints available at <a class="color-issue" href="/store">the Store</a></h2>
-      </section>
-    </div></aside>
-    -->
+  <ul class="l-issue issue-<%= @issue.number %>">
+    <% @issue.articles.ordered.each do |article| %>
+    <li>
+      <figure class="l-issue-illo">
+        <%= illustration_tag @issue.number, article.author_slug, 'print' %>
+      </figure>
+      <div class="l-issue-text">
 
-  </main>
+        <h2 class="piece-unit-author"><%= article.author.name %></h2>
+
+        <div class="piece-unit-entry">
+          <h3 class="piece-unit-title">
+            <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article)  %>
+          </h3>
+          <p class="piece-unit-synopsis is-short">
+            <%= article.synopsis %>
+          </p>
+          <p class="piece-unit-metadata">
+            <span class="piece-unit-topics">On <a href="#">Thing</a>, <a href="#">Other</a>, <a href="#">Another</a></span>
+          </p>
+        </div>
+
+        <div class="piece-unit-entry">
+          <h3 class="piece-unit-title">
+            <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
+          </h3>
+          <p class="piece-unit-synopsis is-short">
+            <%= article.lesson.synopsis %>
+          </p>
+          <p class="piece-unit-metadata">
+            <span class="piece-unit-topics">On <a href="#">Thing</a>, <a href="#">Other</a>, <a href="#">Another</a></span>
+          </p>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
 
 <% end %>

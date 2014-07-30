@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8053) - http://www.bohemiancoding.com/sketch -->
+    <title>reader-account</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M15,30 C23.2842712,30 30,23.2842712 30,15 C30,6.71572875 23.2842712,0 15,0 C6.71572875,0 0,6.71572875 0,15 C0,23.2842712 6.71572875,30 15,30 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="reader-account" sketch:type="MSLayerGroup" transform="translate(1.000000, 1.000000)">
+            <mask id="mask-2" sketch:name="Oval 3" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Oval-3" stroke="#BFBFBF" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+            <path d="M12.5669249,22.984314 C7.70860328,23.5271481 4.0315932,26.99119 4.0315932,26.99119 C4.0315932,26.99119 8.67739657,34.2039245 14.3864671,34.2174187 C20.1946593,34.2311471 26.0335774,26.99119 26.0335774,26.99119 C26.0335774,26.99119 22.2473072,23.5271481 17.3889855,22.984314 L16.8733605,20.515564 C18.8859719,19.6433296 20.7727273,16.3833385 20.7727273,14.015564 C20.7727273,10.8524786 18.1291455,8.01556396 15.0227273,8.01556396 C11.9163091,8.01556396 9.75651132,10.8524786 9.75651132,14.015564 C9.75651132,16.3833385 11.0855636,19.6433296 13.0981749,20.515564 L12.5669249,22.984314 Z" id="Oval-2" stroke="#BFBFBF" stroke-width="1.1" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+        </g>
+    </g>
+</svg>

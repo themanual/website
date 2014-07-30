@@ -1,0 +1,25 @@
+.index-items > .index-item + .index-item {
+  margin-top: 1em;
+}
+
+.index-item-author {
+  @extend .t-sc;
+  color: $c-text-caption;
+}
+
+.index-item-piece {
+  display: inline-block;
+  @extend .t-big;
+  font-weight: weight(medium);
+  line-height: 1.25;
+  margin-top: .1em;
+
+  a { @include link-hover-issue { color: $c-text-black; } }
+
+  &.is-article + .is-lesson:before {
+    padding-left:  .15em;
+    padding-right: .3em;
+    @include color-by-issue(color);
+    content: "+";
+  }
+}

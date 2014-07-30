@@ -1,0 +1,71 @@
+.has-popover {
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+}
+
+.popover {
+  display: none;
+  border-radius: 4px;
+  @extend .t-reset;
+
+  top: 100%;
+  margin-top: 15px;
+
+  position: absolute;
+  z-index: $z-popover;
+  background-color: white;
+  border: divider();
+
+  padding: 1em;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 11px;
+    position: absolute;
+    background-image: image-url('ui/popover-arrow-top.svg');
+    background-size: 100% 100%;
+    top: -11px;
+  }
+
+  @include rem(width, 18rem);
+
+  &.is-right {
+    right: 0;
+    &:before { right: 10px; }
+  }
+
+  &.is-left {
+    left: 0;
+    &:before { left: 10px; }
+  }
+
+  &.is-center {
+    &:before {
+      left: 50%;
+      margin-left: -10px;
+    }
+    left: 50%;
+    @include rem(margin-left, -9rem);
+  }
+}
+
+.buy-popover {
+  @extend .popover;
+  padding: .6em;
+}
+
+.nav-popover {
+  @extend .popover;
+  @include rem(width, 10rem);
+  &.is-center { @include rem(margin-left, -5rem); }
+  padding: 0;
+  > li + li { border-top: divider(); }
+}
+
+.footnote-popover {
+  @extend .popover;
+  margin-top: 0px;
+}

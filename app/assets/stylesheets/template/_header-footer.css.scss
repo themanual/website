@@ -1,0 +1,129 @@
+.site-header,
+.site-footer {
+  color: $c-text-caption;
+  @include svg { stroke: $c-icon-gray; }
+
+  line-height: 1;
+  @include spacing(padding-left padding-right);
+
+  a.current {
+    color: $c-text-black;
+    @include svg { stroke: $c-text-gray; }
+    font-weight: weight(medium);
+  }
+
+  a {
+    @include link-hover-blue(stroke) {
+      color: $c-text-caption;
+      @include svg { stroke: $c-icon-gray; }
+    }
+  }
+
+  .bg-colored & {
+    color: rgba(black, .75);
+    @include svg { stroke: rgba(black, .6); }
+    border-color: rgba(black, .15);
+
+    a {
+      @include link-hover-white(stroke) {
+        color: rgba(black, .75);
+        stroke: rgba(black, .6);
+      }
+    }
+
+    .nav-popover a { @include link-hover-blue(stroke) { color: $c-text-caption; } }
+  }
+}
+
+.site-header {
+  border-bottom: divider();
+  .bg-colored & {
+    margin-bottom: 0;
+  }
+}
+.site-footer {
+  border-top: divider();
+}
+
+$site-menu-pad: 1.2em;
+$site-menu-icon: 2em;
+
+.site-header a,
+.site-footer {
+  @include padding-v($site-menu-pad);
+}
+
+.site-header a  { display: block; }
+
+.site-header h1 {
+  float: left;
+  width: $sidebar-width;
+}
+
+.site-header .tabs    { float: left; }
+.site-header .actions { float: right; }
+
+.site-header nav > ul > * {
+  float: left;
+}
+
+.site-header nav {
+  margin-left: $sidebar-width + $sidebar-gutter - $site-menu-pad;
+
+  > ul > li + li {
+    margin-left: 0.5em;
+  }
+
+  a {
+    padding-left: $site-menu-pad;
+    padding-right: $site-menu-pad;
+    border-left: solid 1px transparent;
+    border-right: solid 1px transparent;
+  }
+
+  a.current {
+    border-left:  divider();
+    border-right: divider();
+    position: relative;
+    font-weight: weight(medium);
+    &:after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      background: white;
+    }
+  }
+
+  .nav-popover a {
+    padding: .75em;
+  }
+
+  .icon-text    { @extend %visuallyhidden; }
+  .icon svg {
+    display: block !important;
+    width: $site-menu-icon;
+    height: $site-menu-icon;
+  }
+
+  .icon > a {
+    padding: 0;
+    @include padding-v(($site-menu-pad * 2 + 1em - $site-menu-icon) / 2);
+    &.current { @include padding-h(.8em); }
+  }
+
+  .icon {
+
+
+
+    .nav-popover:before {
+      right: .4em;
+    }
+
+    > a.current + .nav-popover:before {
+      right: 1.2em;
+    }
+  }
+}

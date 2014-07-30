@@ -1,13 +1,4 @@
-<footer class="issue-piece-footer">
-  <figure><%= portrait_tag(@piece.issue_number, @piece.author_slug) %></figure>
-  <p><%=raw @piece.author.bio %></p>
-  <!--
-  <p class="companion">
-    <? if($fm['type'] == 'article'): ?>
-    <a href="lesson">Read <strong><?= prosperize($fm['metadata']['author']) ?> lesson</strong> in this issue</a>
-    <? elseif($fm['type'] == 'lesson'): ?>
-    <a href="article">Read <strong><?= prosperize($fm['metadata']['author']) ?> article</strong> in this issue</a>
-    <? endif; ?>
-  </p>
-  -->
+<footer class="piece-footer">
+  <figure class="piece-footer-portrait"><%= portrait_tag(@piece.issue_number, @piece.author_slug) %></figure>
+  <p class="piece-footer-bio"><%=raw @piece.author.bio %></p>
 </footer>

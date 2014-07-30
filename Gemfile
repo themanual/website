@@ -62,7 +62,9 @@ group :development do
   gem 'meta_request'
   gem 'debugger'
   gem 'sqlite3'
+  gem 'guard-pow', require: false
   gem 'guard-livereload'
+  gem 'terminal-notifier-guard', require: false
   gem 'quiet_assets'
   gem 'dotenv-rails'
 end

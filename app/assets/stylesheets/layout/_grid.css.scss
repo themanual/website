@@ -8,11 +8,36 @@
   @for $i from 1 through ($grid-columns) {
     .l-col#{$class}-#{$i} { @include span-columns($i); }
   }
+
   // Word classes
-  .l-col#{$class}-half   { @include span-columns($grid-columns/2); @include omega(2n); }
-  .l-col#{$class}-third  { @include span-columns($grid-columns/3); @include omega(3n); }
-  .l-col#{$class}-fourth { @include span-columns($grid-columns/4); @include omega(4n); }
-  .l-col#{$class}-fill   { @include fill-parent(); }
+  .l-col#{$class}-half        { @include span-columns($grid-columns/2); }
+  .l-col#{$class}-third       { @include span-columns($grid-columns/3); }
+  .l-col#{$class}-fourth      { @include span-columns($grid-columns/4); }
+  .l-col#{$class}-two-thirds  { @include span-columns(2*$grid-columns/3); }
+  .l-col#{$class}-fill        { @include fill-parent(); }
+  .l-col#{$class}-rest        { overflow: hidden; }
+
+  // Containers
+  .l-row#{$class}-halves,
+  .l-row#{$class}-thirds,
+  .l-row#{$class}-fourths {
+    @extend .l-row;
+  }
+
+  .l-row#{$class}-halves > * {
+    @extend .l-col#{$class}-half;
+    @include omega(2n);
+  }
+
+  .l-row#{$class}-thirds > * {
+    @extend .l-col#{$class}-third;
+    @include omega(3n);
+  }
+
+  .l-row#{$class}-fourths > * {
+    @extend .l-col#{$class}-fourth;
+    @include omega(4n);
+  }
 }
 
 //
@@ -20,8 +45,19 @@
 //
 @mixin make-stacked($class: "") {
   @if ($class != "") { $class: "-#{$class}" }
-  .l-stacked#{$class} > * + * {
+
+  .l-stack#{$class} > * + * {
     @include spacing(margin-top);
+  }
+
+  .l-small-stack#{$class} > * + * {
+    margin-top: 1em;
+  }
+
+  .l-lined-stack#{$class} > * + * {
+    @include spacing(margin-top);
+    @include spacing(padding-top);
+    border-top: divider();
   }
 }
 

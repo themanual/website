@@ -7,27 +7,20 @@
 
 */
 
-// Base font sizes
 html {
   font-size: $rem-base;
-  @include media-upto($bp-xl) { font-size: $rem-base - 1px; }
-  @include media-upto($bp-l)  { font-size: $rem-base - 2px; }
-  @include media-upto($bp-m)  { font-size: $rem-base - 3px; }
-  @include media-upto($bp-s)  { font-size: $rem-base - 5px; }
 }
 
 body {
-  font-family: $type-serif;
+  font-family: $type-sans;
   background-color: white;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-body {
-  background: gray(96%);
-}
-
-body > main {
-  background: white;
-  // @include spacing(padding-bottom, 1.5);
+body > #content {
+  flex: 1;
 }
 
 figure img {
@@ -36,27 +29,53 @@ figure img {
   margin: 0 auto;
 }
 
+#sectionnav {
+  margin-top:    8em;
+  margin-bottom: 1.5em;
+}
+
+.bg-colored {
+  @include color-by-issue-self(background);
+}
+
+#sectionnav {
+  float: left;
+  width: $sidebar-width;
+  margin-right: $sidebar-gutter;
+  & + * { overflow: hidden; }
+}
+
 a {
   text-decoration: none;
+  outline: none;
+  @include link-color-issue-self;
+}
 
-  @include colored-link {
-    color: $c-link-blue-nicer;
-  }
+.c-issue { @include link-color-issue; }
 
-  @each $i in $issues {
-    &.issue-#{$i},
-    .issue-#{$i} &.color-issue {
-      @include colored-link {
-        color: issue-color($i);
-      }
+@each $i in $issues {
+  .issue-#{$i}.c-issue a,
+  .c-issue-#{$i} {
+    @include link-hover-black {
+      color: issue-color($i);
     }
   }
 }
 
+.clearfix { @include clearfix; }
+.cl-b     { clear: both; }
+.cl-l     { clear: left; }
+.cl-r     { clear: right; }
+
+.bg-gray  { background-color: $c-bg-gray; }
+.bg-white { background-color: white; }
+
+.no-resize { resize: none; }
+
 .highlight {
-  background-color: #FFFBDC;
-  color: black;
   display: inline;
+  background-color: $c-highlight;
+  color: $c-text-black;
   > * { color: black !important; }
 }
 

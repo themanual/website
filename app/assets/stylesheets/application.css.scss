@@ -9,6 +9,8 @@
 // First output-creating code
 @import '_meta/reset';
 @import 'mixins';
+@import 'mixins/links';
+@import 'mixins/animate';
 
 // Neat and custom extensions
 @import 'neat';
@@ -17,51 +19,46 @@
 // Base
 @import 'layout/grid';
 @import 'layout/layout';
-@import 'layout/units';
+@import 'layout/issue';
 @import 'images';
 @import 'base';
-@import 'animate';
 
 // Template
-@import 'template/header';
-@import 'template/footer';
-
-// Pages
-@import 'pages/issue_index';
-@import 'pages/issue';
-@import 'pages/blog';
-
-@import 'pages/piece-layout';
-@import 'pages/piece-style';
+@import 'template/header-footer';
+@import 'template/page-header';
 
 // Default plugin example code
 @import 'chosen';
 
 // Component Modules
-@import 'modules/buttons';
-@import 'modules/text';
-@import 'modules/fields';
-@import 'modules/form';
+@import 'components/button';
+@import 'components/fields';
+@import 'components/form';
+@import 'components/lists';
+@import 'components/tables';
+@import 'components/text';
+@import 'components/tooltip';
+@import 'components/popover';
+
+// General Modules
 @import 'modules/box';
-@import 'modules/tooltip';
-
-// Section Modules
 @import 'modules/faq';
+@import 'modules/sub-nav';
+@import 'modules/price';
+@import 'modules/banner';
+@import 'modules/navgroup';
+@import 'modules/piece/piece-layout';
+@import 'modules/piece/piece-style';
 
-// Page-specific Modules
-@import 'modules/subscribe';
+// Units
+@import 'modules/units/piece';
+@import 'modules/units/index-item';
+
+// Store Modules
+@import 'modules/store/buy';
+@import 'modules/store/cart';
+@import 'modules/store/minicart';
 
 // Issue Modules
-@import 'modules/issueheader';
-@import 'modules/issuetoc';
-@import 'modules/issuebuy';
-@import 'modules/issue_entry';
-
-// Piece Modules
-@import 'modules/piece-pagination';
-@import 'modules/featured_piece';
-
-// Blog Modules
-@import 'modules/blog-post';
-@import 'modules/keyword-list';
-@import 'modules/post-list';
+@import 'modules/issues/issuebuy';
+@import 'modules/issues/piece-pagination';

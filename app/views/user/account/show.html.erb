@@ -1,24 +1,27 @@
-<main class="account_show"><div class="l-wrapper">
+<% push_page_title "Account" %>
+<header class="page-header">
+  <h1>Account</h1>
+</header>
 
-    <h4>Emails</h4>
-    <ul>
-      <% current_user.email_addresses.each do |email_address| %>
-      <li>
-        <%= email_address.email %>
-        <% if email_address.primary? %>
-        (primary)
-        <% else %>
-        <%= link_to 'Make Primary', account_email_path(email_address, primary: true), method: :patch, class: '' %>
-        <% end %>
-      </li>
+<section class="text l-line-t l-p-y">
+  <h3>Emails</h3>
+  <ul>
+    <% current_user.email_addresses.each do |email_address| %>
+    <li>
+      <%= email_address.email %>
+      <% if email_address.primary? %>
+      (primary)
+      <% else %>
+      <%= link_to 'Make Primary', account_email_path(email_address, primary: true), method: :patch, class: '' %>
       <% end %>
-      <li>
-        <%= form_for EmailAddress.new, url: account_emails_path, class: '' do |f| %>
-          <%= f.text_field :email %>
-          <%= f.check_box :primary %>
-          <%= f.submit :add %>
-        <% end %>
-      </li>
-    </ul>
-
-</div></main>
+    </li>
+    <% end %>
+    <li>
+      <%= form_for EmailAddress.new, url: account_emails_path, class: '' do |f| %>
+        <%= f.text_field :email %>
+        <%= f.check_box :primary %>
+        <%= f.submit :add %>
+      <% end %>
+    </li>
+  </ul>
+</section>

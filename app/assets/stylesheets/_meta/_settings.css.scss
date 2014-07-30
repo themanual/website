@@ -1,14 +1,13 @@
 // Base type
-$rem-base:  22px;
-$rem-value: 22;
+$rem-base:  17px;
+$rem-value: 17;
 
 $singlecol-width: 38rem;
 
 // Grid
 $column: 60px;
-$gutter: 35px;
-$grid-columns: 12;
-$max-width: 1350px;
+$gutter: 50px;
+$max-width: 1200px;
 
 // Breakpoints
 // TODO update to Sass 3.3 Maps
@@ -16,6 +15,11 @@ $bp-s:  500px;
 $bp-m:  650px;
 $bp-l:  800px;
 $bp-xl: 1000px;
+
+$sidebar-width:  9em;
+$sidebar-gutter: 1.5em;
+
+$z-popover: 10;
 
 $bps: (
   ("s",  $bp-s),

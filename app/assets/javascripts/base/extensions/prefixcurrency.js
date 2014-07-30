@@ -1,13 +1,8 @@
 var prefixCurrency = window.prefixCurrency = function(currencyNumber) {
-  var PREFIX = '<span class="currency">$</span>';
-
-  if (typeof currencyNumber === 'number') {
-    return PREFIX + currencyNumber.toString().replace(/\.\d$/g, '$&0');
-  }
-  else if (typeof currencyNumber === 'string') {
-    return PREFIX + parseCurrency(currencyNumber).toString().replace(/\.\d$/g, '$&0');
-  }
-  else {
-    return currencyNumber;
-  }
+  // convert to number if needed
+  if (typeof currencyNumber === 'string') { currencyNumber = parseCurrency(currencyNumber); }
+  // round
+  var value = currencyNumber.toString().replace(/\.\d$/g, '$&0');
+  // HTML
+  return '<span class="currency">$</span><span class="value">' + value + '</span>';
 }

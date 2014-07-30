@@ -1,0 +1,36 @@
+<nav id="sectionnav">
+  <h2 class="navgroup-title">Browse</h2>
+  <ul class="navgroup-items">
+    <li><%= link_to_current "Staff Picks", controller: "home", action: "staffpicks" %></li>
+    <li><%= link_to_current "Popular", controller: "home", action: "popular" %></li>
+  </ul>
+
+  <h2 class="navgroup-title">Issues</h2>
+  <ul class="navgroup-items">
+    <li>
+      <%= link_to issue_path(issue: 4), class: "issue-4" do %>
+      Issue 4 <small class="tag">New</small>
+      <% end %>
+    </li>
+    <li><%= link_to_current "Issue 3", issue_path(issue: 3), class: "issue-3" %></li>
+    <li><%= link_to_current "Issue 2", issue_path(issue: 2), class: "issue-2" %></li>
+    <li><%= link_to_current "Issue 1", issue_path(issue: 1), class: "issue-1" %></li>
+    <!--<li><%= link_to_current "Archive", issues_path %></li>-->
+  </ul>
+
+  <h2 class="navgroup-title">Topics</h2>
+  <ul class="navgroup-items">
+    <li><a href="#">Business</a></li>
+    <li><a href="#">Community</a></li>
+    <li><a href="#">Content</a></li>
+    <li><a href="#">Creativity</a></li>
+    <li><a href="#">Culture</a></li>
+    <li><a href="#">Growth</a></li>
+    <li><a href="#">Industry</a></li>
+    <li><a href="#">Layout</a></li>
+    <li><a href="#">Learning</a></li>
+    <li><a href="#">Teamwork</a></li>
+    <li><a href="#">Typography</a></li>
+    <li><a href="#">Writing</a></li>
+  </ul>
+</nav>

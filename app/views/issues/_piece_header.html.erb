@@ -1,27 +1,32 @@
-<header class="issue-piece-header">
+<header class="piece-header">
 
   <% if @piece.illustrator %>
-  <div class="issue-piece-header-illustration">
+  <div class="piece-header-illustration">
     <figure>
       <%= illustration_tag(@piece.issue_number, @piece.author_slug, 'print') %>
     </figure>
   </div>
   <% end %>
 
-  <div class="issue-piece-header-text">
-    <h1 class="issue-piece-header-title entry-title">
+  <div class="piece-header-text">
+
+    <p class="piece-header-author byline vcard">
+      <span class="fn author" rel="author"><%= @piece.author.name %></span>
+    </p>
+
+    <h1 class="piece-header-title">
       <%= @piece.title %>
     </h1>
-    <h2 class="issue-piece-header-synopsis entry-summary">
+
+    <h2 class="piece-header-synopsis">
       <%= @piece.synopsis %>
     </h2>
-    <p class="issue-piece-header-byline byline vcard">
-      By <strong class="fn author" rel="author"><%= @piece.author.name %></strong>
-      for <a href="<%= issue_path @piece.issue_number %>">Issue <%= @piece.issue_number %></a>
-      <% if @piece.illustrator %>
-        <span class="middot"> &middot; </span>Illustration by <strong><%= @piece.illustrator %></strong>
-      <% end %>
+
+    <p class="piece-header-metadata">
+      <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue_number}", issue_path(issue: @piece.issue_number) %></span>
+      <span class="piece-header-topics">On <a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></span>
     </p>
+
   </div>
 
 </header>

@@ -3,11 +3,7 @@
     <li class="issuetoc-entry">
       <h3 class="issuetoc-author"><%= article.author.name %></h3>
       <% ['article', 'lesson'].each do |type| %>
-      <p class="issuetoc-piece is-<%= type %>">
-        <a <%= (@piece.present? && @piece.id == article.id) ? 'class="current"' : '' %> href="<%= piece_url(issue.number, article.author_slug, type) %>">
-          <%= type == 'lesson' ? 'Lesson' : article.title %>
-        </a>
-      </p>
+      <p class="issuetoc-piece is-<%= type %>"><a <%= (@piece.present? && @piece.id == article.id) ? 'class="current"' : '' %> href="<%= piece_url(issue.number, article.author_slug, type) %>"><%= type == 'lesson' ? 'Lesson' : article.title %></a></p>
       <% end %>
     </li>
   <% end %>

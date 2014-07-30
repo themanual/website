@@ -1,14 +1,13 @@
 <main class=""><div>
 
-  <header class="l-pad-x-yy l-col text">
+  <header class="page-header"><div>
     <h1>Subscribe to The Manual</h1>
-    <p>We’re an independent publication, and we rely on our readers for support. We pay our writers and illustrators well for their work, and none of our editions contain any advertising.</p>
-  </header>
+  </div></header>
 
-  <section class="l-divider l-pad-x">
+  <section class="l-line l-p-x">
     <ul class="l-grid subscribe-tiers">
 
-      <li class="l-col-xl-third l-pad-yy subscribe-tier animated fadeInLeft">
+      <li class="l-col-xl-third l-p-yy subscribe-tier animated fadeInLeft">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:digital][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:digital][:price] %></h3>
@@ -21,10 +20,10 @@
           <li><span class="striked">Exclusive gift with each issue</span></li>
           <li><span class="striked">Listed as a patron in the issue</span></li>
         </ul>
-        <a href="<%= checkout_subscribe_path(:digital) %>" class="button">Subscribe to Digital</a>
+        <a href="<%= checkout_subscribe_path(:digital) %>" class="button in-sc">Subscribe to Digital</a>
       </li>
 
-      <li class="l-col-xl-third l-pad-yy subscribe-tier animated fadeInUp">
+      <li class="l-col-xl-third l-p-yy subscribe-tier animated fadeInUp">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:print][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:print][:price] %></h3>
@@ -37,10 +36,10 @@
           <li><span class="striked">Exclusive gift with each issue</span></li>
           <li><span class="striked">Listed as a patron in the issue</span></li>
         </ul>
-        <a href="<%= checkout_subscribe_path(:print) %>" class="button">Subscribe to Print</a>
+        <a href="<%= checkout_subscribe_path(:print) %>" class="button in-sc">Subscribe to Print</a>
       </li>
 
-      <li class="l-col-xl-third l-pad-yy subscribe-tier animated fadeInRight">
+      <li class="l-col-xl-third l-p-yy subscribe-tier animated fadeInRight">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:patron][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:patron][:price] %></h3>
@@ -53,7 +52,7 @@
           <li><span class="">Exclusive gift with each issue</span></li>
           <li><span class="">Listed as a patron in the issue</span></li>
         </ul>
-        <a href="<%= checkout_subscribe_path(:patron) %>" class="button">Become a Patron</a>
+        <a href="<%= checkout_subscribe_path(:patron) %>" class="button in-sc">Become a Patron</a>
       </li>
     </ul>
     <p class="subscribe-notes" id="shipping">
@@ -61,31 +60,31 @@
     </p>
   </section>
 
-  <section class="text l-col l-pad-x-yy">
+  <section class="text l-col l-p-xyy">
     <ul class="faq">
       <li>
-        <h3 class="faq-q">How early is the access to new issues?</h3>
+        <h4 class="faq-q">How early is the access to new issues?</h4>
         <div class="faq-a">
           <p>Only subscribers are able to read online and download digital editions of new issues while the print edition is being produced, which usually takes around one month.</p>
         </div>
       </li>
 
       <li>
-        <h3 class="faq-q">How often do you publish new issues?</h3>
+        <h4 class="faq-q">How often do you publish new issues?</h4>
         <div class="faq-a">
           <p>Three times per year, on March, July, and November.</p>
         </div>
       </li>
 
       <li>
-        <h3 class="faq-q">How long does a subscription last?</h3>
+        <h4 class="faq-q">How long does a subscription last?</h4>
         <div class="faq-a">
           <p>Until you cancel it, and we’ll email you in advance before charging for each new issue.</p>
         </div>
       </li>
 
       <li>
-        <h3 class="faq-q">Can’t I buy just one issue instead?</h3>
+        <h4 class="faq-q">Can’t I buy just one issue instead?</h4>
         <div class="faq-a">
           <p>Yes, you can buy single issues and issue collections from <a href="http://buy.alwaysreadthemanual.com/">our store</a>.</p>
         </div>
