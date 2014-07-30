@@ -83,10 +83,7 @@ em      { font-style: italic; }
 }
 
 .text {
-  // line-height
   line-height: 1.4;
-  @include media-upto($bp-s) { line-height: 1.25; }
-
   color: $c-text-body;
   h1, h2, h3, h4, h5, h6 {
     color: $c-text-black;
