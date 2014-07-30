@@ -1,0 +1,8 @@
+.support {
+  @extend .l-section;
+  @extend .l-p-yy;
+  @extend .bg-gray;
+  > * {
+    @extend .l-reading;
+  }
+}
