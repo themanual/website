@@ -43,6 +43,11 @@
   @include box-sizing(content-box);
 }
 
+.l-section {
+  @extend .l-p;
+  > * { @extend .l-container; }
+}
+
 .l-wrapper-grid {
   @extend .l-wrapper;
   @extend .l-row;
@@ -71,6 +76,11 @@
 
 .l-hero-image img {
   max-height: 100%;
+}
+
+.l-reading {
+  @include rem(max-width, 47rem);
+  @include centered;
 }
 
 .l-piecelist > * {
