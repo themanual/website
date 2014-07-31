@@ -192,25 +192,11 @@
     @extend .external;
   }
 }
-
 .piece-footer {
-  // border-top: divider();
-  // @include spacing(padding-top);
-}
-
-.piece-footer-author-bio {
-  @include rem(font-size, 18px);
-  color: $c-text-gray;
-  line-height: 1.3;
-  a {
-    font-weight: weight(medium);
-  }
-}
-
-.piece-info > * {
-  @include padding-v(1em);
   border-top: divider();
-  > h2 {
+  padding-top: 1em;
+  > * + * { margin-top: 1em; }
+  h2 {
     @extend .t-sc-heavy;
     @include rem(padding-top, .22rem);
   }

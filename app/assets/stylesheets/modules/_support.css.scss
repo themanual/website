@@ -1,8 +1,8 @@
 .support {
   @extend .l-section;
   @extend .l-p-yy;
-  @extend .bg-gray;
-  > * {
-    @extend .l-reading;
+  // @extend .bg-gray;
+  .text {
+    margin-top: .5em;
   }
 }

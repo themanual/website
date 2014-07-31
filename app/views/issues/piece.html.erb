@@ -8,55 +8,61 @@
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
   </div>
 
-  <footer class="l-reading piece-info">
+  <footer class="l-reading piece-footer">
     <div class="l-row">
-      <h2 class="t-sc-heavy l-col-2">Part Of</h2>
-      <p class="l-col-10 text"><a href="#">Issue <%= @piece.issue_number %></a></p>
+      <h2 class="l-col-2">Part Of</h2>
+      <p class="l-col-10 text">
+        <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %>
+      </p>
     </div>
     <div class="l-row">
-      <h2 class="t-sc-heavy l-col-2">Topics</h2>
+      <h2 class="l-col-2">Topics</h2>
       <p class="l-col-10 text"><a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></p>
     </div>
     <div class="l-row">
-      <h2 class="t-sc-heavy l-col-2">Author</h2>
-      <div class="l-col-10 piece-footer-author">
-        <figure class="piece-footer-author-portrait">
+      <h2 class="l-col-2">Author</h2>
+      <div class="l-col-10">
+        <figure class="piece-footer-portrait">
           <%= portrait_tag(@piece.issue_number, @piece.author_slug) %>
         </figure>
         <div class="text">
           <p><%= raw @piece.author.bio %></p>
+          <p>
+            <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "ghost-button is-large" do %>
+              Read <%= @piece.author.name.given_name.possessive %> companion <%= @companion.type.downcase %>
+            <% end %>
+          </p>
         </div>
       </div>
-    </div>
-    <div class="l-row">
-      <h2 class="t-sc-heavy l-col-2">Next</h2>
-      <p class="l-col-10 text">
-        Read the author’s
-        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym) do %>
-           companion <%= @companion.type.downcase %>
-        <% end %>
-        to this <%= @piece.type.downcase %>.
-      </p>
     </div>
   </footer>
 
 </article>
 <% end %>
 
-<aside class="support issue-<%= @piece.issue_number %> l-line-t text t-big c-issue"><div>
-  <h4>This piece is available for free thanks to our supporters.</h4>
-  <p>We’re a <a href="#">100% independent publication</a>, and rely on our readers’ support to continue publishing online for free. <strong>If you liked this piece, please consider supporting us.</strong></p>
-  <p>
-    <button class="button is-large">Buy this Issue</button>
-    <button class="button is-large">Subscribe to The Manual</button> or
-    <a href="#">browse the shop.</a>
-  </p>
+<aside class="support l-line-t"><div>
+  <div class="l-col-4">
+    <figure>
+      <%= image_tag "ui/big-devices.png" %>
+    </figure>
+  </div>
+  <div class="l-col-8 text t-big">
+    <h4>This piece is available for free thanks to our supporters.</h4>
+    <p>We’re a <a href="#">100% independent publication</a>, and rely on our readers’ support to continue publishing online for free. <strong>If you liked this piece, please consider supporting us.</strong></p>
+    <p>
+      <button class="button is-large">Buy this Issue</button>
+      <button class="button is-large">Subscribe to The Manual</button> or
+      <a href="#">browse the shop.</a>
+    </p>
+  </div>
 </div></aside>
 
+<!--
 <aside class="l-section l-line-t"><div class="l-reading">
   <h2 class="h-sc">Recommended Reading</h2>
   <%= render :partial => 'shared/units/piece', :object  => @piece.random %>
 </div></aside>
+-->
 
 <% content_for :footer do %>
 <script>$(function() { $('.piece-body').footnotes(); });</script>

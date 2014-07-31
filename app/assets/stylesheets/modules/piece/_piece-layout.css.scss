@@ -38,11 +38,12 @@
 }
 
 .piece-body {
-  @include spacing(margin-bottom, 2.5);
+  @include spacing(margin-bottom, 2);
   .footnotes { @include spacing(margin-top, 1.5); }
 }
+
 .piece-footer {
-  @include spacing(margin-bottom, 1.5);
+  @include spacing(margin-top margin-bottom, 2);
 }
 
 .piece-header-illustration img {
@@ -57,16 +58,7 @@
   > * { @include centered; }
 }
 
-.piece-footer-author {
-  overflow: hidden;
-}
-
-.piece-footer-author-portrait {
-  float: right;
+.piece-footer-portrait {
+  @extend .l-img-r;
   width: 7em;
-  margin-left: 1.5em;
-}
-
-.piece-footer-author-bio {
-  overflow: hidden;
 }
