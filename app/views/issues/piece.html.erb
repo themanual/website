@@ -8,39 +8,63 @@
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
   </div>
 
-  <footer class="l-reading piece-footer">
-    <div class="l-row">
-      <h2 class="l-col-2">Part Of</h2>
-      <p class="l-col-10 text">
-        <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %>
+  <footer class="piece-footer l-reading">
+    <figure class="piece-footer-portrait">
+      <%= portrait_tag(@piece.issue_number, @piece.author_slug) %>
+    </figure>
+    <div class="text">
+      <p><%= raw @piece.author.bio %></p>
+      <p>
+        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "ghost-button in-sc" do %>
+          Read Next: <%= @piece.author.name.given_name.possessive %> <%= @companion.type %>
+        <% end %>
       </p>
-    </div>
-    <div class="l-row">
-      <h2 class="l-col-2">Topics</h2>
-      <p class="l-col-10 text"><a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></p>
-    </div>
-    <div class="l-row">
-      <h2 class="l-col-2">Author</h2>
-      <div class="l-col-10">
-        <figure class="piece-footer-portrait">
-          <%= portrait_tag(@piece.issue_number, @piece.author_slug) %>
-        </figure>
-        <div class="text">
-          <p><%= raw @piece.author.bio %></p>
-          <p>
-            <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "ghost-button is-large" do %>
-              Read <%= @piece.author.name.given_name.possessive %> companion <%= @companion.type.downcase %>
-            <% end %>
-          </p>
-        </div>
-      </div>
     </div>
   </footer>
 
 </article>
 <% end %>
 
-<aside class="support l-line-t"><div>
+<aside class="l-p-x"><div class="l-container">
+  <section class="l-line-t l-p-y l-col-3 issue-<%= @piece.issue_number %> c-issue">
+    <h2 class="box-title">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
+    <div class="text">
+      <ul class="plain">
+      <% @piece.issue.authors.each do |author| %>
+        <%= content_tag :li, author.name, class: ('marker-arrow' if author == @piece.author) %>
+      <% end %>
+      </ul>
+      <p><%= link_to "Browse Issue #{@piece.issue_number}", issue_path(@piece.issue_number), class: 'button in-sc is-small' %></p>
+    </div>
+  </section>
+  <section class="l-line-t l-p-y l-col-3">
+    <h2 class="box-title">Related Topics</h2>
+    <div class="text">
+      <ul class="plain looser">
+        <li>
+          <h5><a href="#">Culture</a></h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </li>
+        <li>
+          <h5><a href="#">History</a></h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </li>
+        <li>
+          <h5><a href="#">Process</a></h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="l-line-t l-p-y l-col-6">
+    <h2 class="box-title is-spaced">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended.issue_number}" %></h2>
+    <div class="t-big">
+    <%= render :partial => 'shared/units/piece', :object  => @recommended %>
+    </div>
+  </section>
+</div></aside>
+
+<aside class="support bg-gray l-line-t"><div>
   <div class="l-col-4">
     <figure>
       <%= image_tag "ui/big-devices.png" %>
@@ -56,13 +80,6 @@
     </p>
   </div>
 </div></aside>
-
-<!--
-<aside class="l-section l-line-t"><div class="l-reading">
-  <h2 class="h-sc">Recommended Reading</h2>
-  <%= render :partial => 'shared/units/piece', :object  => @piece.random %>
-</div></aside>
--->
 
 <% content_for :footer do %>
 <script>$(function() { $('.piece-body').footnotes(); });</script>

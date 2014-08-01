@@ -9,7 +9,10 @@
 
 .box-title {
   @extend .t-sc-heavy;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
+  &.is-spaced {
+    margin-bottom: 2em;
+  }
 }
 
 .box-subtitle {

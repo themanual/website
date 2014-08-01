@@ -1,9 +1,89 @@
 //
+// 1. LAYOUT
+// ---------------------------------------------------
+
+.piece.is-article {
+  @include media-from($bp-l) {
+    .piece-header {
+      @include row;
+    }
+
+    .piece-header-illustration,
+    .piece-header-text {
+      @include span-columns(6);
+    }
+
+    .piece-header-illustration {
+      @include clearfix;
+
+      figure {
+        float: right;
+        @include clearfix;
+        @include rem(max-width, 27rem);
+      }
+    }
+  }
+}
+
+.piece-header-text {
+  @include media-upto($bp-l) {
+    text-align: center;
+    > * { @include centered; }
+  }
+
+  @include media-from($bp-l) {
+    margin-top: 16%;
+  }
+  .is-lesson & {
+    @include spacing(margin-top margin-bottom, 2.5);
+  }
+}
+
+.piece-body {
+  @include spacing(margin-bottom, 2);
+  .footnotes { @include spacing(margin-top, 1.5); }
+}
+
+.piece-footer {
+  @include spacing(margin-top margin-bottom, 2.5);
+}
+
+.piece-header-illustration img {
+  @include media-upto($bp-l)  { max-height: 28em; }
+  @include media-upto($bp-m)  { max-height: 24em; }
+  @include media-upto($bp-s)  { max-height: 20em; }
+}
+
+.piece.is-lesson .piece-header-text {
+  @extend .l-reading;
+  text-align: center;
+  > * { @include centered; }
+}
+
+.piece-footer-portrait {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
+  width: 8em;
+  + * { overflow: hidden; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
 // 2. STYLING
 // ---------------------------------------------------
-//
-// TODO bump font-size back to 22/24 on pieces only
-//
+
 .piece a {
   @include link-color-issue;
 }
@@ -53,7 +133,7 @@
 
 .piece-body {
 
-  $type-size: 24px;
+  $type-size: 23px;
   @include rem(font-size, $type-size);
   font-family: $type-serif;
   color: $c-text-body;
@@ -190,14 +270,5 @@
   .footnote-popover a[href^="http"],
   .footnotes a[href^="http"] {
     @extend .external;
-  }
-}
-.piece-footer {
-  border-top: divider();
-  padding-top: 1em;
-  > * + * { margin-top: 1em; }
-  h2 {
-    @extend .t-sc-heavy;
-    @include rem(padding-top, .22rem);
   }
 }

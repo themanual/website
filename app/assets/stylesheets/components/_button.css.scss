@@ -27,10 +27,11 @@
 
   &.in-sc {
     @extend .t-sc;
-    font-weight: weight(semibold);
+    font-weight: weight(medium);
     padding: .8em;
     &.is-large  { padding: 1em;    }
     &.is-larger { padding: 1.2em; }
+    &.is-small  { padding: .6em; }
   }
 }
 

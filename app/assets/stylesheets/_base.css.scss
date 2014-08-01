@@ -53,7 +53,8 @@ a {
 
 @each $i in $issues {
   .issue-#{$i}.c-issue a,
-  .issue-#{$i} .c-issue a {
+  .issue-#{$i} .c-issue a,
+  .c-issue-#{$i} {
     @include link-hover-black {
       color: issue-color($i);
     }
@@ -86,6 +87,20 @@ a {
 
   &:target {
     outline: none;
+  }
+}
+
+.marker-arrow {
+  position: relative;
+  font-weight: weight(medium);
+  &:before {
+    content: "▸";
+    position: absolute;
+    display: block;
+    text-align: center;
+    @include spacing(width, 1);
+    @include spacing(left, -1);
+    top: em(0);
   }
 }
 
