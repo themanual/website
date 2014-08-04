@@ -1,12 +1,12 @@
 $(function() {
 
-  // fitvids
   $('.video').fitVids();
-
   $('select.chosen').chosen();
 
-  $('[data-toggle=tooltip]').tooltip({animation: false});
+  // enable tooltips
+  // $('[data-toggle=tooltip]').tooltip({animation: false});
 
+  // validate all forms
   $('form').validate();
 
   $(document)
