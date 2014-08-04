@@ -215,8 +215,8 @@ em      { font-style: italic; }
     content: "→";
     display: inline-block;
     font-style: normal;
-    @include transform(rotate(-45deg));
-    @include transform-origin(center center);
+    transform: rotate(-45deg);
+    transform-origin: center center;
   }
 }
 

@@ -26,11 +26,9 @@ $border-radius-base:  3px;
   @include rem(font-size, 14px);
   line-height: 1.4;
 
-  // @include animate(fadeIn, 0.4s);
-
-  @include opacity(0);
-  @include transition(opacity .2s linear);
-  &.in     { @include opacity($tooltip-opacity); }
+  opacity: 0;
+  transition: opacity .2s linear;
+  &.in     { opacity: $tooltip-opacity; }
 
   &.top    { margin-top:  -3px; padding: $tooltip-arrow-width 0; }
   &.right  { margin-left:  3px; padding: 0 $tooltip-arrow-width; }

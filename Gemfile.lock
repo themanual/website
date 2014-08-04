@@ -80,6 +80,8 @@ GEM
       activesupport (>= 3.0.0)
     arel (4.0.2)
     atomic (1.1.14)
+    autoprefixer-rails (2.2.0.20140727)
+      execjs
     bcrypt-ruby (3.1.2)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -335,6 +337,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   airbrake
+  autoprefixer-rails
   bcrypt-ruby (~> 3.1.2)
   better_errors
   binding_of_caller

@@ -40,7 +40,7 @@
 .l-wrapper {
   @extend .l-container;
   @extend .l-p-x;
-  @include box-sizing(content-box);
+  box-sizing: content-box;
 }
 
 .l-section {
@@ -83,7 +83,7 @@
 .l-col {
   @extend .l-center;
   @include rem(max-width, $singlecol-width);  // Max width
-  @include box-sizing(content-box);           // Reset box-sizing so padding can be applied "outside" the content
+  box-sizing: content-box;           // Reset box-sizing so padding can be applied "outside" the content
 }
 
 .l-hero-image img {

@@ -15,6 +15,7 @@ gem "bower-rails", "~> 0.6.1"
 
 gem 'cssminify' # replaces 'yui-compressor'
 gem 'sprockets-image_compressor'
+gem 'autoprefixer-rails'
 
 gem 'kramdown'
 

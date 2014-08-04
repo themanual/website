@@ -129,13 +129,13 @@
 }
 
 button.button {
-  @include appearance(none);
+  appearance: none;
 }
 
 .button-row > * { vertical-align: middle; }
 
 .text-button {
-  @include appearance(none);
+  appearance: none;
   background: transparent;
   border-bottom: solid 1px transparent;
   border: none;
