@@ -29,23 +29,11 @@ figure img {
   margin: 0 auto;
 }
 
-#sectionnav {
-  margin-top:    8em;
-  margin-bottom: 1.5em;
-}
-
 .bg-colored {
   @include color-by-issue-self(background);
   &.kickstarter {
     background: $c-kickstarter;
   }
-}
-
-#sectionnav {
-  float: left;
-  width: $sidebar-width;
-  margin-right: $sidebar-gutter;
-  & + * { overflow: hidden; }
 }
 
 a {
@@ -120,12 +108,4 @@ a {
 
 [data-toggle="tooltip"] {
   cursor: pointer;
-}
-
-.media {
-  float: left;
-  margin-right: 1em;
-  + * {
-    overflow: hidden;
-  }
 }

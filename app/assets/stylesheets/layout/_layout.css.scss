@@ -24,70 +24,28 @@
 .l-m-bb   { @include spacing(margin-bottom,  1.5); }
 .l-m-y    { @extend .l-m-t;  @extend .l-m-b; }
 .l-m-yy   { @extend .l-m-tt; @extend .l-m-bb; }
-.l-m-t0   { margin-top: 0 !important; }
 
 // General rules
-.l-center     { @include centered; }
-.l-container  { @include outer-container; }
-.l-row        { @include row; }
+.l-row       { @include row; }
+.l-container { @include outer-container; }
 
-.l-flex-center{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.l-wrapper {
-  @extend .l-container;
-  @extend .l-p-x;
-  box-sizing: content-box;
-}
-
-.l-section {
-  @extend .l-p;
-  > * { @extend .l-container; }
-}
-
-.l-wrapper-grid {
-  @extend .l-wrapper;
-  @extend .l-row;
-}
-
-// Floats
 .l-fl-l { float: left !important; }
 .l-fl-r { float: right !important; }
 
-// Dividers
+.l-section        { @extend .l-p; }
+.l-section > *    { @extend .l-container; }
+
+.l-section-x      { @extend .l-p-x; }
+.l-section-x > *  { @extend .l-container; }
+
 .l-line-t { border-top: divider(); }
 .l-line-b { border-bottom: divider(); }
 .l-line   { @extend .l-line-t; @extend .l-line-b; }
 
-// Grid
-.l-grid {
-  @extend .l-container;
-  @extend .l-row;
-}
-
-.l-img-r {
-  float: right;
-  margin-left: 1em;
-  margin-bottom: 1em;
-}
-
-.l-img-l {
-  float: left;
-  margin-right: 1em;
-  margin-bottom: 1em;
-}
-
-.l-col {
-  @extend .l-center;
+.l-singlecol {
+  @include centered;
   @include rem(max-width, $singlecol-width);  // Max width
   box-sizing: content-box;           // Reset box-sizing so padding can be applied "outside" the content
-}
-
-.l-hero-image img {
-  max-height: 100%;
 }
 
 .l-reading {
@@ -95,14 +53,42 @@
   @include centered;
 }
 
-.l-piecelist > * {
+.l-stack-lined > *  {
   @include spacing(padding-top padding-bottom);
   border-top: divider();
 }
 
-.l-shifted {
+.l-media {
+  float: left;
+  + * { overflow: hidden; }
+}
+
+.l-media-r {
+  @extend .l-media;
+  margin-right: 1em;
+}
+
+.l-sidebar {
+  @extend .l-media;
+  width: $sidebar-width;
+  margin-right: $sidebar-gutter;
+  margin-top:    8em; // TODO improve this so it's not hacky
+  margin-bottom: 1.5em;
+}
+
+.l-nosidebar {
   padding-left: ($sidebar-width + $sidebar-gutter);
 }
 
 // Other columns
 @include make-grid();
+
+.l-hero-image img {
+  max-height: 100%;
+}
+
+.l-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

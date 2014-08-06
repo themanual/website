@@ -46,19 +46,19 @@
 @mixin make-stacked($class: "") {
   @if ($class != "") { $class: "-#{$class}" }
 
-  .l-stack#{$class} > * + * {
-    @include spacing(margin-top);
-  }
+  // .l-stack#{$class} > * + * {
+  //   @include spacing(margin-top);
+  // }
 
-  .l-small-stack#{$class} > * + * {
-    margin-top: 1em;
-  }
+  // .l-small-stack#{$class} > * + * {
+  //   margin-top: 1em;
+  // }
 
-  .l-lined-stack#{$class} > * + * {
-    @include spacing(margin-top);
-    @include spacing(padding-top);
-    border-top: divider();
-  }
+  // .l-lined-stack#{$class} > * + * {
+  //   @include spacing(margin-top);
+  //   @include spacing(padding-top);
+  //   border-top: divider();
+  // }
 }
 
 //

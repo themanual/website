@@ -1,6 +1,6 @@
 <% push_page_title ["#{@piece.title}, by #{@piece.author.name}", "Issue #{@piece.issue_number}"] %>
 <% cache @piece do %>
-<article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-wrapper">
+<article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-section-x"><div>
 
   <%= render 'piece_header' %>
 
@@ -22,10 +22,10 @@
     </div>
   </footer>
 
-</article>
+</div></article>
 <% end %>
 
-<aside class="l-p-x"><div class="l-container">
+<aside class="l-section-x"><div>
   <section class="l-line-t l-p-y l-col-3 issue-<%= @piece.issue_number %> c-issue">
     <h2 class="box-title">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
     <div class="text">
