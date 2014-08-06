@@ -23,8 +23,9 @@ module ApplicationHelper
     end
   end
 
-  def legacy_store_issue_url(issue_no)
-    "http://buy.alwaysreadthemanual.com/products/issue-#{issue_no}"
+  def legacy_store_issue_url(issue_no = nil)
+    return "http://buy.alwaysreadthemanual.com/products/issue-#{issue_no}" if issue_no
+    "http://buy.alwaysreadthemanual.com/"
   end
 
   def link_to_current(name, options, html_options = {})
