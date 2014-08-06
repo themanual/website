@@ -57,7 +57,7 @@
     <% @issue.articles.ordered.each do |article| %>
     <li>
       <figure class="l-issue-illo">
-        <%= illustration_tag @issue.number, article.author_slug, 'print' %>
+        <%= illustration_tag(article, size: 'm') %>
       </figure>
       <div class="l-issue-text">
 

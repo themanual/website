@@ -1,9 +1,9 @@
 <div class="piece-unit issue-<%= piece.issue_number %> c-issue">
   <figure class="piece-unit-illo">
     <% if piece.lesson? %>
-      <%= portrait_tag(piece.issue_number, piece.author_slug) %>
+      <%= portrait_tag(piece) %>
     <% else %>
-      <%= illustration_tag(piece.issue_number, piece.author_slug, 'small') %>
+      <%= illustration_tag(piece) %>
     <% end %>
   </figure>
   <div class="piece-unit-text">

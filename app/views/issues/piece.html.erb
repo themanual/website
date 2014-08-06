@@ -10,7 +10,7 @@
 
   <footer class="piece-footer l-reading">
     <figure class="piece-footer-portrait">
-      <%= portrait_tag(@piece.issue_number, @piece.author_slug) %>
+      <%= portrait_tag(@piece) %>
     </figure>
     <div class="text">
       <p><%= raw @piece.author.bio %></p>
