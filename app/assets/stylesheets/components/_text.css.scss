@@ -215,6 +215,7 @@ em      { font-style: italic; }
     content: "→";
     display: inline-block;
     font-style: normal;
+    margin-left: .25em;
     transform: rotate(-45deg);
     transform-origin: center center;
   }
