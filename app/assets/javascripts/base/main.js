@@ -1,9 +1,5 @@
 $(function() {
 
-  $('.video').fitVids();
-
-  // enable tooltips
-  // $('[data-toggle=tooltip]').tooltip({animation: false});
 
   // validate all forms
   $('form').validate();
