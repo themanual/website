@@ -9,47 +9,8 @@
   </header>
 
   <div class="l-line-t l-p-y tagline issue-<%= @issue.number %> c-issue">
-    <span class="has-popover">
-      <a href="#" class="button is-large" data-popover="trigger">
-        Buy this issue
-        <%= inline_svg('ui/thin-down-arrow.svg', :class => "last-child") %>
-      </a>
-      <div class="buy-popover is-left" data-popover="popover">
-        <div class="buy is-unlined">
-          <div class="buy-item">
-            <div class="buy-item-text">
-              <h4 class="buy-item-name">Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
-              <h4 class="buy-item-name">Audiobook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">20</span>
-              </a>
-            </div>
-          </div>
-          <div class="buy-item">
-            <div class="buy-item-text">
-              <h4 class="buy-item-name">Print &amp; Ebook</h4>
-            </div>
-            <div class="buy-item-action">
-              <a class="button price" href="#">
-                <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </span>
-    from the <%= link_to "store", shop_issue_path(issue: @issue.number) %> or <%= link_to 'subscribe', {:controller => 'store', :action => 'subscription'} %>
+    <a href="<%= legacy_store_issue_url(@issue.number) %>" rel="external" class="button is-large">Buy Issue <%= @issue.number %> in Print</a>
+    or <%= link_to 'back our Kickstarter project', kickstarter_url, rel: 'external' %>
     and support The Manual.
   </div>
 
