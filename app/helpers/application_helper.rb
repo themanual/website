@@ -27,6 +27,10 @@ module ApplicationHelper
     "http://buy.alwaysreadthemanual.com/products/issue-#{issue_no}"
   end
 
+  def kickstarter_url
+    "http://kickstarter.com"
+  end
+
   def link_to_current(name, options, html_options = {})
     if current_page?(options)
       html_options[:class] ||= ""
