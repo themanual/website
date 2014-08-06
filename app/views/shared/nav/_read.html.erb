@@ -2,16 +2,12 @@
   <h2 class="navgroup-title">Browse</h2>
   <ul class="navgroup-items">
     <li><%= link_to_current "Staff Picks", controller: "home", action: "staffpicks" %></li>
-    <li><%= link_to_current "Popular", controller: "home", action: "popular" %></li>
+    <li><span class="soon"><span>Popular</span> <small class="tag">Soon</small></span></li>
   </ul>
 
   <h2 class="navgroup-title">Issues</h2>
   <ul class="navgroup-items">
-    <li>
-      <%= link_to issue_path(issue: 4), class: "issue-4" do %>
-      Issue 4 <small class="tag">New</small>
-      <% end %>
-    </li>
+    <li><span class="c-issue-4 soon"><span>Issue 4</span> <small class="tag">Soon</small></span></li>
     <li><%= link_to_current "Issue 3", issue_path(issue: 3), class: "issue-3" %></li>
     <li><%= link_to_current "Issue 2", issue_path(issue: 2), class: "issue-2" %></li>
     <li><%= link_to_current "Issue 1", issue_path(issue: 1), class: "issue-1" %></li>
