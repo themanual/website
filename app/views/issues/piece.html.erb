@@ -34,7 +34,7 @@
         <%= content_tag :li, author.name, class: ('marker-arrow' if author == @piece.author) %>
       <% end %>
       </ul>
-      <p><%= link_to "Browse Issue #{@piece.issue_number}", issue_path(@piece.issue_number), class: 'button in-sc is-small' %></p>
+      <p><%= link_to "Browse Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></p>
     </div>
   </section>
   <section class="l-line-t l-p-y l-col-3">
@@ -57,8 +57,8 @@
     </div>
   </section>
   <section class="l-line-t l-p-y l-col-6">
-    <h2 class="box-title is-spaced">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended.issue_number}" %></h2>
-    <div class="t-big">
+    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended.issue_number}" %></h2>
+    <div>
     <%= render :partial => 'shared/units/piece', :object  => @recommended %>
     </div>
   </section>
