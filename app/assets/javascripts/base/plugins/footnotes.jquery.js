@@ -21,6 +21,11 @@
       $note.find('.reversefootnote').fadeOut();
     });
 
+    $(this).on('click', '.footnote-popover a, .footnotes a', function () {
+      window.open($(this).attr('href'));
+      return false;
+    });
+
   };
 
 }(jQuery));
