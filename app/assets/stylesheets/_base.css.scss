@@ -111,3 +111,11 @@ a {
 [data-toggle="tooltip"] {
   cursor: pointer;
 }
+
+.media {
+  float: left;
+  margin-right: 1em;
+  + * {
+    overflow: hidden;
+  }
+}
