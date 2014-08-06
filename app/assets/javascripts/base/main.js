@@ -1,7 +1,6 @@
 $(function() {
 
   $('.video').fitVids();
-  $('select.chosen').chosen();
 
   // enable tooltips
   // $('[data-toggle=tooltip]').tooltip({animation: false});
