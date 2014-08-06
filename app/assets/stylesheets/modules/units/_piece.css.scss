@@ -5,10 +5,11 @@
 
 .piece-unit-illo {
   float: left;
-  width: 6.5em;
-  margin-right: 1.5em;
+  width: 8em;
+  margin-right: .5em;
   + * {
     overflow: hidden;
+    margin-top: 1em;
   }
 }
 
