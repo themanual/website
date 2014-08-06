@@ -15,7 +15,7 @@
     <div class="text">
       <p><%= raw @piece.author.bio %></p>
       <p>
-        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "ghost-button in-sc" do %>
+        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
           Read Next: <%= @piece.author.name.given_name.possessive %> <%= @companion.type %>
         <% end %>
       </p>
@@ -40,18 +40,18 @@
   <section class="l-line-t l-p-y l-col-3">
     <h2 class="box-title">Related Topics</h2>
     <div class="text">
-      <ul class="plain looser">
+      <ul class="plain double">
         <li>
           <h5><a href="#">Culture</a></h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p><strong>4</strong> Pieces</p>
         </li>
         <li>
           <h5><a href="#">History</a></h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p><strong>7</strong> Pieces</p>
         </li>
         <li>
           <h5><a href="#">Process</a></h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <p><strong>8</strong> Pieces</p>
         </li>
       </ul>
     </div>
