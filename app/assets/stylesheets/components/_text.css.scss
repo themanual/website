@@ -118,6 +118,7 @@ em      { font-style: italic; }
     list-style-position: outside;
     padding-left: 1.5em;
     margin-top: 1em;
+    &:first-child { margin-top: 0; }
     li + li { margin-top: .25em; }
 
     &.plain { list-style-type: none; }
@@ -125,8 +126,10 @@ em      { font-style: italic; }
     &.plain,
     &.outdented { padding-left: 0; }
 
-    &.loose  li + li { margin-top: .5em; }
-    &.looser li + li { margin-top: .75em; }
+    &.loose    > li + li { margin-top: .5em; }
+    &.looser   > li + li { margin-top: .75em; }
+    &.double   > li + li { margin-top: 1em; }
+    &.unspaced > li + li { margin-top: 0; }
   }
 
   ol {
@@ -141,14 +144,11 @@ em      { font-style: italic; }
     opacity: .4;
   }
 
-  h1 + *,
-  h2 + *,
-  h3 + *,
-  h4 + *,
-  h5 + *,
-  h6 + * {
-    margin-top: 0;
+  h1, h2, h3, h4, h5, h6 {
+    &.unspaced { margin-bottom: 0; }
+    + * { margin-top: 0; }
   }
+
 }
 
 .t-white { color: white; }
