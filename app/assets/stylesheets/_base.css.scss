@@ -36,6 +36,9 @@ figure img {
 
 .bg-colored {
   @include color-by-issue-self(background);
+  &.kickstarter {
+    background: $c-kickstarter;
+  }
 }
 
 #sectionnav {

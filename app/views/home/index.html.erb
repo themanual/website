@@ -1,4 +1,4 @@
-<% content_for :class_body, "bg-colored issue-4" %>
+<% content_for :class_body, "bg-colored kickstarter" %>
 <% content_for :class_main, "l-flex-center" %>
 
 <div class="l-p-xyyy">
@@ -6,11 +6,11 @@
     <%= image_tag 'illustrations/illo-new-issue-4-desktop.svg' %>
   </figure>
   <div class="text t-biggest t-strong t-center l-m-tt">
-    <p>Issue 4 of The Manual is finally here.</p>
-    <p class="unspaced">Now in Print, Ebook, and Web editions.</p>
+    <p class="t-big t-heavy">The Manual, Everywhere</p>
+    <p class="unspaced">We’re moving beyond print — and we’re going <em>everywhere.</em></p>
     <p>
-      <%= link_to "Read Online", issue_path(issue:4), class: "button in-black in-caps is-larger" %>
-      <%= link_to "Buy Issue 4", shop_issue_path(issue:4), class: "button in-black in-caps is-larger" %>
+      <%= link_to "Back on Kickstarter", kickstarter_url, class: "button in-black in-caps is-larger external", rel: "external" %>
+      <%= link_to "Read online", read_path, class: "button in-black in-caps is-larger" %>
     </p>
   </div>
 </div>
