@@ -11,27 +11,5 @@
       <li><%= link_to "Read",   read_path,  class: page_is_subpath_of('/read', 'current') %></li>
       <li><a href="http://buy.alwaysreadthemanual.com" class="external" rel="external">Shop</a></li>
     </ul>
-    <ul class="actions">
-      <% if user_signed_in?  %>
-      <li class="icon has-popover">
-        <%= link_to account_path, data: {popover: 'trigger'}, class: page_is_subpath_of('/account', 'current') do %>
-          <%= inline_svg "ui/reader-account.svg", style: "display: none;" %>
-          <span class="icon-text">Hi, <%= current_user.first_name %></span>
-        <% end %>
-        <ul class="nav-popover is-right" data-popover="popover">
-          <li><%= link_to "Account", account_path %></li>
-          <li><%= link_to "Log Out", destroy_user_session_path %></li>
-        </ul>
-      </li>
-      <% else %>
-      <li class="subscribe">
-        <%= link_to("Subscribe", shop_subscription_path) %>
-      </li>
-      <li class="login">
-        <%= link_to_current("Log in", new_user_session_path) %>
-      </li>
-      <% end %>
-      </li>
-    </ul>
   </nav>
 </div></header>
