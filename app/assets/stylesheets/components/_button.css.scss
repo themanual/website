@@ -43,6 +43,11 @@
   border: solid 2px $c-blue;
   background-color: $c-blue;
 
+  &.kickstarter {
+   background-color: $c-kickstarter;
+   border-color: $c-kickstarter;
+  }
+
   @include hover {
     color: white;
     background-color: black;
