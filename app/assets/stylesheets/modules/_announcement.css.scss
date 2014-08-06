@@ -1,0 +1,15 @@
+.site-announcement {
+  @extend .l-section;
+  @extend .t-big;
+  background-color: $c-bg-gray;
+  text-align: center;
+  border-bottom: divider();
+  font-weight: weight(medium);
+  a { font-weight: weight(bold); }
+  @include media-from($bp-l) {
+    p { display: inline-block; }
+  }
+  @include media-upto($bp-l) {
+    p + p { margin-top: .5em; }
+  }
+}
