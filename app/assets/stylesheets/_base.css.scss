@@ -49,6 +49,9 @@ a {
   text-decoration: none;
   outline: none;
   @include link-color-issue-self;
+  .kickstarter & {
+    @include link-hover-black { color: $c-kickstarter; }
+  }
 }
 
 @each $i in $issues {
