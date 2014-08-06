@@ -12,14 +12,16 @@
 
   <%= render partial: "shared/layout/header" %>
 
-  <div id="content"><div class="l-wrapper">
+  <div id="content" class="l-section-x"><div>
   <% if %w(read store about).include?(page_namespace) %>
-    <%= render partial: "shared/nav/#{page_namespace}" %>
+    <nav class="l-sidebar">
+      <%= render partial: "shared/nav/#{page_namespace}" %>
+    </nav>
     <main class="<%= yield (:class_main) %>" role="main">
       <%= yield %>
     </main>
   <% else %>
-    <main class="l-shifted <%= yield (:class_main) %>" role="main">
+    <main class="l-nosidebar <%= yield (:class_main) %>" role="main">
       <%= yield %>
     </main>
   <% end %>

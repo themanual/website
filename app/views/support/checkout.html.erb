@@ -1,11 +1,11 @@
 <% include_payment_assets %>
 
 <main>
-  <header class="l-line-b bg-gray"><div class="l-col l-p-xyy text">
+  <header class="l-line-b bg-gray"><div class="l-singlecol l-p-xyy text">
     <h1>Subscription Payment</h1>
   </div></header>
 
-  <section class="l-col l-p-xyy">
+  <section class="l-singlecol l-p-xyy">
     <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
       <input type="hidden" name="stripe_token" value="" />
       <!-- HIDDEN FIELD FOR NOW - MR -->

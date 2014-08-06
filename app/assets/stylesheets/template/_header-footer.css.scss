@@ -33,6 +33,11 @@
 
     .nav-popover a { @include link-hover-blue(stroke) { color: $c-text-caption; } }
   }
+
+  > * {
+    @include outer-container;
+    @include row;
+  }
 }
 
 .site-header {
