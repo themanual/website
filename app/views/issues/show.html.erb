@@ -1,12 +1,6 @@
-<% push_page_title "Issue #{@issue.number}"  %>
+<% title "Issue #{@issue.number}"  %>
 
 <% cache @issue do %>
-
-  <header class="page-header">
-    <h1>
-      Issue <strong class="issue-number issue-<%= @issue.number %>"><%= @issue.number %></strong>
-    </h1>
-  </header>
 
   <div class="l-line-t l-p-y tagline issue-<%= @issue.number %> c-issue">
     <span class="has-popover">

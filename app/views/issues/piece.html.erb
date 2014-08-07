@@ -1,4 +1,4 @@
-<% push_page_title ["#{@piece.title}, by #{@piece.author.name}", "Issue #{@piece.issue_number}"] %>
+<% title "#{@piece.title}, by #{@piece.author.name}" %>
 <% cache @piece do %>
 <article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-section-x"><div>
 

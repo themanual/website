@@ -48,6 +48,7 @@ $bar-logo-size: 5.5em;
   .bg-colored & {
     margin-bottom: 0;
   }
+  margin-bottom: $bar-logo-size - 1em - (2 * $bar-pad) + 1.5em;
 }
 .footer-bar {
   border-top: divider();
