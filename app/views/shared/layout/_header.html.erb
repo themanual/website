@@ -1,9 +1,9 @@
-<header class="site-header"><div>
-  <h1>
+<header class="bar header-bar"><div>
+  <h1 class="header-bar-logo">
     <%= link_to_current "The Manual", root_path %>
   </h1>
   <nav>
-    <ul class="tabs">
+    <ul>
       <li><%= link_to "Read",   read_path,  class: page_is_subpath_of('/read', 'current') %></li>
       <li><%= link_to "Shop",   shop_path,  class: page_is_subpath_of('/store', 'current') %></li>
       <li><%= link_to "About",  about_path, class: page_is_subpath_of('/about', 'current') %></li>
