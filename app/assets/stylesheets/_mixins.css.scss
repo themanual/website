@@ -2,6 +2,12 @@
   svg * { @content; }
 }
 
+@mixin media-object {
+  float: left;
+  @content;
+  & + * { overflow: hidden; }
+}
+
 @mixin max-width-columns($n) {
   max-width: flex-grid($n) / 100% * $max-width;
 }
@@ -37,16 +43,6 @@
       #{$prop}: $value;
     }
   }
-}
-
-@mixin media-object {
-  @include clearfix;
-  > * { display: block; }
-  > *:first-child {
-    float: left;
-    @content;
-  }
-  > *:first-child ~ * { overflow: hidden; }
 }
 
 @mixin opacity($opacity) {
