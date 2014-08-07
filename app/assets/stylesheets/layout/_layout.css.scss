@@ -59,18 +59,17 @@
 }
 
 .l-media {
-  float: left;
-  + * { overflow: hidden; }
+  @include media-object;
 }
 
 .l-media-r {
-  @extend .l-media;
-  margin-right: 1em;
+  @include media-object {
+    margin-right: 1em;
+  }
 }
 
 .l-sidebar {
   @include spacing(margin-top margin-bottom);
-
   @include media-from($bp-m) {
     @include media-object;
     width: $sidebar-width;
