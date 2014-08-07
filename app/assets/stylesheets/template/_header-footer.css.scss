@@ -1,3 +1,7 @@
+$bar-pad:       1.2em;
+$bar-icon:      2em;
+$bar-logo-size: 5.5em;
+
 .bar {
   color: $c-text-caption;
   @include svg { stroke: $c-icon-gray; }
@@ -50,10 +54,6 @@
   border-top: divider();
 }
 
-$bar-pad: 1.2em;
-$bar-icon: 2em;
-
-
 .bar nav > ul { float: left; @include clearfix; }
 .bar nav > ul + ul { float: right; }
 .bar nav > ul > li { float: left; }
@@ -72,8 +72,8 @@ $bar-icon: 2em;
     position: absolute;
     top: 0; left: 0;
 
-    width: 5.5em;
-    height: 5.5em;
+    width: $bar-logo-size;
+    height: $bar-logo-size;
 
     background: white;
     border: divider();
