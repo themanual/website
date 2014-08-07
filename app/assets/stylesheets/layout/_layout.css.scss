@@ -69,11 +69,14 @@
 }
 
 .l-sidebar {
-  width: $sidebar-width;
-  margin-right: $sidebar-gutter;
-  margin-top:    8em; // TODO improve this so it's not hacky
-  margin-bottom: 1.5em;
+  @include spacing(margin-top margin-bottom);
+
+  @include media-from($bp-m) {
     @include media-object;
+    width: $sidebar-width;
+    margin-right: $sidebar-gutter;
+    margin-top:    8em; // TODO improve this so it's not hacky
+  }
 }
 
 .l-nosidebar {
