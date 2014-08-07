@@ -9,6 +9,15 @@
 
 html {
   font-size: $rem-base;
+  @include media-upto($bp-l) {
+    font-size: $rem-base - 1;
+  }
+  @include media-upto($bp-m) {
+    font-size: $rem-base - 2;
+  }
+  @include media-upto($bp-s) {
+    font-size: $rem-base - 3;
+  }
 }
 
 body {
