@@ -23,23 +23,12 @@ html {
 body {
   font-family: $type-sans;
   background-color: white;
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-body > #content {
-  flex: 1;
 }
 
 figure img {
   display: block;
   max-width: 100%;
   margin: 0 auto;
-}
-
-.bg-colored {
-  @include color-by-issue-self(background);
 }
 
 a {
@@ -60,55 +49,4 @@ a {
       color: issue-color($i);
     }
   }
-}
-
-.clearfix { @include clearfix; }
-.cl-b     { clear: both; }
-.cl-l     { clear: left; }
-.cl-r     { clear: right; }
-
-.bg-gray  { background-color: $c-bg-gray; }
-.bg-white { background-color: white; }
-
-.no-resize { resize: none; }
-
-.highlight {
-  display: inline;
-  background-color: $c-highlight;
-  color: $c-text-black;
-  > * { color: black !important; }
-}
-
-.footnote {
-  vertical-align: text-top;
-  font-size: 0.8em;
-  padding-left: 0.2em;
-  letter-spacing: 1px;
-  font-weight: weight(bold);
-
-  &:target {
-    outline: none;
-  }
-}
-
-.marker-arrow {
-  position: relative;
-  font-weight: weight(medium);
-  &:before {
-    content: "▸";
-    position: absolute;
-    display: block;
-    text-align: center;
-    @include spacing(width, 1);
-    @include spacing(left, -1);
-    top: em(0);
-  }
-}
-
-.debug, .debug * {
-  background-color: rgba(255,0,0,0.05);
-}
-
-[data-toggle="tooltip"] {
-  cursor: pointer;
 }
