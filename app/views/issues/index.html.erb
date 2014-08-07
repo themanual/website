@@ -1,8 +1,4 @@
-<% push_page_title "Issues" %>
-
-<header class="page-header">
-  <h1>Issue Archive</h1>
-</header>
+<% title "Issues" %>
 
 <% Issue.public_issues.ordered.each do |issue| %>
   <% cache issue, expires_in: 12.hours.ish do %>

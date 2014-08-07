@@ -1,7 +1,10 @@
 .page-header {
   padding-bottom: 1em;
-  padding-top:    3.5em;
 }
+
 .page-header h1 {
-  @extend .h1;
+  @include rem(font-size, 46px);
+  font-weight: weight(black);
+  line-height: 1.2;
+  color: $c-text-black;
 }

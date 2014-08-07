@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_order, :has_order?, :push_page_title
-  before_filter :prep_page_title, :authenticate_user!
+  helper_method :current_order, :has_order?, :title
+  before_filter :init_page_title, :authenticate_user!
 
   protected
     def authenticate_admin_user!
@@ -40,8 +40,12 @@ class ApplicationController < ActionController::Base
       )
     end
 
-    def push_page_title title
-      ( @page_title << title ).flatten!
+    def init_page_title
+      @page_title ||= []
     end
-    def prep_page_title; @page_title ||= []; end
+
+    def title page_title
+      @page_title.unshift(page_title).flatten!
+    end
+
 end

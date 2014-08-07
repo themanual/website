@@ -12,20 +12,25 @@
 
   <%= render partial: "shared/layout/header" %>
 
-  <div id="content" class="l-section-x"><div>
-  <% if %w(read store about).include?(page_namespace) %>
-    <nav class="l-sidebar">
+  <section id="content" class="l-section-x"><div>
+
+    <%- if @page_title.any? %>
+    <header class="page-header">
+      <h1><%= @page_title.first %></h1>
+    </header>
+    <% end %>
+
+    <%- if page_namespace.in?(%w(read store about)) %>
+    <nav class="sidebar">
       <%= render partial: "shared/nav/#{page_namespace}" %>
     </nav>
-    <main class="<%= yield (:class_main) %>" role="main">
+    <%- end %>
+
+    <main role="main" class="<%= yield (:class_main) %>">
       <%= yield %>
     </main>
-  <% else %>
-    <main class="l-nosidebar <%= yield (:class_main) %>" role="main">
-      <%= yield %>
-    </main>
-  <% end %>
-  </div></div>
+
+  </div></section>
 
   <%= render partial: "shared/layout/footer" %>
 
