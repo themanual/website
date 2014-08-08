@@ -22,7 +22,7 @@
   &:before {
     content: "";
     display: block;
-    width: 20px;
+    width: $popover-tip-width;
     height: 11px;
     position: absolute;
     background-image: image-url('ui/popover-arrow-top.svg');
@@ -34,18 +34,18 @@
 
   &.is-right {
     right: 0;
-    &:before { right: 10px; }
+    &:before { right:  $popover-tip-width / 2; }
   }
 
   &.is-left {
     left: 0;
-    &:before { left: 10px; }
+    &:before { left:  $popover-tip-width / 2; }
   }
 
   &.is-center {
     &:before {
       left: 50%;
-      margin-left: -10px;
+      margin-left: -1 * $popover-tip-width / 2;
     }
     left: 50%;
     @include rem(margin-left, -9rem);
