@@ -69,10 +69,10 @@ $bar-logo-size: 5em;
     height: $bar-logo-size;
 
     background: black;
-    @include hover { background: $c-blue; }
 
     text-indent: -9999em;
     font-weight: weight(medium);
+    @include link-hover-blue(fill) { color: black; }
   }
 }
 
