@@ -1,0 +1,41 @@
+.sub-nav {
+  // border-bottom: divider();
+}
+
+.sub-nav-list {
+  @include clearfix;
+  @extend .t-sc;
+  line-height: 1;
+}
+
+.sub-nav-list > * {
+  display: inline-block;
+  + * { margin-left: 1.5em; }
+
+  a {
+    display: block;
+    margin-bottom: -1px;
+    @include padding-v(1.2em);
+
+    &:link,
+    &:visited {
+      color: $c-text-caption;
+    }
+
+    &.is-current {
+      font-weight: weight(medium);
+
+      &:link,
+      &:visited {
+        color: $c-text-black;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: #000;
+      // border-bottom-color: black;
+    }
+  }
+}

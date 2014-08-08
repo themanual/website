@@ -1,0 +1,226 @@
+strong  { font-weight: weight(medium); }
+em      { font-style: italic; }
+
+.t-center { text-align: center; }
+.t-r  { text-align: right; }
+
+%h {
+  color: $c-text-black;
+  font-weight: weight(bold);
+  line-height: 1.2;
+}
+
+.t-heading {
+  * + & { margin-top: 1em; }
+  margin-bottom: .5em;
+  &:last-child { margin-bottom: 0; }
+}
+
+%h1 {
+  // font-size
+  @include rem(font-size, 48px);
+  @include media-upto($bp-m)  { @include rem(font-size, 40px); }
+  @include media-upto($bp-s) { @include rem(font-size, 28px); }
+  // other
+  font-weight: weight(black);
+}
+
+.t-huge     { font-size: em(50, $rem-value); }
+.h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
+.h1         { @extend .t-heading; @extend .h-huge; }
+
+.t-biggest  { font-size: em(32, $rem-value); }
+.h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
+.h2         { @extend .t-heading; @extend .h-biggest; }
+
+.t-bigger   { font-size: em(24, $rem-value); }
+.h-bigger   { @extend %h; @extend .t-bigger; }
+.h3         { @extend .t-heading; @extend .h-bigger; }
+
+.t-big      { font-size: em(20, $rem-value); }
+.h-big      { @extend %h; @extend .t-big; }
+.h4         { @extend .t-heading; @extend .h-big; }
+
+.t-normal   { font-size: 1em; }
+.h-normal   { @extend %h; @extend .t-normal; }
+.h5         { @extend .t-heading; @extend .h-normal; }
+
+.h-note     { color: $c-text-faint; margin-top: .25em; }
+
+.t-serif    { font-family: $type-serif; }
+
+.t-sc {
+  @include rem(font-size, 16px);
+  text-transform: uppercase;
+  letter-spacing: .0625em;
+  word-spacing: .15em;
+}
+
+.t-sc-light {
+  @extend .t-sc;
+  color: $c-text-faint;
+}
+
+.t-sc-heavy {
+  @extend .t-sc;
+  color: $c-text-black;
+  font-weight: weight(medium);
+}
+.h-sc {
+  @extend .t-sc-heavy;
+  @include spacing(margin-bottom);
+}
+
+.t-sc-small {
+  @include rem(font-size, 14px);
+  text-transform: uppercase;
+  letter-spacing: .08;
+}
+
+.t-caps {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.text {
+  line-height: 1.4;
+  color: $c-text-body;
+  h1, h2, h3, h4, h5, h6 {
+    color: $c-text-black;
+  }
+
+  a {
+    font-weight: weight(medium);
+  }
+
+  h1 { @extend .h1; }
+  h2 { @extend .h2; }
+  h3 { @extend .h3; }
+  h4 { @extend .h4; }
+  h5 { @extend .h5; margin-bottom: 0; }
+
+  h6 {
+    @extend .t-sc-heavy;
+    @extend .t-heading;
+    margin-bottom: .25em;
+  }
+
+  p             { margin-top: 1em; }
+  p:first-child,
+  p.unspaced    { margin-top: 0; }
+  p.spaced      { margin-top: 1.5em; }
+  p.close       { margin-top: .5em; }
+  p.closer      { margin-top: .25em; }
+  p.loose       { margin-top: 1.5em; }
+  p.looser      { margin-top: 2em; }
+
+  ul, ol {
+    list-style-position: outside;
+    padding-left: 1.5em;
+    margin-top: 1em;
+    &:first-child { margin-top: 0; }
+    li + li { margin-top: .25em; }
+
+    &.plain { list-style-type: none; }
+
+    &.plain,
+    &.outdented { padding-left: 0; }
+
+    &.loose    > li + li { margin-top: .5em; }
+    &.looser   > li + li { margin-top: .75em; }
+    &.double   > li + li { margin-top: 1em; }
+    &.unspaced > li + li { margin-top: 0; }
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  del {
+    opacity: .4;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    &.unspaced { margin-bottom: 0; }
+    + * { margin-top: 0; }
+  }
+
+}
+
+.t-white { color: white; }
+.t-close { margin-top: .5em !important; }
+.t-heavy { font-weight: weight(black) !important; }
+.t-strong { font-weight: weight(bold) !important; }
+
+.tagline {
+  @extend .t-big;
+  font-weight: weight(medium);
+  color: $c-text-body;
+}
+
+@mixin issue-number {
+  font-family: $type-sans;
+  font-weight: weight(black);
+  background: black;
+  @include color-by-issue(background);
+  @include color-by-issue-self(background);
+
+  padding-right:  .35em;
+  padding-left:   .35em;
+  padding-bottom: .06em;
+  padding-top:    .01em;
+
+  color: #fff;
+  border-radius: .15em;
+}
+
+.issue-number {
+  @include issue-number;
+}
+
+.t-downcase {
+  text-transform: lowercase !important;
+}
+
+.t-reset {
+  @include rem(font-size, 1rem);
+  font-weight: weight(regular);
+}
+
+%tag {
+  text-transform: uppercase;
+  font-size: .7em;
+  font-weight: weight(bold);
+  padding: 2px 4px 2px;
+  line-height: 1;
+  border-radius: 3px;
+  background: $c-text-faint;
+  color: white;
+  margin-left: .15em;
+  position: relative;
+  top: -.1em;
+}
+
+.tag {
+  @extend %tag;
+  @include color-by-issue(background);
+}
+
+@mixin external-link {
+  &:after {
+    content: "→";
+    display: inline-block;
+    font-style: normal;
+    margin-left: .25em;
+    transform: rotate(-45deg);
+    transform-origin: center center;
+  }
+}
+
+.external {
+  @include external-link;
+}

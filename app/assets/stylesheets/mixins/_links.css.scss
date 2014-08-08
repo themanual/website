@@ -1,0 +1,71 @@
+@mixin link-hover-white($svg: false) {
+  @content;
+  @include hover {
+    color: $c-text-white;
+    @if ($svg) {
+      @include svg { #{$svg}: $c-text-white; }
+    }
+  }
+}
+
+@mixin link-hover-black($svg: false) {
+  @content;
+  @include hover {
+    color: $c-text-black;
+    @if ($svg) {
+      @include svg { #{$svg}: $c-text-black; }
+    }
+  }
+}
+
+@mixin link-hover-blue($svg: false) {
+  @content;
+  @include hover {
+    color: $c-blue;
+    @if ($svg) {
+      @include svg { #{$svg}: $c-blue; }
+    }
+  }
+}
+
+@mixin link-hover-issue {
+
+  @include link-hover-blue {
+    @content;
+  }
+
+  @each $i in $issues {
+    .issue-#{$i} & {
+      @include hover {
+        color: issue-color($i);
+      }
+    }
+  }
+}
+
+@mixin link-color-issue {
+  color: $c-blue;
+  @each $i in $issues {
+    .issue-#{$i} & {
+      color: issue-color($i);
+    }
+  }
+
+  @include hover {
+    color: $c-text-black;
+  }
+}
+
+@mixin link-color-issue-self {
+  color: $c-blue;
+
+  @each $i in $issues {
+    &.issue-#{$i} {
+      color: issue-color($i);
+    }
+  }
+
+  @include hover {
+    color: $c-text-black;
+  }
+}

@@ -1,0 +1,139 @@
+// Lines
+.table {
+  thead > * {
+    border-bottom: divider();
+  }
+}
+
+.table.hor {
+  tr + tr > * {
+    border-top: divider();
+  }
+  tbody > tr > th:first-child {
+    border-right: divider();
+  }
+  tbody > tr > th:last-child {
+    border-left: divider();
+  }
+}
+
+.table.ver {
+  tbody > tr > * + *,
+  thead > tr > * + * {
+    border-left: divider();
+  }
+}
+
+.table thead > tr:first-child > :empty {
+  background: none;
+  border-top: none;
+  &:first-child { border-left: none; border-right: divider(); }
+  &:last-child  { border-right: none; border-left: divider(); }
+}
+
+.table {
+  width: 100%;
+  font-size: .8em;
+  font-weight: weight(regular);
+
+  $radius: 6px;
+
+  > tbody > tr:last-child > *,
+  > tr:last-child > * {
+    border-bottom: divider();
+  }
+
+  > thead:first-child > * > *,
+  > tbody:first-child > * > *,
+  > tr:first-child > * {
+    border-top: divider();
+  }
+
+  // left and right border
+  > tbody > tr,
+  > thead > tr,
+  > tr {
+    > *:first-child { border-left: divider(); }
+    > *:last-child  { border-right: divider(); }
+  }
+
+  th, td {
+    padding: .5rem .7rem;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  td, th {
+    color: $c-text-gray;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  thead th,
+  tbody > tr > th, {
+    font-weight: weight(bold);
+    color: $c-text-black;
+    font-size: 1.1em;
+    background-color: $c-bg-gray;
+  }
+
+  tbody > tr > th:first-child,
+  tbody > tr > th:last-child {
+    text-align: left;
+  }
+
+  thead th {
+    text-align: center;
+    background-color: $c-bg-gray;
+  }
+
+  > thead.outside > tr > * {
+    background: none;
+    border: none;
+    @extend .t-sc;
+    font-size: 1em;
+  }
+
+  > thead.white > tr > * {
+    background: none;
+  }
+
+  tbody > tr.subhead > th {
+    border-top: divider();
+    border-bottom: divider();
+    text-align: center;
+  }
+
+  tbody > tr.lined > * {
+    border-top: divider();
+    border-bottom: divider();
+  }
+
+  .price {
+    color: $c-blue;
+    font-weight: weight(semibold);
+    font-size: 1.6em;
+
+    .currency {
+      font-weight: weight(regular);
+      opacity: .5;
+      padding-right: .15em;
+    }
+  }
+
+  strong {
+    font-weight: weight(medium);
+    color: $c-text-black;
+  }
+
+  small {
+    @extend .t-sc;
+    font-weight: weight(regular);
+    color: $c-text-faint;
+  }
+
+  small {
+    display: block;
+  }
+
+}

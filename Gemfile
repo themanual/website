@@ -15,6 +15,7 @@ gem "bower-rails", "~> 0.6.1"
 
 gem 'cssminify' # replaces 'yui-compressor'
 gem 'sprockets-image_compressor'
+gem 'autoprefixer-rails'
 
 gem 'kramdown'
 
@@ -62,7 +63,9 @@ group :development do
   gem 'meta_request'
   gem 'debugger'
   gem 'sqlite3'
+  gem 'guard-pow', require: false
   gem 'guard-livereload'
+  gem 'terminal-notifier-guard', require: false
   gem 'quiet_assets'
   gem 'dotenv-rails'
 end

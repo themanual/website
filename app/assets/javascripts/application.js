@@ -14,12 +14,7 @@
 //  jQuery Plugins
 //= require jquery.easing/js/jquery.easing
 //= require jquery.scrollTo/jquery.scrollTo
-//= require fitvids/jquery.fitvids
 //= require jquery-loadingdots/jquery.loadingdots
-//= require chosen-jquery
-//
-//  Bootstrap Components
-//= require bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip
 //
 //  Custom code
 //= require_tree  ./base/extensions

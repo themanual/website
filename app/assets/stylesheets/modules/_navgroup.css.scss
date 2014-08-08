@@ -1,0 +1,62 @@
+.navgroup-title {
+  @extend .t-sc;
+  color: $c-text-body;
+  font-weight: weight(medium);
+  line-height: 1.1;
+  margin-bottom: .2em;
+}
+
+.navgroup-items {
+  $link-pad: .2em;
+  line-height: 1.1;
+  color: $c-text-faint;
+
+  ul {
+    padding-left: .5em;
+  }
+
+  li > *:first-child {
+    display: block;
+    @include padding-v($link-pad);
+  }
+
+  .soon {
+    cursor: not-allowed;
+    > *:first-child { text-decoration: line-through; }
+    .tag { background-color: $c-text-faint; }
+  }
+
+  a {
+
+    &.current {
+      position: relative;
+      font-weight: weight(medium);
+      color: $c-text-gray;
+      &:before {
+        content: "▸";
+        position: absolute;
+        display: block;
+        text-align: center;
+        @include spacing(width, 1);
+        @include spacing(left, -1);
+        top: em(2);
+      }
+    }
+
+    @include link-hover-blue { color: $c-text-caption; }
+
+    @include color-by-issue-self(color) {
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}
+
+.navgroup-items + .navgroup-title {
+  margin-top: 2em;
+}
+
+.navgroup-items + .navgroup-items {
+  margin-top: 1em;
+}

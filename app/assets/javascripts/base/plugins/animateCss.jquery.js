@@ -5,7 +5,7 @@
         .addClass("animated "+animation)
         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
           $(this).removeClass(animation);
-          if (typeof onEndCallback === 'function') { onEndCallback(); }
+          if (typeof onEndCallback === 'function') { onEndCallback.apply(this); }
         });
     });
   }

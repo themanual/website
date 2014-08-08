@@ -1,0 +1,177 @@
+.field        { margin-top: 1.5em; }
+.field-close  { margin-top: .5em; }
+
+.form > div:first-child + .field,
+.form > .field:first-child {
+  margin-top: 0;
+}
+
+label, input, textarea, select,
+.label, .value {
+  font-family: $type-sans;
+  font-size: 1em;
+  max-width: 100%;
+}
+
+%label {
+  @extend .t-sc;
+  display: block;
+  font-weight: weight(medium);
+  line-height: 1.2;
+  color: $c-text-body;
+}
+
+%input-border {
+  border-color: $c-divider-darker;
+
+  &[disabled],
+  &.disabled,
+  &.value         { border-color: transparent; }
+
+  &.invalid,
+  &.invalid:focus { border-color: $c-field-invalid; }
+
+  &.valid:focus   { border-color: $c-field-valid; }
+
+  &:focus         { outline: none;  border-color: black; }
+}
+
+%input-text {
+  appearance: none;
+  transition: border-color .1s ease-in-out;
+  @include rem(font-size, 17px);
+
+  display: inline-block;
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+  padding: .3em 0;
+  line-height: normal;
+  color: $c-text-black;
+
+  border-radius: 0;
+  border-width: 0;
+  border-style: none;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  @extend %input-border;
+
+  &.is-s {
+    width: 10em;
+  }
+
+  &.is-m {
+    width: 20em;
+  }
+
+  &.is-l {
+    width: 30em;
+  }
+}
+
+select {
+  background-color: white;
+  border-width: 1px;
+  border-style: solid;
+  @extend %input-border;
+}
+
+%textarea {
+  @extend %input-text;
+  border: 1px solid darken($c-divider, 5%);
+  padding: .3em;
+}
+
+.label-note {
+  @include rem(font-size, 15px);
+  display: block;
+  line-height: 1.4;
+  color: $c-text-caption;
+  padding-top: .25em;
+  label + & { padding-top: 0;  }
+}
+
+input, textarea {
+  @include placeholder {
+    color: darken($c-divider, 10%);
+    font-weight: weight(light);
+  }
+}
+
+//
+// Radio Buttons and Checkboxes
+//
+
+
+.checkradio {
+  font-family: $type-sans;
+  @include rem(font-size, 16px);
+  @include rem(margin-top, .5rem);
+
+  input {
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+
+    &[type="checkbox"] {
+      margin-top: 0.15em;
+    }
+
+    &[type="radio"] {
+      margin-top: 0.1em;
+    }
+  }
+
+  label {
+    display: block;
+    overflow: hidden;
+    line-height: 1.2;
+    color: $c-text-caption;
+    strong { font-weight: weight(medium); }
+  }
+}
+
+
+
+
+
+
+//
+// Apply styles to .field descendants
+//
+
+.field {
+
+  @include clearfix;
+
+  dt {
+    margin-bottom: .25em;
+    label { @extend %label; }
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="url"],
+  input[type="number"],
+  input[type="search"] {
+    @extend %input-text;
+  }
+
+  select {
+    width: 100%;
+    margin-top: .5em;
+  }
+
+  textarea {
+    @extend %textarea;
+  }
+
+  .value { @extend %input-text; }
+}
+
+.label    { @extend %label; }
+.input    { @extend %input-text; }
+.textarea { @extend %textarea; }

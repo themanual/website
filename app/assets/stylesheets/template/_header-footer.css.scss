@@ -1,0 +1,125 @@
+$bar-pad:       1.1em;
+$bar-icon:      1.75em;
+$bar-logo-size: 5em;
+
+.bar {
+  color: $c-text-caption;
+  @include svg { stroke: $c-icon-gray; }
+
+  line-height: 1;
+  @include spacing(padding-left padding-right);
+
+  a.current {
+    color: $c-text-black;
+    @include svg { stroke: $c-text-gray; }
+    font-weight: weight(medium);
+  }
+
+  a {
+    @include link-hover-blue(stroke) {
+      color: $c-text-gray;
+      @include svg { stroke: $c-icon-gray; }
+    }
+  }
+
+  .bg-colored & {
+    color: rgba(black, .75);
+    @include svg { stroke: rgba(black, .6); }
+    border-color: rgba(black, .15);
+
+    a {
+      @include link-hover-white(stroke) {
+        color: rgba(black, .75);
+        stroke: rgba(black, .6);
+      }
+    }
+
+    .nav-popover a { @include link-hover-blue(stroke) { color: $c-text-caption; } }
+  }
+}
+
+.header-bar {
+  border-bottom: divider();
+  .bg-colored & { margin-bottom: 0; }
+}
+.footer-bar {
+  border-top: divider();
+}
+
+.bar > * { @include outer-container; @include row; }
+.bar nav > ul { float: left; @include clearfix; }
+.bar nav > ul + ul { float: right; }
+.bar nav > ul > li { float: left; }
+
+.bar > * > nav > ul > li > a,
+.bar > * > p {
+  display: block;
+  @include padding-v($bar-pad);
+}
+
+.header-bar-logo {
+  float: left;
+  position: relative;
+
+  > a {
+    position: absolute;
+    top: 0; left: 0;
+
+    width: $bar-logo-size;
+    height: $bar-logo-size;
+
+    background: black;
+    @include hover { background: $c-blue; }
+
+    text-indent: -9999em;
+    font-weight: weight(medium);
+  }
+}
+
+.header-bar > * > nav {
+
+  // sidebar + gutter - tab padding (compensate)
+  margin-left: $sidebar-width + $sidebar-gutter;
+
+  > ul:first-child > li:first-child > a {
+    margin-left: ($bar-pad * -1);
+  }
+
+  > ul > li > a {
+    @include padding-h($bar-pad);
+    font-size: 1.1em;
+    &.current {
+      font-weight: weight(bold);
+    }
+  }
+
+  // Popover links
+  .nav-popover a {
+    padding: .75em;
+    display: block;
+  }
+
+  .icon {
+
+    > a {
+      @include padding-v(($bar-pad * 2 + 1em - $bar-icon) / 2);
+      @include padding-h(0);
+    }
+    .nav-popover:before {
+      right: $bar-icon / 2;
+      margin-right: -1 * $popover-tip-width / 2;
+    }
+
+    .icon-text {
+      @extend %visuallyhidden;
+    }
+
+    svg {
+      display: block !important;
+      width: $bar-icon;
+      height: $bar-icon;
+    }
+
+  }
+
+}

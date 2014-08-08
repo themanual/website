@@ -5,67 +5,34 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <%= csrf_meta_tags %>
-
-  <%# Title and Meta %>
-  <title><%= @page_title.join(' · ') + ' · ' if @page_title.any? %>The Manual</title>
-  <%= yield(:meta) %>
-
-  <%# JS %>
-  <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
-  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
-
-  <script type="text/javascript" src="//use.typekit.net/zve6rgt.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-  <%# CSS %>
+  <%= render partial: "shared/layout/head" %>
   <%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
-
 </head>
-<body lang="en" class="preload">
+<body lang="en" class="<%= yield (:class_body) %>">
 
-  <header class="header l-pad-x"><div class="l-grid">
-    <h1 class="header-logo"><a href="<%= root_url %>"><!--The Manual--></a></h1>
-    <!-- <button class="header-button">Show/Hide Menu</button> -->
-    <nav class="header-nav">
-      <li><%= link_to "Read", issues_path %></li>
-      <li><%= link_to "Subscribe", subscribe_path %></li>
-      <li><%= user_signed_in? ? link_to("Log out", destroy_user_session_path) : link_to("Log in", new_user_session_path) %></li>
+  <%= render partial: "shared/layout/header" %>
+
+  <section id="content" class="l-section-x"><div>
+
+    <%- if @page_title.any? %>
+    <header class="page-header">
+      <h1><%= @page_title.first %></h1>
+    </header>
+    <% end %>
+
+    <%- if page_namespace.in?(%w(read store about)) %>
+    <nav class="sidebar">
+      <%= render partial: "shared/nav/#{page_namespace}" %>
     </nav>
-  </div></header>
+    <%- end %>
 
-  <%= yield %>
+    <main role="main" class="<%= yield (:class_main) %>">
+      <%= yield %>
+    </main>
 
-  <footer class="site-footer l-pad"><div class="l-grid l-stacked-l">
+  </div></section>
 
-      <section class="l-col-l-6">
-        <p><strong>The Manual</strong> is a publication on web design as a discipline, capturing the voices of the profession as they explore what we do and who we are as designers. The Manual is published three times per year, in both print and digital editions, excluslively online.</p>
-      </section>
-
-      <section class="l-col-s-4 l-col-l-2">
-        <ul>
-          <li><a href="mailto:hi@alwaysreadthemanual.com">Email</a></li>
-          <li><a href="https://twitter.com/themanual">Twitter</a></li>
-          <li><a href="http://buy.alwaysreadthemanual.com">Store</a></li>
-        </ul>
-      </section>
-
-      <section class="l-col-s-8 l-col-l-4 site-footer-sponsor">
-        <a href="#" class="banner">
-          <%= image_tag 'http://placehold.it/240x180', size: '120x90' %>
-        </a>
-        <div>
-          <p><strong>Sponsorship</strong></p>
-          <p>Well-written and interesting sponsorship message from someone. <a href="#">Try it now.</a></p>
-        </div>
-      </section>
-
-
-  </div></footer>
+  <%= render partial: "shared/layout/footer" %>
 
   <%= javascript_include_tag :application, :debug => Rails.env.development? %>
   <%= yield :footer %>

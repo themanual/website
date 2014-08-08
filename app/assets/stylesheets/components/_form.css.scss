@@ -1,0 +1,11 @@
+.form-section + .form-section,
+* + .form-heading {
+  @include spacing(margin-top, 2);
+}
+
+.form-actions {
+  margin-top: 2em;
+  font-weight: weight(medium);
+  vertical-align: middle;
+  .button { margin-right: .3em; }
+}

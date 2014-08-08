@@ -1,0 +1,64 @@
+// Layout
+.piece-unit {
+  @include clearfix;
+}
+
+.piece-unit-illo {
+  float: left;
+  width: 8em;
+  margin-right: .5em;
+  + * {
+    overflow: hidden;
+    margin-top: 1em;
+  }
+}
+
+.piece-unit-entry + .piece-unit-entry {
+  margin-top: 1.2em;
+}
+
+.piece-unit-author {
+  @extend .t-sc;
+  color: $c-text-caption;
+  @include rem(margin-bottom, .7rem);
+}
+
+.piece-unit-title {
+  @extend .h-bigger;
+}
+
+.piece-unit-title a,
+.piece-unit-silo  a {
+  @include link-color-issue;
+}
+
+.piece-unit-synopsis {
+  @include rem(font-size, 21px);
+  font-family: $type-serif;
+  font-weight: weight(medium);
+  line-height: 1.25;
+  margin-top: .1em;
+  color: $c-text-body;
+  max-width: 28em;
+  &.is-short  { max-width: 21em; }
+  &.is-wide   { max-width: none; }
+}
+
+.piece-unit-metadata {
+  color: $c-text-faint;
+  line-height: 1.2;
+  margin-top: .6em;
+  .piece-unit-entry & {
+    margin-top: .35em;
+  }
+}
+
+.piece-unit-topics a {
+  @include link-hover-black { color: $c-text-gray; }
+}
+
+.piece-unit-metadata > * + *:before {
+  content: "\00b7\00a0";
+  display: inline-block;
+  @include padding-h(.3em);
+}

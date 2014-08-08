@@ -67,4 +67,26 @@ class HomeController < ApplicationController
       render json: {status: 'error'}
     end
   end
+
+  def staffpicks
+  end
+
+  def popular
+  end
+
+  def index
+    @issue = Issue.where(number: 3).first
+    @pieces = Article.all.sample(3)
+    render layout: "plain"
+  end
+
+  def cart
+    @latest = Issue.latest
+    @tier = params[:tier]
+    @tier ||= 'print'
+    @user = User.new
+    @address = Address.new
+    render layout: "payment"
+  end
+
 end

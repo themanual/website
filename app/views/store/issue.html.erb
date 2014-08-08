@@ -1,0 +1,80 @@
+<% title "Issue #{@issue.number}" %>
+
+<figure class="l-m-b">
+  <img src="http://placehold.it/1200x800/E6E6E6/FFFFFF" alt="">
+</figure>
+
+<aside class="l-m-y l-row">
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+  <figure class="l-col-2"><img src="http://placehold.it/300x200/E6E6E6/FFFFFF" alt=""></figure>
+</aside>
+
+<section class="l-row issue-<%= @issue.number %> c-issue">
+
+  <div class="l-m-y l-col-7 text">
+    <div class="t-big l-m-b">
+      <p>Six articles and six lessons written by <%= @issue.authors.map(&:name).to_sentence %>. <%= link_to "Read online.", issue_path(issue: @issue.number) %></p>
+      <p>Print and Ebook editions are illustrated by <%= @issue.articles.map(&:illustrator).to_sentence %>.</p>
+    </div>
+    <h4>Specifications</h4>
+    <ul class="loose">
+      <li>Custom-designed Ebook with article illustrations. <a href="#">Download a sample.</a></li>
+      <li>Audiobook narrated by [REDACTED]. <a href="#">Listen to a sample.</a></li>
+      <li>Print edition comes in a A5 hardback format, designed by Jez Burrows, printed on in 96 high-quality 140gsm A5 uncoated pages, and contains a center spread illustration by Janette Doe. <strong>Shipping paid separately.</strong></li>
+    </ul>
+  </div>
+
+  <div class="l-m-y l-col-4 l-shift-1 buy with-border with-bg">
+    <h3 class="buy-title">Add to Cart</h3>
+    <div class="buy-item">
+      <div class="buy-item-text">
+        <h4 class="buy-item-name">Ebook</h4>
+      </div>
+      <div class="buy-item-action">
+        <a class="button price-heavy" href="#">
+          <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+        </a>
+      </div>
+    </div>
+    <div class="buy-item">
+      <div class="buy-item-text">
+        <h4 class="buy-item-name">Audiobook</h4>
+      </div>
+      <div class="buy-item-action">
+        <a class="button price-heavy" href="#">
+          <span class="symbol">+</span><span class="currency">$</span><span class="value">10</span>
+        </a>
+      </div>
+    </div>
+    <div class="buy-item">
+      <div class="buy-item-text">
+        <h4 class="buy-item-name">Print &amp; Ebook</h4>
+      </div>
+      <div class="buy-item-action">
+        <a class="button price-heavy" href="#">
+          <span class="symbol">+</span><span class="currency">$</span><span class="value">25</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer class="l-m-t l-p-y l-row l-line-t text issue-<%= @issue.number %> c-issue">
+  <div class="l-col-third" id="fn:shipping">
+    <h6>Shipping</h6>
+    <p data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
+  </div>
+  <div class="l-col-third">
+    <h6>Digital Formats</h6>
+    <p>All files DRM-free. Ebooks in ePub, Mobi, and PDF. Audiobooks in MP3, and M4B.</p>
+  </div>
+  <div class="l-col-third">
+    <h6>Bulk Orders</h6>
+    <p>We offer bulk discounts. Interested in 20+ issues in any format? <a href="mailto:hi@alwaysreadthemanual.com">Email us.</a></p>
+  </div>
+</footer>

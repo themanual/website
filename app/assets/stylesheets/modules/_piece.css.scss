@@ -1,0 +1,274 @@
+//
+// 1. LAYOUT
+// ---------------------------------------------------
+
+.piece.is-article {
+  @include media-from($bp-l) {
+    .piece-header {
+      @include row;
+    }
+
+    .piece-header-illustration,
+    .piece-header-text {
+      @include span-columns(6);
+    }
+
+    .piece-header-illustration {
+      @include clearfix;
+
+      figure {
+        float: right;
+        @include clearfix;
+        @include rem(max-width, 27rem);
+      }
+    }
+  }
+}
+
+.piece-header-text {
+  @include media-upto($bp-l) {
+    text-align: center;
+    > * { @include centered; }
+  }
+
+  @include media-from($bp-l) {
+    margin-top: 16%;
+  }
+  .is-lesson & {
+    @include spacing(margin-top margin-bottom, 2.5);
+  }
+}
+
+.piece-body {
+  @include spacing(margin-bottom, 2);
+  .footnotes { @include spacing(margin-top, 1.5); }
+}
+
+.piece-footer {
+  @include spacing(margin-top margin-bottom, 2.5);
+}
+
+.piece-header-illustration img {
+  @include media-upto($bp-l)  { max-height: 28em; }
+  @include media-upto($bp-m)  { max-height: 24em; }
+  @include media-upto($bp-s)  { max-height: 20em; }
+}
+
+.piece.is-lesson .piece-header-text {
+  @extend .l-reading;
+  text-align: center;
+  > * { @include centered; }
+}
+
+.piece-footer-portrait {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
+  width: 8em;
+  + * { overflow: hidden; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// 2. STYLING
+// ---------------------------------------------------
+
+.piece a {
+  @include link-color-issue;
+}
+
+.piece-header-author {
+  font-size: 1.1em;
+  color: $c-text-caption;
+}
+
+.piece-header-title {
+  @extend .h-huge;
+  line-height: 1;
+}
+
+.piece-header-synopsis {
+  font-family: $type-serif;
+  font-weight: weight(medium);
+  color: $c-text-body;
+  font-size: em(24, $rem-value);
+  max-width: 20em;
+  line-height: 1.25;
+  margin-top: .4em;
+}
+
+.piece-header-author {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  word-spacing: .15em;
+  margin-bottom: 1.5em;
+  color: $c-text-gray;
+}
+
+.piece-header-metadata {
+  margin-top: 1.5em;
+  color: $c-text-faint;
+}
+
+.piece-header-metadata > * + *:before {
+  content: "\00b7\00a0";
+  display: inline-block;
+  @include padding-h(.3em);
+}
+
+.piece .piece-header-topics a {
+  @include link-hover-black { color: $c-text-caption; }
+}
+
+.piece-body {
+
+  $type-size: 23px;
+  @include rem(font-size, $type-size);
+  font-family: $type-serif;
+  color: $c-text-body;
+
+  strong  { font-weight: weight(semibold); }
+  em, q   { font-style: italic; }
+
+  $line-height: 1.45;
+  $line-height-em: $line-height * 1em;
+  line-height: $line-height;
+
+  > p + p {
+    text-indent: 1em;
+    @include media-from($bp-l)  { text-indent: $line-height-em; }
+  }
+
+  blockquote {
+    padding-left: 1em;
+    @include media-from($bp-l) { @include padding-h($line-height-em); }
+  }
+
+  ul, ol {
+    padding: 1em;
+    padding-right: 0;
+    @include media-from($bp-l) { padding: $line-height-em; padding-right: 0; }
+  }
+
+  > blockquote p + p {
+    margin-top: 1em;
+  }
+
+  > h2 {
+    font-size: 1.1em;
+    font-family: $type-sans;
+    font-weight: weight(bold);
+    line-height: 1.2;
+    margin-top: 2.4em;
+    margin-bottom: .3em;
+  }
+
+  dl {
+    @include margin-v(1em);
+    dt {
+      font-weight: weight(bold);
+    }
+    dd + * {
+      margin-top: 1em;
+    }
+  }
+
+  pre {
+    @include margin-v(1em);
+    @include rem(margin-left, 1.5rem);
+    font-family: Monaco;
+    color: $c-text-body;
+    font-size: 0.7em;
+  }
+
+  blockquote {
+    @include margin-v(1em);
+
+    color: $c-text-caption;
+    border-left: solid 1px transparent;
+
+    @include color-by-issue(border-color);
+    box-sizing: border-box;
+
+    > p + p:last-child > cite:only-child {
+      display: block;
+      text-align: right;
+      font-style: normal;
+      margin-top: -0.5em;
+    }
+  }
+
+  ol { list-style-type: decimal; }
+  ul { list-style-type: square; }
+  li > p:first-child { margin-top: 0; }
+
+  sup {
+    text-indent: 0;
+    display: inline-block;
+    margin-left: .15em;
+  }
+
+  .footnote {
+    font-family: $type-sans;
+    font-weight: weight(medium);
+    vertical-align: text-top;
+    font-size: 0.6em;
+    letter-spacing: 1px;
+
+    &:target {
+      outline: none;
+    }
+  }
+
+  .footnotes {
+    font-family: $type-sans;
+    font-weight: weight(regular);
+    color: $c-text-faint;
+
+    ol {
+      font-size: 15px;
+      line-height: 1.25;
+      @include padding-v(0);
+      li + li { margin-top: .35em; }
+    }
+
+    :target {
+      font-weight: weight(medium);
+      color: $c-text-body;
+    }
+
+    hr { display: none; }
+
+    a {
+      &[href^="http"] { border-bottom: solid 1px; }
+      @include link-hover-black { color: inherit; }
+    }
+  }
+
+  .footnote-popover {
+    .reversefootnote { display: none !important; }
+    font-family: $type-sans;
+    color: $c-text-gray;
+    text-indent: 0;
+    padding: .65em .75em;
+    line-height: 1.35;
+    text-align: left;
+    @include rem(font-size, .9*$rem-base);
+  }
+
+  .footnote-popover a[href^="http"],
+  .footnotes a[href^="http"] {
+    @extend .external;
+  }
+}

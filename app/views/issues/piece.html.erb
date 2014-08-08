@@ -1,79 +1,86 @@
-<% push_page_title ["#{@piece.title}, by #{@piece.author.name}", "Issue #{@piece.issue_number}"] %>
+<% title "#{@piece.title}, by #{@piece.author.name}" %>
+<% cache @piece do %>
+<article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-section-x"><div>
 
-<main class="issue-<%= @piece.issue_number %>" role="main">
-  <% cache @piece do %>
+  <%= render 'piece_header' %>
 
-    <!-- Article -->
-    <article class="issue-piece is-<%= @piece.type.downcase %>"><div class="l-wrapper">
+  <div class="piece-body l-reading">
+    <%=raw Kramdown::Document.new(@piece.body).to_html %>
+  </div>
 
-      <%= render 'piece_header' %>
-
-      <div class="issue-piece-text">
-        <%=raw Kramdown::Document.new(@piece.body).to_html %>
-      </div>
-
-      <%= render 'piece_footer' %>
-    </div></article>
-
-    <aside class="issue-pagination l-divider"><div>
-      <ul class="issue-pagination-list">
-        <li class="issue-pagination-item is-previous">
-        <% if (prev_article = @piece.prev) %>
-          <a href="<%= prev_article.path %>">
-            <h2><%= prev_article.author.name %></h2>
-            <p><strong class="piece-title"><%= prev_article.title %></strong></p>
-          </a>
+  <footer class="piece-footer l-reading">
+    <figure class="piece-footer-portrait">
+      <%= portrait_tag(@piece) %>
+    </figure>
+    <div class="text">
+      <p><%= raw @piece.author.bio %></p>
+      <p>
+        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
+          Read Next: <%= @piece.author.name.given_name.possessive %> <%= @companion.type %>
         <% end %>
-        </li>
+      </p>
+    </div>
+  </footer>
 
-        <li class="issue-pagination-item is-current">
-          <a class="issue-<%= @piece.issue_number %>" href="<%= issue_url @piece.issue_number %>">
-            <h2>Browse Issue&nbsp;<%= @piece.issue_number %></h2>
-          </a>
-        </li>
+</div></article>
+<% end %>
 
-
-        <li class="issue-pagination-item is-next">
-        <% if (next_article = @piece.next) %>
-          <a href="<%= next_article.path %>">
-            <h2><%= next_article.author.name %></h2>
-            <p><strong class="piece-title"><%= next_article.title %></strong></p>
-          </a>
-        <% end %>
-        </li>
-
+<aside class="l-section-x"><div>
+  <section class="l-line-t l-p-y l-col-3 issue-<%= @piece.issue_number %> c-issue">
+    <h2 class="box-title">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
+    <div class="text">
+      <ul class="plain">
+      <% @piece.issue.authors.each do |author| %>
+        <%= content_tag :li, author.name, class: ('marker-arrow' if author == @piece.author) %>
+      <% end %>
       </ul>
-    </div></aside>
-  <% end %>
+      <p><%= link_to "Browse Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></p>
+    </div>
+  </section>
+  <section class="l-line-t l-p-y l-col-3">
+    <h2 class="box-title">Related Topics</h2>
+    <div class="text">
+      <ul class="plain double">
+        <li>
+          <h5><a href="#">Culture</a></h5>
+          <p><strong>4</strong> Pieces</p>
+        </li>
+        <li>
+          <h5><a href="#">History</a></h5>
+          <p><strong>7</strong> Pieces</p>
+        </li>
+        <li>
+          <h5><a href="#">Process</a></h5>
+          <p><strong>8</strong> Pieces</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="l-line-t l-p-y l-col-6">
+    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended.issue_number}" %></h2>
+    <div>
+    <%= render :partial => 'shared/units/piece', :object  => @recommended %>
+    </div>
+  </section>
+</div></aside>
 
-  <% cache [@piece, :random], expires_in: 300.ish do %>
-    <aside class="l-pad"><div class="l-grid">
+<aside class="support bg-gray l-line-t"><div>
+  <div class="l-col-4">
+    <figure>
+      <%= image_tag "ui/big-devices.png" %>
+    </figure>
+  </div>
+  <div class="l-col-8 text t-big">
+    <h4>This piece is available for free thanks to our supporters.</h4>
+    <p>We’re a <a href="#">100% independent publication</a>, and rely on our readers’ support to continue publishing online for free. <strong>If you liked this piece, please consider supporting us.</strong></p>
+    <p>
+      <button class="button is-large">Buy this Issue</button>
+      <button class="button is-large">Subscribe to The Manual</button> or
+      <a href="#">browse the shop.</a>
+    </p>
+  </div>
+</div></aside>
 
-    <!-- <div class="box-group l-col-half"> -->
-
-      <section class="box l-col-half">
-        <h2 class="box-title">
-          Read something from <a href="/issues/<%= @piece.random.issue_number %>" class="issue-<%= @piece.random.issue_number %>">Issue <%= @piece.random.issue_number %></a>
-        </h2>
-        <%= render 'featured_piece', featured: @piece.random %>
-      </section>
-
-      <section class="box l-col-half">
-        <h2 class="box-title">
-          <a class="color-issue" href="<%= issue_url(@piece.issue_number) %>">Buy this issue</a> and support The Manual
-        </h2>
-
-        <div class="issuebuy">
-          <figure class="issuebuy-figure">
-            <%= image_tag "ui/devices-#{@piece.issue_number}.png" %>
-          </figure>
-          <%= render 'issue_buy_options', sub: false, issue: @piece.issue %>
-        </div>
-      </section>
-
-    <!-- </div> -->
-
-    </div></aside>
-  <% end %>
-
-</main>
+<% content_for :footer do %>
+<script>$(function() { $('.piece-body').footnotes(); });</script>
+<% end %>

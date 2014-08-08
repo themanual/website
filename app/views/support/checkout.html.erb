@@ -1,11 +1,11 @@
 <% include_payment_assets %>
 
 <main>
-  <header class="l-divider-bottom"><div class="l-col l-pad-x-yy text">
+  <header class="l-line-b bg-gray"><div class="l-singlecol l-p-xyy text">
     <h1>Subscription Payment</h1>
   </div></header>
 
-  <section class="l-col l-pad-x-yy">
+  <section class="l-singlecol l-p-xyy">
     <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
       <input type="hidden" name="stripe_token" value="" />
       <!-- HIDDEN FIELD FOR NOW - MR -->
@@ -19,12 +19,12 @@
         <div class="l-units">
 
           <div class="l-unit-s-half">
-            <dl class="field l-units">
-              <dt class="l-unit-fill"><%= f.label :first_name, 'Name' %></dt>
-              <dd class="l-unit-half">
+            <dl class="field">
+              <dt><%= f.label :first_name, 'Name' %></dt>
+              <dd class="field-half">
                 <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true, autofocus: true %>
               </dd>
-              <dd class="l-unit-half">
+              <dd class="field-half">
                 <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true, autofocus: true %>
               </dd>
             </dl>
@@ -48,7 +48,7 @@
             <small class="label-note">You may include company or office name</small>
           </dt>
           <dd>
-            <%= a.text_area :lines, required: true, class: 'is-long noresize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
+            <%= a.text_area :lines, required: true, class: 'is-long no-resize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
           </dd>
         </dl>
 
@@ -143,7 +143,7 @@
             <input type="radio" name="user-start" id="user-start-next" />
             <label for="user-start-next">
               <strong>Issue <%= @latest.next.number %></strong>, which you’ll get in <%= due_on @latest.next %>
-              <small class="label-note">We’ll only charge you again in <%= due_on @latest.next.next %> for Issue <%= @latest.next.next.number %></small>
+              <small class="label-note">We’ll charge you again in <%= due_on @latest.next.next %> for Issue <%= @latest.next.next.number %></small>
             </label>
           </dd>
         </dl>

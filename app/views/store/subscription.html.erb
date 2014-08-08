@@ -1,0 +1,141 @@
+<% title "Subscription" %>
+
+<section class="l-line-t l-p-y text">
+  <p class="h-sc">What’s included</p>
+  <ul class="plain looser">
+    <li>
+      <figure class="l-media-r">
+        <img src="http://placehold.it/100x100" alt="" width="50" height="50" />
+      </figure>
+      <div>
+        <h4 class="unspaced">Three Issues per Year</h4>
+        <p class="t-big">Subscribe for a year and <strong class="highlight">get the next three issues</strong> — 5, 6, 7 — in the editions of your choice.</p>
+      </div>
+    </li>
+    <li>
+      <figure class="l-media-r">
+        <img src="http://placehold.it/100x100" alt="" width="50" height="50" />
+      </figure>
+      <div>
+        <h4 class="unspaced">Exclusive Early Access</h4>
+        <p class="t-big">All subscribers get online and ebook editions <strong class="highlight">one month ahead</strong> of their public release.</p>
+      </div>
+    </li>
+    <li>
+      <figure class="l-media-r">
+        <img src="http://placehold.it/100x100" alt="" width="50" height="50" />
+      </figure>
+      <div>
+        <h4 class="unspaced">Support Independence</h4>
+        <p class="t-big">By becoming a subscriber <strong class="highlight">you’re supporting</strong> our continuous publication. Thank you.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+<section class="l-line-t l-p-y text l-row">
+  <p class="h-sc">Available In</p>
+  <ul class="plain looser">
+    <li>
+      <figure class="l-media-r"><img src="http://placehold.it/100x100" width="50" height="50" alt=""></figure>
+      <div>
+        <h4 class="unspaced">Ebook Edition</h4>
+        <p>Custom-designed Ebook with article illustrations, that reads great on all major ebook readers. <a href="#">Download a sample.</a></p>
+      </div>
+    </li>
+    <li>
+      <figure class="l-media-r"><img src="http://placehold.it/100x100" width="50" height="50" alt=""></figure>
+      <div>
+        <h4 class="unspaced">Audiobook Edition</h4>
+        <p>High-quality recording compatible with all major players. Issues 5 and 6 narrated by [REDACTED], Issue 7 narrator TBA. <a href="#">Listen to a sample.</a></p>
+      </div>
+    </li>
+    <li>
+      <figure class="l-media-r"><img src="http://placehold.it/100x100" width="50" height="50" alt=""></figure>
+      <div>
+        <h4 class="unspaced">Print Edition</h4>
+        <p>Printed in a beautiful A5 foil-stamped hardcover, with an exclusive center spread illustration. Issues 5 and 6 designed by Frank Chimero, Issue 7 designer TBA.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+<section class="l-line-t l-p-y text">
+  <p class="h-sc">Pick a Subscription</p>
+  <ul class="plain unspaced l-row">
+    <li class="l-col-fourth">
+      <h4>Ebook</h4>
+      <ul class="plain">
+        <li>Ebook</li>
+        <li><del>Audiobook</del></li>
+        <li><del>Print</del></li>
+      </ul>
+      <p><a href="#" class="button">+ $25</a> <span class="t-sc-light">/ year</span></p>
+    </li>
+    <li class="l-col-fourth">
+      <h4>Audio</h4>
+      <ul class="plain">
+        <li>Ebook</li>
+        <li>Audiobook</li>
+        <li><del>Print</del></li>
+      </ul>
+      <p><a href="#" class="button">+ $40</a> <span class="t-sc-light">/ year</span></p>
+    </li>
+    <li class="l-col-fourth">
+      <h4>Print</h4>
+      <ul class="plain">
+        <li>Ebook</li>
+        <li><del>Audiobook</del></li>
+        <li>Print</li>
+      </ul>
+      <p><a href="#" class="button">+ $65</a> <span class="t-sc-light">/ year</span></p>
+    </li>
+    <li class="l-col-fourth">
+      <h4>All Editions</h4>
+      <ul class="plain">
+        <li>Ebook</li>
+        <li>Audiobook</li>
+        <li>Print</li>
+      </ul>
+      <p><a href="#" class="button">+ $80</a> <span class="t-sc-light">/ year</span></p>
+    </li>
+  </ul>
+</section>
+
+<footer class="l-p-y l-row l-line-t text">
+  <div class="l-col-third" id="fn:shipping">
+    <h5>Shipping</h5>
+    <p class="unspaced" data-shipping="message">Shipping costs depend on shipping address and will be calculated at checkout.</p>
+  </div>
+  <div class="l-col-third">
+    <h5>Digital Formats</h5>
+    <p class="unspaced">Ebooks: DRM-Free ePub, Mobi, and PDF.</p>
+    <p class="unspaced">Audiobooks: DRM-Free MP3 and M4B.</p>
+  </div>
+  <div class="l-col-third">
+    <h5>Bulk Orders</h5>
+    <p class="unspaced">We offer bulk discounts. Interested in 20+ issues in any format? <a href="mailto:hi@alwaysreadthemanual.com">Email us.</a></p>
+  </div>
+</footer>
+
+<% content_for :footer do %>
+<script>$(function() {
+
+  var updateSubscriptionTotal = function($form) {
+    var total = 0;
+    var shipping = false;
+    $form.find('input[data-price]:checked').each(function(index, el) {
+      $this = $(this);
+      total += parseInt($this.data('price'));
+      if ($this.data('shipping')) { shipping = true; }
+    });
+    $("#subscription-total").html(prefixCurrency(total)).animatecss('flash');
+    $("#subscription-shipping").toggle(shipping);
+  };
+
+  $form = $("#subscription-form");
+  $form.find('input[data-price]').change(function() {
+    updateSubscriptionTotal($form);
+  });
+  updateSubscriptionTotal($form);
+
+});</script>
+<% end %>

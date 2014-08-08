@@ -1,0 +1,38 @@
+.bg-colored { @include color-by-issue-self(background); }
+.bg-gray    { background-color: $c-bg-gray; }
+.bg-white   { background-color: white; }
+
+.no-resize { resize: none; }
+
+.highlight {
+  display: inline;
+  background-color: $c-highlight;
+  color: $c-text-black;
+  > * { color: black !important; }
+}
+
+.footnote {
+  vertical-align: text-top;
+  font-size: 0.8em;
+  padding-left: 0.2em;
+  letter-spacing: 1px;
+  font-weight: weight(bold);
+
+  &:target {
+    outline: none;
+  }
+}
+
+.marker-arrow {
+  position: relative;
+  font-weight: weight(medium);
+  &:before {
+    content: "▸";
+    position: absolute;
+    display: block;
+    text-align: center;
+    @include spacing(width, 1);
+    @include spacing(left, -1);
+    top: em(0);
+  }
+}

@@ -1,0 +1,36 @@
+%banner {
+  display: block;
+  padding: 1.5em 1em;
+}
+
+.solid-banner {
+  @extend %banner;
+  background-color: $c-blue;
+  &, * { color: white !important; }
+  &:hover, &:focus, &:active { background-color: black; }
+}
+
+.plain-banner {
+  @extend %banner;
+  background-color: $c-bg-gray;
+  &, * { color: $c-text-black; }
+  &:hover, &:focus, &:active {
+    &, * { color: $c-blue; }
+  }
+}
+
+.subscribe-banner {
+  @extend %banner;
+}
+
+.banner-image + .banner-text { margin-top: 1em; }
+
+.banner-text {
+  @extend .t-big;
+  line-height: 1.4;
+}
+
+.banner-title {
+  @extend .t-big;
+  font-weight: weight(bold);
+}

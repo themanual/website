@@ -4,7 +4,6 @@ class IssuesController < ApplicationController
   before_filter :check_access_to_issue, only: [:show, :piece]
 
   def index
-
   end
 
   def show
@@ -19,8 +18,10 @@ class IssuesController < ApplicationController
     author = Author.fetch_by_uniq_key!(params[:key], :slug)
 
     @piece = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: author.id).first
+    @companion = @piece.companion
+    @recommended = @piece.random
 
-    redirect_to issues_url unless @piece
+    render layout: "plain"
   end
 
   protected

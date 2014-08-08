@@ -1,0 +1,19 @@
+<div class="piece-unit issue-<%= piece.issue_number %> c-issue">
+  <figure class="piece-unit-illo">
+    <% if piece.lesson? %>
+      <%= portrait_tag(piece) %>
+    <% else %>
+      <%= illustration_tag(piece) %>
+    <% end %>
+  </figure>
+  <div class="piece-unit-text">
+    <p class="piece-unit-author"><%= piece.author.name %></p>
+    <h3 class="piece-unit-title">
+      <%= link_to piece.title, piece_url(piece.issue_number, piece.author_slug, piece.class.name.underscore) %>
+    </h3>
+    <p class="piece-unit-synopsis"><%= piece.synopsis %></p>
+    <p class="piece-unit-metadata">
+      On <%= link_to "Issue #{piece.issue_number}", issue_path(piece.issue_number), class: "c-issue" %>
+    </p>
+  </div>
+</div>

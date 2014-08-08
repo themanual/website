@@ -1,0 +1,202 @@
+<% @physical = true %>
+
+<main class="l-p-x"><div class="l-singlecol">
+
+  <header class="page-header">
+    <h1>Checkout</h1>
+  </header>
+
+  <section class="l-p-bb">
+    <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
+      <input type="hidden" name="stripe_token" value="" />
+      <!--<span class="payment-errors"></span>-->
+      <fieldset class="form-section">
+        <div class="form-heading">
+          <h2 class="h-bigger">Cart</h2>
+          <p class="h-note">Missed something? <a href="#">Browse the store.</a></p>
+        </div>
+        <ul class="cart-rows">
+          <li class="l-row">
+            <h4 class="l-col-6">
+              <strong><a href="#" target="_blank">Issue 4</a></strong> &mdash; Print &amp; Ebook
+            </h4>
+            <div class="l-col-4">
+              <button class="text-button cart-item-remove">remove</button>
+            </div>
+            <div class="l-col-2 t-r price-plain">
+              <span class="currency">$</span><span class="value">25</span>
+            </div>
+          </li>
+          <li class="l-row">
+            <h4 class="l-col-6">
+              <strong><a href="#" target="_blank">The Collection</a></strong> &mdash; Print &amp; Ebook
+            </h4>
+            <div class="l-col-4">
+              <button class="text-button cart-item-remove">remove</button>
+            </div>
+            <div class="l-col-2 t-r price-plain">
+              <span class="currency">$</span><span class="value">80</span>
+            </div>
+          </li>
+        </ul>
+        <% if @physical %>
+        <div class="cart-rows">
+          <dl class="l-row-halves">
+            <dt>Country</dt>
+            <dd class="t-r">
+              <select id="cart-shipping-country"><option value="">United States of America</option></select>
+            </dd>
+          </dl>
+          <dl class="l-row-halves">
+            <dt>Postal/ZIP Code</dt>
+            <dd class="t-r">
+              <input type="text" id="cart-shipping-post-code" class="input t-r" placeholder="123456">
+            </dd>
+          </dl>
+        </div>
+        <% end %>
+
+        <div class="cart-rows">
+          <% if @physical %>
+          <dl class="l-row">
+            <dt class="l-col-6"><strong>Shipping</strong></dt>
+            <dd class="l-col-6 price t-r"><span class="currency">$</span><span class="value">17</span></dd>
+          </dl>
+          <% end %>
+          <dl class="l-row t-strong">
+            <dt class="l-col-10 t-caps">TOTAL</dt>
+            <dd class="l-col-2 t-r price-heavy"><span class="currency">$</span><span class="value"><%= @physical ? "132" : "115" %></span></dd>
+
+          </dl>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+
+        <div class="form-heading">
+          <h2 class="h-bigger">Reader Account &amp; Payment</h2>
+          <p class="h-note">You’ll be able to log back in to read, download files and invoices.</p>
+        </div>
+
+        <div class="l-row">
+          <div class="field l-col-s-half">
+            <dl class="l-row">
+              <dt><%= f.label :first_name, 'Name' %></dt>
+              <dd class="l-col-half">
+                <%= f.text_field :first_name, class: 'is-long', placeholder: 'First', required: true %>
+              </dd>
+              <dd class="l-col-half">
+                <%= f.text_field :last_name, class: 'is-long', placeholder: 'Last', required: true %>
+              </dd>
+            </dl>
+            <small class="label-note">Can differ from credit card name</small>
+          </div>
+          <dl class="field l-col-s-half l-omega-s">
+            <dt><%= f.label :email %></dt>
+            <dd>
+              <%= f.email_field :email, class: 'is-long', placeholder: 'yourname@domain.com', required: true %>
+              <small class="label-note">Will be your reader login</small>
+            </dd>
+          </dl>
+          <dl class="field l-col-s-half">
+            <dt><label for="user_cc-number">Credit Card</label></dt>
+            <dd>
+              <input required id="user_cc-number" type="text" size="20" name="cc-number" class="cc-number is-long" autocompletetype="cc-number" placeholder="#### #### #### ####" pattern="\d*" />
+            </dd>
+          </dl>
+          <dl class="field l-col-s-fourth">
+            <dt><label for="user_cc-exp">Expiration</label></dt>
+            <dd>
+              <input id="user_cc-exp" required type="text" name="cc-exp" class="cc-exp is-long" autocompletetype="cc-exp"  placeholder="MM / YY" pattern="\d*" value="" />
+            </dd>
+          </dl>
+          <dl class="field l-col-s-fourth l-omega-s">
+            <dt><label for="user_cc-cvc">Code</label></dt>
+            <dd>
+              <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
+            </dd>
+          </dl>
+          <small class="cl-b label-note">All payment data is securely handled and stored by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a>.</small>
+        </div>
+
+      </fieldset>
+
+      <% if @physical %>
+      <fieldset class="form-section">
+        <div class="form-heading">
+          <h2 class="h-bigger">Shipping Address</h2>
+          <p class="h-note">Need a different billing address? You can do it after completing your order.</p>
+        </div>
+        <%= f.fields_for :addresses, @user.addresses.new do |a| %>
+
+        <dl class="field">
+          <dt>
+            <%= a.label :lines, 'Street, Number' %>
+            <small class="label-note">You may include company or office name</small>
+          </dt>
+          <dd>
+            <%= a.text_area :lines, required: true, class: 'is-long no-resize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
+          </dd>
+        </dl>
+
+        <div class="l-row-halves">
+          <dl class="field">
+            <dt><%= a.label :city %></dt>
+            <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
+          </dl>
+
+          <dl class="field">
+            <dt><%= a.label :region %></dt>
+            <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional', :'data-shipping-address' => 'region' %></dd>
+          </dl>
+
+          <dl class="field">
+            <dt><%= a.label :post_code %></dt>
+            <dd><%= a.text_field :post_code, class: 'is-long', required: true, :'data-shipping-address' => 'post_code' %></dd>
+          </dl>
+
+          <dl class="field">
+            <dt><%= a.label :country_id %></dt>
+            <dd class="select"><%= custom_country_select a, :country_id, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
+          </dl>
+        </div>
+        <% end %>
+      </fieldset>
+      <% end %>
+
+      <div class="form-actions">
+        <p class="t-big">
+          <button type="submit" class="button is-large" data-disable-with="Processing...">Purchase for <span class="price price-heavy"><span class="currency">$</span><span class="value"><%= @physical ? "132" : "115" %></span></span></button>
+
+        </p>
+      </div>
+    <% end %>
+  </section>
+
+  <% content_for :footer do %>
+  <script>$(function() {
+    $("a[href='#fn:shipping']").click(function() {
+      var $shipping = $("[id='fn:shipping']");
+      $.scrollTo($shipping, {
+        duration: 250,
+        onAfter: function() {
+          $shipping.animatecss('flash');
+        }
+      });
+      return false;
+    });
+
+    $.getEstimatedShippingCost({}, function(data){
+      if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
+        // Update cost
+        var cost = Number(data.response.cost).toFixed();
+        $('[data-shipping="cost"]').animatecss('flash').html(prefixCurrency(cost)+"&nbsp;");
+        // Update message
+        message = 'Shipping costs <span class="highlight">estimated for ' + data.response.ip_country_name + '.</span> Exact cost depends on shipping address and will be calculated at checkout.';
+        $('[data-shipping="message"]').animatecss('fadeIn').html(message);
+      }
+    });
+  });</script>
+  <% end %>
+
+</div></main>

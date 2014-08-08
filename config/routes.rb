@@ -7,6 +7,7 @@ TheManual::Application.routes.draw do
              :skip => [:password, :sessions, :registrations],
              :path => ''
 
+  root to: 'home#index'
 
   as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token
@@ -20,26 +21,41 @@ TheManual::Application.routes.draw do
     resources :addresses, controller: 'user/addresses', only: [:create, :destroy, :update]
   end
 
-  root to: redirect("/subscribe")
+  # READ
+  scope '/read' do
+    root                              to: redirect('/read/staffpicks'),                     as: :read
+    get '/issues',                    to: 'issues#index',                                   as: :issues
+    get '/issues/:issue',             to: 'issues#show',                                    as: :issue
+    get '/issues/:issue/:key/:type',  to: 'issues#piece',                                   as: :piece
+    get '/staffpicks',                to: 'home#staffpicks',                                as: :staffpicks
+    get '/popular',                   to: 'home#popular',                                   as: :popular
+    get '/blog',                      to: redirect("http://blog.alwaysreadthemanual.com"),  as: :blog
+  end
 
+  # STORE
+  get '/store',              to: 'store#index',        as: :shop
+  get '/store/issues',       to: 'store#issues',       as: :shop_issues
+  get '/store/subscription', to: 'store#subscription', as: :shop_subscription
+  get '/store/issue/:issue', to: 'store#issue',        as: :shop_issue
+
+  # ABOUT
+  get '/about', to: 'about#index',  as: :about
+
+  # Payment / Legacy
   resource :subscribe, controller: :support, only: [:show, :create] do
     get ':tier/thanks',   action: :thanks,   as: :thanks
     get ':tier/checkout', action: :checkout, as: :checkout
   end
 
-  get '/issues',                    to: 'issues#index',     as: :issues
-  get '/issues/:issue',             to: 'issues#show',      as: :issue
-  get '/issues/:issue/:key/:type',  to: 'issues#piece',     as: :piece
-
   post  '/buy/:permalink',          to: 'orders#update',    as: :purchase
   get   '/checkout',                to: 'orders#show',      as: :basket
-
-  # TODO move this somewhere sensible
   get   '/shipping_estimate',       to: 'home#shipping_estimate', as: :shipping
+  get   '/cart',  to: 'home#cart',    as: :cart
 
-  get '/blog', to: redirect("http://blog.alwaysreadthemanual.com")
-
-  # seo stuff
+  # SEO
   get "robots(.:format)" => 'seo#robots'
   get "sitemap(.:format)" => 'seo#sitemap'
+
+  # DEFAULT
+  get ':controller(/:action(/:id))'
 end

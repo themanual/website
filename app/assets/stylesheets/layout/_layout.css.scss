@@ -1,70 +1,112 @@
-// Spacing Mixin
-@mixin spacing($props, $times: 1) {
-  @each $prop in $props {
-    @include rem($prop, $times * 1.5rem);
-  }
-  @include media-upto($bp-s) {
-    @each $prop in $props {
-      @include rem($prop, $times * 1rem);
-    }
-  }
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  > #content { flex: 1; }
 }
 
-//
-// Padding
-// TODO update to Sass 3.3 w/ function
-//
+.sidebar {
+  @include spacing(margin-bottom);
+  // @include media-from($bp-m) {
+    @include media-object;
+    width: $sidebar-width;
+    margin-right: $sidebar-gutter;
+  // }
+}
 
-// Padding X
-.l-pad-x    { @include spacing(padding-left padding-right,  1.0); }
-.l-pad-xx   { @include spacing(padding-left padding-right,  1.5); }
-.l-pad-xxx  { @include spacing(padding-left padding-right,  2.0); }
-// Padding Y
-.l-pad-y    { @include spacing(padding-top  padding-bottom, 1.0); }
-.l-pad-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
-.l-pad-yyy  { @include spacing(padding-top  padding-bottom, 2.0); }
-// Padding XY
-.l-pad          { @include spacing(padding); }
-.l-pad-x-y      { @extend .l-pad; }
-.l-pad-x-yy     { @extend .l-pad-x;   @extend .l-pad-yy;  }
-.l-pad-x-yyy    { @extend .l-pad-x;   @extend .l-pad-yyy; }
-.l-pad-y-xx     { @extend .l-pad-y;   @extend .l-pad-xx;  }
-.l-pad-y-xxx    { @extend .l-pad-y;   @extend .l-pad-xx;  }
-.l-pad-xx-yy    { @extend .l-pad-xx;  @extend .l-pad-yy;  }
-.l-pad-xx-yyy   { @extend .l-pad-xx;  @extend .l-pad-yyy; }
-.l-pad-yy-xxx   { @extend .l-pad-yy;  @extend .l-pad-xxx; }
-.l-pad-xxx-yyy  { @extend .l-pad-xxx; @extend .l-pad-yyy; }
-// Margin Y
-.l-margin-y    { @include spacing(margin-top  margin-bottom, 1.0); }
-.l-margin-yy   { @include spacing(margin-top  margin-bottom, 1.5); }
-.l-margin-yyy  { @include spacing(margin-top  margin-bottom, 2.0); }
+// @include media-from($bp-m) {
+  .sidebar {
+    @include media-object;
+    width: $sidebar-width;
+    margin-right: $sidebar-gutter;
+  }
+
+  #content > * {
+    > .page-header,
+    > main {
+      margin-left: $sidebar-width + $sidebar-gutter;
+    }
+    > .sidebar + main { margin-left: 0; }
+  }
+// }
+
+// Paddings
+.l-p      { @include spacing(padding); }
+.l-p-t    { @include spacing(padding-top,  1.0); }
+.l-p-tt   { @include spacing(padding-top,  1.5); }
+.l-p-b    { @include spacing(padding-bottom,  1.0); }
+.l-p-bb   { @include spacing(padding-bottom,  1.5); }
+.l-p-x    { @include spacing(padding-left padding-right,  1.0); }
+.l-p-y    { @include spacing(padding-top  padding-bottom, 1.0); }
+.l-p-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
+.l-p-xyy  { @extend .l-p-x; @extend .l-p-yy;  }
+.l-p-xyyy { @extend .l-p-x; @include spacing(padding-top  padding-bottom, 2); }
+
+// Margins
+.l-m-t    { @include spacing(margin-top,  1.0); }
+.l-m-tt   { @include spacing(margin-top,  1.5); }
+.l-m-b    { @include spacing(margin-bottom,  1.0); }
+.l-m-bb   { @include spacing(margin-bottom,  1.5); }
+.l-m-y    { @extend .l-m-t;  @extend .l-m-b; }
+.l-m-yy   { @extend .l-m-tt; @extend .l-m-bb; }
 
 // General rules
-.l-center     { @include centered; }
-.l-container  { @include outer-container; }
-.l-row        { @include row; }
+.l-row       { @include row; }
+.l-container { @include outer-container; }
 
-.l-wrapper {
-  @extend .l-container;
-  @extend .l-pad-x;
-}
+.l-fl-l { float: left !important; }
+.l-fl-r { float: right !important; }
 
-// Dividers
-.l-divider, .l-divider-top    { border-top: divider(); }
-.l-divider, .l-divider-bottom { border-bottom: divider(); }
+.l-section        { @extend .l-p; }
+.l-section > *    { @extend .l-container; }
 
-// Grid
-.l-grid {
-  @extend .l-container;
-  @extend .l-row;
-}
+.l-section-x      { @extend .l-p-x; }
+.l-section-x > *  { @extend .l-container; }
 
-// Single columns
-.l-col {
-  @extend .l-center;
+.l-line-t { border-top: divider(); }
+.l-line-b { border-bottom: divider(); }
+.l-line   { @extend .l-line-t; @extend .l-line-b; }
+
+.l-singlecol {
+  @include centered;
   @include rem(max-width, $singlecol-width);  // Max width
-  @include box-sizing(content-box);           // Reset box-sizing so padding can be applied "outside" the content
+  box-sizing: content-box;           // Reset box-sizing so padding can be applied "outside" the content
 }
+
+.l-reading {
+  @include rem(max-width, 47rem);
+  @include centered;
+}
+
+.l-stack-lined > *  {
+  @include spacing(padding-top padding-bottom);
+  border-top: divider();
+}
+
+.l-media {
+  @include media-object;
+}
+
+.l-media-r {
+  @include media-object {
+    margin-right: 1em;
+  }
+}
+
+.clearfix { @include clearfix; }
+.cl-b     { clear: both; }
+.cl-l     { clear: left; }
+.cl-r     { clear: right; }
 
 // Other columns
 @include make-grid();
+
+.l-hero-image img {
+  max-height: 100%;
+}
+
+.l-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

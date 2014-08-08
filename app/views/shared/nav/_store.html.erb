@@ -1,0 +1,17 @@
+<!--<h2 class="navgroup-title">Specials</h2>-->
+<ul class="navgroup-items">
+  <li><%= link_to_current 'Featured', shop_path %></li>
+  <li><%= link_to_current 'Subscription', shop_subscription_path %></li>
+  <li><a href="#">Full Library <small class="tag">New</small></a></li>
+</ul>
+<h2 class="navgroup-title">Issues</h2>
+<ul class="navgroup-items">
+  <li>
+    <%= link_to shop_issue_path(issue: 4), class: "issue-4" do %>
+    Issue 4 <small class="tag">New</small>
+    <% end %>
+  </li>
+  <li><%= link_to_current "Issue 3", shop_issue_path(issue: 3), class: "issue-3" %></li>
+  <li><%= link_to_current "Issue 2", shop_issue_path(issue: 2), class: "issue-2" %></li>
+  <li><%= link_to_current "Issue 1", shop_issue_path(issue: 1), class: "issue-1" %></li>
+</ul>

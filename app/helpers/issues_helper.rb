@@ -1,17 +1,18 @@
 module IssuesHelper
 
-	def illustration_tag issue, key, variant = 'small'
-		image_tag "illustrations/issues/#{issue}/#{key}/#{variant}.jpg"
-	end
+  def illustration_tag piece, options = {}
+    options.reverse_merge!(variant: 'original', size: 'l')
+    image_tag "illustrations/editorial/issue-#{piece.issue_number}/#{options[:variant]}/#{piece.author_slug}-#{options[:size]}.jpg"
+  end
 
-	def portrait_tag issue, key
-    image_tag "authors/issues/#{issue}/#{key}.jpg"
-	end
+  def portrait_tag piece
+    image_tag "illustrations/portraits/issue-#{piece.issue_number}/#{piece.author_slug}.jpg"
+  end
 
-	def due_on issue
-		if issue.published?
-			"immediately"
-		else
+  def due_on issue
+    if issue.published?
+      "immediately"
+    else
       distance_in_minutes = ((issue.published_on.to_time - Date.today.to_time)/60.0).round
 
       days = (distance_in_minutes/1440.0).round
@@ -28,14 +29,14 @@ module IssuesHelper
       # 1 to 6 weeks
       when 10080...60480
 
-      	"#{weeks.to_words} week#{'s' unless weeks == 1}"
+        "#{weeks.to_words} week#{'s' unless weeks == 1}"
 
       # more than 6 weeks
       else
 
-      	"#{months.to_words} month#{'s' unless months == 1}"
+        "#{months.to_words} month#{'s' unless months == 1}"
 
       end
-		end
-	end
+    end
+  end
 end

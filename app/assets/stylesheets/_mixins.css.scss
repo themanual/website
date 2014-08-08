@@ -1,3 +1,23 @@
+@mixin spacing($props, $times: 1) {
+  @each $prop in $props {
+    @include rem($prop, $times * 1.5rem);
+  }
+}
+
+@mixin svg {
+  svg * { @content; }
+}
+
+@mixin media-object {
+  float: left;
+  @content;
+  & + * { overflow: hidden; }
+}
+
+@mixin max-width-columns($n) {
+  max-width: flex-grid($n) / 100% * $max-width;
+}
+
 // TODO remove in favour for newest bourbon/sass
 @function valueof($val) {
   @return ($val / ($val * 0 + 1));
@@ -31,34 +51,11 @@
   }
 }
 
-@mixin media-object {
-  @include clearfix;
-  > * { display: block; }
-  > *:first-child {
-    float: left;
-    @content;
-  }
-  > *:first-child ~ * { overflow: hidden; }
-}
-
-@mixin coretext {
-  .tr-coretext & {
-    -webkit-font-smoothing: antialiased;
-    font-weight: 500;
-    @content;
-  }
-}
-
 @mixin opacity($opacity) {
   opacity: $opacity;
   // IE8 filter
   $opacity-ie: ($opacity * 100);
   filter: #{alpha(opacity=$opacity-ie)};
-}
-
-@mixin text-and-border-color($color) {
-  border-color: $color;
-  color: $color;
 }
 
 @mixin animation-fix {
@@ -73,94 +70,10 @@
   @return solid 1px $c-divider;
 }
 
-@function sub-divider() {
-  @return dashed 1px darken($c-divider, 5%);
-}
-
-@mixin colored-link {
-  &:link, &:visited {
-    @content
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: #000;
-  }
-}
-
-@mixin underlined-link {
-  &:link,
-  &:visited {
-    @content;
-  }
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-bottom: solid 1px;
-  }
-}
-
 %visuallyhidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
   height: 1px; width: 1px;
   margin: -1px; padding: 0; border: 0;
-}
-
-%heading-sc {
-  font-family: $type-sans;
-  @include rem(font-size, 15px);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  word-spacing: .15em;
-}
-
-%heading-sc-light {
-  @extend %heading-sc;
-  color: gray(60%);
-}
-
-%heading-sc-heavy {
-  @extend %heading-sc;
-  font-weight: weight(medium);
-  color: gray(20%);
-}
-
-@mixin issue-number {
-  font-family: $type-sans;
-  font-weight: weight(bold);
-  @include color-by-issue(background);
-
-  padding-right:  .36em;
-  padding-left:   .36em;
-  padding-bottom: .07em;
-  padding-top:    .03em;
-
-  color: #fff;
-  border-radius: .15em;
-}
-
-.text h1 .issue-number {
-  font-weight: weight(black);
-}
-
-.issue-number {
-  @include issue-number;
-}
-
-@mixin blacklink {
-  color: #000;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-@mixin blacklink-child {
-  a {
-    @include blacklink;
-  }
 }
