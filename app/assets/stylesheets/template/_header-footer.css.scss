@@ -1,6 +1,6 @@
-$bar-pad:       1.2em;
-$bar-icon:      2em;
-$bar-logo-size: 5.5em;
+$bar-pad:       1.1em;
+$bar-icon:      1.75em;
+$bar-logo-size: 5em;
 
 .bar {
   color: $c-text-caption;
@@ -17,7 +17,7 @@ $bar-logo-size: 5.5em;
 
   a {
     @include link-hover-blue(stroke) {
-      color: $c-text-caption;
+      color: $c-text-gray;
       @include svg { stroke: $c-icon-gray; }
     }
   }
@@ -36,24 +36,17 @@ $bar-logo-size: 5.5em;
 
     .nav-popover a { @include link-hover-blue(stroke) { color: $c-text-caption; } }
   }
-
-  > * {
-    @include outer-container;
-    @include row;
-  }
 }
 
 .header-bar {
   border-bottom: divider();
-  .bg-colored & {
-    margin-bottom: 0;
-  }
-  margin-bottom: $bar-logo-size - 1em - (2 * $bar-pad) + 1.5em;
+  .bg-colored & { margin-bottom: 0; }
 }
 .footer-bar {
   border-top: divider();
 }
 
+.bar > * { @include outer-container; @include row; }
 .bar nav > ul { float: left; @include clearfix; }
 .bar nav > ul + ul { float: right; }
 .bar nav > ul > li { float: left; }
@@ -75,9 +68,7 @@ $bar-logo-size: 5.5em;
     width: $bar-logo-size;
     height: $bar-logo-size;
 
-    background: white;
-    border: divider();
-    border-top: none;
+    background: black;
 
     text-indent: -9999em;
     font-weight: weight(medium);
@@ -88,52 +79,47 @@ $bar-logo-size: 5.5em;
 .header-bar > * > nav {
 
   // sidebar + gutter - tab padding (compensate)
-  margin-left: $sidebar-width + $sidebar-gutter - $bar-pad;
+  margin-left: $sidebar-width + $sidebar-gutter;
 
-  a {
-    @include padding-h($bar-pad);
-    border-style: none solid;
-    border-width: 0px 1px;
-    border-color: transparent;
+  > ul:first-child > li:first-child > a {
+    margin-left: ($bar-pad * -1);
   }
 
-  a.current {
-    border-color: $c-divider;
-    font-weight: weight(medium);
-    position: relative;
-    // line to create tab effect
-    &:after {
-      content: "";
-      display: block;
-      background: white;
-      height: 1px;
-      @include position(absolute, 0 0px -1px 0px);
+  > ul > li > a {
+    @include padding-h($bar-pad);
+    font-size: 1.1em;
+    &.current {
+      font-weight: weight(bold);
     }
   }
 
+  // Popover links
   .nav-popover a {
     padding: .75em;
+    display: block;
   }
 
   .icon {
+
     > a {
-      padding: 0;
       @include padding-v(($bar-pad * 2 + 1em - $bar-icon) / 2);
-      &.current { @include padding-h(.8em); }
+      @include padding-h(0);
     }
     .nav-popover:before {
-      right: .4em;
+      right: $bar-icon / 2;
+      margin-right: -1 * $popover-tip-width / 2;
     }
 
-    > a.current + .nav-popover:before {
-      right: 1.2em;
+    .icon-text {
+      @extend %visuallyhidden;
     }
+
+    svg {
+      display: block !important;
+      width: $bar-icon;
+      height: $bar-icon;
+    }
+
   }
 
-  .icon-text    { @extend %visuallyhidden; }
-  .icon svg {
-    display: block !important;
-    width: $bar-icon;
-    height: $bar-icon;
-  }
 }
