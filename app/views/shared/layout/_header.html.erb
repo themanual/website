@@ -1,18 +1,12 @@
-<%- unless current_page?(root_path) %>
-<aside class="site-announcement kickstarter"><div>
-  <p>Hello! This is a preview of our upcoming site.</p>
-  <p><a href="<%= kickstarter_url %>" rel="external" class="button">Help us make it real on Kickstarter</a></p>
-</div></aside>
-<%- end %>
-<header class="bar header-bar"><div>
-  <h1 class="header-bar-logo">
-    <%= link_to_current "The Manual", root_path %>
+<header class="site-menu site-header"><div>
+  <h1 class="site-header-home">
+    <%= link_to_current "The Manual", root_path, class: "site-header-logo" %>
   </h1>
-  <nav>
+  <nav class="site-header-nav">
     <ul>
       <li><%= link_to "Read",   read_path,  class: page_is_subpath_of('/read', 'current') %></li>
-      <li><%= link_to "About",   about_path,  class: page_is_subpath_of('/about', 'current') %></li>
-      <li><a href="http://buy.alwaysreadthemanual.com" class="external" rel="external">Shop</a></li>
+      <li><%= link_to "Shop",   shop_path,  class: page_is_subpath_of('/store', 'current') %></li>
+      <li><%= link_to "About",  about_path, class: page_is_subpath_of('/about', 'current') %></li>
     </ul>
   </nav>
 </div></header>
