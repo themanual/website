@@ -1,5 +1,7 @@
 $(function() {
 
+  // Enable fastclick
+  FastClick.attach(document.body);
   // Enable form validation
   $('form').validate();
   // Enable popovers

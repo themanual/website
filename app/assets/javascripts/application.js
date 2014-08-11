@@ -9,7 +9,7 @@
 //
 //  Other Libs
 //= require underscore/underscore
-//= require trmix/dist/trmix
+//= require fastclick/lib/fastclick
 //
 //  jQuery Plugins
 //= require jquery.easing/js/jquery.easing
