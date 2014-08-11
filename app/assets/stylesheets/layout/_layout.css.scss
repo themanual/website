@@ -7,9 +7,12 @@ body {
 
 .sidebar {
   @include spacing(margin-bottom);
-  @include media-upto($bp-m) { display: none; }
+  @include media-from($bp-m) {
+    @include media-object;
+    width: $sidebar-width;
+    margin-right: $sidebar-gutter;
+  }
 }
-
 
 @include media-from($bp-m) {
   .sidebar {
