@@ -1,7 +1,5 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 //
-//  Mobile fixes
-//= require fastclick/lib/fastclick
 //  Google Analytics
 //= require       ./base/ga
 //
@@ -11,6 +9,7 @@
 //
 //  Other Libs
 //= require underscore/underscore
+//= require fastclick/lib/fastclick
 //
 //  jQuery Plugins
 //= require jquery.easing/js/jquery.easing
