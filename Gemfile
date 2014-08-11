@@ -11,7 +11,7 @@ gem 'neat'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
-gem "bower-rails", "~> 0.6.1"
+gem "bower-rails", "~> 0.8.3"
 
 gem 'cssminify' # replaces 'yui-compressor'
 gem 'sprockets-image_compressor'
