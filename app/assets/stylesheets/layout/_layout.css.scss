@@ -7,14 +7,14 @@ body {
 
 .sidebar {
   @include spacing(margin-bottom);
-  // @include media-from($bp-m) {
+  @include media-from($bp-m) {
     @include media-object;
     width: $sidebar-width;
     margin-right: $sidebar-gutter;
-  // }
+  }
 }
 
-// @include media-from($bp-m) {
+@include media-from($bp-m) {
   .sidebar {
     @include media-object;
     width: $sidebar-width;
@@ -28,7 +28,7 @@ body {
     }
     > .sidebar + main { margin-left: 0; }
   }
-// }
+}
 
 // Paddings
 .l-p      { @include spacing(padding); }
