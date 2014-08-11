@@ -1,11 +1,11 @@
 .page-header {
-  margin-top: 3em;
+  margin-top:    3em;
   margin-bottom: 1em;
 }
 
 .page-header h1 {
   @include rem(font-size, 46px);
   font-weight: weight(black);
-  line-height: 1.2;
+  line-height: 1.1;
   color: $c-text-black;
 }
