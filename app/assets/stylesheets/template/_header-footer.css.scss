@@ -71,10 +71,16 @@
   width: 100%;
   height: 0;
   padding-top: 100%;
-  background: black;
-  @include hover { background: $c-blue; }
   text-indent: -9999em;
   font-weight: weight(medium);
+
+  background-image: image-url('ui/logo-nav.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+
+  background-color: black;
+  @include hover { background-color: $c-blue; }
 }
 
 .site-header-nav {
