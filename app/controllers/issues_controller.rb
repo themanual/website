@@ -10,7 +10,7 @@ class IssuesController < ApplicationController
     # TODO: Ensure only visible issues can be seen (public, or purchased by current user)
     @issue = Issue.where(number: params[:issue].to_i).first
 
-    redirect_to issues_url unless @issue
+    redirect_to issues_path unless @issue
   end
 
   def piece
