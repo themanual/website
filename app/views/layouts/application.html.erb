@@ -12,15 +12,18 @@
 
   <%= render partial: "shared/layout/header" %>
 
-  <section id="content" class="l-section-x"><div>
+  <%- sidebar_present = page_namespace.in?(%w(read store about)) %>
+
+  <section id="content" class="l-section-x <%= "has-sidebar" if sidebar_present %>"><div>
 
     <%- if @page_title.any? %>
     <header class="page-header">
       <h1><%= @page_title.first %></h1>
+      <% if sidebar_present %><button class="toggle-sidebar">Show/Hide Sidebar</button><% end %>
     </header>
     <% end %>
 
-    <%- if page_namespace.in?(%w(read store about)) %>
+    <%- if sidebar_present %>
     <nav class="sidebar">
       <%= render partial: "shared/nav/#{page_namespace}" %>
     </nav>

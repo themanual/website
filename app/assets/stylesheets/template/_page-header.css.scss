@@ -5,8 +5,15 @@
 }
 
 .page-header h1 {
-  @extend %h1;
-  @include media-upto($bp-m) { .has-sidebar & { margin-right: 50px; } }
+  @include rem(font-size, 46px);
+  font-weight: weight(black);
+  line-height: 1.1;
+  color: $c-text-black;
+
+  @include media-upto($bp-m) {
+    @include rem(font-size, 38px);
+    .has-sidebar & { margin-right: 50px; }
+  }
 }
 
 .toggle-sidebar {

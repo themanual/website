@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="31px" height="20px" viewBox="0 0 31 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8053) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-toggle-sidebar</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="collapsed" sketch:type="MSArtboardGroup" transform="translate(-556.000000, -339.000000)" fill="#FFFFFF">
+            <g id="Rectangle-5-+-Rectangle-1-+-Rectangle-2" sketch:type="MSLayerGroup" transform="translate(544.000000, 320.000000)">
+                <path d="M41.1421356,23 L27,37.1421356 L12.8578644,23 L16.3578644,19.5 L27,30.1421356 L37.6421356,19.5 L41.1421356,23 Z" id="arrow-toggle-sidebar" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

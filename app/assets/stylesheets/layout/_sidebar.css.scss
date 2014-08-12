@@ -1,0 +1,40 @@
+.toggle-sidebar   { display: none; }
+
+@include media-upto($bp-m) {
+  .toggle-sidebar { display: block; }
+
+  .sidebar {
+    display: none;
+    @include clearfix;
+    border-top: divider();
+
+    .navgroup-title {
+      @include span-columns(6);
+    }
+    .navgroup-items {
+      @include span-columns(6);
+      @include omega;
+      &:first-child,
+      + .navgroup-items { @include shift(6); }
+    }
+    .navgroup-title + .navgroup-items {
+      margin-top: -.285em;
+    }
+    .navgroup { @include spacing(margin-top); }
+  }
+
+}
+
+@include media-from($bp-m) {
+  .sidebar {
+    @include media-object;
+    width: $sidebar-width;
+    margin-right: $sidebar-gutter;
+  }
+  #content > * {
+    > .page-header,
+    > main { margin-left: $sidebar-width + $sidebar-gutter; }
+
+    > .sidebar + main { margin-left: 0; }
+  }
+}
