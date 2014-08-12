@@ -40,9 +40,6 @@
   }
   .is-lesson & {
     @include spacing(margin-top margin-bottom, 2.5);
-    @extend .l-reading;
-    text-align: center;
-    > * { @include centered; }
   }
 }
 
@@ -51,38 +48,28 @@
   .footnotes { @include spacing(margin-top, 1.5); }
 }
 
-.piece-author {
+.piece-footer {
   @include spacing(margin-top margin-bottom, 2.5);
 }
 
-.piece-author-portrait {
-  float: right;
-  margin-left: 1em;
-  margin-bottom: 1em;
+.piece.is-lesson .piece-header-text {
+  @extend .l-reading;
+  text-align: center;
+  > * { @include centered; }
+}
+
+.piece-footer-portrait {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
   width: 8em;
-  @include media-from($bp-m) {
-    float: left;
-    margin-left: 0;
-    margin-right: 1.5em;
-    + * { overflow: hidden; }
-  }
+  + * { overflow: hidden; }
 }
 
-.piece-post > * > * {
-  border-top: divider();
-  @include spacing(padding-top padding-bottom);
-}
 
-@include media-upto($bp-m) {
-  .piece-post-issue   { @include span-columns(6); }
-  .piece-post-topics  { @include span-columns(6); @include omega(); }
-  .piece-post-piece   { clear: left; }
-}
-@include media-from($bp-m) {
-  .piece-post-issue   { @include span-columns(3); }
-  .piece-post-topics  { @include span-columns(3); }
-  .piece-post-piece   { @include span-columns(6); }
-}
+
+
+
 
 
 
