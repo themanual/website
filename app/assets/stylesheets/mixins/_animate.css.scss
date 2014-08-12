@@ -13,13 +13,12 @@
 }
 
 .animated.faster {
-  animation-duration: 0.2s;
+  animation-duration: 0.25s;
 }
 
 .animated.fastest {
   animation-duration: 0.1s;
 }
-
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
@@ -39,8 +38,6 @@
   animation-name: bounce;
 }
 
-
-
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
@@ -59,7 +56,6 @@
   animation-name: shake;
 }
 
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -73,7 +69,6 @@
 .fadeIn {
   animation-name: fadeIn;
 }
-
 
 @keyframes fadeInDown {
   0% {
@@ -91,7 +86,6 @@
   animation-name: fadeInDown;
 }
 
-
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -107,7 +101,6 @@
 .fadeInUp {
   animation-name: fadeInUp;
 }
-
 
 @keyframes fadeInLeft {
   0% {
@@ -125,7 +118,6 @@
   animation-name: fadeInLeft;
 }
 
-
 @keyframes fadeInRight {
   0% {
     opacity: 0;
@@ -142,7 +134,6 @@
   animation-name: fadeInRight;
 }
 
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -156,7 +147,6 @@
 .fadeOut {
   animation-name: fadeOut;
 }
-
 
 @keyframes flash {
   0%, 50%, 100% {
@@ -173,7 +163,6 @@
 }
 
 /* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
-
 
 @keyframes pulse {
   0% {

@@ -5,28 +5,6 @@ body {
   > #content { flex: 1; }
 }
 
-.sidebar {
-  @include spacing(margin-bottom);
-  @include media-upto($bp-m) { display: none; }
-}
-
-
-@include media-from($bp-m) {
-  .sidebar {
-    @include media-object;
-    width: $sidebar-width;
-    margin-right: $sidebar-gutter;
-  }
-
-  #content > * {
-    > .page-header,
-    > main {
-      margin-left: $sidebar-width + $sidebar-gutter;
-    }
-    > .sidebar + main { margin-left: 0; }
-  }
-}
-
 // Paddings
 .l-p      { @include spacing(padding); }
 .l-p-t    { @include spacing(padding-top,  1.0); }
