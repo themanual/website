@@ -1,11 +1,39 @@
 .page-header {
-  margin-top: 3em;
+  margin-top:    3em;
   margin-bottom: 1em;
+  position: relative;
 }
 
 .page-header h1 {
-  @include rem(font-size, 46px);
-  font-weight: weight(black);
-  line-height: 1.2;
-  color: $c-text-black;
+  @extend %h1;
+  @include media-upto($bp-m) { .has-sidebar & { margin-right: 50px; } }
+}
+
+.toggle-sidebar {
+  text-indent: -9999em;
+  appearance: none;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  right: 0px;
+  top: 50%;
+  margin-top: -15px;
+  position: absolute;
+
+  background-image: image-url('ui/arrow-toggle-sidebar.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 16px 11px;
+
+  @include hover {
+    background-color: $c-blue;
+    outline: none;
+  }
+
+  transition: transform .25s ease-in-out;
+  &.expanded { transform: rotate(180deg); }
 }
