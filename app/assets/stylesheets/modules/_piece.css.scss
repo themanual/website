@@ -94,8 +94,7 @@
 }
 
 .piece-header-title {
-  @extend .h-huge;
-  line-height: 1;
+  @extend %h1;
 }
 
 .piece-header-synopsis {

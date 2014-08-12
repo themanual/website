@@ -17,12 +17,13 @@ em      { font-style: italic; }
 }
 
 %h1 {
-  // font-size
-  @include rem(font-size, 48px);
-  @include media-upto($bp-m)  { @include rem(font-size, 40px); }
-  @include media-upto($bp-s) { @include rem(font-size, 28px); }
-  // other
+  @include rem(font-size, 46px);
   font-weight: weight(black);
+  line-height: 1.1;
+  color: $c-text-black;
+  @include media-upto($bp-m) {
+    @include rem(font-size, 38px);
+  }
 }
 
 .t-huge     { font-size: em(50, $rem-value); }
