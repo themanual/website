@@ -10,6 +10,7 @@ $(function() {
   // Enable popovers
   $(document).popovers();
 
+  // Toggle Sidebar
   $(".toggle-sidebar").click(function () {
     var SIDEBAR_SPEED = 250;
     var $sidebar = $('.sidebar');
@@ -30,7 +31,6 @@ $(function() {
         .slideDown({duration: SIDEBAR_SPEED, queue: false});
       $button.addClass('expanded');
     }
-
   });
 
   // External links
