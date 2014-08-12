@@ -2,16 +2,21 @@
 // 1. LAYOUT
 // ---------------------------------------------------
 
-.piece.is-article {
-  @include media-from($bp-l) {
-    .piece-header {
-      @include row;
-    }
+.is-article {
 
-    .piece-header-illustration,
+  @include media-upto($bp-l) {
     .piece-header-text {
-      @include span-columns(6);
+      @include spacing(margin-bottom, 2);
     }
+    .piece-header-illustration img {
+      max-height: 70vh;
+    }
+  }
+
+  @include media-from($bp-l) {
+    .piece-header { @include row; }
+    .piece-header-illustration,
+    .piece-header-text { @include span-columns(6); }
 
     .piece-header-illustration {
       @include clearfix;
@@ -22,17 +27,16 @@
         @include rem(max-width, 27rem);
       }
     }
+
+    .piece-header-text { margin-top: 16%; }
   }
+
 }
 
 .piece-header-text {
   @include media-upto($bp-l) {
     text-align: center;
     > * { @include centered; }
-  }
-
-  @include media-from($bp-l) {
-    margin-top: 16%;
   }
   .is-lesson & {
     @include spacing(margin-top margin-bottom, 2.5);
@@ -46,12 +50,6 @@
 
 .piece-footer {
   @include spacing(margin-top margin-bottom, 2.5);
-}
-
-.piece-header-illustration img {
-  @include media-upto($bp-l)  { max-height: 28em; }
-  @include media-upto($bp-m)  { max-height: 24em; }
-  @include media-upto($bp-s)  { max-height: 20em; }
 }
 
 .piece.is-lesson .piece-header-text {
@@ -111,7 +109,8 @@
   text-transform: uppercase;
   letter-spacing: .1em;
   word-spacing: .15em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
+  @include media-from($bp-l) { margin-bottom: 1.5em; }
   color: $c-text-gray;
 }
 
@@ -140,9 +139,11 @@
   strong  { font-weight: weight(semibold); }
   em, q   { font-style: italic; }
 
-  $line-height: 1.45;
+  $line-height: 1.5;
   $line-height-em: $line-height * 1em;
+
   line-height: $line-height;
+  @include media-upto($bp-m) { line-height: 1.4; }
 
   > p + p {
     text-indent: 1em;
