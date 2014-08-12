@@ -10,7 +10,7 @@
     "garnish":                  "*",    // Helpers and utilites for Sass
     "fitvids":                  "*",    // Responsive video embeds for popular sites
     "jquery.payment":           "*",    // Payment details validation and autocompletion
-    "bootstrap-sass-official":  "*",    // Parts of Bootstrap
-    "trmix":                    "*"     // Browser text rendering detection
+    "viewport-units-buggyfill": "*",    // Fixes viewport units in mobile safari
+    "fastclick":                "*"     // Remove click delay
   }
 }
