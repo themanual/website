@@ -2,6 +2,8 @@
 //
 //  Mobile fixes
 //= require fastclick/lib/fastclick
+//= require viewport-units-buggyfill/viewport-units-buggyfill
+//
 //  Google Analytics
 //= require       ./base/ga
 //
