@@ -13,7 +13,7 @@
           <li class="index-item">
             <h3 class="index-item-author"><%= article.author.name %></h3>
             <% ['article', 'lesson'].each do |type| %>
-            <p class="index-item-piece is-<%= type %>"><a <%= (@piece.present? && @piece.id == article.id) ? 'class="current"' : '' %> href="<%= piece_url(issue.number, article.author_slug, type) %>"><%= type == 'lesson' ? 'Lesson' : article.title %></a></p>
+            <p class="index-item-piece is-<%= type %>"><a <%= (@piece.present? && @piece.id == article.id) ? 'class="current"' : '' %> href="<%= piece_path(issue.number, article.author_slug, type) %>"><%= type == 'lesson' ? 'Lesson' : article.title %></a></p>
             <% end %>
           </li>
         <% end %>
