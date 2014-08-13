@@ -1,9 +1,6 @@
-// Enable fastclick
-FastClick.attach(document.body);
-// Enable viewport-units-buggyfill
-window.viewportUnitsBuggyfill.init();
-
 $(function() {
+
+  window.viewportUnitsBuggyfill.init();
 
   // Enable form validation
   $('form').validate();
@@ -11,7 +8,7 @@ $(function() {
   $(document).popovers();
 
   // Toggle Sidebar
-  $(".toggle-sidebar").click(function () {
+  $(".toggle-sidebar").bind('click tap', function () {
     var SIDEBAR_SPEED = 250;
     var $sidebar = $('.sidebar');
     var $button  = $(this);
