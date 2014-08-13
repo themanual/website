@@ -8,11 +8,11 @@
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
   </div>
 
-  <footer class="piece-footer l-reading">
-    <figure class="piece-footer-portrait">
+  <footer class="piece-author l-reading">
+    <figure class="piece-author-portrait">
       <%= portrait_tag(@piece) %>
     </figure>
-    <div class="text">
+    <div class="piece-author-bio text">
       <p><%= raw @piece.author.bio %></p>
       <p>
         <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
@@ -25,8 +25,8 @@
 </div></article>
 <% end %>
 
-<aside class="l-section-x"><div>
-  <section class="l-line-t l-p-y l-col-3 issue-<%= @piece.issue_number %> c-issue">
+<aside class="l-section-x piece-post"><div>
+  <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
     <h2 class="box-title">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
     <div class="text">
       <ul class="plain">
@@ -37,7 +37,7 @@
       <p><%= link_to "Browse Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></p>
     </div>
   </section>
-  <section class="l-line-t l-p-y l-col-3">
+  <section class="piece-post-topics">
     <h2 class="box-title">Related Topics</h2>
     <div class="text">
       <ul class="plain double">
@@ -56,7 +56,7 @@
       </ul>
     </div>
   </section>
-  <section class="l-line-t l-p-y l-col-6">
+  <section class="piece-post-piece">
     <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended.issue_number}" %></h2>
     <div>
     <%= render :partial => 'shared/units/piece', :object  => @recommended %>
