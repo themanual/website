@@ -3,9 +3,8 @@
 <% cache @issue do %>
 
   <div class="l-line-t l-p-y tagline issue-<%= @issue.number %> c-issue">
-    <a href="<%= legacy_store_issue_url(@issue.number) %>" rel="external" class="button is-large">Buy Issue <%= @issue.number %> in Print</a>
-    or <%= link_to 'back our Kickstarter project', kickstarter_url, rel: 'external' %>
-    and support The Manual.
+    <a href="<%= legacy_store_issue_url(@issue.number) %>" rel="external" class="button is-large">Buy Print Edition</a>
+    <span class="br-s">or</span> <%= link_to 'back on Kickstarter', kickstarter_url, rel: 'external' %> and support us.
   </div>
 
   <ul class="l-issue issue-<%= @issue.number %>">
