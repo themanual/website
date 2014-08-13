@@ -5,6 +5,7 @@
   text-align: center;
   border-bottom: divider();
   font-weight: weight(medium);
+  line-height: 1.2;
   a { font-weight: weight(bold); }
   @include media-from($bp-l) {
     p { display: inline-block; }

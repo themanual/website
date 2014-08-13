@@ -1,3 +1,9 @@
+<%- unless current_page?(root_path) %>
+<aside class="site-announcement kickstarter"><div>
+  <p>This is a preview of The Manual’s upcoming website.</p>
+  <p><a href="<%= kickstarter_url %>" rel="external" class="button">Visit our Kickstarter project</a></p>
+</div></aside>
+<%- end %>
 <header class="site-menu site-header"><div>
   <h1 class="site-header-home">
     <%= link_to_current "The Manual", root_path, class: "site-header-logo" %>
