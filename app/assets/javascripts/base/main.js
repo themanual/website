@@ -1,12 +1,16 @@
+// Enable fastclick
+FastClick.attach(document.body);
+// Enable viewport-units-buggyfill
+window.viewportUnitsBuggyfill.init();
+
 $(function() {
 
-  // Enable fastclick
-  FastClick.attach(document.body);
   // Enable form validation
   $('form').validate();
   // Enable popovers
   $(document).popovers();
 
+  // Toggle Sidebar
   $(".toggle-sidebar").click(function () {
     var SIDEBAR_SPEED = 250;
     var $sidebar = $('.sidebar');
@@ -27,7 +31,6 @@ $(function() {
         .slideDown({duration: SIDEBAR_SPEED, queue: false});
       $button.addClass('expanded');
     }
-
   });
 
   // External links
