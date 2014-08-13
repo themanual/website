@@ -4,13 +4,12 @@
 }
 
 .piece-unit-illo {
-  display: none;
-  @include media-from($bp-s) {
-    display: block;
-    float: left;
-    width: 8em;
-    margin-right: 1em;
-    + * { overflow: hidden; margin-top: 1em; }
+  float: left;
+  width: 8em;
+  margin-right: .5em;
+  + * {
+    overflow: hidden;
+    margin-top: 1em;
   }
 }
 
