@@ -1,6 +1,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 //
 //  Mobile fixes
+//= require fastclick/lib/fastclick
 //= require viewport-units-buggyfill/viewport-units-buggyfill
 //
 //  Google Analytics
