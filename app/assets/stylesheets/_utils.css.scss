@@ -36,3 +36,16 @@
     top: em(0);
   }
 }
+
+@each $bp in $bps {
+  $class: nth($bp, 1);
+  $value: nth($bp, 2);
+  @include media-upto($value) {
+    .br-#{$class}:before {
+      display: block;
+      content: "";
+      height: 1px;
+      margin-top: .5em;
+    }
+  }
+}
