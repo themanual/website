@@ -1,8 +1,21 @@
 .support {
   @extend .l-section;
   @extend .l-p-yy;
-  // @extend .bg-gray;
-  .text {
-    margin-top: .5em;
+}
+
+@include media-upto($bp-s) {
+  .support-illo { max-width: 15em; @include centered; margin-bottom: 1.5em; }
+}
+
+@include media-between($bp-s, $bp-m) {
+  .support-illo {
+    float: right;
+    margin-left:    1em;
+    margin-bottom:  1em;
+    width: 12em;
   }
+}
+@include media-from($bp-m) {
+  .support-illo { @include span-columns(4); }
+  .support-text { @include span-columns(8); }
 }
