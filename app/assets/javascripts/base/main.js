@@ -1,9 +1,6 @@
-// Enable fastclick
-FastClick.attach(document.body);
-// Enable viewport-units-buggyfill
-window.viewportUnitsBuggyfill.init();
-
 $(function() {
+
+  window.viewportUnitsBuggyfill.init();
 
   // Enable form validation
   $('form').validate();
