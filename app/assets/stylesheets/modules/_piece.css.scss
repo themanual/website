@@ -59,8 +59,9 @@
   float: right;
   margin-left: 1em;
   margin-bottom: 1em;
-  width: 8em;
+  width: 6em;
   @include media-from($bp-m) {
+    width: 8em;
     float: left;
     margin-left: 0;
     margin-right: 1.5em;
@@ -203,6 +204,7 @@
     font-family: Monaco;
     color: $c-text-body;
     font-size: 0.7em;
+    word-wrap: break-word;
   }
 
   blockquote {
