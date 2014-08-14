@@ -20,9 +20,8 @@
 
   &.in-caps {
     text-transform: uppercase;
-    letter-spacing: .1em;
-    word-spacing: .1em;
-    font-size: .7em;
+    letter-spacing: .15em;
+    word-spacing: .15em;
   }
 
   &.in-sc {
@@ -93,7 +92,7 @@
 
   &.in-white {
     background-color: white;
-    border-color:     black;
+    border-color:     white;
     color: black;
     @include hover {
       background-color: black;
