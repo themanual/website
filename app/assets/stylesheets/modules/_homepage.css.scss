@@ -1,0 +1,34 @@
+.homepage {
+  @include spacing(padding-left padding-right);
+  @include spacing(padding-top padding-bottom, 2);
+  > * { @extend .l-container; }
+}
+
+.homepage-content {
+  text-align: center;
+  @include media-from($bp-m) {
+    font-size: $fz-ll;
+  }
+}
+
+.homepage-text {
+  @include spacing(margin-top,    1.5);
+  @include spacing(margin-bottom, 1.5);
+
+  font-size: $fz-lll;
+  line-height: 1.1;
+
+  h1 { font-weight: weight(black); }
+  > * + * { margin-top: .15em; }
+}
+
+.homepage-cta-secondary {
+  margin-top:  .75em;
+  font-weight: weight(medium);
+
+  .bg-colored & a {
+    color: white;
+    @include hover { color: black; }
+  }
+
+}
