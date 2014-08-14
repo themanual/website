@@ -49,7 +49,7 @@ body {
 }
 
 .l-reading {
-  @include rem(max-width, 46rem);
+  @include rem(max-width, $reading-width);
   @include centered;
 }
 
