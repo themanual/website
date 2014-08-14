@@ -1,16 +1,17 @@
 <% content_for :class_body, "bg-colored kickstarter" %>
-<% content_for :class_main, "l-flex-center" %>
+<% content_for :class_main, "l-flexcenter" %>
 
-<div class="l-p-xyyy">
-  <figure class="l-hero-image">
-    <%= image_tag 'illustrations/illo-new-issue-4-desktop.svg' %>
+<section class="homepage"><div>
+  <figure class="homepage-illo">
+    <%= image_tag 'illustrations/themanual-kickstarter.svg' %>
   </figure>
-  <div class="text t-biggest t-strong t-center l-m-tt">
-    <p class="t-big t-heavy">The Manual, Everywhere</p>
-    <p class="unspaced">We’re moving beyond print — and we’re going <em>everywhere.</em></p>
-    <p>
-      <%= link_to "Back on Kickstarter", kickstarter_url, class: "button in-black in-caps is-larger external", rel: "external" %>
-      <%= link_to "Read online", read_path, class: "button in-black in-caps is-larger" %>
-    </p>
+  <div class="homepage-content">
+    <div class="homepage-text">
+      <h1>The Manual is moving beyond print.</h1>
+      <p>And it’s going everywhere you want.</p>
+    </div>
+    <p class="homepage-cta"><%= link_to "Support Our Kickstarter", kickstarter_url, class: "button in-black in-caps is-larger", rel: "external" %></p>
+    <p class="homepage-cta-secondary">or <%= link_to "read our online archive", read_path, class: "" %></p>
+    </div>
   </div>
-</div>
+</div></section>
