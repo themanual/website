@@ -76,12 +76,8 @@ body {
 // Other columns
 @include make-grid();
 
-.l-hero-image img {
-  max-height: 100%;
-}
-
-.l-flex-center {
+.l-flexcenter {
   display: flex;
   align-items: center;
-  justify-content: center;
+  > * { flex: 1; margin: auto; }
 }
