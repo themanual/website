@@ -1,9 +1,17 @@
 // Base type
-$rem-base:  17px;
 $rem-value: 17;
+$rem-base:  17px;
+$fz-scale:  1.18;
 
 $singlecol-width: 38rem;
 $reading-width:   46rem;
+
+$fz-l:      $fz-scale * 1em;        // 20
+$fz-ll:     $fz-scale * $fz-l;      // 24
+$fz-lll:    $fz-scale * $fz-ll;     // 28
+$fz-llll:   $fz-scale * $fz-lll;    // 33
+$fz-lllll:  $fz-scale * $fz-llll;   // 39
+$fz-llllll: $fz-scale * $fz-lllll;  // 46
 
 // Grid
 $column: 60px;

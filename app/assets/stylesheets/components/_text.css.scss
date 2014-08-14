@@ -26,19 +26,19 @@ em      { font-style: italic; }
   }
 }
 
-.t-huge     { font-size: em(50, $rem-value); }
+.t-huge     { font-size: $fz-llllll; }
 .h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
 .h1         { @extend .t-heading; @extend .h-huge; }
 
-.t-biggest  { font-size: em(32, $rem-value); }
+.t-biggest  { font-size: $fz-llll; }
 .h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
 .h2         { @extend .t-heading; @extend .h-biggest; }
 
-.t-bigger   { font-size: em(24, $rem-value); }
+.t-bigger   { font-size: $fz-ll; }
 .h-bigger   { @extend %h; @extend .t-bigger; }
 .h3         { @extend .t-heading; @extend .h-bigger; }
 
-.t-big      { font-size: em(20, $rem-value); }
+.t-big      { font-size: $fz-l; }
 .h-big      { @extend %h; @extend .t-big; }
 .h4         { @extend .t-heading; @extend .h-big; }
 
