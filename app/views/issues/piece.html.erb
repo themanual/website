@@ -96,9 +96,9 @@
     <h4>Enjoyed this piece? Support us on Kickstarter.</h4>
     <p><strong>We’re an independent pay-if-you-want publication.</strong> Become a subscriber or buy previous issues, and help us continue making our online editions freely available. Thank you.</p>
     <p>
-      <button class="button is-large">Subscribe via Kickstarter</button>
+      <%= link_to "Subscribe via Kickstarter", kickstarter_url, class: "button is-large external", rel: "external" %>
       <span class="br-s">or</span>
-      <a href="<%= legacy_store_issue_url %>">shop our print editions.</a>
+      <%= link_to "shop our print editions", legacy_store_issue_url %>
     </p>
   </div>
 </div></aside>
