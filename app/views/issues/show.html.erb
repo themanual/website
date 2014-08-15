@@ -51,7 +51,11 @@
     <% @issue.articles.ordered.each do |article| %>
     <li>
       <figure class="l-issue-illo">
-        <%= illustration_tag(article, size: 'm') %>
+        <%=
+        tag "img",
+            sizes: "(min-width: 500px) 13em, 1px",
+            srcset: srcset(base: illo_basepath(article), format: "jpg", sizes: %w(300 500 750 1000 1500), blank: true)
+        %>
       </figure>
       <div class="l-issue-text">
 

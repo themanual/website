@@ -1,8 +1,7 @@
 module IssuesHelper
 
-  def illustration_tag piece, options = {}
-    options.reverse_merge!(variant: 'original', size: 'l')
-    image_tag "illustrations/editorial/issue-#{piece.issue_number}/#{options[:variant]}/#{piece.author_slug}-#{options[:size]}.jpg"
+  def illo_basepath piece
+    "illustrations/editorial/issues/#{piece.issue_number}/#{piece.author_slug}"
   end
 
   def portrait_tag piece
