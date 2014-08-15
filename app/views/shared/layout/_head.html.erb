@@ -8,6 +8,9 @@
 <title><%= @page_title.join(' · ') + ' · ' if @page_title.any? %>The Manual</title>
 <%= yield(:meta) %>
 
+<%# CSS %>
+<%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
+
 <%# JS %>
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
