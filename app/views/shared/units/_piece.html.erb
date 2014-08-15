@@ -1,11 +1,13 @@
 <div class="piece-unit issue-<%= piece.issue_number %> c-issue">
+  <% if piece.article? %>
   <figure class="piece-unit-illo">
-    <% if piece.lesson? %>
-      <%= portrait_tag(piece) %>
-    <% else %>
-      <%= illustration_tag(piece) %>
-    <% end %>
+    <%=
+    tag "img",
+        sizes: "(min-width: 500px) 8em, 1px",
+        srcset: srcset(base: illo_basepath(piece), format: "jpg", sizes: %w(300 500 750 1000 1500), blank: true)
+    %>
   </figure>
+  <% end %>
   <div class="piece-unit-text">
     <p class="piece-unit-author"><%= piece.author.name %></p>
     <h3 class="piece-unit-title">

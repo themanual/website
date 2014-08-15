@@ -22,9 +22,9 @@
       @include clearfix;
 
       figure {
-        float: right;
         @include clearfix;
-        @include rem(max-width, 27rem);
+        float: right;
+        max-width: 27em;
       }
     }
 

@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def page_is_subpath_of path, output = nil
     if request.path.starts_with? path
       output.nil? ? true : output.html_safe
@@ -7,6 +8,14 @@ module ApplicationHelper
 
   def page_namespace
     request.path.split('/').reject(&:blank?).first
+  end
+
+  def srcset options
+    attribute = options[:sizes].map { |size|
+      image_path("#{options[:base]}-#{size}w.#{options[:format]}") + " " + "#{size}w"
+    }
+    attribute << "#{image_path("pixel.png")} 1w" if options[:blank]
+    attribute.join(", ")
   end
 
   def include_payment_assets

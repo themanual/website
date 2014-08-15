@@ -5,12 +5,14 @@
 
 .l-issue-illo {
   display: none;
-  @include media-from($bp-s) {
-    display: block;
-    float: left;
-    width: 13em;
-    margin-right: .5em;
-    + * { overflow: hidden; }
+  .js & {
+    @include media-from($bp-s) {
+      display: block;
+      float: left;
+      width: 13em;
+      margin-right: .5em;
+      + * { overflow: hidden; }
+    }
   }
 }
 

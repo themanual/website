@@ -2,7 +2,29 @@
 <% cache @piece do %>
 <article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-section-x"><div>
 
-  <%= render 'piece_header' %>
+  <header class="piece-header">
+    <% if @piece.illustrator %>
+    <div class="piece-header-illustration">
+      <figure>
+        <%=
+        tag "img",
+            sizes: "(min-width: 850px) 27em, 100vw",
+            srcset: srcset(base: illo_basepath(@piece), format: "jpg", sizes: %w(300 500 750 1000 1500))
+        %>
+      </figure>
+    </div>
+    <% end %>
+
+    <div class="piece-header-text">
+      <p class="piece-header-author byline vcard"><span class="fn author" rel="author"><%= @piece.author.name %></span></p>
+      <h1 class="piece-header-title"><%= @piece.title %></h1>
+      <h2 class="piece-header-synopsis"><%= @piece.synopsis %></h2>
+      <p class="piece-header-metadata">
+        <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue_number}", issue_path(issue: @piece.issue_number) %></span>
+        <span class="piece-header-topics">On <a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></span>
+      </p>
+    </div>
+  </header>
 
   <div class="piece-body l-reading">
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
