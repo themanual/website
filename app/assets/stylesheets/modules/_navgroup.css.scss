@@ -27,7 +27,7 @@
   .soon {
     cursor: not-allowed;
     > *:first-child { text-decoration: line-through; }
-    .tag { background-color: $c-text-faint; }
+    .tag { background-color: $c-text-faint; text-decoration: none; }
   }
 
   a {
