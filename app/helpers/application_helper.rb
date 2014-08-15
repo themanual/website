@@ -6,12 +6,6 @@ module ApplicationHelper
     end
   end
 
-  def page_is path, output = nil
-    if current_page?(path)
-      output.nil? ? true : output.html_safe
-    end
-  end
-
   def page_namespace
     request.path.split('/').reject(&:blank?).first
   end
