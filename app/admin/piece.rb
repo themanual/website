@@ -1,6 +1,6 @@
 ActiveAdmin.register Piece do
 
-  permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position
+  permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position, :topic_list
 
   filter :author
   filter :issue
@@ -16,7 +16,7 @@ ActiveAdmin.register Piece do
   	column :title
   	column :illustrator
   	column :synopsis
-  	column :position
+    column :position
     column :staff_pick
   	actions defaults: true do |piece|
       if piece.staff_pick?
@@ -27,6 +27,18 @@ ActiveAdmin.register Piece do
     end
   end
 
+  show do |ad|
+    attributes_table do
+      row :type
+      row :author
+      row :issue
+      row :title
+      row :synopsis
+      row :topic_list, label: 'Topics'
+      row :illustrator
+    end
+  end
+
   form do |f|
 
   	f.inputs "Meta" do
@@ -34,6 +46,7 @@ ActiveAdmin.register Piece do
   		f.input :author, input_html: { class: 'chosen-select' }
   		f.input :title
   		f.input :synopsis
+      f.input :topic_list, label: 'Topics'
   		f.input :illustrator
   		f.input :position
 
@@ -53,6 +66,10 @@ ActiveAdmin.register Piece do
     piece = Piece.find(params[:id])
     piece.update_attributes staff_pick: false, staff_pick_at: nil
     redirect_to admin_pieces_path, notice:"Removed to Staff Picks!"
+  end
+
+  after_save do
+    Piece.active_topics_cache_clear
   end
 
 end

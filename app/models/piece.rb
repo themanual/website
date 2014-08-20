@@ -1,10 +1,14 @@
 class Piece < ActiveRecord::Base
+  TOPIC_MIN_PIECE_COUNT = 1
+
   belongs_to :author
   belongs_to :issue, touch: true
 
   validates_presence_of :body, :on => :create, :message => "is required"
 
   acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
+
+  acts_as_taggable_on :topics
 
   scope :ordered, -> { order('position ASC') }
   scope :staff_picks, -> { where('staff_pick_at IS NOT NULL').order('staff_pick_at DESC') }
@@ -80,6 +84,20 @@ class Piece < ActiveRecord::Base
                     .limit(1)
                     .first rescue nil
 
+    end
+  end
+
+  def self.active_topics_cache_clear
+    Rails.cache.delete Piece.active_topics_cache_key
+  end
+
+  def self.active_topics_cache_key
+    "topics:active"
+  end
+
+  def self.active_topics
+    Rails.cache.fetch Piece.active_topics_cache_key do
+      Piece.tag_counts_on(:topics).where(enabled: true).collect(&:name).sort
     end
   end
 end

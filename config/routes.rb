@@ -29,6 +29,7 @@ TheManual::Application.routes.draw do
     get '/issues/:issue/:key/:type',  to: 'pieces#show',                                    as: :piece
     get '/staffpicks',                to: 'home#staffpicks',                                as: :staffpicks
     get '/popular',                   to: 'home#popular',                                   as: :popular
+    get '/topics/:topic',             to: 'pieces#index',                                   as: :topic
     get '/blog',                      to: redirect("http://blog.alwaysreadthemanual.com"),  as: :blog
   end
 

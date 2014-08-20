@@ -41,6 +41,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'codemirror-rails'
 gem 'chosen-rails'
 
+gem 'acts-as-taggable-on'
+
 gem 'shoppe', github: 'tryshoppe/core', branch: 'master', require: 'shoppe'
 # pull request accepted, but no new gem release yet
 # gem 'shoppe', '~> 0.0.0'

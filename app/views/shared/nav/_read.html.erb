@@ -19,17 +19,10 @@
 
   <h2 class="navgroup-title">Topics</h2>
   <ul class="navgroup-items">
-    <li><a href="#">Business</a></li>
-    <li><a href="#">Community</a></li>
-    <li><a href="#">Content</a></li>
-    <li><a href="#">Creativity</a></li>
-    <li><a href="#">Culture</a></li>
-    <li><a href="#">Growth</a></li>
-    <li><a href="#">Industry</a></li>
-    <li><a href="#">Layout</a></li>
-    <li><a href="#">Learning</a></li>
-    <li><a href="#">Teamwork</a></li>
-    <li><a href="#">Typography</a></li>
-    <li><a href="#">Writing</a></li>
+
+    <% Piece.active_topics.each do |topic| %>
+      <li><%= link_to_current topic.titlecase, topic_path(topic: topic.downcase) %></li>
+    <% end %>
+
   </ul>
 </div>
