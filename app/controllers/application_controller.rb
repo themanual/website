@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_order, :has_order?, :title
-  before_filter :init_page_title, :authenticate_user!
+  before_filter :init_page_title
+
+  # TODO move this elsewhere https://github.com/themanual/website/issues/19
+  # before_filter :authenticate_user!
 
   protected
     def authenticate_admin_user!
@@ -46,6 +49,11 @@ class ApplicationController < ActionController::Base
 
     def title page_title
       @page_title.unshift(page_title).flatten!
+    end
+
+    def check_access_to_issue
+      true
+      # TODO: allow for public issues, check users purchase history for non-public
     end
 
 end

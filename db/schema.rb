@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306110818) do
+ActiveRecord::Schema.define(version: 20140820101802) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -108,20 +108,23 @@ ActiveRecord::Schema.define(version: 20140306110818) do
   end
 
   create_table "pieces", force: true do |t|
-    t.string   "type",        limit: 32,   default: "Article", null: false
+    t.string   "type",          limit: 32,   default: "Article", null: false
     t.integer  "author_id"
     t.integer  "issue_id"
-    t.string   "title",       limit: 256,  default: "",        null: false
-    t.text     "body",                     default: "",        null: false
-    t.string   "synopsis",    limit: 1024
-    t.string   "illustrator", limit: 128
-    t.integer  "position",                 default: 1,         null: false
+    t.string   "title",         limit: 256,  default: "",        null: false
+    t.text     "body",                       default: "",        null: false
+    t.string   "synopsis",      limit: 1024
+    t.string   "illustrator",   limit: 128
+    t.integer  "position",                   default: 1,         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "staff_pick_at"
+    t.boolean  "staff_pick",                 default: false,     null: false
   end
 
   add_index "pieces", ["author_id"], name: "index_pieces_on_author_id"
   add_index "pieces", ["issue_id"], name: "index_pieces_on_issue_id"
+  add_index "pieces", ["staff_pick_at"], name: "index_pieces_on_staff_pick_at"
 
   create_table "session_tokens", force: true do |t|
     t.integer  "email_address_id"

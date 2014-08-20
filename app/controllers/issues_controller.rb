@@ -1,7 +1,7 @@
 class IssuesController < ApplicationController
 
   # skip_before_filter :authenticate_user!
-  before_filter :check_access_to_issue, only: [:show, :piece]
+  before_filter :check_access_to_issue, only: :show
 
   def index
   end
@@ -13,21 +13,4 @@ class IssuesController < ApplicationController
     redirect_to issues_path unless @issue
   end
 
-  def piece
-
-    author = Author.fetch_by_uniq_key!(params[:key], :slug)
-
-    @piece = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: author.id).first
-    @companion = @piece.companion
-    @recommended = @piece.random
-
-    render layout: "plain"
-  end
-
-  protected
-
-    def check_access_to_issue
-      true
-      # TODO: allow for public issues, check users purchase history for non-public
-    end
 end

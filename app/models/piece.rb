@@ -1,12 +1,13 @@
 class Piece < ActiveRecord::Base
   belongs_to :author
-  belongs_to :issue
+  belongs_to :issue, touch: true
 
   validates_presence_of :body, :on => :create, :message => "is required"
 
   acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
 
   scope :ordered, -> { order('position ASC') }
+  scope :staff_picks, -> { where('staff_pick_at IS NOT NULL').order('staff_pick_at DESC') }
 
   def issue_number
     @issue_number ||= issue.number
@@ -16,8 +17,10 @@ class Piece < ActiveRecord::Base
     @author_slug ||= author.slug
   end
 
-  def random
-    @random ||= Issue.public_issues.reject{|issue| issue.id == self.issue.id}.sample.articles.sample
+  def recommended
+    # for now just pick a staff pick at random, in future try to use topics to find a match
+    # https://github.com/themanual/website/issues/20
+    @recommended ||= Piece.staff_picks.sample
   end
 
   def path
@@ -39,10 +42,12 @@ class Piece < ActiveRecord::Base
   end
 
   def companion
-    if self.article?
-      return Lesson.where(issue_id: self.issue_id, author_id: self.author_id).first
-    elsif self.lesson?
-      return Article.where(issue_id: self.issue_id, author_id: self.author_id).first
+    @companion ||= begin
+      if self.article?
+        Lesson.where(issue_id: self.issue_id, author_id: self.author_id).first
+      elsif self.lesson?
+        Article.where(issue_id: self.issue_id, author_id: self.author_id).first
+      end
     end
   end
 

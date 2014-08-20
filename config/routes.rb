@@ -26,7 +26,7 @@ TheManual::Application.routes.draw do
     root                              to: redirect('/read/staffpicks'),                     as: :read
     get '/issues',                    to: 'issues#index',                                   as: :issues
     get '/issues/:issue',             to: 'issues#show',                                    as: :issue
-    get '/issues/:issue/:key/:type',  to: 'issues#piece',                                   as: :piece
+    get '/issues/:issue/:key/:type',  to: 'pieces#show',                                    as: :piece
     get '/staffpicks',                to: 'home#staffpicks',                                as: :staffpicks
     get '/popular',                   to: 'home#popular',                                   as: :popular
     get '/blog',                      to: redirect("http://blog.alwaysreadthemanual.com"),  as: :blog
