@@ -80,9 +80,9 @@
     </div>
   </section>
   <section class="piece-post-piece">
-    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.random.issue_number}" %></h2>
+    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue_number}" %></h2>
     <div>
-    <%= render :partial => 'shared/units/piece', :object  => @piece.random %>
+    <%= render :partial => 'shared/units/piece', :object  => @piece.recommended %>
     </div>
   </section>
 </div></aside>

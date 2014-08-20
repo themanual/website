@@ -7,6 +7,7 @@ ActiveAdmin.register Piece do
   filter :title
   filter :body
   filter :illustrator
+  filter :staff_pick
 
   index do
   	id_column
@@ -16,7 +17,14 @@ ActiveAdmin.register Piece do
   	column :illustrator
   	column :synopsis
   	column :position
-  	default_actions
+    column :staff_pick
+  	actions defaults: true do |piece|
+      if piece.staff_pick?
+        link_to('Unpick', unpick_admin_piece_path(piece))
+      else
+        link_to('Pick', pick_admin_piece_path(piece))
+      end
+    end
   end
 
   form do |f|
@@ -33,6 +41,18 @@ ActiveAdmin.register Piece do
 
   		f.actions
   	end
+  end
+
+  member_action :pick, :method => :get do
+    piece = Piece.find(params[:id])
+    piece.update_attributes staff_pick: true, staff_pick_at: Time.now
+    redirect_to admin_pieces_path, notice: "Added to Staff Picks!"
+  end
+
+  member_action :unpick, :method => :get do
+    piece = Piece.find(params[:id])
+    piece.update_attributes staff_pick: false, staff_pick_at: nil
+    redirect_to admin_pieces_path, notice:"Removed to Staff Picks!"
   end
 
 end
