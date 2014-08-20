@@ -1,64 +1,7 @@
 <%- title 'Staff Picks' %>
 
 <ul class="l-stack-lined">
-  <li class="piece-unit issue-1">
-    <p class="piece-unit-author">Jon Tan</p>
-    <h2 class="piece-unit-title"><a href="/read/issues/1/jon-tan/article">Taxidermista</a></h2>
-    <p class="piece-unit-synopsis">On the web, there’s no substitute for visiting places — browsing a gallery of postcards just won’t cut it.</p>
-    <p class="piece-unit-metadata">
-      <span class="piece-unit-silo">In <a href="/read/issues/1">Issue 1</a></span>
-      <span class="piece-unit-topics">On <a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Web</a></span>
-    </p>
-  </li>
 
-  <li class="piece-unit issue-3">
-    <p class="piece-unit-author">Tiffani Jones Brown</p>
-    <h2 class="piece-unit-title"><a href="/read/issues/3/tiffani-jones-brown/article">Practicing Passion</a></h2>
-    <p class="piece-unit-synopsis">There’s more to “do what you love“ than what is seems. What if you don’t know what you love? What if you’re not good at it?</p>
-    <p class="piece-unit-metadata">
-      <span class="piece-unit-silo">In <a href="/read/issues/3">Issue 3</a></span>
-      <span class="piece-unit-topics">On <a href="#">Fear</a>, <a href="#">Learning</a>, <a href="#">Process</a></span>
-    </p>
-  </li>
-
-  <li class="piece-unit issue-2">
-    <p class="piece-unit-author">Karen M<span class="t-downcase">c</span>Grane</p>
-    <h2 class="piece-unit-title"><a href="/read/issues/2/karen-mcgrane/article">Ear Trumpets and Bionic Superpowers</a></h2>
-    <p class="piece-unit-synopsis">Hiding in seemingly undesirable and unpopular technology lies the true chance of enriching people’s lives through design.</p>
-    <p class="piece-unit-metadata">
-      <span class="piece-unit-silo">In <a href="/read/issues/2">Issue 2</a></span>
-      <span class="piece-unit-topics">On <a href="#">Society</a>, <a href="#">Technology</a>, <a href="#">Responsiblity</a></span>
-    </p>
-  </li>
-
-  <li class="piece-unit issue-3">
-    <p class="piece-unit-author">Nina Stössinger</p>
-    <h2 class="piece-unit-title"><a href="/read/issues/3/nina-stoessinger/lesson">Lesson</a></h2>
-    <p class="piece-unit-synopsis">I can’t move now, can’t do anything. I feel the blade sharp against my side.</p>
-    <p class="piece-unit-metadata">
-      <span class="piece-unit-silo">In <a href="/read/issues/3">Issue 3</a></span>
-      <span class="piece-unit-topics">On <a href="#">Fear</a>, <a href="#">Learning</a>, <a href="#">Process</a></span>
-    </p>
-  </li>
-
-  <li class="piece-unit issue-1">
-    <p class="piece-unit-author">Liz Danzico</p>
-    <h2 class="piece-unit-title"><a href="/read/issues/1/liz-danzico/article">Names and the New Public</a></h2>
-    <p class="piece-unit-synopsis">Redundancy abounds. And we, in spite of ourselves, seem to value this redundancy.</p>
-    <p class="piece-unit-metadata">
-      <span class="piece-unit-silo">In <a href="/read/issues/1">Issue 1</a></span>
-      <span class="piece-unit-topics">On <a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Web</a></span>
-    </p>
-  </li>
-
-  <li class="piece-unit issue-2">
-    <p class="piece-unit-author">Alex Charchar</p>
-    <h2 class="piece-unit-title"><a href="/read/issues/2/alex-charchar/article">The Colors of Grief</a></h2>
-    <p class="piece-unit-synopsis">I was only here to help my wife breathe again. Nothing outside of her mattered anymore.</p>
-    <p class="piece-unit-metadata">
-      <span class="piece-unit-silo">In <a href="/read/issues/2">Issue 2</a></span>
-      <span class="piece-unit-topics">On <a href="#">Society</a>, <a href="#">Technology</a>, <a href="#">Responsiblity</a></span>
-    </p>
-  </li>
+  <%= render partial: 'shared/units/piece_summary', collection: Piece.staff_picks, as: :piece %>
 
 </ul>

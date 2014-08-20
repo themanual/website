@@ -1,4 +1,6 @@
 class Issue < ActiveRecord::Base
+	NEW_PERIOD = 14.days
+
 	has_many :articles
 	has_many :authors, through: :articles
 	has_many :lessons
@@ -27,6 +29,10 @@ class Issue < ActiveRecord::Base
 
 	def published?
 		self.published_on < Time.now
+	end
+
+	def new?
+		published_on > (Time.now - NEW_PERIOD)
 	end
 
 	# TODO: horribly inneficient, sort this out later Marc

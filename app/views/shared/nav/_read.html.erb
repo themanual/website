@@ -10,24 +10,25 @@
     <li>
       <span class="soon"><span class="c-issue-4">Issue 4</span> <small class="tag">Soon</small></span>
     </li>
-    <li><%= link_to_current "Issue 3", issue_path(issue: 3), class: "issue-3" %></li>
-    <li><%= link_to_current "Issue 2", issue_path(issue: 2), class: "issue-2" %></li>
-    <li><%= link_to_current "Issue 1", issue_path(issue: 1), class: "issue-1" %></li>
+    <% Issue.public_issues.each do |issue| %>
+      <li>
+        <%= link_to_current nil, issue_path(issue: issue.number), class: "issue-#{issue.number}" do %>
+          Issue <%= issue.number %>
+          <% if issue.new? %>
+            <small class="tag">New</small>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+
   </ul>
 
   <h2 class="navgroup-title">Topics</h2>
   <ul class="navgroup-items">
-    <li class="soon"><span>Business</span></li>
-    <li class="soon"><span>Community</span></li>
-    <li class="soon"><span>Content</span></li>
-    <li class="soon"><span>Creativity</span></li>
-    <li class="soon"><span>Culture</span></li>
-    <li class="soon"><span>Growth</span></li>
-    <li class="soon"><span>Industry</span></li>
-    <li class="soon"><span>Layout</span></li>
-    <li class="soon"><span>Learning</span></li>
-    <li class="soon"><span>Teamwork</span></li>
-    <li class="soon"><span>Typography</span></li>
-    <li class="soon"><span>Writing</span></li>
+
+    <% Piece.active_topics.each do |topic| %>
+      <li><%= link_to_current topic.titlecase, topic_path(topic: topic.downcase) %></li>
+    <% end %>
+
   </ul>
 </div>

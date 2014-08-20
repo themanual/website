@@ -35,12 +35,17 @@ module ApplicationHelper
     "http://kickstarter.com"
   end
 
-  def link_to_current(name, options, html_options = {})
+  def link_to_current(name, options, html_options = {}, &block)
+
     if current_page?(options)
       html_options[:class] ||= ""
       html_options[:class] += " current"
     end
-    link_to name, options, html_options
+    if block
+      link_to options, html_options, &block
+    else
+      link_to name, options, html_options
+    end
   end
 
   # From https://coderwall.com/p/d1vplg

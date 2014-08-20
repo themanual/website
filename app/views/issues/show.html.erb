@@ -29,7 +29,7 @@
             <%= article.synopsis %>
           </p>
           <p class="piece-unit-metadata">
-            On <span class="piece-unit-topics"><a href="#">Thing</a>, <a href="#">Other</a>, <a href="#">Another</a></span>
+            <%= topic_links_for article %>
           </p>
         </div>
 
@@ -41,7 +41,7 @@
             <%= article.lesson.synopsis %>
           </p>
           <p class="piece-unit-metadata">
-            On <span class="piece-unit-topics"><a href="#">Thing</a>, <a href="#">Other</a>, <a href="#">Another</a></span>
+            <%= topic_links_for article.lesson %>
           </p>
         </div>
       </div>
