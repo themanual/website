@@ -51,4 +51,9 @@ class ApplicationController < ActionController::Base
       @page_title.unshift(page_title).flatten!
     end
 
+    def check_access_to_issue
+      true
+      # TODO: allow for public issues, check users purchase history for non-public
+    end
+
 end
