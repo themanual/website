@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_order, :has_order?, :title
-  before_filter :init_page_title, :authenticate_user!
+  before_filter :init_page_title
+
+  # TODO move this elsewhere https://github.com/themanual/website/issues/19
+  # before_filter :authenticate_user!
 
   protected
     def authenticate_admin_user!
