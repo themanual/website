@@ -7,14 +7,17 @@
 
   <h2 class="navgroup-title">Issues</h2>
   <ul class="navgroup-items">
-    <li>
-      <%= link_to issue_path(issue: 4), class: "issue-4" do %>
-      Issue 4 <small class="tag">New</small>
-      <% end %>
-    </li>
-    <li><%= link_to_current "Issue 3", issue_path(issue: 3), class: "issue-3" %></li>
-    <li><%= link_to_current "Issue 2", issue_path(issue: 2), class: "issue-2" %></li>
-    <li><%= link_to_current "Issue 1", issue_path(issue: 1), class: "issue-1" %></li>
+    <% Issue.public_issues.each do |issue| %>
+      <li>
+        <%= link_to_current nil, issue_path(issue: issue.number), class: "issue-#{issue.number}" do %>
+          Issue <%= issue.number %>
+          <% if issue.new? %>
+            <small class="tag">New</small>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+
   </ul>
 
   <h2 class="navgroup-title">Topics</h2>
