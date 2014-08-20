@@ -1,6 +1,6 @@
 class Piece < ActiveRecord::Base
   belongs_to :author
-  belongs_to :issue
+  belongs_to :issue, touch: true
 
   validates_presence_of :body, :on => :create, :message => "is required"
 
@@ -39,10 +39,12 @@ class Piece < ActiveRecord::Base
   end
 
   def companion
-    if self.article?
-      return Lesson.where(issue_id: self.issue_id, author_id: self.author_id).first
-    elsif self.lesson?
-      return Article.where(issue_id: self.issue_id, author_id: self.author_id).first
+    @companion ||= begin
+      if self.article?
+        Lesson.where(issue_id: self.issue_id, author_id: self.author_id).first
+      elsif self.lesson?
+        Article.where(issue_id: self.issue_id, author_id: self.author_id).first
+      end
     end
   end
 

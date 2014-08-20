@@ -37,8 +37,8 @@
     <div class="piece-author-bio text">
       <p><%= raw @piece.author.bio %></p>
       <p>
-        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
-          Read Next: <%= @piece.author.name.given_name.possessive %> <%= @companion.type %>
+        <%= link_to piece_path(@piece.companion.issue.number, @piece.companion.author_slug, @piece.companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
+          Read Next: <%= @piece.author.name.given_name.possessive %> <%= @piece.companion.type %>
         <% end %>
       </p>
     </div>
@@ -47,6 +47,7 @@
 </div></article>
 <% end %>
 
+<% cache [@piece, 'explore'], expires_in: 30.minutes do %>
 <aside class="l-section-x piece-post"><div>
   <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
     <h2 class="box-title">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
@@ -79,12 +80,14 @@
     </div>
   </section>
   <section class="piece-post-piece">
-    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended.issue_number}" %></h2>
+    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.random.issue_number}" %></h2>
     <div>
-    <%= render :partial => 'shared/units/piece', :object  => @recommended %>
+    <%= render :partial => 'shared/units/piece', :object  => @piece.random %>
     </div>
   </section>
 </div></aside>
+
+<% end %>
 
 <aside class="support bg-gray l-line-t"><div>
   <div class="support-illo">
