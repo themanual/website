@@ -65,7 +65,7 @@
           <h3 class="piece-unit-title">
             <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article)  %>
           </h3>
-          <p class="piece-unit-synopsis is-short">
+          <p class="piece-unit-synopsis">
             <%= article.synopsis %>
           </p>
           <p class="piece-unit-metadata">
@@ -77,7 +77,7 @@
           <h3 class="piece-unit-title">
             <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
           </h3>
-          <p class="piece-unit-synopsis is-short">
+          <p class="piece-unit-synopsis">
             <%= article.lesson.synopsis %>
           </p>
           <p class="piece-unit-metadata">
