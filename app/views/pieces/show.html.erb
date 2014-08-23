@@ -63,19 +63,13 @@
   <section class="piece-post-topics">
     <h2 class="box-title">Related Topics</h2>
     <div class="text">
-      <ul class="plain double">
+      <ul>
+      <%  @piece.topics.each do |topic| %>
         <li>
-          <h5><a href="#">Culture</a></h5>
-          <p><strong>4</strong> Pieces</p>
+          <h5><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
+          <p><strong><%= topic.taggings_count %></strong> Pieces</p>
         </li>
-        <li>
-          <h5><a href="#">History</a></h5>
-          <p><strong>7</strong> Pieces</p>
-        </li>
-        <li>
-          <h5><a href="#">Process</a></h5>
-          <p><strong>8</strong> Pieces</p>
-        </li>
+      <% end %>
       </ul>
     </div>
   </section>
