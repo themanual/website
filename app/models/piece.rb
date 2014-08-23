@@ -33,6 +33,14 @@ class Piece < ActiveRecord::Base
     end
   end
 
+  def pick!
+    self.update_attributes staff_pick: true, staff_pick_at: Time.now
+  end
+
+  def unpick!
+    update_attributes staff_pick: false, staff_pick_at: nil
+  end
+
   def article?
     self.is_a? Article
   end
