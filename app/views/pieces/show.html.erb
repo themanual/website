@@ -63,8 +63,8 @@
   <section class="piece-post-topics">
     <h2 class="box-title">Related Topics</h2>
     <div class="text">
-      <ul>
       <%  @piece.topics.each do |topic| %>
+      <ul class="plain loose">
         <li>
           <h5><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
           <p><strong><%= topic.taggings_count %></strong> Pieces</p>
