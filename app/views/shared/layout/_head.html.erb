@@ -1,11 +1,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<%# Prepare title %>
+<%- title "The Manual", :push -%>
 
 <%= csrf_meta_tags %>
+<title><%= title.join(' · ') %></title>
 
-<%# Title and Meta %>
-<title><%= @page_title.join(' · ') + ' · ' if @page_title.any? %>The Manual</title>
 <%= yield(:meta) %>
 
 <%# CSS %>

@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_order, :has_order?, :title
-  before_filter :init_page_title
 
   # TODO move this elsewhere https://github.com/themanual/website/issues/19
   # before_filter :authenticate_user!
@@ -43,12 +42,12 @@ class ApplicationController < ActionController::Base
       )
     end
 
-    def init_page_title
+    def title page_title = nil, method = :unshift
       @page_title ||= []
+      @page_title.send(method, page_title).flatten! if page_title.present?
+      @page_title
     end
 
-    def title page_title
-      @page_title.unshift(page_title).flatten!
     end
 
     def check_access_to_issue
