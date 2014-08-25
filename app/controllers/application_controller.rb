@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
-  helper_method :current_order, :has_order?, :title
+  helper_method :current_order, :has_order?, :title, :metadata
 
   # TODO move this elsewhere https://github.com/themanual/website/issues/19
   # before_filter :authenticate_user!
@@ -48,6 +47,15 @@ class ApplicationController < ActionController::Base
       @page_title
     end
 
+    def metadata key = nil, value = nil
+      @page_metadata ||= {
+        "twitter:site" => "@themanual",
+        "twitter:card" => "summary",
+        "og:site_name" => "The Manual",
+        "og:url" => request.url
+      }
+      @page_metadata[key] = value if key.present? && value.present?
+      @page_metadata
     end
 
     def check_access_to_issue
