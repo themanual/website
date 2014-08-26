@@ -5,6 +5,7 @@
   <header class="piece-header">
     <% if @piece.illustrator %>
     <%- metadata "og:image",        image_url("#{@piece.illo_basepath}-750w.jpg") if @piece.illustrator.present? -%>
+    <%- metadata "twitter:image",   image_url("#{@piece.illo_basepath}-750w.jpg") if @piece.illustrator.present? -%>
     <div class="piece-header-illustration">
       <figure class="entry-content-asset">
         <%=
