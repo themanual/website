@@ -64,7 +64,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'debugger'
-  gem 'sqlite3'
+  gem 'pg'
   gem 'guard-pow', require: false
   gem 'guard-livereload'
   gem 'terminal-notifier-guard', require: false
