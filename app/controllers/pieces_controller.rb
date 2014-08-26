@@ -11,7 +11,7 @@ class PiecesController < ApplicationController
     metadata "description",     @piece.synopsis             if @piece.synopsis.present?
     metadata "og:description",  @piece.synopsis             if @piece.synopsis.present?
     metadata "twitter:creator", "@#{@piece.author.twitter}" if @piece.author.twitter.present?
-    metadata "og:image",        view_context.image_url("#{@piece.illo_basepath}-750w.jpg") if @piece.illustrator.present?
+    metadata "og:image",        view_context.image_url("#{@piece.illo_basepath}-square.jpg") if @piece.illustrator.present?
 
     render layout: "plain"
   end
