@@ -50,7 +50,7 @@ TheManual::Application.routes.draw do
 
   # post  '/buy/:permalink',          to: 'orders#update',    as: :purchase
   # get   '/checkout',                to: 'orders#show',      as: :basket
-  # get   '/shipping_estimate',       to: 'home#shipping_estimate', as: :shipping
+  get   '/shipping_estimate',       to: 'home#shipping_estimate', as: :shipping
   # get   '/cart',  to: 'home#cart',    as: :cart
 
   # SEO
