@@ -12,6 +12,9 @@
             sizes: "(min-width: 850px) 27em, 100vw",
             srcset: srcset(base: @piece.illo_basepath, format: "jpg", sizes: %w(300 500 750 1000 1500))
         %>
+        <noscript>
+          <%= image_tag "#{@piece.illo_basepath}-1000w.jpg", alt: "" %>
+        </noscript>
       </figure>
     </div>
     <% end %>
@@ -87,7 +90,7 @@
 <aside class="support bg-gray l-line-t"><div>
   <div class="support-illo">
     <figure>
-      <%= image_tag "ui/big-devices.png" %>
+      <%= image_tag "ui/big-devices.png", alt: "" %>
     </figure>
   </div>
   <div class="support-text text t-big">
