@@ -5,6 +5,6 @@ class Article < Piece
 	end
 
   def illo_basepath
-    "illustrations/editorial/issues/#{self.issue_number}/#{self.author_slug}"
+    "illustrations/editorial/issue-#{self.issue_number}/#{self.illustrator.parameterize}"
   end
 end
