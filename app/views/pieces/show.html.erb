@@ -1,12 +1,12 @@
 <% title "#{@piece.title}, by #{@piece.author.name}" %>
 <% cache @piece do %>
-<article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-section-x"><div>
+<article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-section-x hentry"><div>
 
   <header class="piece-header">
     <% if @piece.illustrator %>
     <%- metadata "og:image",        image_url("#{@piece.illo_basepath}-750w.jpg") if @piece.illustrator.present? -%>
     <div class="piece-header-illustration">
-      <figure>
+      <figure class="entry-content-asset">
         <%=
         tag "img",
             sizes: "(min-width: 850px) 27em, 100vw",
@@ -18,8 +18,8 @@
 
     <div class="piece-header-text">
       <p class="piece-header-author byline vcard"><span class="fn author" rel="author"><%= @piece.author.name %></span></p>
-      <h1 class="piece-header-title"><%= @piece.title %></h1>
-      <h2 class="piece-header-synopsis"><%= @piece.synopsis %></h2>
+      <h1 class="piece-header-title entry-title"><%= @piece.title %></h1>
+      <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
       <p class="piece-header-metadata">
         <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue_number}", issue_path(issue: @piece.issue_number) %></span>
         <span class="piece-header-topics">On <a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></span>
@@ -27,7 +27,7 @@
     </div>
   </header>
 
-  <div class="piece-body l-reading">
+  <div class="piece-body l-reading entry-content">
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
   </div>
 
