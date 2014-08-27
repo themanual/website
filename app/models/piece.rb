@@ -12,6 +12,7 @@ class Piece < ActiveRecord::Base
 
   scope :ordered, -> { order('position ASC') }
   scope :staff_picks, -> { where('staff_pick_at IS NOT NULL').order('staff_pick_at DESC') }
+  scope :not_from_issue, -> (issue) { where('issue_id NOT IN (?)', issue.id) }
 
   def issue_number
     @issue_number ||= issue.number
@@ -24,6 +25,9 @@ class Piece < ActiveRecord::Base
   def recommended
     # for now just pick a staff pick at random, in future try to use topics to find a match
     # https://github.com/themanual/website/issues/20
+    # Fetch a random pick from another issue
+    @recommended ||= Piece.staff_picks.not_from_issue(self.issue).sample
+    # If there are no picks in other issues, pick any
     @recommended ||= Piece.staff_picks.sample
   end
 
