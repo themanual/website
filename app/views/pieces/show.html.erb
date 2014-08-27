@@ -3,7 +3,7 @@
 <article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-section-x hentry"><div>
 
   <header class="piece-header">
-    <% if @piece.illustrator %>
+    <% if @piece.illustrator.present? %>
     <div class="piece-header-illustration">
       <figure class="entry-content-asset">
         <%=
