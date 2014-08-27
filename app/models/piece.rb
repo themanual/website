@@ -57,6 +57,10 @@ class Piece < ActiveRecord::Base
     return self.class.name
   end
 
+  def enabled_topics
+    topics.where(enabled: true)
+  end
+
   def companion
     @companion ||= begin
       if self.article?

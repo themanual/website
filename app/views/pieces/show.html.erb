@@ -64,7 +64,7 @@
     <h2 class="box-title is-spaced">Related Topics</h2>
     <div class="text">
       <ul class="plain loose">
-      <%  @piece.topics.where(enabled: true).each do |topic| %>
+      <%  @piece.enabled_topics.each do |topic| %>
         <li>
           <h5><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
           <p><strong><%= topic.taggings_count %></strong> Pieces</p>
