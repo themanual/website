@@ -21,7 +21,7 @@
       <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
       <p class="piece-header-metadata">
         <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue_number}", issue_path(issue: @piece.issue_number) %></span>
-        <span class="piece-header-topics">On <a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></span>
+        <%= topic_links_for(@piece, :span, class: 'piece-header-topics') %>
       </p>
     </div>
   </header>
