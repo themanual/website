@@ -218,19 +218,9 @@
 
   blockquote {
     @include margin-v(1em);
-
     color: $c-text-caption;
     border-left: solid 1px transparent;
-
     @include color-by-issue(border-color);
-    box-sizing: border-box;
-
-    > p + p:last-child > cite:only-child {
-      display: block;
-      text-align: right;
-      font-style: normal;
-      margin-top: -0.5em;
-    }
   }
 
   ol { list-style-type: decimal; }
