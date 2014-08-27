@@ -57,26 +57,27 @@
         <%= content_tag :li, author.name, class: ('marker-arrow' if author == @piece.author) %>
       <% end %>
       </ul>
-      <p><%= link_to "Browse Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></p>
+      <p><%= link_to "Browse this issue", issue_path(@piece.issue_number) %></p>
     </div>
   </section>
   <section class="piece-post-topics">
     <h2 class="box-title is-spaced">Related Topics</h2>
     <div class="text">
-      <ul class="plain loose">
+      <ul class="plain looser topic-list">
       <%  @piece.enabled_topics.each do |topic| %>
         <li>
-          <h5><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
-          <p><strong><%= topic.taggings_count %></strong> Pieces</p>
+          <h5 class="topic-list-name"><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
+          <p class="topic-list-description"><strong><%= topic.taggings_count %></strong> pieces</p>
         </li>
       <% end %>
       </ul>
     </div>
   </section>
   <section class="piece-post-piece">
-    <h2 class="box-title is-spaced">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue_number}" %></h2>
+    <%- @recommended_piece = @piece.recommended -%>
+    <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended_piece.issue_number}" %></h2>
     <div>
-    <%= render :partial => 'shared/units/piece', :object  => @piece.recommended %>
+    <%= render :partial => 'shared/units/piece', :object  => @recommended_piece %>
     </div>
   </section>
 </div></aside>
