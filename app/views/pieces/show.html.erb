@@ -50,7 +50,7 @@
 <% cache [@piece, 'explore'], expires_in: 30.minutes do %>
 <aside class="l-section-x piece-post"><div>
   <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
-    <h2 class="box-title">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
+    <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
     <div class="text">
       <ul class="plain">
       <% @piece.issue.authors.each do |author| %>
@@ -61,10 +61,10 @@
     </div>
   </section>
   <section class="piece-post-topics">
-    <h2 class="box-title">Related Topics</h2>
+    <h2 class="box-title is-spaced">Related Topics</h2>
     <div class="text">
       <ul class="plain loose">
-      <%  @piece.topics.where("taggings_count > 1").each do |topic| %>
+      <%  @piece.topics.where(enabled: true).each do |topic| %>
         <li>
           <h5><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
           <p><strong><%= topic.taggings_count %></strong> Pieces</p>
@@ -74,7 +74,7 @@
     </div>
   </section>
   <section class="piece-post-piece">
-    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue_number}" %></h2>
+    <h2 class="box-title is-spaced">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue_number}" %></h2>
     <div>
     <%= render :partial => 'shared/units/piece', :object  => @piece.recommended %>
     </div>
