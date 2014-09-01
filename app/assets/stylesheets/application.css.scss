@@ -34,19 +34,19 @@
 @import 'components/fields';
 @import 'components/form';
 @import 'components/lists';
-@import 'components/tables';
 @import 'components/text';
 @import 'components/popover';
+// @import 'components/tables';
 
 // General Modules
 @import 'modules/box';
 @import 'modules/price';
 @import 'modules/homepage';
-@import 'modules/banner';
-@import 'modules/support';
 @import 'modules/navgroup';
 @import 'modules/piece';
 @import 'modules/announcement';
+// @import 'modules/banner';
+// @import 'modules/support';
 
 // Units
 @import 'modules/units/piece';
@@ -54,6 +54,6 @@
 @import 'modules/units/topic-list';
 
 // Store Modules
-@import 'modules/store/buy';
-@import 'modules/store/cart';
-@import 'modules/store/minicart';
+// @import 'modules/store/buy';
+// @import 'modules/store/cart';
+// @import 'modules/store/minicart';
