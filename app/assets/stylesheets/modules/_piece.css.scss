@@ -200,7 +200,7 @@
   dl {
     @include margin-v(1em);
     dt {
-      font-weight: weight(bold);
+      font-weight: weight(semibold);
     }
     dd + * {
       margin-top: 1em;
