@@ -34,8 +34,8 @@
     position: absolute;
     display: block;
     text-align: center;
-    @include spacing(width, 1);
-    @include spacing(left, -1);
+    width: 1em;
+    left: -1em;
     top: em(0);
   }
 }
