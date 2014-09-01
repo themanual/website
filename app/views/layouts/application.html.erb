@@ -15,9 +15,9 @@
 
   <section id="content" class="l-section-x <%= "has-sidebar" if sidebar_present %>"><div>
 
-    <%- if @page_title.any? %>
+    <%- if title.any? %>
     <header class="page-header">
-      <h1><%= @page_title.first %></h1>
+      <h1><%= title.first %></h1>
       <% if sidebar_present %><button class="toggle-sidebar">Show/Hide Sidebar</button><% end %>
     </header>
     <% end %>

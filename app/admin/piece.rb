@@ -2,12 +2,12 @@ ActiveAdmin.register Piece do
 
   permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position, :topic_list
 
-  filter :author
   filter :issue
   filter :title
   filter :body
   filter :illustrator
   filter :staff_pick
+  filter :topics
 
   index do
   	id_column
@@ -35,7 +35,6 @@ ActiveAdmin.register Piece do
       row :title
       row :synopsis
       row :topic_list, label: 'Topics'
-      row :illustrator
     end
   end
 

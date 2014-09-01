@@ -8,9 +8,9 @@
   .js & {
     @include media-from($bp-s) {
       display: block;
-      float: left;
-      width: 13em;
-      margin-right: .5em;
+      float: right;
+      width: 15em;
+      margin-left: .5em;
       + * { overflow: hidden; }
     }
   }

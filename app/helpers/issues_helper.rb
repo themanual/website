@@ -1,9 +1,5 @@
 module IssuesHelper
 
-  def illo_basepath piece
-    "illustrations/editorial/issues/#{piece.issue_number}/#{piece.author_slug}"
-  end
-
   def portrait_tag piece
     image_tag "illustrations/portraits/issue-#{piece.issue_number}/#{piece.author_slug}.jpg"
   end

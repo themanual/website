@@ -40,7 +40,7 @@
   font-family: $type-serif;
   font-weight: weight(medium);
   line-height: 1.25;
-  margin-top: .1em;
+  margin-top: .2em;
   color: $c-text-body;
   max-width: 28em;
   &.is-short  { max-width: 21em; }
@@ -52,7 +52,7 @@
   line-height: 1.2;
   margin-top: .6em;
   .piece-unit-entry & {
-    margin-top: .35em;
+    margin-top: .45em;
   }
 }
 

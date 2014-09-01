@@ -13,8 +13,8 @@
       <figure class="l-issue-illo">
         <%=
         tag "img",
-            sizes: "(min-width: 500px) 13em, 1px",
-            srcset: srcset(base: illo_basepath(article), format: "jpg", sizes: %w(300 500 750 1000 1500), blank: true)
+            sizes: "(min-width: 500px) 15em, 1px",
+            srcset: srcset(base: article.illo_basepath, format: "jpg", sizes: %w(300 500 750 1000 1500), blank: true)
         %>
       </figure>
       <div class="l-issue-text">
@@ -25,7 +25,7 @@
           <h3 class="piece-unit-title">
             <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article)  %>
           </h3>
-          <p class="piece-unit-synopsis is-short">
+          <p class="piece-unit-synopsis">
             <%= article.synopsis %>
           </p>
           <p class="piece-unit-metadata">
@@ -37,7 +37,7 @@
           <h3 class="piece-unit-title">
             <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
           </h3>
-          <p class="piece-unit-synopsis is-short">
+          <p class="piece-unit-synopsis">
             <%= article.lesson.synopsis %>
           </p>
           <p class="piece-unit-metadata">

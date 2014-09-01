@@ -1,7 +1,5 @@
-<%- title params[:topic].titlecase %>
+<%- title "Topic: #{params[:topic].titlecase}" %>
 
 <ul class="l-stack-lined">
-
   <%= render partial: 'shared/units/piece_summary', collection: Piece.tagged_with(params[:topic]), as: :piece %>
-
 </ul>

@@ -225,7 +225,7 @@ GEM
     neat (1.5.0)
       bourbon (>= 2.1)
       sass (>= 3.2)
-    newrelic_rpm (3.7.2.195)
+    newrelic_rpm (3.9.3.241)
     nifty-attachments (1.0.0)
     nifty-dialog (1.0.1)
     nifty-key-value-store (1.0.0)
@@ -313,7 +313,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8)
     stripe (1.8.8)
       multi_json (>= 1.0.4, < 2)
       rest-client (~> 1.4)
@@ -379,7 +378,6 @@ DEPENDENCIES
   shoppe!
   shoppe-stripe (~> 1.2.1)
   sprockets-image_compressor
-  sqlite3
   stripe
   terminal-notifier-guard
   uglifier (>= 1.3.0)

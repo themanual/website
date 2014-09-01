@@ -1,15 +1,15 @@
 <% title "#{@piece.title}, by #{@piece.author.name}" %>
 <% cache @piece do %>
-<article class="issue-<%= @piece.issue_number %> c-issue piece is-<%= @piece.type.downcase %> l-section-x"><div>
+<article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-section-x hentry"><div>
 
   <header class="piece-header">
-    <% if @piece.illustrator %>
+    <% if @piece.illustrator.present? %>
     <div class="piece-header-illustration">
-      <figure>
+      <figure class="entry-content-asset">
         <%=
         tag "img",
             sizes: "(min-width: 850px) 27em, 100vw",
-            srcset: srcset(base: illo_basepath(@piece), format: "jpg", sizes: %w(300 500 750 1000 1500))
+            srcset: srcset(base: @piece.illo_basepath, format: "jpg", sizes: %w(300 500 750 1000 1500))
         %>
       </figure>
     </div>
@@ -17,16 +17,16 @@
 
     <div class="piece-header-text">
       <p class="piece-header-author byline vcard"><span class="fn author" rel="author"><%= @piece.author.name %></span></p>
-      <h1 class="piece-header-title"><%= @piece.title %></h1>
-      <h2 class="piece-header-synopsis"><%= @piece.synopsis %></h2>
+      <h1 class="piece-header-title entry-title"><%= @piece.title %></h1>
+      <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
       <p class="piece-header-metadata">
         <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue_number}", issue_path(issue: @piece.issue_number) %></span>
-        <span class="piece-header-topics">On <a href="#">Culture</a>, <a href="#">History</a>, <a href="#">Process</a></span>
+        <%= topic_links_for(@piece, :span, class: 'piece-header-topics') %>
       </p>
     </div>
   </header>
 
-  <div class="piece-body l-reading">
+  <div class="piece-body l-reading entry-content">
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
   </div>
 
@@ -49,39 +49,34 @@
 
 <aside class="l-section-x piece-post"><div>
   <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
-    <h2 class="box-title">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
+    <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
     <div class="text">
       <ul class="plain">
       <% @piece.issue.authors.each do |author| %>
         <%= content_tag :li, author.name, class: ('marker-arrow' if author == @piece.author) %>
       <% end %>
       </ul>
-      <p><%= link_to "Browse Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></p>
+      <p><%= link_to "Browse this issue", issue_path(@piece.issue_number) %></p>
     </div>
   </section>
   <section class="piece-post-topics">
-    <h2 class="box-title">Related Topics</h2>
+    <h2 class="box-title is-spaced">Related Topics</h2>
     <div class="text">
-      <ul class="plain double">
+      <ul class="plain looser topic-list">
+      <%  @piece.enabled_topics.each do |topic| %>
         <li>
-          <h5><a href="#">Culture</a></h5>
-          <p><strong>4</strong> Pieces</p>
+          <h5 class="topic-list-name"><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
+          <p class="topic-list-description"><strong><%= topic.taggings_count %></strong> pieces</p>
         </li>
-        <li>
-          <h5><a href="#">History</a></h5>
-          <p><strong>7</strong> Pieces</p>
-        </li>
-        <li>
-          <h5><a href="#">Process</a></h5>
-          <p><strong>8</strong> Pieces</p>
-        </li>
+      <% end %>
       </ul>
     </div>
   </section>
   <section class="piece-post-piece">
-    <h2 class="box-title">Recommended in <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended.issue_number}" %></h2>
+    <%- @recommended_piece = @piece.recommended -%>
+    <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended_piece.issue_number}" %></h2>
     <div>
-    <%= render :partial => 'shared/units/piece', :object  => @recommended %>
+    <%= render :partial => 'shared/units/piece', :object  => @recommended_piece %>
     </div>
   </section>
 </div></aside>
@@ -89,7 +84,7 @@
 <aside class="support bg-gray l-line-t"><div>
   <div class="support-illo">
     <figure>
-      <%= image_tag "ui/big-devices-kickstarter.png" %>
+      <%= image_tag "ui/big-devices.png", alt: "" %>
     </figure>
   </div>
   <div class="support-text text t-big kickstarter">

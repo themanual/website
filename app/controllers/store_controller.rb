@@ -1,6 +1,6 @@
 class StoreController < ApplicationController
 
-  before_action { @page_title.unshift("Shop") }
+  before_action { title "Shop" }
 
   def index
   end

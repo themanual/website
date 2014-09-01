@@ -43,15 +43,15 @@ TheManual::Application.routes.draw do
   get '/about', to: 'about#index',  as: :about
 
   # Payment / Legacy
-  resource :subscribe, controller: :support, only: [:show, :create] do
-    get ':tier/thanks',   action: :thanks,   as: :thanks
-    get ':tier/checkout', action: :checkout, as: :checkout
-  end
+  # resource :subscribe, controller: :support, only: [:show, :create] do
+  #   get ':tier/thanks',   action: :thanks,   as: :thanks
+  #   get ':tier/checkout', action: :checkout, as: :checkout
+  # end
 
-  post  '/buy/:permalink',          to: 'orders#update',    as: :purchase
-  get   '/checkout',                to: 'orders#show',      as: :basket
+  # post  '/buy/:permalink',          to: 'orders#update',    as: :purchase
+  # get   '/checkout',                to: 'orders#show',      as: :basket
   get   '/shipping_estimate',       to: 'home#shipping_estimate', as: :shipping
-  get   '/cart',  to: 'home#cart',    as: :cart
+  # get   '/cart',  to: 'home#cart',    as: :cart
 
   # SEO
   get "robots(.:format)" => 'seo#robots'
