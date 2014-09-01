@@ -225,7 +225,7 @@ GEM
     neat (1.5.0)
       bourbon (>= 2.1)
       sass (>= 3.2)
-    newrelic_rpm (3.7.2.195)
+    newrelic_rpm (3.9.3.241)
     nifty-attachments (1.0.0)
     nifty-dialog (1.0.1)
     nifty-key-value-store (1.0.0)
