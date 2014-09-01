@@ -49,10 +49,10 @@
 
 .piece-unit-metadata {
   color: $c-text-faint;
-  line-height: 1.2;
-  margin-top: .6em;
+  line-height: 1.25;
+  margin-top: .75em;
   .piece-unit-entry & {
-    margin-top: .45em;
+    margin-top: .5em;
   }
 }
 
@@ -60,8 +60,15 @@
   @include link-hover-black { color: $c-text-gray; }
 }
 
-.piece-unit-metadata > * + *:before {
-  content: "\00b7\00a0";
-  display: inline-block;
-  @include padding-h(.3em);
+@include media-upto($bp-s) {
+  .piece-unit-metadata > * + * {
+    display: block;
+  }
+}
+@include media-from($bp-s) {
+  .piece-unit-metadata > * + *:before {
+    content: "\00b7\00a0";
+    display: inline-block;
+    @include padding-h(.3em);
+  }
 }
