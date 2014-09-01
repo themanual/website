@@ -4,7 +4,7 @@ require Rails.root.join("config/environments/production")
 TheManual::Application.configure do
 
   config.action_mailer.default_url_options = {
-    :host => 'stage.alwaysreadthemanual.com'
+    :host => 'stage.themanual.org'
   }
 
 end
