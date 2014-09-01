@@ -1,7 +1,6 @@
 .homepage {
-  @include spacing(padding-left padding-right);
-  @include spacing(padding-top padding-bottom, 2);
-  > * { @extend .l-container; }
+  @extend .l-block;
+  @extend .l-ppp;
 }
 
 .homepage-content {

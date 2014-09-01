@@ -2,7 +2,7 @@
 
 <% Issue.public_issues.ordered.each do |issue| %>
   <% cache issue, expires_in: 12.hours.ish do %>
-    <section class="l-p-y l-line-t l-row issue-<%= issue.number %>">
+    <section class="l-p l-line-t l-row issue-<%= issue.number %>">
 
       <h2 class="h2 t-strong l-col-half">
         Issue <strong class="issue-number issue-<%= issue.number %>"><%= issue.number %></strong>

@@ -14,8 +14,8 @@
   .l-col#{$class}-third       { @include span-columns($grid-columns/3); }
   .l-col#{$class}-fourth      { @include span-columns($grid-columns/4); }
   .l-col#{$class}-two-thirds  { @include span-columns(2*$grid-columns/3); }
-  .l-col#{$class}-fill        { @include fill-parent(); }
-  .l-col#{$class}-rest        { overflow: hidden; }
+  // .l-col#{$class}-fill        { @include fill-parent(); }
+  // .l-col#{$class}-rest        { overflow: hidden; }
 
   // Containers
   .l-row#{$class}-halves,

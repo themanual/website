@@ -3,7 +3,7 @@
   @include svg { stroke: $c-icon-gray; }
 
   line-height: 1;
-  @include spacing(padding-left padding-right);
+  @extend .l-x;
 
   a.current {
     color: $c-text-black;

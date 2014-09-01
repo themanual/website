@@ -41,9 +41,9 @@
         position: absolute;
         display: block;
         text-align: center;
-        @include spacing(width, 1);
-        @include spacing(left, -1);
-        margin-top: em(-2);
+        @include rem(width, 1rem);
+        @include rem(left, -1rem);
+        margin-top: em(-1);
       }
     }
 

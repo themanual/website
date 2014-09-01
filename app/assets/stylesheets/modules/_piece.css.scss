@@ -49,7 +49,7 @@
   }
   .is-lesson & {
     @include spacing(margin-top margin-bottom, 2.5);
-    @extend .l-reading;
+    @extend .l-col-reading;
     text-align: center;
     > * { @include centered; }
   }

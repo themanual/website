@@ -1,12 +1,12 @@
 <% @physical = true %>
 
-<main class="l-p-x"><div class="l-singlecol">
+<main class="l-container"><div class="l-col-single">
 
   <header class="page-header">
     <h1>Checkout</h1>
   </header>
 
-  <section class="l-p-bb">
+  <section class="">
     <%= form_for @user, url: subscribe_path, html: {method: :post, class: "form payment-form", autocomplete: :on, novalidate: :novalidate } do |f| %>
       <input type="hidden" name="stripe_token" value="" />
       <!--<span class="payment-errors"></span>-->
@@ -116,7 +116,7 @@
               <input required type="text" id="user_cc-cvc" name="cc-cvc" class="cc-csc is-long" autocomplete="off" autocompletetype="cc-csc" placeholder="###" pattern="\d*" value=""/>
             </dd>
           </dl>
-          <small class="cl-b label-note">All payment data is securely handled and stored by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a>.</small>
+          <small class="l-cl-b label-note">All payment data is securely handled and stored by <a href="https://stripe.com/" rel="external" title="Read more about Stripe">Stripe</a>.</small>
         </div>
 
       </fieldset>

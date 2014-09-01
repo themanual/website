@@ -2,7 +2,7 @@
 
 <% cache @issue do %>
 
-  <div class="l-line-t l-p-y tagline issue-<%= @issue.number %> c-issue">
+  <div class="l-line-t l-p tagline issue-<%= @issue.number %> c-issue">
     <a href="<%= legacy_store_issue_url(@issue.number) %>" rel="external" class="button is-large">Buy Print Edition</a>
     <span class="br-s">or</span> <%= link_to 'back on Kickstarter', kickstarter_url, rel: 'external' %> and support us.
   </div>
