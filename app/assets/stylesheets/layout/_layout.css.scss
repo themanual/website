@@ -5,6 +5,12 @@ body {
   > #content { flex: 1; }
 }
 
+@mixin spacing($props, $times: 1) {
+  @each $prop in $props {
+    @include rem($prop, $times * 1.5rem);
+  }
+}
+
 // Horizontal
 .l-x    { @include rem(padding-left padding-right,  1.1rem); }
 // Vertical

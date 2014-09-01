@@ -1,9 +1,3 @@
-@mixin spacing($props, $times: 1) {
-  @each $prop in $props {
-    @include rem($prop, $times * 1.5rem);
-  }
-}
-
 @mixin svg {
   svg * { @content; }
 }
