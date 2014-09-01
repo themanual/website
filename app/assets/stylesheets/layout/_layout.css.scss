@@ -5,79 +5,56 @@ body {
   > #content { flex: 1; }
 }
 
-// Paddings
-.l-p      { @include spacing(padding); }
-.l-p-t    { @include spacing(padding-top,  1.0); }
-.l-p-tt   { @include spacing(padding-top,  1.5); }
-.l-p-b    { @include spacing(padding-bottom,  1.0); }
-.l-p-bb   { @include spacing(padding-bottom,  1.5); }
-.l-p-x    { @include spacing(padding-left padding-right,  1.0); }
-.l-p-y    { @include spacing(padding-top  padding-bottom, 1.0); }
-.l-p-yy   { @include spacing(padding-top  padding-bottom, 1.5); }
-.l-p-xyy  { @extend .l-p-x; @extend .l-p-yy;  }
-.l-p-xyyy { @extend .l-p-x; @include spacing(padding-top  padding-bottom, 2); }
+// Horizontal
+.l-x    { @include rem(padding-left padding-right,  1.1rem); }
+// Vertical
+.l-p    { @include spacing(padding-top padding-bottom, 1.0); }
+.l-pp   { @include spacing(padding-top padding-bottom, 1.5); }
+.l-ppp  { @include spacing(padding-top padding-bottom, 2.0); }
+.l-m    { @include spacing(margin-top margin-bottom, 1.0); }
+.l-mm   { @include spacing(margin-top margin-bottom, 1.5); }
+.l-mmm  { @include spacing(margin-top margin-bottom, 2.0); }
 
-// Margins
-.l-m-t    { @include spacing(margin-top,  1.0); }
-.l-m-tt   { @include spacing(margin-top,  1.5); }
-.l-m-b    { @include spacing(margin-bottom,  1.0); }
-.l-m-bb   { @include spacing(margin-bottom,  1.5); }
-.l-m-y    { @extend .l-m-t;  @extend .l-m-b; }
-.l-m-yy   { @extend .l-m-tt; @extend .l-m-bb; }
+// General rules.
+.l-row  { @include row; }
+.l-wrap { @include outer-container; }
 
-// General rules
-.l-row       { @include row; }
-.l-container { @include outer-container; }
-
-.l-fl-l { float: left !important; }
-.l-fl-r { float: right !important; }
-
-.l-section        { @extend .l-p; }
-.l-section > *    { @extend .l-container; }
-
-.l-section-x      { @extend .l-p-x; }
-.l-section-x > *  { @extend .l-container; }
+.l-block {
+  @extend .l-x;
+  > *  { @extend .l-wrap; }
+}
+.l-container {
+  @extend .l-block;
+  @extend .l-p;
+}
 
 .l-line-t { border-top: divider(); }
 .l-line-b { border-bottom: divider(); }
 .l-line   { @extend .l-line-t; @extend .l-line-b; }
 
-.l-singlecol {
+.l-col {
   @include centered;
-  @include rem(max-width, $singlecol-width);  // Max width
-  box-sizing: content-box;           // Reset box-sizing so padding can be applied "outside" the content
+  box-sizing: content-box;
 }
-
-.l-reading {
-  @include rem(max-width, $reading-width);
-  @include centered;
-}
+.l-col-single   { @extend .l-col; @include rem(max-width, $singlecol-width); }
+.l-col-reading  { @extend .l-col; @include rem(max-width, $reading-width);   }
 
 .l-stack-lined > *  {
-  @include spacing(padding-top padding-bottom);
+  @extend .l-p;
   border-top: divider();
 }
-
-.l-media {
-  @include media-object;
-}
-
-.l-media-r {
-  @include media-object {
-    margin-right: 1em;
-  }
-}
-
-.clearfix { @include clearfix; }
-.cl-b     { clear: both; }
-.cl-l     { clear: left; }
-.cl-r     { clear: right; }
-
-// Other columns
-@include make-grid();
 
 .l-flexcenter {
   display: flex;
   align-items: center;
   > * { flex: 1; margin: auto; }
 }
+
+// Other columns
+@include make-grid();
+
+.l-fl-l { float: left   !important; }
+.l-fl-r { float: right  !important; }
+.l-cl-b { clear: both   !important; }
+.l-cl-l { clear: left   !important; }
+.l-cl-r { clear: right  !important; }

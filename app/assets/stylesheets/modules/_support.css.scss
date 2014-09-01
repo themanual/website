@@ -1,6 +1,6 @@
 .support {
-  @extend .l-section;
-  @extend .l-p-yy;
+  @extend .l-block;
+  @extend .l-pp;
 }
 
 @include media-upto($bp-s) {

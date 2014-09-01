@@ -4,10 +4,10 @@
     <h1>Subscribe to The Manual</h1>
   </div></header>
 
-  <section class="l-line l-p-x">
-    <ul class="l-row subscribe-tiers">
+  <section class="l-line l-container"><div>
+    <ul class="subscribe-tiers">
 
-      <li class="l-col-xl-third l-p-yy subscribe-tier animated fadeInLeft">
+      <li class="l-col-xl-third l-pp subscribe-tier animated fadeInLeft">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:digital][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:digital][:price] %></h3>
@@ -23,7 +23,7 @@
         <a href="<%= checkout_subscribe_path(:digital) %>" class="button in-sc">Subscribe to Digital</a>
       </li>
 
-      <li class="l-col-xl-third l-p-yy subscribe-tier animated fadeInUp">
+      <li class="l-col-xl-third l-pp subscribe-tier animated fadeInUp">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:print][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:print][:price] %></h3>
@@ -39,7 +39,7 @@
         <a href="<%= checkout_subscribe_path(:print) %>" class="button in-sc">Subscribe to Print</a>
       </li>
 
-      <li class="l-col-xl-third l-p-yy subscribe-tier animated fadeInRight">
+      <li class="l-col-xl-third l-pp subscribe-tier animated fadeInRight">
         <div class="subscribe-tier-heading">
           <h2 class="subscribe-tier-name"><%= Subscription::TIERS[:patron][:name] %></h2>
           <h3 class="subscribe-tier-price"><span class="currency">$</span><%= Subscription::TIERS[:patron][:price] %></h3>
@@ -58,9 +58,9 @@
     <p class="subscribe-notes" id="shipping">
       <span class="subscribe-notes-mark">*</span> <span data-shipping="message">Exact shipping cost can only be calculated at checkout.</span>
     </p>
-  </section>
+  </div></section>
 
-  <section class="text l-singlecol l-p-xyy">
+  <section class="text l-col-single l-block l-pp">
     <ul class="faq">
       <li>
         <h4 class="faq-q">How early is the access to new issues?</h4>

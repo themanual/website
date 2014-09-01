@@ -13,7 +13,7 @@
 
   <%- sidebar_present = page_namespace.in?(%w(read store about)) %>
 
-  <section id="content" class="l-section-x <%= "has-sidebar" if sidebar_present %>"><div>
+  <section id="content" class="l-block <%= "has-sidebar" if sidebar_present %>"><div>
 
     <%- if title.any? %>
     <header class="page-header">

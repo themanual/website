@@ -1,6 +1,6 @@
 <% title "#{@piece.title}, by #{@piece.author.name}" %>
 <% cache @piece do %>
-<article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-section-x hentry"><div>
+<article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-block hentry"><div>
 
   <header class="piece-header">
     <% if @piece.illustrator.present? %>
@@ -26,11 +26,11 @@
     </div>
   </header>
 
-  <div class="piece-body l-reading entry-content">
+  <div class="piece-body l-col-reading entry-content">
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
   </div>
 
-  <footer class="piece-author l-reading">
+  <footer class="piece-author l-col-reading">
     <figure class="piece-author-portrait">
       <%= portrait_tag(@piece) %>
     </figure>
@@ -48,7 +48,7 @@
 <% end %>
 
 <% cache [@piece, 'explore'], expires_in: 30.minutes do %>
-<aside class="l-section-x piece-post"><div>
+<aside class="l-block piece-post"><div>
   <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
     <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
     <div class="text">
