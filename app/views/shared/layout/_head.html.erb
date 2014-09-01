@@ -23,5 +23,5 @@
 <%= javascript_include_tag :head, :debug => Rails.env.development? %>
 <%= render partial: "shared/segmentio" if Rails.env.production? %>
 
-<script type="text/javascript" src="//use.typekit.net/zve6rgt.js"></script>
+<script type="text/javascript" src="//use.typekit.net/<%= Rails.env.production? ? "wnf5tgz" : "zve6rgt" -%>.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
