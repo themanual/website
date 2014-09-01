@@ -5,6 +5,7 @@ class PiecesController < ApplicationController
   def show
     author = Author.fetch_by_uniq_key!(params[:key], :slug)
     @piece = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: author.id).first
+    @companion = @piece.companion
 
     metadata "og:type",         "article"
     metadata "og:title",        @piece.title
