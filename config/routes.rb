@@ -53,9 +53,10 @@ TheManual::Application.routes.draw do
   get   '/shipping_estimate',       to: 'home#shipping_estimate', as: :shipping
   # get   '/cart',  to: 'home#cart',    as: :cart
 
-  # SEO
+  # SEO & errors
   get "robots(.:format)" => 'seo#robots'
   get "sitemap(.:format)" => 'seo#sitemap'
+  get "errors/:code" => 'seo#error_page', contraints: {code: /[0-9]{3}/}
 
   # DEFAULT
   get ':controller(/:action(/:id))'

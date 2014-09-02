@@ -6,6 +6,14 @@ class SeoController < ApplicationController
   before_filter :caching
   layout false
 
+  def error_page
+    if params[:code] =~ /^[0-9]{3}$/
+      render params[:code], layout: 'application', status: :not_found
+    else
+      raise ActiveRecord::RecordNotFound
+    end
+  end
+
   private
 
     def caching
