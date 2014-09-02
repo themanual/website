@@ -7,7 +7,7 @@ Rake::Task['assets:precompile'].enhance do
   ['404'].each do |code|
 
     # actual hostname here doesn't matter
-    app.get "http://themanual.org/errors/#{code}"
+    app.get "https://themanual.org/errors/#{code}"
 
     File.open(Rails.root.join('public','assets',"#{code}.html"), 'w') do |file|
       file.write app.response.body
