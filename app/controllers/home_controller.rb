@@ -75,8 +75,9 @@ class HomeController < ApplicationController
   end
 
   def index
-    @issue = Issue.where(number: 3).first
-    @pieces = Article.all.sample(3)
+    metadata "og:title",        "The Manual"
+    metadata "description",     "The Manual is a design journal for the web."
+    metadata "og:description",  "The Manual is a design journal for the web."
     render layout: "plain"
   end
 
