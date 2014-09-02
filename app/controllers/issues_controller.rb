@@ -10,7 +10,13 @@ class IssuesController < ApplicationController
     # TODO: Ensure only visible issues can be seen (public, or purchased by current user)
     @issue = Issue.where(number: params[:issue].to_i).first
 
-    redirect_to issues_path unless @issue && @issue.published?
+    if @issue && @issue.published?
+      metadata "og:title",        "Issue #{@issue.number}"
+      metadata "description",     "Issue #{@issue.number} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
+      metadata "og:description",  "Issue #{@issue.number} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
+    end
+
+    redirect_to read_path unless @issue && @issue.published?
   end
 
 end
