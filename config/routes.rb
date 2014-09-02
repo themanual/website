@@ -30,7 +30,7 @@ TheManual::Application.routes.draw do
     get '/staffpicks',                to: 'home#staffpicks',                                as: :staffpicks
     get '/popular',                   to: 'home#popular',                                   as: :popular
     get '/topics/:topic',             to: 'pieces#index',                                   as: :topic
-    get '/blog',                      to: redirect("http://blog.alwaysreadthemanual.com"),  as: :blog
+    get '/blog',                      to: redirect("http://blog.themanual.org"),  as: :blog
   end
 
   # STORE

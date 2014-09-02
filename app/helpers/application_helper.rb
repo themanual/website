@@ -26,13 +26,13 @@ module ApplicationHelper
     end
   end
 
-  def legacy_store_issue_url(issue_no = nil)
-    return "http://buy.alwaysreadthemanual.com/products/issue-#{issue_no}" if issue_no
-    "http://buy.alwaysreadthemanual.com/"
+  def shopify_store_url(issue_no = nil)
+    return "https://shop.themanual.org/products/issue-#{issue_no}" if issue_no
+    "https://shop.themanual.org/"
   end
 
   def kickstarter_url
-    "http://kickstarter.com"
+    "https://www.kickstarter.com/projects/goodonpaper/829282333"
   end
 
   def link_to_current(name, options, html_options = {}, &block)
