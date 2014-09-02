@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 
     def metadata key = nil, value = nil
       @page_metadata ||= {
-        "og:title",       => "The Manual"
+        "og:title"        => "The Manual",
         "twitter:site"    => "@themanual",
         "twitter:card"    => "summary",
         "description"     => "The Manual is a design journal for the web.",
