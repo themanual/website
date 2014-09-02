@@ -6,8 +6,6 @@ class Issue < ActiveRecord::Base
 	has_many :lessons
 
 	belongs_to :volume
-	belongs_to :shoppe, class_name: 'Shoppe::Product'
-	belongs_to :shoppe_digital, class_name: 'Shoppe::Product'
 
 	acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
 
