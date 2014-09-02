@@ -67,4 +67,8 @@ ActiveAdmin.register Piece do
     redirect_to admin_pieces_path, notice:"Removed to Staff Picks!"
   end
 
+  after_save do
+    Piece.active_topics_cache_clear
+  end
+
 end

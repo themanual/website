@@ -103,7 +103,17 @@ class Piece < ActiveRecord::Base
     end
   end
 
+  def self.active_topics_cache_clear
+    Rails.cache.delete Piece.active_topics_cache_key
+  end
+
+  def self.active_topics_cache_key
+    "topics:active"
+  end
+
   def self.active_topics
-    Piece.tag_counts_on(:topics).where(enabled: true).collect(&:name).sort
+    Rails.cache.fetch Piece.active_topics_cache_key do
+      Piece.tag_counts_on(:topics).where(enabled: true).collect(&:name).sort
+    end
   end
 end

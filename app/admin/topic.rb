@@ -19,11 +19,13 @@ ActiveAdmin.register ActsAsTaggableOn::Tag, as: 'Topic' do
 
   member_action :enable, :method => :get do
     ActsAsTaggableOn::Tag.find(params[:id]).update_attribute :enabled, true
+    Piece.active_topics_cache_clear
     redirect_to admin_topics_path, notice: "Emnabled Topic!"
   end
 
   member_action :disable, :method => :get do
     ActsAsTaggableOn::Tag.find(params[:id]).update_attribute :enabled, false
+    Piece.active_topics_cache_clear
     redirect_to admin_topics_path, notice:"Disabled Topic!"
   end
 end
