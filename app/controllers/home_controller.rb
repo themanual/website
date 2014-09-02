@@ -75,9 +75,6 @@ class HomeController < ApplicationController
   end
 
   def index
-    metadata "og:title",        "The Manual"
-    metadata "description",     "The Manual is a design journal for the web."
-    metadata "og:description",  "The Manual is a design journal for the web."
     render layout: "plain"
   end
 

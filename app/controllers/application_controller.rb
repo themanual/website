@@ -49,9 +49,12 @@ class ApplicationController < ActionController::Base
 
     def metadata key = nil, value = nil
       @page_metadata ||= {
-        "twitter:site" => "@themanual",
-        "twitter:card" => "summary",
-        "og:site_name" => "The Manual",
+        "og:title",       => "The Manual"
+        "twitter:site"    => "@themanual",
+        "twitter:card"    => "summary",
+        "description"     => "The Manual is a design journal for the web.",
+        "og:description"  => "The Manual is a design journal for the web.",
+        "og:site_name"    => "The Manual",
         "og:url" => request.url
       }
       @page_metadata[key] = value if key.present? && value.present?
