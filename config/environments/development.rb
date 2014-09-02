@@ -13,6 +13,12 @@ TheManual::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  # UNCOMMENT THESE TWO LINES AND RUN memcached LOCALLY TO TEST CACHING
+  # config.action_controller.perform_caching = true
+  # config.cache_store = :dalli_store
+
+
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
