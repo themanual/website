@@ -9,7 +9,7 @@ Rake::Task['assets:precompile'].enhance do
     # actual hostname here doesn't matter
     app.get "https://themanual.org/errors/#{code}"
 
-    File.open(Rails.root.join('public','assets',"#{code}.html"), 'w') do |file|
+    File.open(Rails.root.join('public',"#{code}.html"), 'w') do |file|
       file.write app.response.body
     end
   end
