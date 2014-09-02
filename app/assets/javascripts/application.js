@@ -3,9 +3,6 @@
 //  Mobile fixes
 //= require viewport-units-buggyfill/viewport-units-buggyfill
 //
-//  Google Analytics
-//= require       ./base/ga
-//
 //  jQuery
 //= require jquery/dist/jquery
 //= require jquery-ujs/src/rails
