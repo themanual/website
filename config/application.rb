@@ -30,10 +30,15 @@ module TheManual
     # config.i18n.default_locale = :de
 
     # stop that deprecation warning
-    config.i18n.enforce_available_locales
+    config.i18n.enforce_available_locales = false
 
-    config.action_mailer.default_url_options = {
-      :host => 'alwaysreadthemanual.com'
-    }
+    if ENV['HTTP_AUTH']
+        user, pass = ENV['HTTP_AUTH'].split ':'
+        config.middleware.use Rack::Auth::Basic do |u, p|
+          [u, p] == [user, pass]
+        end
+    end
+
+    config.middleware.insert_before Rack::Sendfile, Rack::NoWWW
   end
 end

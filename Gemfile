@@ -29,6 +29,8 @@ gem "second_level_cache", "~> 2.0.0"
 gem 'dalli'
 gem 'kgio'
 
+gem 'pg'
+
 # email css inlining
 gem 'premailer-rails'
 gem 'nokogiri'
@@ -59,12 +61,13 @@ gem 'airbrake'
 gem 'numbers_and_words'
 gem 'ish'
 
+gem 'rack-no-www'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'debugger'
-  gem 'pg'
   gem 'guard-pow', require: false
   gem 'guard-livereload'
   gem 'terminal-notifier-guard', require: false
@@ -79,6 +82,4 @@ group :production, :stage, :beta do
 
   gem 'newrelic_rpm'
 	gem 'lograge'
-
-  gem 'pg'
 end
