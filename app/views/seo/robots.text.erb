@@ -1,4 +1,9 @@
 User-Agent: *
-Allow: /
 
+<%- if Rails.env.production? -%>
+Allow: /
 Sitemap: <%= root_url %>sitemap.xml
+<%- else -%>
+Disallow: /
+<%- end -%>
+
