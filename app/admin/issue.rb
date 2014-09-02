@@ -1,6 +1,6 @@
 ActiveAdmin.register Issue do
 
-  permit_params :number
+  permit_params :number, :published_on, :volume_id
 
   filter :authors
   filter :volume
