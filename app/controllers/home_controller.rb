@@ -68,12 +68,6 @@ class HomeController < ApplicationController
     end
   end
 
-  def staffpicks
-  end
-
-  def popular
-  end
-
   def index
     render layout: "plain"
   end

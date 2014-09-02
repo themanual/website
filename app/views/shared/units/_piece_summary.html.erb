@@ -1,3 +1,4 @@
+<%- cache [piece, :summary] do -%>
 <li class="piece-unit issue-<%= piece.issue.try(:number) %>">
   <p class="piece-unit-author"><%= piece.author.name %></p>
   <h2 class="piece-unit-title"><%= link_to_piece piece %></h2>
@@ -10,3 +11,4 @@
     <%= topic_links_for piece %>
   </p>
 </li>
+<%- end -%>
