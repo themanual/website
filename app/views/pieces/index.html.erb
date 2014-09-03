@@ -1,5 +1,3 @@
-<%- title "Topic: #{params[:topic].titlecase}" %>
-
 <%- cache [:pieces, :topics, params[:topic].downcase], expires_in: 30.minutes do -%>
 <ul class="l-stack-lined">
   <%= render partial: 'shared/units/piece_summary', collection: @pieces, as: :piece %>
