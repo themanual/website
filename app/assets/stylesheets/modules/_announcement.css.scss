@@ -7,10 +7,11 @@
   font-weight: weight(medium);
   line-height: 1.2;
   a { font-weight: weight(bold); }
-  @include media-from($bp-l) {
+  @include media-from($bp-m) {
     p { display: inline-block; }
+    p + p { margin-left: .3em; }
   }
-  @include media-upto($bp-l) {
+  @include media-upto($bp-m) {
     p + p { margin-top: .5em; }
   }
 }
