@@ -57,13 +57,13 @@ ActiveAdmin.register Piece do
 
   member_action :pick, :method => :get do
     piece = Piece.find(params[:id])
-    piece.update_attributes staff_pick: true, staff_pick_at: Time.now
+    piece.pick!
     redirect_to admin_pieces_path, notice: "Added to Staff Picks!"
   end
 
   member_action :unpick, :method => :get do
     piece = Piece.find(params[:id])
-    piece.update_attributes staff_pick: false, staff_pick_at: nil
+    piece.unpick!
     redirect_to admin_pieces_path, notice:"Removed to Staff Picks!"
   end
 
