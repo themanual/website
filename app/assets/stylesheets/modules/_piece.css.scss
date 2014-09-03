@@ -4,12 +4,16 @@
 
 .is-article {
 
+  @include media-upto($bp-s) {
+    .piece-header { padding-top: 1.1em; }
+  }
+
   @include media-upto($bp-l) {
     .piece-header-text {
       @include spacing(margin-bottom, 2);
     }
     .piece-header-illustration img {
-      max-height: 70vh;
+      max-height: 65vh;
     }
   }
 
@@ -140,12 +144,20 @@
 .piece-header-metadata {
   margin-top: 1.5em;
   color: $c-text-faint;
+  line-height: 1.25;
 }
 
-.piece-header-metadata > * + *:before {
-  content: "\00b7\00a0";
-  display: inline-block;
-  @include padding-h(.3em);
+@include media-upto($bp-s) {
+  .piece-header-metadata > * + * {
+    display: block;
+  }
+}
+@include media-from($bp-s) {
+  .piece-header-metadata > * + *:before {
+    content: "\00b7\00a0";
+    display: inline-block;
+    @include padding-h(.3em);
+  }
 }
 
 .piece .piece-header-topics a {
