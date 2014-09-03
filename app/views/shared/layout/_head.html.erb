@@ -14,14 +14,24 @@
 
 <%= csrf_meta_tags %>
 
-<%# CSS %>
-<%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
-
 <%# JS %>
 <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
 <%= javascript_include_tag :head, :debug => Rails.env.development? %>
-<%= render partial: "shared/segmentio" if Rails.env.production? %>
 
-<script type="text/javascript" src="//use.typekit.net/<%= Rails.env.production? ? "wnf5tgz" : "zve6rgt" -%>.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<%# Typekit %>
+<script type="text/javascript">
+  (function(d) {
+    var config = {
+      kitId: '<%= Rails.env.production? ? "wnf5tgz" : "zve6rgt" -%>',
+      scriptTimeout: 3000
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<%# CSS %>
+<%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
+
+<%# Analytics %>
+<%= render partial: "shared/segmentio" if Rails.env.production? %>
