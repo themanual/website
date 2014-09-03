@@ -13,7 +13,6 @@ class IssuesController < ApplicationController
     if @issue && @issue.published?
       metadata "og:title",        "Issue #{@issue.number}"
       metadata "description",     "Issue #{@issue.number} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
-      metadata "og:description",  "Issue #{@issue.number} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
     end
 
     redirect_to read_path unless @issue && @issue.published?

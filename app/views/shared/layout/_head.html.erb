@@ -4,10 +4,10 @@
 <meta name="pocket-site-verification" content="8e25c15e617095e63a5a5addc33f6c" />
 <%# Prepare title %>
 <%- title "The Manual", :push -%>
-<%- metadata["og:title"] ||= title.first -%>
-
 <title><%= title.join(' · ') %></title>
 
+<%# Prepare and output metadata %>
+<%- metadata["og:title"] ||= title.first -%>
 <%- metadata.each do |prop, value| -%>
 <%= tag "meta", (prop =~ /^og:/ ? "property" : "name") => prop, "content" => value %>
 <%- end -%>

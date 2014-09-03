@@ -57,7 +57,8 @@ class ApplicationController < ActionController::Base
         "og:site_name"    => "The Manual",
         "og:url" => request.url
       }
-      @page_metadata[key] = value if key.present? && value.present?
+      @page_metadata[key] = value         if key.present? && value.present?
+      @page_metadata["og:#{key}"] = value if key.present? && value.present? && key.in?(%w(description))
       @page_metadata
     end
 
