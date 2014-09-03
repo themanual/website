@@ -1,7 +1,7 @@
 <%- content_for :head do -%>
 <script>
   var _sf_async_config = _sf_async_config || {};
-  _sf_async_config.title = "#{@piece.title}, by #{@piece.author.name}";
+  _sf_async_config.title = "<%= #{@piece.title}, by #{@piece.author.name} %>";
   _sf_async_config.sections = "<%= @piece.enabled_topics.map(&:name).map(&:titlecase).push("Issue #{ @piece.issue_number }").join(", ") %>";
   _sf_async_config.authors = "<%= @piece.author.name %>";
 </script>
