@@ -190,19 +190,10 @@
     @include media-from($bp-l)  { text-indent: $line-height-em; }
   }
 
-  blockquote {
-    padding-left: 1em;
-    @include media-from($bp-l) { @include padding-h($line-height-em); }
-  }
-
   ul, ol {
     padding: 1em;
     padding-right: 0;
     @include media-from($bp-l) { padding: $line-height-em; padding-right: 0; }
-  }
-
-  > blockquote p + p {
-    margin-top: 1em;
   }
 
   > h2 {
@@ -224,20 +215,34 @@
     }
   }
 
-  pre {
-    @include margin-v(1em);
-    @include rem(margin-left, 1.5rem);
-    font-family: Monaco;
-    color: $c-text-body;
-    font-size: 0.7em;
-    word-wrap: break-word;
-  }
-
-  blockquote {
-    @include margin-v(1em);
-    color: $c-text-caption;
+  pre, blockquote {
     border-left: solid 1px transparent;
     @include color-by-issue(border-color);
+  }
+
+  pre {
+    $fz: .7;
+    font-size: $fz * 1em;
+    font-family: "Monaco", sans-serif;
+    color: $c-text-gray;
+    word-wrap: break-word;
+
+    @include margin-v(1em / $fz);
+    padding-left: (1em / $fz);
+    @include media-from($bp-l) { @include padding-h($line-height-em / $fz); }
+  }
+
+
+  blockquote {
+    color: $c-text-caption;
+
+    @include margin-v(1em);
+    padding-left: 1em;
+    @include media-from($bp-l) { @include padding-h($line-height-em); }
+  }
+
+  > blockquote p + p {
+    margin-top: 1em;
   }
 
   ol { list-style-type: decimal; }
