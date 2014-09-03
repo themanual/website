@@ -7,6 +7,7 @@ class SeoController < ApplicationController
   layout false
 
   def error_page
+    title "Uh-oh"
     if params[:code] =~ /^[0-9]{3}$/
       render params[:code], layout: 'application', status: :not_found
     else

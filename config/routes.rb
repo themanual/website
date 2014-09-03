@@ -56,7 +56,7 @@ TheManual::Application.routes.draw do
   # SEO & errors
   get "robots(.:format)" => 'seo#robots'
   get "sitemap(.:format)" => 'seo#sitemap'
-  get "errors/:code" => 'seo#error_page', contraints: {code: /[0-9]{3}/}
+  get "errors/:code" => 'seo#error_page', constraints: {code: /[0-9]{3}/}
 
   # DEFAULT
   get ':controller(/:action(/:id))'
