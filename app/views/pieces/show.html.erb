@@ -34,7 +34,7 @@
       <%= portrait_tag(@piece) %>
     </figure>
     <div class="piece-author-bio text">
-      <p><%=raw Kramdown::Document.new(@piece.author.bio).to_html %></p>
+      <%=raw Kramdown::Document.new(@piece.author.bio).to_html %>
       <p>
         <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
           Read Next: <%= @piece.author.name.given_name.possessive %> <%= @companion.type %>
