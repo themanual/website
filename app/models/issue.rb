@@ -5,7 +5,7 @@ class Issue < ActiveRecord::Base
 	has_many :authors, through: :articles
 	has_many :lessons
 
-	belongs_to :volume
+	belongs_to :volume, touch: true
 
 	acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
 

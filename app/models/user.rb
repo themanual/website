@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :addresses
 
+  acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
+
   after_create :add_email_address
 
   def self.anon_user

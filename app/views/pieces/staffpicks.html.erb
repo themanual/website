@@ -1,6 +1,6 @@
 <%- title 'Staff Picks' %>
 
-<%- cache [:pieces, :staffpicks], expires_in: 30.minutes do -%>
+<%- cache [:pieces, :staffpicks, Piece.latest_staff_pick]do -%>
 <ul class="l-stack-lined">
   <%= render partial: 'shared/units/piece_summary', collection: Piece.staff_picks, as: :piece %>
 </ul>

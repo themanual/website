@@ -1,5 +1,6 @@
 class Piece < ActiveRecord::Base
-  TOPIC_MIN_PIECE_COUNT = 1
+  STAFF_PICK_CACHE_KEY = "pieces:staff_pick_updated_at"
+  ACTIVE_TOPICS_CACHE_KEY = "topics:active"
 
   belongs_to :author
   belongs_to :issue, touch: true
@@ -39,10 +40,12 @@ class Piece < ActiveRecord::Base
 
   def pick!
     self.update_attributes staff_pick: true, staff_pick_at: Time.now
+    Piece.latest_staff_pick_cache_clear
   end
 
   def unpick!
     update_attributes staff_pick: false, staff_pick_at: nil
+    Piece.latest_staff_pick_cache_clear
   end
 
   def article?
@@ -104,16 +107,22 @@ class Piece < ActiveRecord::Base
   end
 
   def self.active_topics_cache_clear
-    Rails.cache.delete Piece.active_topics_cache_key
-  end
-
-  def self.active_topics_cache_key
-    "topics:active"
+    Rails.cache.delete ACTIVE_TOPICS_CACHE_KEY
   end
 
   def self.active_topics
-    Rails.cache.fetch Piece.active_topics_cache_key do
+    Rails.cache.fetch ACTIVE_TOPICS_CACHE_KEY do
       Piece.tag_counts_on(:topics).where(enabled: true).collect(&:name).sort
     end
+  end
+
+  def self.latest_staff_pick
+    Rails.cache.fetch STAFF_PICK_CACHE_KEY do
+      Piece.staff_picks.order('staff_pick_at DESC').select(:staff_pick_at).limit(1).first.staff_pick_at.to_i
+    end
+  end
+
+  def self.latest_staff_pick_cache_clear
+    Rails.cache.delete STAFF_PICK_CACHE_KEY
   end
 end
