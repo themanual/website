@@ -48,17 +48,13 @@
 .site-menu > * { @include outer-container; @include row; }
 .site-menu nav > ul { float: left; @include clearfix; }
 
-.site-menu > * > nav > ul > li > a,
-.site-menu > * > p {
-}
-
 .site-header > *  { height: 3.4em; line-height: 3.4em; }
-.site-header-home { width:  4.35em; }
+.site-header-home { width:  4.285714286em; }
 .site-header-nav  { margin-left: 5.6em; }
 
 @include media-from($bp-m) {
   .site-header > *   { height: 3.5em; line-height: 3.5em; }
-  .site-header-home  { width:  5em; }
+  .site-header-home  { width:  4.705882353em; }
   .site-header-nav   { margin-left: $sidebar-width + $sidebar-gutter; }
 }
 
@@ -75,7 +71,7 @@
   text-indent: -9999em;
   font-weight: weight(medium);
 
-  background-image: image-url('ui/logo-nav.svg');
+  background-image: image-url('identity/logo-white.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 50% 50%;
