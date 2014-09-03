@@ -1,3 +1,12 @@
+<%- content_for :head do -%>
+<script>
+  _sf_async_config = _sf_async_config || {};
+  _sf_async_config.title = "#{@piece.title}, by #{@piece.author.name}";
+  _sf_async_config.sections = "<%= @piece.enabled_topics.map(&:name).map(&:titlecase).push("Issue #{ @piece.issue_number }").join(", ") %>";
+  _sf_async_config.authors = "<%= @piece.author.name %>";
+</script>
+<%- end if Rails.env.production? -%>
+
 <% cache @piece do %>
 <article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-block hentry"><div>
 
