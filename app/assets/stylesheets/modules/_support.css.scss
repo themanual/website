@@ -3,19 +3,23 @@
   @extend .l-pp;
 }
 
-@include media-upto($bp-s) {
-  .support-illo { max-width: 15em; @include centered; margin-bottom: 1.5em; }
-}
-
-@include media-between($bp-s, $bp-m) {
-  .support-illo {
+// @include media-upto($bp-s) {
+//   .support-illo { max-width: 15em; @include centered; margin-bottom: 1.5em; }
+// }
+//
+.support-illo {
+  @include media-upto($bp-m) {
     float: right;
-    margin-left:    1em;
+    margin-left:    1.5em;
     margin-bottom:  1em;
-    width: 12em;
+    width: 23%;
+  }
+  @include media-upto($bp-s) {
+    display: none;
   }
 }
+
 @include media-from($bp-m) {
-  .support-illo { @include span-columns(4); }
-  .support-text { @include span-columns(8); }
+  .support-illo { float: left; @include spacing(margin-right, 1.5); max-width: 11em; }
+  .support-text { overflow: hidden; max-width: 38em; margin-top: .5em; }
 }
