@@ -33,6 +33,8 @@ TheManual::Application.routes.draw do
     get '/blog',                      to: redirect("http://blog.themanual.org"),  as: :blog
   end
 
+  get '/blog', to: redirect('http://blog.themanual.org')
+
   # STORE
   get '/store',              to: 'store#index',        as: :shop
   get '/store/issues',       to: 'store#issues',       as: :shop_issues
