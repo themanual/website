@@ -9,10 +9,11 @@
     @include media-from($bp-s) {
       display: block;
       float: right;
-      width: 15em;
-      margin-left: .5em;
-      + * { overflow: hidden; }
+      width: 10.5em;
+      margin-left: 1em;
     }
+    @include media-from($bp-l)  { width: 12em; }
+    @include media-from($bp-xl) { width: 15em; }
   }
 }
 
