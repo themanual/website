@@ -12,7 +12,11 @@ body {
 }
 
 // Horizontal
-.l-x    { @include rem(padding-left padding-right,  1.1rem); }
+.l-x    {
+                                @include rem(padding-left padding-right,  1.5rem);
+  @include media-upto($bp-m) {  @include rem(padding-left padding-right,  1.1rem); }
+}
+
 // Vertical
 .l-p    { @include spacing(padding-top padding-bottom, 1.0); }
 .l-pp   { @include spacing(padding-top padding-bottom, 1.5); }
