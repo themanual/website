@@ -32,7 +32,7 @@ module ApplicationHelper
   end
 
   def kickstarter_url
-    "https://www.kickstarter.com/projects/goodonpaper/829282333"
+    "https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere"
   end
 
   def link_to_current(name, options, html_options = {}, &block)
