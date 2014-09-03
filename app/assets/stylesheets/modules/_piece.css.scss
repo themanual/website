@@ -68,6 +68,11 @@
   @include spacing(margin-top margin-bottom, 2.5);
 }
 
+.piece-illustrator {
+  @include rem(font-size, 15px);
+  color: $c-text-fainter;
+}
+
 .piece-author-portrait {
   float: right;
   margin-left: 1em;
