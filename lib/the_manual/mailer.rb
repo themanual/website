@@ -1,6 +1,6 @@
 class TheManual::Mailer < ActionMailer::Base
 
-	default :from => "The Manual <hi@alwaysreadthemanual.com>"
+	default :from => "The Manual <hi@themanual.org>"
   layout 'email'
 
   class Interceptor
