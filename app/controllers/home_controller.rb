@@ -69,6 +69,10 @@ class HomeController < ApplicationController
   end
 
   def index
+    metadata "og:title", "The Manual Everywhere"
+    metadata "twitter:card", "summary_large_image"
+    metadata "description", "The Manual is moving beyond print. And it’s going everywhere you want."
+    metadata "og:image", view_context.image_url("misc/ks-illustration-1000w.png")
     render layout: "plain"
   end
 
