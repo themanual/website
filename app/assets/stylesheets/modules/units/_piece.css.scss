@@ -28,7 +28,7 @@
 
 .piece-unit-title {
   @extend .h-bigger;
-  text-rendering: optimizeLegibility;
+  @include type-enhancements;
 }
 
 .piece-unit-title a,
@@ -44,7 +44,7 @@
   margin-top: .2em;
   color: $c-text-body;
   max-width: 28em;
-  text-rendering: optimizeLegibility;
+  @include type-enhancements;
   &.is-short  { max-width: 21em; }
   &.is-wide   { max-width: none; }
 }

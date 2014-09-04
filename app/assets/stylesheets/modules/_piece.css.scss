@@ -115,7 +115,7 @@
 // ---------------------------------------------------
 
 .piece {
-  text-rendering: optimizeLegibility;
+  @include type-enhancements;
 }
 
 .piece a {

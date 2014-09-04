@@ -7,7 +7,7 @@
 .page-header h1 {
   @extend %h1;
   @include media-upto($bp-m) { .has-sidebar & { margin-right: 50px; } }
-  text-rendering: optimizeLegibility;
+  @include type-enhancements;
 }
 
 .toggle-sidebar {
