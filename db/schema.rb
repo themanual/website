@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820140614) do
+ActiveRecord::Schema.define(version: 20140904094129) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -24,22 +27,22 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "addresses", force: true do |t|
     t.integer  "user_id"
     t.string   "city",       limit: 128
     t.string   "region",     limit: 128,              null: false
     t.string   "post_code",  limit: 32,               null: false
-    t.integer  "country_id", limit: 128,              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "country_id",             default: 0,  null: false
     t.string   "lines",      limit: 512, default: "", null: false
   end
 
-  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "authors", force: true do |t|
     t.string   "name",       limit: 128, default: "", null: false
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.datetime "updated_at"
   end
 
-  add_index "cards", ["user_id"], name: "index_cards_on_user_id"
+  add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
@@ -70,21 +73,22 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.boolean  "primary",    default: false, null: false
   end
 
-  add_index "email_addresses", ["email"], name: "index_email_addresses_on_email", unique: true
-  add_index "email_addresses", ["user_id"], name: "index_email_addresses_on_user_id"
+  add_index "email_addresses", ["email"], name: "index_email_addresses_on_email", unique: true, using: :btree
+  add_index "email_addresses", ["user_id"], name: "index_email_addresses_on_user_id", using: :btree
 
   create_table "issues", force: true do |t|
-    t.integer  "number",       default: 1,     null: false
+    t.integer  "number",               default: 1,     null: false
     t.integer  "volume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "published_on"
-    t.boolean  "public",       default: false, null: false
+    t.boolean  "public",               default: false, null: false
+    t.string   "portrait_illustrator", default: "",    null: false
   end
 
-  add_index "issues", ["number"], name: "index_issues_on_number"
-  add_index "issues", ["published_on"], name: "index_issues_on_published_on"
-  add_index "issues", ["volume_id"], name: "index_issues_on_volume_id"
+  add_index "issues", ["number"], name: "index_issues_on_number", using: :btree
+  add_index "issues", ["published_on"], name: "index_issues_on_published_on", using: :btree
+  add_index "issues", ["volume_id"], name: "index_issues_on_volume_id", using: :btree
 
   create_table "nifty_attachments", force: true do |t|
     t.integer  "parent_id"
@@ -94,7 +98,7 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.string   "role"
     t.string   "file_name"
     t.string   "file_type"
-    t.binary   "data",        limit: 10485760
+    t.binary   "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -122,9 +126,9 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.boolean  "staff_pick",                 default: false,     null: false
   end
 
-  add_index "pieces", ["author_id"], name: "index_pieces_on_author_id"
-  add_index "pieces", ["issue_id"], name: "index_pieces_on_issue_id"
-  add_index "pieces", ["staff_pick_at"], name: "index_pieces_on_staff_pick_at"
+  add_index "pieces", ["author_id"], name: "index_pieces_on_author_id", using: :btree
+  add_index "pieces", ["issue_id"], name: "index_pieces_on_issue_id", using: :btree
+  add_index "pieces", ["staff_pick_at"], name: "index_pieces_on_staff_pick_at", using: :btree
 
   create_table "session_tokens", force: true do |t|
     t.integer  "email_address_id"
@@ -136,7 +140,7 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.datetime "expires_at",                   default: '2000-01-01 00:00:00', null: false
   end
 
-  add_index "session_tokens", ["token"], name: "index_session_tokens_on_token"
+  add_index "session_tokens", ["token"], name: "index_session_tokens_on_token", using: :btree
 
   create_table "shoppe_countries", force: true do |t|
     t.string  "name"
@@ -255,8 +259,8 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.boolean  "public",     default: true
   end
 
-  add_index "shoppe_product_attributes", ["key", "value"], name: "index_shoppe_product_attributes_on_key_and_value"
-  add_index "shoppe_product_attributes", ["product_id"], name: "index_shoppe_product_attributes_on_product_id"
+  add_index "shoppe_product_attributes", ["key", "value"], name: "index_shoppe_product_attributes_on_key_and_value", using: :btree
+  add_index "shoppe_product_attributes", ["product_id"], name: "index_shoppe_product_attributes_on_product_id", using: :btree
 
   create_table "shoppe_product_categories", force: true do |t|
     t.string   "name"
@@ -287,7 +291,7 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.boolean  "default",                                     default: false
   end
 
-  add_index "shoppe_products", ["product_category_id"], name: "index_shoppe_products_on_product_category_id"
+  add_index "shoppe_products", ["product_category_id"], name: "index_shoppe_products_on_product_category_id", using: :btree
 
   create_table "shoppe_settings", force: true do |t|
     t.string "key"
@@ -332,7 +336,7 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.datetime "updated_at"
   end
 
-  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -344,8 +348,8 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: true do |t|
     t.string  "name"
@@ -353,7 +357,7 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.boolean "enabled",        default: false, null: false
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -372,7 +376,7 @@ ActiveRecord::Schema.define(version: 20140820140614) do
     t.integer  "shipping_address_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "volumes", force: true do |t|
     t.integer  "number",     default: 1, null: false
