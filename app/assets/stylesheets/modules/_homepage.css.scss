@@ -11,10 +11,12 @@
 }
 
 .homepage-text {
-  @include spacing(margin-bottom, 1.5);
-  font-size: $fz-lll;
-  line-height: 1.1;
+  margin-bottom: 1em;
+  font-size: $fz-l;
+  @include media-from($bp-s) { font-size: $fz-ll; }
+  @include media-from($bp-m) { font-size: $fz-lll; }
 
+  line-height: 1.1;
   h1 { font-weight: weight(black); }
   > * + * { margin-top: .15em; }
 }
