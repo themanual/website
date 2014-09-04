@@ -1,6 +1,6 @@
 ActiveAdmin.register Issue do
 
-  permit_params :number, :published_on, :volume_id
+  permit_params :number, :published_on, :volume_id, :portrait_illustrator
 
   filter :authors
   filter :volume

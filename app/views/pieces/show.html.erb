@@ -49,12 +49,12 @@
           Read Next: <%= @piece.author.name.given_name.possessive %> <%= @companion.type %>
         <% end %>
       </p>
-      <%- if @piece.illustrator.present? #|| @piece.issue.portrait_illustrator.present? -%>
+      <%- if @piece.illustrator.present? || @piece.issue.portrait_illustrator.present? -%>
       <p class="piece-illustrator">
       <%- illustrators = [] -%>
       <%- illustrators << "Illustration by #{@piece.illustrator.titlecase}" if @piece.illustrator.present? -%>
-      <%# illustrators << "Portrait by #{@piece.portrait_illustrator}" if @piece.portrait_illustrator.present? -%>
-      <%= illustrators.join(" &middot;") %>
+      <%- illustrators << "Portrait by #{@piece.issue.portrait_illustrator}" if @piece.issue.portrait_illustrator.present? -%>
+      <%= illustrators.join(" · ") %>
       </p>
       <%- end -%>
     </div>

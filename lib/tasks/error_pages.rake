@@ -4,7 +4,7 @@ Rake::Task['assets:precompile'].enhance do
 
   app = ActionDispatch::Integration::Session.new(Rails.application)
 
-  ['404'].each do |code|
+  ['404','500'].each do |code|
 
     # actual hostname here doesn't matter
     app.get "https://themanual.org/errors/#{code}"
