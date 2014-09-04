@@ -114,6 +114,10 @@
 // 2. STYLING
 // ---------------------------------------------------
 
+.piece {
+  text-rendering: optimizeLegibility;
+}
+
 .piece a {
   @include link-color-issue;
 }
