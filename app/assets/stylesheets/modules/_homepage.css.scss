@@ -1,6 +1,6 @@
 .homepage {
   @extend .l-block;
-  @extend .l-ppp;
+  @include spacing(padding-bottom, 2);
 }
 
 .homepage-content {
@@ -11,9 +11,7 @@
 }
 
 .homepage-text {
-  @include spacing(margin-top,    1.5);
   @include spacing(margin-bottom, 1.5);
-
   font-size: $fz-lll;
   line-height: 1.1;
 
@@ -29,5 +27,11 @@
     color: white;
     @include hover { color: black; }
   }
+}
 
+.homepage-iframe {
+  display: block;
+  width: 100%;
+  height: 40em;
+  max-height: 65vh;
 }
