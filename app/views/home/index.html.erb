@@ -1,8 +1,19 @@
-<% content_for :class_body, "bg-colored kickstarter" %>
-<% content_for :class_main, "l-flexcenter" %>
+<%- content_for :class_body, "bg-colored kickstarter" -%>
+<%- content_for :class_main, "l-flexcenter" -%>
+<%- content_for :head do -%>
+<script type="text/javascript" charset="utf-8" src="//themanual.dev/ks-animation_edge_preload.js"></script>
+<style>
+  .edgeLoad-ks-animation-stage { visibility:hidden; }
+</style>
+<%- end -%>
 
 <section class="homepage"><div>
-  <iframe src="/ks-animation/ks-animation.html" class="homepage-iframe" frameborder="0"></iframe>
+
+  <div class="homepage-animation"><div>
+    <div id="Stage" class="ks-animation-stage">
+    </div>
+  </div></div>
+
   <div class="homepage-content">
     <div class="homepage-text">
       <h1>The Manual is moving beyond print.</h1>
