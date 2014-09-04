@@ -40,5 +40,9 @@ module TheManual
     end
 
     config.middleware.insert_before Rack::Sendfile, Rack::NoWWW
+
+    # we have no repeated queries, and cache objecy in memcache.
+    # lets remove this as it's appears to be a bottleneck in some places
+    config.middleware.delete ActiveRecord::QueryCache
   end
 end
