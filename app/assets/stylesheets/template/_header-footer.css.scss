@@ -71,13 +71,19 @@
   text-indent: -9999em;
   font-weight: weight(medium);
 
-  background-image: image-url('identity/logo-white.png');
+  background-image: image-url('identity/logo-white@2x.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 50% 50%;
 
   background-color: black;
-  @include hover { background-color: $c-blue; }
+  @include hover {
+    background-color: $c-blue;
+    .bg-colored & {
+      background-color: white;
+      background-image: image-url('identity/logo-black@2x.png');
+    }
+  }
 }
 
 .site-header-nav {
