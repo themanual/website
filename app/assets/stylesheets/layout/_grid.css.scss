@@ -13,28 +13,18 @@
   .l-col#{$class}-half        { @include span-columns($grid-columns/2); }
   .l-col#{$class}-third       { @include span-columns($grid-columns/3); }
   .l-col#{$class}-fourth      { @include span-columns($grid-columns/4); }
-  .l-col#{$class}-two-thirds  { @include span-columns(2*$grid-columns/3); }
-  // .l-col#{$class}-fill        { @include fill-parent(); }
-  // .l-col#{$class}-rest        { overflow: hidden; }
 
-  // Containers
-  .l-row#{$class}-halves,
-  .l-row#{$class}-thirds,
-  .l-row#{$class}-fourths {
-    @extend .l-row;
-  }
-
-  .l-row#{$class}-halves > * {
+  .l-cols#{$class}-halves > * {
     @extend .l-col#{$class}-half;
     @include omega(2n);
   }
 
-  .l-row#{$class}-thirds > * {
+  .l-cols#{$class}-thirds > * {
     @extend .l-col#{$class}-third;
     @include omega(3n);
   }
 
-  .l-row#{$class}-fourths > * {
+  .l-cols#{$class}-fourths > * {
     @extend .l-col#{$class}-fourth;
     @include omega(4n);
   }
@@ -46,19 +36,19 @@
 @mixin make-stacked($class: "") {
   @if ($class != "") { $class: "-#{$class}" }
 
-  // .l-stack#{$class} > * + * {
-  //   @include spacing(margin-top);
-  // }
+  .l-stack#{$class} > * + * {
+    @include spacing(margin-top);
+  }
 
-  // .l-small-stack#{$class} > * + * {
-  //   margin-top: 1em;
-  // }
+  .l-small-stack#{$class} > * + * {
+    margin-top: 1em;
+  }
 
-  // .l-lined-stack#{$class} > * + * {
-  //   @include spacing(margin-top);
-  //   @include spacing(padding-top);
-  //   border-top: divider();
-  // }
+  .l-lined-stack#{$class} > * + * {
+    @include spacing(margin-top);
+    @include spacing(padding-top);
+    border-top: divider();
+  }
 }
 
 //
@@ -71,29 +61,5 @@
   // Shift
   @for $i from 1 through ($grid-columns - 1) {
     .l-shift#{$class}-#{$i} { @include shift($i); }
-  }
-}
-
-//
-// Full Grid
-//
-@mixin make-grid {
-
-  // NOT Breakpoint-Specific
-  @include make-cols();
-  @include make-gaps();
-  @include make-stacked();
-
-  // Breakpoint-specific
-  @each $bp in $bps {
-    $class: nth($bp, 1);
-    $value: nth($bp, 2);
-    @include media-from($value) {
-      @include make-cols($class);
-      @include make-gaps($class);
-    }
-    @include media-upto($value) {
-      @include make-stacked($class);
-    }
   }
 }

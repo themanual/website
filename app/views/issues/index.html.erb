@@ -2,13 +2,13 @@
 
 <% Issue.public_issues.ordered.each do |issue| %>
   <% cache issue, expires_in: 12.hours.ish do %>
-    <section class="l-p l-line-t l-row issue-<%= issue.number %>">
+    <section class="l-p l-line-t l-row l-cols-halves issue-<%= issue.number %>">
 
-      <h2 class="h2 t-strong l-col-half">
+      <h2 class="h2 t-strong">
         Issue <strong class="issue-number issue-<%= issue.number %>"><%= issue.number %></strong>
       </h2>
 
-      <ul class="l-col-half index-items">
+      <ul class="index-items">
         <% issue.articles.ordered.each do |article| %>
           <li class="index-item">
             <h3 class="index-item-author"><%= article.author.name %></h3>

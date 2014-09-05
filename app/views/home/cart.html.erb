@@ -41,13 +41,13 @@
         </ul>
         <% if @physical %>
         <div class="cart-rows">
-          <dl class="l-row-halves">
+          <dl class="l-row l-cols-halves">
             <dt>Country</dt>
             <dd class="t-r">
               <select id="cart-shipping-country"><option value="">United States of America</option></select>
             </dd>
           </dl>
-          <dl class="l-row-halves">
+          <dl class="l-row l-cols-halves">
             <dt>Postal/ZIP Code</dt>
             <dd class="t-r">
               <input type="text" id="cart-shipping-post-code" class="input t-r" placeholder="123456">
@@ -139,7 +139,7 @@
           </dd>
         </dl>
 
-        <div class="l-row-halves">
+        <div class="l-row l-cols-halves">
           <dl class="field">
             <dt><%= a.label :city %></dt>
             <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
