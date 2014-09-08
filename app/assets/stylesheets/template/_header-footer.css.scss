@@ -74,7 +74,7 @@
   background-image: image-url('identity/logo-white@2x.png');
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 50% 50%;
+  background-size: 50% auto;
 
   background-color: black;
   @include hover {
