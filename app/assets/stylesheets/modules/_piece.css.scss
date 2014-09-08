@@ -22,17 +22,8 @@
 
     .piece-header-illustration {
       @include span-columns(6);
-      + * { overflow: hidden; }
-    }
-
-    .piece-header-text {
-      @include centered;
-      max-width: flex-grid(6);
-    }
-
-
-    .piece-header-illustration {
       @include clearfix;
+      + * { overflow: hidden; }
 
       figure {
         @include clearfix;
@@ -41,7 +32,11 @@
       }
     }
 
-    .piece-header-text { margin-top: 16%; margin-bottom: 16%; }
+    .piece-header-text {
+      @include centered;
+      max-width: flex-grid(6);
+      @include margin-v(16%);
+    }
   }
 
 }
