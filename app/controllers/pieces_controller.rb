@@ -31,8 +31,8 @@ class PiecesController < ApplicationController
 
     title    "#{@piece.title}, by #{@author.name}"
     metadata "og:type",         "article"
-    metadata "og:title",       (@piece.lesson? ? "#{@author.name.possessive} #{@piece.type}" : @piece.title)
-    metadata "description",     @piece.synopsis             if @piece.synopsis.present?
+    metadata "og:title",       (@piece.lesson? ? "Lesson by #{@author.name}" : @piece.title)
+    metadata "description",     @piece.synopsis if @piece.synopsis.present?
     metadata "twitter:creator", "@#{@author.twitter}" if @author.twitter.present?
     metadata "og:image",        view_context.image_url("#{@piece.illo_basepath}-square.jpg") if @piece.illustrator.present?
 
