@@ -1,5 +1,7 @@
 class AboutController < ApplicationController
 
+  before_action { title "About" }
+
   def index
   end
 
