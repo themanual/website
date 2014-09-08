@@ -65,8 +65,8 @@ module ApplicationHelper
     Kramdown::Document.new(text).to_html
   end
 
-  def concat_markdown(&block)
-    concat(markdown(capture(&block)))
+  def markdown_filter(&block)
+    concat(markdown(capture(&block)).html_safe)
   end
 
 end
