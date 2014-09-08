@@ -11,6 +11,7 @@ class PiecesController < ApplicationController
   end
 
   def popular
+    redirect_to read_path
   end
 
   def index
@@ -24,15 +25,15 @@ class PiecesController < ApplicationController
   end
 
   def show
-    author = Author.fetch_by_uniq_key!(params[:key], :slug)
-    @piece = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: author.id).first
-    @companion = @piece.companion
+    @author = Author.fetch_by_uniq_key!(params[:key], :slug)
+    @piece  = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: @author.id).first
+    @issue  = @piece.issue
 
-    title    "#{@piece.title}, by #{@piece.author.name}"
+    title    "#{@piece.title}, by #{@author.name}"
     metadata "og:type",         "article"
-    metadata "og:title",       (@piece.lesson? ? "#{@piece.author.name.possessive} #{@piece.type}" : @piece.title)
+    metadata "og:title",       (@piece.lesson? ? "#{@author.name.possessive} #{@piece.type}" : @piece.title)
     metadata "description",     @piece.synopsis             if @piece.synopsis.present?
-    metadata "twitter:creator", "@#{@piece.author.twitter}" if @piece.author.twitter.present?
+    metadata "twitter:creator", "@#{@author.twitter}" if @author.twitter.present?
     metadata "og:image",        view_context.image_url("#{@piece.illo_basepath}-square.jpg") if @piece.illustrator.present?
 
     render layout: "plain"

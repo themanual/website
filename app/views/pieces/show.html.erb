@@ -1,13 +1,13 @@
 <%- content_for :head do -%>
 <script>
   var _sf_async_config = _sf_async_config || {};
-  _sf_async_config.title    = "<%= "#{@piece.title}, by #{@piece.author.name}" %>";
+  _sf_async_config.title    = "<%= "#{@piece.title}, by #{@author.name}" %>";
   _sf_async_config.sections = "<%= @piece.enabled_topics.map(&:name).map(&:titlecase).push("Issue #{ @piece.issue_number }").join(", ") %>";
-  _sf_async_config.authors  = "<%= @piece.author.name %>";
+  _sf_async_config.authors  = "<%= @author.name %>";
 </script>
 <%- end if Rails.env.production? -%>
 
-<% cache @piece do %>
+<%- cache [@issue, @piece] do -%>
 <article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-block hentry"><div>
 
   <header class="piece-header">
@@ -17,14 +17,14 @@
         <%=
         tag "img",
             sizes: "(min-width: 850px) 27em, 100vw",
-            srcset: srcset(base: @piece.illo_basepath, format: "jpg", sizes: %w(300 500 750 1000 1500))
+            srcset: srcset(base: @piece.illo_basepath, format: "jpg", sizes: %w(150 300 500 750 1000 1500))
         %>
       </figure>
     </div>
     <% end %>
 
     <div class="piece-header-text">
-      <p class="piece-header-author byline vcard"><span class="fn author" rel="author"><%= @piece.author.name %></span></p>
+      <p class="piece-header-author byline vcard"><span class="fn author" rel="author"><%= @author.name %></span></p>
       <h1 class="piece-header-title entry-title"><%= @piece.title %></h1>
       <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
       <p class="piece-header-metadata">
@@ -38,15 +38,16 @@
     <%=raw Kramdown::Document.new(@piece.body).to_html %>
   </div>
 
+  <%- cache [@piece, @author] do -%>
   <footer class="piece-author l-col-reading">
     <figure class="piece-author-portrait">
       <%= portrait_tag(@piece) %>
     </figure>
     <div class="piece-author-bio text">
-      <%=raw Kramdown::Document.new(@piece.author.bio).to_html %>
+      <%=raw Kramdown::Document.new(@author.bio).to_html %>
       <p>
-        <%= link_to piece_path(@companion.issue.number, @companion.author_slug, @companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
-          Read Next: <%= @piece.author.name.given_name.possessive %> <%= @companion.type %>
+        <%= link_to piece_path(@piece.companion.issue.number, @piece.companion.author_slug, @piece.companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
+          Read Next: <%= @author.name.given_name.possessive %> <%= @piece.companion.type %>
         <% end %>
       </p>
       <%- if @piece.illustrator.present? || @piece.issue.portrait_illustrator.present? -%>
@@ -59,9 +60,9 @@
       <%- end -%>
     </div>
   </footer>
-
+  <%- end -%>
 </div></article>
-<% end %>
+<%- end -%>
 
 <% cache [@piece, 'explore'], expires_in: 30.minutes do %>
 <aside class="l-block piece-post"><div>
@@ -70,7 +71,7 @@
     <div class="text">
       <ul class="plain">
       <% @piece.issue.authors.each do |author| %>
-        <%= content_tag :li, author.name, class: ('marker-arrow' if author == @piece.author) %>
+        <%= content_tag :li, author.name, class: ('marker-arrow' if author == @author) %>
       <% end %>
       </ul>
       <p><%= link_to "Browse this issue", issue_path(@piece.issue_number) %></p>
@@ -90,10 +91,9 @@
     </div>
   </section>
   <section class="piece-post-piece">
-    <%- @recommended_piece = @piece.recommended -%>
-    <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@recommended_piece.issue_number}" %></h2>
+    <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue_number}" %></h2>
     <div>
-    <%= render :partial => 'shared/units/piece', :object  => @recommended_piece %>
+    <%= render :partial => 'shared/units/piece', :object  => @piece.recommended %>
     </div>
   </section>
 </div></aside>
