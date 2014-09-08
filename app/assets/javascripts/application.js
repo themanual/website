@@ -1,5 +1,5 @@
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-//
+//  Picturefill
+//= require picturefill/dist/picturefill
 //  Mobile fixes
 //= require viewport-units-buggyfill/viewport-units-buggyfill
 //
