@@ -35,7 +35,7 @@
   </header>
 
   <div class="piece-body l-col-reading entry-content">
-    <%=raw Kramdown::Document.new(@piece.body).to_html %>
+    <%=raw markdown(@piece.body) %>
   </div>
 
   <%- cache [@piece, @author] do -%>
@@ -44,7 +44,7 @@
       <%= portrait_tag(@piece) %>
     </figure>
     <div class="piece-author-bio text">
-      <%=raw Kramdown::Document.new(@author.bio).to_html %>
+      <%= raw markdown(@author.bio) %>
       <p>
         <%= link_to piece_path(@piece.companion.issue.number, @piece.companion.author_slug, @piece.companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
           Read Next: <%= @author.name.given_name.possessive %> <%= @piece.companion.type %>
