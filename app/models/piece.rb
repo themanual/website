@@ -57,11 +57,11 @@ class Piece < ActiveRecord::Base
   end
 
   def type
-    return self.class.name
+    self.class.name
   end
 
   def enabled_topics
-    topics.where(enabled: true)
+    self.topics.where(enabled: true)
   end
 
   def companion
