@@ -6,6 +6,7 @@
 <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
 <meta name="application-name" content="The Manual" />
 <meta name="apple-mobile-web-app-title" content="The Manual" />
+<%= csrf_meta_tags %>
 
 <%# Prepare title %>
 <%- title "The Manual", :push -%>
@@ -17,8 +18,9 @@
 <%= tag "meta", (prop =~ /^og:/ ? "property" : "name") => prop, "content" => value %>
 <%- end -%>
 
-<%= csrf_meta_tags %>
-
+<%# CSS %>
+<%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
+<%# Per-view content %>
 <%= yield :head %>
 
 <%# JS %>
@@ -35,9 +37,3 @@
     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
   })(document);
 </script>
-
-<%# CSS %>
-<%= stylesheet_link_tag :application, :debug => Rails.env.development? %>
-
-<%# Analytics %>
-<%= render partial: "shared/segmentio" if Rails.env.production? %>
