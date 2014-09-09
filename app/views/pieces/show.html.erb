@@ -92,9 +92,7 @@
   </section>
   <section class="piece-post-piece">
     <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue_number}" %></h2>
-    <div>
-    <%= render :partial => 'shared/units/piece', :object  => @piece.recommended %>
-    </div>
+    <%= render @piece.recommended %>
   </section>
 </div></aside>
 <% end %>

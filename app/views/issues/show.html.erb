@@ -1,52 +1,46 @@
-<% title "Issue #{@issue.number}"  %>
+<%- title "Issue #{@issue.number}" -%>
 
-<% cache @issue do %>
-
-  <p class="l-line-t l-p tagline issue-<%= @issue.number %> c-issue">
-    <a href="<%= shopify_store_url(@issue.number) %>" rel="external" class="button is-large">Buy Print Edition</a>
-    <span class="br-s">or</span> <%= link_to 'back on Kickstarter', kickstarter_url, rel: 'external' %> and support us.
-  </p>
-
-  <ul class="l-issue issue-<%= @issue.number %>">
-    <% @issue.articles.ordered.each do |article| %>
-    <li>
-      <figure class="l-issue-illo">
-        <%=
-        tag "img",
-            sizes: "(min-width: 500px) 10.5em, (min-width: 850px) 12em, (min-width: 1000px) 15em, 1px",
-            srcset: srcset(base: article.illo_basepath, format: "jpg", sizes: %w(300 500 750 1000 1500), blank: true)
-        %>
-      </figure>
-      <div class="l-issue-text">
-
-        <h2 class="piece-unit-author"><%= article.author.name %></h2>
-
-        <div class="piece-unit-entry">
-          <h3 class="piece-unit-title">
-            <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article)  %>
-          </h3>
-          <p class="piece-unit-synopsis">
-            <%= article.synopsis %>
-          </p>
-          <p class="piece-unit-metadata">
-            <%= topic_links_for article %>
-          </p>
-        </div>
-
-        <div class="piece-unit-entry">
-          <h3 class="piece-unit-title">
-            <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
-          </h3>
-          <p class="piece-unit-synopsis">
-            <%= article.lesson.synopsis %>
-          </p>
-          <p class="piece-unit-metadata">
-            <%= topic_links_for article.lesson %>
-          </p>
-        </div>
+<%- cache @issue do -%>
+<p class="l-line-t l-p tagline issue-<%= @issue.number %> c-issue">
+  <a href="<%= shopify_store_url(@issue.number) %>" rel="external" class="button is-large">Buy Print Edition</a>
+  <span class="br-s">or</span> <%= link_to 'back on Kickstarter', kickstarter_url, rel: 'external' %> and support us.
+</p>
+<ul class="l-issue issue-<%= @issue.number %>">
+  <%- @issue.articles.ordered.each do |article| -%>
+  <li>
+    <figure class="l-issue-illo">
+      <%=
+      tag "img",
+          sizes: "(min-width: 500px) 10.5em, (min-width: 850px) 12em, (min-width: 1000px) 15em, 1px",
+          srcset: srcset(base: article.illo_basepath, format: "jpg", sizes: %w(300 500 750 1000 1500), blank: true)
+      %>
+    </figure>
+    <div class="l-issue-text">
+      <h2 class="piece-unit-author"><%= article.author.name %></h2>
+      <div class="piece-unit-entry">
+        <h3 class="piece-unit-title">
+          <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article)  %>
+        </h3>
+        <p class="piece-unit-synopsis">
+          <%= article.synopsis %>
+        </p>
+        <p class="piece-unit-metadata">
+          <%= topic_links_for article %>
+        </p>
       </div>
-    </li>
-    <% end %>
-  </ul>
-
-<% end %>
+      <div class="piece-unit-entry">
+        <h3 class="piece-unit-title">
+          <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
+        </h3>
+        <p class="piece-unit-synopsis">
+          <%= article.lesson.synopsis %>
+        </p>
+        <p class="piece-unit-metadata">
+          <%= topic_links_for article.lesson %>
+        </p>
+      </div>
+    </div>
+  </li>
+  <%- end -%>
+</ul>
+<%- end -%>

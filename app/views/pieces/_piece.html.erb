@@ -1,14 +1,13 @@
-<%- cache [piece, :summary] do -%>
-<li class="piece-unit issue-<%= piece.issue.try(:number) %>">
+<%- cache piece do -%>
+<div class="piece-unit issue-<%= piece.issue.try(:number) %>">
   <p class="piece-unit-author"><%= piece.author.name %></p>
   <h2 class="piece-unit-title"><%= link_to_piece piece %></h2>
   <p class="piece-unit-synopsis"><%= piece.synopsis %></p>
   <p class="piece-unit-metadata">
     <% if piece.issue_id.present? %>
-      <span class="piece-unit-silo">In <%= link_to "Issue #{piece.issue.number}", issue_path(piece.issue.number) %></span>
+    <span class="piece-unit-silo">In <%= link_to "Issue #{piece.issue.number}", issue_path(piece.issue.number) %></span>
     <% end %>
-
     <%= topic_links_for piece %>
   </p>
-</li>
+</div>
 <%- end -%>

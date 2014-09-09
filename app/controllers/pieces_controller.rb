@@ -10,10 +10,6 @@ class PiecesController < ApplicationController
     metadata "description",     "A selection of #{@pieces.count} pieces picked by The Manual’s staff."
   end
 
-  def popular
-    redirect_to read_path
-  end
-
   def index
     @pieces = Piece.tagged_with(params[:topic])
 
@@ -21,7 +17,7 @@ class PiecesController < ApplicationController
     metadata "og:title", "Topic: #{params[:topic].titlecase}"
     metadata "description", "The Manual’s #{@pieces.count} #{'piece'.pluralize(@pieces.count)} on #{params[:topic].titlecase}."
 
-    redirect_to read_path unless @pieces.any?
+    redirect_to read_path if @pieces.blank?
   end
 
   def show

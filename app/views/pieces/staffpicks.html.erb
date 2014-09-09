@@ -1,5 +1,5 @@
 <%- cache [:pieces, :staffpicks, Piece.latest_staff_pick]do -%>
-<ul class="l-stack-lined">
-  <%= render partial: 'shared/units/piece_summary', collection: @pieces, as: :piece %>
-</ul>
+<div class="l-stack-lined">
+  <%= render @pieces %>
+</div>
 <%- end -%>
