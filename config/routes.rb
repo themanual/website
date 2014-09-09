@@ -28,7 +28,8 @@ TheManual::Application.routes.draw do
     get '/issues/:issue',             to: 'issues#show',                                    as: :issue
     get '/issues/:issue/:key/:type',  to: 'pieces#show',                                    as: :piece
     get '/staffpicks',                to: 'pieces#staffpicks',                              as: :staffpicks
-    get '/topics/:topic',             to: 'pieces#index',                                   as: :topic
+    get '/topics',                    to: redirect('/read')
+    get '/topics/:topic',             to: 'topics#show',                                    as: :topic
     get '/blog',                      to: redirect("http://blog.themanual.org"),  as: :blog
   end
 
