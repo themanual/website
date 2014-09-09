@@ -133,6 +133,13 @@ em      { font-style: italic; }
     &.unspaced > li + li { margin-top: 0; }
   }
 
+  blockquote {
+    padding-left: 1em;
+    margin-top: 1em;
+    color: $c-text-caption;
+    border-left: solid 1px $c-text-faint;
+  }
+
   ol {
     list-style-type: decimal;
   }

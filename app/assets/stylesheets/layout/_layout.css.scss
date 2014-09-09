@@ -46,8 +46,10 @@ body {
   @include centered;
   box-sizing: content-box;
 }
-.l-col-single   { @extend .l-col; @include rem(max-width, $singlecol-width); }
-.l-col-reading  { @extend .l-col; @include rem(max-width, $reading-width);   }
+.l-reading  { @include rem(max-width, $reading-width); }
+.l-single   { @include rem(max-width, $singlecol-width); }
+.l-col-single   { @extend .l-col; @extend .l-single; }
+.l-col-reading  { @extend .l-col; @extend .l-reading; }
 
 .l-stack-lined > *  {
   @extend .l-p;
