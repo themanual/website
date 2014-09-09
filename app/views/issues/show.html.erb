@@ -7,6 +7,7 @@
 </p>
 <ul class="l-issue issue-<%= @issue.number %>">
   <%- @issue.articles.ordered.each do |article| -%>
+  <%- lesson = article.lesson -%>
   <li>
     <figure class="l-issue-illo">
       <%=
@@ -25,18 +26,18 @@
           <%= article.synopsis %>
         </p>
         <p class="piece-unit-metadata">
-          <%= topic_links_for article %>
+          <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: article } %></span>
         </p>
       </div>
       <div class="piece-unit-entry">
         <h3 class="piece-unit-title">
-          <%= link_to article.lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
+          <%= link_to lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
         </h3>
         <p class="piece-unit-synopsis">
-          <%= article.lesson.synopsis %>
+          <%= lesson.synopsis %>
         </p>
         <p class="piece-unit-metadata">
-          <%= topic_links_for article.lesson %>
+          <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: lesson } %></span>
         </p>
       </div>
     </div>

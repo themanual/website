@@ -25,10 +25,8 @@
 
   <h2 class="navgroup-title">Topics</h2>
   <ul class="navgroup-items">
-
     <% Piece.active_topics.each do |topic| %>
       <li><%= link_to_current topic.titlecase, topic_path(topic: topic.downcase) %></li>
     <% end %>
-
   </ul>
 </div>

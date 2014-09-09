@@ -64,6 +64,17 @@ class Piece < ActiveRecord::Base
     self.topics.where(enabled: true)
   end
 
+  def disabled_topics
+    self.topics.where(enabled: false).where('taggings_count > 1')
+  end
+
+  def topics_upto(limit = nil)
+    returns = self.enabled_topics
+    remaining = limit ? limit - returns.count : nil
+    returns << self.disabled_topics.order(taggings_count: :desc).limit(remaining) unless remaining.is_a?(Numeric) && remaining <= 0
+    returns.flatten.sort_by(&:name)
+  end
+
   def companion
     @companion ||= begin
       if self.article?

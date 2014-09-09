@@ -1,0 +1,3 @@
+<%- cache [piece, :topics] do -%>
+On <%= raw piece.topics_upto(3).map { |topic| link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) }.join(', ') %>
+<%- end -%>

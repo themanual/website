@@ -29,7 +29,7 @@
       <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
       <p class="piece-header-metadata">
         <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue_number}", issue_path(issue: @piece.issue_number) %></span>
-        <%= topic_links_for(@piece, :span, class: 'piece-header-topics') %>
+        <span class="piece-header-topics"><%= render partial: "pieces/piece_topics", locals: { piece: @piece } %></span>
       </p>
     </div>
   </header>
@@ -81,7 +81,7 @@
     <h2 class="box-title is-spaced">Related Topics</h2>
     <div class="text">
       <ul class="plain looser topic-list">
-      <%  @piece.enabled_topics.each do |topic| %>
+      <% @piece.topics_upto(3).sort_by(&:name).each do |topic| %>
         <li>
           <h5 class="topic-list-name"><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
           <p class="topic-list-description"><strong><%= topic.taggings_count %></strong> pieces</p>
