@@ -1,6 +1,5 @@
-//  Picturefill
+//  Polyfills
 //= require picturefill/dist/picturefill
-//  Mobile fixes
 //= require viewport-units-buggyfill/viewport-units-buggyfill
 //
 //  jQuery
@@ -11,7 +10,6 @@
 //= require underscore/underscore
 //
 //  jQuery Plugins
-//= require jquery.easing/js/jquery.easing
 //= require jquery.scrollTo/jquery.scrollTo
 //= require jquery-loadingdots/jquery.loadingdots
 //
