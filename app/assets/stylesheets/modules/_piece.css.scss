@@ -184,6 +184,19 @@
   line-height: $line-height;
   @include media-upto($bp-m) { line-height: 1.4; }
 
+  hr {
+    display: block;
+    border: 0;
+    text-align: center;
+    padding: 0;
+    margin: 2em 0;
+    &:before {
+      font-family: $type-serif;
+      content: "\2042";
+      @include color-by-issue(color);
+    }
+  }
+
   > p + p {
     text-indent: 1em;
     @include media-from($bp-l)  { text-indent: $line-height-em; }
