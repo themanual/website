@@ -2,7 +2,7 @@
   "name": "The Manual",
   "dependencies": {
     "underscore":               "*",
-    "jquery":                   "1.*",
+    "jquery":                   "*",
     "jquery-ujs":               "*",    // For Rails
     "jquery.scrollTo":          "*",    // Scrolling utilities
     "jquery-loadingdots":       "*",    // Loading... dots
