@@ -85,4 +85,4 @@ group :production, :stage, :beta do
 end
 
 
-gem 'rack-mini-profiler', require: false
+gem 'rack-mini-profiler'
