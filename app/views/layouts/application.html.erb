@@ -35,8 +35,6 @@
   </div></section>
 
   <%= render partial: "shared/layout/footer" %>
-  <%= render(partial: "shared/segmentio") if Rails.env.production? %>
-  <%= javascript_include_tag :application, :debug => Rails.env.development? %>
-  <%= yield :footer %>
+  <%= render partial: "shared/layout/foot" %>
 </body>
 </html>

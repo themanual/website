@@ -16,8 +16,6 @@
   </main>
 
   <%= render partial: "shared/layout/footer" %>
-
-  <%= javascript_include_tag :application, :debug => Rails.env.development? %>
-  <%= yield :footer %>
+  <%= render partial: "shared/layout/foot" %>
 </body>
 </html>
