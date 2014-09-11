@@ -33,13 +33,9 @@
 
 .homepage-animation {
   display: block;
-  position: relative;
-  padding-bottom: 62.5%;
-  > div {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
+  width: 100%;
+  @include centered;
+  @media screen and (orientation: landscape) and (max-height: 950px) { width: 75%; }
 }
+.homepage-animation-ratio { padding-bottom: 62.5%; position: relative; }
+.homepage-animation-container { @include position(absolute, 0px 0px 0px 0px); }
