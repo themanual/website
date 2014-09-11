@@ -21,5 +21,5 @@
 
 @include media-from($bp-m) {
   .support-illo { float: left; @include spacing(margin-right, 1.5); max-width: 11em; }
-  .support-text { overflow: hidden; max-width: 38em; margin-top: .5em; }
+  .support-text { overflow: hidden; max-width: 38em; margin-top: .25em; }
 }
