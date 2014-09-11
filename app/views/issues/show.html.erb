@@ -1,4 +1,5 @@
 <%- title "Issue #{@issue.number}" -%>
+<%- content_for(:logo) { "issue-#{@issue.number}" } -%>
 
 <%- cache @issue do -%>
 <p class="l-line-t l-p tagline issue-<%= @issue.number %> c-issue">

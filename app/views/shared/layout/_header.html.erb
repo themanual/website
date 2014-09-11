@@ -6,7 +6,7 @@
 <%- end %>
 <header class="site-menu site-header"><div>
   <h1 class="site-header-home">
-    <%= link_to_current "The Manual", root_path, class: "site-header-logo" %>
+    <%= link_to_current "The Manual", root_path, class: "site-header-logo #{ content_for(:logo) }" %>
   </h1>
   <nav class="site-header-nav">
     <ul>

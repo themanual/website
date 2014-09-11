@@ -6,6 +6,7 @@
   _sf_async_config.authors  = "<%= @author.name %>";
 </script>
 <%- end if Rails.env.production? -%>
+<%- content_for(:logo) { "issue-#{@piece.issue_number}" } -%>
 
 <%- cache [@issue, @piece] do -%>
 <article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-block hentry"><div>

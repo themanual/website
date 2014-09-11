@@ -77,13 +77,16 @@
   background-size: 50% auto;
 
   background-color: black;
+
   @include hover {
     background-color: $c-blue;
     .bg-colored & {
       background-color: white;
       background-image: image-url('identity/logo-black@2x.png');
     }
+    @include color-by-issue-self(background-color);
   }
+
 }
 
 .site-header-nav {
