@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   # TODO move this elsewhere https://github.com/themanual/website/issues/19
   # before_filter :authenticate_user!
+
   before_filter :authorise_profiler
 
   protected
