@@ -33,18 +33,23 @@ TheManual::Application.routes.draw do
     get '/blog',                      to: redirect("http://blog.themanual.org"),  as: :blog
   end
 
-  get '/blog', to: redirect('http://blog.themanual.org')
+  get '/blog', to: redirect("http://blog.themanual.org")
 
   # STORE
   # get '/store',              to: 'store#index',        as: :shop
   # get '/store/issues',       to: 'store#issues',       as: :shop_issues
   # get '/store/subscription', to: 'store#subscription', as: :shop_subscription
   # get '/store/issue/:issue', to: 'store#issue',        as: :shop_issue
-  get '/shop', to: redirect('http://shop.themanual.org'), as: :shop
-  get '/store', to: redirect('http://shop.themanual.org')
+  get '/shop',                  to: redirect("http://shop.themanual.org"),                      as: :shop
+  get '/shop/product/:product', to: redirect("http://shop.themanual.org/products/%{product}"),  as: :shop_product
+  get '/store',                 to: redirect("/shop")
 
   # ABOUT
   get '/about', to: 'about#index',  as: :about
+
+  get '/kickstarter',            to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
+  get '/kickstarter/original',   to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
+  get '/kickstarter/everywhere', to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'),  as: :ks_everywhere
 
   # Payment / Legacy
   # resource :subscribe, controller: :support, only: [:show, :create] do

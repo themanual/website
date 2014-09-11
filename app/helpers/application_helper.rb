@@ -26,17 +26,7 @@ module ApplicationHelper
     end
   end
 
-  def shopify_store_url(issue_no = nil)
-    return "https://shop.themanual.org/products/issue-#{issue_no}" if issue_no
-    "https://shop.themanual.org/"
-  end
-
-  def kickstarter_url
-    "https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere"
-  end
-
   def link_to_current(name, options, html_options = {}, &block)
-
     if current_page?(options)
       html_options[:class] ||= ""
       html_options[:class] += " current"

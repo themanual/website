@@ -3,8 +3,9 @@
 
 <%- cache @issue do -%>
 <p class="l-line-t l-p tagline issue-<%= @issue.number %> c-issue">
-  <a href="<%= shopify_store_url(@issue.number) %>" rel="external" class="button is-large">Buy Print Edition</a>
-  <span class="br-s">or</span> <%= link_to 'back on Kickstarter', kickstarter_url, rel: 'external' %> and support us.
+  <%= link_to "Buy Print Edition", shop_product_path("issue-#{@issue.number}"), rel: "external", class: "button is-large" %>
+  <span class="br-s">or</span>
+  <%= link_to 'back on Kickstarter', kickstarter_path, rel: "external" %> and support us.
 </p>
 <ul class="l-issue issue-<%= @issue.number %>">
   <%- @issue.articles.ordered.each do |article| -%>
