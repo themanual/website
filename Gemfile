@@ -83,3 +83,6 @@ group :production, :stage, :beta do
   gem 'newrelic_rpm'
 	gem 'lograge'
 end
+
+
+gem 'rack-mini-profiler', require: false
