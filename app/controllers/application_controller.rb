@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   # TODO move this elsewhere https://github.com/themanual/website/issues/19
   # before_filter :authenticate_user!
+  before_filter :authorise_profiler
 
   protected
     def authenticate_admin_user!
@@ -65,6 +66,12 @@ class ApplicationController < ActionController::Base
     def check_access_to_issue
       true
       # TODO: allow for public issues, check users purchase history for non-public
+    end
+
+    def authorise_profiler
+      if current_user.access_level > 0
+        Rack::MiniProfiler.authorize_request
+      end
     end
 
 end
