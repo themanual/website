@@ -191,8 +191,6 @@
       return shipping.requestCostForAddress($base, function(data) {
 
         if (data.status !== 'ok') {
-          console.log("UH-OH!");
-          console.log(data);
           shipping.toggleForm($base, true);
           return false;
         }
