@@ -27,17 +27,44 @@
   };
 
   $.fn.showPopover = function() {
+    console.log("Showing popover");
     var $popover = $(this).next('[data-popover="popover"]');
-    $popover.filter(":hidden").trigger("popover:show").show().animatecss('fadeInUp faster');
+    $popover.filter(":hidden").show().trigger("popover:show").animatecss('fadeInUp faster');
   };
 
   $.fn.togglePopover = function() {
     var $popover = $(this).next('[data-popover="popover"]');
     return ( $popover.is(":hidden") ? $(this).showPopover() : $(this).hidePopover() );
-  }
+  };
 
-  $.fn.enablePopovers = function() {
-    return $(this)
+  $.fn.adjustPopoverContent = function() {
+    // Content and viewport attributes
+    var $content = $(this).find('.popover-content');
+    var xLeft  = $content.offset().left;
+    var xRight = xLeft + $content.outerWidth();
+    var viewportWidth = $(window).width();
+
+    // Get container padding
+    var $testEl = $(document.createElement('div')).attr({class: 'l-x', display: 'none'}).appendTo('body');
+    var padding = $testEl.css('padding-left');
+    $testEl.remove();
+    padding = Math.round(parseFloat(padding));
+
+    // Calculate and fix out of bounds
+    var offsetRight = xRight - viewportWidth + padding;
+    var offsetLeft  = padding - xLeft;
+    if (offsetRight > 0) {
+      $content.css('margin-left', '-='+offsetRight);
+      // TODO check if tip is container in popover
+    }
+    if (offsetLeft > 0)  {
+      $content.css('margin-left', '+='+offsetLeft);
+      // TODO check if tip is container in popover
+    }
+  };
+
+  $.enablePopovers = function() {
+    $(document)
       .on('click', '[data-popover]', function(e) {
         e.stopPropagation();
         if ($(this).data('popover') === 'trigger') {
@@ -47,6 +74,9 @@
       })
       .on('click', ':not([data-popover], [data-popover] *)', function() {
         $('[data-popover="popover"]:visible').prev('[data-popover="trigger"]').hidePopover();
+      })
+      .on('popover:show', '[data-popover="popover"]', function() {
+        $(this).adjustPopoverContent();
       });
   };
 

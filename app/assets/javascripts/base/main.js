@@ -5,7 +5,7 @@ $(function() {
   // Enable form validation
   $('form').validate();
   // Enable popovers
-  $(document).enablePopovers();
+  $.enablePopovers();
 
   // Toggle Sidebar
   $(".toggle-sidebar").bind('click tap', function() {
