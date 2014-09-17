@@ -1,11 +1,3 @@
-<%- content_for :head do -%>
-<script>
-  var _sf_async_config = _sf_async_config || {};
-  _sf_async_config.title    = "<%= "#{@piece.title}, by #{@author.name}" %>";
-  _sf_async_config.sections = "<%= @piece.enabled_topics.map(&:name).map(&:titlecase).push("Issue #{ @piece.issue_number }").join(", ") %>";
-  _sf_async_config.authors  = "<%= @author.name %>";
-</script>
-<%- end if Rails.env.production? -%>
 <%- content_for(:logo) { "issue-#{@piece.issue_number}" } -%>
 
 <%- cache [@issue, @piece] do -%>
