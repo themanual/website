@@ -8,7 +8,7 @@ $(function() {
   $(document).enablePopovers();
 
   // Toggle Sidebar
-  $(".toggle-sidebar").bind('click tap', function () {
+  $(".toggle-sidebar").bind('click tap', function() {
     var SIDEBAR_SPEED = 250;
     var $sidebar = $('.sidebar');
     var $button  = $(this);

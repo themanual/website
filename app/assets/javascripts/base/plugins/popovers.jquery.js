@@ -11,7 +11,7 @@
   };
 
   $.fn.removePopover = function() {
-    return this.each(function () {
+    return this.each(function() {
       var $this = $(this);
       $this.removeAttr('data-popover');
       $this.parent().removeClass('has-popover');
@@ -45,7 +45,7 @@
           return false;
         }
       })
-      .on('click', ':not([data-popover], [data-popover] *)', function () {
+      .on('click', ':not([data-popover], [data-popover] *)', function() {
         $('[data-popover="popover"]:visible').prev('[data-popover="trigger"]').hidePopover();
       });
   };
