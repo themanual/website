@@ -16,6 +16,7 @@ gem 'sprockets-image_compressor'
 gem 'autoprefixer-rails'
 gem 'codemirror-rails'
 gem 'chosen-rails'
+gem 'handlebars_assets'
 
 # Markdown Parsing
 gem 'kramdown'

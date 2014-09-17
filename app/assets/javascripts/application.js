@@ -13,6 +13,10 @@
 //= require jquery.scrollTo/jquery.scrollTo
 //= require jquery-loadingdots/jquery.loadingdots
 //
+//  Handlebars
+//= require handlebars.runtime
+//= require_tree ./templates
+//
 //  Custom code
 //= require_tree  ./base/extensions
 //= require_tree  ./base/plugins

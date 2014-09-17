@@ -6,50 +6,41 @@
 
 .popover {
   display: none;
-  border-radius: 4px;
+  > * {
+    position: absolute;
+    top: 100%;
+  }
+}
+
+.popover-tip {
+  width: $popover-tip-width;
+  height: 11px;
+  background-image: image-url('ui/popover-arrow-top.svg');
+  background-size: 100% 100%;
+  z-index: $z-popover+1;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: $popover-tip-width / -2 + 1;
+}
+
+.popover-content {
   @extend .t-reset;
-
-  top: 100%;
-  margin-top: 15px;
-
-  position: absolute;
+  border-radius: 4px;
   z-index: $z-popover;
   background-color: white;
   border: divider();
-
   padding: 1em;
-
-  &:before {
-    content: "";
-    display: block;
-    width: $popover-tip-width;
-    height: 11px;
-    position: absolute;
-    background-image: image-url('ui/popover-arrow-top.svg');
-    background-size: 100% 100%;
-    top: -11px;
-  }
 
   @include rem(width, 18rem);
 
-  &.is-right {
-    right: 0;
-    &:before { right:  $popover-tip-width / 2; }
-  }
-
-  &.is-left {
-    left: 0;
-    &:before { left:  $popover-tip-width / 2; }
-  }
-
-  &.is-center {
-    &:before {
-      left: 50%;
-      margin-left: -1 * $popover-tip-width / 2;
-    }
+  .is-left  & { left: -1 * $popover-tip-width; }
+  .is-right & { right: -1 * $popover-tip-width; }
+  .is-center & {
     left: 50%;
     @include rem(margin-left, -9rem);
   }
+
+  .reversefootnote { display: none; }
 }
 
 .buy-popover {
@@ -60,7 +51,7 @@
 .nav-popover {
   @extend .popover;
   @include rem(width, 10rem);
-  &.is-center { @include rem(margin-left, -5rem); }
+  .is-center & { @include rem(margin-left, -5rem); }
   padding: 0;
   > li + li { border-top: divider(); }
 }
