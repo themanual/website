@@ -6,10 +6,7 @@
 
 .popover {
   display: none;
-  > * {
-    position: absolute;
-    top: 100%;
-  }
+  > * { position: absolute; }
 }
 
 .popover-tip {
