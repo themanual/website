@@ -76,7 +76,7 @@
         $('[data-popover="popover"]:visible').prev('[data-popover="trigger"]').hidePopover();
       })
       .on('popover:show', '[data-popover="popover"]', function() {
-        $(this).adjustPopoverContent();
+        // $(this).adjustPopoverContent();
       });
   };
 
