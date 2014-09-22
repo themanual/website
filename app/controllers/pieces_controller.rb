@@ -2,6 +2,14 @@ class PiecesController < ApplicationController
 
   before_filter :check_access_to_issue, only: :show
 
+  def index
+    @pieces = Piece.includes(:author, :issue).order(created_at: :desc)
+    respond_to do |format|
+      format.html { redirect_to read_path }
+      format.rss  { render layout: false }
+    end
+  end
+
   def staffpicks
     @pieces = Piece.staff_picks
 
