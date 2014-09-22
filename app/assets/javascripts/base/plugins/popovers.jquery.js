@@ -38,30 +38,54 @@
   };
 
   $.fn.adjustPopoverContent = function() {
-    // Content and viewport attributes
-    var $content = $(this).find('.popover-content');
-    var xLeft  = $content.offset().left;
-    var xRight = xLeft + $content.outerWidth();
-    var viewportWidth = $(window).width();
+    return $(this).each(function() {
+      console.log("Adjusting popover");
 
-    // Get container padding
-    var $testEl = $(document.createElement('div')).attr({class: 'l-x', display: 'none'}).appendTo('body');
-    var padding = $testEl.css('padding-left');
-    $testEl.remove();
-    padding = Math.round(parseFloat(padding));
+      // Content and viewport attributes
+      var $content = $(this).find('.popover-content');
+      var contentLeft  = $content.offset().left;
+      var contentRight = contentLeft + $content.outerWidth();
+      var viewportWidth = $(window).width();
 
-    // Calculate and fix out of bounds
-    var offsetRight = xRight - viewportWidth + padding;
-    var offsetLeft  = padding - xLeft;
-    if (offsetRight > 0) {
-      $content.css('margin-left', '-='+offsetRight);
-      // TODO check if tip is container in popover
-    }
-    if (offsetLeft > 0)  {
-      $content.css('margin-left', '+='+offsetLeft);
-      // TODO check if tip is container in popover
-    }
+      // Get container padding
+      var $testEl = $(document.createElement('div')).attr({class: 'l-x', display: 'none'}).appendTo('body');
+      var sitePadding = $testEl.css('padding-left');
+      $testEl.remove();
+      sitePadding = Math.round(parseFloat(sitePadding));
+
+      // Calculate and fix out of bounds
+      var overflowRight = contentRight - viewportWidth + sitePadding;
+      var overflowLeft  = sitePadding - contentLeft;
+
+      if (overflowRight > 0 || overflowLeft > 0) {
+        var $tip = $(this).find('.popover-tip');
+        var tipLeft = $tip.offset().left;
+        var tipRight = tipLeft + $tip.outerWidth();
+        var tipCompensation = 5;
+
+        if (overflowRight > 0) {
+          $content.css('margin-left', '-='+overflowRight);
+          // update contentRight
+          contentRight = contentRight - overflowRight;
+          // check if tip is beyond the content
+          if ((tipRight + tipCompensation) > contentRight) { $content.css('margin-left', '+='+(tipRight - contentRight + tipCompensation)); }
+        }
+
+        if (overflowLeft > 0)  {
+          $content.css('margin-left', '+='+overflowLeft);
+          // update contentLeft
+          contentLeft = contentLeft + overflowLeft;
+          // check if tip is beyond the content
+          if ((tipLeft - tipCompensation) < contentLeft) { $content.css('margin-left', '-='+(contentLeft - tipLeft + tipCompensation)); }
+        }
+      }
+    });
   };
+
+  $.adjustVisiblePopovers = _.debounce(function() {
+    console.log("Adjusting all popovers...");
+    $('[data-popover="popover"]:visible').adjustPopoverContent();
+  }, 400);
 
   $.enablePopovers = function() {
     $(document)
@@ -76,8 +100,10 @@
         $('[data-popover="popover"]:visible').prev('[data-popover="trigger"]').hidePopover();
       })
       .on('popover:show', '[data-popover="popover"]', function() {
-        // $(this).adjustPopoverContent();
+        $(this).adjustPopoverContent();
       });
+
+    $(window).resize(function() { $.adjustVisiblePopovers(); });
   };
 
 }(jQuery));
