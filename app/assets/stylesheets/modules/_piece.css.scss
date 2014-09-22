@@ -278,7 +278,7 @@
     color: $c-text-faint;
 
     ol {
-      @include rem(font-size, $rem-base);
+      @include rem(font-size, 15px);
       line-height: 1.25;
       @include padding-v(0);
       li + li { margin-top: .35em; }
