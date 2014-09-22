@@ -55,6 +55,7 @@ gem 'kgio'
 
 # Server Stuff
 gem 'puma'
+gem 'puma_worker_killer'
 gem 'airbrake'
 gem 'rack-no-www'
 gem 'rack-mini-profiler'
