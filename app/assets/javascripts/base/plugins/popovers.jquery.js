@@ -27,7 +27,6 @@
   };
 
   $.fn.showPopover = function() {
-    console.log("Showing popover");
     var $popover = $(this).next('[data-popover="popover"]');
     $popover.filter(":hidden").show().trigger("popover:show").animatecss('fadeInUp faster');
   };
@@ -39,7 +38,6 @@
 
   $.fn.adjustPopoverContent = function() {
     return $(this).each(function() {
-      console.log("Adjusting popover");
 
       // Content and viewport attributes
       var $content = $(this).find('.popover-content');
@@ -83,7 +81,6 @@
   };
 
   $.adjustVisiblePopovers = _.debounce(function() {
-    console.log("Adjusting all popovers...");
     $('[data-popover="popover"]:visible').adjustPopoverContent();
   }, 400);
 
