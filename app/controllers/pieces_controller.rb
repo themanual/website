@@ -3,7 +3,7 @@ class PiecesController < ApplicationController
   before_filter :check_access_to_issue, only: :show
 
   def index
-    @pieces = Piece.includes(:author, :issue).order(created_at: :desc)
+    @issues = Issue.published.public.ordered.includes(:pieces => :author).order('pieces.position DESC, pieces.type DESC')
     respond_to do |format|
       format.html { redirect_to read_path }
       format.rss  { render layout: false }

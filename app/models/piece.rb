@@ -75,7 +75,7 @@ class Piece < ActiveRecord::Base
   def freestanding_title
     case type
     when "Lesson"
-      return "#{self.author.name.possessive } lesson"
+      return "#{self.author.name.possessive } Lesson"
     else
       return self.title
     end
