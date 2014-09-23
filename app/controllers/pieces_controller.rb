@@ -2,6 +2,14 @@ class PiecesController < ApplicationController
 
   before_filter :check_access_to_issue, only: :show
 
+  def index
+    @issues = Issue.published.public.ordered.includes(:pieces => :author).order('pieces.position DESC, pieces.type DESC')
+    respond_to do |format|
+      format.html { redirect_to read_path }
+      format.rss  { render layout: false }
+    end
+  end
+
   def staffpicks
     @pieces = Piece.staff_picks
 

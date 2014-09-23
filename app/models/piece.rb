@@ -60,12 +60,25 @@ class Piece < ActiveRecord::Base
     self.class.name
   end
 
+  def type_sym
+    self.type.underscore.to_sym
+  end
+
   def enabled_topics
     self.topics.where(enabled: true)
   end
 
   def disabled_topics
     self.topics.where(enabled: false).where('taggings_count > 1')
+  end
+
+  def freestanding_title
+    case type
+    when "Lesson"
+      return "#{self.author.name.possessive } Lesson"
+    else
+      return self.title
+    end
   end
 
   def topics_upto(limit = nil)

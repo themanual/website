@@ -8,6 +8,7 @@ TheManual::Application.routes.draw do
              :path => ''
 
   root to: 'home#index'
+  get '/feed', to: 'pieces#index', defaults: {format: 'rss'}, :as => :feed
 
   as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token
