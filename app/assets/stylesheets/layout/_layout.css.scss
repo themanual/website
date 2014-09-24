@@ -85,7 +85,7 @@ body {
     @include make-cols($class);
     // @include make-gaps($class);
   }
-  // @include media-upto($value) {
-  //   @include make-stacked($class);
-  // }
+  @include media-upto($value) {
+    @include make-stacked($class);
+  }
 }
