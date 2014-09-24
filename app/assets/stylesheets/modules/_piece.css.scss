@@ -84,7 +84,6 @@
 
 .piece-post > * > * {
   @include spacing(padding-top padding-bottom);
-  border-top: divider();
 }
 
 @include media-upto($bp-m) {

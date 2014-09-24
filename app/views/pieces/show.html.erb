@@ -57,6 +57,23 @@
 </div></article>
 <%- end -%>
 
+<aside class="support bg-gray l-line"><div>
+  <div class="support-illo">
+    <figure>
+      <%= image_tag "misc/kickstarter.svg", alt: "" %>
+    </figure>
+  </div>
+  <div class="support-text text t-big kickstarter">
+    <h4>Enjoyed this piece? Support us on Kickstarter.</h4>
+    <p><strong>We’re an independent pay-if-you-want publication.</strong> Become a subscriber or buy previous issues, and help us continue making our online editions freely available. Thank you.</p>
+    <p>
+      <%= link_to "Subscribe via Kickstarter", kickstarter_path, class: "button is-large external", rel: "external" %>
+      <span class="br-s">or</span>
+      <%= link_to "shop our print editions", shop_path %>
+    </p>
+  </div>
+</div></aside>
+
 <% cache [@piece, 'explore'], expires_in: 30.minutes do %>
 <aside class="l-block piece-post"><div>
   <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
@@ -89,23 +106,6 @@
   </section>
 </div></aside>
 <% end %>
-
-<aside class="support bg-gray l-line-t"><div>
-  <div class="support-illo">
-    <figure>
-      <%= image_tag "misc/kickstarter.svg", alt: "" %>
-    </figure>
-  </div>
-  <div class="support-text text t-big kickstarter">
-    <h4>Enjoyed this piece? Support us on Kickstarter.</h4>
-    <p><strong>We’re an independent pay-if-you-want publication.</strong> Become a subscriber or buy previous issues, and help us continue making our online editions freely available. Thank you.</p>
-    <p>
-      <%= link_to "Subscribe via Kickstarter", kickstarter_path, class: "button is-large external", rel: "external" %>
-      <span class="br-s">or</span>
-      <%= link_to "shop our print editions", shop_path %>
-    </p>
-  </div>
-</div></aside>
 
 <% content_for :footer do %>
 <script>$(function() { $('.piece-body').footnotes(); });</script>
