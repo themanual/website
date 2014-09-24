@@ -31,6 +31,12 @@
   }
 }
 
+.homepage-video {
+  max-width: 800px;
+  @include centered;
+  @include spacing(margin-top margin-bottom, 1.5);
+}
+
 .homepage-animation {
   display: block;
   width: 100%;
