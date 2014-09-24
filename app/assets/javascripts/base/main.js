@@ -2,6 +2,8 @@ $(function() {
 
   window.viewportUnitsBuggyfill.init();
 
+  // Enable Fitvids
+  $('.has-video').fitVids();
   // Enable form validation
   $('form').validate();
   // Enable popovers
