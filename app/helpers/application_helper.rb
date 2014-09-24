@@ -38,6 +38,10 @@ module ApplicationHelper
     end
   end
 
+  def link_to_twitter(name, username, options = {})
+    link_to name, "https://twitter.com/#{username}", options
+  end
+
   # From https://coderwall.com/p/d1vplg
   def inline_svg filename, options={}
     path = "app/assets/images/#{filename}".split('/')
