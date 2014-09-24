@@ -8,7 +8,9 @@
   <h2 class="navgroup-title">Issues</h2>
   <ul class="navgroup-items">
     <li>
-      <span class="soon"><span class="c-issue-4">Issue 4</span> <small class="tag">Soon</small></span>
+      <%= link_to_current nil, issue_path(issue: 4), class: "issue-4" do %>
+        Issue 4 <small class="tag">Soon</small>
+      <% end %>
     </li>
     <% Issue.public_issues.each do |issue| %>
       <li>

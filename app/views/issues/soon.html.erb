@@ -1,0 +1,70 @@
+<%- title "Issue 4" -%>
+<%- content_for(:logo) { "issue-4" } -%>
+<div class="l-line-t issue-4 c-issue">
+  <p class="l-p tagline">
+    <a href="#" class="button t-strong">Pre-order via Kickstarter</a> <span class="br-xl">and</span> receive early access. Coming this October.
+  </p>
+  <div class="l-line-t l-p issue-authors">
+    <h2 class="h-sc">Contributing Authors</h2>
+    <ul class="issue-roster">
+      <li class="issue-roster-author">
+        <figure class="issue-roster-author-portrait"><%= image_tag 'illustrations/portraits/issue-4/jennifer-brook.jpg' %></figure>
+        <p class="issue-roster-author-name">Jennifer <span class="br">Brook</span></p>
+      </li>
+      <li class="issue-roster-author">
+        <figure class="issue-roster-author-portrait"><%= image_tag 'illustrations/portraits/issue-4/david-cole.jpg' %></figure>
+        <p class="issue-roster-author-name">David <span class="br">Cole</span></p>
+      </li>
+      <li class="issue-roster-author">
+        <figure class="issue-roster-author-portrait"><%= image_tag 'illustrations/portraits/issue-4/paul-ford.jpg' %></figure>
+        <p class="issue-roster-author-name">Paul <span class="br">Ford</span></p>
+      </li>
+      <li class="issue-roster-author">
+        <figure class="issue-roster-author-portrait"><%= image_tag 'illustrations/portraits/issue-4/diana-kimball.jpg' %></figure>
+        <p class="issue-roster-author-name">Diana <span class="br">Kimball</span></p>
+      </li>
+      <li class="issue-roster-author">
+        <figure class="issue-roster-author-portrait"><%= image_tag 'illustrations/portraits/issue-4/wilson-miner.jpg' %></figure>
+        <p class="issue-roster-author-name">Wilson <span class="br">Miner</span></p>
+      </li>
+      <li class="issue-roster-author">
+        <figure class="issue-roster-author-portrait"><%= image_tag 'illustrations/portraits/issue-4/craig-mod.jpg' %></figure>
+        <p class="issue-roster-author-name">Craig <span class="br">Mod</span></p>
+      </li>
+    </ul>
+  </div>
+  <div class="l-line-t l-p l-stack-s">
+    <div class="issue-updates l-col-s-7">
+      <h2 class="h-sc">Blog updates</h2>
+      <div class="text">
+        <ul class="plain double">
+          <li>
+            <h5><a href="http://blog.themanual.org/2014/09/23/welcoming-roman-mars/">Welcoming Roman Mars, our Issue 4 audiobook narrator</a></h5>
+            <p class="closer">We’re excited to welcome Roman Mars of 99% Invisible as the narrator for our Issue 4 audiobook!</p>
+          </li>
+          <li>
+            <h5><a href="http://blog.themanual.org/2014/09/01/inside-issue-4">Inside Issue 4</a></h5>
+            <p class="closer">Take a closer look at the six articles and six lessons coming in Issue 4, available for pre-order in late September, shipping in early October.</p>
+          </li>
+          <li>
+            <h5><a href="http://blog.themanual.org/2014/08/29/issue-4-arrives-in-early-october">Issue 4 Arrives in Early October</a></h5>
+            <p class="closer">Issue 4 of The Manual is wrapped and will be ready in early October, and we’re excited to share details about the upcoming issue!</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="issue-specs l-col-s-5">
+      <h2 class="h-sc">About</h2>
+      <div class="text">
+        <ul class="bulleted loose">
+          <li>Available in October 2014.</li>
+          <li>Ebook Edition designed in-house in DRM-Free ePub and Kindle formats. <%= link_to "Download sample.", "https://www.dropbox.com/s/ud7qz0sdt1s50gy/the-manual-issue-4-sample.zip?dl=0" %></li>
+          <li>Print design by <%= link_to_twitter "Frank Chimero", "fchimero" %>, creative director of the design studio <%= link_to "Another", "http://ofanother.com" %>.</li>
+          <li>Audiobook narrated by <%= link_to_twitter "Roman Mars", "romanmars" %>, host of the design podcast <%= link_to "99% Invisible", "http://99percentinvisible.org" %>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%- cache do -%>
+<%- end -%>
