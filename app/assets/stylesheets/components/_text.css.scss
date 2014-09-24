@@ -69,7 +69,7 @@ em      { font-style: italic; }
 }
 .h-sc {
   @extend .t-sc-heavy;
-  @include spacing(margin-bottom);
+  margin-bottom: 1em;
 }
 
 .t-sc-small {
@@ -125,6 +125,7 @@ em      { font-style: italic; }
     li { margin-top: .15em; }
 
     &.plain { list-style-type: none; }
+    &.bulleted { padding-left: 1.05em; }
 
     &.plain,
     &.outdented { padding-left: 0; }
