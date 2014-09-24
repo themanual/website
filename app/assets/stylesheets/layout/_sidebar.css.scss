@@ -34,7 +34,6 @@
   #content > * {
     > .page-header,
     > main { margin-left: $sidebar-width + $sidebar-gutter; }
-
     > .sidebar + main { margin-left: 0; }
   }
 }
