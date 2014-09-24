@@ -2,7 +2,9 @@
 <%- content_for(:logo) { "issue-4" } -%>
 <div class="l-line-t issue-4 c-issue">
   <p class="l-p tagline">
-    <a href="#" class="button t-strong">Pre-order via Kickstarter</a> <span class="br-xl">and</span> receive early access. Coming this October.
+    <%= link_to "Pre-order via Kickstarter", ks_everywhere_path, class: "button t-strong" %>
+    <span class="br-xl">and</span>
+    get early access. Coming this October.
   </p>
   <div class="l-line-t l-p issue-authors">
     <h2 class="h-sc">Contributing Authors</h2>
@@ -33,7 +35,7 @@
       </li>
     </ul>
   </div>
-  <div class="l-line-t l-p l-stack-s">
+  <div class="l-line-t l-p l-row l-stack-s">
     <div class="issue-updates l-col-s-7">
       <h2 class="h-sc">Blog updates</h2>
       <div class="text">
