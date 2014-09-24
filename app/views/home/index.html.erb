@@ -1,26 +1,31 @@
 <%- content_for :class_body, "bg-colored kickstarter" -%>
 <%- content_for :class_main, "l-flexcenter" -%>
-<%- content_for :head do -%>
-<script type="text/javascript" charset="utf-8" src="/ks-animation-edge-preload.js"></script>
-<style>.edgeLoad-ks-animation-stage { visibility:hidden; } </style>
-<%- end -%>
 
 <section class="homepage"><div>
-
-  <div class="homepage-animation"><div class="homepage-animation-ratio"><div class="homepage-animation-container">
-    <div id="Stage" class="ks-animation-stage"></div>
-    <noscript>
-      <figure><%= image_tag 'misc/ks-illustration.svg' , alt: "" %></figure>
-    </noscript>
-  </div></div></div>
+  <div class="homepage-animation">
+    <div class="homepage-animation-ratio">
+      <div class="homepage-animation-container">
+        <div id="Stage" class="ks-animation-stage"></div>
+        <noscript>
+          <figure><%= image_tag 'misc/ks-illustration.svg' , alt: "" %></figure>
+        </noscript>
+      </div>
+    </div>
+    <script type="text/javascript" charset="utf-8" src="/ks-animation-edge-preload.js"></script>
+    <style>.edgeLoad-ks-animation-stage { visibility:hidden; } </style>
+  </div>
 
   <div class="homepage-content">
     <div class="homepage-text">
       <h1>The Manual is moving beyond print.</h1>
       <p>And it’s going everywhere you want.</p>
     </div>
-    <p class="homepage-cta"><%= link_to "Back us on Kickstarter", kickstarter_path, class: "button in-black in-caps is-larger", rel: "external" %></p>
+    <p class="homepage-cta"><%= link_to "Back our Kickstarter", kickstarter_path, class: "button in-black in-caps is-larger", rel: "external" %></p>
     <p class="homepage-cta-secondary">and <%= link_to "read our web edition", read_path, class: "" %></p>
     </div>
   </div>
 </div></section>
+
+<%- content_for :footer do -%>
+<script>if ($('.homepage-video:visible').length) { $.getScript('/ks-animation-edge-preload.js'); }</script>
+<%- end -%>
