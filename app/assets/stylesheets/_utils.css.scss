@@ -40,6 +40,12 @@
   }
 }
 
+.br:before {
+  display: block;
+  content: "";
+  height: 1px;
+  margin-top: .25em;
+}
 @each $bp in $bps {
   $class: nth($bp, 1);
   $value: nth($bp, 2);
