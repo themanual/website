@@ -30,6 +30,7 @@ $(function() {
         .slideDown({duration: SIDEBAR_SPEED, queue: false});
       $button.addClass('expanded');
     }
+    if (typeof analytics !== 'undefined') { analytics.track('Toggled Sidebar'); }
   });
 
   // External links

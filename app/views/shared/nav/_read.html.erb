@@ -1,12 +1,15 @@
+<%- track_link(".sidebar-topics a", "Clicked Sidebar Topic") -%>
+<%- track_link(".sidebar-issues a", "Clicked Sidebar Issues") -%>
+
 <div class="navgroup">
   <h2 class="navgroup-title">Browse</h2>
-  <ul class="navgroup-items">
+  <ul class="navgroup-items sidebar-browse">
     <li><%= link_to_current "Staff Picks", staffpicks_path %></li>
     <li class="soon"><span>Popular</span></li>
   </ul>
 
   <h2 class="navgroup-title">Issues</h2>
-  <ul class="navgroup-items">
+  <ul class="navgroup-items sidebar-issues">
     <li>
       <%= link_to_current nil, issue_path(issue: 4), class: "issue-4" do %>
         Issue 4 <small class="tag">New</small>
@@ -26,7 +29,7 @@
   </ul>
 
   <h2 class="navgroup-title">Topics</h2>
-  <ul class="navgroup-items">
+  <ul class="navgroup-items sidebar-topics">
     <% Piece.active_topics.each do |topic| %>
       <li><%= link_to_current topic.titlecase, topic_path(topic: topic.downcase) %></li>
     <% end %>

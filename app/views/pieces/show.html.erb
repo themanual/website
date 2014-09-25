@@ -43,6 +43,7 @@
           Read Next: <%= @author.name.given_name.possessive %> <%= @piece.companion.type %>
         <% end %>
       </p>
+      <%- track_link('.piece-author-bio a.button', 'Clicked Read Companion Piece') -%>
       <%- if @piece.illustrator.present? || @piece.issue.portrait_illustrator.present? -%>
       <p class="piece-illustrator">
       <%- illustrators = [] -%>
@@ -71,6 +72,7 @@
       <span class="br-s">or</span>
       <%= link_to "shop our print editions", shop_path %>
     </p>
+    <%- track_link('.support .kickstarter a.button', 'Clicked Post-Read Kickstarter Button') -%>
   </div>
 </div></aside>
 

@@ -29,3 +29,5 @@
 <%- content_for :jquery do -%>
 if ($('.homepage-video:visible').length) { $.getScript('/ks-animation-edge-preload.js'); }
 <%- end -%>
+<%- track_link('.homepage-cta a', 'Clicked Homepage Kickstarter Button') -%>
+<%- track_link('.homepage-cta-secondary a', 'Clicked Homepage Read Web Edition Button') -%>
