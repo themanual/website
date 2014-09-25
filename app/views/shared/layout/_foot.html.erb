@@ -1,2 +1,12 @@
 <%= javascript_include_tag :application, :debug => Rails.env.development? %>
 <%= yield :footer %>
+<%- if content_for?(:jquery) || content_for?(:analytics) -%>
+<script>
+  $(function() {
+    <%= yield(:jquery) %>
+    <%- if content_for?(:analytics) -%>
+    if (typeof analytics !== 'undefined') { <%= yield(:analytics) %> }
+    <%- end -%>
+  });
+</script>
+<%- end -%>
