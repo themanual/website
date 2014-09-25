@@ -26,6 +26,6 @@
   </div>
 </div></section>
 
-<%- content_for :footer do -%>
-<script>if ($('.homepage-video:visible').length) { $.getScript('/ks-animation-edge-preload.js'); }</script>
+<%- content_for :jquery do -%>
+if ($('.homepage-video:visible').length) { $.getScript('/ks-animation-edge-preload.js'); }
 <%- end -%>

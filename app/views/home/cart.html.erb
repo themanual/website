@@ -173,8 +173,8 @@
     <% end %>
   </section>
 
-  <% content_for :footer do %>
-  <script>$(function() {
+  <% content_for :jquery do %>
+  $(function() {
     $("a[href='#fn:shipping']").click(function() {
       var $shipping = $("[id='fn:shipping']");
       $.scrollTo($shipping, {
@@ -196,7 +196,7 @@
         $('[data-shipping="message"]').animatecss('fadeIn').html(message);
       }
     });
-  });</script>
+  });
   <% end %>
 
 </div></main>

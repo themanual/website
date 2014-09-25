@@ -116,26 +116,22 @@
   </div>
 </footer>
 
-<% content_for :footer do %>
-<script>$(function() {
-
-  var updateSubscriptionTotal = function($form) {
-    var total = 0;
-    var shipping = false;
-    $form.find('input[data-price]:checked').each(function(index, el) {
-      $this = $(this);
-      total += parseInt($this.data('price'));
-      if ($this.data('shipping')) { shipping = true; }
-    });
-    $("#subscription-total").html(prefixCurrency(total)).animatecss('flash');
-    $("#subscription-shipping").toggle(shipping);
-  };
-
-  $form = $("#subscription-form");
-  $form.find('input[data-price]').change(function() {
-    updateSubscriptionTotal($form);
+<%- content_for :jquery do -%>
+var updateSubscriptionTotal = function($form) {
+  var total = 0;
+  var shipping = false;
+  $form.find('input[data-price]:checked').each(function(index, el) {
+    $this = $(this);
+    total += parseInt($this.data('price'));
+    if ($this.data('shipping')) { shipping = true; }
   });
-  updateSubscriptionTotal($form);
+  $("#subscription-total").html(prefixCurrency(total)).animatecss('flash');
+  $("#subscription-shipping").toggle(shipping);
+};
 
-});</script>
-<% end %>
+$form = $("#subscription-form");
+$form.find('input[data-price]').change(function() {
+  updateSubscriptionTotal($form);
+});
+updateSubscriptionTotal($form);
+<%- end -%>

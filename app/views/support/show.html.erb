@@ -98,29 +98,26 @@
 
 </div></main>
 
-<% content_for :footer do %>
-<script>$(function() {
-
-  $('.subscribe-tier a.footnote').click(function() {
-    var $shipping = $("#shipping");
-    $.scrollTo($shipping, {
-      duration: 250,
-      onAfter: function() {
-        $shipping.animatecss('flash');
-      }
-    });
-    return false;
-  });
-
-  $.getEstimatedShippingCost({}, function(data){
-    if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
-      // Update cost
-      var cost = Number(data.response.cost).toFixed();
-      $('[data-shipping="cost"]').animatecss('flash').html(prefixCurrency(cost));
-      // Update message
-      message = 'Estimated shipping cost for ' + data.response.ip_country_name + ', exact cost will be calculated at checkout.';
-      $('[data-shipping="message"]').animatecss('fadeIn').text(message);
+<% content_for :jquery do %>
+$('.subscribe-tier a.footnote').click(function() {
+  var $shipping = $("#shipping");
+  $.scrollTo($shipping, {
+    duration: 250,
+    onAfter: function() {
+      $shipping.animatecss('flash');
     }
   });
-});</script>
+  return false;
+});
+
+$.getEstimatedShippingCost({}, function(data){
+  if (data.status == 'ok' && 'cost' in data.response && 'ip_country_name' in data.response) {
+    // Update cost
+    var cost = Number(data.response.cost).toFixed();
+    $('[data-shipping="cost"]').animatecss('flash').html(prefixCurrency(cost));
+    // Update message
+    message = 'Estimated shipping cost for ' + data.response.ip_country_name + ', exact cost will be calculated at checkout.';
+    $('[data-shipping="message"]').animatecss('fadeIn').text(message);
+  }
+});
 <% end %>
