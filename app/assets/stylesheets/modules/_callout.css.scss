@@ -34,12 +34,15 @@
 .callout-title {
   font-family: $type-serif;
   font-weight: weight(black);
-  font-size: 1.1em;
+  font-size: $fz-l;
 }
 
 .callout-body {
   color: $c-text-body;
-  margin-top: 1em;
   a { font-weight: weight(bold); }
   * + p { margin-top: 1em; }
+}
+
+.callout-title + .callout-body {
+  margin-top: 1em;
 }
