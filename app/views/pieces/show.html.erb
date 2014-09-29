@@ -33,9 +33,9 @@
     <%- markdown_filter do -%>
 This <%= @piece.type %> you’re about to read is part of Issue <%= @piece.issue.number %> of The Manual.
 
-Previously print-only, **we’re now publishing our issues online for free** under a Creative Commons license, so that we can better contribute to the conversation on designing for the web. However, **we need your support to keep our site paywall- and ad-free** and to pay our writers, illustrators, and staff for their wonderful work.
+Previously print-only, **we’re now publishing our issues online for free** under a Creative Commons license, so that we can better contribute to the conversation on designing for the web. However, **we need your support to keep our issues online for free** and to pay our writers, illustrators, and staff for their wonderful work.
 
-[Please consider backing our Kickstarter](/kickstarter) to keep our site paywall-free. 
+[Please consider backing our Kickstarter](/kickstarter) to keep our issues online for free. 
 
 Enjoy this <%= @piece.type %>, and thank you for reading.
 <%- end -%>
@@ -50,7 +50,7 @@ Enjoy this <%= @piece.type %>, and thank you for reading.
   <aside class="l-col-reading callout">
     <h2 class="callout-title">Enjoyed this <%= @piece.type %>? Please consider supporting us.</h2>
     <div class="callout-body">
-      <p><%= link_to "Back our Kickstarter project", kickstarter_path, class: "button is-large t-strong" %> <span class="br-s">and keep our site paywall-free.</span></p>
+      <p><%= link_to "Back our Kickstarter project", kickstarter_path, class: "button is-large t-strong" %> <span class="br-s">and keep our issues online for free.</span></p>
     </div>
   </aside>
 
