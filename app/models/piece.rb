@@ -57,7 +57,7 @@ class Piece < ActiveRecord::Base
   end
 
   def type
-    self.class.name
+    self.class.name.downcase
   end
 
   def type_sym

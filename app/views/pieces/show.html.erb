@@ -1,7 +1,7 @@
 <%- content_for(:logo) { "issue-#{@piece.issue_number}" } -%>
 
 <%- cache [@issue, @piece] do -%>
-<article class="piece is-<%= @piece.type.downcase %> issue-<%= @piece.issue_number %> c-issue l-block hentry"><div>
+<article class="piece is-<%= @piece.type %> issue-<%= @piece.issue_number %> c-issue l-block hentry"><div>
 
   <header class="piece-header">
     <% if @piece.illustrator.present? %>
@@ -40,7 +40,7 @@
       <%= raw markdown(@author.bio) %>
       <p>
         <%= link_to piece_path(@piece.companion.issue.number, @piece.companion.author_slug, @piece.companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
-          Read Next: <%= @author.name.given_name.possessive %> <%= @piece.companion.type %>
+          Read Next: <%= @author.name.possessive %> <%= @piece.companion.type.titleize %>
         <% end %>
       </p>
       <%- track_link('.piece-author-bio a.button', 'Clicked Read Companion Piece') -%>
