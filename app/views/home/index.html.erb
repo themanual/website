@@ -1,4 +1,4 @@
-<%- content_for :class_body, "bg-colored kickstarter" -%>
+<%- content_for :class_body, "" -%>
 <%- content_for :class_main, "l-flexcenter" -%>
 
 <section class="homepage"><div>
@@ -27,7 +27,9 @@
 </div></section>
 
 <%- content_for :jquery do -%>
-if ($('.homepage-video:visible').length) { $.getScript('/ks-animation-edge-preload.js'); }
+if ($('.homepage-animation:visible').length) {
+  $('script').attr({type: 'text/javascript', src: '/ks-animation-edge-preload.js'}).appendTo("body");
+}
 <%- end -%>
 <%- track_link('.homepage-cta a', 'Clicked Kickstarter Button (Homepage)') -%>
 <%- track_link('.homepage-cta-secondary a', 'Clicked Homepage Read Web Edition Button') -%>

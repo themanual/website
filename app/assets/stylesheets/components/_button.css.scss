@@ -42,7 +42,7 @@
   border: solid 2px $c-blue;
   background-color: $c-blue;
 
-  .kickstarter & {
+  &.kickstarter {
     color: white;
     background-color: $c-kickstarter;
     border-color: $c-kickstarter;

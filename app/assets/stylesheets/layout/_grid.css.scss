@@ -13,6 +13,7 @@
   .l-col#{$class}-half        { @include span-columns($grid-columns/2); }
   .l-col#{$class}-third       { @include span-columns($grid-columns/3); }
   .l-col#{$class}-fourth      { @include span-columns($grid-columns/4); }
+  .l-col#{$class}-fill        { display: block;float: left;width: 100%; }
 
   .l-cols#{$class}-halves > * {
     @extend .l-col#{$class}-half;
@@ -59,7 +60,7 @@
   // Omega
   .l-omega#{$class} { @include omega; }
   // Shift
-  @for $i from 1 through ($grid-columns - 1) {
-    .l-shift#{$class}-#{$i} { @include shift($i); }
-  }
+  // @for $i from 1 through ($grid-columns - 1) {
+  //   .l-shift#{$class}-#{$i} { @include shift($i); }
+  // }
 }

@@ -44,7 +44,6 @@ body {
 
 .l-col {
   @include centered;
-  box-sizing: content-box;
 }
 .l-reading  { @include rem(max-width, $reading-width); }
 .l-single   { @include rem(max-width, $singlecol-width); }
@@ -74,8 +73,8 @@ body {
 
 // NOT Breakpoint-Specific
 @include make-cols();
-// @include make-gaps();
-// @include make-stacked();
+@include make-gaps();
+@include make-stacked();
 
 // Breakpoint-specific
 @each $bp in $bps {
@@ -83,9 +82,12 @@ body {
   $value: nth($bp, 2);
   @include media-from($value) {
     @include make-cols($class);
-    // @include make-gaps($class);
+    @include make-gaps($class);
   }
   @include media-upto($value) {
     @include make-stacked($class);
   }
 }
+
+.max-8 { max-width: flex-grid(8); }
+.max-6 { max-width: flex-grid(6); }

@@ -1,0 +1,29 @@
+<%- @ks_stats ||= Kickstarter.stats -%>
+<section class="ks-stats">
+  <!--<header class="ks-stats-header">
+    <h3>Kickstarter</h3>
+    <p>The Manual, Everywhere</p>
+  </header>-->
+  <div class="ks-stats-bar">
+    <div class="ks-stats-bar-raised" style="width: <%= number_to_percentage(@ks_stats[:percent]*100) %>"></div>
+  </div>
+  <ul class="ks-stats-data l-row">
+    <li class="ks-stats-data-point l-col-6 l-col-s-4">
+      <strong class="ks-stats-data-point-number"><%= number_to_percentage(@ks_stats[:percent]*100, precision: 0) %></strong>
+      <span class="ks-stats-data-point-desc">raised</span>
+    </li>
+    <li class="ks-stats-data-point l-col-6 l-omega l-col-s-4">
+      <strong class="ks-stats-data-point-number"><%= distance_of_time_in_words(Time.now, @ks_stats[:deadline]) %></strong>
+      <span class="ks-stats-data-point-desc">to go</span>
+    </li>
+    <li class="ks-stats-data-button l-col-fill l-col-s-4">
+      <%= link_to "Back us", kickstarter_path, class: "button kickstarter is-wide is-large" %>
+    </li>
+    <!-- <li class="ks-stats-data-point">
+      <strong class="ks-stats-data-point-number"><%= @ks_stats[:backers] %></strong>
+      <span class="ks-stats-data-point-desc">backers</span>
+    </li> -->
+  </ul>
+  
+  
+</section>

@@ -45,3 +45,37 @@
 }
 .homepage-animation-ratio { padding-bottom: 62.5%; position: relative; }
 .homepage-animation-container { @include position(absolute, 0px 0px 0px 0px); }
+
+.homepage-message {
+  color: $c-text-gray;
+  font-size: $fz-ll;
+  max-width: 34em;
+  @include centered;
+  @include spacing(margin-top, 4);
+  
+
+  h1 {
+    color: $c-text-black;
+    font-size: $fz-lll;
+    font-weight: weight(black);
+  }
+
+  h2 {
+    font-weight: weight(black);
+    margin-top: 1.5em;
+    color: $c-text-black;
+    font-size: $fz-l;
+    font-family: $type-serif;
+  }
+
+  p {
+    margin-top: 1em;
+    font-family: $type-serif;
+    line-height: 1.4;
+  }
+
+  strong {
+    font-weight: weight(bold);
+    color: $c-text-body;
+  }
+}

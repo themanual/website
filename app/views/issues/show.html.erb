@@ -2,11 +2,17 @@
 <%- content_for(:logo) { "issue-#{@issue.number}" } -%>
 
 <%- cache @issue do -%>
-<p class="l-line-t l-p tagline issue-<%= @issue.number %> c-issue">
-  <%= link_to "Buy Print Edition", shop_product_path("issue-#{@issue.number}"), rel: "external", class: "button is-large" %>
-  <span class="br-s">or</span>
-  <%= link_to 'back on Kickstarter', kickstarter_path, rel: "external" %> and support us.
-</p>
+<div class="l-line-t l-p issue-<%= @issue.number %> c-issue">
+  <section class="callout l-single">
+    <h2 class="callout-title">We need your help.</h2>
+    <div class="callout-body">
+      <p>We’re publishing all our issues online for free under a Creative Commons license and working on new ebook and audiobook formats.</p>
+      <p>But we need your support to keep our website paywall- and ad-free</strong>, and pay our writers, illustrators, and staff for their wonderful work.</p>
+      <p><%= link_to "Back our Kickstarter", kickstarter_path %> and keep The Manual available online for free.</p>
+    </div>
+    <%= render partial: "shared/kickstarter" %>
+  </section>
+</div>
 <ul class="l-issue issue-<%= @issue.number %>">
   <%- @issue.articles.ordered.each do |article| -%>
   <%- lesson = article.lesson -%>

@@ -1,0 +1,45 @@
+.callout {
+  border: divider();
+  background: $c-bg-gray;
+  border-radius: 5px;
+  @include spacing(padding);
+  font-size: 1.1em;
+
+  a {
+    color: $c-kickstarter;
+    @include hover { color: black; }
+  }
+
+  &.callout-ks {
+    border-color: $c-kickstarter;
+    background: transparentize($c-kickstarter, .97);
+  }
+
+  @each $i in $issues {
+    .issue-#{$i} & {
+      border-color: issue-color($i);
+      background: transparentize(issue-color($i), .97);
+    }
+  }
+}
+
+.callout-big {
+  font-size: $fz-l;
+}
+
+.callout-body {
+  line-height: 1.4;
+}
+
+.callout-title {
+  font-family: $type-serif;
+  font-weight: weight(black);
+  font-size: 1.1em;
+}
+
+.callout-body {
+  color: $c-text-body;
+  margin-top: 1em;
+  a { font-weight: weight(bold); }
+  * + p { margin-top: 1em; }
+}
