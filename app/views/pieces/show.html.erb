@@ -28,7 +28,28 @@
   </header>
 
   <div class="piece-body l-col-reading entry-content">
+    <aside class="piece-note">
+<%- markdown_filter do -%>
+## A message from our publisher:
+
+This <%= @piece.type %> is part of Issue <%= @piece.issue.number %> of The Manual, which we’re making available online for free as part of our <%= link_to "“The Manual, Everywhere”", kickstarter_path %> initiative, now funding on Kickstarter.
+
+We’re publishing everything without a paywall, under a Creative Commons license, because we believe this is the best way to contribute to the growing maturity of design. But we need your help to make up for the cost of paying writers, illustrators, and staff.
+
+**After you read, <%= link_to "please consider supporting us on Kickstarter", kickstarter_path %>, and in return, getting a subscription to our next three issues in new ebook, audiobook, and print editions.**
+
+Only with your support we can continue to publish online for free.
+
+Thank you for reading,  
+— Andy McMillan
+<%- end -%>
+    </aside>
     <%=raw markdown(@piece.body) %>
+    <aside class="piece-note">
+      <h2>Enjoyed this <%= @piece.type %>? Please consider supporting us.</h2>
+      <p>We’re publishing everything without a paywall, under a Creative Commons license, because we believe this is the best way to contribute to the growing maturity of design. But we need your help to make up for the cost of paying writers, illustrators, and staff.</p>
+      <p><strong><%= link_to "Support us on Kickstarter", kickstarter_path, class: "button is-large" %> <span class="br-s">and keep us paywall-free.</span></strong></p>
+    </aside>
   </div>
 
   <%- cache [@piece, @author] do -%>
@@ -58,26 +79,8 @@
 </div></article>
 <%- end -%>
 
-<aside class="support bg-gray l-line"><div>
-  <div class="support-illo">
-    <figure>
-      <%= image_tag "misc/kickstarter.svg", alt: "" %>
-    </figure>
-  </div>
-  <div class="support-text text t-big kickstarter">
-    <h4>Enjoyed this piece? Support us on Kickstarter.</h4>
-    <p><strong>We’re an independent pay-if-you-want publication.</strong> Become a subscriber or buy previous issues, and help us continue making our online editions freely available. Thank you.</p>
-    <p>
-      <%= link_to "Subscribe via Kickstarter", kickstarter_path, class: "button is-large" %>
-      <span class="br-s">or</span>
-      <%= link_to "shop our print editions", shop_path %>
-    </p>
-    <%- track_link('.support .kickstarter a.button', 'Clicked Kickstarter Button (Post-Read)') -%>
-  </div>
-</div></aside>
-
 <% cache [@piece, 'explore'], expires_in: 30.minutes do %>
-<aside class="l-block piece-post"><div>
+<aside class="l-block piece-post l-line-t"><div>
   <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
     <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
     <div class="text">
