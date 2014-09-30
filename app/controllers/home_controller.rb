@@ -21,14 +21,6 @@ class HomeController < ApplicationController
     render layout: "payment"
   end
 
-  def ks
-    @data = Kickstarter.stats
-    @data[:distance_of_time_in_words] = view_context.distance_of_time_in_words(Time.now, @data[:deadline])
-    @data[:formatted_percent]         = view_context.number_to_percentage(@data[:percent]*100, precision: 0)
-    expires_in 10.minutes, public: true
-    render json: @data
-  end
-
   def shipping_estimate
 
     begin

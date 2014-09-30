@@ -1,7 +1,6 @@
 <%- title "Issue #{@issue.number}" -%>
 <%- content_for(:logo) { "issue-#{@issue.number}" } -%>
 
-<%- cache @issue do -%>
 <div class="l-line-t l-p issue-<%= @issue.number %> c-issue">
   <section class="callout l-single">
     <h2 class="callout-title">We need your help.</h2>
@@ -13,6 +12,7 @@
     <%= render partial: "shared/kickstarter" %>
   </section>
 </div>
+<%- cache @issue do -%>
 <ul class="l-issue issue-<%= @issue.number %>">
   <%- @issue.articles.ordered.each do |article| -%>
   <%- lesson = article.lesson -%>

@@ -1,8 +1,7 @@
-<%- content_for(:logo) { "issue-#{@piece.issue_number}" } -%>
+<%- content_for(:logo) { "issue-#{@piece.issue.number}" } -%>
 
-<%- cache [@issue, @piece] do -%>
-<article class="piece is-<%= @piece.type %> issue-<%= @piece.issue_number %> c-issue l-block hentry"><div>
-
+<article class="piece is-<%= @piece.type %> issue-<%= @piece.issue.number %> c-issue l-block hentry"><div>
+  <%- cache [@issue, @piece, :header] do -%>
   <header class="piece-header">
     <% if @piece.illustrator.present? %>
     <div class="piece-header-illustration">
@@ -21,31 +20,29 @@
       <h1 class="piece-header-title entry-title"><%= @piece.title %></h1>
       <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
       <p class="piece-header-metadata">
-        <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue_number}", issue_path(issue: @piece.issue_number) %></span>
+        <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue.number}", issue_path(issue: @piece.issue.number) %></span>
         <span class="piece-header-topics"><%= render partial: "pieces/piece_topics", locals: { piece: @piece } %></span>
       </p>
     </div>
   </header>
+  <%- end -%>
   
   <aside class="l-col-reading callout">
     <h2 class="callout-title">A message from Andy McMillan, our publisher:</h2>
     <div class="callout-body">
-    <%- markdown_filter do -%>
-This <%= @piece.type %> you’re about to read is part of Issue <%= @piece.issue.number %> of The Manual.
-
-Previously print-only, **we’re now publishing our issues online for free** under a Creative Commons license, so that we can better contribute to the conversation on designing for the web. However, **we need your support to keep our issues online for free** and to pay our writers, illustrators, and staff for their wonderful work.
-
-[Please consider backing our Kickstarter](/kickstarter) to keep our issues online for free. 
-
-Enjoy this <%= @piece.type %>, and thank you for reading.
-<%- end -%>
+      <p>This <%= @piece.type %> you’re about to read is part of Issue <%= @piece.issue.number %> of The Manual.</p>
+      <p>Previously print-only, <strong>we’re now publishing our issues online for free</strong> under a Creative Commons license, so that we can better contribute to the conversation on designing for the web. However, <strong>we need your support to keep our issues online for free</strong> and to pay our writers, illustrators, and staff for their wonderful work.</p>
+      <p><%= link_to "Please back our Kickstarter", kickstarter_path %> to keep our issues online for free. </p>
+      <p>Enjoy this <%= @piece.type %>, and thank you for reading.</p>
     </div>
     <%= render partial: "shared/kickstarter" %>
   </aside>
-
+  
+  <%- cache [@issue, @piece, :body] do -%>
   <div class="piece-body l-col-reading entry-content l-mm">
     <%=raw markdown(@piece.body) %>
   </div>
+  <%- end -%>
 
   <aside class="l-col-reading callout">
     <h2 class="callout-title">Enjoyed this <%= @piece.type %>? Please consider supporting us.</h2>
@@ -79,19 +76,18 @@ Enjoy this <%= @piece.type %>, and thank you for reading.
   </footer>
   <%- end -%>
 </div></article>
-<%- end -%>
 
 <% cache [@piece, 'explore'], expires_in: 30.minutes do %>
 <aside class="l-block piece-post l-line-t"><div>
-  <section class="piece-post-issue issue-<%= @piece.issue_number %> c-issue">
-    <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue_number}", issue_path(@piece.issue_number) %></h2>
+  <section class="piece-post-issue issue-<%= @piece.issue.number %> c-issue">
+    <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue.number}", issue_path(@piece.issue.number) %></h2>
     <div class="text">
       <ul class="plain">
       <% @piece.issue.authors.each do |author| %>
         <%= content_tag :li, author.name, class: ('marker-arrow' if author == @author) %>
       <% end %>
       </ul>
-      <p><%= link_to "Browse this issue", issue_path(@piece.issue_number) %></p>
+      <p><%= link_to "Browse this issue", issue_path(@piece.issue.number) %></p>
     </div>
   </section>
   <section class="piece-post-topics">
@@ -108,7 +104,7 @@ Enjoy this <%= @piece.type %>, and thank you for reading.
     </div>
   </section>
   <section class="piece-post-piece">
-    <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue_number}" %></h2>
+    <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue.number}" %></h2>
     <%= render @piece.recommended %>
   </section>
 </div></aside>

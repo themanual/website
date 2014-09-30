@@ -38,10 +38,4 @@ $(function() {
     window.open($(this).attr('href'));
     return false;
   });
-
-  if ($('.ks-stats').length) {
-    $.getJSON('/ks.json', function(data) {
-      $('.ks-stats').replaceWith(HandlebarsTemplates['ks-stats'](data));
-    });
-  }
 });

@@ -1,4 +1,3 @@
-<%- cache [:pieces, :staffpicks, Piece.latest_staff_pick]do -%>
 <div class="l-stack-lined">
   <div>
     <section class="callout callout-ks l-single">
@@ -11,6 +10,7 @@
       <%= render partial: "shared/kickstarter" %>
     </section>
   </div>
-  <%= render @pieces %>
+  <%- cache [:pieces, :staffpicks, Piece.latest_staff_pick] do -%>
+    <%= render @pieces %>
+  <%- end -%>
 </div>
-<%- end -%>
