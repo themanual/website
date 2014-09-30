@@ -4,6 +4,31 @@ class HomeController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:shipping_estimate]
 
+  def index
+    metadata "og:title", "The Manual Everywhere"
+    metadata "twitter:card", "summary_large_image"
+    metadata "description", "The Manual is moving beyond print. And it’s going everywhere you want."
+    metadata "og:image", view_context.image_url("misc/ks-illustration-1000w.png")
+    redirect_to read_path
+  end
+
+  def cart
+    @latest = Issue.latest
+    @tier = params[:tier]
+    @tier ||= 'print'
+    @user = User.new
+    @address = Address.new
+    render layout: "payment"
+  end
+
+  def ks
+    @data = Kickstarter.stats
+    @data[:distance_of_time_in_words] = view_context.distance_of_time_in_words(Time.now, @data[:deadline])
+    @data[:formatted_percent]         = view_context.number_to_percentage(@data[:percent]*100, precision: 0)
+    expires_in 10.minutes, public: true
+    render json: @data
+  end
+
   def shipping_estimate
 
     begin
@@ -66,32 +91,6 @@ class HomeController < ApplicationController
       Airbrake.notify e
       render json: {status: 'error'}
     end
-  end
-
-  def index
-    metadata "og:title", "The Manual Everywhere"
-    metadata "twitter:card", "summary_large_image"
-    metadata "description", "The Manual is moving beyond print. And it’s going everywhere you want."
-    metadata "og:image", view_context.image_url("misc/ks-illustration-1000w.png")
-    redirect_to read_path
-  end
-
-  def cart
-    @latest = Issue.latest
-    @tier = params[:tier]
-    @tier ||= 'print'
-    @user = User.new
-    @address = Address.new
-    render layout: "payment"
-  end
-
-  def ks
-    @data = Kickstarter.stats
-
-    @data[:distance_in_words] = view_context.distance_of_time_in_words(Time.now, @data[:deadline])
-
-    expires_in 10.minutes, public: true
-    render json: @data
   end
 
 end
