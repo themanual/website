@@ -85,4 +85,9 @@ class HomeController < ApplicationController
     render layout: "payment"
   end
 
+  def ks
+    expires_in 10.minutes, public: true
+    render json: Kickstarter.stats
+  end
+
 end

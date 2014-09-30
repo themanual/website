@@ -48,6 +48,8 @@ TheManual::Application.routes.draw do
   # ABOUT
   get '/about', to: 'about#index',  as: :about
 
+  get '/ks.json', to: 'home#ks', format: :json
+
   get '/kickstarter',            to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
   get '/kickstarter/original',   to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
   get '/kickstarter/everywhere', to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'),  as: :ks_everywhere

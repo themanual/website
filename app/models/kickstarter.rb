@@ -1,7 +1,7 @@
 class Kickstarter
-  
+
   URL = 'https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'
-  
+
   def self.fetch_stats
     puts "Fetching Kickstarter stats..."
     doc = Nokogiri::HTML(open(URL))
@@ -17,9 +17,9 @@ class Kickstarter
   end
 
   def self.stats
-    Rails.cache.fetch('kickstarter:stats', expires_in: 1.hour) do
+    Rails.cache.fetch('kickstarter:stats', expires_in: 10.minutes, race_condition_ttl: 10) do
       self.fetch_stats
     end
   end
-  
+
 end
