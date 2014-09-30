@@ -20,9 +20,9 @@ xml.rss(
       xml.height  144
     end
 
-    @issues.each do |issue|
-      issue.pieces.each do |piece|
-        cache [issue, piece] do
+    cache :rss, expires_in: 1.day do
+      @issues.each do |issue|
+        issue.pieces.each do |piece|
           xml.item do
             xml.title piece.freestanding_title
             xml.description piece.synopsis
