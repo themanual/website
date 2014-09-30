@@ -86,8 +86,12 @@ class HomeController < ApplicationController
   end
 
   def ks
+    @data = Kickstarter.stats
+
+    @data[:distance_in_words] = view_context.distance_of_time_in_words(Time.now, @data[:deadline])
+
     expires_in 10.minutes, public: true
-    render json: Kickstarter.stats
+    render json: @data
   end
 
 end
