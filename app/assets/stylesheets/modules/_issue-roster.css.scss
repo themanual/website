@@ -1,17 +1,16 @@
 .issue-roster {
   @include row;
-  > * {
-    @include media-upto($bp-m) {
-      @include span-columns(4);
-      @include omega(3n);
-      &:nth-child(n+4) { margin-top: 1.5em; }
-    }
-    @include media-from($bp-m) { @include span-columns(2); }
-  }
 }
 
-.issue-roster-author {
-
+.issue-roster > * {
+  @include media-upto($bp-m) {
+    @include span-columns(4);
+    @include omega(3n);
+    &:nth-child(n+4) { margin-top: 1.5em; }
+  }
+  @include media-from($bp-m) { 
+    @include span-columns(2);
+  }
 }
 
 .issue-roster-author-portrait {
