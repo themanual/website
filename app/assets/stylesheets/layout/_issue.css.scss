@@ -1,6 +1,6 @@
 .l-issue > * {
   overflow: auto;
-  border-top: divider();
+  + * { border-top: divider(); }
 }
 
 .l-issue-illo {

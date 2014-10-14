@@ -1,7 +1,8 @@
 .page-header {
   margin-top:    3em;
-  margin-bottom: 1em;
+  padding-bottom: 1em;
   position: relative;
+  border-bottom: divider();
 }
 
 .page-header h1 {

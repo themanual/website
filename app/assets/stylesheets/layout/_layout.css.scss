@@ -52,7 +52,7 @@ body {
 
 .l-stack-lined > *  {
   @extend .l-p;
-  border-top: divider();
+  + * { border-top: divider(); }
 }
 
 .l-flexcenter {

@@ -6,11 +6,12 @@
   .sidebar {
     display: none;
     @include clearfix;
-    border-top: divider();
+    border-bottom: divider();
 
     .navgroup-title {
       @include span-columns(6);
     }
+    
     .navgroup-items {
       @include span-columns(6);
       @include omega;
