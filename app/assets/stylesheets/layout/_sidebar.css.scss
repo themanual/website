@@ -27,9 +27,14 @@
 
 @include media-from($bp-m) {
   .sidebar {
-    @include media-object;
+    display: block !important;
+    float: left;
     width: $sidebar-width;
     margin-right: $sidebar-gutter;
+    + * {
+      overflow: auto;
+      margin-left: $sidebar-width + $sidebar-gutter;
+    }
   }
   #content > * {
     > .page-header,
