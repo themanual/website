@@ -5,6 +5,7 @@
 
 .l-issue-illo {
   display: none;
+  img { width: 100%; }
   .js & {
     @include media-from($bp-s) {
       display: block;
