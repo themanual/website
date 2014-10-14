@@ -35,6 +35,7 @@ TheManual::Application.routes.draw do
   end
 
   get '/blog', to: redirect("http://blog.themanual.org")
+  get '/twitter', to: redirect("https://twitter.com/themanual"), as: :twitter
 
   # STORE
   # get '/store',              to: 'store#index',        as: :shop

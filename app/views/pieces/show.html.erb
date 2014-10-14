@@ -27,31 +27,11 @@
   </header>
   <%- end -%>
   
-  <aside class="l-col-reading callout">
-    <h2 class="callout-title">A message from Andy McMillan, our publisher:</h2>
-    <div class="callout-body">
-      <p>This <%= @piece.type %> you’re about to read is part of Issue <%= @piece.issue.number %> of The Manual.</p>
-      <p>Previously print-only, <strong>we’re now publishing our issues online for free</strong> under a Creative Commons license, so that we can better contribute to the conversation on designing for the web. However, <strong>we need your support to keep our issues online for free</strong> and to pay our writers, illustrators, and staff for their wonderful work.</p>
-      <p><%= link_to "Please back our Kickstarter", kickstarter_path %> to keep our issues online for free. </p>
-      <p>Enjoy this <%= @piece.type %>, and thank you for reading.</p>
-    </div>
-    <%= render partial: "shared/kickstarter" %>
-  </aside>
-  
   <%- cache [@issue, @piece, :body] do -%>
   <div class="piece-body l-col-reading entry-content l-mm">
     <%=raw markdown(@piece.body) %>
   </div>
   <%- end -%>
-
-  <aside class="l-col-reading callout">
-    <h2 class="callout-title">Enjoyed this <%= @piece.type %>? Please consider supporting us.</h2>
-    <div class="callout-body">
-      <p><%= link_to "Back our Kickstarter project", kickstarter_path, class: "button is-large t-strong" %> <span class="br-s">and keep our issues online for free.</span></p>
-    </div>
-  </aside>
-
-  <%- track_link('.callout-body a', 'Clicked Kickstarter Button (Piece Callout)') -%>
 
   <%- cache [@piece, @author] do -%>
   <footer class="piece-author l-col-reading">

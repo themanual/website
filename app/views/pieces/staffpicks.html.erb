@@ -1,16 +1,4 @@
 <div class="l-stack-lined">
-  <div>
-    <section class="callout callout-ks l-single">
-      <h2 class="callout-title">We need your help.</h2>
-      <div class="callout-body">
-        <p>We’re publishing all our issues online for free under a Creative Commons license and working on new ebook and audiobook formats.</p>
-        <p><strong>But we need your support to keep our issues online for free</strong>, and pay our writers, illustrators, and staff for their wonderful work.</p>
-        <p><%= link_to "Back our Kickstarter", kickstarter_path %> and keep The Manual available online for free.</p>
-        <%- track_link('.callout-body a', 'Clicked Kickstarter Button (List Callout)') -%>
-      </div>
-      <%= render partial: "shared/kickstarter" %>
-    </section>
-  </div>
   <%- cache [:pieces, :staffpicks, Piece.latest_staff_pick] do -%>
     <%= render @pieces %>
   <%- end -%>
