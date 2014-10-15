@@ -21,7 +21,7 @@
               <strong><a href="#" target="_blank">Issue 4</a></strong> &mdash; Print &amp; Ebook
             </h4>
             <div class="l-col-4">
-              <button class="text-button cart-item-remove">remove</button>
+              <button class="btn-text cart-item-remove">remove</button>
             </div>
             <div class="l-col-2 t-r price-plain">
               <span class="currency">$</span><span class="value">25</span>
@@ -32,7 +32,7 @@
               <strong><a href="#" target="_blank">The Collection</a></strong> &mdash; Print &amp; Ebook
             </h4>
             <div class="l-col-4">
-              <button class="text-button cart-item-remove">remove</button>
+              <button class="btn-text cart-item-remove">remove</button>
             </div>
             <div class="l-col-2 t-r price-plain">
               <span class="currency">$</span><span class="value">80</span>
@@ -165,8 +165,8 @@
       <% end %>
 
       <div class="form-actions">
-        <p class="t-big">
-          <button type="submit" class="button is-large" data-disable-with="Processing...">Purchase for <span class="price price-heavy"><span class="currency">$</span><span class="value"><%= @physical ? "132" : "115" %></span></span></button>
+        <p class="">
+          <button type="submit" class="btn btn-large" data-disable-with="Processing...">Purchase for <span class="price price-heavy"><span class="currency">$</span><span class="value"><%= @physical ? "132" : "115" %></span></span></button>
 
         </p>
       </div>

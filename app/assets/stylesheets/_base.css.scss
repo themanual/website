@@ -38,7 +38,7 @@ a {
 
 @each $i in $issues {
   .c-issue-#{$i} {
-    color: issue-color($i);
+    color: issue-color($i) !important;
   }
 
   .issue-#{$i}.c-issue a,

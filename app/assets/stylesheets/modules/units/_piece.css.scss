@@ -27,7 +27,8 @@
 }
 
 .piece-unit-title {
-  @extend .h-bigger;
+  font-size: $type-ll;
+  font-weight: weight(bold);
   @include type-enhancements;
 }
 

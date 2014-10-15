@@ -6,15 +6,15 @@
 .homepage-content {
   text-align: center;
   @include media-from($bp-m) {
-    font-size: $fz-ll;
+    font-size: $type-ll;
   }
 }
 
 .homepage-text {
   margin-bottom: 1em;
-  font-size: $fz-l;
-  @include media-from($bp-s) { font-size: $fz-ll; }
-  @include media-from($bp-m) { font-size: $fz-lll; }
+  font-size: $type-l;
+  @include media-from($bp-s) { font-size: $type-ll; }
+  @include media-from($bp-m) { font-size: $type-lll; }
 
   line-height: 1.1;
   h1 { font-weight: weight(black); }
@@ -48,7 +48,7 @@
 
 .homepage-message {
   color: $c-text-gray;
-  font-size: $fz-ll;
+  font-size: $type-ll;
   max-width: 34em;
   @include centered;
   @include spacing(margin-top, 4);
@@ -56,7 +56,7 @@
 
   h1 {
     color: $c-text-black;
-    font-size: $fz-lll;
+    font-size: $type-lll;
     font-weight: weight(black);
   }
 
@@ -64,7 +64,7 @@
     font-weight: weight(black);
     margin-top: 1.5em;
     color: $c-text-black;
-    font-size: $fz-l;
+    font-size: $type-l;
     font-family: $type-serif;
   }
 

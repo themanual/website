@@ -6,7 +6,9 @@
 }
 
 .page-header h1 {
-  @extend %h1;
+  @extend  .h-jumbo;
+  font-weight: weight(black);
+  line-height: 1;
   @include media-upto($bp-m) { .has-sidebar & { margin-right: 50px; } }
   @include type-enhancements;
 }

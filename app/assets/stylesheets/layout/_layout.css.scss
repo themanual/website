@@ -50,6 +50,10 @@ body {
 .l-col-single   { @extend .l-col; @extend .l-single; }
 .l-col-reading  { @extend .l-col; @extend .l-reading; }
 
+.l-cols > * {
+ @include spacing(margin-top);
+}
+
 .l-stack-lined > *  {
   @extend .l-p;
   + * { border-top: divider(); }

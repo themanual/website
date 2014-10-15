@@ -7,6 +7,22 @@
 
 .no-resize { resize: none; }
 
+.divider {
+  border: none;
+  border-top: divider();
+  margin: 0;
+  padding: 0;
+  height: 0;
+  @include spacing(margin-top margin-bottom);
+}
+
+.c-ok {
+  color: $c-green;
+}
+.c-fail {
+  color: $c-red;
+}
+
 .highlight {
   display: inline;
   background-color: $c-highlight;

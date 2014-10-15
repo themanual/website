@@ -9,7 +9,7 @@
 
 .index-item-piece {
   display: inline-block;
-  @extend .t-big;
+  font-size: $type-l;
   font-weight: weight(medium);
   line-height: 1.25;
   margin-top: .1em;

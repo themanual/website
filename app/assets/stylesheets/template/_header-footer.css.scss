@@ -34,7 +34,14 @@
   }
 
   nav { @include clearfix; }
-  nav > ul { @extend .inline-list; }
+  nav > ul {
+    list-style: none;
+    > * { float: left; }
+    > * + * {
+      margin-left: 1em;
+      @include media-from($bp-m) { margin-left: 1.5em; }
+    }
+  }
 }
 
 .site-header {

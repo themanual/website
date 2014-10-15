@@ -14,6 +14,12 @@
   .l-col#{$class}-third       { @include span-columns($grid-columns/3); }
   .l-col#{$class}-fourth      { @include span-columns($grid-columns/4); }
   .l-col#{$class}-fill        { display: block;float: left;width: 100%; }
+  
+  .l-cols#{$class}-halves,
+  .l-cols#{$class}-thirds,
+  .l-cols#{$class}-fourths {
+    @include row;
+  }
 
   .l-cols#{$class}-halves > * {
     @extend .l-col#{$class}-half;
@@ -36,7 +42,7 @@
 //
 @mixin make-stacked($class: "") {
   @if ($class != "") { $class: "-#{$class}" }
-
+  
   .l-stack#{$class} > * + * {
     @include spacing(margin-top);
   }

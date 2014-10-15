@@ -1,0 +1,142 @@
+.btn {
+  font-family: $type-sans;
+  font-weight: weight(bold);
+  line-height: 1 !important;
+
+  display: inline-block;
+
+  padding: .4em;
+
+  cursor: pointer;
+
+  color: white;
+  border: solid 2px $c-blue;
+  border-radius: 4px;
+  background-color: $c-blue;
+
+  @include hover {
+    color: white;
+    border-color: black;
+    outline: none;
+    background-color: black;
+  }
+  &:not(:first-child) {
+     margin-left: .3em;
+  }
+  &:not(:last-child) {
+     margin-right: .4em;
+  }
+}
+
+@each $i in $issues {
+  .issue-#{$i}.c-issue  .btn,
+  .issue-#{$i} .c-issue .btn {
+    background-color: issue-color($i);
+    border-color: issue-color($i);
+    color: white;
+    @include hover {
+      background-color: black;
+      border-color: black;
+      color: white;
+    }
+  }
+}
+
+button.btn {
+  appearance: none;
+}
+
+.btn:disabled,
+.btn-disabled {
+  &, &:hover, &:focus {
+    color: $c-text-faint !important;
+    background-color: darken($c-divider, 5%) !important;
+    border-color: darken($c-divider, 5%) !important;
+    cursor: not-allowed !important;
+  }
+}
+
+//
+// Ghost Button
+// 
+.btn-ghost {
+  background-color: white;
+  border: solid 2px $c-blue;
+  color: $c-blue;
+  @include hover {
+    color: $c-text-black;
+    border-color: black;
+    outline: none;
+    background-color: white;
+    svg *[fill] {
+      fill: $c-text-black;
+    }
+  }
+}
+
+@each $i in $issues {
+  .issue-#{$i}.c-issue  .btn-ghost,
+  .issue-#{$i} .c-issue .btn-ghost {
+    border-color: issue-color($i);
+    color: issue-color($i);
+    svg *[fill] { fill: issue-color($i); }
+  }
+}
+
+//
+// Button Text Styles
+// 
+.btn-caps {
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  word-spacing: .15em;
+}
+
+.btn-sc {
+  @extend .t-sc;
+  font-weight: weight(medium);
+  padding: .5em;
+}
+
+//
+// Button Sizes
+//
+.btn-large  { padding: .6em; }
+.btn-larger { padding: .8em; }
+.btn-wide   { display: block; text-align: center; }
+
+.btn-sc.btn-large  { padding: .65em; }
+.btn-sc.btn-larger { padding: .75em; }
+.btn-sc.btn-small  { padding: .4em; }
+
+.button-row > .btn { vertical-align: middle; }
+
+.btn-kickstarter {
+  color: white;
+  border-color: $c-kickstarter;
+  background-color: $c-kickstarter;
+
+  @include hover {
+    color: white;
+    border-color: black;
+    background-color: black;
+  }
+}
+
+.btn-text {
+  appearance: none;
+  background: transparent;
+  border-bottom: solid 1px transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+
+  @include hover {
+    color: $c-text-black;
+    outline: none;
+  }
+}

@@ -38,14 +38,14 @@
     <figure class="piece-author-portrait">
       <%= portrait_tag(@piece) %>
     </figure>
-    <div class="piece-author-bio text">
+    <div class="piece-author-bio styled">
       <%= raw markdown(@author.bio) %>
       <p>
-        <%= link_to piece_path(@piece.companion.issue.number, @piece.companion.author_slug, @piece.companion.class.name.underscore.to_sym), class: "button in-sc is-small" do %>
+        <%= link_to piece_path(@piece.companion.issue.number, @piece.companion.author_slug, @piece.companion.class.name.underscore.to_sym), class: "btn btn-sc" do %>
           Read Next: <%= @author.name.possessive %> <%= @piece.companion.type.titleize %>
         <% end %>
       </p>
-      <%- track_link('.piece-author-bio a.button', 'Clicked Read Companion Piece') -%>
+      <%- track_link('.piece-author-bio a.btn', 'Clicked Read Companion Piece') -%>
       <%- if @piece.illustrator.present? || @piece.issue.portrait_illustrator.present? -%>
       <p class="piece-illustrator">
       <%- illustrators = [] -%>
@@ -63,18 +63,18 @@
 <aside class="l-block piece-post l-line-t"><div>
   <section class="piece-post-issue issue-<%= @piece.issue.number %> c-issue">
     <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue.number}", issue_path(@piece.issue.number) %></h2>
-    <div class="text">
+    <div class="styled">
       <ul class="plain">
       <% @piece.issue.authors.each do |author| %>
         <%= content_tag :li, author.name, class: ('marker-arrow' if author == @author) %>
       <% end %>
       </ul>
-      <p><%= link_to "Browse this issue", issue_path(@piece.issue.number) %></p>
+      <p><%= link_to "Browse Issue #{@piece.issue.number}", issue_path(@piece.issue.number) %></p>
     </div>
   </section>
   <section class="piece-post-topics">
     <h2 class="box-title is-spaced">Related Topics</h2>
-    <div class="text">
+    <div class="styled">
       <ul class="plain looser topic-list">
       <% @piece.topics_upto(3).sort_by(&:name).each do |topic| %>
         <li>

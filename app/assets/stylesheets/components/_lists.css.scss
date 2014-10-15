@@ -1,9 +1,0 @@
-.inline-list {
-  list-style: none;
-  @include clearfix;
-  > * { float: left; }
-  > * + * {
-    margin-left: 1em;
-    @include media-from($bp-m) { margin-left: 1.25em; }
-  }
-}

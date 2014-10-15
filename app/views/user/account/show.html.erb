@@ -1,4 +1,68 @@
 <% title "Account" %>
-<section class="text l-p">
-  
+<section class="styled l-p">
+  <h3>Personal Info</h3>
+  <dl>
+    <dt>Name</dt>
+    <dd><%= current_user.name %></dd>
+    <dt>Email</dt>
+    <dd><%= current_user.email %></dd>
+  </dl>
+  <h3>History</h3>
+  <ul>
+    <li><strong>2014-10-13:</strong> Print + Ebook Subscription (Issues 3, 4, 5)</li>
+    <li><strong>2012-07-23:</strong> <del>Print + Ebook Subscription (Issues 2, 3, 4)</del> <strong class="c-fail">CANCELLED</strong></li>
+  </ul>
+  <h3>Subscription</h3>
+  <dl>
+    <dt>Type</dt>
+    <dd>Print + Ebook Subscription</dd>
+    <dt>Issues</dt>
+    <dd>Issue 3 <span class="c-ok" title="Released">✔</span></dd>
+    <dd>Issue 4 <span class="c-ok" title="Released">✔</span></dd>
+    <dd>Issue 5</dd>
+  </dl>
+  <hr class="divider"/>
+  <h2>Shipping Address</h2>
+  <p>We use this address to ship our Print Edition.</p>
+  <blockquote>
+    <p>
+      Paulo Pereira<br/>
+      Moritzstr. 9<br/>
+      10969 Berlin<br/>
+      Germany
+    </p>
+  </blockquote>
+  <p><a href="#" class="btn btn-sc">Update Address</a></p>
+  <hr class="divider"/>
+  <h2>Downloads</h2>
+  <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: 'about', action: 'faq', anchor:  'downloads'} %></p>
+  <div class="l-cols-m-thirds l-stack-m">
+    <div>
+      <h3 class="h-spaced-top">Issue 4</h3>
+      <h5>Audiobook</h5>
+      <ul class="plain">
+        <li><a href="#">MP3</a></li>
+        <li><a href="#">M4B</a></li>
+      </ul>
+      <h5>Ebook</h5>
+      <ul class="plain">
+        <li><a href="#">ePub</a></li>
+        <li><a href="#">Kindle</a></li>
+        <li><a href="#">PDF (Single Page)</a></li>
+        <li><a href="#">PDF (Spread)</a></li>
+        <li><a href="#">Zip Bundle (All Files)</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="h-spaced-top">Issue 3</h3>
+      <h5>Ebook</h5>
+      <ul class="plain">
+        <li><a href="#">ePub</a></li>
+        <li><a href="#">Kindle</a></li>
+        <li><a href="#">PDF (Single Page)</a></li>
+        <li><a href="#">PDF (Spread)</a></li>
+        <li><a href="#">Zip Bundle (All Files)</a></li>
+      </ul>
+    </div>
+  </div>
 </section>

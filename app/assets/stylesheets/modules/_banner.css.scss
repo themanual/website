@@ -26,11 +26,11 @@
 .banner-image + .banner-text { margin-top: 1em; }
 
 .banner-text {
-  @extend .t-big;
+  font-size: $type-l;
   line-height: 1.4;
 }
 
 .banner-title {
-  @extend .t-big;
+  font-size: $type-l;
   font-weight: weight(bold);
 }

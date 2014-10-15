@@ -1,0 +1,82 @@
+.styled {
+  color: $c-text-body;
+  line-height: 1.5;
+  @include media-upto($bp-m) { line-height: 1.4; }
+
+  > *:first-child,
+  hr + * {
+    margin-top: 0 !important;
+  }
+
+  h2 { @extend .h-largest; }
+  h3 { @extend .h-larger; }
+  h4 { @extend .h-large; }
+  h5 { @extend .h-base; }
+
+  p + p { margin-top: 1em; }
+  p a, li a { font-weight: weight(medium); }
+  
+  $dt-width: 6em;
+  $dd-spacing: 1.5em;
+  $dl-spacing: .2em;
+
+  dl {
+    margin-bottom: 1em;
+    @include row;
+  }
+  dt, dd {
+    margin-top: $dl-spacing;
+    display: block;
+    float: left;
+  }
+  dt, dd + dd {
+    clear: left;
+  }
+  dt {
+    font-weight: weight(medium);
+    width: $dt-width;
+  }
+  dd {
+    margin-left: $dt-width + $dd-spacing;
+  }
+  dt + dd {
+    margin-left: $dd-spacing;
+  }
+
+  ul, ol {
+    list-style-position: outside;
+    padding-left: 1.5em;
+    @include margin-v(.5em);
+
+    ol, ul,
+    li { margin-top: .15em; }
+
+    &.plain     { @extend .list-plain; }
+    &.bulleted  { @extend .list-bulleted; }
+    &.outdented { @extend .list-outdented; }
+    &.loose     { @extend .list-loose; }
+    &.looser    { @extend .list-looser; }
+    &.double    { @extend .list-double; }
+    &.unspaced  { @extend .list-unspaced; }
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  blockquote {
+    padding-left: 1em;
+    @include margin-v(1em);
+    color: $c-text-caption;
+    border-left: solid 1px $c-text-faint;
+  }
+
+  del {
+    opacity: .4;
+  }
+
+}

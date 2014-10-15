@@ -1,60 +1,77 @@
 strong  { font-weight: weight(medium); }
 em      { font-style: italic; }
 
-.t-center { text-align: center; }
-.t-r  { text-align: right; }
+%t-small    { font-size: $type-s; }
+%t-base     { font-size: 1em; }
+%t-large    { font-size: $type-l; }
+%t-larger   { font-size: $type-ll; }
+%t-largest  { font-size: $type-llll; }
+%t-jumbo    { font-size: $type-llllll; }
+@include media-upto($bp-m) {
+  %t-largest  { font-size: $type-lll; }
+  %t-jumbo    { font-size: $type-lllll; }
+}
 
-%h {
+%h-styling {
   color: $c-text-black;
   font-weight: weight(bold);
   line-height: 1.1;
+  @include type-enhancements;
 }
 
-.t-heading {
+%h-spacing {
+  margin-bottom: .2em;
   * + & { margin-top: 1em; }
-  margin-bottom: .15em;
-  &:last-child { margin-bottom: 0; }
 }
 
-%h1 {
-  @include rem(font-size, 46px);
+%h {
+  @extend %h-spacing;
+  @extend %h-styling;
+}
+
+// h1
+.h-jumbo {
+  @extend %t-jumbo;
+  @extend %h-styling;
   font-weight: weight(black);
-  line-height: 1.1;
-  color: $c-text-black;
-  @include media-upto($bp-m) {
-    @include rem(font-size, 38px);
-  }
 }
 
-.t-huge     { font-size: $fz-llllll; }
-.h-huge     { @extend %h; @extend .t-huge; font-weight: weight(black); }
-.h1         { @extend .t-heading; @extend .h-huge; }
+// h2
+.h-largest {
+  @extend %t-largest;
+  @extend %h;
+  font-weight: weight(black);
+  margin-bottom: .35em;
+}
 
-.t-biggest  { font-size: $fz-llll; }
-.h-biggest  { @extend %h; @extend .t-biggest; font-weight: weight(black); }
-.h2         { @extend .t-heading; @extend .h-biggest; }
+// h3
+.h-larger {
+  @extend %t-larger;
+  @extend %h;
+  margin-bottom: .2125em;
+}
 
-.t-bigger   { font-size: $fz-ll; }
-.h-bigger   { @extend %h; @extend .t-bigger; }
-.h3         { @extend .t-heading; @extend .h-bigger; }
+// h4
+.h-large {
+  @extend %t-large;
+  @extend %h;
+  margin-bottom: .15em;
+}
 
-.t-big      { font-size: $fz-l; }
-.h-big      { @extend %h; @extend .t-big; }
-.h4         { @extend .t-heading; @extend .h-big; }
+// h5
+.h-base {
+  @extend %t-base;
+  @extend %h;
+}
 
-.t-normal   { font-size: 1em; }
-.h-normal   { @extend %h; @extend .t-normal; }
-.h5         { @extend .t-heading; @extend .h-normal; }
-
-.h-note     { color: $c-text-faint; margin-top: .25em; }
-
-.t-serif    { font-family: $type-serif; }
+.h-spaced-top { margin-top: 1em; }
+.h-note       { color: $c-text-faint; margin-top: .25em; } // TODO REPLACE
 
 .t-sc {
   @include rem(font-size, 16px);
-  text-transform: uppercase;
   letter-spacing: .0625em;
   word-spacing: .15em;
+  text-transform: uppercase;
 }
 
 .t-sc-light {
@@ -64,145 +81,50 @@ em      { font-style: italic; }
 
 .t-sc-heavy {
   @extend .t-sc;
-  color: $c-text-black;
   font-weight: weight(medium);
+  color: $c-text-black;
 }
+
 .h-sc {
   @extend .t-sc-heavy;
   margin-bottom: 1em;
 }
 
-.t-sc-small {
-  @include rem(font-size, 14px);
-  text-transform: uppercase;
-  letter-spacing: .08;
-}
+.list-plain     { list-style-type: none; }
+.list-bulleted  { padding-left: 1.05em; }
 
-.t-caps {
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
+.list-plain,
+.list-outdented { padding-left: 0; }
 
-.text {
-  color: $c-text-body;
-  line-height: 1.5;
-  @include media-upto($bp-m) { line-height: 1.4; }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: $c-text-black;
-  }
-
-  p a, li a {
-    font-weight: weight(medium);
-  }
-
-  h1 { @extend .h1; }
-  h2 { @extend .h2; }
-  h3 { @extend .h3; }
-  h4 { @extend .h4; }
-  h5 { @extend .h5; margin-bottom: 0; }
-
-  h6 {
-    @extend .t-sc-heavy;
-    @extend .t-heading;
-    margin-bottom: .25em;
-  }
-
-  p             { margin-top: 1em; }
-  p:first-child,
-  p.unspaced    { margin-top: 0; }
-  p.spaced      { margin-top: 1.5em; }
-  p.close       { margin-top: .5em; }
-  p.closer      { margin-top: .25em; }
-  p.loose       { margin-top: 1.5em; }
-  p.looser      { margin-top: 2em; }
-
-  ul, ol {
-    list-style-position: outside;
-    padding-left: 1.5em;
-    margin-top: .25em;
-    ol, ul,
-    li { margin-top: .15em; }
-
-    &.plain { list-style-type: none; }
-    &.bulleted { padding-left: 1.05em; }
-
-    &.plain,
-    &.outdented { padding-left: 0; }
-
-    &.loose    > li + li { margin-top: .5em; }
-    &.looser   > li + li { margin-top: .75em; }
-    &.double   > li + li { margin-top: 1em; }
-    &.unspaced > li + li { margin-top: 0; }
-  }
-
-  blockquote {
-    padding-left: 1em;
-    margin-top: 1em;
-    color: $c-text-caption;
-    border-left: solid 1px $c-text-faint;
-  }
-
-  ol {
-    list-style-type: decimal;
-  }
-
-  ul {
-    list-style-type: disc;
-  }
-
-  del {
-    opacity: .4;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    &.unspaced { margin-bottom: 0; }
-    + ul, + ol { margin-top: .5em; }
-  }
-
-}
-
-.t-white { color: white; }
-.t-close { margin-top: .5em !important; }
-.t-heavy { font-weight: weight(black) !important; }
-.t-strong { font-weight: weight(bold) !important; }
+.list-loose    > * + * { margin-top: .5em; }
+.list-looser   > * + * { margin-top: .75em; }
+.list-double   > * + * { margin-top: 1em; }
+.list-unspaced > * + * { margin-top: 0; }
 
 .tagline {
-  @extend .t-big;
+  font-size: $type-l;
   font-weight: weight(medium);
   color: $c-text-body;
 }
 
-@mixin issue-number {
-  font-family: $type-sans;
-  font-weight: weight(black);
-  background: black;
-  @include color-by-issue(background);
-  @include color-by-issue-self(background);
-
-  padding-right:  .35em;
-  padding-left:   .35em;
-  padding-bottom: .06em;
-  padding-top:    .01em;
-
-  color: #fff;
-  border-radius: .15em;
-}
-
-.issue-number {
-  @include issue-number;
-}
-
-.t-downcase {
-  text-transform: lowercase !important;
-}
+// Alignments
+.t-l                { text-align: left !important; }
+.t-c                { text-align: center !important; }
+.t-r                { text-align: right !important; }
+// Weights
+.t-heavy            { font-weight: weight(black) !important; }
+.t-strong           { font-weight: weight(bold) !important; }
+// Spacing
+.t-unspaced         { margin-top: 0 !important; margin-bottom: 0 !important; }
+.t-unspaced-top     { margin-top: 0 !important; }
+.t-unspaced-bottom  { margin-bottom: 0 !important; }
 
 .t-reset {
   @include rem(font-size, 1rem);
   font-weight: weight(regular);
 }
 
-%tag {
+.tag {
   text-transform: uppercase;
   font-size: .7em;
   font-weight: weight(bold);
@@ -214,24 +136,14 @@ em      { font-style: italic; }
   margin-left: .15em;
   position: relative;
   top: -.1em;
-}
-
-.tag {
-  @extend %tag;
   @include color-by-issue(background);
 }
 
-@mixin external-link {
-  &:after {
-    content: "→";
-    display: inline-block;
-    font-style: normal;
-    margin-left: .25em;
-    transform: rotate(-45deg);
-    transform-origin: center center;
-  }
-}
-
-.external {
-  @include external-link;
+.external:after {
+  content: "→";
+  display: inline-block;
+  font-style: normal;
+  margin-left: .25em;
+  transform: rotate(-45deg);
+  transform-origin: center center;
 }

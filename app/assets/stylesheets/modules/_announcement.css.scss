@@ -1,6 +1,6 @@
 .site-announcement {
   @extend .l-container;
-  @extend .t-big;
+  font-size: $type-l;
   background-color: $c-bg-gray;
   text-align: center;
   border-bottom: divider();
