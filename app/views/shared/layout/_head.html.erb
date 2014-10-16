@@ -10,8 +10,7 @@
 <%= auto_discovery_link_tag(:rss, feed_url, title: "RSS Feed") %>
 
 <%# Prepare title %>
-<%- title "The Manual", :push -%>
-<title><%= title.join(' · ') %></title>
+<title><%= (title + ["The Manual"]).join(' · ') %></title>
 
 <%# Prepare and output metadata %>
 <%- metadata["og:title"] ||= title.first -%>

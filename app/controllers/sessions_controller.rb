@@ -11,7 +11,7 @@ class SessionsController < Devise::SessionsController
       token = SessionToken.where(token: params[:token]).first
       if token.present? and token.expires_at > Time.now
         sign_in token.email_address.user
-        redirect_to root_path
+        redirect_to account_path
       else
         render :invalid_token
       end

@@ -17,6 +17,9 @@
 
     <%- if title.any? %>
     <header class="page-header">
+      <%- if @breadcrumb -%>
+      <p><%= title.drop(1).reverse.join(" · ") %></p>
+      <%- end -%>
       <h1><%= title.first %></h1>
       <% if sidebar_present %><button class="toggle-sidebar">Show/Hide Sidebar</button><% end %>
     </header>

@@ -45,8 +45,9 @@ body {
 .l-col {
   @include centered;
 }
-.l-reading  { @include rem(max-width, $reading-width); }
-.l-single   { @include rem(max-width, $singlecol-width); }
+.l-reading  { @include rem(max-width, $width-reading); }
+.l-single   { @include rem(max-width, $width-single); }
+.l-single-l { @include rem(max-width, $width-single-larger); }
 .l-col-single   { @extend .l-col; @extend .l-single; }
 .l-col-reading  { @extend .l-col; @extend .l-reading; }
 
@@ -93,5 +94,5 @@ body {
   }
 }
 
-.max-8 { max-width: flex-grid(8); }
-.max-6 { max-width: flex-grid(6); }
+.max-8 { max-width: flex-grid(8) / 100% * $max-width; }
+.max-6 { max-width: flex-grid(6) / 100% * $max-width; }

@@ -1,0 +1,44 @@
+<%- @breadcrumb = true -%>
+<%- title "Account" -%>
+<%- title "Update Address" -%>
+<section class="l-p">
+  <%= form_for @address, url: account_addresses_path, html: { class: "form l-single-l", novalidate: :novalidate } do |a| %>
+  <dl class="field">
+    <dt>
+      <%= a.label :lines, 'Street, Number' %>
+      <small class="label-note">You may include company or office name</small>
+    </dt>
+    <dd>
+      <%= a.text_area :lines, required: true, class: 'is-long no-resize', spellcheck: false, rows: 3, :'data-shipping-address' => 'lines' %>
+    </dd>
+  </dl>
+
+  <div class="l-row l-cols-halves">
+    <dl class="field">
+      <dt><%= a.label :city %></dt>
+      <dd><%= a.text_field :city, required: true, class: 'is-long', :'data-shipping-address' => 'city' %></dd>
+    </dl>
+
+    <dl class="field">
+      <dt><%= a.label :region %></dt>
+      <dd><%= a.text_field :region, class: 'is-long', placeholder: 'optional', :'data-shipping-address' => 'region' %></dd>
+    </dl>
+
+    <dl class="field">
+      <dt><%= a.label :post_code %></dt>
+      <dd><%= a.text_field :post_code, class: 'is-long', required: true, :'data-shipping-address' => 'post_code' %></dd>
+    </dl>
+
+    <dl class="field">
+      <dt><%= a.label :country_id %></dt>
+      <dd class="select"><%= custom_country_select a, :country_id, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
+    </dl>
+  </div>
+
+  <div class="form-actions">
+    <p>
+      <button type="submit" class="btn btn-large" data-disable-with="Updating...">Update Address</button> or <%= link_to "go back to Account", account_path %>
+    </p>
+  </div>
+  <% end %>
+</section>

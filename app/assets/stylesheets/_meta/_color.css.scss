@@ -8,7 +8,8 @@ $c-text-faint:        hsl(0, 0%, 60%);
 $c-text-fainter:      hsl(0, 0%, 70%);
 
 $c-divider:           gray(87.5%);
-$c-divider-darker:    darken($c-divider, 5%);
+$c-divider-dark:      darken($c-divider, 5%);
+$c-divider-darker:    darken($c-divider, 15%);
 $c-icon-gray:         darken($c-divider, 20%);
 $c-bg-gray:           gray(96%);
 

@@ -67,6 +67,13 @@ em      { font-style: italic; }
 .h-spaced-top { margin-top: 1em; }
 .h-note       { color: $c-text-faint; margin-top: .25em; } // TODO REPLACE
 
+.t-small    { @extend %t-small; }
+.t-base     { @extend %t-base; }
+.t-large    { @extend %t-large; }
+.t-larger   { @extend %t-larger; }
+.t-largest  { @extend %t-largest; }
+.t-jumbo    { @extend %t-jumbo; }
+
 .t-sc {
   @include rem(font-size, 16px);
   letter-spacing: .0625em;
@@ -96,6 +103,7 @@ em      { font-style: italic; }
 .list-plain,
 .list-outdented { padding-left: 0; }
 
+.list-normal   > * + * { margin-top: .25em; }
 .list-loose    > * + * { margin-top: .5em; }
 .list-looser   > * + * { margin-top: .75em; }
 .list-double   > * + * { margin-top: 1em; }

@@ -78,7 +78,7 @@
       <ul class="plain looser topic-list">
       <% @piece.topics_upto(3).sort_by(&:name).each do |topic| %>
         <li>
-          <h5 class="topic-list-name"><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h5>
+          <h6 class="topic-list-name"><%= link_to(topic.name.titlecase, topic_path(topic: topic.name.downcase)) %></h6>
           <p class="topic-list-description"><strong><%= topic.taggings_count %></strong> pieces</p>
         </li>
       <% end %>

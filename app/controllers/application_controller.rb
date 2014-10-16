@@ -43,9 +43,16 @@ class ApplicationController < ActionController::Base
       )
     end
 
-    def title page_title = nil, method = :unshift
+    def title page_title = nil, options = {}
+      options.reverse_merge!({:method => 'unshift'})
       @page_title ||= []
-      @page_title.send(method, page_title).flatten! if page_title.present?
+      if page_title.present?
+        @page_title.send(options[:method], page_title).flatten!
+        if options[:pre_title]
+          @pre_title = true
+          logger.debug "adding pre_title of #{page_title}"
+        end
+      end
       @page_title
     end
 

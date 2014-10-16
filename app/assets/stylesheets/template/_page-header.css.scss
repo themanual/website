@@ -5,6 +5,12 @@
   border-bottom: divider();
 }
 
+.page-header > p:first-child {
+  @extend .t-sc;
+  color: $c-text-caption;
+  margin-bottom: .5em;
+}
+
 .page-header h1 {
   @extend  .h-jumbo;
   font-weight: weight(black);

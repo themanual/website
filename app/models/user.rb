@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     false
   end
 
+  def is_admin?
+    access_level > 0
+  end
+
   def full_name
     name
   end
