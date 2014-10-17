@@ -4,12 +4,10 @@
   <h2 class="piece-unit-title"><%= link_to_piece piece %></h2>
   <p class="piece-unit-synopsis"><%= piece.synopsis %></p>
   <p class="piece-unit-metadata">
-    <% if piece.issue_id.present? %>
+    <%- if piece.issue_id.present? -%>
     <span class="piece-unit-silo">In <%= link_to "Issue #{piece.issue.number}", issue_path(piece.issue.number) %></span>
-    <% end %>
-    <span class="piece-unit-topics">
-    <%= render partial: "pieces/piece_topics", locals: { piece: piece } %>
-    </span>
+    <%- end -%>
+    <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: piece } %></span>
   </p>
 </div>
 <%- end -%>

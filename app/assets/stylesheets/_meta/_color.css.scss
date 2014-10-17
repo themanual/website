@@ -1,11 +1,12 @@
 // General Colors
-$c-text-white:        hsl(0, 0%, 100%);
-$c-text-black:        hsl(0, 0%, 0%);
-$c-text-body:         hsl(0, 0%, 15%);
-$c-text-gray:         hsl(0, 0%, 30%);
-$c-text-caption:      hsl(0, 0%, 45%);
-$c-text-faint:        hsl(0, 0%, 60%);
-$c-text-fainter:      hsl(0, 0%, 70%);
+$c-text-white:        hsl(0, 0%, 100.0%);
+$c-text-black:        hsl(0, 0%,   0.0%);
+$c-text-body:         hsl(0, 0%,  15.0%);
+$c-text-summary:      hsl(0, 0%,  22.5%);
+$c-text-gray:         hsl(0, 0%,  30.0%);
+$c-text-caption:      hsl(0, 0%,  45.0%);
+$c-text-faint:        hsl(0, 0%,  60.0%);
+$c-text-fainter:      hsl(0, 0%,  70.0%);
 
 $c-divider:           gray(87.5%);
 $c-divider-dark:      darken($c-divider, 5%);
