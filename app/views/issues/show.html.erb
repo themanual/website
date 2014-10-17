@@ -2,41 +2,16 @@
 <%- content_for(:logo) { "issue-#{@issue.number}" } -%>
 
 <%- cache @issue do -%>
-<ul class="l-issue issue-<%= @issue.number %>">
+<ul class="issue">
   <%- @issue.articles.ordered.each do |article| -%>
-  <%- lesson = article.lesson -%>
   <li>
-    <figure class="l-issue-illo">
-      <%=
-      tag "img",
-          sizes: "(min-width: 500px) 10.5em, (min-width: 850px) 12em, (min-width: 1000px) 15em, 1px",
-          srcset: srcset(base: article.illo_basepath, format: "jpg", sizes: %w(300 500 750 1000 1500), blank: true)
-      %>
+    <figure class="issue-illo">
+      <%= render partial: 'pieces/piece_illo', locals: { piece: article, sizes: "(min-width: 500px) 10.5em, (min-width: 850px) 12em, (min-width: 1000px) 15em, 1px" } %>
     </figure>
-    <div class="l-issue-text">
+    <div class="issue-pieces">
       <h2 class="piece-unit-author"><%= article.author.name %></h2>
-      <div class="piece-unit-entry">
-        <h3 class="piece-unit-title">
-          <%= link_to article.title, piece_path(@issue.number, article.author_slug, :article)  %>
-        </h3>
-        <p class="piece-unit-synopsis">
-          <%= article.synopsis %>
-        </p>
-        <p class="piece-unit-metadata">
-          <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: article } %></span>
-        </p>
-      </div>
-      <div class="piece-unit-entry">
-        <h3 class="piece-unit-title">
-          <%= link_to lesson.title, piece_path(@issue.number, article.author_slug, :lesson) %>
-        </h3>
-        <p class="piece-unit-synopsis">
-          <%= lesson.synopsis %>
-        </p>
-        <p class="piece-unit-metadata">
-          <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: lesson } %></span>
-        </p>
-      </div>
+      <%= render article %>
+      <%= render article.lesson %>
     </div>
   </li>
   <%- end -%>

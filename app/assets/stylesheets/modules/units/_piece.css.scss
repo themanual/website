@@ -1,25 +1,4 @@
 // Layout
-.piece-unit {
-  @include clearfix;
-}
-
-.piece-unit-illo {
-  display: none;
-  .js & {
-    @include media-from($bp-s) {
-      display: block;
-      float: left;
-      width: 8em;
-      margin-right: 1em;
-      + * { overflow: hidden; margin-top: 1em; }
-    }
-  }
-}
-
-.piece-unit-entry + .piece-unit-entry {
-  margin-top: 1.2em;
-}
-
 .piece-unit-author {
   @extend .t-sc;
   color: $c-text-caption;
@@ -38,7 +17,7 @@
 }
 
 .piece-unit-synopsis {
-  @include rem(font-size, 21px);
+  font-size: em(21, $rem-value);
   font-family: $type-serif;
   font-weight: weight(medium);
   line-height: 1.25;
@@ -53,7 +32,7 @@
 .piece-unit-metadata {
   color: $c-text-faint;
   line-height: 1.25;
-  margin-top: .75em;
+  margin-top: .6em;
   .piece-unit-entry & {
     margin-top: .5em;
   }

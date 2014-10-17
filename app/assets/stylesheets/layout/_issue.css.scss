@@ -1,9 +1,9 @@
-.l-issue > * {
+.issue > * {
   overflow: auto;
   + * { border-top: divider(); }
 }
 
-.l-issue-illo {
+.issue-illo {
   display: none;
   img { width: 100%; }
   .js & {
@@ -18,6 +18,15 @@
   }
 }
 
-.l-issue-text {
+.issue-pieces {
   @include spacing(margin-top margin-bottom);
+}
+
+.issue-pieces .piece-unit + .piece-unit {
+  margin-top: 1.2em;
+}
+
+.issue-pieces .piece-unit .piece-unit-author,
+.issue-pieces .piece-unit .piece-unit-silo {
+  display: none;
 }

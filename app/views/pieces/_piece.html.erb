@@ -1,5 +1,5 @@
 <%- cache piece do -%>
-<div class="piece-unit issue-<%= piece.issue.try(:number) %>">
+<div class="piece-unit <%= "issue-#{piece.issue.number}" if piece.issue.number %>">
   <p class="piece-unit-author"><%= piece.author.name %></p>
   <h2 class="piece-unit-title"><%= link_to_piece piece %></h2>
   <p class="piece-unit-synopsis"><%= piece.synopsis %></p>
