@@ -4,6 +4,7 @@ class IssuesController < ApplicationController
   before_filter :check_access_to_issue, only: :show
 
   def index
+    redirect_to read_path
   end
 
   def show
