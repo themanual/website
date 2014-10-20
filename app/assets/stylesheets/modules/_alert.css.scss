@@ -1,0 +1,18 @@
+.alert {
+  border: divider();
+  background: $c-bg-gray;
+  border-radius: 4px;
+  padding: 1em;
+  @include margin-v(1em);
+}
+
+@mixin alert-style($color) {
+  border-color: $color;
+  background: transparentize($color, .96);
+  color: darken(desaturate($color, 5%), 20%);
+}
+
+.alert-success  { @include alert-style($c-success); }
+.alert-error    { @include alert-style($c-error); }
+.alert-warning  { @include alert-style($c-warning); }
+.alert-info     { @include alert-style($c-blue); }
