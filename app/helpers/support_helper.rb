@@ -1,8 +1,7 @@
 module SupportHelper
   def custom_country_select form, field_name, html_options = {}
 
-    options = [content_tag_string(:option, '', {value: nil})]
-
+    options = []
 
     country_to_option = Proc.new do |country|
       html_attributes = {}
