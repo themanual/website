@@ -1,0 +1,18 @@
+(function($){
+  $.fn.fillCountryFromGeo = function() {
+    var path = "<%= TheManual::Application.routes.url_helpers.geoip_path %>";
+    var $emptyFields = $(this).filter(function() { return $.trim($(this).val()) === ""; });
+
+    if ($emptyFields.length > 0) {
+      $.getJSON(path, function(data) {
+        if (data.response !== {} && 'country_code' in data.response) {
+          $emptyFields.each(function(){
+            $(this).find('option[data-code='+data.response.country_code +']:first').prop('selected', true);
+          }).animatecss('flash');
+        }
+      });
+    }
+    
+    return this;
+  };
+})(jQuery);

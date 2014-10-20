@@ -8,6 +8,8 @@ $(function() {
   $('form').validate();
   // Enable popovers
   $.enablePopovers();
+  // Form enhancements
+  $('select[data-shipping-address=country]').fillCountryFromGeo();
 
   // Toggle Sidebar
   $(".toggle-sidebar").bind('click', function() {

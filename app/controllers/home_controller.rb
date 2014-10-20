@@ -2,7 +2,7 @@ require 'open-uri'
 
 class HomeController < ApplicationController
 
-  skip_before_filter :authenticate_user!, only: [:shipping_estimate]
+  skip_before_filter :authenticate_user!, only: [:shipping_estimate, :geoip]
 
   def index
     metadata "og:title", "The Manual Everywhere"
@@ -19,6 +19,17 @@ class HomeController < ApplicationController
     @user = User.new
     @address = Address.new
     render layout: "payment"
+  end
+
+  def geoip
+    geo_ip = {}
+    open("http://freegeoip.net/json/#{Rails.env.development? ? nil : request.remote_ip}", read_timeout: 3) do |http|
+      geo_ip = MultiJson.load(http.read)
+    end
+    render json: {
+      status: :ok,
+      response: geo_ip
+    }
   end
 
   def shipping_estimate

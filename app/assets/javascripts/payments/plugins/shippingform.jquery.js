@@ -12,29 +12,11 @@
 
       /**
        *
-       *  1. Prefill 'country' dropdown based on geoip
-       *  (only requests and updated if a value hasn't been set)
-       *
-       */
-      var $countrySelect = $form.find('select[data-shipping-address="country"]');
-      if (_($countrySelect.val()).isEmpty()) {
-        $.getEstimatedShippingCost(function(data) {
-          if (data.status == 'ok' && data.response.ip_country && _($countrySelect.val()).isEmpty()) {
-            $countrySelect
-              .find('option[data-code='+data.response.ip_country +']:first')
-              .prop('selected', true)
-              .animatecss('flash');
-          }
-        });
-      }
-
-      /**
-       *
-       * 2. Recalculate shipping cost on address change
+       * 1. Recalculate shipping cost on address change
        *
        */
 
-      // 2.1. Trigger custom address change event
+      // 1.1. Trigger custom address change event
       $form.on('change focusout keyup', '[data-shipping-address]', function(event) {
 
         var $form   = $(this).closest('form');
@@ -58,7 +40,7 @@
 
       });
 
-      // 2.2. Handle custom address change event
+      // 1.2. Handle custom address change event
       $form.on(addressChangeEvent, function(){
         var $form   = $(this);
         // Recalculate cost if address changed
