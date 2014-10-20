@@ -58,7 +58,7 @@
 <% cache [@piece, 'explore'], expires_in: 30.minutes do %>
 <aside class="l-block piece-post l-line-t"><div>
   <section class="piece-post-issue issue-<%= @piece.issue.number %> c-issue">
-    <h2 class="box-title is-spaced">Part of <%= link_to "Issue #{@piece.issue.number}", issue_path(@piece.issue.number) %></h2>
+    <h2 class="h-sc h-sc-spaced">Part of <%= link_to "Issue #{@piece.issue.number}", issue_path(@piece.issue.number) %></h2>
     <div class="styled">
       <ul class="plain">
       <% @piece.issue.authors.each do |author| %>
@@ -69,7 +69,7 @@
     </div>
   </section>
   <section class="piece-post-topics">
-    <h2 class="box-title is-spaced">Related Topics</h2>
+    <h2 class="h-sc h-sc-spaced">Related Topics</h2>
     <div class="styled">
       <ul class="plain looser topic-list">
       <% @piece.topics_upto(3).sort_by(&:name).each do |topic| %>
@@ -82,7 +82,7 @@
     </div>
   </section>
   <section class="piece-post-piece">
-    <h2 class="box-title is-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue.number}" %></h2>
+    <h2 class="h-sc h-sc-spaced">From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue.number}" %></h2>
     <%= render @piece.recommended %>
   </section>
 </div></aside>

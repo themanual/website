@@ -1,5 +1,0 @@
-.box-title {
-  @extend .t-sc-heavy;
-  margin-bottom: 1em;
-  &.is-spaced { @include spacing(margin-bottom); }
-}

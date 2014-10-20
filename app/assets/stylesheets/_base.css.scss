@@ -18,7 +18,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, p, li, dt, dd, td, th {
   .wf-loading & { visibility: hidden; }
-  .wf-active  & { @include animate(fadeIn, .15s); }
+  .wf-active  & { @include animate(fadeIn, .1s); }
 }
 
 figure img {

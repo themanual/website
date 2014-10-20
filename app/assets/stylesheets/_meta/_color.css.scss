@@ -19,10 +19,9 @@ $c-highlight: #FFFBDC;
 $c-blue:    #0055DD;
 $c-purple:  #8200E6;
 
-$c-field-invalid: #FF4D4D;
-$c-field-valid:   #54BF54;
-$c-red:   $c-field-invalid;
-$c-green: $c-field-valid;
+$c-success: hsl(120,  60%, 50%);
+$c-error:   hsl(360, 100%, 65%);
+$c-warning: hsl( 40, 100%, 65%);
 
 $c-kickstarter: #2BDE73;
 

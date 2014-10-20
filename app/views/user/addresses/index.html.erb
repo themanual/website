@@ -3,6 +3,11 @@
 <%- title "Update Address" -%>
 <section class="l-p">
   <%= form_for @address, url: account_addresses_path, html: { class: "form l-single-l", novalidate: :novalidate } do |a| %>
+  <!--
+  <p class="alert alert-error">
+    <strong>Uh-oh!</strong> We couldn’t save your address. Please fix any errors and try again.
+  </p>
+  -->
   <dl class="field">
     <dt>
       <%= a.label :lines, 'Street, Number' %>
@@ -31,7 +36,7 @@
 
     <dl class="field">
       <dt><%= a.label :country_id %></dt>
-      <dd class="select"><%= custom_country_select a, :country_id, required: true, class: 'is-long fill-on-load', :'data-shipping-address' => 'country' %></dd>
+      <dd class="select"><%= custom_country_select a, :country_id, required: true, class: 'is-longl-issue-pieces', :'data-shipping-address' => 'country' %></dd>
     </dl>
   </div>
 

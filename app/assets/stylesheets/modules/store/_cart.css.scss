@@ -38,7 +38,7 @@
   top: -.05em;
   @extend .t-sc-small;
 
-  color: $c-red;
+  color: $c-error;
   &:hover,
   &:focus {
     color: $c-text-black;

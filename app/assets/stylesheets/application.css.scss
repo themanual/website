@@ -30,32 +30,27 @@
 @import 'template/page-header';
 
 // Component Modules
-@import 'components/styled';
 @import 'components/btn';
 @import 'components/fields';
 @import 'components/form';
-@import 'components/text';
 @import 'components/popover';
+@import 'components/text';
+@import 'components/styled';
 // @import 'components/tables';
 
 // General Modules
-@import 'modules/box';
-@import 'modules/price';
-@import 'modules/homepage';
 @import 'modules/alert';
+// @import 'modules/banner';
+@import 'modules/callout';
+@import 'modules/issue-roster';
 @import 'modules/navgroup';
 @import 'modules/piece';
-@import 'modules/announcement';
-@import 'modules/support';
-@import 'modules/issue-roster';
-@import 'modules/callout';
-@import 'modules/ks-stats';
-// @import 'modules/banner';
+@import 'modules/price';
+@import 'modules/topic-list';
 
-// Units
-@import 'modules/units/piece';
-@import 'modules/units/index-item';
-@import 'modules/units/topic-list';
+// Pace Specific
+@import 'pages/piece';
+@import 'pages/homepage';
 
 // Store Modules
 // @import 'modules/store/buy';

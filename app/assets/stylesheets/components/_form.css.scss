@@ -7,3 +7,8 @@
   font-weight: weight(medium);
   vertical-align: middle;
 }
+
+.form > div:first-child + *,
+.form > .field:first-child {
+  margin-top: 0 !important;
+}

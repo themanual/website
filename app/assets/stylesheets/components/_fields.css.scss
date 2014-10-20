@@ -1,11 +1,6 @@
 .field        { margin-top: 1.5em; }
 .field-close  { margin-top: .5em; }
 
-.form > div:first-child + .field,
-.form > .field:first-child {
-  margin-top: 0;
-}
-
 label, input, textarea, select,
 .label, .value {
   font-family: $type-sans;
@@ -29,11 +24,13 @@ label, input, textarea, select,
   &.value         { border-color: transparent; }
 
   &.invalid,
-  &.invalid:focus { border-color: $c-field-invalid; }
+  &.invalid:focus { border-color: $c-error; }
 
-  &.valid:focus   { border-color: $c-field-valid; }
+  &.valid:focus   { border-color: $c-success; }
 
-  &:focus         { outline: none;  border-color: black; }
+  &.warning       { border-color: $c-warning;}
+
+  &:focus         { outline: none;  border-color: $c-blue; }
 }
 
 %input-text {
