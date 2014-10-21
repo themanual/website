@@ -14,7 +14,7 @@
       margin-left: 1em;
     }
     @include media-from($bp-l)  { width: 12em; }
-    @include media-from($bp-xl) { width: 15em; }
+    @include media-from($bp-xl) { width: 16em; }
   }
 }
 
@@ -23,7 +23,7 @@
 }
 
 .issue-pieces .piece-unit + .piece-unit {
-  margin-top: 1.2em;
+  @include spacing(margin-top);
 }
 
 .issue-pieces .piece-unit .piece-unit-author,

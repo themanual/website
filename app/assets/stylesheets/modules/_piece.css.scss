@@ -1,8 +1,6 @@
 // Layout
-.piece-unit-author {
-  @extend .t-sc;
-  color: $c-text-caption;
-  @include rem(margin-bottom, .7rem);
+.piece-unit-header > * {
+  display: inline-block;
 }
 
 .piece-unit-title {
@@ -10,6 +8,13 @@
   font-weight: weight(bold);
   @include type-enhancements;
 }
+
+.piece-unit-author {
+  color: $c-text-faint-less;
+  white-space: nowrap;
+  padding-top: .2em;
+}
+
 
 .piece-unit-title a,
 .piece-unit-silo  a {
@@ -21,7 +26,10 @@
   font-family: $type-serif;
   font-weight: weight(medium);
   line-height: 1.25;
-  margin-top: .2em;
+  
+  margin-top:    .3em;
+  margin-bottom: .6em;
+
   color: $c-text-summary;
   max-width: 28em;
   @include type-enhancements;
@@ -31,15 +39,12 @@
 
 .piece-unit-metadata {
   color: $c-text-faint;
-  line-height: 1.2;
-  margin-top: .6em;
-  .piece-unit-entry & {
-    margin-top: .5em;
-  }
+  line-height: 1.25;
 }
 
 .piece-unit-topics a {
-  @include link-hover-black { color: $c-text-gray; }
+  color: $c-text-gray;
+  @include hover { color: $c-blue; }
 }
 
 @include media-upto($bp-s) {

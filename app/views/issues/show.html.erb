@@ -6,10 +6,10 @@
   <%- @issue.articles.ordered.each do |article| -%>
   <li>
     <figure class="issue-illo">
-      <%= render partial: 'pieces/piece_illo', locals: { piece: article, sizes: "(min-width: 500px) 10.5em, (min-width: 850px) 12em, (min-width: 1000px) 15em, 1px" } %>
+      <%= render partial: 'pieces/piece_illo', locals: { piece: article, sizes: "(min-width: 500px) 10.5em, (min-width: 850px) 12em, (min-width: 1000px) 16em, 1px" } %>
     </figure>
     <div class="issue-pieces">
-      <h2 class="piece-unit-author"><%= article.author.name %></h2>
+      <h2 class="h-sc h-sc-spaced"><%= article.author.name %></h2>
       <%= render article %>
       <%= render article.lesson %>
     </div>

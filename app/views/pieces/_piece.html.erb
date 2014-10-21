@@ -1,7 +1,9 @@
 <%- cache piece do -%>
-<div class="piece-unit <%= "issue-#{piece.issue.number}" if piece.issue.number %>">
-  <p class="piece-unit-author"><%= piece.author.name %></p>
-  <h2 class="piece-unit-title"><%= link_to_piece piece %></h2>
+<article class="piece-unit <%= "issue-#{piece.issue.number}" if piece.issue.number %>">
+  <header class="piece-unit-header">
+    <h2 class="piece-unit-title"><%= link_to_piece piece %></h2>
+    <p class="piece-unit-author"><span class="by">by</span> <%= piece.author.name %></p>
+  </header>
   <p class="piece-unit-synopsis"><%= piece.synopsis %></p>
   <p class="piece-unit-metadata">
     <%- if piece.issue_id.present? -%>
@@ -9,5 +11,5 @@
     <%- end -%>
     <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: piece } %></span>
   </p>
-</div>
+</article>
 <%- end -%>
