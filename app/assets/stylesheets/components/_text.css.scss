@@ -89,7 +89,7 @@ em      { font-style: italic; }
 .t-sc-heavy {
   @extend .t-sc;
   font-weight: weight(medium);
-  color: $c-text-black;
+  color: $c-text-body;
 }
 
 .h-sc {
