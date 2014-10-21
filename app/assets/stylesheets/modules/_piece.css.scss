@@ -1,8 +1,4 @@
 // Layout
-.piece-unit-header > * {
-  display: inline-block;
-}
-
 .piece-unit-title {
   font-size: $type-ll;
   font-weight: weight(bold);
@@ -14,6 +10,9 @@
   white-space: nowrap;
   padding-top: .2em;
 }
+
+.piece-unit-header .piece-unit-title  { display: inline; }
+.piece-unit-header .piece-unit-author { display: inline-block; }
 
 
 .piece-unit-title a,
