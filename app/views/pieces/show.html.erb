@@ -1,6 +1,6 @@
 <%- content_for(:logo) { "issue-#{@piece.issue.number}" } -%>
 
-<article class="piece is-<%= @piece.type %> issue-<%= @piece.issue.number %> c-issue l-block hentry"><div>
+<article class="piece is-<%= @piece.type %> issue-<%= @piece.issue.number %> l-block hentry"><div>
   <%- cache [@issue, @piece, :header] do -%>
   <header class="piece-header">
     <% if @piece.illustrator.present? %>
@@ -15,22 +15,22 @@
       <p class="piece-header-author byline vcard"><span class="fn author" rel="author"><%= @author.name %></span></p>
       <h1 class="piece-header-title entry-title"><%= @piece.title %></h1>
       <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
-      <p class="piece-header-metadata">
-        <span class="piece-header-silo">In <%= link_to "Issue #{@piece.issue.number}", issue_path(issue: @piece.issue.number) %></span>
-        <span class="piece-header-topics"><%= render partial: "pieces/piece_topics", locals: { piece: @piece } %></span>
+      <p class="piece-unit-metadata">
+        <span class="piece-unit-silo">In <%= link_to "Issue #{@piece.issue.number}", issue_path(issue: @piece.issue.number) %></span>
+        <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: @piece } %></span>
       </p>
     </div>
   </header>
   <%- end -%>
   
   <%- cache [@issue, @piece, :body] do -%>
-  <div class="piece-body l-col-reading entry-content l-mm">
+  <div class="piece-body l-col-reading entry-content l-mm c-issue">
     <%=raw markdown(@piece.body) %>
   </div>
   <%- end -%>
 
   <%- cache [@piece, @author] do -%>
-  <footer class="piece-author l-col-reading">
+  <footer class="piece-author l-col-reading c-issue">
     <figure class="piece-author-portrait">
       <%= portrait_tag(@piece) %>
     </figure>

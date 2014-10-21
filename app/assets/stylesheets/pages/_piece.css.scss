@@ -41,6 +41,10 @@
 
 }
 
+.piece-header .piece-unit-metadata {
+  margin-top: 1.5em;
+}
+
 .piece-header-text {
   @include media-upto($bp-l) {
     text-align: center;
@@ -112,13 +116,15 @@
   @include type-enhancements;
 }
 
-.piece a {
-  @include link-color-issue;
-}
-
 .piece-header-author {
   font-size: 1.1em;
-  color: $c-text-caption;
+  color: $c-text-faint-less;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  word-spacing: .15em;
+  margin-bottom: 1em;
+  @include media-from($bp-l) { margin-bottom: 1.5em; }
+  color: $c-text-gray;
 }
 
 .piece-header-title {
@@ -128,43 +134,11 @@
 .piece-header-synopsis {
   font-family: $type-serif;
   font-weight: weight(medium);
-  color: $c-text-body;
+  color: $c-text-summary;
   font-size: em(24, $rem-value);
   max-width: 28em;
   line-height: 1.25;
   margin-top: .4em;
-}
-
-.piece-header-author {
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  word-spacing: .15em;
-  margin-bottom: 1em;
-  @include media-from($bp-l) { margin-bottom: 1.5em; }
-  color: $c-text-gray;
-}
-
-.piece-header-metadata {
-  margin-top: 1.5em;
-  color: $c-text-faint;
-  line-height: 1.25;
-}
-
-@include media-upto($bp-s) {
-  .piece-header-metadata > * + * {
-    display: block;
-  }
-}
-@include media-from($bp-s) {
-  .piece-header-metadata > * + *:before {
-    content: "\00b7\00a0";
-    display: inline-block;
-    @include padding-h(.3em);
-  }
-}
-
-.piece .piece-header-topics a {
-  @include link-hover-black { color: $c-text-caption; }
 }
 
 .piece-body {
