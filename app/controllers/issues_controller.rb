@@ -15,7 +15,7 @@ class IssuesController < ApplicationController
       render :soon
     else
       # TODO: Ensure only visible issues can be seen (public, or purchased by current user)
-      @issue = Issue.published.public.where(number: issue_no).first
+      @issue = Issue.published.public_access.where(number: issue_no).first
       redirect_to read_path and return unless @issue
 
       metadata "og:title",        "Issue #{@issue.number}"

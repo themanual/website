@@ -12,7 +12,7 @@ class Issue < ActiveRecord::Base
 
   scope :ordered,   -> { order('published_on DESC') }
   scope :published, -> { where(['published_on < ?', Time.now]) }
-  scope :public,    -> { where(public: true) }
+  scope :public_access,    -> { where(public: true) }
 
   def title
     "Issue ##{self.number}"
@@ -41,7 +41,7 @@ class Issue < ActiveRecord::Base
 
   def self.public_issues
     Rails.cache.fetch('issues:public', expires_in: 1.hour) do
-      Issue.published.ordered.public
+      Issue.published.ordered.public_access
     end
   end
 
