@@ -6,6 +6,7 @@ class Issue < ActiveRecord::Base
   has_many :lessons
   has_many :authors, through: :articles
   has_many :downloads
+  has_many :ownerships
 
   belongs_to :volume, touch: true
 

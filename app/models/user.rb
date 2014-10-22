@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :addresses
   has_one :shipping_address, class_name: 'Address'
   has_many :subscriptions
+  has_many :ownerships
 
   accepts_nested_attributes_for :addresses
 
@@ -29,11 +30,11 @@ class User < ActiveRecord::Base
     access_level > 0
   end
 
-  def can_access? item
+  def can_view? item
 
     # check if the anon user can access this first
     #   no point running our logic if its open to the public
-    if self.anon_user.can_access? item
+    if self.anon_user.can_view? item
       return true
     else
       case item
@@ -43,7 +44,7 @@ class User < ActiveRecord::Base
         #  - check in-preview states
         return true
       when Piece
-        return can_access?(item.issue)
+        return can_view?(item.issue)
       end
 
       return false

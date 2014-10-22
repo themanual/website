@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022144117) do
+ActiveRecord::Schema.define(version: 20141022162449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,19 @@ ActiveRecord::Schema.define(version: 20141022144117) do
     t.string  "name"
     t.string  "value"
   end
+
+  create_table "ownerships", force: true do |t|
+    t.integer  "user_id",                                    null: false
+    t.integer  "issue_id",                                   null: false
+    t.string   "level",           limit: 10, default: "web", null: false
+    t.integer  "subscription_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ownerships", ["issue_id"], name: "index_ownerships_on_issue_id", using: :btree
+  add_index "ownerships", ["subscription_id"], name: "index_ownerships_on_subscription_id", using: :btree
+  add_index "ownerships", ["user_id"], name: "index_ownerships_on_user_id", using: :btree
 
   create_table "pieces", force: true do |t|
     t.string   "type",          limit: 32,   default: "Article", null: false

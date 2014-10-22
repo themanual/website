@@ -3,6 +3,8 @@ class Subscription < ActiveRecord::Base
 
 	belongs_to :user
 
+  has_many :ownerships
+
   TIERS = ActiveSupport::HashWithIndifferentAccess.new(
     digital: {
       name:     "Digital",
