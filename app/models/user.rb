@@ -29,6 +29,27 @@ class User < ActiveRecord::Base
     access_level > 0
   end
 
+  def can_access? item
+
+    # check if the anon user can access this first
+    #   no point running our logic if its open to the public
+    if self.anon_user.can_access? item
+      return true
+    else
+      case item
+      when Issue
+        # TODO
+        #  - check purchases
+        #  - check in-preview states
+        return true
+      when Piece
+        return can_access?(item.issue)
+      end
+
+      return false
+    end
+  end
+
   def full_name
     name
   end
