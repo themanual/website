@@ -16,7 +16,9 @@ ActiveAdmin.register Download do
     end
     column :ordering
 
-    actions
+    actions defaults: true do |dl|
+      link_to('Download', dl_admin_download_path(dl))
+    end
   end
 
   form do |f|
@@ -30,6 +32,11 @@ ActiveAdmin.register Download do
 
     end
     f.actions
+  end
+
+  member_action :dl, :method => :get do
+    dl = Download.find(params[:id])
+    redirect_to dl.url
   end
 
 end
