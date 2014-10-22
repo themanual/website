@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904094129) do
+ActiveRecord::Schema.define(version: 20141022144117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,21 @@ ActiveRecord::Schema.define(version: 20140904094129) do
   end
 
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
+
+  create_table "downloads", force: true do |t|
+    t.integer  "issues_id",                                null: false
+    t.string   "medium",            limit: 10,             null: false
+    t.string   "format",            limit: 30,             null: false
+    t.integer  "ordering",                     default: 1, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  add_index "downloads", ["issues_id"], name: "index_downloads_on_issues_id", using: :btree
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
