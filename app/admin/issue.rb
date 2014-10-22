@@ -8,7 +8,7 @@ ActiveAdmin.register Issue do
   index do
   	id_column
   	column :number
-  	default_actions
+  	actions
   end
 
 

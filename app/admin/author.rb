@@ -12,6 +12,6 @@ ActiveAdmin.register Author do
   	column :slug
   	column :twitter
 
-  	default_actions
+  	actions
   end
 end
