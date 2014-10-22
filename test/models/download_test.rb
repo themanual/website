@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DownloadsTest < ActiveSupport::TestCase
+class DownloadTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

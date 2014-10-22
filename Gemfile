@@ -48,6 +48,7 @@ gem 'pg'
 
 # Digital asset storage
 gem 'paperclip', '~> 4.2.0'
+gem 'fog', '~> 1.21'
 
 # Caching
 gem 'second_level_cache', '~> 2.0.0'

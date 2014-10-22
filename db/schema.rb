@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20141022144117) do
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
 
   create_table "downloads", force: true do |t|
-    t.integer  "issues_id",                                null: false
+    t.integer  "issue_id",                                 null: false
     t.string   "medium",            limit: 10,             null: false
     t.string   "format",            limit: 30,             null: false
     t.integer  "ordering",                     default: 1, null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20141022144117) do
     t.datetime "file_updated_at"
   end
 
-  add_index "downloads", ["issues_id"], name: "index_downloads_on_issues_id", using: :btree
+  add_index "downloads", ["issue_id"], name: "index_downloads_on_issue_id", using: :btree
 
   create_table "email_addresses", force: true do |t|
     t.string   "email"
