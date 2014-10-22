@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.3'
 
 gem 'rails', '~> 4.0.2'
 
@@ -28,15 +28,13 @@ gem 'premailer-rails'
 gem 'acts-as-taggable-on'
 
 # Authentication and Admin
-gem 'devise'
-gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'devise', '~> 3.4.0'
+gem 'activeadmin', github: 'activeadmin'
+gem 'bcrypt', '~> 3.1.2'
 
 # Store and Payments
-gem 'shoppe', github: 'tryshoppe/core', branch: 'master', require: 'shoppe'
-# pull request accepted, but no new gem release yet
-# gem 'shoppe', '~> 0.0.0'
-gem 'shoppe-stripe', '~> 1.2.1', :require => 'shoppe/stripe'
+gem 'shoppe', '~> 1.0.2'
+gem 'shoppe-stripe', :github => 'tryshoppe/stripe', :require => 'shoppe/stripe'
 gem 'stripe'
 gem 'shipwire', github: 'marcroberts/shipwire' # gem 'shoppe-shipwire' to be built by Marc
 
@@ -64,7 +62,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'debugger'
+  # gem 'debugger'
   gem 'guard-pow', require: false
   gem 'guard-livereload'
   gem 'terminal-notifier-guard', require: false
