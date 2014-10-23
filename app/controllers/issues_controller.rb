@@ -23,4 +23,8 @@ class IssuesController < ApplicationController
     end
   end
 
+  def download
+
+  end
+
 end
