@@ -1,5 +1,6 @@
 class User::AddressesController < ApplicationController
-  
+  before_filter :authenticate_user!
+
   def index
     @address = current_user.addresses.last || current_user.addresses.new
   end
