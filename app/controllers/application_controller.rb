@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :authorise_profiler
 
+  before_filter :store_path
+
   protected
     def authenticate_admin_user!
       redirect_to new_user_session_path unless current_user.access_level > 0
@@ -74,6 +76,14 @@ class ApplicationController < ActionController::Base
     def check_access_to_issue
       true
       # TODO: allow for public issues, check users purchase history for non-public
+    end
+
+    def store_path
+      if current_user.anon?
+        session[:return_to] = request.path
+      else
+        session[:return_to] = nil
+      end
     end
 
     def authorise_profiler
