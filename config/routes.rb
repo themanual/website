@@ -27,13 +27,15 @@ TheManual::Application.routes.draw do
     root                              to: redirect('/read/staffpicks'),                     as: :read
     get '/issues',                    to: 'issues#index',                                   as: :issues
     get '/issues/:issue',             to: 'issues#show',                                    as: :issue
-    get '/issues/:issue/offline',     to: 'issues#download',                                as: :download
     get '/issues/:issue/:key/:type',  to: 'pieces#show',                                    as: :piece
     get '/staffpicks',                to: 'pieces#staffpicks',                              as: :staffpicks
     get '/topics',                    to: redirect('/read')
     get '/topics/:topic',             to: 'topics#show',                                    as: :topic
     get '/blog',                      to: redirect("http://blog.themanual.org"),  as: :blog
   end
+
+  get '/download/:dl',     to: 'issues#download',                                as: :download
+
 
   get '/blog', to: redirect("http://blog.themanual.org")
   get '/twitter', to: redirect("https://twitter.com/themanual"), as: :twitter

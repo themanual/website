@@ -39,30 +39,28 @@
   <h2>Downloads</h2>
   <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: 'about', action: 'faq', anchor:  'downloads'} %></p>
   <div class="l-cols-m-thirds l-stack-m">
-    <% current_user.ownerships.includes(:issue).order('issue_id DESC').each do |o| %>
-    <div>
-      <h3 class="h-spaced-top">Issue <%= o.issue.number %></h3>
-      <% o.issue.downloads.group_by(&:medium).each do |medium, dls| %>
-      <h5><%= medium %></h5>
-      <ul class="plain">
-        <% dls.each do |dl| %>
-        <li><a href="#"><%= dl.format %></a> (<%= number_to_human_size dl.file_file_size %>)</li>
-        <% end %>
-      </ul>
-      <% end %>
-    </div>
-    <% end %>
 
+    <% current_user.ownerships.where("level <> 'web'").includes(:issue => :downloads).order('issue_id DESC').each do |o| %>
     <div>
-      <h3 class="h-spaced-top">Issue 3</h3>
-      <h5>Ebook</h5>
-      <ul class="plain">
-        <li><a href="#">ePub</a></li>
-        <li><a href="#">Kindle</a></li>
-        <li><a href="#">PDF (Single Page)</a></li>
-        <li><a href="#">PDF (Spread)</a></li>
-        <li><a href="#">Zip Bundle (All Files)</a></li>
-      </ul>
+
+      <h3 class="h-spaced-top">Issue <%= o.issue.number %></h3>
+
+      <% o.issue.downloads.group_by(&:medium).each do |medium, dls| %>
+        <%- if o.can_access? medium.downcase -%>
+
+          <h5><%= medium %></h5>
+
+          <ul class="plain">
+            <%- dls.each do |dl| -%>
+              <li><%= link_to dl.format,download_path(dl: dl.id) %> (<%= number_to_human_size dl.file_file_size %>)</li>
+            <%- end -%>
+          </ul>
+
+        <%- end -%>
+      <%- end -%>
+
     </div>
+    <%- end -%>
+
   </div>
 </section>

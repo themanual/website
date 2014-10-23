@@ -18,11 +18,11 @@ class Ownership < ActiveRecord::Base
     when 'ebook'
       [:web, :ebook]
     when 'audio'
-      [:web, :ebook, :audio]
+      [:web, :ebook, :audiobook]
     when 'print'
       [:web, :ebook, :print]
     when 'full'
-      [:web, :ebook, :audio, :print]
+      [:web, :ebook, :audiobook, :print]
     end
   end
 
