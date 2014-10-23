@@ -10,9 +10,15 @@ class AnonUser < OpenStruct
 
     case item
     when Issue
-      return item.public?
+      return item.published? || item.preview?
     when Piece
-      return can_view?(item.issue) # bubble up to the issue permissions until we add granular control of pieces
+
+      # published
+      return true if item.issue.published?
+
+      # issue in preview and piece published
+      return true if item.issue.preview? and item.published?
+
     else
       return false
     end

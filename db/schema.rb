@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023114806) do
+ActiveRecord::Schema.define(version: 20141023141615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,13 +92,13 @@ ActiveRecord::Schema.define(version: 20141023114806) do
   add_index "email_addresses", ["user_id"], name: "index_email_addresses_on_user_id", using: :btree
 
   create_table "issues", force: true do |t|
-    t.integer  "number",               default: 1,     null: false
+    t.integer  "number",               default: 1,  null: false
     t.integer  "volume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "published_on"
-    t.boolean  "public",               default: false, null: false
-    t.string   "portrait_illustrator", default: "",    null: false
+    t.string   "portrait_illustrator", default: "", null: false
+    t.integer  "status",               default: 0,  null: false
   end
 
   add_index "issues", ["number"], name: "index_issues_on_number", using: :btree
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 20141023114806) do
     t.datetime "updated_at"
     t.datetime "staff_pick_at"
     t.boolean  "staff_pick",                 default: false,     null: false
+    t.integer  "status",                     default: 0,         null: false
   end
 
   add_index "pieces", ["author_id"], name: "index_pieces_on_author_id", using: :btree

@@ -73,11 +73,6 @@ class ApplicationController < ActionController::Base
       @page_metadata
     end
 
-    def check_access_to_issue
-      true
-      # TODO: allow for public issues, check users purchase history for non-public
-    end
-
     def store_path
       if current_user.anon?
         session[:return_to] = request.path

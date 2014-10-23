@@ -1,6 +1,6 @@
 ActiveAdmin.register Piece do
 
-  permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position, :topic_list
+  permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position, :topic_list, :status
 
   filter :issue
   filter :title
@@ -14,9 +14,9 @@ ActiveAdmin.register Piece do
   	column :type
   	column :author
   	column :title
-  	column :illustrator
   	column :synopsis
     column :position
+    column :status
     column :staff_pick
   	actions defaults: true do |piece|
       if piece.staff_pick?
@@ -48,6 +48,7 @@ ActiveAdmin.register Piece do
       f.input :topic_list, label: 'Topics'
   		f.input :illustrator
   		f.input :position
+      f.input :status, as: :select, collection: Piece.statuses.keys, include_blank: false
 
   		f.input :body, input_html: { class: 'editor-md' }
 

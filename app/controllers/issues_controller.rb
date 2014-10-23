@@ -1,8 +1,5 @@
 class IssuesController < ApplicationController
 
-  # skip_before_filter :authenticate_user!
-  before_filter :check_access_to_issue, only: :show
-
   def index
     redirect_to read_path
   end
@@ -14,9 +11,11 @@ class IssuesController < ApplicationController
       metadata "description",     "Issue of The Manual is coming soon. Featuring Jeniffer Brook, David Cole, Paul Ford, Diana Kimball, Wilson Miner, and Craig Mod."
       render :soon
     else
-      # TODO: Ensure only visible issues can be seen (public, or purchased by current user)
-      @issue = Issue.published.public_access.where(number: issue_no).first
-      redirect_to read_path and return unless @issue
+      @issue = Issue.where(number: issue_no).first
+
+      if @issue.nil? or @issue.unpublished? or !current_user.can_view? @issue
+        redirect_to read_path and return
+      end
 
       metadata "og:title",        "Issue #{@issue.number}"
       metadata "description",     "Issue #{@issue.number} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."

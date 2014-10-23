@@ -1,9 +1,7 @@
 class PiecesController < ApplicationController
 
-  before_filter :check_access_to_issue, only: :show
-
   def index
-    @issues = Issue.published.public_access.ordered.includes(:pieces => :author).order('pieces.position DESC, pieces.type DESC')
+    @issues = Issue.open.ordered.includes(:pieces => :author).order('pieces.position DESC, pieces.type DESC')
     respond_to do |format|
       format.html { redirect_to read_path }
       format.rss  { render layout: false }
@@ -19,8 +17,15 @@ class PiecesController < ApplicationController
   end
 
   def show
+
+
     @author = Author.fetch_by_uniq_key!(params[:key], :slug)
     @piece  = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: @author.id).first
+
+    if @piece.nil? or !current_user.can_view? @piece
+      redirect_to read_path and return
+    end
+
     @issue  = @piece.issue
 
     title    "#{@piece.title}, by #{@author.name}"

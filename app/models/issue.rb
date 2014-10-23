@@ -1,6 +1,12 @@
 class Issue < ActiveRecord::Base
   NEW_PERIOD = 14.days
 
+  enum status: {
+    unpublished: 0,
+    preview: 1,
+    published: 2
+  }
+
   has_many :pieces
   has_many :articles
   has_many :lessons
@@ -12,9 +18,7 @@ class Issue < ActiveRecord::Base
 
   acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
 
-  scope :ordered,   -> { order('published_on DESC') }
-  scope :published, -> { where(['published_on < ?', Time.now]) }
-  scope :public_access,    -> { where(public: true) }
+  scope :ordered,   -> { order('number DESC') }
 
   def title
     "Issue ##{self.number}"
@@ -28,10 +32,6 @@ class Issue < ActiveRecord::Base
     Shoppe::Product.with_attributes(:issue_number, self.number.to_s).with_attributes(:format, format).first
   end
 
-  def published?
-    self.published_on < Time.now
-  end
-
   def new?
     published_on > (Time.now - NEW_PERIOD)
   end
@@ -43,18 +43,12 @@ class Issue < ActiveRecord::Base
 
   def self.public_issues
     Rails.cache.fetch('issues:public', expires_in: 1.hour) do
-      Issue.published.ordered.public_access
-    end
-  end
-
-  def self.latest
-    Rails.cache.fetch('issues:latest', expires_in: 1.day) do
-      Issue.published.ordered.limit(1).first
+      Issue.ordered.published
     end
   end
 
   def self.clear_caches
-    ['issues:public','issues:latest'].each do |key|
+    ['issues:public'].each do |key|
       Rails.cache.delete key
     end
   end

@@ -2,6 +2,11 @@ class Piece < ActiveRecord::Base
   STAFF_PICK_CACHE_KEY = "pieces:staff_pick_updated_at"
   ACTIVE_TOPICS_CACHE_KEY = "topics:active"
 
+  enum status: {
+    unpublished: 0,
+    published: 1
+  }
+
   belongs_to :author
   belongs_to :issue, touch: true
 

@@ -34,21 +34,20 @@ class User < ActiveRecord::Base
 
     # check if the anon user can access this first
     #   no point running our logic if its open to the public
-    if self.anon_user.can_view? item
+    if User.anon_user.can_view? item
       return true
     else
       case item
-      when Issue
-        # TODO
-        #  - check purchases
-        #  - check in-preview states
-        return true
       when Piece
-        return can_view?(item.issue)
+        return true if item.issue.preview? and owns_issue? item.issue
       end
 
       return false
     end
+  end
+
+  def owns_issue? issue
+    self.ownerships.where(issue_id: issue.id).any?
   end
 
   def full_name
