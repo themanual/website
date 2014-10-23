@@ -4,14 +4,14 @@ ActiveAdmin.register Download do
   permit_params :issue_id, :medium, :format, :ordering, :file
 
   filter :issue
-  filter :medium
+  filter :medium, as: :select, collection: Download::MEDIUMS
 
   index do
     id_column
     column :issue
     column :medium
     column :format
-    column :file_file_size do |d|
+    column 'Size', :file_file_size do |d|
       number_to_human_size d.file_file_size
     end
     column :ordering
@@ -25,7 +25,7 @@ ActiveAdmin.register Download do
 
     f.inputs do
       f.input :issue
-      f.input :medium
+      f.input :medium, as: :select, collection: Download::MEDIUMS
       f.input :format
 
       f.input :file

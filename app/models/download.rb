@@ -9,6 +9,11 @@ class Download < ActiveRecord::Base
 
   do_not_validate_attachment_file_type :file
 
+  MEDIUMS = [
+    'Audiobook',
+    'eBook'
+  ]
+
   def name
     "Issue ##{issue.number}, #{self.medium}, #{self.format}"
   end
