@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.3'
 
-gem 'rails', '~> 4.0.2'
+gem 'rails', '~> 4.1.0'
 
 # Assets
 gem 'sass-rails', '~> 4.0.0'
@@ -51,7 +51,7 @@ gem 'paperclip', '~> 4.2.0'
 gem 'fog', '~> 1.21'
 
 # Caching
-gem 'second_level_cache', '~> 2.0.0'
+gem 'second_level_cache', '~> 2.1.2'
 gem 'dalli'
 gem 'kgio'
 
