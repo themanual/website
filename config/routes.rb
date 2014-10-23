@@ -34,6 +34,9 @@ TheManual::Application.routes.draw do
     get '/blog',                      to: redirect("http://blog.themanual.org"),  as: :blog
   end
 
+  get '/download/:dl',     to: 'issues#download',                                as: :download
+
+
   get '/blog', to: redirect("http://blog.themanual.org")
   get '/twitter', to: redirect("https://twitter.com/themanual"), as: :twitter
 

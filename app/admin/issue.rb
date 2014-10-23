@@ -11,6 +11,17 @@ ActiveAdmin.register Issue do
   	actions
   end
 
+  sidebar :downloads , :only => :show do
+    table_for issue.downloads.order('medium asc, ordering asc') do
+      column :medium
+      column :format do |d|
+        link_to(d.format, admin_download_path(d))
+      end
+      column :size do |d|
+        number_to_human_size d.file_file_size
+      end
+    end
+  end
 
   sidebar :articles , :only => :show do
     table_for issue.articles do

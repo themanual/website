@@ -1,79 +1,30 @@
 class Subscription < ActiveRecord::Base
-	validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 10 }
+
+  enum status: {
+    active: 0,
+    complete: 1,
+    cancelled: 2
+  }
 
 	belongs_to :user
 
-  TIERS = ActiveSupport::HashWithIndifferentAccess.new(
-    digital: {
-      name:     "Digital",
-      price:    10,
-      shipping: false,
-    },
-    print: {
-      name:     "Print",
-      price:    25,
-      shipping: true
-    },
-    patron: {
-      name:     "Patron",
-      price:    50,
-      shipping: true
-    }
-  )
+  has_many :ownerships
 
 
-
-  def place_order issue
-    product = Shoppe::Product.with_attributes('issue_number', issue.number).with_attributes(:format, product_level).first
-
-    if product.nil?
-      # uh-oh throw an error
-      err = StandardError.new("Could not find a Shoppe product for Issue ##{issue.number} #{product_level} when placing subscription order")
-      Airbrake.notify err
-      if Rails.env.development?
-        raise err
-      else
-        return
+  def add_issue issue
+    if self.active? and self.issues_remaining > 0
+      if self.ownerships.create user_id: self.user_id, issue_id: issue.id, level: self.level
+        self.decrement! :issues_remaining
+        self.complete! if self.issues_remaining == 0
       end
     end
-
-    # TODO ensure this order is acceptable without an address, ie only digital products
-    billing_address = user.shipping_address || Address.blank_address
-
-    order = Shoppe::Order.new first_name: user.first_name,
-                              last_name: user.last_name,
-                              billing_address1: user.shipping_address.lines_as_one,
-                              billing_address3: user.shipping_address.city,
-                              billing_address4: user.shipping_address.region,
-                              billing_postcode: user.shipping_address.post_code,
-                              billing_country_id: user.shipping_address.country_id,
-                              email_address: user.email,
-                              phone_number: '0000000'
-
-
-    order.properties['stripe_customer_token'] = user.current_card.customer_token
-    order.save
-
-    order.order_items.add_item product, 1
-    order.save
-
-    # TODO shipping
-
-    order.confirm!
-    order.accept!
-
-    if issue.published?
-      # order.ship!
-    end
-
   end
 
-  def product_level
-    case
-    when price >= 10
-      :digital
-    when price >= 20
-      :print
+  def self.add_issue issue
+    self.active.each do |s|
+      s.add_issue issue
     end
   end
+
+
 end

@@ -40,7 +40,7 @@ ActiveAdmin.register Piece do
 
   form do |f|
 
-  	f.inputs "Meta" do
+  	f.inputs do
   		f.input :issue
   		f.input :author, input_html: { class: 'chosen-select' }
   		f.input :title
@@ -51,8 +51,8 @@ ActiveAdmin.register Piece do
 
   		f.input :body, input_html: { class: 'editor-md' }
 
-  		f.actions
-  	end
+    end
+		f.actions
   end
 
   member_action :pick, :method => :get do

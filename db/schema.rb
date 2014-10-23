@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904094129) do
+ActiveRecord::Schema.define(version: 20141023114806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,21 @@ ActiveRecord::Schema.define(version: 20140904094129) do
 
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
 
+  create_table "downloads", force: true do |t|
+    t.integer  "issue_id",                                 null: false
+    t.string   "medium",            limit: 10,             null: false
+    t.string   "format",            limit: 30,             null: false
+    t.integer  "ordering",                     default: 1, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
+  add_index "downloads", ["issue_id"], name: "index_downloads_on_issue_id", using: :btree
+
   create_table "email_addresses", force: true do |t|
     t.string   "email"
     t.integer  "user_id"
@@ -110,6 +125,19 @@ ActiveRecord::Schema.define(version: 20140904094129) do
     t.string  "name"
     t.string  "value"
   end
+
+  create_table "ownerships", force: true do |t|
+    t.integer  "user_id",                                    null: false
+    t.integer  "issue_id",                                   null: false
+    t.string   "level",           limit: 10, default: "web", null: false
+    t.integer  "subscription_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ownerships", ["issue_id"], name: "index_ownerships_on_issue_id", using: :btree
+  add_index "ownerships", ["subscription_id"], name: "index_ownerships_on_subscription_id", using: :btree
+  add_index "ownerships", ["user_id"], name: "index_ownerships_on_user_id", using: :btree
 
   create_table "pieces", force: true do |t|
     t.string   "type",          limit: 32,   default: "Article", null: false
@@ -330,10 +358,14 @@ ActiveRecord::Schema.define(version: 20140904094129) do
 
   create_table "subscriptions", force: true do |t|
     t.integer  "user_id"
-    t.integer  "price",               default: 10, null: false
-    t.integer  "free_shipping_count", default: 0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "start_date",                                  null: false
+    t.integer  "issues_duration",             default: 3,     null: false
+    t.integer  "issues_remaining",            default: 3,     null: false
+    t.string   "level",            limit: 10, default: "web", null: false
+    t.integer  "status",                      default: 0,     null: false
+    t.integer  "start_issue",                                 null: false
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
