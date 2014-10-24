@@ -62,7 +62,7 @@
       <h2 class="callout-title">This <%= @piece.type %> is in preview for subscribers.</h2>
       <div class="callout-body">
         <p>Become a subscriber and get immediate access to the web edition of <%= link_to "Issue #{@piece.issue.number}", issue_path(issue: @piece.issue.number) %>, as well as our <strong>ebook, audiobook, and print editions</strong>. When you subscribe, you’re supporting The Manual’s continuous publication. <%= link_to "Read more on why your support matters.", {controller: 'about', page: 'support'} %></p>
-        <p>Already a subscriber? <%= link_to "Log in", login_path %> to read this <%= @piece.type %>.</p>
+        <p>Already a subscriber? <%= link_to "Log in", login_path(next: piece_path(issue: @piece.issue.number, key: @piece.author_slug, type: @piece.class.name.underscore.to_sym)) %> to read this <%= @piece.type %>.</p>
       </div>
     </div>
   </div>
