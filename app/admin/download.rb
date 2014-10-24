@@ -1,4 +1,7 @@
 ActiveAdmin.register Download do
+
+  menu parent: 'Editorial', label: '⤷ Downloads', priority: 3
+
   config.sort_order = 'ordering_asc'
 
   permit_params :issue_id, :medium, :format, :ordering, :file

@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
 
+  menu parent: 'Readers', priority: 1
+
   permit_params :first_name, :last_name, :email, :access_level
 
   filter :email
