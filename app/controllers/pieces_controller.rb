@@ -18,13 +18,10 @@ class PiecesController < ApplicationController
 
   def show
 
-
     @author = Author.fetch_by_uniq_key!(params[:key], :slug)
     @piece  = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: @author.id).first
 
-    if @piece.nil? or !current_user.can_view? @piece
-      redirect_to read_path and return
-    end
+    redirect_to read_path and return unless @piece.present? && current_user.can_view?(@piece.issue)
 
     @issue  = @piece.issue
 

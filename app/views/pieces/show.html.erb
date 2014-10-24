@@ -22,14 +22,16 @@
     </div>
   </header>
   <%- end -%>
+
+  <%- if current_user.can_view?(@piece) -%>
   
-  <%- cache [@issue, @piece, :body] do -%>
+  <%- cache [@issue, @piece, :body] { -%>
   <div class="piece-body l-col-reading entry-content l-mm c-issue">
     <%=raw markdown(@piece.body) %>
   </div>
-  <%- end -%>
+  <%- } -%>
 
-  <%- cache [@piece, @author] do -%>
+  <%- cache [@piece, @author] { -%>
   <footer class="piece-author l-col-reading c-issue">
     <figure class="piece-author-portrait">
       <%= portrait_tag(@piece) %>
@@ -52,6 +54,18 @@
       <%- end -%>
     </div>
   </footer>
+  <%- } -%>
+
+  <%- else -%>
+  <div class="l-col-reading entry-content l-mm c-issue">
+    <div class="callout">
+      <h2 class="callout-title">This <%= @piece.type %> is in preview for subscribers.</h2>
+      <div class="callout-body">
+        <p>Become a subscriber and get immediate access to the web edition of <%= link_to "Issue #{@piece.issue.number}", issue_path(issue: @piece.issue.number) %>, as well as our <strong>ebook, audiobook, and print editions</strong>. When you subscribe, you’re supporting The Manual’s continuous publication. <%= link_to "Read more on why your support matters.", {controller: 'about', page: 'support'} %></p>
+        <p>Already a subscriber? <%= link_to "Log in", login_path %> to read this <%= @piece.type %>.</p>
+      </div>
+    </div>
+  </div>
   <%- end -%>
 </div></article>
 
