@@ -31,18 +31,26 @@ class User < ActiveRecord::Base
   end
 
   def can_view? item
-
     # check if the anon user can access this first
     #   no point running our logic if its open to the public
-    if User.anon_user.can_view? item
+    if is_admin? || User.anon_user.can_view?(item)
       return true
     else
       case item
+      when Issue
+        return true if issue.publicly_visible?
       when Piece
-        return true if item.issue.preview? and owns_issue? item.issue
+        return true if item.issue.preview? && owns_issue?(item.issue)
       end
-
       return false
+    end
+  end
+
+  def visible_issues
+    if is_admin?
+      Issue.ordered
+    else
+      Issue.ordered.publicly_visible
     end
   end
 
@@ -69,14 +77,6 @@ class User < ActiveRecord::Base
 
   def current_card
     cards.latest.first
-  end
-
-  def visible_issues
-    if is_admin?
-      Issue.ordered
-    else
-      Issue.ordered.where status: [Issue.statuses[:published], Issue.statuses[:preview]]
-    end
   end
 
   def issues_with_downloads
