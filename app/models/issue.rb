@@ -1,5 +1,5 @@
 class Issue < ActiveRecord::Base
-  NEW_PERIOD = 14.days
+  NEW_PERIOD = 30.days
 
   enum status: {
     unpublished: 0,
