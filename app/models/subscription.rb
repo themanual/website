@@ -10,10 +10,13 @@ class Subscription < ActiveRecord::Base
 
   has_many :ownerships
 
+  scope :including, -> (issue_number){ where('start_issue <= :num AND start_issue + issues_duration > :num', num: issue_number) }
 
   def add_issue issue
     if self.active? and self.issues_remaining > 0
-      if self.ownerships.create user_id: self.user_id, issue_id: issue.id, level: self.level
+      ownership = self.ownerships.find_or_initialize_by(user_id: self.user_id, issue_id: issue.id, level: self.level)
+      if ownership.new_record?
+        ownership.save!
         self.decrement! :issues_remaining
         self.complete! if self.issues_remaining == 0
       end
@@ -21,7 +24,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def self.add_issue issue
-    self.active.each do |s|
+    self.active.including(issue.number).each do |s|
       s.add_issue issue
     end
   end
