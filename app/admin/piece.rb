@@ -1,6 +1,6 @@
 ActiveAdmin.register Piece do
 
-  permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position, :topic_list, :status
+  permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position, :topic_list, :status, :type
 
   filter :issue
   filter :title
@@ -42,12 +42,13 @@ ActiveAdmin.register Piece do
 
   	f.inputs do
   		f.input :issue
-  		f.input :author, input_html: { class: 'chosen-select' }
-  		f.input :title
-  		f.input :synopsis
+      f.input :type, as: :select, collection: ['article', 'lesson'], include_blank: false
+      f.input :author, input_html: { class: 'chosen-select' }
+      f.input :title
+      f.input :synopsis
       f.input :topic_list, label: 'Topics'
-  		f.input :illustrator
-  		f.input :position
+      f.input :illustrator
+      f.input :position
       f.input :status, as: :select, collection: Piece.statuses.keys, include_blank: false
 
   		f.input :body, input_html: { class: 'editor-md' }
