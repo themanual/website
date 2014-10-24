@@ -52,6 +52,12 @@ class Issue < ActiveRecord::Base
     end
   end
 
+  def self.latest
+    Rails.cache.fetch('issues:latest', expires_in: 1.hour) do
+      Issue.ordered.first
+    end
+  end
+
   def self.clear_caches
     ['issues:public'].each do |key|
       Rails.cache.delete key
