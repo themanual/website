@@ -70,4 +70,12 @@ class User < ActiveRecord::Base
   def current_card
     cards.latest.first
   end
+
+  def visible_issues
+    if is_admin?
+      Issue.ordered
+    else
+      Issue.ordered.where status: [Issue.statuses[:published], Issue.statuses[:preview]]
+    end
+  end
 end

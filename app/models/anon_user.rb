@@ -25,4 +25,8 @@ class AnonUser < OpenStruct
 
   end
 
+  def visible_issues
+    Issue.public_issues
+  end
+
 end
