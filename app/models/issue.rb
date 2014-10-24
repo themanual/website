@@ -18,7 +18,8 @@ class Issue < ActiveRecord::Base
 
   acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
 
-  scope :ordered,   -> { order('number DESC') }
+  scope :ordered, -> { order('number DESC') }
+  scope :publicly_visible, -> { where(status: [Issue.statuses[:published], Issue.statuses[:preview]]) }
 
   def title
     "Issue ##{self.number}"
@@ -26,6 +27,10 @@ class Issue < ActiveRecord::Base
 
   def purchasable?
     Shoppe::Product.with_attributes(:issue_number, self.number.to_s).any?
+  end
+
+  def publicly_visible?
+    preview? || published?
   end
 
   def shoppe_item format = :print
@@ -43,7 +48,7 @@ class Issue < ActiveRecord::Base
 
   def self.public_issues
     Rails.cache.fetch('issues:public', expires_in: 1.hour) do
-      Issue.ordered.published
+      Issue.publicly_visible.ordered
     end
   end
 
