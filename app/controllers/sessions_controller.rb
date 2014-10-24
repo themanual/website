@@ -2,7 +2,15 @@ class SessionsController < Devise::SessionsController
 
   skip_before_filter :store_path
 
+  # starts with / but not //
+  SAFE_REDIRECT_REGEX = /\A\/[^\/].*\z/
+
   def new
+
+    if params[:next] && params[:next] =~ SAFE_REDIRECT_REGEX
+      session[:return_to] = params[:next]
+    end
+
     render :new
   end
 

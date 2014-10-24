@@ -1,5 +1,7 @@
 ActiveAdmin.register Issue do
 
+  menu parent: 'Editorial', priority: 2
+
   permit_params :number, :published_on, :volume_id, :portrait_illustrator, :status
 
   filter :authors

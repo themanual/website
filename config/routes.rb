@@ -19,7 +19,7 @@ TheManual::Application.routes.draw do
 
   resource :account, controller: 'user/account', only: [:show, :update] do
     resources :emails, controller: 'user/emails', only: [:create, :destroy, :update]
-    resources :addresses, controller: 'user/addresses', only: [:index, :create, :destroy, :update]
+    resource :address, controller: 'user/addresses', only: [:show, :create]
   end
 
   # READ

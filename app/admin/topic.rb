@@ -1,5 +1,7 @@
 ActiveAdmin.register ActsAsTaggableOn::Tag, as: 'Topic' do
 
+  menu parent: 'Editorial'
+
   permit_params :name, :bio, :slug, :twitter
 
   filter :name

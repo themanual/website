@@ -1,5 +1,7 @@
 ActiveAdmin.register Piece do
 
+  menu parent: 'Editorial', label: '⤷ Pieces', priority: 3
+
   permit_params :author_id, :issue_id, :title, :body, :synopsis, :illustrator, :position, :topic_list, :status, :type
 
   filter :issue

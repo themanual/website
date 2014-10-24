@@ -1,5 +1,7 @@
 ActiveAdmin.register Author do
 
+  menu parent: 'Editorial', priority: 1
+
   permit_params :name, :bio, :slug, :twitter
 
 	filter :name

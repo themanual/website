@@ -1,6 +1,6 @@
 class Address < ActiveRecord::Base
 	belongs_to :user
-	has_one :country, class_name: 'Shoppe::Country', foreign_key: :id
+	belongs_to :country, class_name: 'Shoppe::Country'
 
 	validates_presence_of :lines, :message => "is required"
 	validates_presence_of :city, :message => "is required"

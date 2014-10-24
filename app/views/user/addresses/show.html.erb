@@ -2,7 +2,7 @@
 <%- title "Account" -%>
 <%- title "Update Address" -%>
 <section class="l-p">
-  <%= form_for @address, url: account_addresses_path, html: { class: "form l-single-l", novalidate: :novalidate } do |a| %>
+  <%= form_for @address, url: account_address_path, html: { class: "form l-single-l", novalidate: :novalidate, method: :post } do |a| %>
   <!--
   <p class="alert alert-error">
     <strong>Uh-oh!</strong> We couldn’t save your address. Please fix any errors and try again.
