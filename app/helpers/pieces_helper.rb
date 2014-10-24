@@ -6,4 +6,11 @@ module PiecesHelper
     end
   end
 
+  def bio_with_twitter author
+    return author.bio.strip if author.twitter.blank?
+    twitter_link_md = "[#{author.name}](https://twitter.com/#{author.twitter})"
+    name_pattern = Regexp.new("^#{author.name}")
+    return author.bio.strip.gsub(name_pattern, twitter_link_md)
+  end
+
 end

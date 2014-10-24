@@ -35,7 +35,7 @@
       <%= portrait_tag(@piece) %>
     </figure>
     <div class="piece-author-bio styled">
-      <%= raw markdown(@author.bio) %>
+      <%= raw markdown(bio_with_twitter(@author)) %>
       <p>
         <%= link_to piece_path(@piece.companion.issue.number, @piece.companion.author_slug, @piece.companion.class.name.underscore.to_sym), class: "btn btn-sc" do %>
           Read Next: <%= @author.name.possessive %> <%= @piece.companion.type.titleize %>
