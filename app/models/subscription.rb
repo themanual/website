@@ -12,6 +12,15 @@ class Subscription < ActiveRecord::Base
 
   scope :including, -> (issue_number){ where('start_issue <= :num AND start_issue + issues_duration > :num', num: issue_number) }
 
+
+  def description
+    Ownership::LEVELS[self.level][:description]
+  end
+
+  def issues
+    (0..self.issues_duration-1).collect{|n| n + self.start_issue}
+  end
+
   def add_issue issue
     if self.active? and self.issues_remaining > 0
       ownership = self.ownerships.find_or_initialize_by(user_id: self.user_id, issue_id: issue.id, level: self.level)

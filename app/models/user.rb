@@ -78,4 +78,12 @@ class User < ActiveRecord::Base
       Issue.ordered.where status: [Issue.statuses[:published], Issue.statuses[:preview]]
     end
   end
+
+  def issues_with_downloads
+    Issue.joins(:ownerships).includes(:ownerships, :downloads).where("ownerships.user_id = ? AND ownerships.level <> 'web'", self.id).order('issues.id DESC')
+  end
+
+  def current_subscription
+    @current_subscription ||= subscriptions.active.order('start_date DESC').limit(1).first
+  end
 end

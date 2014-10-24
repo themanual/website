@@ -11,19 +11,32 @@ class Ownership < ActiveRecord::Base
   # PRINT - print, ebook & web
   # FULL  - print, audio, ebook & web
 
+  LEVELS = {
+    'web' => {
+      includes: [:web],
+      description: 'Web Subscription'
+    },
+    'ebook' => {
+      includes: [:web, :ebook],
+      description: 'Ebook Subscription'
+    },
+    'audio' => {
+      includes: [:web, :ebook, :audiobook],
+      description: 'Audio Subscription'
+    },
+    'print' => {
+      includes: [:web, :ebook, :print],
+      description: 'Print & Ebook Subscription'
+    },
+    'full' => {
+      includes: [:web, :ebook, :audiobook, :print],
+      description: 'Print, Ebook & Audio Subscription'
+    },
+
+  }
+
   def level_types
-    @level_types ||= case level
-    when 'web'
-      [:web]
-    when 'ebook'
-      [:web, :ebook]
-    when 'audio'
-      [:web, :ebook, :audiobook]
-    when 'print'
-      [:web, :ebook, :print]
-    when 'full'
-      [:web, :ebook, :audiobook, :print]
-    end
+    @level_types ||= LEVELS[level][:includes]
   end
 
   def can_access? type # audiobook, ebook, web

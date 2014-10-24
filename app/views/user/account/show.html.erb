@@ -11,21 +11,39 @@
     <dt>Email</dt>
     <dd><%= current_user.email %></dd>
   </dl>
+
+  <% if current_user.current_subscription %>
   <h3>Current Subscription</h3>
   <dl>
     <dt>Type</dt>
-    <dd>Print + Ebook Subscription</dd>
+    <dd><%= current_user.current_subscription.description %></dd>
     <dt>Issues</dt>
-    <dd><%= link_to "Issue 3", issue_path(issue: 3) %> <span class="c-success" title="Released">✔</span></dd>
-    <dd><%= link_to "Issue 4", issue_path(issue: 4) %> <span class="c-success" title="Released">✔</span></dd>
-    <dd>Issue 5</dd>
+    <% Issue.order('number ASC').where(number: current_user.current_subscription.issues).each do |issue| %>
+      <% if issue.published? %>
+        <dd><%= link_to "Issue #{issue.number}", issue_path(issue: issue.number) %> <span class="c-success" title="Released">✔</span></dd>
+      <% else %>
+        <dd>Issue <%= issue.number %></dd>
+      <% end %>
+    <% end %>
   </dl>
+  <% end %>
+
+  <% if current_user.subscriptions.count > 1 %>
   <h3>History</h3>
   <ul class="plain">
-    <li><strong>2014-10-13:</strong> Print + Ebook Subscription (Issues 3, 4, 5)</li>
-    <li><strong>2012-07-23:</strong> <del>Print + Ebook Subscription (Issues 2, 3, 4)</del> <strong class="c-error">CANCELLED</strong></li>
+    <% current_user.subscriptions.reject{|s| s.id == current_user.current_subscription.id}.each do |s| %>
+      <% if s.cancelled? %>
+        <li><strong><%= s.start_date %>:</strong> <del><%= s.description %> (Issues <%= s.issues.join ', ' %>)</del> <strong class="c-error">CANCELLED</strong> </li>
+      <% else %>
+        <li><strong><%= s.start_date %>:</strong> <%= s.description %> (Issues <%= s.issues.join ', ' %>)</li>
+      <% end %>
+    <% end %>
   </ul>
+  <% end %>
+
+
   <hr />
+
   <h2>Shipping Address</h2>
   <blockquote><p>
     Betahaus<br/>
@@ -40,13 +58,13 @@
   <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: 'about', action: 'faq', anchor:  'downloads'} %></p>
   <div class="l-cols-m-thirds l-stack-m">
 
-    <% current_user.ownerships.where("level <> 'web'").includes(:issue => :downloads).order('issue_id DESC').each do |o| %>
+    <% current_user.issues_with_downloads.each do |issue| %>
     <div>
 
-      <h3 class="h-spaced-top">Issue <%= o.issue.number %></h3>
+      <h3 class="h-spaced-top">Issue <%= issue.number %></h3>
 
-      <% o.issue.downloads.group_by(&:medium).each do |medium, dls| %>
-        <%- if o.can_access? medium.downcase -%>
+      <% issue.downloads.group_by(&:medium).each do |medium, dls| %>
+        <%- if issue.ownerships.any? {|o| o.can_access? medium.downcase } -%>
 
           <h5><%= medium %></h5>
 
