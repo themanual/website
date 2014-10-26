@@ -115,8 +115,15 @@ em      { font-style: italic; }
 
 .tagline {
   font-size: $type-l;
-  font-weight: weight(medium);
   color: $c-text-body;
+}
+
+.tagline-strong {
+  font-weight: weight(medium);
+}
+
+.tagline + .tagline {
+  margin-top: 1em;
 }
 
 // Alignments
