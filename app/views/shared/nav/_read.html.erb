@@ -11,7 +11,7 @@
   <h2 class="navgroup-title">Issues</h2>
   <ul class="navgroup-items sidebar-issues">
     <%- latest_issue = Issue.latest -%>
-    <%- if latest_issue.number == "4" && latest_issue.unpublished? && !current_user.can_view?(latest_issue) -%>
+    <%- if latest_issue.number == "4" && latest_issue.unpublished? && !current_user.can?(:view, latest_issue) -%>
     <li>
       <%= link_to_current nil, issue_path(issue: latest_issue.number), class: "issue-#{latest_issue.number}" do %>
         Issue <%= latest_issue.number %> <small class="tag">New</small>

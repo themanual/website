@@ -8,14 +8,14 @@ class IssuesController < ApplicationController
     issue_no = params[:issue].to_i
     @issue = Issue.where(number: issue_no).first
 
-    if @issue.number == 4 && @issue.unpublished? && !current_user.can_view?(@issue)
+    if @issue.number == 4 && @issue.unpublished? && !current_user.can?(:view, @issue)
       metadata "og:title",        "Issue 4"
       metadata "description",     "Issue of The Manual is coming soon. Featuring Jeniffer Brook, David Cole, Paul Ford, Diana Kimball, Wilson Miner, and Craig Mod."
       render :soon
     else
-      redirect_to read_path and return if @issue.nil? || !current_user.can_view?(@issue)
-      metadata "og:title",        "Issue #{@issue.number}"
-      metadata "description",     "Issue #{@issue.number} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
+      redirect_to read_path and return if @issue.nil? || !current_user.can?(:view, @issue)
+      metadata "og:title",        @issue.name
+      metadata "description",     "#{@issue.name} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
     end
   end
 

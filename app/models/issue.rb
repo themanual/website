@@ -19,7 +19,7 @@ class Issue < ActiveRecord::Base
   acts_as_cached(:version => 1, :expires_in => 1.month) if ActionController::Base.perform_caching
 
   scope :ordered, -> { order('number DESC') }
-  scope :publicly_visible, -> { where(status: [Issue.statuses[:published], Issue.statuses[:preview]]) }
+  scope :publicly_listed, -> { where(status: [Issue.statuses[:published], Issue.statuses[:preview]]) }
 
   def title
     "Issue ##{self.number}"
@@ -29,7 +29,29 @@ class Issue < ActiveRecord::Base
     Shoppe::Product.with_attributes(:issue_number, self.number.to_s).any?
   end
 
-  def publicly_visible?
+  def has_published_pieces?
+    case status
+    when "unpublished"
+      return false
+    when "preview"
+      return pieces.published.count > 0
+    when "published"
+      return true
+    end
+  end
+
+  def published_pieces
+    case status
+    when "unpublished"
+      return 0
+    when "preview"
+      return pieces.published.count
+    when "published"
+      return pieces.count
+    end
+  end
+
+  def publicly_listed?
     preview? || published?
   end
 
@@ -46,9 +68,17 @@ class Issue < ActiveRecord::Base
     @next ||= Issue.where(number: 1 + self.number).first
   end
 
+  def name
+    "Issue #{number}"
+  end
+
+  def code
+    "issue-#{number}"
+  end
+
   def self.public_issues
     Rails.cache.fetch('issues:public', expires_in: 1.hour) do
-      Issue.publicly_visible.ordered
+      Issue.publicly_listed.ordered
     end
   end
 

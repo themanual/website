@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   after_create :add_email_address
 
-  def self.anon_user
+  def self.anon
     AnonUser.instance
   end
 
@@ -30,27 +30,31 @@ class User < ActiveRecord::Base
     access_level > 0
   end
 
-  def can_view? item
-    # check if the anon user can access this first
-    #   no point running our logic if its open to the public
-    if is_admin? || User.anon_user.can_view?(item)
+  def can?(verb, item)
+
+    if is_admin? || User.anon.can?(verb, item)
       return true
-    else
+    end
+
+    # Don't repeat what anons can already do
+    case verb
+    when :read
       case item
       when Issue
-        return true if issue.publicly_visible?
+        return item.preview? && owns_issue?(item)
       when Piece
-        return true if item.issue.preview? && owns_issue?(item.issue)
+        return can?(:read, item.issue)
       end
-      return false
     end
+
+    return false
   end
 
   def visible_issues
     if is_admin?
       Issue.ordered
     else
-      Issue.ordered.publicly_visible
+      Issue.ordered.publicly_listed
     end
   end
 

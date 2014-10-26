@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     def current_user
       @current_user ||= begin
-        warden.authenticate(:scope => :user) || User.anon_user
+        warden.authenticate(:scope => :user) || User.anon
       end
     end
 

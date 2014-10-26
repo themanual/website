@@ -17,13 +17,15 @@ class PiecesController < ApplicationController
   end
 
   def show
+    begin
+      @author = Author.fetch_by_uniq_key!(params[:key], :slug)
+      @piece  = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: @author.id).first
+      @issue  = @piece.issue
+    rescue ActiveRecord::RecordNotFound
+      redirect_to read_path and return
+    end
 
-    @author = Author.fetch_by_uniq_key!(params[:key], :slug)
-    @piece  = Piece.includes(:author, :issue).where(issue_id: params[:issue].to_i, type: params['type'].titleize, author_id: @author.id).first
-
-    redirect_to read_path and return unless @piece.present? && current_user.can_view?(@piece.issue)
-
-    @issue  = @piece.issue
+    redirect_to read_path and return unless current_user.can?(:view, @issue)
 
     title    "#{@piece.title}, by #{@author.name}"
     metadata "og:type",         "article"
