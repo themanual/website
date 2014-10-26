@@ -1,7 +1,6 @@
-<%- title "Issue #{@issue.number}" -%>
+<%- title @issue.name -%>
 <%- content_for(:logo) { "issue-#{@issue.number}" } -%>
-
-<%- cache @issue do -%>
+<%= render partial: 'issues/preview_header' if @issue.preview? -%>
 <ul class="issue">
   <%- @issue.articles.ordered.each do |article| -%>
   <li>
@@ -10,10 +9,9 @@
     </figure>
     <div class="issue-pieces">
       <h2 class="h-sc h-sc-spaced"><%= article.author.name %></h2>
-      <%= render article %>
-      <%= render article.lesson %>
+        <%= render article %>
+        <%= render article.lesson %>
     </div>
   </li>
   <%- end -%>
 </ul>
-<%- end -%>

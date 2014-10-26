@@ -1,0 +1,25 @@
+<div class="l-p l-line-b <%= @issue.code %> c-issue">
+  <%- if current_user.is_admin? -%>
+  <p class="tagline">
+    This issue is in preview, but since you're an admin, you can read all of it.
+  </p>
+  <%- elsif current_user.can?(:read, @issue) -%>
+  <p class="tagline">
+    Please enjoy this exclusive preview of <%= @issue.name %>. Thank you for being a subscriber to The Manual.
+  </p>
+  <%- else -%>
+    <%- if @issue.has_published_pieces? -%>
+    <p class="tagline">
+      <strong class="highlight">Please note:</strong> <%= @issue.name %> is in preview for subscribers, so some pieces are unavailable.
+    </p>
+    <%- else -%>
+    <p class="tagline">
+      <strong class="highlight">Please note:</strong> <%= @issue.name %> is in exclusive preview for subscribers. Check back soon as we open up access.
+    </p>
+    <%- end -%>
+    <p class="tagline">
+      <strong class="highlight">Already a subscriber?</strong> <%= link_to "Log in", login_and_return_path %> and get full access to <%= @issue.name %>.
+    </p>
+  <%- end -%>
+  </p>
+</div>
