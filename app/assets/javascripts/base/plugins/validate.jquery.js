@@ -153,8 +153,8 @@
           event.stopImmediatePropagation();
           // Make button enabled
           $submit_button.prop('disabled', false);
-          // Shake the focused element and the button
-          $form.find(":focus").animatecss('shake');
+          // Shake the the button
+          $submit_button.animatecss('shake');
           // Bind individual validation handlers
           bindOnTypeHandlers($form);
         }
