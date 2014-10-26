@@ -58,3 +58,15 @@
     @include padding-h(.1em);
   }
 }
+
+.piece-unit.is-locked .piece-unit-header:before {
+  content: "";
+  display: inline-block;
+  width: em(13, $rem-value);
+  height: em(16, $rem-value);
+  margin-right: .15em;
+  background-image: image-url('ui/icon-locked.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+}

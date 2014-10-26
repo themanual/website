@@ -1,5 +1,5 @@
-<%- cache piece do -%>
-<article class="piece-unit <%= "issue-#{piece.issue.number}" if piece.issue.number %>">
+<article class="piece-unit <%= piece_status(piece) %> <%= "issue-#{piece.issue.number}" if piece.issue.number %>">
+  <%- cache piece do -%>
   <header class="piece-unit-header">
     <h2 class="piece-unit-title"><%= link_to_piece piece %></h2>
     <p class="piece-unit-author"><span class="by">by</span> <%= piece.author.name %></p>
@@ -13,5 +13,5 @@
     <%- end -%>
     <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: piece } %></span>
   </p>
+  <%- end -%>
 </article>
-<%- end -%>

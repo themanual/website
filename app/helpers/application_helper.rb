@@ -55,6 +55,10 @@ module ApplicationHelper
     doc.to_html.html_safe
   end
 
+  def piece_status(piece)
+    current_user.can?(:read, piece) ? "is-readable" : "is-locked"
+  end
+
   def markdown(text)
     Kramdown::Document.new(text).to_html
   end
