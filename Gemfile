@@ -42,6 +42,7 @@ gem 'shipwire', github: 'marcroberts/shipwire' # gem 'shoppe-shipwire' to be bui
 gem 'nokogiri'
 gem 'numbers_and_words'
 gem 'ish'
+gem 'smarter_csv'
 
 # Database
 gem 'pg'

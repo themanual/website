@@ -365,6 +365,7 @@ GEM
       sass-rails (~> 4.0)
       uglifier (>= 2.2, < 3.0)
     slop (3.4.7)
+    smarter_csv (1.0.19)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -442,6 +443,7 @@ DEPENDENCIES
   shipwire!
   shoppe (~> 1.0.2)
   shoppe-stripe!
+  smarter_csv
   sprockets-image_compressor
   stripe
   terminal-notifier-guard
