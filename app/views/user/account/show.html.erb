@@ -1,4 +1,4 @@
-<% title "Account" %>
+<% title "Reader Account" %>
 <section class="styled l-p">
   <%- if current_user.is_admin? -%>
   <p><strong>You’re an administrator.</strong> <%= link_to "Go to Admin →", admin_root_path %></p>
@@ -49,24 +49,24 @@
   <blockquote><p>
     <%= current_user.shipping_address.lines.gsub("\n", "<br/>") %><br/>
     <%= current_user.shipping_address.city %><br/>
+    <%- if current_user.shipping_address.region.present? -%>
     <%= current_user.shipping_address.region %><br/>
+    <%- end -%>
     <%= current_user.shipping_address.post_code %><br/>
     <%= current_user.shipping_address.country.name %><br/>
   </p></blockquote>
-  <p><strong class="highlight">Address out of date?</strong> <%= link_to "Update this address.", account_address_path, class: "" %></p>
+  <p><strong class="highlight">Address out of date?</strong> <%= link_to "Update this address.", account_address_path %></p>
   <% else %>
-  <p><strong class="highlight">We have no address for you!</strong> <%= link_to "Add an address.", account_address_path, class: "" %></p>
+  <p><strong class="highlight">We have no address for you.</strong> <%= link_to "Add an address.", account_address_path %></p>
   <% end %>
   <hr />
   <h2>Downloads</h2>
+  <%- if @downloads.present? -%>
   <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: 'about', action: 'faq', anchor:  'downloads'} %></p>
   <div class="l-cols-m-thirds l-stack-m">
-
-    <% current_user.issues_with_downloads.each do |issue| %>
+    <%- @downloads.each do |issue| -%>
     <div>
-
       <h3 class="h-spaced-top">Issue <%= issue.number %></h3>
-
       <% issue.downloads.group_by(&:medium).each do |medium, dls| %>
         <%- if issue.ownerships.any? {|o| o.can_access? medium.downcase } -%>
 
@@ -80,9 +80,10 @@
 
         <%- end -%>
       <%- end -%>
-
     </div>
     <%- end -%>
-
   </div>
+  <%- else -%>
+  <p>You have no downloads.</p>
+  <%- end -%>
 </section>
