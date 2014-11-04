@@ -96,7 +96,9 @@ namespace :themanual do
     desc "Import legacy subscriptions"
     task legacy: :environment do
 
-      people = SmarterCSV.process ENV['CSV_PATH']
+      require 'open-uri'
+
+      people = SmarterCSV.process open(ENV['CSV_PATH'])
 
       people.each do |p|
 
