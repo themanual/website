@@ -12,26 +12,28 @@
     <dd><%= current_user.email %></dd>
   </dl>
 
-  <% if current_user.current_subscription %>
-  <h3>Current Subscription</h3>
-  <dl>
-    <dt>Type</dt>
-    <dd><%= current_user.current_subscription.description %></dd>
-    <dt>Issues</dt>
-    <% Issue.order('number ASC').where(number: current_user.current_subscription.issues).each do |issue| %>
-      <% if issue.published? %>
-        <dd><%= link_to "Issue #{issue.number}", issue_path(issue: issue.number) %> <span class="c-success" title="Released">✔</span></dd>
-      <% else %>
-        <dd>Issue <%= issue.number %></dd>
+  <% if current_user.current_subscriptions.size > 0 %>
+  <h3>Current Subscription<%= 's' if current_user.current_subscriptions.size > 1 %></h3>
+  <% current_user.current_subscriptions.each do |sub| %>
+    <dl>
+      <dt>Type</dt>
+      <dd><%= sub.description %></dd>
+      <dt>Issues</dt>
+      <% Issue.order('number ASC').where(number: sub.issues).each do |issue| %>
+        <% if issue.published? %>
+          <dd><%= link_to "Issue #{issue.number}", issue_path(issue: issue.number) %> <span class="c-success" title="Released">✔</span></dd>
+        <% else %>
+          <dd>Issue <%= issue.number %></dd>
+        <% end %>
       <% end %>
+    </dl>
     <% end %>
-  </dl>
   <% end %>
 
-  <% if current_user.subscriptions.count > 1 %>
+  <% if current_user.subscriptions.count > current_user.current_subscriptions.size %>
   <h3>History</h3>
   <ul class="plain">
-    <% current_user.subscriptions.reject{|s| s.id == current_user.current_subscription.id}.each do |s| %>
+    <% current_user.subscriptions.reject{|s| current_user.current_subscriptions.collect(&:id).include?(s.id)}.each do |s| %>
       <% if s.cancelled? %>
         <li><strong><%= s.start_date %>:</strong> <del><%= s.description %> (Issues <%= s.issues.join ', ' %>)</del> <strong class="c-error">CANCELLED</strong> </li>
       <% else %>

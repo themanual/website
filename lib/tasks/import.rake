@@ -61,12 +61,19 @@ namespace :themanual do
 
         end
 
+        issue_start = 4
+
+        # look for existing subscription
+        if user.subscriptions.any?
+          # start new sub after end of existing sub
+          issue_start = 3 + user.subscriptions.collect(&:start_issue).max
+        end
 
 
         # create subscription
         sub_attrs = {
           start_date: Date.parse(p[:pledged_at].split(',').first),
-          start_issue: 4,
+          start_issue: issue_start,
           issues_duration: 3,
           issues_remaining: 3,
           level: ENV['SUB_LEVEL']
@@ -74,8 +81,10 @@ namespace :themanual do
 
         subscription = user.subscriptions.create sub_attrs
 
-        # give ownership of issue 4 to this subscription
-        subscription.add_issue Issue.find_by_number(4)
+        if subscription.start_issue == 4
+          # give ownership of issue 4 to this subscription
+          subscription.add_issue Issue.find_by_number(4)
+        end
 
 
       end
@@ -92,8 +101,8 @@ namespace :themanual do
       people.each do |p|
 
         if User.where(email: p[:email]).any?
-          # user existss, skip
-          print "User with email #{p[:email]} exists, skipping\n"
+          # user existss, load
+          user = User.find_by_email p[:email]
         else
           user_attrs = {
             email: p[:email],
@@ -101,11 +110,13 @@ namespace :themanual do
             last_name: p[:last_name]
           }
 
-          print "Creating user for #{user_attrs[:email]}\n"
-
           user = User.create user_attrs
 
+        end
 
+        print "."
+
+        begin
 
           address_attrs = {
             lines: [ p[:shipping_company], p[:shipping_address_1], p[:shipping_address_2] ].compact.join("\n"),
@@ -119,23 +130,25 @@ namespace :themanual do
 
           user.update_attribute :shipping_address_id, a.id
 
+        rescue
+          print "\nFailed to create address for #{user.email}\n"
+        end
 
-          # create subscription
-          sub_attrs = {
-            start_date: Date.parse(p[:order_at]),
-            start_issue: p[:subscription_start_issue],
-            issues_duration: 3,
-            issues_remaining: p[:issues_unshipped],
-            level: 'print'
-          }
 
-          subscription = user.subscriptions.create sub_attrs
+        # create subscription
+        sub_attrs = {
+          start_date: Date.parse(p[:order_at]),
+          start_issue: p[:subscription_start_issue],
+          issues_duration: 3,
+          issues_remaining: p[:issues_unshipped],
+          level: 'print'
+        }
 
-          # give ownership of issue 4 to this subscription
-          (p[:subscription_start_issue]..4).each do |n|
-            subscription.add_issue Issue.find_by_number(n)
-          end
+        subscription = user.subscriptions.create sub_attrs
 
+        # give ownership of issue 4 to this subscription
+        (p[:subscription_start_issue]..4).each do |n|
+          subscription.add_issue Issue.find_by_number(n)
         end
 
 

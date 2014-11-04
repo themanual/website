@@ -87,7 +87,7 @@ class User < ActiveRecord::Base
     Issue.joins(:ownerships).includes(:ownerships, :downloads).where("ownerships.user_id = ? AND ownerships.level <> 'web'", self.id).order('issues.id DESC')
   end
 
-  def current_subscription
-    @current_subscription ||= subscriptions.active.order('start_date DESC').limit(1).first
+  def current_subscriptions
+    @current_subscriptions ||= subscriptions.active.to_a
   end
 end

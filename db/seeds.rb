@@ -7,7 +7,7 @@ legacy = HashWithIndifferentAccess.new(YAML.load(IO.read(File.join(Rails.root, "
 v = Volume.create number: 1
 
 [1,2,3].each do |i|
-  issue = v.issues.create number: i, public: true
+  issue = v.issues.create number: i, status: Issue.statuses[:published]
 
   data = legacy[:issue][i]
 
@@ -21,13 +21,15 @@ v = Volume.create number: 1
                           synopsis: data[key][:article][:synopsis],
                           illustrator: data[key][:article][:illustrator],
                           body: File.read(Rails.root.join('legacy','pieces',"issue-#{i}","#{key}-article.md")),
-                          position: position
+                          position: position,
+                          status: Piece.statuses[:published]
 
     issue.lessons.create  author_id: a.id,
                           title: data[key][:lesson][:title],
                           synopsis: data[key][:lesson][:synopsis],
                           body: File.read(Rails.root.join('legacy','pieces',"issue-#{i}","#{key}-lesson.md")),
-                          position: position
+                          position: position,
+                          status: Piece.statuses[:published]
 
     position += 1
 
