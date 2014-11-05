@@ -83,7 +83,7 @@ namespace :themanual do
 
         if subscription.start_issue == 4
           # give ownership of issue 4 to this subscription
-          subscription.add_issue Issue.find_by_number(4)
+          subscription.add_issue Issue.find_by_number(4), false
         end
 
 
@@ -150,7 +150,7 @@ namespace :themanual do
 
         # give ownership of issue 4 to this subscription
         (p[:subscription_start_issue]..4).each do |n|
-          subscription.add_issue Issue.find_by_number(n)
+          subscription.add_issue Issue.find_by_number(n), (n<4)
         end
 
 

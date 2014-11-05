@@ -42,4 +42,8 @@ class Ownership < ActiveRecord::Base
   def can_access? type # audiobook, ebook, web
     level_types.include? type.to_sym
   end
+
+  def shipped!
+    update_attribute :shipped, true
+  end
 end

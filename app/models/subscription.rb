@@ -21,20 +21,33 @@ class Subscription < ActiveRecord::Base
     (0..self.issues_duration-1).collect{|n| n + self.start_issue}
   end
 
-  def add_issue issue
-    if self.active? and self.issues_remaining > 0
-      ownership = self.ownerships.find_or_initialize_by(user_id: self.user_id, issue_id: issue.id, level: self.level)
+  def add_issue issue, shipped = true
+    if active? and issues_remaining > 0
+      ownership = ownerships.find_or_initialize_by(user_id: self.user_id, issue_id: issue.id, level: self.level)
       if ownership.new_record?
+        ownership.shipped = shipped
         ownership.save!
-        self.decrement! :issues_remaining
-        self.complete! if self.issues_remaining == 0
+      elsif shipped and !ownership.shipped?
+        decrement! :issues_remaining
+        ownership.shipped!
       end
+
+      self.close!
+
     end
   end
 
-  def self.add_issue issue
+  def close!
+    complete! if all_shipped?
+  end
+
+  def all_shipped?
+    issues_remaining == 0 && ownerships.where(shipped: true).count == issues_duration
+  end
+
+  def self.add_issue issue, shipped = true
     self.active.including(issue.number).each do |s|
-      s.add_issue issue
+      s.add_issue issue, shipped
     end
   end
 

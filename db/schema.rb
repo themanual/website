@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031143716) do
+ActiveRecord::Schema.define(version: 20141105100818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20141031143716) do
     t.integer  "subscription_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "shipped",                    default: false, null: false
   end
 
   add_index "ownerships", ["issue_id"], name: "index_ownerships_on_issue_id", using: :btree
