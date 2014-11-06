@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :session_tokens, through: :email_addresses
   has_many :cards, :dependent => :delete_all
   has_many :addresses
-  has_one :shipping_address, class_name: 'Address'
+  has_one  :shipping_address, class_name: 'Address'
   has_many :subscriptions
   has_many :ownerships
 
