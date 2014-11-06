@@ -39,12 +39,12 @@ TheManual::Application.configure do
   }
 
   ActionMailer::Base.smtp_settings = {
-    :port =>           '587',
-    :address =>        'smtp.mandrillapp.com',
-    :user_name =>      ENV['MANDRILL_USERNAME'],
-    :password =>       ENV['MANDRILL_APIKEY'],
-    :domain =>         'heroku.com',
-    :authentication => :plain
+    :user_name => ENV['MAILTRAP_USERNAME'],
+    :password => ENV['MAILTRAP_PASSWORD'],
+    :address => 'mailtrap.io',
+    :domain => 'mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
   }
 
   ActionMailer::Base.delivery_method = :smtp
