@@ -6,12 +6,12 @@ class Subscription < ActiveRecord::Base
     cancelled: 2
   }
 
-	belongs_to :user
+  belongs_to :user
 
   has_many :ownerships
 
-  scope :including, -> (issue_number){ where('start_issue <= :num AND start_issue + issues_duration > :num', num: issue_number) }
-
+  scope :has_shipping, -> { where(level: ["print", "full"]) }
+  scope :with_issue, -> (issue_number){ where('start_issue <= :num AND start_issue + issues_duration > :num', num: issue_number) }
 
   def description
     Ownership::LEVELS[self.level][:description]
@@ -46,7 +46,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def self.add_issue issue, shipped = true
-    self.active.including(issue.number).each do |s|
+    self.active.with_issue(issue.number).each do |s|
       s.add_issue issue, shipped
     end
   end
