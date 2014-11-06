@@ -11,6 +11,10 @@ class Address < ActiveRecord::Base
     lines.split.join(', ')
   end
 
+  def full_text
+    [lines, city, region, post_code, country.name].reject(&:empty?).join("\n")
+  end
+
   def self.blank_address
     Address.new lines: ' ',
                 city: ' ',
