@@ -21,6 +21,10 @@ class Subscription < ActiveRecord::Base
     (0..self.issues_duration-1).collect{|n| n + self.start_issue}
   end
 
+  def issues_names
+    (issues.size == 1 ? "issue" : "issues") + " " + issues.to_sentence
+  end
+
   def add_issue issue, shipped = true
     if active? and issues_remaining > 0
       ownership = ownerships.find_or_initialize_by(user_id: self.user_id, issue_id: issue.id, level: self.level)
