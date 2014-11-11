@@ -3,7 +3,7 @@
 <div class="styled l-p">
   <p>We couldn’t find an existing account for <strong><%= params[:email] %></strong>.</p>
   <h4>Wrong email address?</h4>
-  <p><%= link_to "Try again", login_path %> with a different one.</p>
+  <p><%= link_to "Try again", :new_user_session %> with a different one.</p>
   <h4>Is something wrong?</h4>
   <p>Please <a href="mailto:hi@themanual.org">email us</a> to let us know.</p>
 </div>

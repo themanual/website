@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   protected
     def authenticate_admin_user!
-      redirect_to login_path unless current_user.access_level > 0
+      redirect_to new_user_session_path unless current_user.access_level > 0
     end
 
     def user_signed_in?

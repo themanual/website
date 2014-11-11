@@ -21,7 +21,7 @@ class IssuesController < ApplicationController
 
   def download
     if current_user.anon?
-      redirect_to login_path
+      redirect_to new_user_session_path
     else
       dl = Download.find params[:dl] # will raise ActiveRecord::RecordNotFound if doesn't exist
 
