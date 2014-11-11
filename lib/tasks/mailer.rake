@@ -3,25 +3,28 @@ namespace :themanual do
   namespace :mailer do
 
     desc 'Send address update email to subscribers'
-    task :shipping_address_update => :environment do |t, args|
+    task :shipping_address_update => :environment do
       
-      raise StandardError("Required: ISSUE and MODE environment variables.") unless ENV['ISSUE'].present? && ENV['MODE'].present?
+      unless ENV['ISSUE'].present? && ENV['MODE'].present? && (ENV['MODE'] == "TEST" || ENV['MODE'] == "SEND")
+        abort "Required: ISSUE [N] and MODE [TEST|SEND] environment variables." 
+      end
 
-      issue_number = ENV['ISSUE']
+      issue_number = ENV['ISSUE'].to_i
       subscriptions = Subscription.active.has_shipping.with_issue(issue_number).includes(user: [:shipping_address])
 
       # if mode is test, get a random person
       subscriptions  = [subscriptions.sample] if ENV['MODE'] == 'TEST'
 
-      subscriptions.each do |subscription| 
-        SubscriptionMailer.shipping_address_update({
-          to: subscription.user.email,
-          data: {
-            user: subscription.user, 
-            subscription: subscription,
-            issue_number: issue_number
-          }
-        }).deliver
+      # send emails
+      subscriptions.each do |subscription|
+        data = {
+          user: subscription.user, 
+          subscription: subscription, 
+          issue_number: issue_number
+        }
+        print "Sending email to #{subscription.user.full_name} <#{subscription.user.email}>... " and STDOUT.flush
+        SubscriptionMailer.shipping_address_update(subscription.user.email, data).deliver
+        puts "sent!"
       end
     end
 
