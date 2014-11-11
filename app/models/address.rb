@@ -12,7 +12,7 @@ class Address < ActiveRecord::Base
   end
 
   def full_text
-    [lines, city, region, post_code, country.name].reject(&:empty?).join("\n")
+    [lines, city, region, post_code, country.name].reject(&:nil?).reject(&:empty?).join("\n")
   end
 
   def self.blank_address
