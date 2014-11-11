@@ -62,13 +62,10 @@ class User < ActiveRecord::Base
     self.ownerships.where(issue_id: issue.id).any?
   end
 
-  def full_name
-    name
-  end
-
   def name
     "#{first_name} #{last_name}"
   end
+  alias_method :full_name, :name
 
   # ensure devise always 'remembers' users
   def remember_me

@@ -10,8 +10,8 @@ class Subscription < ActiveRecord::Base
 
   has_many :ownerships
 
-  scope :has_shipping, -> { where(level: ["print", "full"]) }
-  scope :with_issue, -> (issue_number){ where('start_issue <= :num AND start_issue + issues_duration > :num', num: issue_number) }
+  scope :has_shipping,  -> { where(level: ["print", "full"]) }
+  scope :with_issue,    -> (issue_number){ where('start_issue <= :num AND start_issue + issues_duration > :num', num: issue_number) }
 
   def description
     Ownership::LEVELS[self.level][:description]
