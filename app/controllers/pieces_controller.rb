@@ -1,7 +1,7 @@
 class PiecesController < ApplicationController
 
   def index
-    @issues = Issue.open.ordered.includes(:pieces => :author).order('pieces.position DESC, pieces.type DESC')
+    @issues = Issue.published.ordered.includes(:pieces => :author).order('pieces.position DESC, pieces.type DESC')
     respond_to do |format|
       format.html { redirect_to read_path }
       format.rss  { render layout: false }
