@@ -1,9 +1,16 @@
-Hi <%= @data[:user].first_name %>
+Hi <%= @data[:user].first_name %>,
 
-We’re almost ready to ship issue <%= @data[:issue].number %> to you, part of your subscription to <%= @data[:subscription].issues_names %> of The Manual. 
+We’re almost ready to ship issue <%= @data[:issue_number] %> to you, part of your current subscription to <%= @data[:subscription].issues_names %> of The Manual. 
 
-This is the shipping address we have for you:
+This is the shipping address we currently have for you:
 
 <%= @data[:user].shipping_address.full_text %>
 
-If this is incorrect, log in to https://themanual.org/account and change it. There is no password — use your email address <%= @data[:user].email %>, and you’ll get an email that lets you log in to your account. You can use that same link to log in other devices for 24 hours.
+If this address is correct, there is nothing further for you to do. 
+
+If this address is incorrect, however, please log in at https://themanual.org/account and change it. There is no password, just enter your email address (<%= @data[:user].email %>) and we’ll send you a link to log in to manage your subscription.
+
+Thanks,
+
+— Andy McMillan
+Publisher, The Manual
