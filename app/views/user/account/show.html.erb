@@ -65,7 +65,7 @@
   <hr />
   <h2>Downloads</h2>
   <%- if @downloads.present? -%>
-  <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: 'about', action: 'faq', anchor:  'downloads'} %></p>
+  <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: '/about', action: 'faq', anchor:  'downloads'} %></p>
   <div class="l-cols-m-thirds l-stack-m">
     <%- @downloads.each do |issue| -%>
     <div>
