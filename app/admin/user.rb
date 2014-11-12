@@ -15,8 +15,11 @@ ActiveAdmin.register User do
   	column :email
     column :first_name
   	column :last_name
-  	column :current_signin_at
-  	column :last_signin_at
+    column :shipping_address do |a|
+      a.shipping_address.name
+    end
+  	# column :current_signin_at
+  	# column :last_signin_at
   	actions
   end
 
@@ -29,5 +32,17 @@ ActiveAdmin.register User do
       f.input :last_name
     end
     f.actions
+  end
+
+
+  sidebar :shipping_address , :only => :show do
+    ul do
+      li {user.shipping_address.lines}
+      li {user.shipping_address.city}
+      li {user.shipping_address.region}
+      li {user.shipping_address.post_code}
+      li {user.shipping_address.country.name}
+      li { link_to 'Edit', admin_address_path(user.shipping_address) }
+    end
   end
 end
