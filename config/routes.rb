@@ -51,6 +51,7 @@ TheManual::Application.routes.draw do
 
   # ABOUT
   get '/about', to: 'about#index',  as: :about
+  get '/about(/:action)', controller: :about
 
   get '/kickstarter',            to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
   get '/kickstarter/original',   to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
