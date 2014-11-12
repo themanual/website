@@ -49,7 +49,7 @@
   <h2>Shipping Address</h2>
   <% if current_user.shipping_address.present? %>
   <blockquote><p>
-    <%= current_user.shipping_address.lines.gsub("\n", "<br/>") %><br/>
+    <%= current_user.shipping_address.lines.split("\n").map{|l| html_escape(l)}.join("<br/>").html_safe %><br/>
     <%= current_user.shipping_address.city %><br/>
     <%- if current_user.shipping_address.region.present? -%>
     <%= current_user.shipping_address.region %><br/>
