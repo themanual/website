@@ -73,5 +73,5 @@ TheManual::Application.routes.draw do
   get "robots(.:format)" => 'seo#robots'
   get "sitemap(.:format)" => 'seo#sitemap'
   get "errors/:code" => 'seo#error_page', constraints: {code: /[0-9]{3}/}
-  match '*path', via: :all, to: 'seo#error_page', defaults: {code: '404'} # nicley handle 404s, no stacktraces now
+  match '*path', via: :get, to: 'seo#error_page', defaults: {code: '404'} # nicely handle 404s, no stacktraces now
 end
