@@ -5,6 +5,10 @@ namespace :themanual do
     desc "Import subscriptions from kickstarter"
     task kickstarter: :environment do
 
+      unless ENV['CSV_PATH'].present? && ENV['SUB_LEVEL'].present?
+        abort "Required: CSV_PATH and SUB_LEVEL environment variables."
+      end
+
       file = File.open(ENV['CSV_PATH'], 'r:bom|utf-8')
 
       people = SmarterCSV.process(file, {
