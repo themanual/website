@@ -5,7 +5,9 @@ namespace :themanual do
     desc "Import subscriptions from kickstarter"
     task kickstarter: :environment do
 
-      people = SmarterCSV.process(ENV['CSV_PATH'], {
+      file = File.open(ENV['CSV_PATH'], 'r:bom|utf-8')
+
+      people = SmarterCSV.process(file, {
         key_mapping: {
           :'email_(for_login)' => :survey_email
         }
@@ -16,31 +18,35 @@ namespace :themanual do
       people.each do |p|
 
         if p[:survey_email].blank?
-          print "Skipping backer #{p[:backer_name]}, no survey response yet\n"
+          print "\nSkipping backer #{p[:backer_name]}, no survey response yet\n"
           next
         end
 
-        user = User.find_by_email(p[:survey_email])
+        user = User.where("email ILIKE ?", p[:survey_email]).first_or_initialize
 
-        unless user.present?
+        if user.new_record?
 
-          user_attrs = {
-            email: p[:survey_email],
+          user.attributes = {
             first_name: p[:first_name],
-            last_name: p[:last_name]
+            last_name: p[:last_name],
+            backer_id: p[:backer_id]
           }
 
-          print "Creating user for #{user_attrs[:email]}\n"
+          print "." # creating user
 
-          user = User.create user_attrs
-
+          user.save
+        else
+          # skip is already imported this backer
+          if user.backer_id.present?
+            print "*"
+            next
+          else
+            print '=' # user exists
+          end
         end
 
-        # skip is already imported this backer
-        if user.backer_id.present?
-          print "Already imported #{user.email}, skipping\n"
-          next
-        end
+
+
 
         user.update_attribute :backer_id, p[:backer_id]
 
@@ -67,6 +73,10 @@ namespace :themanual do
         if user.subscriptions.any?
           # start new sub after end of existing sub
           issue_start = 3 + user.subscriptions.collect(&:start_issue).max
+
+          print ">"
+        else
+          print "+"
         end
 
 
