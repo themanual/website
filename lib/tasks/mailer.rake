@@ -12,26 +12,15 @@ namespace :themanual do
       issue_number = ENV['ISSUE'].to_i
       subscriptions = Subscription.active.has_shipping.with_issue(issue_number).includes(user: [:shipping_address])
 
+      # kickstarter backers only this time
+      subscriptions = subscriptions.joins(:user).where('users.backer_id IS NOT NULL')
+
       # if mode is test, get a random person
       subscriptions  = [subscriptions.sample] if ENV['MODE'] == 'TEST'
-
-      # FUDGE FOR FAILED RUN, DELETE WHEN COMPLETE
-      actually_send = false
 
 
       # send emails
       subscriptions.each do |subscription|
-
-        # FUDGE PART DEUX
-        if subscription.user_id == 68
-          actually_send = true
-          next
-        else
-          next if !actually_send
-        end
-
-
-
 
         data = {
           user: subscription.user,
