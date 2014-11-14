@@ -5,6 +5,8 @@ namespace :themanual do
     desc "Import subscriptions from kickstarter"
     task kickstarter: :environment do
 
+      require 'open-uri'
+
       unless ENV['CSV_PATH'].present? && ENV['SUB_LEVEL'].present?
         abort "Required: CSV_PATH and SUB_LEVEL environment variables."
       end
