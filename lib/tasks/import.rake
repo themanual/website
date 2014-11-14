@@ -5,13 +5,21 @@ namespace :themanual do
     desc "Import subscriptions from kickstarter"
     task kickstarter: :environment do
 
-      require 'open-uri'
-
       unless ENV['CSV_PATH'].present? && ENV['SUB_LEVEL'].present?
         abort "Required: CSV_PATH and SUB_LEVEL environment variables."
       end
 
-      file = File.open(ENV['CSV_PATH'], 'r:bom|utf-8')
+      require 'open-uri'
+
+      if ENV['CSV_PATH'] =~ /^http/
+        tmp = Tempfile.new('csv')
+        tmp.write(open(ENV['CSV_PATH']).read.force_encoding('utf-8'))
+        tmp.close
+
+        file = File.open(tmp.path, 'r:bom|utf-8')
+      else
+        file = File.open(ENV['CSV_PATH'], 'r:bom|utf-8')
+      end
 
       people = SmarterCSV.process(file, {
         key_mapping: {
