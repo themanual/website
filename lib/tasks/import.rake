@@ -27,9 +27,10 @@ namespace :themanual do
         }
       })
 
-      # print people.to_yaml
 
       people.each do |p|
+
+        # print p.to_yaml
 
         if p[:survey_email].blank?
           print "\nSkipping backer #{p[:backer_name]}, no survey response yet\n"
@@ -41,6 +42,7 @@ namespace :themanual do
         if user.new_record?
 
           user.attributes = {
+            email: p[:survey_email],
             first_name: p[:first_name],
             last_name: p[:last_name],
             backer_id: p[:backer_id]
