@@ -5,42 +5,64 @@ namespace :themanual do
     desc "Import subscriptions from kickstarter"
     task kickstarter: :environment do
 
-      people = SmarterCSV.process(ENV['CSV_PATH'], {
+      unless ENV['CSV_PATH'].present? && ENV['SUB_LEVEL'].present?
+        abort "Required: CSV_PATH and SUB_LEVEL environment variables."
+      end
+
+      require 'open-uri'
+
+      if ENV['CSV_PATH'] =~ /^http/
+        tmp = Tempfile.new('csv')
+        tmp.write(open(ENV['CSV_PATH']).read.force_encoding('utf-8'))
+        tmp.close
+
+        file = File.open(tmp.path, 'r:bom|utf-8')
+      else
+        file = File.open(ENV['CSV_PATH'], 'r:bom|utf-8')
+      end
+
+      people = SmarterCSV.process(file, {
         key_mapping: {
           :'email_(for_login)' => :survey_email
         }
       })
 
-      # print people.to_yaml
 
       people.each do |p|
 
+        # print p.to_yaml
+
         if p[:survey_email].blank?
-          print "Skipping backer #{p[:backer_name]}, no survey response yet\n"
+          print "\nSkipping backer #{p[:backer_name]}, no survey response yet\n"
           next
         end
 
-        user = User.find_by_email(p[:survey_email])
+        user = User.where("email ILIKE ?", p[:survey_email]).first_or_initialize
 
-        unless user.present?
+        if user.new_record?
 
-          user_attrs = {
+          user.attributes = {
             email: p[:survey_email],
             first_name: p[:first_name],
-            last_name: p[:last_name]
+            last_name: p[:last_name],
+            backer_id: p[:backer_id]
           }
 
-          print "Creating user for #{user_attrs[:email]}\n"
+          print "." # creating user
 
-          user = User.create user_attrs
-
+          user.save
+        else
+          # skip is already imported this backer
+          if user.backer_id.present?
+            print "*"
+            next
+          else
+            print '=' # user exists
+          end
         end
 
-        # skip is already imported this backer
-        if user.backer_id.present?
-          print "Already imported #{user.email}, skipping\n"
-          next
-        end
+
+
 
         user.update_attribute :backer_id, p[:backer_id]
 
@@ -67,6 +89,10 @@ namespace :themanual do
         if user.subscriptions.any?
           # start new sub after end of existing sub
           issue_start = 3 + user.subscriptions.collect(&:start_issue).max
+
+          print ">"
+        else
+          print "+"
         end
 
 

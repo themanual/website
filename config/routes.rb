@@ -12,8 +12,8 @@ TheManual::Application.routes.draw do
 
   as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token
-    get 'login'         => 'sessions#new',      :as => :login
-    get 'logout'        => 'sessions#destroy',  :as => :logout
+    get 'login'         => 'sessions#new',      :as => :new_user_session # TODO rename to "login" ?
+    get 'logout'        => 'sessions#destroy',  :as => :destroy_user_session
     post 'login'        => 'sessions#create',   :as => :user_session
   end
 
@@ -51,6 +51,7 @@ TheManual::Application.routes.draw do
 
   # ABOUT
   get '/about', to: 'about#index',  as: :about
+  get '/about(/:action)', controller: :about
 
   get '/kickstarter',            to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
   get '/kickstarter/original',   to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
@@ -72,7 +73,5 @@ TheManual::Application.routes.draw do
   get "robots(.:format)" => 'seo#robots'
   get "sitemap(.:format)" => 'seo#sitemap'
   get "errors/:code" => 'seo#error_page', constraints: {code: /[0-9]{3}/}
-
-  # DEFAULT
-  get ':controller(/:action(/:id))'
+  match '*path', via: :get, to: 'seo#error_page', defaults: {code: '404'} # nicely handle 404s, no stacktraces now
 end
