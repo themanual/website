@@ -1,0 +1,18 @@
+Hi <%= @data[:user].first_name %>
+
+We’ve just shipped the print edition of Issue <%= @data[:issue].number %> to you, as part of your subscription to <%= @data[:subscription].issues_names %> of The Manual. 
+
+We sent it to the address we have for you:
+
+<%= @data[:user].full_name %>
+<%= @data[:user].shipping_address.full_text %>
+
+You should expect your issue to arrive in the next 1 or 2 weeks.
+
+<%- if @data[:subscription].all_shipped? -%>
+This is the last issue in your subscription. Currently, we’re still building out the tools that will let you renew your subscription if so you want. We’ll have them done before the next issue ships, and will let you know beforehand.
+<%- end -%>
+
+Thanks,
+
+— Your friends at The Manual
