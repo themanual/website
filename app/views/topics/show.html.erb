@@ -1,5 +1,3 @@
-<%- cache [:pieces, :topics, params[:topic].downcase], expires_in: 30.minutes do -%>
 <div class="l-stack-lined">
   <%= render @pieces %>
 </div>
-<%- end -%>
