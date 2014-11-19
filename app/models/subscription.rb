@@ -10,7 +10,8 @@ class Subscription < ActiveRecord::Base
 
   has_many :ownerships
 
-  scope :has_shipping,  -> { where(level: ["print", "full"]) }
+  scope :has_shipping,  -> { where(level: %w(print full)) }
+  scope :has_downloads, -> { where(level: %w(ebook audio print full))}
   scope :with_issue,    -> (issue_number){ where('start_issue <= :num AND start_issue + issues_duration > :num', num: issue_number) }
 
   def description
