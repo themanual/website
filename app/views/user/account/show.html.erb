@@ -61,27 +61,23 @@
   <% else %>
   <p><strong class="highlight">We have no address for you.</strong> <%= link_to "Add an address.", account_address_path %></p>
   <% end %>
-  <!--
+
   <hr />
+  <%- if @visible_downloads.any? -%>
   <h2>Downloads</h2>
-  <%- if @downloads.present? -%>
   <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: '/about', action: 'faq', anchor:  'downloads'} %></p>
   <div class="l-cols-m-thirds l-stack-m">
-    <%- @downloads.each do |issue| -%>
+    <%- @visible_downloads.each do |issue_num, downloads| -%>
     <div>
-      <h3 class="h-spaced-top">Issue <%= issue.number %></h3>
-      <% issue.downloads.group_by(&:medium).each do |medium, dls| %>
-        <%- if issue.ownerships.any? {|o| o.can_access? medium.downcase } -%>
+      <h3 class="h-spaced-top">Issue <%= issue_num %></h3>
+      <% downloads.group_by(&:medium).each do |medium, dls| %>
+        <h5><%= medium %></h5>
 
-          <h5><%= medium %></h5>
-
-          <ul class="plain">
-            <%- dls.each do |dl| -%>
-              <li><%= link_to dl.format,download_path(dl: dl.id) %> (<%= number_to_human_size dl.file_file_size %>)</li>
-            <%- end -%>
-          </ul>
-
-        <%- end -%>
+        <ul class="plain">
+          <%- dls.each do |dl| -%>
+            <li><%= link_to dl.format,download_path(dl: dl.id) %> (<%= number_to_human_size dl.file_file_size %>)</li>
+          <%- end -%>
+        </ul>
       <%- end -%>
     </div>
     <%- end -%>
@@ -89,5 +85,5 @@
   <%- else -%>
   <p>You have no downloads.</p>
   <%- end -%>
-  -->
+
 </section>
