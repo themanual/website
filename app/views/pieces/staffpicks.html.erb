@@ -1,5 +1,5 @@
 <div class="l-stack-lined">
-  <%- cache [:pieces, :staffpicks, Piece.latest_staff_pick] do -%>
+  <%- cache Piece::STAFF_PICK_CACHE_KEY, expires_in: 1.hour, race_condition_ttl: 5.minutes do -%>
     <%= render @pieces %>
   <%- end -%>
 </div>
