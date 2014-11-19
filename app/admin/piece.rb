@@ -44,7 +44,7 @@ ActiveAdmin.register Piece do
 
   	f.inputs do
   		f.input :issue
-      f.input :type, as: :select, collection: ['Article', 'Lesson']
+      f.input :type, as: :select, collection: ['article', 'lesson']
       f.input :author, input_html: { class: 'chosen-select' }
       f.input :title
       f.input :synopsis
@@ -74,6 +74,13 @@ ActiveAdmin.register Piece do
   after_save do
     Piece.active_topics_cache_clear
     Piece.staff_pick_cache_clear
+  end
+
+  before_save do
+    resource.attributes= {
+      type: params[:piece][:type].camelize
+    }
+    true
   end
 
 end
