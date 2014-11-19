@@ -85,6 +85,6 @@ class User < ActiveRecord::Base
   end
 
   def current_subscriptions
-    @current_subscriptions ||= subscriptions.active.to_a
+    @current_subscriptions ||= subscriptions.order('created_at ASC').active.to_a
   end
 end
