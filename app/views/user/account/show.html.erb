@@ -61,11 +61,11 @@
   <% else %>
   <p><strong class="highlight">We have no address for you.</strong> <%= link_to "Add an address.", account_address_path %></p>
   <% end %>
-  <!--
+
   <hr />
   <h2>Downloads</h2>
   <%- if @downloads.present? -%>
-  <p>All files are DRM-free. Got questions? <%= link_to "Read our FAQ.", {controller: '/about', action: 'faq', anchor:  'downloads'} %></p>
+  <p>All downloaded files are DRM-free. Please don’t share publicly.</p>
   <div class="l-cols-m-thirds l-stack-m">
     <%- @downloads.each do |issue| -%>
     <div>
@@ -89,5 +89,4 @@
   <%- else -%>
   <p>You have no downloads.</p>
   <%- end -%>
-  -->
 </section>
