@@ -54,7 +54,9 @@
     <%- if current_user.shipping_address.region.present? -%>
     <%= current_user.shipping_address.region %><br/>
     <%- end -%>
+    <%- if current_user.shipping_address.post_code.present? -%>
     <%= current_user.shipping_address.post_code %><br/>
+    <%- end -%>
     <%= current_user.shipping_address.country.name %><br/>
   </p></blockquote>
   <p><strong class="highlight">Address out of date?</strong> <%= link_to "Update this address.", account_address_path %></p>
