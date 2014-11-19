@@ -36,13 +36,27 @@ ActiveAdmin.register User do
 
 
   sidebar :shipping_address , :only => :show do
-    ul do
-      li {user.shipping_address.lines}
-      li {user.shipping_address.city}
-      li {user.shipping_address.region}
-      li {user.shipping_address.post_code}
-      li {user.shipping_address.country.name}
-      li { link_to 'Edit', admin_address_path(user.shipping_address) }
+    if user.shipping_address_id.present?
+      h4  user.shipping_address.name
+      p link_to 'Edit Address', admin_address_path(user.shipping_address)
+    else
+      p "No Shipping Address"
     end
+  end
+
+  sidebar :subscriptions, only: :show do
+
+    table_for user.subscriptions do
+      column :start_issue
+      column :level
+      column :status
+      column '' do |subscription|
+        link_to('View', admin_subscription_path(subscription))
+      end
+      column '' do |subscription|
+        link_to('Edit', edit_admin_subscription_path(subscription))
+      end
+    end
+
   end
 end
