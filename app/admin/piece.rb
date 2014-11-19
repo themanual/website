@@ -44,7 +44,7 @@ ActiveAdmin.register Piece do
 
     f.inputs do
       f.input :issue
-      f.input :type, as: :select, collection: ['Article', 'Lesson']
+      f.input :type, as: :select, collection: ['article', 'lesson']
       f.input :author, input_html: { class: 'chosen-select' }
       f.input :title
       f.input :synopsis
@@ -69,6 +69,13 @@ ActiveAdmin.register Piece do
     piece = Piece.find(params[:id])
     piece.unpick!
     redirect_to admin_pieces_path, notice:"Removed to Staff Picks!"
+  end
+
+  before_save do
+    resource.attributes= {
+      type: params[:piece][:type].camelize
+    }
+    true
   end
 
 end
