@@ -16,7 +16,7 @@ ActiveAdmin.register User do
     column :first_name
   	column :last_name
     column :shipping_address do |a|
-      a.shipping_address.name
+      a.shipping_address.try(:name)
     end
   	# column :current_signin_at
   	# column :last_signin_at
