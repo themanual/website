@@ -1,9 +1,8 @@
 Hi <%= @data[:user].first_name %>
 
-We just gave you exclusive access to the web edition of Issue <%= @data[:issue].number %>. When logged in, you can read Issue <%= @data[:issue].number %> online at <%= issue_url(@issue.number) %>.
+We just gave you exclusive access to the web edition of Issue <%= @data[:issue_number] %>. When logged in, you can read Issue <%= @data[:issue_number] %> online at <%= issue_url(@data[:issue_number]) %>.
 
 When prompted to log in, there is no password, just enter your email address (<%= @data[:user].email %>) and we’ll send you a link to log in. You can access your account details at https://themanual.org/account.
 
 Thanks,
-
 — Your friends at The Manual

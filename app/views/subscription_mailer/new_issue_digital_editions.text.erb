@@ -1,0 +1,14 @@
+Hi <%= @data[:user].first_name %>
+
+<%- if @data[:subscription].level.in?(%w(audiobook full)) -%>
+We’ve just added the ebook and audiobook editions of Issue <%= @data[:issue_number] %> to your account, as part of your subscription to <%= @data[:subscription].issues_names %> of The Manual. 
+<%- else -%>
+We’ve just added the ebook edition of Issue <%= @data[:issue_number] %> to your account, as part of your subscription to <%= @data[:subscription].issues_names %> of The Manual. 
+<%- end -%>
+
+You can access your account at https://themanual.org/account. There is no password, just enter your email address (<%= @data[:user].email %>) and we’ll send you a link to log in to manage your subscription.
+
+We also gave you exclusive access to the web edition of Issue <%= @data[:issue_number] %>. When logged in, you can read Issue <%= @data[:issue_number] %> online at <%= issue_url(@data[:issue_number]) %>.
+
+Thanks,
+— Your friends at The Manual
