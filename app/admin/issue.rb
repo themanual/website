@@ -8,10 +8,10 @@ ActiveAdmin.register Issue do
   filter :volume
 
   index do
-  	id_column
-  	column :number
+    id_column
+    column :number
     column :status
-  	actions
+    actions
   end
 
   form do |f|
@@ -56,6 +56,10 @@ ActiveAdmin.register Issue do
       end
     end
 
+  end
+
+  after_save do
+    Issue.clear_caches
   end
 
 end

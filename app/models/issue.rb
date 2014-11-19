@@ -89,7 +89,7 @@ class Issue < ActiveRecord::Base
   end
 
   def self.clear_caches
-    ['issues:public'].each do |key|
+    ['issues:public', 'issues:latest'].each do |key|
       Rails.cache.delete key
     end
   end
