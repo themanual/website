@@ -30,6 +30,7 @@ ActiveAdmin.register Download do
       f.input :issue
       f.input :medium, as: :select, collection: Download::MEDIUMS
       f.input :format
+      f.input :ordering
 
       f.input :file
 

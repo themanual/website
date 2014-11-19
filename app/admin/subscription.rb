@@ -33,4 +33,21 @@ ActiveAdmin.register Subscription do
     f.actions
   end
 
+  sidebar :ownerships, only: :show do
+
+    table_for subscription.ownerships do
+      column :issue do |ownership|
+        ownership.issue.number
+      end
+      column :level
+      column '' do |ownership|
+        link_to('View', admin_ownership_path(ownership))
+      end
+      column '' do |ownership|
+        link_to('Edit', edit_admin_ownership_path(ownership))
+      end
+    end
+
+  end
+
 end
