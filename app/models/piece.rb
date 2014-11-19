@@ -1,5 +1,5 @@
 class Piece < ActiveRecord::Base
-  STAFF_PICK_CACHE_KEY = "pieces:staff_pick_updated_at"
+  STAFF_PICK_CACHE_KEY = "pieces:staff_picks"
   ACTIVE_TOPICS_CACHE_KEY = "topics:active"
 
   enum status: {
@@ -17,7 +17,12 @@ class Piece < ActiveRecord::Base
   acts_as_taggable_on :topics
 
   scope :ordered, -> { order('position ASC') }
-  scope :staff_picks, -> { where('staff_pick_at IS NOT NULL').order('staff_pick_at DESC') }
+  scope :staff_picks, -> {
+    where('staff_pick_at IS NOT NULL')
+    .joins(:issue)
+    .where('issues.status = ? OR (issues.status = ? AND pieces.status = ?)', Issue.statuses[:published], Issue.statuses[:preview], Piece.statuses[:published])
+    .order('staff_pick_at DESC')
+  }
   scope :not_from_issue, -> (issue) { where('issue_id NOT IN (?)', issue.id) }
 
   def issue_number
@@ -45,12 +50,12 @@ class Piece < ActiveRecord::Base
 
   def pick!
     self.update_attributes staff_pick: true, staff_pick_at: Time.now
-    Piece.latest_staff_pick_cache_clear
+    Piece.staff_pick_cache_clear
   end
 
   def unpick!
     update_attributes staff_pick: false, staff_pick_at: nil
-    Piece.latest_staff_pick_cache_clear
+    Piece.staff_pick_cache_clear
   end
 
   def article?
@@ -145,13 +150,7 @@ class Piece < ActiveRecord::Base
     end
   end
 
-  def self.latest_staff_pick
-    Rails.cache.fetch STAFF_PICK_CACHE_KEY do
-      Piece.staff_picks.order('staff_pick_at DESC').select(:staff_pick_at).limit(1).first.staff_pick_at.to_i
-    end
-  end
-
-  def self.latest_staff_pick_cache_clear
+  def self.staff_pick_cache_clear
     Rails.cache.delete STAFF_PICK_CACHE_KEY
   end
 end

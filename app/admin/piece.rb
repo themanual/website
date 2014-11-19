@@ -73,6 +73,7 @@ ActiveAdmin.register Piece do
 
   after_save do
     Piece.active_topics_cache_clear
+    Piece.staff_pick_cache_clear
   end
 
 end
