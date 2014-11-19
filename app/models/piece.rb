@@ -25,6 +25,11 @@ class Piece < ActiveRecord::Base
   }
   scope :not_from_issue, -> (issue) { where('issue_id NOT IN (?)', issue.id) }
 
+  after_save do
+    Piece.active_topics_cache_clear
+    Piece.staff_pick_cache_clear
+  end
+
   def issue_number
     @issue_number ||= issue.number
   end

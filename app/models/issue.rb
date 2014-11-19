@@ -21,6 +21,10 @@ class Issue < ActiveRecord::Base
   scope :ordered, -> { order('number DESC') }
   scope :publicly_listed, -> { where(status: [Issue.statuses[:published], Issue.statuses[:preview]]) }
 
+  after_save do
+    Issue.clear_caches
+  end
+
   def title
     "Issue ##{self.number}"
   end

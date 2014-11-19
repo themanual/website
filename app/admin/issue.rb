@@ -58,8 +58,4 @@ ActiveAdmin.register Issue do
 
   end
 
-  after_save do
-    Issue.clear_caches
-  end
-
 end

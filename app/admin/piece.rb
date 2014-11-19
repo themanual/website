@@ -12,15 +12,15 @@ ActiveAdmin.register Piece do
   filter :topics
 
   index do
-  	id_column
-  	column :type
-  	column :author
-  	column :title
-  	column :synopsis
+    id_column
+    column :type
+    column :author
+    column :title
+    column :synopsis
     column :position
     column :status
     column :staff_pick
-  	actions defaults: true do |piece|
+    actions defaults: true do |piece|
       if piece.staff_pick?
         link_to('Unpick', unpick_admin_piece_path(piece))
       else
@@ -42,8 +42,8 @@ ActiveAdmin.register Piece do
 
   form do |f|
 
-  	f.inputs do
-  		f.input :issue
+    f.inputs do
+      f.input :issue
       f.input :type, as: :select, collection: ['Article', 'Lesson']
       f.input :author, input_html: { class: 'chosen-select' }
       f.input :title
@@ -53,10 +53,10 @@ ActiveAdmin.register Piece do
       f.input :position
       f.input :status, as: :select, collection: Piece.statuses.keys, include_blank: false
 
-  		f.input :body, input_html: { class: 'editor-md' }
+      f.input :body, input_html: { class: 'editor-md' }
 
     end
-		f.actions
+    f.actions
   end
 
   member_action :pick, :method => :get do
@@ -69,11 +69,6 @@ ActiveAdmin.register Piece do
     piece = Piece.find(params[:id])
     piece.unpick!
     redirect_to admin_pieces_path, notice:"Removed to Staff Picks!"
-  end
-
-  after_save do
-    Piece.active_topics_cache_clear
-    Piece.staff_pick_cache_clear
   end
 
 end
