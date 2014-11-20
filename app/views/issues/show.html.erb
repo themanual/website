@@ -2,7 +2,9 @@
 <%- content_for(:logo) { "issue-#{@issue.number}" } -%>
 <%= render partial: 'issues/preview_header' if @issue.preview? -%>
 <div class="l-p l-line-b <%= @issue.code %> c-issue">
+  <% unless user_signed_in? %>
   <h2 class="h-sc">Support The Manual</h2>
+  <% end %>
   <p class="tagline">
     <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "btn btn-large" %>
     <strong class="br-s">in <%= (['Print'] + @issue.downloads.map(&:medium).uniq.reverse).to_sentence %></strong>
