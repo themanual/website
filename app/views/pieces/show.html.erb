@@ -61,8 +61,9 @@
       <div class="callout">
         <h2 class="callout-title">This <%= @piece.type %> is in preview for subscribers.</h2>
         <div class="callout-body">
-          <p>Become a subscriber and get immediate access to the web edition of <%= link_to "Issue #{@piece.issue.number}", issue_path(issue: @piece.issue.number) %>, as well as our <strong>ebook, audiobook, and print editions</strong>. When you subscribe, you’re supporting The Manual’s continuous publication. <%= link_to "Read more on why your support matters.", {controller: 'about', page: 'support'} %></p>
-          <p><strong>Already a subscriber?</strong> <%= link_to "Log in", login_and_return_path %> to read this <%= @piece.type %>.</p>
+          <%- formats = ['Print'] + @issue.downloads.map(&:medium).uniq.reverse -%>
+          <p>However, you can <%= link_to "buy Issue #{@issue.number} from our store",store_path(@issue.code) %> and read it in <%= formats.to_sentence.downcase %> <%= formats.size > 1 ? "editions" : "edition" %>. Check back soon as we open up access to our web edition.</p>
+          <p><strong>Already a subscriber?</strong> <%= link_to "Log in", login_and_return_path %> to read this <%= @piece.type %> and all others from <%= link_to @issue.name, issue_path(@issue.number) %>.</p>
         </div>
       </div>
     </div>
