@@ -81,7 +81,11 @@ class User < ActiveRecord::Base
   end
 
   def issues_with_downloads
-    Issue.joins(:ownerships).includes(:ownerships, :downloads).where("ownerships.user_id = ? AND ownerships.level <> 'web'", self.id).order('issues.id DESC, downloads.medium DESC, downloads.ordering ASC')
+    Issue.joins(:ownerships)
+        .includes(:ownerships, :downloads)
+        .where(status: [  Issue.statuses[:published], Issue.statuses[:preview] ])
+        .where("ownerships.user_id = ? AND ownerships.level <> 'web'", self.id)
+        .order('issues.id DESC, downloads.medium DESC, downloads.ordering ASC')
   end
 
   def current_subscriptions
