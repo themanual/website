@@ -7,7 +7,8 @@
   <% end %>
   <p class="tagline">
     <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "btn btn-large" %>
-    <strong class="br-s">in <%= (['Print'] + @issue.downloads.map(&:medium).uniq.reverse).to_sentence %></strong>
+    <%- formats = ['Print'] + @issue.downloads.map(&:medium).uniq.reverse -%>
+    <strong class="br-s">in <%= formats.to_sentence %> <%= formats.size > 1 ? "Editions" : "Edition" %></strong>
   </p>
 </div>
 <ul class="issue">
