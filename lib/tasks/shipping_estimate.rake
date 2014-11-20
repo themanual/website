@@ -34,14 +34,28 @@ namespace :themanual do
 
           rates = Shipwire::Api.new.rate(order)
 
+
           quotes = rates['RateResponse']['Order']['Quotes']
+
+          # print rates['RateResponse']['Order'].to_yaml
 
           if quotes.nil?
             costs[sub.id] = {error: 'no rates available'}
           else
-            quote = quotes['Quote'].first
+            if quotes['Quote'].is_a? Hash
+              quote = quotes['Quote']
+            elsif quotes['Quote'].is_a? Array
+              quote = quotes['Quote'].first
+            else
+              raise StandardError('Uh-oh')
+            end
 
-            data += [quote['Cost']['currency'], quote['Cost']['__content__'], quote['Warehouse']['__content__'], quote['Service']['__content__'], '']
+            data += [
+              quote['Cost']['currency'],
+              quote['Cost']['__content__'],
+              quote['Warehouse']['__content__'],
+              quote['Service']['__content__'], ''
+            ]
 
             csv << data
           end
@@ -54,6 +68,7 @@ namespace :themanual do
         rescue Exception => e
           data += ['', '', '', '', e.message]
           csv << data
+          raise e
         end
 
         STDERR.print '.'
