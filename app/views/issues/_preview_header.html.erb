@@ -1,25 +1,20 @@
 <div class="l-p l-line-b <%= @issue.code %> c-issue">
+  <h2 class="h-sc"><span class="highlight">This issue in preview</span></h2>
   <%- if current_user.is_admin? -%>
-  <p class="tagline">
-    This issue is in preview, but since you're an admin, you can read all of it.
-  </p>
+  <p class="tagline">This issue is in preview, but you're an admin, so you can read all of it.</p>
   <%- elsif current_user.can?(:read, @issue) -%>
-  <p class="tagline">
-    Please enjoy this exclusive preview of <%= @issue.name %>. Thank you for being a subscriber to The Manual.
-  </p>
+  <p class="tagline">Thanks for being a subscriber. Please enjoy this exclusive preview of <%= @issue.name %>.</p>
   <%- else -%>
+  <ol class="list-bulleted list-loose tagline t-lh-small">
+    <li>
+      Not a subscriber? <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "t-strong" %> and read it in print, ebook, and audiobook.
+    </li>
+    <li>
+      Are you a subscriber? <%= link_to "Log in", login_and_return_path, class: "t-strong" %> and read it online in full.
+    </li>
     <%- if @issue.has_published_pieces? -%>
-    <p class="tagline">
-      <strong class="highlight">Please note:</strong> <%= @issue.name %> is in preview for subscribers, so some pieces are unavailable.
-    </p>
-    <%- else -%>
-    <p class="tagline">
-      <strong class="highlight">Please note:</strong> <%= @issue.name %> is in exclusive preview for subscribers. Check back soon as we open up access.
-    </p>
+    <li>We’ve opened up access to some pieces, which you can read online below.</li>
     <%- end -%>
-    <p class="tagline">
-      <strong class="highlight">Already a subscriber?</strong> <%= link_to "Log in", login_and_return_path %> and get full access to <%= @issue.name %>.
-    </p>
+  </ol>
   <%- end -%>
-  </p>
 </div>
