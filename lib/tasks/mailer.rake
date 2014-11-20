@@ -20,6 +20,7 @@ namespace :themanual do
 
 
       # send emails
+      puts "Going to send emails to #{subscriptions.length} subscribers."
       subscriptions.each do |subscription|
 
         data = {
@@ -48,6 +49,7 @@ namespace :themanual do
       subscriptions = [subscriptions.sample] if ENV['MODE'] == 'TEST'
 
       # send emails
+      puts "Going to send emails to #{subscriptions.length} subscribers."
       subscriptions.each do |subscription|
         data = {
           user: subscription.user,
@@ -75,6 +77,7 @@ namespace :themanual do
       subscriptions = [subscriptions.sample] if ENV['MODE'] == 'TEST'
 
       # send emails
+      puts "Going to send emails to #{subscriptions.length} subscribers."
       subscriptions.each do |subscription|
         data = {
           user: subscription.user,
