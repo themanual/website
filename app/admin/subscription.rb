@@ -48,6 +48,8 @@ ActiveAdmin.register Subscription do
       end
     end
 
+    render('admin/subscriptions/new_ownership', {subscription: subscription})
+
   end
 
 end

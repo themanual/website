@@ -1,0 +1,11 @@
+
+<hr />
+
+<%= form_for Ownership.new, :url => admin_ownerships_path do |form| %>
+  <%= form.hidden_field :subscription_id, value: subscription.id %>
+  <%= form.hidden_field :user_id, value: subscription.user_id %>
+  <%= form.hidden_field :level, value: subscription.level %>
+  <%= form.select :issue_id, Issue.order('number ASC').all.map { |issue| ["Issue #{issue.number}", issue.id] } %>
+
+  <%= form.submit :value => 'Add Ownership' %>
+<% end %>
