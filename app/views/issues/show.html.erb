@@ -5,7 +5,7 @@
   <h2 class="h-sc">Support The Manual</h2>
   <p class="tagline">
     <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "btn btn-large" %>
-    <strong class="br-s">in <%= (['Print'] + @issue.downloads.map(&:medium).uniq.reverse).to_sentence %>.</strong>
+    <strong class="br-s">in <%= (['Print'] + @issue.downloads.map(&:medium).uniq.reverse).to_sentence %></strong>
   </p>
 </div>
 <ul class="issue">
