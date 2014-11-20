@@ -8,3 +8,14 @@ Paperclip::Attachment.default_options[:fog_credentials] = {
 Paperclip::Attachment.default_options[:fog_directory] = ENV['AWS_BUCKET']
 Paperclip::Attachment.default_options[:fog_host] = "https://#{ENV['AWS_BUCKET']}"
 Paperclip::Attachment.default_options[:fog_public] = false
+
+
+# avoid the content spoofing issue
+require 'paperclip/media_type_spoof_detector'
+module Paperclip
+  class MediaTypeSpoofDetector
+    def spoofed?
+      false
+    end
+  end
+end
