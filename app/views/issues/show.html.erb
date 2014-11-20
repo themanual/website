@@ -1,6 +1,12 @@
 <%- title @issue.name -%>
 <%- content_for(:logo) { "issue-#{@issue.number}" } -%>
 <%= render partial: 'issues/preview_header' if @issue.preview? -%>
+<div class="l-p l-line-b <%= @issue.code %> c-issue">
+  <p class="tagline">
+    <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "btn btn-large" %>
+    <strong>in <%= (['Print'] + @issue.downloads.map(&:medium).uniq).to_sentence %> — and support The Manual.</strong
+  </p>
+</div>
 <ul class="issue">
   <%- @issue.articles.ordered.each do |article| -%>
   <li>
