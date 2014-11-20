@@ -38,9 +38,10 @@ ActiveAdmin.register User do
   sidebar :shipping_address , :only => :show do
     if user.shipping_address_id.present?
       h4  user.shipping_address.name
-      p link_to 'Edit Address', admin_address_path(user.shipping_address)
+      p link_to 'Edit Address', edit_admin_address_path(user.shipping_address)
     else
-      p "No Shipping Address"
+      h4 "No Shipping Address"
+      p link_to 'Add one', new_admin_address_path('address[user_id]' => user.id)
     end
   end
 

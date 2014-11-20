@@ -1,11 +1,11 @@
 ActiveAdmin.register Address do
 
-  actions :all, except: [:destroy, :new, :create]
+  actions :all, except: [:destroy]
 
   menu parent: 'Readers', priority: 2
 
 
-  permit_params :lines, :city, :region, :post_code, :country_id
+  permit_params :lines, :city, :region, :post_code, :country_id, :user_id
 
   filter :country
 
@@ -25,6 +25,7 @@ ActiveAdmin.register Address do
   form do |f|
 
     f.inputs (resource.new_record? ? nil : "Update address for #{resource.user.name}") do
+      f.input :user_id, as: :hidden
       f.input :lines
       f.input :city
       f.input :region
@@ -36,6 +37,11 @@ ActiveAdmin.register Address do
 
 
   controller do
+    def create
+      super
+
+      resource.user.update_attribute(:shipping_address_id, resource.id)
+    end
     def update
 
       address = resource.dup
