@@ -1,15 +1,8 @@
 <%- @breadcrumb = true -%>
 <%- title "Account" -%>
-<%- title "Update" -%>
+<%- title "Update Information" -%>
 <section class="l-p">
   <%= form_for current_user, url: account_path, html: { class: "form l-single-l", novalidate: :novalidate, method: :patch } do |a| %>
-  <!--
-  <p class="alert alert-error">
-    <strong>Uh-oh!</strong> We couldn’t save your address. Please fix any errors and try again.
-  </p>
-  -->
-
-
   <div class="l-row l-cols-halves">
     <dl class="field">
       <dt><%= a.label :first_name %></dt>
@@ -24,12 +17,15 @@
 
   <dl class="field">
     <dt><%= a.label :email %></dt>
-    <dd><%= a.text_field :email, required: true, disabled: true, class: 'is-long' %></dd>
+    <dd>
+      <%= a.text_field :email, required: true, disabled: true, class: 'is-long' %>
+      <small class="label-note">We’re sorry, but email update isn’t possible yet.</small>
+    </dd>
   </dl>
 
   <div class="form-actions">
     <p>
-      <button type="submit" class="btn btn-large" data-disable-with="Updating...">Update</button> or <%= link_to "go back to Account", account_path %>
+      <button type="submit" class="btn btn-large" data-disable-with="Updating...">Update Information</button> or <%= link_to "go back to your Account", account_path %>
     </p>
   </div>
   <% end %>

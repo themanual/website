@@ -10,9 +10,8 @@
     <dd><%= current_user.name %></dd>
     <dt>Email</dt>
     <dd><%= current_user.email %></dd>
-    <dt></dt>
-    <dd><%= link_to "Update these.", edit_account_path %></dd>
   </dl>
+  <p><%= link_to "Update information", edit_account_path %></p>
 
   <% if current_user.current_subscriptions.size > 0 %>
   <h3>Current Subscription<%= 's' if current_user.current_subscriptions.size > 1 %></h3>
@@ -62,7 +61,7 @@
     <%- end -%>
     <%= current_user.shipping_address.country.name %><br/>
   </p></blockquote>
-  <p><strong class="highlight">Address out of date?</strong> <%= link_to "Update this address.", account_address_path %></p>
+  <p><%= link_to "Update address", account_address_path %></p>
   <% else %>
   <p><strong class="highlight">We have no address for you.</strong> <%= link_to "Add an address.", account_address_path %></p>
   <% end %>

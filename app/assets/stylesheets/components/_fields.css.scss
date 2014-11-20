@@ -20,7 +20,8 @@ label, input, textarea, select,
   border-color: $c-divider-dark;
 
   &[disabled],
-  &.disabled,
+  &.disabled      { border-style: dashed; }
+
   &.value         { border-color: transparent; }
 
   &.invalid,
@@ -46,6 +47,12 @@ label, input, textarea, select,
   padding: .3em 0;
   line-height: normal;
   color: $c-text-black;
+
+  &[disabled],
+  &.disabled {
+    color: $c-text-faint;
+    cursor: not-allowed;
+  }
 
   border-radius: 0;
   border-width: 0;
