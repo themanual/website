@@ -20,11 +20,12 @@
       <dt>Type</dt>
       <dd><%= sub.description %></dd>
       <dt>Issues</dt>
-      <% Issue.order('number ASC').where(number: sub.issues).each do |issue| %>
-        <% if issue.published? || issue.preview? %>
-          <dd><%= link_to "Issue #{issue.number}", issue_path(issue: issue.number) %></dd>
+      <% issues = Hash[Issue.order('number ASC').where(number: sub.issues).map{|i| [i.id, i]}] %>
+      <% sub.issues.each do |issue| %>
+        <% if issues[issue] && (issues[issue].published? || issues[issue].preview?) %>
+          <dd><%= link_to "Issue #{issues[issue].number}", issue_path(issue: issue) %></dd>
         <% else %>
-          <dd>Issue <%= issue.number %></dd>
+          <dd>Issue <%= issue %></dd>
         <% end %>
       <% end %>
     </dl>
