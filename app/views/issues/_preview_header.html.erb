@@ -1,5 +1,5 @@
 <div class="l-p l-line-b <%= @issue.code %> c-issue">
-  <h2 class="h-sc"><span class="highlight">This issue in preview</span></h2>
+  <h2 class="h-sc"><span class="highlight">This issue is in preview</span></h2>
   <%- if current_user.is_admin? -%>
   <p class="tagline">This issue is in preview, but you're an admin, so you can read all of it.</p>
   <%- elsif current_user.can?(:read, @issue) -%>
@@ -7,10 +7,10 @@
   <%- else -%>
   <ol class="list-bulleted list-loose tagline t-lh-small">
     <li>
-      Not a subscriber? <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "t-strong" %> and read it in print, ebook, and audiobook.
+      <strong>Already a subscriber?</strong> <%= link_to "Log in", login_and_return_path, class: "t-strong" %> and read it online in full.
     </li>
     <li>
-      Are you a subscriber? <%= link_to "Log in", login_and_return_path, class: "t-strong" %> and read it online in full.
+      <strong>Not a subscriber?</strong> <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "t-strong" %> and read it in print, ebook, and audiobook.
     </li>
     <%- if @issue.has_published_pieces? -%>
     <li>We’ve opened up access to some pieces, which you can read online below.</li>
