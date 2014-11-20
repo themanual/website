@@ -6,7 +6,7 @@ As part of your current subscription to The Manual (<%= @data[:subscription].iss
 As part of your current subscription to The Manual (<%= @data[:subscription].issues_names %>), you now have access to the ebook edition of Issue <%= @data[:issue_number] %>.
 <%- end -%>
 
-You can access your account at https://themanual.org/account. There is no password, just enter your email address (<%= @data[:user].email %>) and we’ll email you a link to log in to manage your subscription.
+You can access your account at <%= account_url %>. There is no password, just enter your email address (<%= @data[:user].email %>) and we’ll email you a link to log in to manage your subscription.
 
 We also gave you exclusive access to the web edition of Issue <%= @data[:issue_number] %>. When logged in, you can read Issue <%= @data[:issue_number] %> online at <%= issue_url(@data[:issue_number]) %>.
 
