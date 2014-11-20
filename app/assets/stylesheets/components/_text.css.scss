@@ -74,6 +74,9 @@ em      { font-style: italic; }
 .t-largest  { @extend %t-largest; }
 .t-jumbo    { @extend %t-jumbo; }
 
+.t-lh       { line-height: 1.4; }
+.t-lh-small { line-height: 1.25; }
+
 .t-sc {
   @include rem(font-size, 16px);
   letter-spacing: .0625em;
@@ -102,7 +105,8 @@ em      { font-style: italic; }
 }
 
 .list-plain     { list-style-type: none; }
-.list-bulleted  { padding-left: 1.05em; }
+.list-bulleted  { padding-left: 1.05em; list-style-type: square; }
+.list-numbered  { padding-left: 1.5em; list-style-type: decimal; }
 
 .list-plain,
 .list-outdented { padding-left: 0; }
