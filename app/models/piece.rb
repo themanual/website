@@ -20,7 +20,7 @@ class Piece < ActiveRecord::Base
   scope :staff_picks, -> {
     where('staff_pick_at IS NOT NULL')
     .joins(:issue)
-    .where('issues.status = ? OR (issues.status = ? AND pieces.status = ?)', Issue.statuses[:published], Issue.statuses[:preview], Piece.statuses[:published])
+    .where('(issues.status = ? OR issues.status = ?)', Issue.statuses[:published], Issue.statuses[:preview])
     .order('staff_pick_at DESC')
   }
   scope :not_from_issue, -> (issue) { where('issue_id NOT IN (?)', issue.id) }
