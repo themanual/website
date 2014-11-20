@@ -68,5 +68,8 @@
   background-image: image-url('ui/icon-locked.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
 
+.piece-unit.is-locked .piece-unit-title {
+  text-decoration: line-through;
 }
