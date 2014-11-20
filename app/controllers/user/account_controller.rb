@@ -20,4 +20,20 @@ class User::AccountController < ApplicationController
       end
     end
   end
+
+  def edit
+
+  end
+
+
+  def update
+    current_user.update_attributes user_params
+    redirect_to account_path
+  end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name)
+    end
 end

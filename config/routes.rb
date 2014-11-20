@@ -17,7 +17,7 @@ TheManual::Application.routes.draw do
     post 'login'        => 'sessions#create',   :as => :user_session
   end
 
-  resource :account, controller: 'user/account', only: [:show, :update] do
+  resource :account, controller: 'user/account', only: [:show, :update, :edit] do
     resources :emails, controller: 'user/emails', only: [:create, :destroy, :update]
     resource :address, controller: 'user/addresses', only: [:show, :create]
   end

@@ -10,6 +10,8 @@
     <dd><%= current_user.name %></dd>
     <dt>Email</dt>
     <dd><%= current_user.email %></dd>
+    <dt></dt>
+    <dd><%= link_to "Update these.", edit_account_path %></dd>
   </dl>
 
   <% if current_user.current_subscriptions.size > 0 %>
