@@ -11,7 +11,7 @@ class Download < ActiveRecord::Base
 
   MEDIUMS = [
     'Audiobook',
-    'eBook'
+    'Ebook'
   ]
 
   def name
