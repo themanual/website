@@ -26,7 +26,7 @@ ActiveAdmin.register Address do
 
     f.inputs (resource.new_record? ? nil : "Update address for #{resource.user.name}") do
       f.input :user_id, as: :hidden
-      f.input :lines
+      f.input :lines, as: :text, input_html: {rows: 5}
       f.input :city
       f.input :region
       f.input :post_code
