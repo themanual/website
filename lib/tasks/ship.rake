@@ -3,11 +3,13 @@ namespace :themanual do
   desc "Ship an issue"
   task :ship_issue => :environment do
 
+    issue = Issue.find_by_number(ENV['ISSUE'])
+
     Ownership.joins(:user)
       .includes(:user)
       .where('subscription_id IS NOT NULL') # ownerships that came via subscriptions
       .where('users.backer_id IS NOT NULL') # is a backer
-      .where(issue_id: Issue.find_by_number(ENV['ISSUE']).id) # this issue
+      .where(issue_id: issue.id) # this issue
       .where(level: %w(print full)) # physical product
       .where(shipped: false) # not yet shipped
       .all
@@ -20,7 +22,7 @@ namespace :themanual do
 
         address_lines = address.lines.split("\n")
 
-        order = Shipwire::Order.new("SUB#{'%06d' % ownership.subscription_id}-ISS#{'%03d' % ENV['ISSUE']}")
+        order = Shipwire::Order.new("SUB#{'%06d' % ownership.subscription_id}-ISS#{'%03d' % issue.number}")
         order.address = Shipwire::Address.new( {
                                                 name: address.user.name,
                                                 email: address.user.email,
@@ -40,7 +42,7 @@ namespace :themanual do
         if shipwire_order['errors']
           raise Shipwire::Error.new(shipwire_order['errors'].first['message'])
         else
-          ownership.update_attribute :shipped, true
+          ownership.subscription.add_issue issue, true
           print "Shipped Issue to #{address.user.name}\n"
         end
 
