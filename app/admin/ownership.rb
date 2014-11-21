@@ -5,7 +5,8 @@ ActiveAdmin.register Ownership do
   permit_params :user_id, :issue_id, :level, :subscription_id
 
   filter :issue
-  filter :level, as: :select, collection: Ownership::LEVELS.keys, include_blank: false
+  filter :shipped
+  filter :level, as: :select, collection: Ownership::LEVELS.keys, include_blank: true
 
   controller do
     def scoped_collection
