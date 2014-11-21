@@ -20,7 +20,7 @@ namespace :themanual do
 
         address_lines = address.lines.split("\n")
 
-        order = Shipwire::Order.new("SUB#{'%05d' % ownership.subscription_id}-ISS#{'%03d' % ENV['ISSUE']}")
+        order = Shipwire::Order.new("SUB#{'%06d' % ownership.subscription_id}-ISS#{'%03d' % ENV['ISSUE']}")
         order.address = Shipwire::Address.new( {
                                                 name: address.user.name,
                                                 email: address.user.email,
