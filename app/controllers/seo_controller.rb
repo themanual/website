@@ -9,7 +9,7 @@ class SeoController < ApplicationController
   def error_page
     title "Uh-oh"
     if params[:code] =~ /^[0-9]{3}$/
-      render params[:code], layout: 'application', status: :not_found
+      render params[:code], layout: 'application', status: :not_found, formats: [:html]
     else
       raise ActiveRecord::RecordNotFound
     end
