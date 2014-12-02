@@ -58,7 +58,8 @@ gem 'kgio'
 
 # Server Stuff
 gem 'puma'
-gem 'puma_worker_killer'
+# gem 'puma_worker_killer'
+gem 'rack-timeout'
 gem 'airbrake'
 gem 'rack-no-www'
 gem 'rack-mini-profiler'
