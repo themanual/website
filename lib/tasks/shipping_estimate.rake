@@ -54,7 +54,7 @@ namespace :themanual do
 
           quotes = rates['resource']['rates']
 
-          print quotes.to_yaml
+          # print quotes.to_yaml
 
           if quotes.nil?
             costs[sub.id] = {error: 'no rates available'}
