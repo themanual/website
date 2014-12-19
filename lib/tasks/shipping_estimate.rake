@@ -9,7 +9,22 @@ namespace :themanual do
       csv << ['Subscription ID', 'User ID', 'Name', 'Address', 'Shipping Currency', 'Shipping Cost', 'Ship from', 'Ship method', 'Error?']
 
 
-      Subscription.includes(:user => {:shipping_address => :country}).active.has_shipping.with_issue(ENV['ISSUE'].to_i).each do |sub|
+      # Subscription.includes(:user => {:shipping_address => :country}).active.has_shipping.with_issue(ENV['ISSUE'].to_i).each do |sub|
+
+      issue = Issue.find_by_number(ENV['ISSUE'].to_i)
+
+      Ownership.joins(:user)
+        .includes(:user)
+        .where('subscription_id IS NOT NULL') # ownerships that came via subscriptions
+        .where(issue_id: issue.id) # this issue
+        .where(level: %w(print full)) # physical product
+        .where(shipped: false) # not yet shipped
+        .all
+        .each do |ownership|
+
+        sub = ownership.subscription
+
+        next if sub.user.name.nil?
 
         if ENV['LIMIT']
           i = i + 1
@@ -18,12 +33,14 @@ namespace :themanual do
 
         address = sub.user.shipping_address
 
-        data = [sub.id, sub.user.id, sub.user.name, sub.user.shipping_address.name]
+        data = [sub.id, sub.user.id, sub.user.name, sub.user.shipping_address.name.gsub("\n", ', ')]
 
         begin
 
           order = Shipwire::Order.new(nil)
-          order.address = Shipwire::Address.new( {address1: (address.lines || ''),
+          order.address = Shipwire::Address.new( {
+                                                  name: address.user.name,
+                                                  address1: (address.lines || ''),
                                                   city: address.city,
                                                   country: address.country.code2,
                                                   state: address.region,
@@ -36,6 +53,8 @@ namespace :themanual do
 
 
           quotes = rates['resource']['rates']
+
+          print quotes.to_yaml
 
           if quotes.nil?
             costs[sub.id] = {error: 'no rates available'}
