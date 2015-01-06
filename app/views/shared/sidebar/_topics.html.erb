@@ -1,0 +1,8 @@
+<div class="navgroup">
+  <h2 class="navgroup-title">Topics</h2>
+  <ul class="navgroup-items sidebar-topics">
+    <% Piece.active_topics.collect(&:name).sort.each do |topic| %>
+      <li><%= link_to_current topic.titlecase, topic_path(topic.downcase) %></li>
+    <% end %>
+  </ul>
+</div>

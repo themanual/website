@@ -17,7 +17,7 @@
 
   <div class="l-m l-col-7 styled">
     <div class="l-m-b">
-      <p>Six articles and six lessons written by <%= @issue.authors.map(&:name).to_sentence %>. <%= link_to "Read online.", issue_path(issue: @issue.number) %></p>
+      <p>Six articles and six lessons written by <%= @issue.authors.map(&:name).to_sentence %>. <%= link_to "Read online.", issue_path(@issue.number) %></p>
       <p>Print and Ebook editions are illustrated by <%= @issue.articles.map(&:illustrator).to_sentence %>.</p>
     </div>
     <h4>Specifications</h4>

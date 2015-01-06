@@ -1,12 +1,6 @@
-<header class="site-menu site-header"><div>
-  <h1 class="site-header-home">
-    <%= link_to_current "The Manual", root_path, class: "site-header-logo #{ content_for(:logo) }" %>
-  </h1>
-  <nav class="site-header-nav">
-    <ul>
-      <li><%= link_to "Read",   read_path,  class: page_is_subpath_of('/read', 'current') %></li>
-      <li><%= link_to "Shop",   shop_path,  class: "external", rel: "external" %></li>
-      <li><%= link_to "About",  about_path, class: page_is_subpath_of('/about', 'current') %></li>
-    </ul>
-  </nav>
-</div></header>
+<%- options ||= {} -%>
+<header class="site-header <%= content_for(:site_header) %>">
+  <%= render partial: "shared/layout/header/logo" %>
+  <%= render partial: "shared/layout/header/nav" %>
+  <%= render partial: "shared/layout/subheader/#{controller_name}" if @nav %>
+</header>

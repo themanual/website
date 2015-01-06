@@ -1,112 +1,104 @@
-.site-menu {
-  color: $c-text-caption;
-  @include svg { stroke: $c-icon-gray; }
-
-  line-height: 1;
+.site-header > *,
+.site-footer {
   @extend .l-x;
-
-  a.current {
-    color: $c-text-black;
-    @include svg { stroke: $c-text-gray; }
-    font-weight: weight(medium);
-  }
-
-  a {
-    @include link-hover-blue(stroke) {
-      color: $c-text-gray;
-      @include svg { stroke: $c-icon-gray; }
-    }
-  }
-
-  .bg-colored & {
-    color: rgba(black, .75);
-    @include svg { stroke: rgba(black, .6); }
-    border-color: rgba(black, .15);
-
-    a {
-      @include link-hover-white(stroke) {
-        color: rgba(black, .75);
-        stroke: rgba(black, .6);
-      }
-    }
-
-    .nav-popover a { @include link-hover-blue(stroke) { color: $c-text-caption; } }
-  }
-
-  nav { @include clearfix; }
-  nav > ul {
-    list-style: none;
-    > * { float: left; }
-    > * + * {
-      margin-left: 1em;
-      @include media-from($bp-m) { margin-left: 1.5em; }
-    }
-  }
+  > * { @include outer-container; @include row; }
 }
 
 .site-header {
-  border-bottom: divider();
+  background: gray(40%);
+  @include color-by-issue-self(background);
+  // background: $c-blue;
+  // border-bottom: divider();
   z-index: 10;
-}
-.site-footer {
-  border-top: divider();
-}
-
-.site-menu > * { @include outer-container; @include row; }
-.site-menu nav > ul { float: left; @include clearfix; }
-
-.site-header > *  { height: 3.4em; line-height: 3.4em; }
-.site-header-home { width:  4.285714286em; }
-.site-header-nav  { margin-left: 5.6em; }
-
-@include media-from($bp-m) {
-  .site-header > *   { height: 3.5em; line-height: 3.5em; }
-  .site-header-home  { width:  4.705882353em; }
-  .site-header-nav   { margin-left: $sidebar-width + $sidebar-gutter; }
 }
 
 .site-header-home {
-  float: left;
-  height: 100%;
+  @include padding-v(1.5em);
+}
+
+.site-header-home a {
+  width: 3em;
+}
+
+.site-footer--nav > * {
+  display: inline-block;
+}
+
+.site-header-nav a {
+  font-weight: weight(medium);
+}
+
+.site-header-nav-buy {
+  a {
+    background: $c-blue;
+    color: white;
+    padding: .5em .7em;
+    margin-top: -.5em;
+    border-radius: 5px;
+    font-weight: weight(bold);
+    @include color-by-issue(background);
+    @include hover {
+      color: white !important;
+      background: $c-text-black;
+    }
+  }
 }
 
 .site-header-logo {
   display: block;
-  width: 100%;
-  height: 0;
-  padding-top: 100%;
-  text-indent: -9999em;
   font-weight: weight(medium);
-
-  background-image: image-url('identity/logo-white@2x.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 50% auto;
-
-  background-color: black;
-
-  @include hover {
-    background-color: $c-blue;
-    .bg-colored & {
-      background-color: white;
-      background-image: image-url('identity/logo-black@2x.png');
-    }
-    @include color-by-issue-self(background-color);
+  // padding-top:    2em;
+  // padding-bottom: 1em;
+  
+  svg {
+    display: block;
+    max-width: 100%;
   }
 
+  svg path {
+    fill: white;
+    transition: all 100ms ease-out;
+  }
+
+  @include hover {
+    svg path {
+      fill: black;
+      // @each $i in $issues {
+      //   .issue-#{$i} & {
+      //     fill: issue-color($i);
+      //   }
+      // }
+    }
+  }
 }
 
-.site-header-nav {
-  > ul > li { font-size: 1.1em; }
-  > ul > li > a.current { font-weight: weight(bold); }
-  @include media-from($bp-m) { > ul > li + li { margin-left: 2em; } }
+.site-header-description {
+  color: $c-text-gray;
+  strong { color: $c-text-summary; }
 }
 
-.site-footer > * > * {
-  @include margin-v(1.25em);
+
+
+
+
+
+/*
+ *
+ * FOOTER
+ *
+ */
+
+.site-footer {
+  border-top: divider();
+  @include spacing(padding-top padding-bottom, .75);
 }
 
 @include media-from($bp-m) {
-  .site-footer > * > * { @include span-columns(6); }
-  .site-footer nav ul { float: right; }
+  .has-sidebar .site-footer--nav {
+    margin-left: $sidebar-width + $sidebar-gutter;
+  }
+}
+
+.site-footer--nav > *:last-child {
+  float: right;
 }

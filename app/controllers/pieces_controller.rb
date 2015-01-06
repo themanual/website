@@ -9,6 +9,7 @@ class PiecesController < ApplicationController
   end
 
   def staffpicks
+    @sidebar = true
     @pieces = Piece.staff_picks
 
     title    "Staff Picks"

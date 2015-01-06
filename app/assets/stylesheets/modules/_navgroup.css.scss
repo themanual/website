@@ -3,17 +3,28 @@
 }
 
 .navgroup-title {
-  @extend .t-sc;
+  // @extend .t-sc;
   color: $c-text-body;
-  font-weight: weight(medium);
-  line-height: 1.1;
-  margin-bottom: .2em;
+  font-weight: weight(bold);
+  line-height: 1.25;
+  // margin-bottom: .25em;
+  // font-size: 1.05em;
+  margin-top: .6em;
+  &:first-child {
+    margin-top: 0;
+  }
+  &.spaced {
+    margin-top: 1.5em;
+  }
 }
 
 .navgroup-items {
+  // padding-left: .75em;
   line-height: 1.1;
   color: $c-text-faint;
-  @include spacing(margin-bottom);
+  padding-top: .25em;
+  padding-left: .5em;
+  // @include spacing(margin-bottom);
 
   ul {
     padding-left: .5em;

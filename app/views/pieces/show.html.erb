@@ -1,4 +1,4 @@
-<%- content_for(:logo) { "issue-#{@piece.issue.number}" } -%>
+<%- content_for(:site_header) { "issue-#{@piece.issue.number}" } -%>
 
 <article class="piece is-<%= @piece.type %> issue-<%= @piece.issue.number %> l-block hentry"><div>
   <%- cache [@issue, @piece, :header] do -%>
@@ -16,7 +16,7 @@
       <h1 class="piece-header-title entry-title"><%= @piece.title %></h1>
       <h2 class="piece-header-synopsis entry-summary"><%= @piece.synopsis %></h2>
       <p class="piece-unit-metadata">
-        <span class="piece-unit-silo">In <%= link_to "Issue #{@piece.issue.number}", issue_path(issue: @piece.issue.number) %></span>
+        <span class="piece-unit-silo">In <%= link_to "Issue #{@piece.issue.number}", issue_path(@piece.issue.number) %></span>
         <span class="piece-unit-topics"><%= render partial: "pieces/piece_topics", locals: { piece: @piece } %></span>
       </p>
     </div>

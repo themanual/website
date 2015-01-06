@@ -1,9 +1,6 @@
-<footer class="site-menu site-footer"><div>
-  <p>
-    The Manual is a design journal for the web.
-  </p>
+<footer class="site-footer"><div>
   <nav>
-    <ul>
+    <ul class="site-footer--nav site-menu">
       <%- if user_signed_in? -%>
       <li><%= link_to "Account", account_path %></li>
       <%- end -%>

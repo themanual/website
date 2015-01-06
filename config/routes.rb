@@ -3,12 +3,37 @@ TheManual::Application.routes.draw do
   ActiveAdmin.routes(self)
   mount Shoppe::Engine => "/shoppe"
 
+  root to: 'pieces#staffpicks', as: :root
+  resources :authors, only: [:index, :show], param: :slug
+  resources :topics,  only: [:index, :show], param: :topic
+  resources :issues,  only: [:index, :show], param: :number
+  get '/issues/:issue/:key/:type',  to: 'pieces#show', as: :piece, constraints: {type: /(lesson|article)/}
+
+  # OLD ROUTES
+  get '/read',        to: redirect("/"), as: :read
+  get '/staffpicks',  to: redirect('/'), as: :staffpicks
+  get '/read/*other', to: redirect { |path_params| "/#{path_params[:other]}" }
+
+  # ABOUT
+  get '/about', to: 'about#index',  as: :about
+  get '/about(/:action)', controller: :about
+
+  get '/download/:dl', to: 'issues#download', as: :download
+
+  get '/blog',                    to: redirect("http://blog.themanual.org"),      as: :blog
+  get '/twitter',                 to: redirect("https://twitter.com/themanual"),  as: :twitter
+  get '/shop',                    to: redirect("http://shop.themanual.org"),                      as: :shop
+  get '/shop/product/:product',   to: redirect("http://shop.themanual.org/products/%{product}"),  as: :shop_product
+  get '/store',                   to: redirect("/shop")
+  get '/kickstarter',             to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
+  get '/kickstarter/original',    to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
+  get '/kickstarter/everywhere',  to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'),  as: :ks_everywhere
+  
+  get '/feed', to: 'pieces#index', defaults: {format: 'rss'}, :as => :feed
+
   devise_for :users,
              :skip => [:password, :sessions, :registrations],
              :path => ''
-
-  root to: 'home#index'
-  get '/feed', to: 'pieces#index', defaults: {format: 'rss'}, :as => :feed
 
   as :user do
     get 'login/:token'  => 'sessions#create',   :as => :login_token
@@ -19,43 +44,8 @@ TheManual::Application.routes.draw do
 
   resource :account, controller: 'user/account', only: [:show, :update, :edit] do
     resources :emails, controller: 'user/emails', only: [:create, :destroy, :update]
-    resource :address, controller: 'user/addresses', only: [:show, :create]
+    resource  :address, controller: 'user/addresses', only: [:show, :create]
   end
-
-  # READ
-  scope '/read' do
-    root                              to: redirect('/read/staffpicks'),                     as: :read
-    get '/issues',                    to: 'issues#index',                                   as: :issues
-    get '/issues/:issue',             to: 'issues#show',                                    as: :issue
-    get '/issues/:issue/:key/:type',  to: 'pieces#show',                                    as: :piece,       constraints: {type: /(lesson|article)/}
-    get '/staffpicks',                to: 'pieces#staffpicks',                              as: :staffpicks
-    get '/topics',                    to: redirect('/read')
-    get '/topics/:topic',             to: 'topics#show',                                    as: :topic
-    get '/blog',                      to: redirect("http://blog.themanual.org"),  as: :blog
-  end
-
-  get '/download/:dl',     to: 'issues#download',                                as: :download
-
-
-  get '/blog', to: redirect("http://blog.themanual.org")
-  get '/twitter', to: redirect("https://twitter.com/themanual"), as: :twitter
-
-  # STORE
-  # get '/store',              to: 'store#index',        as: :shop
-  # get '/store/issues',       to: 'store#issues',       as: :shop_issues
-  # get '/store/subscription', to: 'store#subscription', as: :shop_subscription
-  # get '/store/issue/:issue', to: 'store#issue',        as: :shop_issue
-  get '/shop',                  to: redirect("http://shop.themanual.org"),                      as: :shop
-  get '/shop/product/:product', to: redirect("http://shop.themanual.org/products/%{product}"),  as: :shop_product
-  get '/store',                 to: redirect("/shop")
-
-  # ABOUT
-  get '/about', to: 'about#index',  as: :about
-  get '/about(/:action)', controller: :about
-
-  get '/kickstarter',            to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
-  get '/kickstarter/original',   to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
-  get '/kickstarter/everywhere', to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'),  as: :ks_everywhere
 
   # Payment / Legacy
   # resource :subscribe, controller: :support, only: [:show, :create] do

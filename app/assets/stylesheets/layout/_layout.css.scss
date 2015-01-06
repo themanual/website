@@ -2,7 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  > #content { flex: 1; }
+  > main { flex: 1; }
 }
 
 @mixin spacing($props, $times: 1) {
@@ -56,8 +56,8 @@ body {
 }
 
 .l-stack-lined > *  {
-  @extend .l-p;
-  + * { border-top: divider(); }
+  @include spacing(padding-top padding-bottom, .75);
+  // + * { border-top: divider(); }
 }
 
 .l-flexcenter {

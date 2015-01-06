@@ -17,7 +17,8 @@
   
   .l-cols#{$class}-halves,
   .l-cols#{$class}-thirds,
-  .l-cols#{$class}-fourths {
+  .l-cols#{$class}-fourths,
+  .l-cols#{$class}-sixths {
     @include row;
   }
 
@@ -34,6 +35,11 @@
   .l-cols#{$class}-fourths > * {
     @extend .l-col#{$class}-fourth;
     @include omega(4n);
+  }
+
+  .l-cols#{$class}-sixths > * {
+    @include span-columns($grid-columns/6);
+    @include omega(6n);
   }
 }
 

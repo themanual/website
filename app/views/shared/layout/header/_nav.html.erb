@@ -1,0 +1,18 @@
+<%- cache [:header, :nav] do -%>
+<nav class="navigation navigation--main"><div>
+  <ul class="navigation__list">
+    <li><%= link_to_current "Home",     root_path %></li>
+    <li><%= link_to_current "Issues",   issues_path %></li>
+    <li><%= link_to_current "Topics",   topics_path %></li>
+    <li><%= link_to_current "Authors",  authors_path %></li>
+    <li><%= link_to_current "Shop",     shop_path, rel: "external" %></li>
+    <li><%= link_to_current "Blog",     blog_path, rel: "external" %></li>
+    <li><%= link_to_current "About",    about_path %></li>
+  </ul>
+</div></nav>
+<!-- <div class="site-header-content"><div>
+  <p class="site-header-description">
+    <strong>The Manual</strong> is a print and digital design quarterly for the web.
+  </p>
+</div></div> -->
+<%- end -%>

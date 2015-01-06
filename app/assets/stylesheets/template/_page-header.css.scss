@@ -1,8 +1,8 @@
 .page-header {
-  margin-top:    3em;
-  padding-bottom: 1em;
-  position: relative;
-  border-bottom: divider();
+  // padding-top: 3em;
+  // padding-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 .page-header > p:first-child {
@@ -13,37 +13,8 @@
 
 .page-header h1 {
   @extend  .h-jumbo;
+  font-family: $type-serif;
   font-weight: weight(black);
   line-height: 1;
-  @include media-upto($bp-m) { .has-sidebar & { margin-right: 50px; } }
   @include type-enhancements;
-}
-
-.toggle-sidebar {
-  text-indent: -9999em;
-  appearance: none;
-  border: none;
-  border-radius: 5px;
-  background-color: black;
-
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  right: 0px;
-  top: 50%;
-  margin-top: -15px;
-  position: absolute;
-
-  background-image: image-url('ui/arrow-toggle-sidebar.svg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 16px 11px;
-
-  @include hover {
-    background-color: $c-blue;
-    outline: none;
-  }
-
-  transition: transform .25s ease-in-out;
-  &.expanded { transform: rotate(180deg); }
 }

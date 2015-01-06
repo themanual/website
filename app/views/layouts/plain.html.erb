@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-
+<html class="no-js">
 <head>
   <%= render partial: "shared/layout/head" %>
 </head>
-<body lang="en" class="<%= yield (:class_body) %>">
+<body lang="en">
 
-  <%= render partial: "shared/layout/header" %>
+  <%= render partial: "shared/layout/header", locals: { options: { title: false } } %>
 
-  <main id="content" class="<%= yield (:class_main) %>" role="main">
+  <main id="content" class="<%= yield(:class_main) %>" role="main">
     <%= yield %>
   </main>
 
   <%= render partial: "shared/layout/footer" %>
   <%= render partial: "shared/layout/foot" %>
 </body>
-</html>
+</html> 
