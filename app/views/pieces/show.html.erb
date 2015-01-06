@@ -43,7 +43,6 @@
             Read Next: <%= @author.name.possessive %> <%= @piece.companion.type.titleize %>
           <% end %>
         </p>
-        <%- track_link('.piece-author-bio a.btn', 'Clicked Read Companion Piece') -%>
         <%- if @piece.illustrator.present? || @piece.issue.portrait_illustrator.present? -%>
         <p class="piece-illustrator">
         <%- illustrators = [] -%>

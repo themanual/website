@@ -67,8 +67,4 @@ module ApplicationHelper
     concat(markdown(capture(&block)).html_safe)
   end
 
-  def track_link(selector, event)
-    content_for :analytics, "analytics.trackLink($('#{selector}'), '#{event}');".html_safe if Rails.env.production?
-  end
-
 end
