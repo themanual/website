@@ -8,6 +8,7 @@
   <%= render partial: "shared/layout/header" %>
 
   <main role="main" class="l-block <%= yield(:class_main) %>"><div>
+    
     <%- if title.any? %>
     <header class="page-header">
       <%- if @breadcrumb -%>
@@ -17,7 +18,15 @@
     </header>
     <% end %>
     
-    <%= yield %>
+    <%- if page_namespace.in?(%w(read about)) -%>
+    <nav id="sidebar">
+      <%= render partial: "shared/sidebar/#{page_namespace}" %>
+    </nav>
+    <%- end -%>
+
+    <div id="content">
+      <%= yield %>
+    </div>
 
   </div></main>
 

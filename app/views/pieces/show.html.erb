@@ -98,7 +98,7 @@
   </section>
   <section class="piece-post-piece">
     <h2 class="h-sc h-sc-spaced">
-      From Our <%= link_to "Staff Picks", staffpicks_path, class: "c-issue-#{@piece.recommended.issue.number}" %>
+      From our <%= link_to "Featured Pieces", read_path, class: "c-issue-#{@piece.recommended.issue.number}" %>
     </h2>
     <%= render @piece.recommended %>
   </section>

@@ -29,6 +29,10 @@ em      { font-style: italic; }
   @extend %h-styling;
 }
 
+.h-spacing {
+  @extend %h-spacing;
+}
+
 // h1
 .h-jumbo {
   @extend %t-jumbo;

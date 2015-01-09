@@ -3,16 +3,15 @@ TheManual::Application.routes.draw do
   ActiveAdmin.routes(self)
   mount Shoppe::Engine => "/shoppe"
 
-  root to: 'pieces#staffpicks', as: :root
-  resources :authors, only: [:index, :show], param: :slug
-  resources :topics,  only: [:index, :show], param: :topic
-  resources :issues,  only: [:index, :show], param: :number
-  get '/issues/:issue/:key/:type',  to: 'pieces#show', as: :piece, constraints: {type: /(lesson|article)/}
+  root to: redirect('/read'), as: :root
 
-  # OLD ROUTES
-  get '/read',        to: redirect("/"), as: :read
-  get '/staffpicks',  to: redirect('/'), as: :staffpicks
-  get '/read/*other', to: redirect { |path_params| "/#{path_params[:other]}" }
+  scope '/read' do
+    get '/', to: 'pieces#staffpicks', as: :read
+    resources :authors, only: [:index, :show], param: :slug
+    resources :topics,  only: [:index, :show], param: :topic
+    resources :issues,  only: [:index, :show], param: :number
+    get '/issues/:issue/:key/:type',  to: 'pieces#show', as: :piece, constraints: {type: /(lesson|article)/}
+  end
 
   # ABOUT
   get '/about', to: 'about#index',  as: :about

@@ -1,6 +1,29 @@
-<%- options ||= {} -%>
-<header class="site-header <%= content_for(:site_header) %>">
-  <%= render partial: "shared/layout/header/logo" %>
-  <%= render partial: "shared/layout/header/nav" %>
-  <%= render partial: "shared/layout/subheader/#{controller_name}" if @nav %>
-</header>
+<header class="masthead l-block <%= content_for(:site_header) %>"><div>
+
+  <p class="masthead__statement">Design and the web, in thrice-yearly print and digital issues.</p>
+  
+  <%= link_to root_path, { class: "masthead__logo" } do -%>
+    <%= inline_svg "identity/logo-text.svg" %>
+  <%- end -%>
+
+  <div class="masthead__feature"><a href="/">
+    <div class="masthead__feature__text">
+      <p class="t-sc-light h-spacing">Latest Issue</p>
+      <h2 class="masthead__feature__text__title">Issue 4</h2>
+      <p class="masthead__feature__text__micro">Buy in print, ebook, audiobook, and read online.</p>
+    </div>
+    <figure class="masthead__feature__picture">
+      <%= image_tag 'covers/issue-4-cover-mockup-400w.png' %>
+    </figure>
+  </a></div>
+
+  <nav class="masthead__nav">
+    <ul class="masthead__nav__list">
+      <li><%= link_to "Read",          read_path, class: page_is_subpath_of('/read', 'current') %></li>
+      <li><%= link_to_current "Buy",   shop_path, rel: "external" %></li>
+      <li><%= link_to_current "About", about_path, class: page_is_subpath_of('/about', 'current') %></li>
+      <li><%= link_to_current "Blog",  blog_path, rel: "external" %></li>
+    </ul>
+  </nav>
+
+</div></header>

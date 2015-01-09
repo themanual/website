@@ -1,8 +1,0 @@
-<nav class="navigation navigation--secondary"><div>
-  <ul class="navigation__list">
-      <li><%= link_to_current "All", topics_path %></li>
-    <% Piece.active_topics.collect(&:name).sort.each do |topic| %>
-      <li><%= link_to_current topic.titlecase, topic_path(topic.downcase) %></li>
-    <% end %>
-  </ul>
-</div></nav>

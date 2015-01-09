@@ -72,6 +72,18 @@ body {
 .l-cl-l { clear: left   !important; }
 .l-cl-r { clear: right  !important; }
 
+main {
+  padding-top: 1em;
+}
+
+#sidebar {
+  float: left;
+  width: $sidebar-width;
+  margin-right: $sidebar-gutter;
+  padding-top: 1em;
+  + * { overflow: hidden; }
+}
+
 //
 // Full Grid
 //
