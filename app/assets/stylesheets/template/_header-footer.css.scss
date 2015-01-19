@@ -4,15 +4,20 @@
 }
 
 .masthead {
-  background: $c-bg-gray;
   border-bottom: divider();
-  // overflow: hidden;
   > * { position: relative; }
 }
 
+.masthead__header {
+  background: gray(97%);
+  @include spacing(padding-top padding-bottom, 1.5);
+  border-bottom: divider();
+}
+
 .masthead__statement {
-  @include margin-v(1em);
-  display: none;
+  float: right;
+  color: $c-text-caption;
+  color: $c-text-faint-less;
 }
 
 .masthead__feature {
@@ -25,6 +30,7 @@
 
 .masthead__feature > a {
   color: $c-text-gray;
+  color: rgba(white, 0.7);
 }
 
 .masthead__feature__text {
@@ -70,47 +76,51 @@
 }
 
 .masthead__nav {
-  clear: left;
-  font-size: $type-l;
-  font-weight: weight(medium);
-  line-height: 1;
+  font-size:  $type-l;
+  line-height: 1em;
 
   a {
     color: $c-text-caption;
+    border-top:     solid 2px transparent;
+    border-bottom:  solid 2px transparent;
     display: block;
-    padding: .65em 1em;
-    border-top: solid 1px transparent;
-    border-bottom: solid 1px transparent;
+    font-weight: weight(medium);
+    @extend .t-sc;
+    line-height: 1;
+    @include rem(padding-top padding-bottom, .95rem);
+  }
+
+  a:hover, a:focus {
+    color: black;
   }
 
   a.current {
     color: black;
+    border-bottom-color: black;
     font-weight: weight(medium);
-    background: white;
-    border: divider();
-    border-bottom-color: white;
   }
 
-  a:hover,
-  a:focus {
+  a.current:hover,  
+  a.current:focus {
     color: $c-blue;
+    border-bottom-color: $c-blue;
   }
 }
 
 .masthead__nav__list {
-  @include clearfix;
+  overflow: auto;
   margin-bottom: -1px;
 }
 
 .masthead__nav__list > * {
   float: left;
+  margin-right: 2em;
 }
 
 .masthead__logo {
   display: block;
   font-weight: weight(medium);
   width: $sidebar-width + $sidebar-gutter;
-  @include spacing(padding-top padding-bottom, 1.25);
   
   svg {
     display: block;
@@ -118,26 +128,13 @@
   }
 
   svg #wordmark {
-    fill: $c-text-body;
-    transition: all 100ms ease-out;
+    fill: black;
   }
-
-  svg #mark {
-    fill: $c-blue;
-    @each $i in $issues {
-      .issue-#{$i} & {
-        fill: issue-color($i);
-      }
-    }
-  }
-
 
   @include hover {
     svg #mark {
-      fill: black;
-    }
-    svg #word-the-manual {
-      fill: $c-text-body;
+      fill: $c-blue;
+      @include color-by-issue(fill);
     }
   }
 }
@@ -154,16 +151,34 @@
  */
 
 .site-footer {
+  background: gray(97%);
   border-top: divider();
   @include spacing(padding-top padding-bottom, .75);
 }
 
-@include media-from($bp-m) {
-  .has-sidebar .site-footer--nav {
-    margin-left: $sidebar-width + $sidebar-gutter;
+.site-footer--nav {
+  @include clearfix;
+  a {
+    color: $c-text-caption;
+    @include hover {
+      color: black;
+    }
   }
+
+  a.current {
+    color: black;
+    @include hover {
+      color: $c-blue;
+    }
+  }
+}
+
+.site-footer--nav > * {
+  float: left;
+  margin-right: 1.5em;
 }
 
 .site-footer--nav > *:last-child {
   float: right;
+  margin-right: 0;
 }

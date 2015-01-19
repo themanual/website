@@ -1,12 +1,15 @@
-<header class="masthead l-block <%= content_for(:site_header) %>"><div>
+<header class="masthead <%= content_for(:site_header) %>">
 
-  <p class="masthead__statement">Design and the web, in thrice-yearly print and digital issues.</p>
-  
-  <%= link_to root_path, { class: "masthead__logo" } do -%>
-    <%= inline_svg "identity/logo-text.svg" %>
-  <%- end -%>
+  <section class="masthead__header l-x"><div class="l-wrap">
+    
+    <p class="masthead__statement">Design and the web, in thrice-yearly print and digital issues.</p>
 
-  <div class="masthead__feature"><a href="/">
+    <%= link_to root_path, { class: "masthead__logo" } do -%>
+      <%= inline_svg "identity/logo-text.svg" %>
+    <%- end -%>
+  </div></section>
+
+  <!-- <div class="masthead__feature"><a href="/">
     <div class="masthead__feature__text">
       <p class="t-sc-light h-spacing">Latest Issue</p>
       <h2 class="masthead__feature__text__title">Issue 4</h2>
@@ -15,15 +18,15 @@
     <figure class="masthead__feature__picture">
       <%= image_tag 'covers/issue-4-cover-mockup-400w.png' %>
     </figure>
-  </a></div>
+  </a></div> -->
 
-  <nav class="masthead__nav">
+  <nav class="masthead__nav l-x"><div class="l-wrap">
     <ul class="masthead__nav__list">
       <li><%= link_to "Read",          read_path, class: page_is_subpath_of('/read', 'current') %></li>
       <li><%= link_to_current "Buy",   shop_path, rel: "external" %></li>
       <li><%= link_to_current "About", about_path, class: page_is_subpath_of('/about', 'current') %></li>
       <li><%= link_to_current "Blog",  blog_path, rel: "external" %></li>
     </ul>
-  </nav>
+  </div></nav>
 
-</div></header>
+</header>

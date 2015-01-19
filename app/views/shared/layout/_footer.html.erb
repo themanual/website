@@ -1,10 +1,9 @@
 <footer class="site-footer"><div>
   <nav>
-    <ul class="site-footer--nav site-menu">
+    <ul class="site-footer--nav">
       <%- if user_signed_in? -%>
       <li><%= link_to "Account", account_path %></li>
       <%- end -%>
-      <li><%= link_to "Blog", blog_path, rel: "external" %></li>
       <li><a href="mailto:hi@themanual.org">Email</a></li>
       <li><a href="https://twitter.com/themanual" rel="external">Twitter</a></li>
       <%- if user_signed_in? -%>

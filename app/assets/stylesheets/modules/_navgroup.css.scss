@@ -39,8 +39,11 @@
 
     &.current {
       position: relative;
-      font-weight: weight(bold);
+      font-weight: weight(medium);
       color: $c-blue;
+      @include hover {
+        color: black;
+      }
       &:before {
         content: "▸";
         position: absolute;
