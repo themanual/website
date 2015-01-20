@@ -6,12 +6,14 @@ gem 'rails', '~> 4.1.0'
 
 # Assets
 gem 'sass-rails', '~> 4.0.0'
+gem 'sass', '~> 3.2.19' # lock to 3.2 to prevent sprockets/marshalling issues
 gem 'bourbon'
 gem 'neat'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'bower-rails', '~> 0.8.3'
 gem 'cssminify' # replaces 'yui-compressor'
+gem 'sprockets', '2.11.0' # sass broken in 2.12
 gem 'sprockets-image_compressor'
 gem 'autoprefixer-rails'
 gem 'codemirror-rails'
@@ -73,7 +75,7 @@ group :development do
   gem 'guard-livereload'
   gem 'terminal-notifier-guard', require: false
   gem 'quiet_assets'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '0.11.0'
 end
 
 group :production, :stage, :beta do
