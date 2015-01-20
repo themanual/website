@@ -1,15 +1,10 @@
-.site-footer {
-  @extend .l-x;
-  > * { @include outer-container; @include row; }
-}
-
 .masthead {
   border-bottom: divider();
   > * { position: relative; }
 }
 
 .masthead__header {
-  background: gray(97%);
+  // background: gray(97%);
   @include spacing(padding-top padding-bottom, 1.5);
   border-bottom: divider();
 }
@@ -76,8 +71,7 @@
 }
 
 .masthead__nav {
-  font-size:  $type-l;
-  line-height: 1em;
+  // background: gray(97%);
 
   a {
     color: $c-text-caption;
@@ -137,48 +131,4 @@
       @include color-by-issue(fill);
     }
   }
-}
-
-
-
-
-
-
-/*
- *
- * FOOTER
- *
- */
-
-.site-footer {
-  background: gray(97%);
-  border-top: divider();
-  @include spacing(padding-top padding-bottom, .75);
-}
-
-.site-footer--nav {
-  @include clearfix;
-  a {
-    color: $c-text-caption;
-    @include hover {
-      color: black;
-    }
-  }
-
-  a.current {
-    color: black;
-    @include hover {
-      color: $c-blue;
-    }
-  }
-}
-
-.site-footer--nav > * {
-  float: left;
-  margin-right: 1.5em;
-}
-
-.site-footer--nav > *:last-child {
-  float: right;
-  margin-right: 0;
 }

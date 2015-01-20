@@ -1,16 +1,23 @@
-<footer class="site-footer"><div>
-  <nav>
-    <ul class="site-footer--nav">
-      <%- if user_signed_in? -%>
-      <li><%= link_to "Account", account_path %></li>
-      <%- end -%>
-      <li><a href="mailto:hi@themanual.org">Email</a></li>
-      <li><a href="https://twitter.com/themanual" rel="external">Twitter</a></li>
-      <%- if user_signed_in? -%>
-      <li><%= link_to "Log out", destroy_user_session_path %></li>
-      <%- else -%>
-      <li><%= link_to "Log in", new_user_session_path %></li>
-      <%- end -%>
-    </ul>
-  </nav>
-</div></footer>
+<footer class="footer">
+  <section class="footer__promos l-line-t l-x l-pp"><div class="l-wrap l-row">
+    <div class="l-col-s-8 footer__promos__newsletter">
+      <div class="styled">
+        <h4>Subscribe to our Newsletter</h4>
+        <p>Subscribe to our infrequent newsletter and get notified of new issues and early previews.</p>
+      </div>
+      <form action="http://goodonpaper.createsend.com/t/y/s/uukdb/" method="post" class="form footer__promos__newsletter__form" novalidate>
+        <p class="field">
+          <input name="cm-uukdb-uukdb" type="email" required placeholder="yourname@domain.com" class="is-m" /> <button type="submit" class="btn btn-sc">Subscribe</button>
+        </p>
+      </form>
+    </div>
+    <div class="l-col-s-4 footer__promos__twitter styled">
+      <h4>Follow us on Twitter</h4>
+      <p>We post links worth reading, frequent news, and answer any of your questions.</p>
+      <p><a class="twitter-follow-button" href="https://twitter.com/themanual" data-show-count="true" data-size="large" data-lang="en">Follow @themanual</a></p>
+    </div>
+  </div></section>
+  <section class="footer__links l-line-t l-x l-pp"><div class="l-wrap l-row">
+    <p>Whatever</p>
+  </div></section>
+</footer>

@@ -1,0 +1,15 @@
+/*
+ *
+ * FOOTER
+ *
+ */
+
+.footer {
+  background: $c-bg-gray;
+}
+
+.footer__promos__newsletter__form {
+  margin-top: 1em;
+  .field input { margin-right: 1em !important; }
+}
+
