@@ -39,7 +39,6 @@
     > * { float: left; }
     > * + * {
       margin-left: 1em;
-      @include media-from($bp-m) { margin-left: 1.5em; }
     }
   }
 }
@@ -107,6 +106,7 @@
 }
 
 @include media-from($bp-m) {
-  .site-footer > * > * { @include span-columns(6); }
+  .site-footer > * > *:first-child      { @include span-columns(8); }
+  .site-footer > * > *:first-child + *  { @include span-columns(4); }
   .site-footer nav ul { float: right; }
 }
