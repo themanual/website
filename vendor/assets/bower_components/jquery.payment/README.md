@@ -35,6 +35,8 @@ Supported card types are:
 * Forbrugsforeningen
 * Dankort
 
+(Additional card types are supported by extending the [`$.payment.cards`](#paymentcards) array.)
+
 ## API
 
 ### $.fn.payment('formatCardNumber')
@@ -172,6 +174,30 @@ $('input.cc-exp').payment('cardExpiryVal') //=> {month: 4, year: 2020}
 
 This function doesn't perform any validation of the month or year; use `$.payment.validateCardExpiry(month, year)` for that.
 
+### $.payment.cards
+
+Array of objects that describe valid card types. Each object should contain the following fields:
+
+``` javascript
+{
+  // Card type, as returned by $.payment.cardType.
+  type: 'mastercard',
+  // Regex used to identify the card type. For the best experience, this should be
+  // the shortest pattern that can guarantee the card is of a particular type.
+  pattern: /^5[0-5]/,
+  // Array of valid card number lengths.
+  length: [16],
+  // Array of valid card CVC lengths.
+  cvcLength: [3],
+  // Boolean indicating whether a valid card number should satisfy the Luhn check.
+  luhn: true,
+  // Regex used to format the card number. Each match is joined with a space.
+  format: /(\d{1,4})/g
+}
+```
+
+When identifying a card type, the array is traversed in order until the card number matches a `pattern`. For this reason, patterns with higher specificity should appear towards the beginning of the array.
+
 ## Example
 
 Look in [`./example/index.html`](example/index.html)
@@ -195,20 +221,18 @@ We recommend you turn autocomplete on for credit card forms, except for the CVC 
 </form>
 ```
 
-You should also mark up your fields using the [Autocomplete Types spec](http://wiki.whatwg.org/wiki/Autocomplete_Types). These are respected by a number of browsers, including Chrome.
+You should also mark up your fields using the [Autofill spec](https://html.spec.whatwg.org/multipage/forms.html#autofill). These are respected by a number of browsers, including Chrome.
 
 ``` html
-<input type="text" class="cc-number" pattern="\d*" autocomplete="cc-number" placeholder="Card number" required>
+<input type="tel" class="cc-number" autocomplete="cc-number">
 ```
 
 Set `autocomplete` to `cc-number` for credit card numbers and `cc-exp` for credit card expiry.
 
 ## Mobile recommendations
 
-We recommend you set the `pattern` attribute which will cause the numeric keyboard to be displayed on mobiles:
+We recommend you to use `<input type="tel">` which will cause the numeric keyboard to be displayed on mobile devices:
 
 ``` html
-<input class="cc-number" pattern="\d*">
+<input type="tel" class="cc-number">
 ```
-
-You may have to turn off HTML5 validation (using the `novalidate` form attribute) when using this `pattern`, as it won't match space formatting.
