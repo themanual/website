@@ -11,8 +11,7 @@ class PiecesController < ApplicationController
   def staffpicks
     @sidebar = true
     @pieces = Piece.staff_picks
-
-    # title    "Staff Picks"
+    title "Staff Picks"
     metadata "og:title", "Staff Picks"
     metadata "description",     "A selection of #{@pieces.count} pieces picked by The Manual’s staff."
   end

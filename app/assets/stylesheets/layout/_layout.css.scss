@@ -2,7 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  > main { flex: 1; }
+  > footer { flex: 1; }
 }
 
 @mixin spacing($props, $times: 1) {
@@ -38,6 +38,10 @@ body {
   @extend .l-p;
 }
 
+.l-x.l-wrap {
+  @include box-sizing(content-box);
+}
+
 .l-line-t { border-top: divider(); }
 .l-line-b { border-bottom: divider(); }
 .l-line   { @extend .l-line-t; @extend .l-line-b; }
@@ -60,6 +64,10 @@ body {
   // + * { border-top: divider(); }
 }
 
+.l-stack-plain > * {
+  @include spacing(margin-bottom, 1.5);
+}
+
 .l-flexcenter {
   display: flex;
   align-items: center;
@@ -73,15 +81,32 @@ body {
 .l-cl-r { clear: right  !important; }
 
 main {
-  padding-top: 1em;
+  // @include spacing(padding-bottom);
+}
+
+// main.sidebar,
+main.no-sidebar {
+  @include spacing(padding-top padding-bottom, 1.5);
 }
 
 #sidebar {
   float: left;
   width: $sidebar-width;
-  margin-right: $sidebar-gutter;
-  padding-top: 1em;
-  + * { overflow: hidden; }
+  border-right: divider();
+  @include spacing(padding-bottom padding-right, 1.5);
+  margin-right: -1px;
+  box-sizing: content-box;
+}
+
+#sidebar + * {
+  overflow: hidden;
+  border-left: divider();
+  @include spacing(padding-left, 1.5);
+}
+
+#sidebar,
+#sidebar + * {
+  @include spacing(padding-top, 1.5);
 }
 
 //

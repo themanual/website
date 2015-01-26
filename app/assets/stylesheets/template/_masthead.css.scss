@@ -1,18 +1,30 @@
 .masthead {
+  background: gray(97%);
   border-bottom: divider();
   > * { position: relative; }
 }
 
-.masthead__header {
-  // background: gray(97%);
-  @include spacing(padding-top padding-bottom, 1.5);
-  border-bottom: divider();
+.masthead__statement {
+  
+}
+.masthead__statement > p {
+  color: $c-text-caption;
+  @include padding-v(1em);
+  position: relative;
+  strong {
+    color: $c-text-body;
+  }
 }
 
-.masthead__statement {
-  float: right;
-  color: $c-text-caption;
-  color: $c-text-faint-less;
+.masthead__statement__close {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.masthead__header {
+  // @include spacing(padding-top padding-bottom, 1.25);
 }
 
 .masthead__feature {
@@ -71,17 +83,18 @@
 }
 
 .masthead__nav {
-  // background: gray(97%);
-
+  float: right;
+  font-size: $type-l;
   a {
     color: $c-text-caption;
-    border-top:     solid 2px transparent;
-    border-bottom:  solid 2px transparent;
+    border-top:     solid 3px transparent;
+    border-bottom:  solid 3px transparent;
     display: block;
-    font-weight: weight(medium);
-    @extend .t-sc;
+    // font-weight: weight(medium);
+    padding-left: 5px;
+    padding-right: 5px;
     line-height: 1;
-    @include rem(padding-top padding-bottom, .95rem);
+    @include spacing(padding-top padding-bottom, 2.1);
   }
 
   a:hover, a:focus {
@@ -108,13 +121,16 @@
 
 .masthead__nav__list > * {
   float: left;
-  margin-right: 2em;
+  @include spacing(margin-right, 1.5);
 }
 
 .masthead__logo {
   display: block;
+  @include spacing(padding-top padding-bottom, 1.5);
   font-weight: weight(medium);
-  width: $sidebar-width + $sidebar-gutter;
+  width: $sidebar-width;
+  float: left;
+  @include spacing(margin-right, 3);
   
   svg {
     display: block;

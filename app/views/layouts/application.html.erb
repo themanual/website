@@ -7,16 +7,7 @@
 
   <%= render partial: "shared/layout/header" %>
 
-  <main role="main" class="l-block <%= yield(:class_main) %>"><div>
-    
-    <%- if title.any? %>
-    <header class="page-header">
-      <%- if @breadcrumb -%>
-      <p><%= title.drop(1).reverse.join(" · ") %></p>
-      <%- end -%>
-      <h1><%= title.first %></h1>
-    </header>
-    <% end %>
+  <main role="main" class="l-block <%= yield(:class_main) %> <%= page_namespace.in?(%w(read about)) ? "sidebar" : "no-sidebar" %>"><div>
     
     <%- if page_namespace.in?(%w(read about)) -%>
     <nav id="sidebar">
@@ -25,6 +16,15 @@
     <%- end -%>
 
     <div id="content">
+      <%- if title.any? %>
+      <header class="page-header">
+        <%- if @breadcrumb -%>
+        <p><%= title.drop(1).reverse.join(" · ") %></p>
+        <%- end -%>
+        <h1><%= title.first %></h1>
+      </header>
+      <% end %>
+      
       <%= yield %>
     </div>
 

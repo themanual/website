@@ -1,9 +1,9 @@
 <footer class="footer">
   <section class="footer__promos l-line-t l-x l-pp"><div class="l-wrap l-row">
-    <div class="l-col-s-8 footer__promos__newsletter">
+    <div class="l-col-s-6 footer__promos__newsletter">
       <div class="styled">
         <h4>Subscribe to our Newsletter</h4>
-        <p>Subscribe to our infrequent newsletter and get notified of new issues and early previews.</p>
+        <p>Subscribe to our newsletter and infrequent updates about new issue launches, store sales, and early previews of future editions.</p>
       </div>
       <form action="http://goodonpaper.createsend.com/t/y/s/uukdb/" method="post" class="form footer__promos__newsletter__form" novalidate>
         <p class="field">
@@ -11,13 +11,16 @@
         </p>
       </form>
     </div>
-    <div class="l-col-s-4 footer__promos__twitter styled">
+    <div class="l-col-s-5 l-shift-s-1 footer__promos__twitter styled">
       <h4>Follow us on Twitter</h4>
-      <p>We post links worth reading, frequent news, and answer any of your questions.</p>
+      <p>Links worth reading, frequent news, and answers to your questions at <%= link_to "@themanual", "https://twitter.com/themanual" %>.</p>
       <p><a class="twitter-follow-button" href="https://twitter.com/themanual" data-show-count="true" data-size="large" data-lang="en">Follow @themanual</a></p>
     </div>
   </div></section>
-  <section class="footer__links l-line-t l-x l-pp"><div class="l-wrap l-row">
-    <p>Whatever</p>
+  <section class="footer__links l-line-t l-container"><div class="l-row">
+    <div class="l-col-m-6 styled styled--tight">
+      <p>Made possible by our generous patrons: <%= link_to "MailChimp", "http://mailchimp.com" %> and <%= link_to "Hover", "http://hover.com" %></p>
+      <p>Licensed <%= link_to "CC BY-NC-SA 4.0", { controller: :about, action: :license } %> &middot; Version <%= link_to "0.3.0", { controller: :about, action: :releases } %></p>
+    </div>
   </div></section>
 </footer>

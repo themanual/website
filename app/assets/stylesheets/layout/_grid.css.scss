@@ -72,7 +72,7 @@
   // Omega
   .l-omega#{$class} { @include omega; }
   // Shift
-  // @for $i from 1 through ($grid-columns - 1) {
-  //   .l-shift#{$class}-#{$i} { @include shift($i); }
-  // }
+  @for $i from 1 through ($grid-columns - 1) {
+    .l-shift#{$class}-#{$i} { @include shift($i); }
+  }
 }

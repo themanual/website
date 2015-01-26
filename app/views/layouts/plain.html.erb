@@ -7,7 +7,7 @@
 
   <%= render partial: "shared/layout/header", locals: { options: { title: false } } %>
 
-  <main id="content" class="<%= yield(:class_main) %>" role="main">
+  <main id="content" class="plain <%= yield(:class_main) %>" role="main">
     <%= yield %>
   </main>
 

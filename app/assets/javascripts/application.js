@@ -12,6 +12,7 @@
 //  jQuery Plugins
 //= require jquery.scrollTo/jquery.scrollTo
 //= require jquery-loadingdots/jquery.loadingdots
+//= require jquery.cookie/jquery.cookie
 //= require fitvids/jquery.fitvids
 //
 //  Handlebars

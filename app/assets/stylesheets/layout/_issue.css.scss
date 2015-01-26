@@ -11,17 +11,13 @@
       display: block;
       float: right;
       width: 10.5em;
-      margin-top: 1em;
+      margin-top: -.5em;
       @include spacing(margin-left);
       + * { overflow: hidden; }
     }
     @include media-from($bp-l)  { width: 12em; }
     @include media-from($bp-xl) { width: 16em; }
   }
-}
-
-.issue-pieces {
-  @include spacing(margin-top);
 }
 
 .issue-pieces .piece-unit + .piece-unit {

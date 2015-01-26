@@ -1,9 +1,5 @@
 .page-header {
-  // padding-top: 3em;
-  // padding-bottom: 1em;
-  display: none;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  @include spacing(margin-bottom, 1.5);
 }
 
 .page-header > p:first-child {
@@ -14,7 +10,6 @@
 
 .page-header h1 {
   @extend  .h-jumbo;
-  font-family: $type-serif;
   font-weight: weight(black);
   line-height: 1;
   @include type-enhancements;

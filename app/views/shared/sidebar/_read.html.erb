@@ -1,10 +1,13 @@
 <div class="navgroup">
+  <h2 class="navgroup-title">Featured</h2>
   <ul class="navgroup-items sidebar-issues">
-    <li><%= link_to_current "Featured", read_path %></li>
+    <li><%= link_to_current "Staff Picks", read_path %></li>
+    <li class="soon"><span>Popular</span></li>
+  </ul>
 </div>
 
 <div class="navgroup">
-  <h2 class="navgroup-title">By Issue</h2>
+  <h2 class="navgroup-title">Issues</h2>
   <ul class="navgroup-items sidebar-issues">
     <!-- <li><strong><%= link_to_current "All Issues", issues_path %></strong></li> -->
     <% current_user.visible_issues.each do |issue| %>
@@ -21,7 +24,7 @@
 </div>
 
 <div class="navgroup">
-  <h2 class="navgroup-title">By Topic</h2>
+  <h2 class="navgroup-title">Topics</h2>
   <ul class="navgroup-items sidebar-topics">
     <!-- <li><strong><%= link_to_current "All Topics", topics_path %></strong></li> -->
     <% Piece.active_topics.collect(&:name).sort.each do |topic| %>

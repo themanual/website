@@ -18,7 +18,7 @@ $type-llllll: $type-scale * $type-lllll;  // 46
 // Grid
 $column: 60px;
 $gutter: 50px;
-$max-width: 1050px;
+$max-width: 1150px;
 
 // Breakpoints
 // TODO update to Sass 3.3 Maps
@@ -34,9 +34,7 @@ $bps: (
   ("xl",  $bp-xl)
 );
 
-$sidebar-width:  9em;
-$sidebar-gutter: 2em;
-
+$sidebar-width:  11em;
 $z-popover: 10;
 
 // Type
