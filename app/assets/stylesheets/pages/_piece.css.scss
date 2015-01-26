@@ -35,7 +35,7 @@
     .piece-header-text {
       @include centered;
       max-width: flex-grid(6);
-      @include margin-v(16%);
+      @include padding-v(16%);
     }
   }
 
