@@ -24,7 +24,7 @@ class Download < ActiveRecord::Base
   end
 
   def url
-    file.expiring_url(5.minutes).gsub('http://https://', 'https://')
+    file.expiring_url(5.minutes) #.gsub('http://https://', 'https://')
   end
 
   def to_param
