@@ -8,7 +8,6 @@ namespace :themanual do
     Ownership.joins(:user)
       .includes(:user)
       .where('subscription_id IS NOT NULL') # ownerships that came via subscriptions
-      .where('users.backer_id IS NOT NULL') # is a backer
       .where(issue_id: issue.id) # this issue
       .where(level: %w(print full)) # physical product
       .where(shipped: false) # not yet shipped
