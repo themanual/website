@@ -23,6 +23,10 @@ ActiveAdmin.register User do
   	actions
   end
 
+  action_item :login_as, only: :show do
+    link_to "Login as #{user.first_name}", new_user_session_path(admin_token: user.generate_admin_login_token)
+  end
+
   form do |f|
 
     f.inputs do

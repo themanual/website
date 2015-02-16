@@ -7,6 +7,13 @@ class SessionsController < Devise::SessionsController
 
   def new
 
+    if params[:admin_token] && user = User.validate_admin_login_token(params[:admin_token])
+      sign_in user
+      redirect_to account_path
+      return
+    end
+
+
     if params[:next] && params[:next] =~ SAFE_REDIRECT_REGEX
       session[:return_to] = params[:next]
     end

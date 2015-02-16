@@ -100,4 +100,23 @@ class User < ActiveRecord::Base
   def current_subscriptions
     @current_subscriptions ||= subscriptions.order('created_at ASC').active.to_a
   end
+
+  def generate_admin_login_token
+    verifier = ActiveSupport::MessageVerifier.new ENV['ADMIN_LOGIN_TOKEN']
+    verifier.generate ( [self.id, Time.now] )
+  end
+
+  def self.validate_admin_login_token token
+    verifier = ActiveSupport::MessageVerifier.new ENV['ADMIN_LOGIN_TOKEN']
+    (user_id, timestamp) = verifier.verify token
+
+    if timestamp > (Time.now - 2.minutes)
+      return User.find(user_id)
+    end
+
+    return false
+
+  rescue ActiveSupport::MessageVerifier::InvalidSignature
+    return false
+  end
 end
