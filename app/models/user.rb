@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   after_create :add_email_address
 
+  after_save :update_email_address
+
   def self.anon
     AnonUser.instance
   end
@@ -75,6 +77,12 @@ class User < ActiveRecord::Base
 
   def add_email_address
   	self.email_addresses.create email: self.email, primary: true
+  end
+
+  def update_email_address
+    if self.email_changed?
+      self.email_addresses.where(primary: true).first.update_attributes email: self.email
+    end
   end
 
   def current_card
