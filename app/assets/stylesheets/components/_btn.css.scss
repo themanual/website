@@ -94,7 +94,7 @@ button.btn {
 }
 
 .btn-sc {
-  @extend .t-sc;
+  @include t-sc;
   font-weight: weight(medium);
   padding: .5em;
 }
@@ -137,7 +137,7 @@ button.btn {
   font-family: inherit;
 
   @include hover {
-    color: $c-text-black;
+    color: $c-blue;
     outline: none;
   }
 }

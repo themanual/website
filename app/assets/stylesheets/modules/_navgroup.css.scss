@@ -8,7 +8,7 @@
 }
 
 .navgroup-title {
-  @extend .t-sc;
+  @include t-sc;
   color: $c-text-gray;
   font-weight: weight(medium);
   margin-bottom: .25em;

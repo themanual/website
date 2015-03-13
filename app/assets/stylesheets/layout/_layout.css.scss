@@ -80,33 +80,78 @@ body {
 .l-cl-l { clear: left   !important; }
 .l-cl-r { clear: right  !important; }
 
-main {
-  // @include spacing(padding-bottom);
+main.with-sidebar { @include spacing(padding-top); }
+main.no-sidebar   { @include spacing(padding-top padding-bottom, 1.5); }
+
+.sidebar-button {
+  @include prefixer(apperance, none, webkit moz spec);
+  border: none;
+  border-radius: 4px;
+  background-color: black;
+  background-image: image-url('ui/arrow-toggle-sidebar.svg');
+  width: 2.5em;
+  height: 2.5em;
+  background-size: 1.5em auto;
+  background-repeat: no-repeat;
+  background-position: center 55%;
+  transition: all 150ms linear;
+  &.is-expanded {
+    transform: rotate(180deg);
+  }
+  @include hover {
+    background-color: $c-blue;
+    outline: none;
+  }
 }
 
-// main.sidebar,
-main.no-sidebar {
-  @include spacing(padding-top padding-bottom, 1.5);
+@include media-upto($bp-m) {
+  .sidebar-button {
+    position: absolute;
+    top: 0; right: 0;
+  }
+  .sidebar-content {
+    display: none;
+    @include spacing(margin-bottom padding-top padding-bottom);
+    border-bottom: divider();
+    border-top: divider();
+  }
+  .sidebar-content {
+    .navgroup { @include row; }
+    .navgroup-title,
+    .navgroup-items { @include span-columns(6); }
+    .navgroup-title { padding-top: .3em; }
+  }
 }
 
-#sidebar {
-  float: left;
-  width: $sidebar-width;
-  border-right: divider();
-  @include spacing(padding-bottom padding-right, 1.5);
-  margin-right: -1px;
-  box-sizing: content-box;
+@include media-from($bp-m) {
+  .sidebar {
+    float: left;
+    width: $sidebar-width;
+    @include spacing(padding-bottom, 1.5);
+  }
+  .sidebar-content {
+    display: block !important;
+  }
+  .sidebar-button {
+    display: none;
+  }
+  .with-sidebar #content {
+    overflow: hidden;
+  }
+  main.with-sidebar .page-header {
+    margin-left: $sidebar-width;
+  }
+
 }
 
-#sidebar + * {
-  overflow: hidden;
-  border-left: divider();
-  @include spacing(padding-left, 1.5);
+.main-header {
+  @include spacing(margin-top, .75);
+  @include spacing(margin-bottom, 1.25);
+  position: relative;
 }
 
-#sidebar,
-#sidebar + * {
-  @include spacing(padding-top, 1.5);
+.sidebar {
+  @include spacing(margin-top, 1.25); 
 }
 
 //

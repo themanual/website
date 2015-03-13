@@ -1,30 +1,36 @@
 .masthead {
-  background: gray(97%);
+  // background: gray(97%);
   border-bottom: divider();
   > * { position: relative; }
 }
 
-.masthead__statement {
-  
+.masthead__statement__wrapper {
+  display: table;
+  width: 100%;
 }
-.masthead__statement > p {
-  color: $c-text-caption;
-  @include padding-v(1em);
-  position: relative;
-  strong {
-    color: $c-text-body;
-  }
+
+.masthead__statement__text,
+.masthead__statement__close {
+  display: table-cell;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  vertical-align: middle;
 }
 
 .masthead__statement__close {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  @include t-sc;
+  color: $c-text-caption;
+  > * {
+    @include t-sc;
+    font-weight: weight(medium);
+    color: $c-text-caption;
+    padding-left: 1em;
+  }
 }
 
-.masthead__header {
-  // @include spacing(padding-top padding-bottom, 1.25);
+.masthead__statement {
+  color: $c-text-caption;
+  strong { color: $c-text-body; }
 }
 
 .masthead__feature {
@@ -83,45 +89,41 @@
 }
 
 .masthead__nav {
-  float: right;
-  font-size: $type-l;
-  a {
-    color: $c-text-caption;
-    border-top:     solid 3px transparent;
-    border-bottom:  solid 3px transparent;
-    display: block;
-    // font-weight: weight(medium);
-    padding-left: 5px;
-    padding-right: 5px;
-    line-height: 1;
-    @include spacing(padding-top padding-bottom, 2.1);
-  }
+  border-top: divider();
+}
 
-  a:hover, a:focus {
+.masthead__nav__items {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__nav__item {
+  display: inline-block;
+}
+
+.masthead__nav__item a {
+  @include t-sc;
+  display: block;
+  color: $c-text-caption;
+  padding: 1em;
+  
+  @include hover {
     color: black;
   }
 
-  a.current {
-    color: black;
-    border-bottom-color: black;
+  &.current {
+    color: $c-text-black;
     font-weight: weight(medium);
-  }
-
-  a.current:hover,  
-  a.current:focus {
-    color: $c-blue;
-    border-bottom-color: $c-blue;
+    @include hover {
+      color: $c-blue;
+    }
   }
 }
 
-.masthead__nav__list {
-  overflow: auto;
-  margin-bottom: -1px;
-}
-
-.masthead__nav__list > * {
-  float: left;
-  @include spacing(margin-right, 1.5);
+.masthead__nav__item:first-child a {
+  padding-left: 0;
 }
 
 .masthead__logo {

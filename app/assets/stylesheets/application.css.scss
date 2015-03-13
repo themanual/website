@@ -24,19 +24,19 @@
 @import 'images';
 @import 'base';
 
-// Template
-@import 'template/masthead';
-@import 'template/footer';
-@import 'template/page-header';
-
 // Component Modules
+@import 'components/text';
 @import 'components/btn';
 @import 'components/fields';
 @import 'components/form';
 @import 'components/popover';
-@import 'components/text';
 @import 'components/styled';
 // @import 'components/tables';
+
+// Template
+@import 'template/masthead';
+@import 'template/footer';
+@import 'template/page-header';
 
 // General Modules
 @import 'modules/alert';

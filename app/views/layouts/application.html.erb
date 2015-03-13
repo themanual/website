@@ -7,24 +7,31 @@
 
   <%= render partial: "shared/layout/header" %>
 
-  <main role="main" class="l-block <%= yield(:class_main) %> <%= page_namespace.in?(%w(read about)) ? "sidebar" : "no-sidebar" %>"><div>
+  <main role="main" class="l-block <%= yield(:class_main) %> <%= page_namespace.in?(%w(read about)) ? "with-sidebar" : "no-sidebar" %>"><div>
     
-    <%- if page_namespace.in?(%w(read about)) -%>
-    <nav id="sidebar">
-      <%= render partial: "shared/sidebar/#{page_namespace}" %>
-    </nav>
-    <%- end -%>
-
-    <div id="content">
+    <%- if title.any? || page_namespace.in?(%w(read about)) %>
+    <div class="main-header">
       <%- if title.any? %>
       <header class="page-header">
         <%- if @breadcrumb -%>
-        <p><%= title.drop(1).reverse.join(" · ") %></p>
+        <p class="page-header__breadcrumb"><%= title.drop(1).reverse.join(" · ") %></p>
         <%- end -%>
-        <h1><%= title.first %></h1>
+        <h1 class="page-header__name"><%= title.first %></h1>
       </header>
       <% end %>
-      
+
+      <%- if page_namespace.in?(%w(read about)) -%>
+      <nav class="sidebar" id="sidebar">
+        <button class="sidebar-button js-toggle-sidebar"></button>
+        <div class="sidebar-content js-sidebar">
+          <%= render partial: "shared/sidebar/#{page_namespace}" %>
+        </div>
+      </nav>
+      <%- end -%>
+    </div>
+    <%- end -%>
+
+    <div id="content">
       <%= yield %>
     </div>
 

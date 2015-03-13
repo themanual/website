@@ -36,7 +36,6 @@
 .cart-item-remove {
   position: relative;
   top: -.05em;
-  @extend .t-sc-small;
 
   color: $c-error;
   &:hover,
