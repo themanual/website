@@ -1,6 +1,5 @@
 .issue > * {
-  overflow: auto;
-  // + * { @include spacing(margin-top); }
+  @include clearfix;
 }
 
 .issue-illo {
