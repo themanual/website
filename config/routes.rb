@@ -14,8 +14,7 @@ TheManual::Application.routes.draw do
   end
 
   # ABOUT
-  get '/about', to: 'about#index',  as: :about
-  get '/about(/:action)', controller: :about
+  get '/about(/:action)', controller: :about, as: :about
 
   get '/download/:dl', to: 'issues#download', as: :download
 

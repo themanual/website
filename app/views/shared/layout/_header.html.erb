@@ -25,7 +25,9 @@
         <%= link_to_current "About", about_path, class: page_is_subpath_of('/about', 'current') %>
       </li><li class="masthead__nav__item">
         <%= link_to_current "Blog",  blog_path, rel: "external" %>
-      </li></ul>
+      </li><%- if user_signed_in? -%><li class="masthead__nav__item">
+        <%= link_to_current "Account",  account_path, class: page_is_subpath_of('/account', 'current') %>
+      </li><%- end -%></ul>
   </div></nav>
 
   <!-- <div class="masthead__feature"><a href="/">
