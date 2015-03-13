@@ -90,7 +90,7 @@
   > thead.outside > tr > * {
     background: none;
     border: none;
-    @extend .t-sc;
+    @include t-sc;
     font-size: 1em;
   }
 
@@ -127,7 +127,7 @@
   }
 
   small {
-    @extend .t-sc;
+    @include t-sc;
     font-weight: weight(regular);
     color: $c-text-faint;
   }

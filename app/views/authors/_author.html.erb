@@ -1,0 +1,9 @@
+<%- cache author do -%>
+<div class="author">
+  <figure class="author--portrait">
+    <%= image_tag "illustrations/portraits/issue-#{author.pieces.map {|p| p.issue.number }.sort.last}/#{author.slug}.jpg" %>
+  </figure>
+  <h3 class="author--name"><%= link_to author.name, author_path(author.slug) %></h3>
+  <!-- <p class="author--bio"><%= raw markdown(bio_with_twitter(author)) %></p> -->
+</div>
+<%- end -%>

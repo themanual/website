@@ -1,7 +1,14 @@
 class TopicsController < ApplicationController
+  
+  before_action { @nav = true }
+
+  def index
+    title "Topics"
+  end
+
   def show
     @pieces = Piece.tagged_with(params[:topic]).joins(:issue).where(issue: current_user.visible_issues).order('issues.number DESC, pieces.position ASC')
-    @breadcrumb = true
+    # @breadcrumb = true
     
     title    "Topics"
     title    params[:topic].titlecase

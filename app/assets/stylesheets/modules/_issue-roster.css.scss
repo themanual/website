@@ -19,7 +19,7 @@
 }
 
 .issue-roster-author-name {
-  @extend .t-sc;
+  @include t-sc;
   color: $c-text-caption;
   text-align: center;
   margin-top: 1em;

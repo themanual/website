@@ -77,6 +77,7 @@ button.btn {
 @each $i in $issues {
   .issue-#{$i}.c-issue  .btn-ghost,
   .issue-#{$i} .c-issue .btn-ghost {
+    background-color: white;
     border-color: issue-color($i);
     color: issue-color($i);
     svg *[fill] { fill: issue-color($i); }
@@ -93,7 +94,7 @@ button.btn {
 }
 
 .btn-sc {
-  @extend .t-sc;
+  @include t-sc;
   font-weight: weight(medium);
   padding: .5em;
 }
@@ -136,7 +137,7 @@ button.btn {
   font-family: inherit;
 
   @include hover {
-    color: $c-text-black;
+    color: $c-blue;
     outline: none;
   }
 }

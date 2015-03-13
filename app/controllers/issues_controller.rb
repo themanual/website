@@ -1,22 +1,21 @@
 class IssuesController < ApplicationController
 
+  before_action(only: [:index, :show]) { @nav = true }
+
   def index
-    redirect_to read_path
+    
   end
 
   def show
-    issue_no = params[:issue].to_i
+    issue_no = params[:number].to_i
     @issue = Issue.where(number: issue_no).first
 
-    if @issue.number == 4 && @issue.unpublished? && !current_user.can?(:view, @issue)
-      metadata "og:title",        "Issue 4"
-      metadata "description",     "Issue of The Manual is coming soon. Featuring Jeniffer Brook, David Cole, Paul Ford, Diana Kimball, Wilson Miner, and Craig Mod."
-      render :soon
-    else
-      redirect_to read_path and return if @issue.nil? || !current_user.can?(:view, @issue)
-      metadata "og:title",        @issue.name
-      metadata "description",     "#{@issue.name} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
-    end
+    redirect_to read_path and return if @issue.nil? || !current_user.can?(:view, @issue)
+    
+    title "Issues"
+    title @issue.name
+    # @breadcrumb = true
+    metadata "description", "#{@issue.name} of The Manual, with #{@issue.authors.map(&:name).to_sentence}."
   end
 
   def download

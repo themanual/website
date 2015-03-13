@@ -151,7 +151,7 @@ class Piece < ActiveRecord::Base
 
   def self.active_topics
     Rails.cache.fetch ACTIVE_TOPICS_CACHE_KEY do
-      Piece.tag_counts_on(:topics).where(enabled: true).collect(&:name).sort
+      Piece.tag_counts_on(:topics).where(enabled: true)
     end
   end
 

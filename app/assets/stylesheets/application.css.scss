@@ -19,27 +19,28 @@
 // Base
 @import 'layout/grid';
 @import 'layout/layout';
-@import 'layout/sidebar';
 @import 'layout/issue';
 @import 'utils';
 @import 'images';
 @import 'base';
 
-// Template
-@import 'template/header-footer';
-@import 'template/page-header';
-
 // Component Modules
+@import 'components/text';
 @import 'components/btn';
 @import 'components/fields';
 @import 'components/form';
 @import 'components/popover';
-@import 'components/text';
 @import 'components/styled';
 // @import 'components/tables';
 
+// Template
+@import 'template/masthead';
+@import 'template/footer';
+@import 'template/page-header';
+
 // General Modules
 @import 'modules/alert';
+@import 'modules/navigation';
 // @import 'modules/banner';
 @import 'modules/callout';
 @import 'modules/issue-roster';

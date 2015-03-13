@@ -1,19 +1,24 @@
 .navgroup {
   @include media-upto($bp-m) { font-size: 1.1em; }
+  line-height: 1.1em;
+}
+
+.navgroup + .navgroup {
+  margin-top: 1.5em;
 }
 
 .navgroup-title {
-  @extend .t-sc;
-  color: $c-text-body;
+  @include t-sc;
+  color: $c-text-gray;
   font-weight: weight(medium);
-  line-height: 1.1;
-  margin-bottom: .2em;
+  margin-bottom: .25em;
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .navgroup-items {
-  line-height: 1.1;
   color: $c-text-faint;
-  @include spacing(margin-bottom);
 
   ul {
     padding-left: .5em;
@@ -35,7 +40,10 @@
     &.current {
       position: relative;
       font-weight: weight(medium);
-      color: $c-text-gray;
+      color: $c-blue;
+      @include hover {
+        color: black;
+      }
       &:before {
         content: "▸";
         position: absolute;
@@ -45,14 +53,14 @@
         @include rem(left, -1rem);
         margin-top: em(-1);
       }
-    }
 
-    @include link-hover-blue { color: $c-text-caption; }
-
-    @include color-by-issue-self(color) {
-      @include hover {
-        color: black;
+      @include color-by-issue-self(color) {
+        @include hover {
+          color: black;
+        }
       }
     }
+
+    @include link-hover-blue { color: $c-text-faint; }
   }
 }

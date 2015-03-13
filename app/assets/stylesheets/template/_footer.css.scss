@@ -1,0 +1,19 @@
+/*
+ *
+ * FOOTER
+ *
+ */
+
+.footer {
+  background: $c-bg-gray;
+}
+
+.footer iframe {
+  max-width: 100%;
+}
+
+.footer__promos__newsletter__form {
+  margin-top: 1em;
+  .field input { margin-right: 1em !important; }
+}
+

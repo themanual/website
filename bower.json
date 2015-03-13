@@ -6,6 +6,7 @@
     "jquery-ujs":               "*",    // For Rails
     "jquery.scrollTo":          "*",    // Scrolling utilities
     "jquery-loadingdots":       "*",    // Loading... dots
+    "jquery.cookie":            "*",    // Cookies
     "garnish":                  "*",    // Helpers and utilites for Sass
     "fitvids":                  "*",    // Responsive video embeds for popular sites
     "jquery.payment":           "*",    // Payment details validation and autocompletion

@@ -1,0 +1,152 @@
+.masthead {
+  // background: gray(97%);
+  border-bottom: divider();
+  > * { position: relative; }
+}
+
+.masthead__statement__wrapper {
+  display: table;
+  width: 100%;
+}
+
+.masthead__statement__text,
+.masthead__statement__close {
+  display: table-cell;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  vertical-align: middle;
+}
+
+.masthead__statement__close {
+  @include t-sc;
+  color: $c-text-caption;
+  > * {
+    @include t-sc;
+    font-weight: weight(medium);
+    color: $c-text-caption;
+    padding-left: 1em;
+  }
+}
+
+.masthead__statement {
+  color: $c-text-caption;
+  strong { color: $c-text-body; }
+}
+
+.masthead__feature {
+  position: absolute;
+  right: 0;
+  @include spacing(top, 1.5);
+  width: 18em;
+  display: none;
+}
+
+.masthead__feature > a {
+  color: $c-text-gray;
+  color: rgba(white, 0.7);
+}
+
+.masthead__feature__text {
+  width: 55%;
+  float: left;
+  
+  p {
+    margin-top: .25em;
+    margin-bottom: .5em;
+  }
+}
+
+.masthead__feature__text__title {
+  font-size: $type-l;
+  color: $c-text-body;
+  font-weight: weight(bold);
+  line-height: 1.1;
+  margin-top: .5em;
+}
+
+.masthead__feature__text__micro {
+  font-size: .9em;
+  font-family: $type-serif;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.masthead__feature__picture {
+  width: 40%;
+
+  box-shadow: 0 0 1.5em rgba($c-text-gray, .2);
+
+  position: absolute;
+  right: 0;
+  top: -.75em;
+  
+  transition: all .1s;
+  border: divider();
+}
+
+.masthead__feature:hover .masthead__feature__picture {
+  transform: translateY(-2em);
+}
+
+.masthead__nav {
+  border-top: divider();
+}
+
+.masthead__nav__items {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.masthead__nav__item {
+  display: inline-block;
+}
+
+.masthead__nav__item a {
+  @include t-sc;
+  display: block;
+  color: $c-text-caption;
+  padding: 1em;
+  
+  @include hover {
+    color: black;
+  }
+
+  &.current {
+    color: $c-text-black;
+    font-weight: weight(medium);
+    @include hover {
+      color: $c-blue;
+    }
+  }
+}
+
+.masthead__nav__item:first-child a {
+  padding-left: 0;
+}
+
+.masthead__logo {
+  display: block;
+  @include spacing(padding-top padding-bottom, 1.5);
+  font-weight: weight(medium);
+  width: $sidebar-width;
+  float: left;
+  @include spacing(margin-right, 3);
+  
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  svg #wordmark {
+    fill: black;
+  }
+
+  @include hover {
+    svg #mark {
+      fill: $c-blue;
+      @include color-by-issue(fill);
+    }
+  }
+}

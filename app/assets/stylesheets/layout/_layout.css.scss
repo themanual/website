@@ -2,7 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  > #content { flex: 1; }
+  > footer { flex: 1; }
 }
 
 @mixin spacing($props, $times: 1) {
@@ -38,6 +38,10 @@ body {
   @extend .l-p;
 }
 
+.l-x.l-wrap {
+  @include box-sizing(content-box);
+}
+
 .l-line-t { border-top: divider(); }
 .l-line-b { border-bottom: divider(); }
 .l-line   { @extend .l-line-t; @extend .l-line-b; }
@@ -56,8 +60,12 @@ body {
 }
 
 .l-stack-lined > *  {
-  @extend .l-p;
-  + * { border-top: divider(); }
+  @include spacing(padding-top padding-bottom, .75);
+  // + * { border-top: divider(); }
+}
+
+.l-stack-plain > * {
+  @include spacing(margin-bottom, 1.5);
 }
 
 .l-flexcenter {
@@ -71,6 +79,80 @@ body {
 .l-cl-b { clear: both   !important; }
 .l-cl-l { clear: left   !important; }
 .l-cl-r { clear: right  !important; }
+
+main.with-sidebar { @include spacing(padding-top); }
+main.no-sidebar   { @include spacing(padding-top padding-bottom, 1.5); }
+
+.sidebar-button {
+  @include prefixer(apperance, none, webkit moz spec);
+  border: none;
+  border-radius: 4px;
+  background-color: black;
+  background-image: image-url('ui/arrow-toggle-sidebar.svg');
+  width: 2.5em;
+  height: 2.5em;
+  background-size: 1.5em auto;
+  background-repeat: no-repeat;
+  background-position: center 55%;
+  transition: all 150ms linear;
+  &.is-expanded {
+    transform: rotate(180deg);
+  }
+  @include hover {
+    background-color: $c-blue;
+    outline: none;
+  }
+}
+
+@include media-upto($bp-m) {
+  .sidebar-button {
+    position: absolute;
+    top: 0; right: 0;
+  }
+  .sidebar-content {
+    display: none;
+    @include spacing(margin-bottom padding-top padding-bottom);
+    border-bottom: divider();
+    border-top: divider();
+  }
+  .sidebar-content {
+    .navgroup { @include row; }
+    .navgroup-title,
+    .navgroup-items { @include span-columns(6); }
+    .navgroup-title { padding-top: .3em; }
+  }
+}
+
+@include media-from($bp-m) {
+  .sidebar {
+    float: left;
+    width: $sidebar-width;
+    @include spacing(padding-bottom, 1.5);
+  }
+  .sidebar-content {
+    display: block !important;
+  }
+  .sidebar-button {
+    display: none;
+  }
+  .with-sidebar #content {
+    overflow: hidden;
+  }
+  main.with-sidebar .page-header {
+    margin-left: $sidebar-width;
+  }
+
+}
+
+.main-header {
+  @include spacing(margin-top, .75);
+  @include spacing(margin-bottom, 1.25);
+  position: relative;
+}
+
+.sidebar {
+  @include spacing(margin-top, 1.25); 
+}
 
 //
 // Full Grid

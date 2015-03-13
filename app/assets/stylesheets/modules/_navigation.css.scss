@@ -1,0 +1,36 @@
+.navigation {
+}
+
+.navigation--main {
+  background: rgba(white, .2);
+}
+.navigation--secondary {
+  background: white;
+  border-bottom: divider();
+}
+
+.navigation__list {
+  @include padding-v(.75em);
+  white-space: nowrap;
+  overflow: scroll;
+}
+
+.navigation__list > * {
+  display: inline-block;
+  margin-right: 1em;
+  &:last-child { margin-right: 0; }
+}
+
+.navigation a.current {
+  border-bottom: solid 1px;
+}
+
+.navigation a {
+  color: gray(40%);
+  &:hover { border-bottom: solid 1px; }
+}
+
+.navigation--main a {
+  color: white;
+  font-weight: weight(medium);
+}

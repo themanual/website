@@ -16,11 +16,23 @@
   h4 { @extend .h-large; }
   h5 { @extend .h-base; }
   
+  p a { font-weight: weight(medium); }
+  
   p {
     line-height: 1.5;
   }
-  p + p { margin-top: 1em; }
-  p a { font-weight: weight(medium); }
+  * + p {
+    margin-top: 1em;
+  }
+  h4 + p {
+    margin-top: 0.5em;
+  }
+
+  &.styled--tight {
+    * + p {
+      margin-top: .5em;
+    }
+  }
 
   hr {
     @extend .divider;
