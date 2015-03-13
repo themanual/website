@@ -37,7 +37,7 @@ $(function() {
 
   $(".masthead__statement__close").click(function() {
     $(this).closest(".masthead__statement").slideUp('fast');
-    //$.cookie('hide_statement', '1', { path: '/', expires: 365 });
+    $.cookie('hide_statement', '1', { path: '/', expires: 365 });
   });
 
   // External links
