@@ -2,7 +2,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  > footer { flex: 1; }
+  > main { flex: 1; }
 }
 
 @mixin spacing($props, $times: 1) {
@@ -24,6 +24,9 @@ body {
 .l-m    { @include spacing(margin-top margin-bottom, 1.0); }
 .l-mm   { @include spacing(margin-top margin-bottom, 1.5); }
 .l-mmm  { @include spacing(margin-top margin-bottom, 2.0); }
+
+.l-pt    { @include spacing(padding-top, 1.0); }
+.l-pb    { @include spacing(padding-bottom, 1.0); }
 
 // General rules.
 .l-row  { @include row; }
