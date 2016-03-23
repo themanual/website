@@ -5,3 +5,5 @@ db/*.sqlite3
 /.env
 *.dump
 .DS_Store
+# Ignore application configuration
+/config/application.yml

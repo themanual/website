@@ -66,6 +66,8 @@ gem 'airbrake'
 gem 'rack-no-www'
 gem 'rack-mini-profiler'
 
+gem 'figaro'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -80,8 +82,8 @@ end
 
 group :production, :stage, :beta do
   gem 'memcachier'
-  gem 'rails_12factor'
-  gem 'heroku-deflater'
+  # gem 'rails_12factor'
+  # gem 'heroku-deflater'
   gem 'newrelic_rpm'
   gem 'lograge'
 end
