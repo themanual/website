@@ -5,6 +5,11 @@ TheManual::Application.routes.draw do
 
   root to: redirect('/read'), as: :root
 
+  get '/issue1', to: redirect('/read/issues/1')
+  get '/issue2', to: redirect('/read/issues/2')
+  get '/issue3', to: redirect('/read/issues/3')
+  get '/issue4', to: redirect('/read/issues/4')
+
   scope '/read' do
     get '/', to: 'pieces#staffpicks', as: :read
     resources :authors, only: [:index, :show], param: :slug
@@ -26,7 +31,7 @@ TheManual::Application.routes.draw do
   get '/kickstarter',             to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
   get '/kickstarter/original',    to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
   get '/kickstarter/everywhere',  to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'),  as: :ks_everywhere
-  
+
   get '/feed', to: 'pieces#index', defaults: {format: 'rss'}, :as => :feed
 
   devise_for :users,
