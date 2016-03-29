@@ -1,4 +1,5 @@
 class Piece < ActiveRecord::Base
+
   STAFF_PICK_CACHE_KEY = "pieces:staff_picks"
   ACTIVE_TOPICS_CACHE_KEY = "topics:active"
 

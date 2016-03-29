@@ -44,7 +44,7 @@ ActiveAdmin.register Piece do
 
     f.inputs do
       f.input :issue
-      f.input :type, as: :select, collection: ['article', 'lesson']
+      f.input :type, as: :select, collection: ['Article', 'Lesson']
       f.input :author, input_html: { class: 'chosen-select' }
       f.input :title
       f.input :synopsis

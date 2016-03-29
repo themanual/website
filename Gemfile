@@ -78,6 +78,7 @@ group :development do
   gem 'terminal-notifier-guard', require: false
   gem 'quiet_assets'
   gem 'dotenv-rails', '0.11.0'
+  # gem 'sqlite3'
 end
 
 group :production, :stage, :beta do
