@@ -29,8 +29,8 @@ $c-warning: hsl( 40, 100%, 65%);
 $c-kickstarter: #2BDE73;
 
 // Published issues, and issues colors
-$issues:        (1, 2, 3, 4);
-$issues-colors: (#ED3D45, #51B9E0, #ED9C31, #00CFB5);
+$issues:        (1, 2, 3, 4, 5);
+$issues-colors: (#ED3D45, #51B9E0, #ED9C31, #00CFB5, #8F46B9);
 
 // Returns the color of issue $i or 'latest'
 @function issue-color($i) {
