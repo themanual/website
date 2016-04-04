@@ -20,7 +20,7 @@
   <section class="footer__links l-line-t l-container"><div class="l-row">
     <div class="l-col-m-6 styled styled--tight">
       <p>Made possible by our generous patrons: <%= link_to "MailChimp", "http://mailchimp.com" %> and <%= link_to "Hover", "http://hover.com" %></p>
-      <p><%= user_signed_in? ? link_to("Log out", destroy_user_session_path) : link_to("Subscriber Login", new_user_session_path) %> &middot; Licensed <%= link_to "CC BY-NC-SA 4.0", about_path(:license) %> &middot; Version <%= link_to "0.3.0", about_path(:releases) %></p>
+      <p><%= user_signed_in? ? link_to("Log out", destroy_user_session_path) : link_to("Subscriber Login", new_user_session_path) %> &middot; Licensed <%= link_to "CC BY-NC-SA 4.0", about_path(:license) %> &middot; Version <%= link_to "0.4.0", about_path(:releases) %></p>
     </div>
   </div></section>
 </footer>
