@@ -148,6 +148,7 @@
 .piece-body {
 
   $type-size: 23px;
+  $code-type-size-factor: .7;
   @include rem(font-size, $type-size);
   font-family: $type-serif;
   color: $c-text-body;
@@ -207,18 +208,17 @@
 
   pre,
   p > code {
-    $fz: .7;
-    font-size: $fz * 1em;
+    font-size: $code-type-size-factor * 1em;
     font-family: "Monaco", sans-serif;
     color: $c-text-gray;
     word-wrap: break-word;
   }
 
   pre {
-    @include margin-v(1em / $fz);
-    padding-left: (1em / $fz);
+    @include margin-v(1em / $code-type-size-factor);
+    padding-left: (1em / $code-type-size-factor);
     @include media-from($bp-l) {
-      @include padding-h($line-height-em / $fz);
+      @include padding-h($line-height-em / $code-type-size-factor);
     }
     code {
       color: inherit;
