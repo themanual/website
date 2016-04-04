@@ -12,6 +12,7 @@
     .piece-header-text {
       @include spacing(margin-bottom, 2);
     }
+
     .piece-header-illustration img {
       max-height: 65vh;
     }
@@ -34,8 +35,8 @@
 
     .piece-header-text {
       @include centered;
-      max-width: flex-grid(6);
       @include padding-v(16%);
+      max-width: flex-grid(6);
     }
   }
 
@@ -50,9 +51,10 @@
     text-align: center;
     > * { @include centered; }
   }
+
   .is-lesson & {
-    @include spacing(margin-top margin-bottom, 2.5);
     @extend .l-col-reading;
+    @include spacing(margin-top margin-bottom, 2.5);
     text-align: center;
     > * { @include centered; }
   }
@@ -92,7 +94,7 @@
 
 @include media-upto($bp-m) {
   .piece-post-issue   { @include span-columns(6); }
-  .piece-post-topics  { @include span-columns(6); @include omega(); }
+  .piece-post-topics  { @include span-columns(6); @include omega; }
   .piece-post-piece   { clear: left; }
 }
 @include media-from($bp-m) {
@@ -123,7 +125,9 @@
   letter-spacing: .1em;
   word-spacing: .15em;
   margin-bottom: 1em;
-  @include media-from($bp-l) { margin-bottom: 1.5em; }
+  @include media-from($bp-l) {
+    margin-bottom: 1.5em;
+  }
   color: $c-text-gray;
 }
 
@@ -201,16 +205,25 @@
     @include color-by-issue(border-color);
   }
 
-  pre {
+  pre,
+  p > code {
     $fz: .7;
     font-size: $fz * 1em;
     font-family: "Monaco", sans-serif;
     color: $c-text-gray;
     word-wrap: break-word;
+  }
 
+  pre {
     @include margin-v(1em / $fz);
     padding-left: (1em / $fz);
-    @include media-from($bp-l) { @include padding-h($line-height-em / $fz); }
+    @include media-from($bp-l) {
+      @include padding-h($line-height-em / $fz);
+    }
+    code {
+      color: inherit;
+      white-space: normal;
+    }
   }
 
   blockquote {
