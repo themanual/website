@@ -4,7 +4,7 @@
 <!--
 <div class="l-p l-line-b <%= @issue.code %> c-issue">
   <p class="tagline">
-    <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "btn btn-large" %>
+    <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.number), class: "btn btn-large" %>
     <%- formats = ['Print'] + @issue.downloads.map(&:medium).uniq.reverse -%>
     <strong class="br-s">in <%= formats.to_sentence %> <%= formats.size > 1 ? "Editions" : "Edition" %></strong>
   </p>

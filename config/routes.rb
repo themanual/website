@@ -23,14 +23,14 @@ TheManual::Application.routes.draw do
 
   get '/download/:dl', to: 'issues#download', as: :download
 
-  get '/blog',                    to: redirect("http://blog.themanual.org"),      as: :blog
-  get '/twitter',                 to: redirect("https://twitter.com/themanual"),  as: :twitter
-  get '/shop',                    to: redirect("http://shop.themanual.org"),                      as: :shop
-  get '/shop/product/:product',   to: redirect("http://shop.themanual.org/products/%{product}"),  as: :shop_product
-  get '/store',                   to: redirect("/shop")
-  get '/kickstarter',             to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
-  get '/kickstarter/original',    to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
-  get '/kickstarter/everywhere',  to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'),  as: :ks_everywhere
+  get '/blog',                        to: redirect("http://blog.themanual.org"),      as: :blog
+  get '/twitter',                     to: redirect("https://twitter.com/themanual"),  as: :twitter
+  get '/shop',                        to: redirect("https://www.buyolympia.com/q/Artist=The+Manual"), as: :shop
+  get '/shop/product/issue-:number',  to: redirect("https://www.buyolympia.com/q/Item=the-manual-no%{number}"), as: :shop_product
+  get '/store',                       to: redirect("/shop")
+  get '/kickstarter',                 to: redirect('/kickstarter/everywhere'),                                                 as: :kickstarter
+  get '/kickstarter/original',        to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual'),             as: :ks_original
+  get '/kickstarter/everywhere',      to: redirect('https://www.kickstarter.com/projects/goodonpaper/the-manual-everywhere'),  as: :ks_everywhere
 
   get '/feed', to: 'pieces#index', defaults: {format: 'rss'}, :as => :feed
 

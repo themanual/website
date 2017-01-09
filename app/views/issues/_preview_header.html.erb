@@ -10,7 +10,7 @@
       <strong>Already a subscriber?</strong> <%= link_to "Log in", login_and_return_path, class: "t-strong" %> and read it online in full.
     </li>
     <li>
-      <strong>Not a subscriber?</strong> <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.code), class: "t-strong" %> and read it in print, ebook, and audiobook.
+      <strong>Not a subscriber?</strong> <%= link_to "Buy #{@issue.name}", shop_product_path(@issue.number), class: "t-strong" %> and read it in print, ebook, and audiobook.
     </li>
     <%- if @issue.has_published_pieces? -%>
     <li>We’ve opened up access to some pieces, which you can read online below.</li>
